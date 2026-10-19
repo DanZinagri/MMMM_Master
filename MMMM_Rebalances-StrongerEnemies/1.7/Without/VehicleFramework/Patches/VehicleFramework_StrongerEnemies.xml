@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved here from the root file 1.7/Patches/StrongerEnemies.xml.
+		This folder loads only when SmashPhil.VehicleFramework is NOT active (see loadFolders.xml). The same condition used to be a
+		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="biotexpans.mammalia">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/FactionDef[defName="TribeCivilMammals" or defName="TribeRoughMammals"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3]/options</xpath>
+												<value>
+													<Tribal_Caster_Frostshaper>0.8</Tribal_Caster_Frostshaper>
+													<Tribal_Caster_Staticlord>0.8</Tribal_Caster_Staticlord>
+													<Tribal_Caster_Wildspeaker>0.4</Tribal_Caster_Wildspeaker>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3 or position()=4]/options</xpath>
+										<value>
+											<Tribal_Caster_Conflagrator>1</Tribal_Caster_Conflagrator>
+											<Tribal_Caster_Frostshaper>1</Tribal_Caster_Frostshaper>
+											<Tribal_Caster_Staticlord>1</Tribal_Caster_Staticlord>
+											<Tribal_Caster_Wildspeaker>1</Tribal_Caster_Wildspeaker>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Biotech">
+										<xpath>Defs/FactionDef[defName="TribeRoughNeanderthal"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3 or position()=4]/options</xpath>
+										<value>
+											<Tribal_Caster_Frostshaper>2.5</Tribal_Caster_Frostshaper>
+											<Tribal_Caster_Staticlord>1</Tribal_Caster_Staticlord>
+											<Tribal_Caster_Wildspeaker>1.5</Tribal_Caster_Wildspeaker>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Biotech">
+										<xpath>Defs/FactionDef[defName="TribeSavageImpid"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3 or position()=4 or position()=5]/options</xpath>
+										<value>
+											<Tribal_Caster_Conflagrator>5</Tribal_Caster_Conflagrator>
+											<Tribal_Caster_Staticlord>0.2</Tribal_Caster_Staticlord>
+											<Tribal_Caster_Wildspeaker>3</Tribal_Caster_Wildspeaker>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The charge minigun gains the GunHeavy weapon tag, which dilutes the cataphract weapon pool the way vanilla's
+		beam repeater does. As the original author noted, this also puts the weapon into other pawn kinds' pools.
+		This folder only loads when Vanilla Weapons Expanded is active (see loadFolders.xml).
+		Verified against VWE 1.6: the def already has weaponTags (SpacerGun), so this appends rather than replacing.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="VWE_Gun_ChargeMinigun"]/weaponTags</xpath>
+		<value>
+			<li>GunHeavy</li>
+		</value>
+	</Operation>
+
+</Patch>

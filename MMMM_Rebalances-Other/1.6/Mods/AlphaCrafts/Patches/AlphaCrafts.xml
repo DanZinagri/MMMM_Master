@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Alpha Crafts chips keep far longer: 90 days before they start to rot instead of 10.
+		This folder only loads when Alpha Crafts is active (see loadFolders.xml).
+		Verified against Alpha Crafts 1.6: AC_Chips ships daysToRotStart 10; no other installed mod changes it.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="AC_Chips"]/comps/li[@Class="CompProperties_Rottable"]/daysToRotStart</xpath>
+				<value>
+					<daysToRotStart>90</daysToRotStart>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

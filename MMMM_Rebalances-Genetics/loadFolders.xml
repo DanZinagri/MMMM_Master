@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- 1.6/Mods/<Name> loads when that mod is active; 1.6/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<li>/</li>
+		<li>1.6</li>
+		<li IfModActive="Ludeon.RimWorld.Biotech">1.6/Mods/Biotech</li>
+		<li IfModActive="Ludeon.RimWorld.Biotech" IfModNotActive="sarg.alphagenes">1.6/Mods/Biotech_WithoutAlphaGenes</li>
+		<li IfModActive="Ludeon.RimWorld.Biotech" IfModNotActive="kupa.AlphaGenesIntegrated">1.6/Mods/Biotech_WithoutAlphaGenesIntegrated</li>
+		<li IfModActive="Ludeon.RimWorld.Biotech" IfModNotActive="RedMattis.VanillaGenesRebalanced">1.6/Mods/Biotech_WithoutVanillaGenesRebalanced</li>
+		<li IfModActive="det.keshig">1.6/Mods/DetsXenotypeKeshig</li>
+		<li IfModActive="RedMattis.BigSmall.Core">1.6/Mods/BigAndSmallGenesAndMore</li>
+		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.6/Mods/BigAndSmallLamias</li>
+		<li IfModActive="RedMattis.BSSlimes">1.6/Mods/BigAndSmallSlimes</li>
+		<li IfModActive="RedMattis.Undead,RedMattis.Heaven">1.6/Mods/BigAndSmallDemons</li>
+		<li IfModActive="Sov.Tenmo">1.6/Mods/GeistXenotype</li>
+		<li IfModActive="sarg.alphagenes">1.6/Mods/AlphaGenes</li>
+		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana">1.6/Mods/RimsenalXenotypes</li>
+		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
+	</v1.6>
+	<v1.7>
+		<!-- 1.7/Mods/<Name> loads when that mod is active; 1.7/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<li>/</li>
+		<li>1.7</li>
+		<li IfModActive="Ludeon.RimWorld.Biotech">1.7/Mods/Biotech</li>
+		<li IfModActive="Ludeon.RimWorld.Biotech" IfModNotActive="sarg.alphagenes">1.7/Mods/Biotech_WithoutAlphaGenes</li>
+		<li IfModActive="Ludeon.RimWorld.Biotech" IfModNotActive="kupa.AlphaGenesIntegrated">1.7/Mods/Biotech_WithoutAlphaGenesIntegrated</li>
+		<li IfModActive="Ludeon.RimWorld.Biotech" IfModNotActive="RedMattis.VanillaGenesRebalanced">1.7/Mods/Biotech_WithoutVanillaGenesRebalanced</li>
+		<li IfModActive="det.keshig">1.7/Mods/DetsXenotypeKeshig</li>
+		<li IfModActive="RedMattis.BigSmall.Core">1.7/Mods/BigAndSmallGenesAndMore</li>
+		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.7/Mods/BigAndSmallLamias</li>
+		<li IfModActive="RedMattis.BSSlimes">1.7/Mods/BigAndSmallSlimes</li>
+		<li IfModActive="RedMattis.Undead,RedMattis.Heaven">1.7/Mods/BigAndSmallDemons</li>
+		<li IfModActive="Sov.Tenmo">1.7/Mods/GeistXenotype</li>
+		<li IfModActive="sarg.alphagenes">1.7/Mods/AlphaGenes</li>
+		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana">1.7/Mods/RimsenalXenotypes</li>
+		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>
+	</v1.7>
+</loadFolders>

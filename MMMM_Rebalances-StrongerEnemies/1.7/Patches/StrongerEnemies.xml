@@ -1,0 +1,2029 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Stronger enemies: tougher raider, mercenary, deserter, Empire and Horaxian pawn kinds across many mods (gear, hediffs,
+		psycasters, pawn group options). Moved from the core root file AA3A_StrongerEnemies.xml (setting TMM_StrongerEnemies,
+		default on; installing this mod is the opt-in now). The new pawn kinds it adds are in 1.7/Defs/StrongerEnemies_PawnKinds.xml
+		(def-level MayRequire); two Empire casters behind the Medieval Overhaul: Royalty name check stay patch adds here.
+		Each block is gated on its mods via an <li>; mods with no known packageId keep a name FindMod.
+		Dropped as stale (they failed in Too Many Mods too, and a failure stopped the rest of its sequence): ops on
+		VFEE_Deserter_Protector / _Harmonist and Empire_Fighter_Cataphract_Hussar, and five VFEE_Deserter_* raid options; no
+		installed mod defines those pawn kinds. Checked with analysis/patch_sim.py: every installed-mod op applies (the Empire
+		psycaster raid group it trims is added by VPE's own patch).
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Deserters">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEI_ArmoredShuttle"]/statBases/MaxHitPoints</xpath>
+								<value>
+									<MaxHitPoints>16000</MaxHitPoints>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Shuttle"]/statBases/MaxHitPoints</xpath>
+								<value>
+									<MaxHitPoints>8000</MaxHitPoints>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFED_DeserterShuttle"]/statBases/MaxHitPoints</xpath>
+								<value>
+									<MaxHitPoints>8000</MaxHitPoints>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/PawnKindDef[defName="Empire_Caster_Warlord_Melee"]</xpath>
+								<value>
+									<startingHediffs>
+										<li>
+											<def>VPE_SpeedBoost</def>
+											<durationTicksRange>10500~11500</durationTicksRange>
+										</li>
+										<li>
+											<def>VPE_BladeFocus</def>
+											<durationTicksRange>21000~23000</durationTicksRange>
+										</li>
+									</startingHediffs>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/PawnKindDef[defName="Empire_Caster_Warlord_Ranged"]</xpath>
+								<value>
+									<startingHediffs>
+										<li>
+											<def>VPE_SpeedBoost</def>
+											<durationTicksRange>10500~11500</durationTicksRange>
+										</li>
+										<li>
+											<def>VPE_FiringFocus</def>
+											<durationTicksRange>8000~9000</durationTicksRange>
+										</li>
+									</startingHediffs>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/PawnKindDef[defName="Empire_Caster_Protector"]</xpath>
+								<value>
+									<startingHediffs>
+										<li>
+											<def>PsychicFocus</def>
+											<durationTicksRange>8000~9000</durationTicksRange>
+										</li>
+										<li>
+											<def>PsychicAnesthesia</def>
+											<durationTicksRange>10500~11500</durationTicksRange>
+										</li>
+									</startingHediffs>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="VexedTrees980.RimElvesBiotech">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAddModExtension">
+										<xpath>Defs/PawnKindDef[defName="Elven_Soldier_BladeGuard"]</xpath>
+										<value>
+											<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+												<implantDef>VPE_PsycastAbilityImplant</implantDef>
+												<initialLevel>1</initialLevel>
+												<statUpgradePoints>0~0</statUpgradePoints>
+												<unlockedPaths>
+													<VPE_Warlord>1~4|2~12</VPE_Warlord>
+												</unlockedPaths>
+											</li>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/PawnKindDef[defName="Elven_Soldier_BladeGuard"]</xpath>
+										<value>
+											<startingHediffs>
+												<li>
+													<def>VPE_SpeedBoost</def>
+													<durationTicksRange>8000~9000</durationTicksRange>
+												</li>
+												<li>
+													<def>VPE_BladeFocus</def>
+													<durationTicksRange>16000~18000</durationTicksRange>
+												</li>
+											</startingHediffs>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphamechs">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="AM_Siegebreaker" or defName="AM_Siegemelter" or defName="AM_Starfire"]/statBases/MoveSpeed</xpath>
+								<value>
+									<MoveSpeed>1.6</MoveSpeed>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=1]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Munifex>6</AM_Mech_Munifex>
+										<AM_Goliath>2</AM_Goliath>
+										<RM_Mech_Vulture MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Vulture>
+										<Mech_Tagmaton MayRequire="Rimsenal.Spacer">2</Mech_Tagmaton>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=2]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Munifex>4</AM_Mech_Munifex>
+										<AM_Mech_Polychoron>4</AM_Mech_Polychoron>
+										<AM_Mech_Lux>4</AM_Mech_Lux>
+										<RM_Mech_Falcon MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Falcon>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=3]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Munifex>7</AM_Mech_Munifex>
+										<AM_Mech_Lux>4</AM_Mech_Lux>
+										<AM_Mech_Sagittarius>3</AM_Mech_Sagittarius>
+										<AM_Siegemelter>3</AM_Siegemelter>
+										<Mech_Skutaton MayRequire="Rimsenal.Spacer">2</Mech_Skutaton>
+										<RM_Mech_Gremlin MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Gremlin>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=4]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Lux>10</AM_Mech_Lux>
+										<AM_Mech_Sagittarius>3</AM_Mech_Sagittarius>
+										<AM_Siegemelter>4</AM_Siegemelter>
+										<AM_Mech_Legate>4</AM_Mech_Legate>
+										<RM_Mech_Harpy MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Harpy>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=5]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Bellicor>18</AM_Mech_Bellicor>
+										<AM_Aura>10</AM_Aura>
+										<AM_Goliath>6</AM_Goliath>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=6]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Munifex>5</AM_Mech_Munifex>
+										<AM_Mech_Polychoron>6</AM_Mech_Polychoron>
+										<AM_Goliath>8</AM_Goliath>
+										<AM_Mech_Lux>8</AM_Mech_Lux>
+										<AM_Mech_Legate>4</AM_Mech_Legate>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=7]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Lux>10</AM_Mech_Lux>
+										<AM_Mech_Munifex>10</AM_Mech_Munifex>
+										<Mech_Lancer>12</Mech_Lancer>
+										<AM_Goliath>8</AM_Goliath>
+										<LFM_Mech_Slinger MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Slinger>
+										<LFM_Mech_RocketSlinger MayRequire="GoGaTio.LostFactoryMechanoids,Ludeon.RimWorld.Royalty">1</LFM_Mech_RocketSlinger>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=8]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Munifex>8</AM_Mech_Munifex>
+										<AM_Mech_Polychoron>10</AM_Mech_Polychoron>
+										<Mech_CentipedeGunner>9</Mech_CentipedeGunner>
+										<AM_Mech_Legate>6</AM_Mech_Legate>
+										<AM_Starfire>3</AM_Starfire>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=1]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Aura>20</AM_Aura>
+										<AM_Mech_Munifex>4</AM_Mech_Munifex>
+										<LFM_Mech_Scutum MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Scutum>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=2]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Bellicor>4</AM_Mech_Bellicor>
+										<AM_Mech_Polychoron>3</AM_Mech_Polychoron>
+										<AM_Mech_Lux>4</AM_Mech_Lux>
+										<AM_Siegemelter>6</AM_Siegemelter>
+										<AM_Fireworm>4</AM_Fireworm>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=3]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Phalanx>6</AM_Phalanx>
+										<AM_Fireworm>4</AM_Fireworm>
+										<AM_Mech_Lux>4</AM_Mech_Lux>
+										<Mech_CentipedeBurner>6</Mech_CentipedeBurner>
+										<LFM_Mech_Arbiter MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Arbiter>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=4]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Munifex>12</AM_Mech_Munifex>
+										<Mech_Lancer>4</Mech_Lancer>
+										<AM_Mech_Optio>4</AM_Mech_Optio>
+										<AM_Goliath>4</AM_Goliath>
+										<AM_Siegebreaker>1</AM_Siegebreaker>
+										<LFM_Mech_Taintor MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Taintor>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=5]/escorts</xpath>
+								<value>
+									<escorts>
+										<Mech_Pikeman>10</Mech_Pikeman>
+										<AM_Mech_Munifex>10</AM_Mech_Munifex>
+										<AM_Mech_Optio>6</AM_Mech_Optio>
+										<AM_Mech_Polychoron>3</AM_Mech_Polychoron>
+										<AM_Siegebreaker>4</AM_Siegebreaker>
+										<LFM_Mech_RocketSlinger MayRequire="GoGaTio.LostFactoryMechanoids,Ludeon.RimWorld.Royalty">1</LFM_Mech_RocketSlinger>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=6]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Aura>16</AM_Aura>
+										<AM_Daggersnout>16</AM_Daggersnout>
+										<AM_Siegebreaker>8</AM_Siegebreaker>
+										<Mech_Centurion>2</Mech_Centurion>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=7]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Starfire>4</AM_Starfire>
+										<Mech_Scorcher>10</Mech_Scorcher>
+										<AM_Mech_Optio>8</AM_Mech_Optio>
+										<AM_Mech_Legate>2</AM_Mech_Legate>
+										<Mech_Skutaton MayRequire="Rimsenal.Spacer">4</Mech_Skutaton>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=8]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Aura>12</AM_Aura>
+										<Mech_Lancer>12</Mech_Lancer>
+										<AM_Mech_Optio>6</AM_Mech_Optio>
+										<AM_Fireworm>9</AM_Fireworm>
+										<Mech_Centurion>2</Mech_Centurion>
+										<AM_Mech_Legate>4</AM_Mech_Legate>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=1]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Bellicor>10</AM_Mech_Bellicor>
+										<AM_Aura>8</AM_Aura>
+										<Mech_Scyther>4</Mech_Scyther>
+										<AM_Mech_Lux>2</AM_Mech_Lux>
+										<Mech_Tagmaton MayRequire="Rimsenal.Spacer">1</Mech_Tagmaton>
+										<Mech_Skutaton MayRequire="Rimsenal.Spacer">1</Mech_Skutaton>
+										<LFM_Mech_Taintor MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Taintor>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=2]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Aura>3</AM_Aura>
+										<AM_Starfire>4</AM_Starfire>
+										<Mech_Scyther>6</Mech_Scyther>
+										<AM_Mech_Optio>4</AM_Mech_Optio>
+										<AM_Mech_Polychoron>8</AM_Mech_Polychoron>
+										<AM_Fireworm>6</AM_Fireworm>
+										<AM_Goliath>2</AM_Goliath>
+										<LFM_Mech_Slinger MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Slinger>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=3]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Bellicor>10</AM_Mech_Bellicor>
+										<Mech_Scyther>3</Mech_Scyther>
+										<AM_Mech_Lux>3</AM_Mech_Lux>
+										<AM_Aura>9</AM_Aura>
+										<AM_Infernus>1</AM_Infernus>
+										<Mech_Pikeman>2</Mech_Pikeman>
+										<Mech_CentipedeBlaster>3</Mech_CentipedeBlaster>
+										<AM_Siegemelter>2</AM_Siegemelter>
+										<AM_Starfire>2</AM_Starfire>
+										<LFM_Mech_RocketSlinger MayRequire="GoGaTio.LostFactoryMechanoids,Ludeon.RimWorld.Royalty">1</LFM_Mech_RocketSlinger>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=4]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Bellicor>10</AM_Mech_Bellicor>
+										<Mech_Tunneler>2</Mech_Tunneler>
+										<AM_Aura>4</AM_Aura>
+										<Mech_Scyther>3</Mech_Scyther>
+										<AM_Infernus>2</AM_Infernus>
+										<AM_Fireworm>6</AM_Fireworm>
+										<AM_Siegemelter>2</AM_Siegemelter>
+										<AM_Mech_Optio>4</AM_Mech_Optio>
+										<AM_Goliath>2</AM_Goliath>
+										<LFM_Mech_Taintor MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Taintor>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=5]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Bellicor>12</AM_Mech_Bellicor>
+										<AM_Aura>2</AM_Aura>
+										<AM_Mech_Munifex>4</AM_Mech_Munifex>
+										<AM_Phalanx>8</AM_Phalanx>
+										<AM_Infernus>1</AM_Infernus>
+										<Mech_Centurion>4</Mech_Centurion>
+										<AM_Siegemelter>2</AM_Siegemelter>
+										<AM_Starfire>2</AM_Starfire>
+										<LFM_Mech_Taintor MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Taintor>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=6]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Bellicor>16</AM_Mech_Bellicor>
+										<Mech_Scyther>6</Mech_Scyther>
+										<AM_Mech_Optio>6</AM_Mech_Optio>
+										<AM_Goliath>4</AM_Goliath>
+										<Mech_Diabolus>2</Mech_Diabolus>
+										<AM_Infernus>1</AM_Infernus>
+										<AM_Mech_Legate>2</AM_Mech_Legate>
+										<Mech_Skutaton MayRequire="Rimsenal.Spacer">2</Mech_Skutaton>
+										<Mech_Tagmaton MayRequire="Rimsenal.Spacer">2</Mech_Tagmaton>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=7]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Bellicor>12</AM_Mech_Bellicor>
+										<Mech_Lancer>4</Mech_Lancer>
+										<AM_Mech_Lux>2</AM_Mech_Lux>
+										<AM_Mech_Optio>2</AM_Mech_Optio>
+										<AM_Mech_Polychoron>10</AM_Mech_Polychoron>
+										<Mech_Tunneler>6</Mech_Tunneler>
+										<Mech_CentipedeBlaster>8</Mech_CentipedeBlaster>
+										<AM_WarEmpress>1</AM_WarEmpress>
+										<AM_Siegemelter>2</AM_Siegemelter>
+										<AM_Starfire>2</AM_Starfire>
+										<AM_Fireworm>2</AM_Fireworm>
+										<Mech_Centurion>2</Mech_Centurion>
+										<AM_Mech_Legate>2</AM_Mech_Legate>
+										<LFM_Mech_RocketSlinger MayRequire="GoGaTio.LostFactoryMechanoids,Ludeon.RimWorld.Royalty">2</LFM_Mech_RocketSlinger>
+									</escorts>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts</xpath>
+								<value>
+									<escorts>
+										<AM_Mech_Bellicor>6</AM_Mech_Bellicor>
+										<AM_Daggersnout>4</AM_Daggersnout>
+										<Mech_Centurion>2</Mech_Centurion>
+										<AM_Mech_Sagittarius>3</AM_Mech_Sagittarius>
+										<Mech_Scyther>2</Mech_Scyther>
+										<Mech_Lancer>2</Mech_Lancer>
+										<Mech_Pikeman>2</Mech_Pikeman>
+										<AM_Mech_Lux>2</AM_Mech_Lux>
+										<AM_Mech_Munifex>2</AM_Mech_Munifex>
+										<Mech_Tagmaton MayRequire="Rimsenal.Spacer">1</Mech_Tagmaton>
+										<Mech_Skutaton MayRequire="Rimsenal.Spacer">1</Mech_Skutaton>
+										<Mech_Bombito MayRequire="Rimsenal.Spacer">1</Mech_Bombito>
+										<Mech_CentipedeBlaster>4</Mech_CentipedeBlaster>
+										<Mech_CentipedeBurner>4</Mech_CentipedeBurner>
+										<Mech_CentipedeGunner>1</Mech_CentipedeGunner>
+										<AM_Blitzkrieg>1</AM_Blitzkrieg>
+										<AM_Mech_Artilleron>1</AM_Mech_Artilleron>
+										<Mech_Militor>1</Mech_Militor>
+										<Mech_Termite_Breach>1</Mech_Termite_Breach>
+										<AM_Infernus>1</AM_Infernus>
+										<AM_WarEmpress>1</AM_WarEmpress>
+										<AM_Siegemelter>2</AM_Siegemelter>
+										<AM_Starfire>2</AM_Starfire>
+										<AM_Fireworm>2</AM_Fireworm>
+										<AM_Mech_Polychoron>4</AM_Mech_Polychoron>
+										<AM_Mech_Optio>2</AM_Mech_Optio>
+										<AM_Mech_Legate>2</AM_Mech_Legate>
+										<AM_Goliath>2</AM_Goliath>
+										<Mech_Tunneler>3</Mech_Tunneler>
+										<Mech_Diabolus>1</Mech_Diabolus>
+										<AM_Aura>4</AM_Aura>
+										<LFM_Mech_RocketSlinger MayRequire="GoGaTio.LostFactoryMechanoids,Ludeon.RimWorld.Royalty">2</LFM_Mech_RocketSlinger>
+										<LFM_Mech_Taintor MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Taintor>
+										<LFM_Mech_Arbiter MayRequire="GoGaTio.LostFactoryMechanoids">1</LFM_Mech_Arbiter>
+										<LFM_Mech_Scutum MayRequire="GoGaTio.LostFactoryMechanoids">1</LFM_Mech_Scutum>
+									</escorts>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Mlie.ReinforcedMechanoid2">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphamechs">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=2]/escorts/AM_Mech_Munifex</xpath>
+										<value>
+											<RM_Mech_Marshal MayRequire="Mlie.ReinforcedMechanoid2">5</RM_Mech_Marshal>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=3]/escorts/AM_Mech_Lux</xpath>
+										<value>
+											<RM_Mech_Zealot MayRequire="Mlie.ReinforcedMechanoid2">6</RM_Mech_Zealot>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=7]/escorts/AM_Mech_Lux</xpath>
+										<value>
+											<RM_Mech_Vulture MayRequire="Mlie.ReinforcedMechanoid2">10</RM_Mech_Vulture>
+											<RM_Mech_Falcon MayRequire="Mlie.ReinforcedMechanoid2">10</RM_Mech_Falcon>
+											<RM_Mech_Gremlin MayRequire="Mlie.ReinforcedMechanoid2">10</RM_Mech_Gremlin>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=1]/escorts/AM_Aura</xpath>
+										<value>
+											<AM_Aura>16</AM_Aura>
+											<RM_Mech_Caretaker MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Caretaker>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=5]/escorts/AM_Mech_Munifex</xpath>
+										<value>
+											<RM_Mech_Behemoth MayRequire="Mlie.ReinforcedMechanoid2">5</RM_Mech_Behemoth>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=5]/escorts/AM_Siegebreaker</xpath>
+										<value>
+											<RM_Mech_WraithSiege MayRequire="Mlie.ReinforcedMechanoid2">3</RM_Mech_WraithSiege>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=7]/escorts/AM_Mech_Optio</xpath>
+										<value>
+											<RM_Mech_Sentinel MayRequire="Mlie.ReinforcedMechanoid2">4</RM_Mech_Sentinel>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=1]/escorts/AM_Mech_Bellicor</xpath>
+										<value>
+											<RM_Mech_Harpy MayRequire="Mlie.ReinforcedMechanoid2">5</RM_Mech_Harpy>
+											<AM_Mech_Bellicor>5</AM_Mech_Bellicor>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=5]/escorts/AM_Mech_Bellicor</xpath>
+										<value>
+											<RM_Mech_Gremlin MayRequire="Mlie.ReinforcedMechanoid2">5</RM_Mech_Gremlin>
+											<RM_Mech_Ranger MayRequire="Mlie.ReinforcedMechanoid2">4</RM_Mech_Ranger>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/AM_Mech_Bellicor</xpath>
+										<value>
+											<AM_Mech_Bellicor>2</AM_Mech_Bellicor>
+											<RM_Mech_Gremlin MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Gremlin>
+											<RM_Mech_Ranger MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Ranger>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/Mech_CentipedeBlaster</xpath>
+										<value>
+											<Mech_CentipedeBlaster>1</Mech_CentipedeBlaster>
+											<RM_Mech_Locust MayRequire="Mlie.ReinforcedMechanoid2">1</RM_Mech_Locust>
+											<RM_Mech_WraithSiege MayRequire="Mlie.ReinforcedMechanoid2">1</RM_Mech_WraithSiege>
+											<RM_Mech_Behemoth MayRequire="Mlie.ReinforcedMechanoid2">1</RM_Mech_Behemoth>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/AM_Daggersnout</xpath>
+										<value>
+											<AM_Daggersnout>2</AM_Daggersnout>
+											<RM_Mech_Falcon MayRequire="Mlie.ReinforcedMechanoid2">3</RM_Mech_Falcon>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/AM_Mech_Polychoron</xpath>
+										<value>
+											<AM_Mech_Polychoron>1</AM_Mech_Polychoron>
+											<RM_Mech_Harpy MayRequire="Mlie.ReinforcedMechanoid2">3</RM_Mech_Harpy>
+											<RM_Mech_Vulture MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Vulture>
+											<RM_Mech_Zealot MayRequire="Mlie.ReinforcedMechanoid2">1</RM_Mech_Zealot>
+											<RM_Mech_Marshal MayRequire="Mlie.ReinforcedMechanoid2">1</RM_Mech_Marshal>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/AM_Starfire</xpath>
+										<value>
+											<AM_Starfire>1</AM_Starfire>
+											<RM_Mech_Sentinel MayRequire="Mlie.ReinforcedMechanoid2">1</RM_Mech_Sentinel>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/AM_Fireworm</xpath>
+										<value>
+											<AM_Fireworm>1</AM_Fireworm>
+											<RM_Mech_Caretaker MayRequire="Mlie.ReinforcedMechanoid2">1</RM_Mech_Caretaker>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="EL.InvMech">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphamechs">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=1]/escorts/AM_Mech_Munifex</xpath>
+										<value>
+											<IM_Mech_Berserker MayRequire="EL.InvMech">3</IM_Mech_Berserker>
+											<AM_Mech_Munifex>3</AM_Mech_Munifex>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=4]/escorts/AM_Mech_Sagittarius</xpath>
+										<value>
+											<IM_Mech_Templar MayRequire="EL.InvMech">3</IM_Mech_Templar>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=2]/escorts/AM_Fireworm</xpath>
+										<value>
+											<IM_Mech_Bombardier MayRequire="EL.InvMech">3</IM_Mech_Bombardier>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=5]/escorts/AM_Mech_Optio</xpath>
+										<value>
+											<IM_Mech_Skirmisher MayRequire="EL.InvMech">7</IM_Mech_Skirmisher>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=8]/escorts/AM_Aura</xpath>
+										<value>
+											<IM_Mech_Aide MayRequire="EL.InvMech">8</IM_Mech_Aide>
+											<IM_Mech_Ripper MayRequire="EL.InvMech">1</IM_Mech_Ripper>
+											<IM_Mech_Templar MayRequire="EL.InvMech">3</IM_Mech_Templar>
+											<AM_Aura>6</AM_Aura>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=1]/escorts/Mech_Scyther</xpath>
+										<value>
+											<IM_Mech_Berserker MayRequire="EL.InvMech">3</IM_Mech_Berserker>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/Mech_CentipedeBurner</xpath>
+										<value>
+											<Mech_CentipedeBurner>1</Mech_CentipedeBurner>
+											<IM_Mech_Berserker MayRequire="EL.InvMech">2</IM_Mech_Berserker>
+											<IM_Mech_Templar MayRequire="EL.InvMech">2</IM_Mech_Templar>
+											<IM_Mech_Bombardier MayRequire="EL.InvMech">1</IM_Mech_Bombardier>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/AM_Mech_Legate</xpath>
+										<value>
+											<AM_Mech_Legate>1</AM_Mech_Legate>
+											<IM_Mech_Skirmisher MayRequire="EL.InvMech">1</IM_Mech_Skirmisher>
+											<IM_Mech_Ripper MayRequire="EL.InvMech">1</IM_Mech_Ripper>
+											<IM_Mech_Aide MayRequire="EL.InvMech">2</IM_Mech_Aide>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Sov.Nephilim">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Empire">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/PawnKindDef[defName="VFEE_Empire_Royal_Archcount" or defName="VFEE_Empire_Royal_Marquess" or defName="VFEE_Empire_Royal_Archduke" or defName="VFEE_Empire_Royal_Magister" or defName="VFEE_Empire_Royal_Despot"]/xenotypeSet/xenotypeChances</xpath>
+										<value>
+											<GS_Nephilim>0.15</GS_Nephilim>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/PawnKindDef[defName="VFEE_Empire_Royal_HighStellarch" or defName="Empire_Royal_Stellarch"]/xenotypeSet/xenotypeChances</xpath>
+										<value>
+											<GS_Nephilim>0.25</GS_Nephilim>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.sanguophage">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Empire">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/PawnKindDef[defName="VFEE_Empire_Royal_Archcount" or defName="VFEE_Empire_Royal_Marquess" or defName="VFEE_Empire_Royal_Archduke" or defName="VFEE_Empire_Royal_Magister" or defName="VFEE_Empire_Royal_Despot"]/xenotypeSet/xenotypeChances</xpath>
+										<value>
+											<VRE_Bruxa MayRequire="vanillaracesexpanded.sanguophage">0.03</VRE_Bruxa>
+											<VRE_Strigoi MayRequire="vanillaracesexpanded.sanguophage">0.03</VRE_Strigoi>
+											<VRE_Ekkimian MayRequire="vanillaracesexpanded.sanguophage">0.03</VRE_Ekkimian>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/PawnKindDef[defName="VFEE_Empire_Royal_HighStellarch" or defName="Empire_Royal_Stellarch"]/xenotypeSet/xenotypeChances</xpath>
+										<value>
+											<VRE_Bruxa MayRequire="vanillaracesexpanded.sanguophage">0.04</VRE_Bruxa>
+											<VRE_Strigoi MayRequire="vanillaracesexpanded.sanguophage">0.04</VRE_Strigoi>
+											<VRE_Ekkimian MayRequire="vanillaracesexpanded.sanguophage">0.04</VRE_Ekkimian>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Pirates">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Royalty">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_GravityHammer" or defName="VFEP_WarcasketMeleeWeapon_PlasmaSword"]/weaponTags</xpath>
+										<value>
+											<li>WarcasketEmpireMelee</li>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_ChargeLance" or defName="VFEP_WarcasketGun_ChargeBlaster"]/weaponTags</xpath>
+										<value>
+											<li>WarcasketEmpireRanged</li>
+										</value>
+									</li>
+									<li Class="PatchOperationSequence" MayRequire="detvisor.impactweaponryreloaded">
+										<operations>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/ThingDef[defName="DV_WarcasketGun_ImpactBolter"]/weaponTags</xpath>
+												<value>
+													<li>WarcasketEmpireRanged</li>
+												</value>
+											</li>
+										</operations>
+									</li>
+									<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VWEC">
+										<operations>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_Railgun"]/weaponTags</xpath>
+												<value>
+													<li>WarcasketEmpireRanged</li>
+												</value>
+											</li>
+										</operations>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[position()=2 or position()=3 or position()=4]/options</xpath>
+										<value>
+											<TMM_Hoplite_Brute>0.2</TMM_Hoplite_Brute>
+											<TMM_Hoplite_Sarcophagus>0.2</TMM_Hoplite_Sarcophagus>
+											<TMM_Hoplite_Siegebreaker>0.2</TMM_Hoplite_Siegebreaker>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="RedMattis.Heaven">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAddModExtension">
+										<xpath>Defs/PawnKindDef[defName="BS_Satan"]</xpath>
+										<value>
+											<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+												<implantDef>VPE_PsycastAbilityImplant</implantDef>
+												<initialLevel>1</initialLevel>
+												<statUpgradePoints>0~0</statUpgradePoints>
+												<unlockedPaths>
+													<VPE_Necropath>1~4|1~10</VPE_Necropath>
+												</unlockedPaths>
+											</li>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/PawnKindDef[defName="BS_Satan"]/startingHediffs</xpath>
+										<value>
+											<li>
+												<def>VPE_GainedVitality</def>
+												<chance>0.5</chance>
+												<durationTicksRange>40000~55000</durationTicksRange>
+											</li>
+										</value>
+									</li>
+									<li Class="PatchOperationAddModExtension">
+										<xpath>Defs/PawnKindDef[defName="BS_AuthorityWarrior"]</xpath>
+										<value>
+											<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+												<implantDef>VPE_PsycastAbilityImplant</implantDef>
+												<initialLevel>1</initialLevel>
+												<statUpgradePoints>0~0</statUpgradePoints>
+												<unlockedPaths>
+													<VPE_Harmonist>1~2|3~5</VPE_Harmonist>
+												</unlockedPaths>
+											</li>
+										</value>
+									</li>
+									<li Class="PatchOperationAddModExtension">
+										<xpath>Defs/PawnKindDef[defName="VU_DemonWarrior"]</xpath>
+										<value>
+											<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+												<implantDef>VPE_PsycastAbilityImplant</implantDef>
+												<initialLevel>1</initialLevel>
+												<statUpgradePoints>0~0</statUpgradePoints>
+												<unlockedPaths>
+													<VPE_Conflagrator>1~4|1~10</VPE_Conflagrator>
+												</unlockedPaths>
+											</li>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[defName="BS_Satan"]/xenotypeSet</xpath>
+										<value>
+											<xenotypeSet Inherit="False">
+												<xenotypeChances>
+													<BS_Satan>999999</BS_Satan>
+												</xenotypeChances>
+											</xenotypeSet>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[defName="BS_AuthorityWarrior"]/xenotypeSet</xpath>
+										<value>
+											<xenotypeSet Inherit="False">
+												<xenotypeChances>
+													<BS_Authority>999999</BS_Authority>
+												</xenotypeChances>
+											</xenotypeSet>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[defName="BS_ServitorBasic"]/xenotypeSet</xpath>
+										<value>
+											<xenotypeSet Inherit="False">
+												<xenotypeChances>
+													<BS_Malakim>99999</BS_Malakim>
+												</xenotypeChances>
+											</xenotypeSet>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[defName="BS_ServitorMelee"]/xenotypeSet</xpath>
+										<value>
+											<xenotypeSet Inherit="False">
+												<xenotypeChances>
+													<BS_Malakim>99999</BS_Malakim>
+												</xenotypeChances>
+											</xenotypeSet>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[defName="BS_ServitorRanged"]/xenotypeSet</xpath>
+										<value>
+											<xenotypeSet Inherit="False">
+												<xenotypeChances>
+													<BS_Malakim>99999</BS_Malakim>
+												</xenotypeChances>
+											</xenotypeSet>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[defName="BS_AuthorityLord"]/xenotypeSet</xpath>
+										<value>
+											<xenotypeSet Inherit="False">
+												<xenotypeChances>
+													<BS_Authority>99999</BS_Authority>
+												</xenotypeChances>
+											</xenotypeSet>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[defName="VU_LilimWarrior"]/xenotypeSet</xpath>
+										<value>
+											<xenotypeSet Inherit="False">
+												<xenotypeChances>
+													<BS_Lilim>99999</BS_Lilim>
+												</xenotypeChances>
+											</xenotypeSet>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphaanimals">
+						<operations>
+							<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Anomaly">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/FactionDef[defName="HoraxCult"]/pawnGroupMakers/li[position()=1 or position()=2]/options</xpath>
+												<value>
+													<TMM_Horaxian_Caster_Herald>0.1</TMM_Horaxian_Caster_Herald>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphaanimals">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Biotech">
+										<xpath>Defs/FactionDef[defName="TribeRoughNeanderthal"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3 or position()=4]/options</xpath>
+										<value>
+											<TMM_Tribal_Caster_Ravager>3.5</TMM_Tribal_Caster_Ravager>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VPE.Aeromancer.Sentinel">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Biotech">
+								<xpath>Defs/FactionDef[defName="TribeRoughNeanderthal"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3 or position()=4]/options</xpath>
+								<value>
+									<TMM_Tribal_Caster_Aeromancer>1.5</TMM_Tribal_Caster_Aeromancer>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Biotech">
+								<xpath>Defs/FactionDef[defName="TribeSavageImpid"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3 or position()=4 or position()=5]/options</xpath>
+								<value>
+									<TMM_Tribal_Caster_Aeromancer>4.0</TMM_Tribal_Caster_Aeromancer>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VPE.Hydromancer.Sentinel">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Biotech">
+								<xpath>Defs/FactionDef[defName="TribeRoughNeanderthal"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3 or position()=4]/options</xpath>
+								<value>
+									<TMM_Tribal_Caster_Hydromancer>0.1</TMM_Tribal_Caster_Hydromancer>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="biotexpans.mammalia">
+						<operations>
+							<li Class="PatchOperationSequence" MayRequire="sarg.alphaanimals">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/FactionDef[defName="TribeCivilMammals" or defName="TribeRoughMammals"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3]/options</xpath>
+												<value>
+													<TMM_Tribal_Caster_Ravager>3</TMM_Tribal_Caster_Ravager>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.archon">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAddModExtension">
+										<xpath>Defs/PawnKindDef[defName="ArchonWarrior"]</xpath>
+										<value>
+											<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+												<implantDef>VPE_PsycastAbilityImplant</implantDef>
+												<initialLevel>1</initialLevel>
+												<statUpgradePoints>0~0</statUpgradePoints>
+												<unlockedPaths>
+													<VREA_Transcendent>1~4|1~4</VREA_Transcendent>
+												</unlockedPaths>
+											</li>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="biotexpans.mammalia">
+						<operations>
+							<li Class="PatchOperationSequence" MayRequire="SmashPhil.VehicleFramework">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/FactionDef[defName="TribeCivilMammals" or defName="TribeRoughMammals"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3]/options</xpath>
+												<value>
+													<Tribal_Caster_Frostshaper>1</Tribal_Caster_Frostshaper>
+													<Tribal_Caster_Staticlord>1</Tribal_Caster_Staticlord>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.hussar">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Empire">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/FactionDef[defName="VFEE_Deserters"]/pawnGroupMakers/li[position()=1 or position()=2]/options</xpath>
+										<value>
+											<TMM_Deserter_Uhlan>1.2</TMM_Deserter_Uhlan>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Pirates">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Empire">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/FactionDef[defName="VFEE_Deserters"]/pawnGroupMakers/li[position()=1 or position()=2]/options</xpath>
+										<value>
+											<TMM_Deserter_Brute>1</TMM_Deserter_Brute>
+											<TMM_Deserter_Sarcophagus>1</TMM_Deserter_Sarcophagus>
+											<TMM_Deserter_Siegebreaker>1</TMM_Deserter_Siegebreaker>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Pirates">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Empire">
+						<operations>
+							<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.hussar">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/PawnKindDef[defName="TMM_Deserter_Siegebreaker" or defName="TMM_Deserter_Sarcophagus" or defName="TMM_Deserter_Brute"]</xpath>
+												<value>
+													<useFactionXenotypes>false</useFactionXenotypes>
+													<xenotypeSet>
+														<xenotypeChances>
+															<VREH_Uhlan>1</VREH_Uhlan>
+														</xenotypeChances>
+													</xenotypeSet>
+													<startingHediffs>
+														<li>
+															<def>GoJuiceHigh</def>
+														</li>
+														<li>
+															<def>LuciferiumHigh</def>
+														</li>
+													</startingHediffs>
+												</value>
+											</li>
+											<li Class="PatchOperationReplace">
+												<xpath>Defs/FactionDef[defName="VFEE_Deserters"]/pawnGroupMakers/li[position()=1 or position()=2]/options/TMM_Deserter_Uhlan</xpath>
+												<value>
+													<TMM_Deserter_Uhlan>0.1</TMM_Deserter_Uhlan>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Empire">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/FactionDef[defName="VFEE_Deserters"]/pawnGroupMakers/li[position()=1 or position()=2]/options</xpath>
+										<value>
+											<TMM_Deserter_Staticlord>1</TMM_Deserter_Staticlord>
+											<TMM_Deserter_Frostshaper>1</TMM_Deserter_Frostshaper>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<!--
+		Tribal psycasters join the tribe raid groups (weights differ with Vehicle Framework).
+		Fix 2026-10-13: this and the next operation used to sit inside the "Medieval Overhaul: Royalty absent" check of the
+		Empire caster block above, so MO: Royalty users lost them although nothing here touches Royalty.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="SmashPhil.VehicleFramework">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3 or position()=4]/options</xpath>
+										<value>
+											<Tribal_Caster_Conflagrator>1.3</Tribal_Caster_Conflagrator>
+											<Tribal_Caster_Frostshaper>1.3</Tribal_Caster_Frostshaper>
+											<Tribal_Caster_Staticlord>1.3</Tribal_Caster_Staticlord>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Biotech">
+										<xpath>Defs/FactionDef[defName="TribeRoughNeanderthal"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3 or position()=4]/options</xpath>
+										<value>
+											<Tribal_Caster_Frostshaper>3</Tribal_Caster_Frostshaper>
+											<Tribal_Caster_Staticlord>2</Tribal_Caster_Staticlord>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Biotech">
+										<xpath>Defs/FactionDef[defName="TribeSavageImpid"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3 or position()=4 or position()=5]/options</xpath>
+										<value>
+											<Tribal_Caster_Conflagrator>7.8</Tribal_Caster_Conflagrator>
+											<Tribal_Caster_Staticlord>0.4</Tribal_Caster_Staticlord>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<!--
+		Non-casters leave the tribal psycaster raid group, so those raids are casters only.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_Penitent</xpath>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_Warrior</xpath>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_Archer</xpath>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_Hunter</xpath>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_HeavyArcher</xpath>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_Berserker</xpath>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_ChiefRanged</xpath>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_ChiefMelee</xpath>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Biotech">
+				<xpath>Defs/PawnKindDef[defName="Mercenary_GunnerTox" or defName="Mercenary_SlasherTox" or defName="Mercenary_EliteTox" or defName="Grenadier_Tox" or defName="Mercenary_HeavyTox" or defName="PirateBossTox"]</xpath>
+				<value>
+					<startingHediffs>
+						<li>
+							<def>WakeUpHigh</def>
+						</li>
+						<li>
+							<def>YayoHigh</def>
+						</li>
+					</startingHediffs>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/PawnKindDef[@Name="MercenaryEliteBase"]</xpath>
+				<value>
+					<itemQuality>Good</itemQuality>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/PawnKindDef[defName="PirateBoss"]</xpath>
+				<value>
+					<itemQuality>Excellent</itemQuality>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Biotech">
+				<xpath>Defs/PawnKindDef[defName="Mercenary_EliteTox"]</xpath>
+				<value>
+					<itemQuality>Good</itemQuality>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Biotech">
+				<xpath>Defs/PawnKindDef[defName="PirateBossTox"]</xpath>
+				<value>
+					<itemQuality>Excellent</itemQuality>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/PawnKindDef[@Name="TribalChiefBase"]/itemQuality</xpath>
+				<value>
+					<itemQuality>Excellent</itemQuality>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/PawnKindDef[@Name="TribalChiefBase"]</xpath>
+				<value>
+					<skills>
+						<li>
+							<skill>Melee</skill>
+							<range>14~18</range>
+						</li>
+						<li>
+							<skill>Shooting</skill>
+							<range>14~18</range>
+						</li>
+					</skills>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/PawnKindDef[defName="Tribal_Berserker"]</xpath>
+				<value>
+					<skills>
+						<li>
+							<skill>Melee</skill>
+							<range>12~16</range>
+						</li>
+						<li>
+							<skill>Intellectual</skill>
+							<range>0~2</range>
+						</li>
+					</skills>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/PawnKindDef[defName="Tribal_Warrior"]</xpath>
+				<value>
+					<skills>
+						<li>
+							<skill>Melee</skill>
+							<range>10~16</range>
+						</li>
+					</skills>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/PawnKindDef[defName="Tribal_Hunter"]</xpath>
+				<value>
+					<skills>
+						<li>
+							<skill>Shooting</skill>
+							<range>10~16</range>
+						</li>
+					</skills>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/PawnKindDef[defName="Tribal_Archer"]</xpath>
+				<value>
+					<skills>
+						<li>
+							<skill>Shooting</skill>
+							<range>10~16</range>
+						</li>
+					</skills>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/PawnKindDef[defName="Tribal_HeavyArcher"]</xpath>
+				<value>
+					<skills>
+						<li>
+							<skill>Shooting</skill>
+							<range>10~16</range>
+						</li>
+					</skills>
+				</value>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Anomaly">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/PawnKindDef[defName="Horaxian_Highthrall"]</xpath>
+						<value>
+							<skills>
+								<li>
+									<skill>Shooting</skill>
+									<range>10~16</range>
+								</li>
+							</skills>
+							<itemQuality>Excellent</itemQuality>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Anomaly">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="AwokenCorpse"]/stages/li[position()=1 or position()=2 or position()=3 or position()=4 or position()=5 or position()=6]/statFactors/IncomingDamageFactor</xpath>
+								<value>
+									<IncomingDamageFactor>0.1</IncomingDamageFactor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Sightstealer"]/race/baseHealthScale</xpath>
+								<value>
+									<baseHealthScale>1.5</baseHealthScale>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Gorehulk"]/race/baseHealthScale</xpath>
+								<value>
+									<baseHealthScale>2</baseHealthScale>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Chimera"]/race/baseHealthScale</xpath>
+								<value>
+									<baseHealthScale>4.5</baseHealthScale>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Noctol"]/race/baseHealthScale</xpath>
+								<value>
+									<baseHealthScale>3</baseHealthScale>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Devourer"]/race/baseHealthScale</xpath>
+								<value>
+									<baseHealthScale>9.6</baseHealthScale>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Revenant"]/race/baseHealthScale</xpath>
+								<value>
+									<baseHealthScale>15</baseHealthScale>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Metalhorror"]/statBases/ArmorRating_Sharp</xpath>
+								<value>
+									<ArmorRating_Sharp>1.0</ArmorRating_Sharp>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Metalhorror"]/statBases/ArmorRating_Blunt</xpath>
+								<value>
+									<ArmorRating_Blunt>1.0</ArmorRating_Blunt>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="Metalhorror"]/tools/li[label="left blade" or label="right blade"]</xpath>
+								<value>
+									<armorPenetration>1.5</armorPenetration>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Bulbfreak"]/race/baseHealthScale</xpath>
+								<value>
+									<baseHealthScale>1</baseHealthScale>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Toughspike"]/statBases/ArmorRating_Blunt</xpath>
+								<value>
+									<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Toughspike"]/statBases/ArmorRating_Sharp</xpath>
+								<value>
+									<ArmorRating_Sharp>0.8</ArmorRating_Sharp>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="Toughspike"]/tools/li[label="left spike" or label="right spike"]</xpath>
+								<value>
+									<armorPenetration>0.8</armorPenetration>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Dreadmeld"]/race/baseHealthScale</xpath>
+								<value>
+									<baseHealthScale>20</baseHealthScale>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Empire">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/PawnKindDef[@Name="VFEE_DeserterBase"]/itemQuality</xpath>
+								<value>
+									<itemQuality>Excellent</itemQuality>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="rimsenal.federation">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/PawnKindDef[@Name="AuxBase"]/itemQuality</xpath>
+								<value>
+									<itemQuality>Good</itemQuality>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/PawnKindDef[defName="FPCAssassin" or defName="FPCUnityGuard"]</xpath>
+								<value>
+									<itemQuality>Excellent</itemQuality>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/PawnKindDef[defName="FPCCommander"]</xpath>
+								<value>
+									<itemQuality>Masterwork</itemQuality>
+									<maxApparelQuality>Masterwork</maxApparelQuality>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Bion_Base"]/statBases/ArmorRating_Sharp</xpath>
+								<value>
+									<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="Bion_Base"]/tools/li[label="right fist"]</xpath>
+								<value>
+									<armorPenetration>0.6</armorPenetration>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Bion_Hulk"]/statBases/ArmorRating_Sharp</xpath>
+								<value>
+									<ArmorRating_Sharp>1.4</ArmorRating_Sharp>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Bion_Hulk"]/race/baseHealthScale</xpath>
+								<value>
+									<baseHealthScale>4.4</baseHealthScale>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Bion_Stalker"]/statBases/ArmorRating_Sharp</xpath>
+								<value>
+									<ArmorRating_Sharp>0.8</ArmorRating_Sharp>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="Bion_Stalker"]/tools/li[label="right fist"]</xpath>
+								<value>
+									<armorPenetration>0.8</armorPenetration>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Mech_Federator"]/statBases/ArmorRating_Sharp</xpath>
+								<value>
+									<ArmorRating_Sharp>1.7</ArmorRating_Sharp>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Mech_Federator"]/statBases/ArmorRating_Blunt</xpath>
+								<value>
+									<ArmorRating_Blunt>0.5</ArmorRating_Blunt>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Mech_Federator"]/race/baseHealthScale</xpath>
+								<value>
+									<baseHealthScale>5.0</baseHealthScale>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="22.anomalyportal">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="AP_MetalStorm"]/statBases/ArmorRating_Sharp</xpath>
+								<value>
+									<ArmorRating_Sharp>1.5</ArmorRating_Sharp>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="AP_MetalStorm"]/statBases/ArmorRating_Blunt</xpath>
+								<value>
+									<ArmorRating_Blunt>1.0</ArmorRating_Blunt>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="AP_MetalStorm"]/statBases/ArmorRating_Heat</xpath>
+								<value>
+									<ArmorRating_Heat>0.5</ArmorRating_Heat>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="AP_MetalStorm"]/tools/li[label="left blade" or label="right blade"]</xpath>
+								<value>
+									<armorPenetration>1.5</armorPenetration>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="AP_Projectile_TeleportSpike"]/projectile</xpath>
+								<value>
+									<armorPenetrationBase>1.5</armorPenetrationBase>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VanillaFactionsExpanded.SettlersModule">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/PawnKindDef[defName="Bandit"]/itemQuality</xpath>
+								<value>
+									<itemQuality>Normal</itemQuality>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/PawnKindDef[defName="Militia"]</xpath>
+								<value>
+									<itemQuality>Excellent</itemQuality>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/PawnKindDef[defName="Gunslinger"]/itemQuality</xpath>
+								<value>
+									<itemQuality>Excellent</itemQuality>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/PawnKindDef[defName="Sheriff" or defName="Mayor" or defName="BanditLeader"]/itemQuality</xpath>
+								<value>
+									<itemQuality>Masterwork</itemQuality>
+									<maxApparelQuality>Masterwork</maxApparelQuality>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Odyssey">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/PawnKindDef[@Name="TradersGuildGunnerBase" or @Name="TradersGuild_Slasher"]</xpath>
+								<value>
+									<itemQuality>Excellent</itemQuality>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/PawnKindDef[@Name="TradersGuildEliteTierBase"]</xpath>
+								<value>
+									<itemQuality>Masterwork</itemQuality>
+									<maxApparelQuality>Masterwork</maxApparelQuality>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/PawnKindDef[defName="Salvager_Pirate"]/skills</xpath>
+								<value>
+									<skills>
+										<li>
+											<skill>Shooting</skill>
+											<range>7~14</range>
+										</li>
+									</skills>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/PawnKindDef[@Name="TradersGuildEliteBase"]/skills</xpath>
+								<value>
+									<skills>
+										<li>
+											<skill>Shooting</skill>
+											<range>13~18</range>
+										</li>
+									</skills>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Mlie.ReinforcedMechanoid2">
+				<operations>
+					<li Class="PatchOperationFindMod">
+						<mods>
+							<li>Reinforced Mechanoid2 Extended</li>
+						</mods>
+						<nomatch Class="PatchOperationSequence">
+							<operations>
+								<li Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/ThingDef[defName="RM_Mech_Caretaker"]/statBases/MoveSpeed</xpath>
+											<value>
+												<MoveSpeed>1.6</MoveSpeed>
+											</value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/ThingDef[defName="RM_Mech_Wraith"]/statBases/MoveSpeed</xpath>
+											<value>
+												<MoveSpeed>1.8</MoveSpeed>
+											</value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/ThingDef[defName="RM_Mech_Locust"]/statBases/MoveSpeed</xpath>
+											<value>
+												<MoveSpeed>1.9</MoveSpeed>
+											</value>
+										</li>
+									</operations>
+								</li>
+							</operations>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Medieval2">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/PawnKindDef[defName="VFEM2_Clan_Peasant" or defName="VFEM2_Thrall" or defName="VFEM2_Raider" or defName="VFEM2_Spearman"]</xpath>
+								<value>
+									<startingHediffs>
+										<li>
+											<def>VFEM2_StrengthDraught</def>
+											<severity>1</severity>
+										</li>
+										<li>
+											<def>ToxicBuildup</def>
+											<severity>0.2</severity>
+										</li>
+									</startingHediffs>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/PawnKindDef[defName="VFEM2_SiegeRaider"]</xpath>
+								<value>
+									<startingHediffs>
+										<li>
+											<def>VFEM2_StoneskinDraught</def>
+											<severity>1</severity>
+										</li>
+										<li>
+											<def>VFEM2_StrengthDraught</def>
+											<severity>1</severity>
+										</li>
+										<li>
+											<def>ToxicBuildup</def>
+											<severity>0.4</severity>
+										</li>
+									</startingHediffs>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/PawnKindDef[defName="VFEM2_Berserker"]</xpath>
+								<value>
+									<startingHediffs>
+										<li>
+											<def>VFEM2_PainkillerDraught</def>
+											<severity>1</severity>
+										</li>
+										<li>
+											<def>VFEM2_StrengthDraught</def>
+											<severity>1</severity>
+										</li>
+										<li>
+											<def>ToxicBuildup</def>
+											<severity>0.4</severity>
+										</li>
+									</startingHediffs>
+								</value>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/PawnKindDef[defName="BS_Jotun_Knight" or defName="BS_Jotun_Javelin" or defName="BS_Jotun_Raider" or defName="BS_Jotun_Lord" or defName="BS_Jotun_RaiderLord"]</xpath>
+												<value>
+													<startingHediffs>
+														<li>
+															<def>VFEM2_StrengthDraught</def>
+															<severity>1</severity>
+														</li>
+														<li>
+															<def>ToxicBuildup</def>
+															<severity>0.2</severity>
+														</li>
+													</startingHediffs>
+												</value>
+											</li>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/PawnKindDef[defName="BS_Jotun_Berserker" or defName="BS_Jotun_Berserker_Simple"]</xpath>
+												<value>
+													<startingHediffs>
+														<li>
+															<def>VFEM2_PainkillerDraught</def>
+															<severity>1</severity>
+														</li>
+														<li>
+															<def>VFEM2_StrengthDraught</def>
+															<severity>1</severity>
+														</li>
+														<li>
+															<def>ToxicBuildup</def>
+															<severity>0.4</severity>
+														</li>
+													</startingHediffs>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Spacer">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="hlx.UltratechAlteredCarbon">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[@Name="SpacerRangerBase" or @Name="CorporateContractorBase"]/apparelTags</xpath>
+										<value>
+											<apparelTags>
+												<li>UltraMilitary</li>
+											</apparelTags>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[@Name="SpacerRangerBase" or @Name="CorporateContractorBase"]/apparelRequired</xpath>
+										<value>
+											<apparelRequired>
+												<li>AC_Apparel_ChrysalisArmor</li>
+												<li>AC_Apparel_ChrysalisHelmet</li>
+											</apparelRequired>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[defName="Spacer_Fighter_Vanguard"]/apparelRequired</xpath>
+										<value>
+											<apparelRequired>
+												<li>AC_Apparel_FusilierArmor</li>
+												<li>AC_Apparel_DragoonHelmet</li>
+											</apparelRequired>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[defName="Corporate_Fighter_Stockguard" or defName="Corporate_Fighter_CSO"]/apparelRequired</xpath>
+										<value>
+											<apparelRequired>
+												<li>AC_Apparel_DragoonArmor</li>
+												<li>AC_Apparel_FusilierHelmet</li>
+											</apparelRequired>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[defName="Spacer_Fighter_mechanist" or defName="Corporate_Fighter_mechanist"]/apparelRequired</xpath>
+										<value>
+											<apparelRequired Inherit="False">
+												<li>Apparel_ArmorHelmetMechCommander</li>
+												<li>AC_Apparel_ChrysalisArmor</li>
+												<li>Apparel_PackBandwidth</li>
+												<li>Apparel_Unisuit</li>
+											</apparelRequired>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Spacer">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphamechs">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[defName="Spacer_Fighter_mechanist" or defName="Corporate_Fighter_mechanist"]/apparelRequired</xpath>
+										<value>
+											<apparelRequired Inherit="False">
+												<li>AM_MechCommanderHelm</li>
+												<li>AM_MechCommanderSuit</li>
+												<li>Apparel_PackBandwidth</li>
+												<li>Apparel_Unisuit</li>
+											</apparelRequired>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

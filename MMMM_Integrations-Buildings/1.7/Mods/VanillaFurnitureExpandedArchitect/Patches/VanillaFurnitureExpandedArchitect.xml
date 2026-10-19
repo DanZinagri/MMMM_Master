@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Cobblestone and polished stone floors (Vanilla Furniture Expanded - Architect) for stone types the mod does not
+		cover: cragstone, mudstone, onyxglass and rose quartz (Alpha Biomes), pristine limestone (Alpha Memes) and
+		vacstone (Odyssey).
+		This folder only loads when VFE - Architect is active (see loadFolders.xml); each block carries MayRequire for
+		the mod its stone comes from, which also keeps the costList from referencing a missing ThingDef.
+		Verified against VFE - Architect 1.6: it ships these floors for the five vanilla stones only (granite,
+		limestone, marble, sandstone, slate) and patches in no modded stone, so none of this duplicates upstream.
+		Note GU_BlocksRoseQuartz is an Alpha Biomes def despite the GU_ prefix, so its Alpha Biomes gate is correct.
+		Keep the TMM_VFEArch_* defNames: they are saved into maps as terrain.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<!-- Alpha Biomes -->
+			<li Class="PatchOperationAdd" MayRequire="sarg.alphabiomes">
+				<xpath>Defs</xpath>
+				<value>
+					<TerrainDef ParentName="PolishedStoneFloorBase">
+						<defName>TMM_VFEArch_PolishedStoneFloorRoseQuartz</defName>
+						<label>rose quartz polished stone floor</label>
+						<color>(110,75,75)</color>
+						<costList>
+							<GU_BlocksRoseQuartz>12</GU_BlocksRoseQuartz>
+						</costList>
+					</TerrainDef>
+					<TerrainDef ParentName="CobblestoneBase">
+						<defName>TMM_VFEArch_CobblestoneFloorRoseQuartz</defName>
+						<label>rose quartz cobblestone floor</label>
+						<color>(110,75,75)</color>
+						<costList>
+							<GU_BlocksRoseQuartz>4</GU_BlocksRoseQuartz>
+						</costList>
+					</TerrainDef>
+					<TerrainDef ParentName="PolishedStoneFloorBase">
+						<defName>TMM_VFEArch_PolishedStoneFloorCragstone</defName>
+						<label>cragstone polished stone floor</label>
+						<color>(36,35,40)</color>
+						<costList>
+							<AB_BlocksCragstone>12</AB_BlocksCragstone>
+						</costList>
+					</TerrainDef>
+					<TerrainDef ParentName="CobblestoneBase">
+						<defName>TMM_VFEArch_CobblestoneFloorCragstone</defName>
+						<label>cragstone cobblestone floor</label>
+						<color>(36,35,40)</color>
+						<costList>
+							<AB_BlocksCragstone>4</AB_BlocksCragstone>
+						</costList>
+					</TerrainDef>
+					<TerrainDef ParentName="PolishedStoneFloorBase">
+						<defName>TMM_VFEArch_PolishedStoneFloorOnyxglass</defName>
+						<label>onyxglass polished stone floor</label>
+						<color>(50,50,50)</color>
+						<costList>
+							<AB_BlocksObsidian>12</AB_BlocksObsidian>
+						</costList>
+					</TerrainDef>
+					<TerrainDef ParentName="CobblestoneBase">
+						<defName>TMM_VFEArch_CobblestoneFloorOnyxglass</defName>
+						<label>onyxglass cobblestone floor</label>
+						<color>(50,50,50)</color>
+						<costList>
+							<AB_BlocksObsidian>4</AB_BlocksObsidian>
+						</costList>
+					</TerrainDef>
+					<TerrainDef ParentName="PolishedStoneFloorBase">
+						<defName>TMM_VFEArch_PolishedStoneFloorMudstone</defName>
+						<label>mudstone polished stone floor</label>
+						<color>(41,35,31)</color>
+						<costList>
+							<AB_BlocksMudstone>12</AB_BlocksMudstone>
+						</costList>
+					</TerrainDef>
+					<TerrainDef ParentName="CobblestoneBase">
+						<defName>TMM_VFEArch_CobblestoneFloorMudstone</defName>
+						<label>mudstone cobblestone floor</label>
+						<color>(41,35,31)</color>
+						<costList>
+							<AB_BlocksMudstone>4</AB_BlocksMudstone>
+						</costList>
+					</TerrainDef>
+				</value>
+			</li>
+			<!-- Odyssey -->
+			<li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Odyssey">
+				<xpath>Defs</xpath>
+				<value>
+					<TerrainDef ParentName="PolishedStoneFloorBase">
+						<defName>TMM_VFEArch_PolishedStoneFloorVacstone</defName>
+						<label>vacstone polished stone floor</label>
+						<color>(115,106,98)</color>
+						<costList>
+							<BlocksVacstone>12</BlocksVacstone>
+						</costList>
+					</TerrainDef>
+					<TerrainDef ParentName="CobblestoneBase">
+						<defName>TMM_VFEArch_CobblestoneFloorVacstone</defName>
+						<label>vacstone cobblestone floor</label>
+						<color>(115,106,98)</color>
+						<costList>
+							<BlocksVacstone>4</BlocksVacstone>
+						</costList>
+					</TerrainDef>
+				</value>
+			</li>
+			<!-- Alpha Memes -->
+			<li Class="PatchOperationAdd" MayRequire="Sarg.AlphaMemes">
+				<xpath>Defs</xpath>
+				<value>
+					<TerrainDef ParentName="PolishedStoneFloorBase">
+						<defName>TMM_VFEArch_PolishedStoneFloorPristineLimestone</defName>
+						<label>pristine limestone polished stone floor</label>
+						<color>(170,157,125)</color>
+						<costList>
+							<AM_BlocksPristineLimestone>12</AM_BlocksPristineLimestone>
+						</costList>
+					</TerrainDef>
+					<TerrainDef ParentName="CobblestoneBase">
+						<defName>TMM_VFEArch_CobblestoneFloorPristineLimestone</defName>
+						<label>pristine limestone cobblestone floor</label>
+						<color>(170,157,125)</color>
+						<costList>
+							<AM_BlocksPristineLimestone>4</AM_BlocksPristineLimestone>
+						</costList>
+					</TerrainDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

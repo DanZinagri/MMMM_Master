@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Many Many Many Mods Modularized - Integrations - Buildings</name>
+	<author>DanZinagri</author>
+	<packageId>DanZinagri.MMMM.Integrations.Buildings</packageId>
+	<supportedVersions>
+		<li>1.6</li>
+		<li>1.7</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>Ludeon.RimWorld.Biotech</packageId>
+			<displayName>Biotech</displayName>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>Wara.toomanymods</li>
+		<li>VanillaExpanded.VPsycastsE</li>
+		<li>OskarPotocki.VanillaFactionsExpanded.SettlersModule</li>
+		<li>VanillaExpanded.VBrewE</li>
+		<li>pphhyy.guldennew</li>
+		<li>OskarPotocki.VFE.Classical</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+		<li>VanillaExpanded.VCookE</li>
+		<li>VanillaExpanded.VCookESushi</li>
+		<li>VanillaExpanded.VCookEHaute</li>
+		<li>RedMattis.BetterPrerequisites</li>
+		<li>ReBuild.COTR.DoorsAndCorners</li>
+		<li>sarg.alphagenes</li>
+		<li>VanillaExpanded.VPlantsEMushrooms</li>
+		<li>VanillaExpanded.VFEArchitect</li>
+		<li>sarg.alphabiomes</li>
+		<li>vanillaexpanded.gravship</li>
+		<li>OskarPotocki.VFE.Medieval2</li>
+		<li>Sarg.AlphaMemes</li>
+		<li>Ludeon.RimWorld.Ideology</li>
+		<li>Ludeon.RimWorld.Odyssey</li>
+		<li>VanillaExpanded.VFEPower</li>
+		<li>VanillaExpanded.VFEArt</li>
+		<li>VanillaExpanded.VGeneticsE</li>
+		<li>VanillaExpanded.VFECore</li>
+		<li>OskarPotocki.VFE.Empire</li>
+		<li>vanillaquestsexpanded.ancients</li>
+		<li>erin.japanesefurniture</li>
+		<li>XMB.AncientUrbanrUins.MO</li>
+		<li>sarg.alphacrafts</li>
+		<li>VanillaExpanded.VFESpacer</li>
+		<li>sarg.alphaanimals</li>
+		<li>Spino.Megafauna</li>
+		<li>spincrus.dinosauria</li>
+		<li>Van.Beasts</li>
+		<li>onyxae.dragonsdescent</li>
+		<li>veterano.mythicages.megafaunabestiary</li>
+		<li>OskarPotocki.VFE.Deserters</li>
+		<li>BiomesTeam.BiomesPrehistoric</li>
+		<li>Hol.DragonGenetics</li>
+		<li>VanillaExpanded.VAEWaste</li>
+		<li>ludeon.rimworld.anomaly</li>
+		<li>vanillaexpanded.vfemedical</li>
+	</loadAfter>
+	<description>Mod integrations</description>
+</ModMetaData>

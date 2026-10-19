@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved here from the root file 1.6/Patches/StrongerEnemies.xml.
+		This folder loads only when accurex.medievalempireoverhaul is NOT active (see loadFolders.xml). The same condition used to be a
+		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[defName="Empire_Caster_Protector"]/specificApparelRequirements</xpath>
+										<value>
+											<apparelRequired>
+												<li>Apparel_ArmorHelmetCataphractPrestige</li>
+												<li>Apparel_ArmorCataphractPrestige</li>
+											</apparelRequired>
+											<specificApparelRequirements Inherit="False">
+												<li>
+													<bodyPartGroup>FullHead</bodyPartGroup>
+													<color>(68,68,68)</color>
+												</li>
+												<li>
+													<bodyPartGroup>Torso</bodyPartGroup>
+													<apparelLayer>OnSkin</apparelLayer>
+													<stuff>Cloth</stuff>
+												</li>
+												<li>
+													<bodyPartGroup>Legs</bodyPartGroup>
+													<apparelLayer>OnSkin</apparelLayer>
+													<stuff>Cloth</stuff>
+												</li>
+											</specificApparelRequirements>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationSequence" MayRequire="PrestigeSpecialistArmours.Final">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationReplace">
+												<xpath>Defs/PawnKindDef[defName="Empire_Caster_Conflagrator"]/specificApparelRequirements</xpath>
+												<value>
+													<apparelRequired>
+														<li>Apparel_ArmorHelmetCataphractPrestige</li>
+														<li>Apparel_ArmorPhoenixPrestige</li>
+													</apparelRequired>
+													<specificApparelRequirements Inherit="False">
+														<li>
+															<bodyPartGroup>FullHead</bodyPartGroup>
+															<color>(68,68,68)</color>
+														</li>
+														<li>
+															<bodyPartGroup>Torso</bodyPartGroup>
+															<apparelLayer>OnSkin</apparelLayer>
+															<stuff>Cloth</stuff>
+														</li>
+														<li>
+															<bodyPartGroup>Legs</bodyPartGroup>
+															<apparelLayer>OnSkin</apparelLayer>
+															<stuff>Cloth</stuff>
+														</li>
+													</specificApparelRequirements>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VARME">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/PawnKindDef[defName="Empire_Caster_Warlord_Ranged"]</xpath>
+												<value>
+													<apparelRequired Inherit="False">
+														<li>VAE_Headgear_RoyalSiegeHelmet</li>
+														<li>VAE_Apparel_RoyalSiegeArmor</li>
+													</apparelRequired>
+												</value>
+											</li>
+											<li Class="PatchOperationReplace">
+												<xpath>Defs/PawnKindDef[defName="Empire_Caster_Warlord_Melee"]/apparelRequired</xpath>
+												<value>
+													<apparelRequired Inherit="False">
+														<li>VAE_Headgear_RoyalSiegeHelmet</li>
+														<li>VAE_Apparel_RoyalSiegeArmor</li>
+														<li>Apparel_ShieldBelt</li>
+													</apparelRequired>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Empire">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAddModExtension">
+												<xpath>Defs/PawnKindDef[defName="VFEE_Empire_Royal_Archcount" or defName="VFEE_Empire_Royal_Marquess" or defName="VFEE_Empire_Royal_Archduke" or defName="VFEE_Empire_Royal_Magister" or defName="VFEE_Empire_Royal_Despot" or defName="VFEE_Empire_Royal_HighStellarch" or defName="Empire_Royal_Stellarch"]</xpath>
+												<value>
+													<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+														<implantDef>VPE_PsycastAbilityImplant</implantDef>
+														<initialLevel>1</initialLevel>
+														<statUpgradePoints>0~0</statUpgradePoints>
+														<unlockedPaths>
+															<VPE_Archotechist>1~4|1~10</VPE_Archotechist>
+														</unlockedPaths>
+													</li>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[defName="Empire_Caster_Conflagrator" or defName="Empire_Caster_Archotechist" or defName="Empire_Caster_Warlord_Ranged" or defName="Empire_Caster_Warlord_Melee" or defName="Empire_Caster_Protector"]/combatPower</xpath>
+										<value>
+											<combatPower>120</combatPower>
+										</value>
+									</li>
+									<li Class="PatchOperationConditional">
+										<xpath>Defs/PawnKindDef[defName="Empire_Caster_Archotechist"]/xenotypeSet</xpath>
+										<nomatch Class="PatchOperationAdd">
+											<xpath>Defs/PawnKindDef[defName="Empire_Caster_Archotechist"]</xpath>
+											<value>
+												<xenotypeSet Inherit="False">
+													<xenotypeChances Inherit="False">
+														<Baseliner>100</Baseliner>
+														<GS_Nephilim MayRequire="Sov.Nephilim">75</GS_Nephilim>
+														<DV_Avaloi MayRequire="det.avaloi">50</DV_Avaloi>
+														<HBX_Highborn MayRequire="ElSov.Highborn">75</HBX_Highborn>
+													</xenotypeChances>
+												</xenotypeSet>
+											</value>
+										</nomatch>
+									</li>
+									<li Class="PatchOperationConditional">
+										<xpath>Defs/PawnKindDef[defName="Empire_Caster_Protector"]/xenotypeSet</xpath>
+										<nomatch Class="PatchOperationAdd">
+											<xpath>Defs/PawnKindDef[defName="Empire_Caster_Protector"]</xpath>
+											<value>
+												<xenotypeSet Inherit="False">
+													<xenotypeChances Inherit="False">
+														<Baseliner>100</Baseliner>
+														<GS_Nephilim MayRequire="Sov.Nephilim">100</GS_Nephilim>
+														<DV_Avaloi MayRequire="det.avaloi">100</DV_Avaloi>
+													</xenotypeChances>
+												</xenotypeSet>
+											</value>
+										</nomatch>
+									</li>
+									<li Class="PatchOperationConditional">
+										<xpath>Defs/PawnKindDef[defName="Empire_Caster_Conflagrator"]/xenotypeSet</xpath>
+										<nomatch Class="PatchOperationAdd">
+											<xpath>Defs/PawnKindDef[defName="Empire_Caster_Conflagrator"]</xpath>
+											<value>
+												<xenotypeSet Inherit="False">
+													<xenotypeChances Inherit="False">
+														<Baseliner>100</Baseliner>
+														<GS_Nephilim MayRequire="Sov.Nephilim">100</GS_Nephilim>
+														<DV_Avaloi MayRequire="det.avaloi">100</DV_Avaloi>
+													</xenotypeChances>
+												</xenotypeSet>
+											</value>
+										</nomatch>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/PawnKindDef[defName="Empire_Caster_Warlord_Melee"]</xpath>
+										<value>
+											<xenotypeSet Inherit="False">
+												<xenotypeChances Inherit="False">
+													<Baseliner>1</Baseliner>
+													<GS_Nephilim MayRequire="Sov.Nephilim">1</GS_Nephilim>
+													<Harana MayRequire="Rimsenal.Harana">1</Harana>
+												</xenotypeChances>
+											</xenotypeSet>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>/Defs/PawnKindDef[defName="Empire_Caster_Warlord_Ranged"]</xpath>
+										<value>
+											<xenotypeSet Inherit="False">
+												<xenotypeChances Inherit="False">
+													<Baseliner>1</Baseliner>
+													<Harana MayRequire="Rimsenal.Harana">1</Harana>
+												</xenotypeChances>
+											</xenotypeSet>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[position()=2 or position()=3 or position()=4]/options</xpath>
+										<value>
+											<TMM_Empire_Caster_Staticlord>0.2</TMM_Empire_Caster_Staticlord>
+											<TMM_Empire_Caster_Frostshaper>0.2</TMM_Empire_Caster_Frostshaper>
+											<Empire_Caster_Conflagrator>0.002</Empire_Caster_Conflagrator>
+											<Empire_Caster_Archotechist>0.003</Empire_Caster_Archotechist>
+											<Empire_Caster_Warlord_Ranged>0.2</Empire_Caster_Warlord_Ranged>
+											<Empire_Caster_Warlord_Melee>0.2</Empire_Caster_Warlord_Melee>
+											<Empire_Caster_Protector>0.001</Empire_Caster_Protector>
+										</value>
+									</li>
+									<li Class="PatchOperationSequence" MayRequire="VPE.Aeromancer.Sentinel">
+										<operations>
+											<li Class="PatchOperationSequence">
+												<operations>
+													<li Class="PatchOperationAdd">
+														<xpath>Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[position()=2 or position()=3 or position()=4]/options</xpath>
+														<value>
+															<TMM_Empire_Caster_Aeromancer>0.2</TMM_Empire_Caster_Aeromancer>
+														</value>
+													</li>
+												</operations>
+											</li>
+										</operations>
+									</li>
+									<li Class="PatchOperationSequence" MayRequire="VPE.Hydromancer.Sentinel">
+										<operations>
+											<li Class="PatchOperationSequence">
+												<operations>
+													<li Class="PatchOperationAdd">
+														<xpath>Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[position()=2 or position()=3 or position()=4]/options</xpath>
+														<value>
+															<TMM_Empire_Caster_Hydromancer>0.02</TMM_Empire_Caster_Hydromancer>
+														</value>
+													</li>
+												</operations>
+											</li>
+										</operations>
+									</li>
+									<li Class="PatchOperationRemove">
+										<xpath>Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Empire_Fighter_Trooper</xpath>
+									</li>
+									<li Class="PatchOperationRemove">
+										<xpath>Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Empire_Fighter_Janissary</xpath>
+									</li>
+									<li Class="PatchOperationRemove">
+										<xpath>Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Empire_Fighter_Champion</xpath>
+									</li>
+									<li Class="PatchOperationRemove">
+										<xpath>Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Empire_Fighter_Cataphract</xpath>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Royalty">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[@Name="JanissaryBase" or @Name="CataphractBase" or @Name="StellicGuardBase"]/apparelMoney</xpath>
+										<value>
+											<apparelMoney>40000~60000</apparelMoney>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/PawnKindDef[@Name="JanissaryBase"]</xpath>
+										<value>
+											<itemQuality>Excellent</itemQuality>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/PawnKindDef[@Name="CataphractBase"]</xpath>
+										<value>
+											<itemQuality>Masterwork</itemQuality>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[@Name="StellicGuardBase"]/itemQuality</xpath>
+										<value>
+											<itemQuality>Legendary</itemQuality>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/PawnKindDef[defName="Empire_Fighter_Champion"]</xpath>
+										<value>
+											<itemQuality>Excellent</itemQuality>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/PawnKindDef[defName="Empire_Fighter_Grenadier"]</xpath>
+										<value>
+											<itemQuality>Excellent</itemQuality>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

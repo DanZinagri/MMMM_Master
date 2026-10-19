@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The phytokin xenotypes use Big and Small's female-body gene instead of VRE - Phytokin's own female gene, so the
+		same restriction is not applied twice under two names.
+		This folder only loads when VRE - Phytokin and B&amp;S - Framework are both active (see loadFolders.xml).
+		Body_FemaleOnly is a Framework gene, not a Genes &amp; More one, which is what the folder gate checks for.
+
+		Which gene is there to replace depends on the load:
+		- Phytokin's own Alpha Genes patch swaps the Poluxkin's VRE_Female (its li Name="AlphaGenesSwap") for AG_Female
+		  when Alpha Genes is active, so AG_Female is matched too. This mod loads after Phytokin, so that swap has already
+		  happened. (An earlier version of this file said nothing converted them; that was wrong.)
+		- Mods such as Phytokin Fathers remove the female gene entirely. The swap is therefore a Conditional: if none of the
+		  three xenotypes still has a female gene it does nothing, instead of logging a failed xpath (seen in a full load
+		  on 2026-09-29).
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="VRE_Poluxkin" or defName="VRE_Animakin" or defName="VRE_Gauranlenkin"]/genes/li[text()="VRE_Female" or text()="AG_Female"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef[defName="VRE_Poluxkin" or defName="VRE_Animakin" or defName="VRE_Gauranlenkin"]/genes/li[text()="VRE_Female" or text()="AG_Female"]</xpath>
+			<value>
+				<li>Body_FemaleOnly</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

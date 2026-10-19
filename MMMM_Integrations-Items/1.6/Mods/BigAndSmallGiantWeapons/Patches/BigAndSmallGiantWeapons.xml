@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The giant primitive bow can be made at a vanilla crafting spot, not only at a workbench.
+
+		Gating, which is why this is its own folder: the giant weapons are not a Big and Small - Races or Weapons def.
+		Big and Small - Genes &amp; More defines them, inside a Conditional/AnyContentMod folder its own LoadFolders only
+		loads when at least one Big and Small content mod is active. This folder mirrors that list exactly, which is
+		wider than the six mods the original checked for.
+		Verified against Genes &amp; More 1.6: the bow has a recipeMaker and no recipeUsers list yet, so the add creates
+		one. recipeUsers is additive, so this does not take the recipe away from any bench that already offers it.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BS_GiantPrimitiveBow"]/recipeMaker</xpath>
+		<value>
+			<recipeUsers>
+				<li>CraftingSpot</li>
+			</recipeUsers>
+		</value>
+	</Operation>
+
+</Patch>

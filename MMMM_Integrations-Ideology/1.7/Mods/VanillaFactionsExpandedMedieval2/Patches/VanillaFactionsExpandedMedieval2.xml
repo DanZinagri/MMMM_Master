@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		VFE Medieval 2. This folder only loads when VFE Medieval 2 is active (see loadFolders.xml).
+		  - The travelling merchant guild also fields Det's Brawnum and Boglegs (0.1 each, each MayRequire'd).
+		  - The warbow can also be made at a crafting spot (upstream: smithies only).
+		  - The heavy plate helmet stops inheriting the machining table from its parent, so it is smithy-only.
+		  - The palisade no longer holds up roofs (upstream: holdsRoof true).
+		The last three are VFE Medieval 2 tweaks with no partner mod; the user filed the block under integrations as a whole.
+		Verified against VFE Medieval 2 1.6: all four targets exist with the upstream values noted, and neither xenotype is
+		already listed. Progression: Attire also appends Medieval Overhaul's anvil to the helmet's recipeUsers, which stacks.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Ideology ops (memes, cultures, precepts and styles).
+	-->
+	<!--
+		With ATH's styles Norse: VFE Medieval 2's Viking culture uses the Norse building style (priority 999, needs
+		Ideology). Verified the culture has no thingStyleCategories upstream and the Norse StyleCategoryDef exists.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="anthitei.athsstylenorse.style">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CultureDef[defName="VFEM2_Vikings"]</xpath>
+						<value>
+							<thingStyleCategories>
+								<li MayRequire="Ludeon.RimWorld.Ideology">
+									<category>Norse</category>
+									<priority>999</priority>
+								</li>
+							</thingStyleCategories>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

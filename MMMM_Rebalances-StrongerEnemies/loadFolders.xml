@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- 1.6/Mods/<Name> loads when that mod is active; 1.6/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<li>/</li>
+		<li>1.6</li>
+		<li IfModNotActive="accurex.medievalempireoverhaul">1.6/Without/MedievalOverhaulRoyalty</li>
+		<li IfModNotActive="accurex.medievalempireoverhaul,PrestigeSpecialistArmours.Final">1.6/Without/MedievalOverhaulRoyalty_PrestigeSpecialistArmours</li>
+		<li IfModNotActive="SmashPhil.VehicleFramework">1.6/Without/VehicleFramework</li>
+		<li IfModActive="rimsenal.core">1.6/Mods/RimsenalMurderDiversified</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE">1.6/Mods/VanillaPsycastsExpanded</li>
+		<li IfModActive="VexedTrees980.RimElvesBiotech">1.6/Mods/RimElves</li>
+	</v1.6>
+	<v1.7>
+		<!-- 1.7/Mods/<Name> loads when that mod is active; 1.7/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<li>/</li>
+		<li>1.7</li>
+		<li IfModNotActive="accurex.medievalempireoverhaul">1.7/Without/MedievalOverhaulRoyalty</li>
+		<li IfModNotActive="accurex.medievalempireoverhaul,PrestigeSpecialistArmours.Final">1.7/Without/MedievalOverhaulRoyalty_PrestigeSpecialistArmours</li>
+		<li IfModNotActive="SmashPhil.VehicleFramework">1.7/Without/VehicleFramework</li>
+		<li IfModActive="rimsenal.core">1.7/Mods/RimsenalMurderDiversified</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE">1.7/Mods/VanillaPsycastsExpanded</li>
+		<li IfModActive="VexedTrees980.RimElvesBiotech">1.7/Mods/RimElves</li>
+	</v1.7>
+</loadFolders>

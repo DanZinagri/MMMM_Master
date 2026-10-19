@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Insector gets the Hiveling voice gene (Alpha Genes).
+		This folder only loads when both Vanilla Races Expanded - Insector and Alpha Genes are active (see loadFolders.xml),
+		so no FindMod checks are needed.
+		The original also relabelled AG_HivelingVoice to "insect voice"; dropped, as was the same relabel in the Det's
+		Xenotypes - Buzzers patch, so Alpha Genes keeps its own name for the gene.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="VRE_Insector"]/genes</xpath>
+		<value>
+			<li MayRequire="sarg.alphagenes">AG_HivelingVoice</li>
+		</value>
+	</Operation>
+
+</Patch>

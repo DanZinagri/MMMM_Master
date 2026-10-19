@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Dragons Descent adjustments. This folder only loads when Dragons Descent is active (see loadFolders.xml).
+		  - The dragon crown and scale helm stop inheriting their parent's recipe benches (recipeUsers Inherit="False").
+		  - Making chemfuel from hard scale moves from the fueled/electric smithy to the biofuel refinery.
+		  - VTE's Animal hater nullifies the "nuzzled by a dragon" thought (creating the list if needed).
+		  - With Ideology, the Ritual_Weak / Moderate / Large / Major recipes use vanilla's theist ritual sustainer sound.
+		Dragons Descent is not installed here, so its defs could not be checked; the vanilla BiofuelRefinery recipes list,
+		VTE_AnimalHater and RitualSustainer_Theist exist.
+		Split by category into the MMMM Convergence sub-mods: this copy holds only the Buildings ops (buildings, furniture, floors, recipes and production).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/ThingDef[defName="FueledSmithy" or defName="ElectricSmithy"]/recipes/li[text()="Make_ChemfuelFromHardScale"]</xpath>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="BiofuelRefinery"]/recipes</xpath>
+				<value>
+					<li>Make_ChemfuelFromHardScale</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Ideology">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/RecipeDef[defName="Ritual_Weak" or defName="Ritual_Moderate" or defName="Ritual_Large" or defName="Ritual_Major"]/soundWorking</xpath>
+						<value>
+							<soundWorking>RitualSustainer_Theist</soundWorking>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

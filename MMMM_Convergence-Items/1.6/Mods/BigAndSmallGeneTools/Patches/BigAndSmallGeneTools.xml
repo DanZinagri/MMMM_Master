@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The seven Big and Small gene tools sit only in Alpha Genes' gene tools category, instead of appearing in both
+		that category and vanilla's miscellaneous items.
+
+		How it works, because the Inherit="False" is easy to miss: Big and Small already puts these tools in
+		AG_GeneTools, through BS_GeneToolBase, which carries that category behind its own Alpha Genes check. But that
+		abstract parent inherits ItemsMisc from BS_SerumBase above it, so without this patch each tool resolves to both
+		categories. Writing the list straight onto the seven tools with Inherit="False" cuts the inherited ItemsMisc
+		entry, leaving the Alpha Genes category alone. Side effect worth knowing: the tools stop showing up under
+		miscellaneous items in storage and bill filters.
+		See also the Integrations mod, which re-parents the AG_GeneTools category itself from Manufactured to Items.
+
+		Gating, which is why this is its own folder: the gene tools are not a Big and Small - Races def. Genes &amp; More
+		defines them, inside a Conditional/AnyContentMod folder its own LoadFolders only loads when at least one Big and
+		Small content mod is active. This folder mirrors that list exactly, which is wider than the six mods the
+		original checked for. Alpha Genes is gated on the operation itself, since it owns the category.
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads MayRequire only on
+		list elements, so an <Operation MayRequire="..."> node loads and applies unconditionally.
+
+		Verified against Genes &amp; More 1.6: all seven tools exist, all inherit from BS_GeneToolBase, and none defines a
+		thingCategories list of its own, so the add creates one rather than duplicating.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>
+							Defs/ThingDef[defName="BS_GeneDicombobulator" or defName="BS_GeneGeneIntegrator" or defName="BS_XenoCopy" or defName="BS_CreateXenogerm" or defName="BS_CreateArchiteXenogerm" or defName="BS_CreateArchiteXenogerm_Endo" or defName="BS_CreateXenogerm_Endo"]</xpath>
+						<value>
+							<thingCategories Inherit="False">
+								<li>AG_GeneTools</li>
+							</thingCategories>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

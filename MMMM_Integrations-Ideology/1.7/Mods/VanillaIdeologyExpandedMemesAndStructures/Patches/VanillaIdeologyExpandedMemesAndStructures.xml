@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Drinks from other mods count for Vanilla Ideology Expanded's drink-related precept.
+		This folder only loads when VIE - Memes and Structures is active (see loadFolders.xml); each drink keeps its
+		own MayRequire, so the list simply skips the ones whose mod is absent.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VanillaMemesExpanded.SupportedDrinksForPreceptDefs[defName="VME_SupportedDrinksForPreceptDef"]/supportedDrinksForPrecept</xpath>
+		<value>
+			<li MayRequire="Trickity.Samurai.Faction">TSF_Sake</li>
+			<li MayRequire="det.keshig">DV_Gorewine</li>
+			<li MayRequire="Rimsenal.Harana">Neutroshine</li>
+		</value>
+	</Operation>
+
+</Patch>

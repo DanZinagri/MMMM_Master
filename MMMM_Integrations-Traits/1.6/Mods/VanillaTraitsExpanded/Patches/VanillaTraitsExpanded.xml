@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Traits Expanded traits join other systems: vanilla and VSIE inspirations they should be barred from, and
+		meditation focus types they should allow.
+		This folder only loads when Vanilla Traits Expanded is active (see loadFolders.xml), so no FindMod check is needed
+		for VTE itself; optional contributors are gated per operation or per list entry.
+		Verified against VTE 1.6: none of these traits define disallowedInspirations or allowedMeditationFocusTypes
+		upstream, and the vanilla Chimera thought has no nullifyingTraits, so each whole element is added.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Traits ops (traits).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+
+			<!-- Inspirations these traits should never get -->
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/TraitDef[defName="VTE_Prude"]/degreeDatas/li</xpath>
+				<value>
+					<disallowedInspirations>
+						<li MayRequire="VanillaExpanded.VanillaSocialInteractionsExpanded">VSIE_Flirting_Frenzy</li>
+					</disallowedInspirations>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/TraitDef[defName="VTE_Technophobe"]/degreeDatas/li</xpath>
+				<value>
+					<disallowedInspirations>
+						<li MayRequire="VanillaExpanded.VanillaSocialInteractionsExpanded">VSIE_Inspired_Research</li>
+					</disallowedInspirations>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/TraitDef[defName="VTE_Coward"]/degreeDatas/li</xpath>
+				<value>
+					<disallowedInspirations>
+						<li>Frenzy_Shoot</li>
+						<li MayRequire="VanillaExpanded.VanillaSocialInteractionsExpanded">VSIE_Melee_Frenzy</li>
+					</disallowedInspirations>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/TraitDef[defName="VTE_AnimalHater"]/degreeDatas/li</xpath>
+				<value>
+					<disallowedInspirations>
+						<li>Inspired_Taming</li>
+					</disallowedInspirations>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/TraitDef[defName="VTE_Anxious"]/degreeDatas/li</xpath>
+				<value>
+					<disallowedInspirations>
+						<li>Inspired_Recruitment</li>
+						<li MayRequire="VanillaExpanded.VanillaSocialInteractionsExpanded">VSIE_Party_Frenzy</li>
+						<li MayRequire="VanillaExpanded.VanillaSocialInteractionsExpanded">VSIE_Flirting_Frenzy</li>
+					</disallowedInspirations>
+				</value>
+			</li>
+
+			<!-- Meditation focus types these traits should allow -->
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/TraitDef[defName="VTE_Ecologist" or defName="VTE_Dunce" or defName="VTE_ChildOfMountain"]/degreeDatas/li</xpath>
+				<value>
+					<allowedMeditationFocusTypes>
+						<li>Natural</li>
+					</allowedMeditationFocusTypes>
+				</value>
+			</li>
+
+			<!--
+				Child of the sea can meditate on water. Kept as a FindMod check rather than MayRequire because
+				Goji's Fantasy Race: Merren is not installed here, so its packageId could not be verified.
+			-->
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Goji's Fantasy Race: Merren</li>
+				</mods>
+				<match Class="PatchOperationAdd">
+					<xpath>Defs/TraitDef[defName="VTE_ChildOfSea"]/degreeDatas/li</xpath>
+					<value>
+						<allowedMeditationFocusTypes>
+							<li>Stagz_Water</li>
+						</allowedMeditationFocusTypes>
+					</value>
+				</match>
+			</li>
+
+		</operations>
+	</Operation>
+
+</Patch>

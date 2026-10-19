@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		VFE Deserters: the Imperial mega high-shield (a 12,000 W, 75-tile projectile interceptor) gets the standard power
+		switch, so it can be turned off to save power instead of only by cutting its conduit.
+		This folder only loads when VFE Deserters is active (see loadFolders.xml).
+		Verified against VFE Deserters 1.6: the shield's comps are the interceptor, power, intel extraction and ambient
+		sound, with no flickable anywhere in its parent chain. No other installed mod patches it.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="VFED_ImperialMegaHighShield"]/comps</xpath>
+		<value>
+			<li Class="CompProperties_Flickable"/>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Many Many Many Mods Modularized - Integrations - Other</name>
+	<author>DanZinagri</author>
+	<packageId>DanZinagri.MMMM.Integrations.Other</packageId>
+	<supportedVersions>
+		<li>1.6</li>
+		<li>1.7</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>Ludeon.RimWorld.Biotech</packageId>
+			<displayName>Biotech</displayName>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>Wara.toomanymods</li>
+		<li>RedMattis.Heaven</li>
+		<li>sarg.alphagenes</li>
+		<li>VanillaExpanded.VanillaTraitsExpanded</li>
+		<li>OskarPotocki.VFE.Medieval2</li>
+		<li>vanillaracesexpanded.highmate</li>
+		<li>RedMattis.BigSmall.Core</li>
+		<li>Ludeon.RimWorld.Odyssey</li>
+		<li>VanillaExpanded.VGeneticsE</li>
+		<li>VanillaExpanded.VFECore</li>
+		<li>Spino.Megafauna</li>
+		<li>spincrus.dinosauria</li>
+		<li>Van.Beasts</li>
+		<li>veterano.mythicages.megafaunabestiary</li>
+		<li>feb.biopunklivestock</li>
+		<li>VanillaExpanded.VAnomalyEInsanity</li>
+		<li>22.anomalyportal</li>
+		<li>lts.I</li>
+		<li>GoGaTio.NewAnomalyThreats</li>
+		<li>VPE.Fleshshaper.Sentinel</li>
+		<li>BiomesTeam.BiomesPrehistoric</li>
+		<li>vanillaquestsexpanded.cryptoforge</li>
+		<li>ReGrowth.BOTR.ExtinctAnimalsPack</li>
+		<li>ludeon.rimworld.anomaly</li>
+		<li>neronix17.outland.genetics</li>
+		<li>sovereign.seraph</li>
+	</loadAfter>
+	<description>Mod integrations</description>
+</ModMetaData>

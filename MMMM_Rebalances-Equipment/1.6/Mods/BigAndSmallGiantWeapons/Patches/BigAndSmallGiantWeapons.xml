@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The jotun javelin also does VFE - Classical's apparel damage, twenty points of it, on top of its own damage.
+
+		Gating, which is why this is its own folder: the giant weapons are not a Big and Small - Races def. Genes &amp;
+		More defines them, inside a Conditional/AnyContentMod folder its own LoadFolders only loads when at least one
+		Big and Small content mod is active. This folder mirrors that list exactly.
+		The mod gates sit on <li> nodes inside sequences, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements.
+
+		Verified against Genes &amp; More 1.6: the projectile exists and has no extraDamages list yet, so the add creates
+		one, and VFEC_ApparelDamage is a real VFE - Classical damage def.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Classical">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="BS_JotunJavelinProjectile"]/projectile</xpath>
+						<value>
+							<extraDamages>
+								<li>
+									<def>VFEC_ApparelDamage</def>
+									<amount>20</amount>
+								</li>
+							</extraDamages>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

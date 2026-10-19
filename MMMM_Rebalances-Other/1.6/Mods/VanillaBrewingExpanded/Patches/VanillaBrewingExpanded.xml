@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		VBE's bar works 20% faster. It shipped alongside the brewery room-role change, but it is a straight speed buff
+		rather than a join with another mod, so it sits here.
+		This folder only loads when Vanilla Brewing Expanded is active (see loadFolders.xml).
+		Verified against VBE 1.6: the bar has a statBases block with no WorkTableWorkSpeedFactor, so the add lands, and no
+		other mod in the workshop folder changes it.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="VBE_Bar"]/statBases</xpath>
+		<value>
+			<WorkTableWorkSpeedFactor>1.2</WorkTableWorkSpeedFactor>
+		</value>
+	</Operation>
+
+</Patch>

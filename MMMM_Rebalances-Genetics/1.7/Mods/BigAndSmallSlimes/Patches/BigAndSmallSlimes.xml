@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Two tuning changes for Big and Small - Slimes.
+		- The slime faction stops inheriting its parent's xenotype set, so it fields only the slimes its own def
+		lists rather than picking up xenotypes other mods inject into the parent.
+		- The emperor slime gains the Highborn haughty gene.
+		This folder only loads when Slimes is active (see loadFolders.xml).
+		Verified against Slimes 1.6: the emperor slime does not already carry the gene.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd" MayRequire="ElSov.Highborn">
+				<xpath>Defs/XenotypeDef[defName="BS_EmperorSlime"]/genes</xpath>
+				<value>
+					<li>HBX_Haughty</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Alpha Crafts vs Vanilla Cooking Expanded, where both ship the same thing.
+		  - Mayonnaise: VCE's mayo and its recipe are cherry-picked; Alpha Crafts' mayonnaise and infused mayonnaise (and,
+		    with VPE More Plants, black garlic mayonnaise) join VCE's condiment category, show VCE-style condiment effects,
+		    and give VCE's consumed-mayo effect (plain) or their own stronger variants (Defs/ThoughtDefs.xml). The effect
+		    descriptions are in Languages/English/Keyed/AlphaCrafts.xml.
+		  - Deep frier: VCE's deep frier burns Alpha Crafts oil instead of chemfuel (10 per day instead of 160) and costs 40
+		    instead of 75 of its first cost item.
+		This folder only loads when Alpha Crafts is active (see loadFolders.xml); each part is gated on VCE, the black
+		mayo part also on VPE More Plants.
+		Verified against the current 1.6 releases: every target hits, none of the mayos already has a condiment category,
+		condiment extension or ingredient thought (Alpha Crafts' own VCE patch covers 13 other condiments but skips them),
+		and no installed mod touches the deep frier's fuel or cost. Fishing Treasures lists VCE_Mayo in its fishing loot
+		and Progression: Kitchen retunes VCE_Mayo's description and research; both become moot once it is cherry-picked.
+		Split by category into the MMMM Convergence sub-mods: this copy holds only the Items ops (items: apparel, weapons, food, drugs and loot).
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VCookE">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceItems_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>ThingDef/VCE_Mayo</li>
+							<li>RecipeDef/VCE_Mayo</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAddModExtension">
+						<xpath>Defs/ThingDef[defName="AC_Mayonnaise"]</xpath>
+						<value>
+							<li Class="VEF.AnimalBehaviours.AnimalStatExtension">
+								<statToAdd>
+									<li>VCE_CondimentEffects</li>
+								</statToAdd>
+								<statValues>
+									<li>VCE_CondimentEffectsTitle</li>
+								</statValues>
+								<statDescriptions>
+									<li>VCE_CondimentEffectsMayo</li>
+								</statDescriptions>
+							</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAddModExtension">
+						<xpath>Defs/ThingDef[defName="AC_InfusedMayonnaise"]</xpath>
+						<value>
+							<li Class="VEF.AnimalBehaviours.AnimalStatExtension">
+								<statToAdd>
+									<li>VCE_CondimentEffects</li>
+								</statToAdd>
+								<statValues>
+									<li>VCE_CondimentEffectsTitle</li>
+								</statValues>
+								<statDescriptions>
+									<li>VCE_CondimentEffectsInfusedMayo</li>
+								</statDescriptions>
+							</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="AC_Mayonnaise" or defName="AC_InfusedMayonnaise"]/thingCategories</xpath>
+						<value>
+							<li>VCE_Condiments</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="AC_Mayonnaise"]/ingestible</xpath>
+						<value>
+							<specialThoughtAsIngredient>VCE_ConsumedMayo</specialThoughtAsIngredient>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="AC_InfusedMayonnaise"]/ingestible</xpath>
+						<value>
+							<specialThoughtAsIngredient>TMM_ConsumedInfusedMayo</specialThoughtAsIngredient>
+						</value>
+					</li>
+					<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPlantsEMore">
+						<operations>
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/ThingDef[defName="AC_BlackMayonnaise"]</xpath>
+								<value>
+									<li Class="VEF.AnimalBehaviours.AnimalStatExtension">
+										<statToAdd>
+											<li>VCE_CondimentEffects</li>
+										</statToAdd>
+										<statValues>
+											<li>VCE_CondimentEffectsTitle</li>
+										</statValues>
+										<statDescriptions>
+											<li>VCE_CondimentEffectsBlackMayo</li>
+										</statDescriptions>
+									</li>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="AC_BlackMayonnaise"]/ingestible</xpath>
+								<value>
+									<specialThoughtAsIngredient>TMM_ConsumedBlackMayo</specialThoughtAsIngredient>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="AC_BlackMayonnaise"]/thingCategories</xpath>
+								<value>
+									<li>VCE_Condiments</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Fishing Expanded's Fisherman trait joins other mods' systems:
+		- The Angler meme (VIE - Memes and Structures) agrees with it.
+		- With Goji's Fantasy Race: Merren, a fisherman can meditate on water.
+		This folder only loads when Vanilla Fishing Expanded is active (see loadFolders.xml); the contributing mods are
+		gated per operation.
+		Verified against VIE 1.6 and VFiE 1.6 (both the Odyssey and non-Odyssey variants): VME_Angler has no
+		agreeableTraits and VCEF_Fisherman has no allowedMeditationFocusTypes, so each whole element is added.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Ideology ops (memes, cultures, precepts and styles).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd" MayRequire="VanillaExpanded.VMemesE">
+				<xpath>Defs/MemeDef[defName="VME_Angler"]</xpath>
+				<value>
+					<agreeableTraits>
+						<li>VCEF_Fisherman</li>
+					</agreeableTraits>
+				</value>
+			</li>
+
+		</operations>
+	</Operation>
+
+</Patch>

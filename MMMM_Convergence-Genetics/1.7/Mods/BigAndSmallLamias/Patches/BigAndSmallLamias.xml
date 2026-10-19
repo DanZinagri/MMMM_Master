@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small - Lamias and other Snake-People: genes swapped for the Alpha Genes equivalents.
+		This folder only loads when Lamias is active (see loadFolders.xml).
+		Verified against Lamias 1.6: every gene being replaced is present in its xenotype.
+
+		A fourth operation used to sit here, removing DiseaseFree from the viper prototype biomecha. It moved to the
+		Unliving exclusion folder, because it only makes sense under that folder's condition. See the note there.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace" MayRequire="sarg.alphagenes">
+				<xpath>Defs/XenotypeDef[defName="LoS_Silver" or defName="Naga"]/genes/li[text()="BS_ToughSkin"]</xpath>
+				<value>
+					<li>AG_ArmourMedium</li>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace" MayRequire="sarg.alphagenes">
+				<xpath>Defs/XenotypeDef[defName="BS_ViperPrototypeBiomecha"]/genes/li[text()="BS_ToughSkin"]</xpath>
+				<value>
+					<li>AG_ArmourMajor</li>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace" MayRequire="sarg.alphagenes">
+				<xpath>Defs/XenotypeDef[defName="BS_ViperPrototypeBiomecha"]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+				<value>
+					<li>AG_ColdImmunity</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

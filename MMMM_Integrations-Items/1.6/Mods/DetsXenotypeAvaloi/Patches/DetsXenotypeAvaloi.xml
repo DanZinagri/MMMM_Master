@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Avaloi glasses are made of glass: with ReBuild - Doors and Corners installed they cost 5 steel and 1 glass
+		instead of 12 steel.
+		This folder only loads when Det's Xenotypes - Avaloi is active (see loadFolders.xml); ReBuild is gated on the
+		operation because the glass comes from there.
+		Verified against Avaloi 1.6: the upstream cost list is 12 steel.
+	-->
+	<!--
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally. Do not flatten this wrapper away.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace" MayRequire="ReBuild.COTR.DoorsAndCorners">
+				<xpath>Defs/ThingDef[defName="DV_Headgear_AvaloiGlasses"]/costList</xpath>
+				<value>
+					<costList>
+						<Steel>5</Steel>
+						<RB_Glass>1</RB_Glass>
+					</costList>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

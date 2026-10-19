@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The Brawnum xenotype gains Big and Small's Large body size gene.
+		This folder only loads when Det's Xenotypes - Brawnum is active (see loadFolders.xml); Big and Small is gated
+		on the operation because the gene comes from there.
+		Verified against Brawnum 1.6: the xenotype does not already list Large.
+	-->
+	<!--
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally. Do not flatten this wrapper away.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd" MayRequire="RedMattis.BigSmall.Core">
+				<xpath>Defs/XenotypeDef[defName="DV_Brawnum"]/genes</xpath>
+				<value>
+					<li>Large</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

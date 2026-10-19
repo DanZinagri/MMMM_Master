@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Cryptoforge insects are immune to vacuum, matching vanilla insectoids.
+		This folder only loads when both VQE - Cryptoforge and Odyssey are active (see loadFolders.xml); Odyssey is
+		what adds the VacuumResistance stat.
+		Verified against VQE - Cryptoforge 1.6: the base insect def has no VacuumResistance.
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[@Name="VQE_BaseCryptoInsect"]/statBases/VacuumResistance</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[@Name="VQE_BaseCryptoInsect"]/statBases</xpath>
+			<value>
+				<VacuumResistance>1</VacuumResistance>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

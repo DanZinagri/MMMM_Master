@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small and VRE - Highmate each ship a bloodlust gene and a flirty gene. Matching exclusion tags make the
+		duplicates mutually exclusive so a pawn cannot end up with both halves of the same effect.
+		This folder only loads when VRE - Highmate and B&amp;S - Genes &amp; More are both active (see loadFolders.xml).
+		Verified against Highmate 1.6: neither VRE_Distressed nor VRE_Flirty already has exclusionTags, so both adds land.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/GeneDef[defName="BS_Bloodlust" or defName="VRE_Distressed"]</xpath>
+				<value>
+					<exclusionTags>
+						<li>Bloodlust</li>
+					</exclusionTags>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/GeneDef[defName="VRE_Flirty"]</xpath>
+				<value>
+					<exclusionTags>
+						<li>Flirty</li>
+					</exclusionTags>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

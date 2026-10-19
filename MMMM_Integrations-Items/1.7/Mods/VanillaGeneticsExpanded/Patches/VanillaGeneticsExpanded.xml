@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Genetics Expanded:
+		  - Odyssey: VGE's insect hybrids get full vacuum resistance, like vanilla insects.
+		  - ReBuild: Doors and Corners: electrowombs cost glass alongside less steel, and the archowomb uses ballistic glass
+		    instead of plasteel.
+		  - The outlander gene caravan also stocks genepacks, archite capsules and deathrest capacity serum.
+		  - Alpha Animals: VGE's alpha genome excavator also covers the dinosaur (Dinosauria / Biomes! Prehistoric), megafauna
+		    and dragon (Dragon Genetics) tiers, and those three single-tier excavators leave the random excavator pool. MMMM
+		    Convergence - Items removes the three excavators themselves through Cherry Picker.
+		This folder only loads with Vanilla Genetics Expanded (see loadFolders.xml).
+		Verified against VGE, Alpha Animals, Megafauna, ReBuild D&C and Odyssey 1.6: the insect base has no vacuum resistance,
+		the caravan stocks none of the three items, and VGE's own Dinosauria/Megafauna folders add those excavators to the random
+		pool. Dinosauria, Biomes! Prehistoric and Dragon Genetics are not installed here; Hol.DragonGenetics comes from Too Many
+		Mods' loadAfter and is unverified.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Items ops (items: apparel, weapons, food, drugs and loot).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphaanimals">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequireAnyOf="spincrus.dinosauria,BiomesTeam.BiomesPrehistoric">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="GR_AlphaGenomeExcavator"]/comps/li[@Class="GeneticRim.CompProperties_TargetEffect_Extract"]/tier</xpath>
+								<value>
+									<li>dino</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphaanimals">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Spino.Megafauna">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="GR_AlphaGenomeExcavator"]/comps/li[@Class="GeneticRim.CompProperties_TargetEffect_Extract"]/tier</xpath>
+								<value>
+									<li>megafauna</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphaanimals">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Hol.DragonGenetics">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="GR_AlphaGenomeExcavator"]/comps/li[@Class="GeneticRim.CompProperties_TargetEffect_Extract"]/tier</xpath>
+								<value>
+									<li>dragon</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

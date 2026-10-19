@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Impact Weaponry - Reloaded: DV_Gun_ImpactCannon and DV_Gun_ImpactSlinger also carry the GunHeavy weapon tag, so Empire cataphracts (who draw from GunHeavy, like vanilla's beam
+		repeater) can spawn with them as well.
+		This folder only loads when Impact Weaponry - Reloaded is active (see loadFolders.xml).
+		Verified: upstream the weapons carry only SpacerGun. Progression: Arsenal also patches them, but only research.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="DV_Gun_ImpactCannon" or defName="DV_Gun_ImpactSlinger"]/weaponTags</xpath>
+		<value>
+			<li>GunHeavy</li>
+		</value>
+	</Operation>
+
+</Patch>

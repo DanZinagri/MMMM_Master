@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		VFE Medieval 2. This folder only loads when VFE Medieval 2 is active (see loadFolders.xml).
+		  - The travelling merchant guild also fields Det's Brawnum and Boglegs (0.1 each, each MayRequire'd).
+		  - The warbow can also be made at a crafting spot (upstream: smithies only).
+		  - The heavy plate helmet stops inheriting the machining table from its parent, so it is smithy-only.
+		  - The palisade no longer holds up roofs (upstream: holdsRoof true).
+		The last three are VFE Medieval 2 tweaks with no partner mod; the user filed the block under integrations as a whole.
+		Verified against VFE Medieval 2 1.6: all four targets exist with the upstream values noted, and neither xenotype is
+		already listed. Progression: Attire also appends Medieval Overhaul's anvil to the helmet's recipeUsers, which stacks.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Other ops (everything else (thoughts, sanity, meditation focus, hediffs, animals, plants)).
+	-->
+	<!--
+		With VFE Furniture: VFE Medieval 2's training dummy counts as VFE's "strength play" recreation instead of vanilla
+		dexterity gaming, in the building, its play job and its joy giver. Verified all three upstream values are
+		Gaming_Dexterity and VFE_StrengthPlay exists. Rimbody's melee-exercise tag on the same job is unaffected.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VFECore">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/JobDef[defName="VFEM2_Play_TrainingDummy"]/joyKind</xpath>
+						<value>
+							<joyKind>VFE_StrengthPlay</joyKind>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/JoyGiverDef[defName="VFEM2_Play_TrainingDummy"]/joyKind</xpath>
+						<value>
+							<joyKind>VFE_StrengthPlay</joyKind>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

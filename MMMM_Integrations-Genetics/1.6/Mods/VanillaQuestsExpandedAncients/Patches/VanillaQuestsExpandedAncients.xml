@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Quests Expanded - Ancients integrations:
+		- The ancient hospital armchair and bench become real seats (sittable, chair replace tag, standable). Upstream
+		  gives them Comfort but no way to sit on them; the conditional skips this if VQEA ever adds isSittable itself.
+		- With Big and Small, the Herculean and Enormous archite genes force the Giant trait. The trait is defined in the
+		  Big and Small Framework, so that is the gate; the original checked for Genes &amp; More by name.
+		This folder only loads when VQE Ancients is active (see loadFolders.xml). The gate sits on an <li> inside the
+		sequence, not on the <Operation> itself: RimWorld reads MayRequire only on list elements.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Genetics ops (genes and xenotypes).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BetterPrerequisites">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/GeneDef[defName="VQEA_Herculean" or defName="VQEA_Enormous"]</xpath>
+						<value>
+							<forcedTraits>
+								<li>
+									<def>BS_Giant</def>
+								</li>
+							</forcedTraits>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

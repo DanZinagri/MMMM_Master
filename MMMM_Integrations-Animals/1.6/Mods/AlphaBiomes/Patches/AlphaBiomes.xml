@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Alpha Biomes: wild animal spawns for eight of its biomes, from Mythic Ages: Megafauna Bestiary (MA_*, 33 entries, gated on
+		veterano.mythicages.megafaunabestiary) and Dark Ages: Beasts and Monsters (DA_*, 13 entries, gated on Van.Beasts).
+		This folder only loads with Alpha Biomes (see loadFolders.xml). Each entry carries its own MayRequire, so with neither
+		animal mod active these adds contribute nothing. Each biome's add is its own top-level operation, so a biome that goes
+		missing in a future Alpha Biomes update cannot stop the others from applying.
+		The "vanilla sum" comments are the original author's notes on each biome's existing total commonality.
+		From Too Many Mods' AlphaBiomes.xml, where it had no setting.
+
+		Audited 2026-10-13 (analysis/regrowth_audit.py): all 46 pawn kinds exist, none is already in its biome's own list or lists
+		the biome in its race's wildBiomes, and no installed mod patches any of them in. That matters: a biome that gets the
+		same animal twice throws when it builds its commonality table (BiomeDef.CommonalityOfAnimal), which breaks wild
+		animal spawning there.
+		Other mods known to add Mythic Ages animals to Alpha Biomes, neither installed here: "Mythic Ages - Alpha Biomes
+		Compatibility" (workshop 3779735876, since hidden on Steam) and Joe's Tweaks. Any pair they share with this file would
+		be such a duplicate, so they should not be run together with it.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/BiomeDef[defName="AB_IdyllicMeadows"]/wildAnimals</xpath>
+		<value>
+			<!-- vanilla sum: around 9 -->
+			<MA_Deermoss MayRequire="veterano.mythicages.megafaunabestiary">0.02</MA_Deermoss>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/BiomeDef[defName="AB_FeraliskInfestedJungle"]/wildAnimals</xpath>
+		<value>
+			<!-- vanilla sum: 1.11 -->
+			<MA_Furpotamus MayRequire="veterano.mythicages.megafaunabestiary">0.01</MA_Furpotamus>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/BiomeDef[defName="AB_MiasmicMangrove"]/wildAnimals</xpath>
+		<value>
+			<!-- vanilla sum: around 7 -->
+			<DA_Barog MayRequire="Van.Beasts">0.15</DA_Barog>
+			<DA_Snaptoad MayRequire="Van.Beasts">0.25</DA_Snaptoad>
+			<DA_Phrak MayRequire="Van.Beasts">0.3</DA_Phrak>
+			<MA_Deermoss MayRequire="veterano.mythicages.megafaunabestiary">0.02</MA_Deermoss>
+			<MA_Duskhorn MayRequire="veterano.mythicages.megafaunabestiary">0.01</MA_Duskhorn>
+			<MA_Furpotamus MayRequire="veterano.mythicages.megafaunabestiary">0.01</MA_Furpotamus>
+			<MA_Gnaut MayRequire="veterano.mythicages.megafaunabestiary">0.1</MA_Gnaut>
+			<MA_Hellboar MayRequire="veterano.mythicages.megafaunabestiary">0.01</MA_Hellboar>
+			<MA_Plastemmoth MayRequire="veterano.mythicages.megafaunabestiary">0.01</MA_Plastemmoth>
+			<MA_Raptorkhan MayRequire="veterano.mythicages.megafaunabestiary">0.02</MA_Raptorkhan>
+			<MA_Scarodon MayRequire="veterano.mythicages.megafaunabestiary">0.01</MA_Scarodon>
+			<MA_Sporemole MayRequire="veterano.mythicages.megafaunabestiary">0.005</MA_Sporemole>
+			<MA_Worhin MayRequire="veterano.mythicages.megafaunabestiary">0.01</MA_Worhin>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/BiomeDef[defName="AB_GallatrossGraveyard"]/wildAnimals</xpath>
+		<value>
+			<!-- vanilla sum: around 9 -->
+			<DA_BlackScribe MayRequire="Van.Beasts">0.2</DA_BlackScribe>
+			<DA_Karabal MayRequire="Van.Beasts">0.1</DA_Karabal>
+			<DA_Pilgrim MayRequire="Van.Beasts">0.1</DA_Pilgrim>
+			<MA_Harpeagle MayRequire="veterano.mythicages.megafaunabestiary">0.02</MA_Harpeagle>
+			<MA_Hellboar MayRequire="veterano.mythicages.megafaunabestiary">0.02</MA_Hellboar>
+			<MA_Raptorkhan MayRequire="veterano.mythicages.megafaunabestiary">0.02</MA_Raptorkhan>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/BiomeDef[defName="AB_TarPits"]/wildAnimals</xpath>
+		<value>
+			<!-- vanilla sum: around 8.5 -->
+			<DA_BlackScribe MayRequire="Van.Beasts">0.2</DA_BlackScribe>
+			<DA_Karabal MayRequire="Van.Beasts">0.1</DA_Karabal>
+			<DA_Pilgrim MayRequire="Van.Beasts">0.2</DA_Pilgrim>
+			<MA_Harpeagle MayRequire="veterano.mythicages.megafaunabestiary">0.02</MA_Harpeagle>
+			<MA_Hellboar MayRequire="veterano.mythicages.megafaunabestiary">0.02</MA_Hellboar>
+			<MA_Raptorkhan MayRequire="veterano.mythicages.megafaunabestiary">0.02</MA_Raptorkhan>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/BiomeDef[defName="AB_PropaneLakes"]/wildAnimals</xpath>
+		<value>
+			<!-- vanilla sum: 0.9 -->
+			<DA_BeardedTroll MayRequire="Van.Beasts">0.05</DA_BeardedTroll>
+			<DA_ArcticOwlcat MayRequire="Van.Beasts">0.05</DA_ArcticOwlcat>
+			<MA_Direhorse MayRequire="veterano.mythicages.megafaunabestiary">0.005</MA_Direhorse>
+			<MA_Duskhorn MayRequire="veterano.mythicages.megafaunabestiary">0.005</MA_Duskhorn>
+			<MA_Furpotamus MayRequire="veterano.mythicages.megafaunabestiary">0.005</MA_Furpotamus>
+			<MA_Gnaut MayRequire="veterano.mythicages.megafaunabestiary">0.005</MA_Gnaut>
+			<MA_Plastemmoth MayRequire="veterano.mythicages.megafaunabestiary">0.03</MA_Plastemmoth>
+			<MA_Raptorkhan MayRequire="veterano.mythicages.megafaunabestiary">0.002</MA_Raptorkhan>
+			<MA_Scarodon MayRequire="veterano.mythicages.megafaunabestiary">0.002</MA_Scarodon>
+			<MA_Worhin MayRequire="veterano.mythicages.megafaunabestiary">0.02</MA_Worhin>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/BiomeDef[defName="AB_OcularForest"]/wildAnimals</xpath>
+		<value>
+			<!-- vanilla sum: 3.45 -->
+			<DA_Crestel MayRequire="Van.Beasts">0.003</DA_Crestel>
+			<DA_RedhornedLarpah MayRequire="Van.Beasts">0.003</DA_RedhornedLarpah>
+			<MA_Direhorse MayRequire="veterano.mythicages.megafaunabestiary">0.002</MA_Direhorse>
+			<MA_Hellboar MayRequire="veterano.mythicages.megafaunabestiary">0.004</MA_Hellboar>
+			<MA_Scarodon MayRequire="veterano.mythicages.megafaunabestiary">0.004</MA_Scarodon>
+			<MA_Deermoss MayRequire="veterano.mythicages.megafaunabestiary">0.002</MA_Deermoss>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/BiomeDef[defName="AB_PyroclasticConflagration"]/wildAnimals</xpath>
+		<value>
+			<!-- vanilla sum: 8.5 -->
+			<MA_Hellboar MayRequire="veterano.mythicages.megafaunabestiary">0.01</MA_Hellboar>
+			<MA_Scarodon MayRequire="veterano.mythicages.megafaunabestiary">0.01</MA_Scarodon>
+			<MA_Harpeagle MayRequire="veterano.mythicages.megafaunabestiary">0.005</MA_Harpeagle>
+		</value>
+	</Operation>
+
+</Patch>

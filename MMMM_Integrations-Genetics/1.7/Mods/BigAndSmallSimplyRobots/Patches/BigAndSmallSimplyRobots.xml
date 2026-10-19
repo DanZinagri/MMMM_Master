@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Mechanical gene names for other mods' genes. The Big and Small Framework's BS_GeneRenamer (a DefAltNamer) makes the
+		gene UI show a gene's labelMechanoid instead of its normal label when the pawn is one B&S flags as mechanical (Simply
+		Robots' androids and commando bots, among others). B&S covers its own and some vanilla genes; these entries cover
+		vanilla Nearsighted / Fire weakness / Inbred / Robust and genes from Alpha Genes, Biotech Expansion, Det's Keshig,
+		Brawnum and Venators, Geist, Highborn, Rimsenal Askbarn and Harana, and VRE Archon, Hussar, Pigskin and Saurid, each
+		block MayRequire'd on its mod. Label text only; stats and non-mechanical pawns are unaffected.
+		This folder only loads when Simply Robots is active (see loadFolders.xml), as in the original.
+
+		Every entry is guarded: it is added only if no rename for that gene exists yet. B&S builds its lookup with ToDictionary
+		over all rename entries, so a duplicate gene throws and breaks every gene rename. The original guarded only the
+		vanilla-gene entries; the guard now covers all of them.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="Nearsighted"]</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+					<value>
+						<li>
+							<def>Nearsighted</def>
+							<labelMechanoid>short-focus sensor</labelMechanoid>
+						</li>
+					</value>
+				</nomatch>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="FireWeakness"]</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+					<value>
+						<li>
+							<def>FireWeakness</def>
+							<labelMechanoid>flame-sensitive shell</labelMechanoid>
+						</li>
+					</value>
+				</nomatch>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="Inbred"]</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+					<value>
+						<li>
+							<def>Inbred</def>
+							<labelMechanoid>energy-saving nanomachines</labelMechanoid>
+						</li>
+					</value>
+				</nomatch>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="Robust"]</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+					<value>
+						<li>
+							<def>Robust</def>
+							<labelMechanoid>shock absorption</labelMechanoid>
+						</li>
+					</value>
+				</nomatch>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="AG_HardBones"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>AG_HardBones</def>
+									<labelMechanoid>cushioning shell</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="AG_FungalSkin"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>AG_FungalSkin</def>
+									<labelMechanoid>fungal exterior</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="AG_FrailSkin"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>AG_FrailSkin</def>
+									<labelMechanoid>frail exterior</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="AG_ArmourMajor"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>AG_ArmourMajor</def>
+									<labelMechanoid>integrated armor</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="AG_ArmourMedium"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>AG_ArmourMedium</def>
+									<labelMechanoid>reinforced exterior</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="AG_LimbRegeneration"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>AG_LimbRegeneration</def>
+									<labelMechanoid>external self-reconstruction</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="AG_Digitigrade"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>AG_Digitigrade</def>
+									<labelMechanoid>biomimetic digitigrade legs</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="biotexpans.core">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="BTE_FeralMight"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>BTE_FeralMight</def>
+									<labelMechanoid>optimized hand combat</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="det.keshig">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="DV_DodgeChance_High"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>DV_DodgeChance_High</def>
+									<labelMechanoid>finetuned dodging</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="DV_DodgeChance_Low"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>DV_DodgeChance_Low</def>
+									<labelMechanoid>overfitted dodging</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="det.brawnum">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="DV_Melee_Slow"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>DV_Melee_Slow</def>
+									<labelMechanoid>hardcoded fight moves</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="det.venators">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="DV_Farsighted"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>DV_Farsighted</def>
+									<labelMechanoid>long-focus sensor</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Sov.Tenmo">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="GS_Nimble"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>GS_Nimble</def>
+									<labelMechanoid>biomimetic dodging</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="ElSov.Highborn">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="HBX_Fencer"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>HBX_Fencer</def>
+									<labelMechanoid>movement predictor</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Askbarn">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="RSBornWarrior"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>RSBornWarrior</def>
+									<labelMechanoid>pretrained dodging</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="RSLightningReflexes"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>RSLightningReflexes</def>
+									<labelMechanoid>finetuned aiming</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Harana">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="AgileStriker"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>AgileStriker</def>
+									<labelMechanoid>pretrained aiming</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.archon">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="VRE_FastMeleeHitter"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>VRE_FastMeleeHitter</def>
+									<labelMechanoid>finetuned fight moves</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="VRE_SlowMeleeHitter"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>VRE_SlowMeleeHitter</def>
+									<labelMechanoid>overfitted fight moves</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="VRE_FastShooter"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>VRE_FastShooter</def>
+									<labelMechanoid>finetuned shooting</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="VRE_SlowShooter"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>VRE_SlowShooter</def>
+									<labelMechanoid>overfitted shooting</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.hussar">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="VREH_BulletproofSkin"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>VREH_BulletproofSkin</def>
+									<labelMechanoid>bulletproof exterior</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="VREH_Toughness"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>VREH_Toughness</def>
+									<labelMechanoid>biomimetic shock absorption</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.pigskin">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="VRE_OrganRegeneration"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>VRE_OrganRegeneration</def>
+									<labelMechanoid>internal self-reconstruction</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.saurid">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="VRESaurids_ColdBlooded"]</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+							<value>
+								<li>
+									<def>VRESaurids_ColdBlooded</def>
+									<labelMechanoid>temperature-sensitive core</labelMechanoid>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Genetics Expanded:
+		  - Odyssey: VGE's insect hybrids get full vacuum resistance, like vanilla insects.
+		  - ReBuild: Doors and Corners: electrowombs cost glass alongside less steel, and the archowomb uses ballistic glass
+		    instead of plasteel.
+		  - The outlander gene caravan also stocks genepacks, archite capsules and deathrest capacity serum.
+		  - Alpha Animals: VGE's alpha genome excavator also covers the dinosaur (Dinosauria / Biomes! Prehistoric), megafauna
+		    and dragon (Dragon Genetics) tiers, and those three single-tier excavators leave the random excavator pool. MMMM
+		    Convergence - Items removes the three excavators themselves through Cherry Picker.
+		This folder only loads with Vanilla Genetics Expanded (see loadFolders.xml).
+		Verified against VGE, Alpha Animals, Megafauna, ReBuild D&C and Odyssey 1.6: the insect base has no vacuum resistance,
+		the caravan stocks none of the three items, and VGE's own Dinosauria/Megafauna folders add those excavators to the random
+		pool. Dinosauria, Biomes! Prehistoric and Dragon Genetics are not installed here; Hol.DragonGenetics comes from Too Many
+		Mods' loadAfter and is unverified.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Buildings ops (buildings, furniture, floors, recipes and production).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="ReBuild.COTR.DoorsAndCorners">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="GR_ElectroWomb"]/costList/Steel</xpath>
+						<value>
+							<Steel>10</Steel>
+							<RB_Glass>5</RB_Glass>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="GR_LargeElectroWomb"]/costList/Steel</xpath>
+						<value>
+							<Steel>90</Steel>
+							<RB_Glass>30</RB_Glass>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="GR_ArchoWomb"]/costList/Plasteel</xpath>
+						<value>
+							<RB_BallisticGlass>30</RB_BallisticGlass>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphaanimals">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequireAnyOf="spincrus.dinosauria,BiomesTeam.BiomesPrehistoric">
+						<operations>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/ThingDef[defName= "GR_RandomExcavator"]/comps/li[@Name="GR_RandomExcavatorComp"]/items/li[text()="GR_DinoGenomeExcavator"]</xpath>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphaanimals">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Spino.Megafauna">
+						<operations>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/ThingDef[defName= "GR_RandomExcavator"]/comps/li[@Name="GR_RandomExcavatorComp"]/items/li[text()="GR_MegafaunaGenomeExcavator"]</xpath>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphaanimals">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Hol.DragonGenetics">
+						<operations>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/ThingDef[defName= "GR_RandomExcavator"]/comps/li[@Name="GR_RandomExcavatorComp"]/items/li[text()="GR_DragonGenomeExcavator"]</xpath>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

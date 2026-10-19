@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Two Geist genes join the shared exclusion groups this project uses, so they cannot stack with the equivalent
+		gene from another mod: nimble joins MeleeDodge and the EMP weakness joins EMPWeakness.
+		This folder only loads when Geist Xenotype is active (see loadFolders.xml), and neither operation needs a
+		partner-mod check: an exclusion tag nothing else carries simply never fires.
+
+		Both tags are groups this project invents rather than something an upstream mod defines, so a group only works
+		once every member has been moved across. MeleeDodge has Det's Keshig, Goji's Merren and Alpha Genes' forsaken head emblem
+		(1.6/Patches/GeneExclusionTags.xml) here and Rimsenal Askbarn's reworked born warrior in MMMM_Rebalances. EMPWeakness pairs this
+		gene with VQE - Ancients' Electromagnetized archite gene, which is tagged here too (gated on VQEA). No other
+		installed gene carries the tag.
+
+		Verified against Geist 1.6 and VQEA 1.6: none of the three genes has an exclusionTags list of its own, so each
+		add creates one.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/GeneDef[defName="GS_Nimble"]</xpath>
+				<value>
+					<exclusionTags>
+						<li>MeleeDodge</li>
+					</exclusionTags>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/GeneDef[defName="GS_EMP_Weakness"]</xpath>
+				<value>
+					<exclusionTags>
+						<li>EMPWeakness</li>
+					</exclusionTags>
+				</value>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="vanillaquestsexpanded.ancients">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/GeneDef[defName="VQEA_Electromagnetized"]</xpath>
+						<value>
+							<exclusionTags>
+								<li>EMPWeakness</li>
+							</exclusionTags>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Races Expanded - Hussar and Big and Small overlap.
+		- Uhlan uses Large frame (BS_LargeFrame) instead of VREH_Giant.
+		- Great ogre uses VREH_Toughness instead of Robust, and Satan uses VREH_Arrogant instead of BS_Abrasive;
+		each block is gated with MayRequire on the B&amp;S sub-mod it belongs to.
+		- The retired duplicates are handed to Cherry Picker.
+		This folder only loads when both VRE - Hussar and Big and Small - Genes &amp; More are active (see loadFolders.xml), so no FindMod checks are needed.
+		Fix 2026-10-03: a retired gene is now swapped in every xenotype that carries it (not just this mod's), and only
+		retired under the same mods as its replacement. Before, other mods' xenotypes sharing the gene (and this one, when
+		the replacement mod was absent) lost it to Cherry Picker with nothing in its place.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/XenotypeDef/genes/li[text()="VREH_Giant"]</xpath>
+				<match Class="PatchOperationReplace">
+					<xpath>Defs/XenotypeDef/genes/li[text()="VREH_Giant"]</xpath>
+					<value>
+						<li>BS_LargeFrame</li>
+					</value>
+				</match>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall"><!-- was: Big and Small - Races -->
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_GreatOgre"]/genes/li[text()="Robust"]</xpath>
+						<value>
+							<li>VREH_Toughness</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.Heaven"><!-- was: Big and Small - Heaven and Hell -->
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_Satan"]/genes/li[text()="BS_Abrasive"]</xpath>
+						<value>
+							<li>VREH_Arrogant</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+				<value>
+					<li>GeneDef/VREH_Giant</li>
+					<li>GeneDef/VREH_Giant_Astrogene</li>
+					<li>GeneDef/BS_Abrasive</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

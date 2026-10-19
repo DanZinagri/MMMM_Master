@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved here from the root file 1.6/Patches/StrongerEnemies.xml.
+		This folder loads only when NONE of the 2 mods listed for this folder in loadFolders.xml is active (see loadFolders.xml). The same condition used to be a
+		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationReplace">
+												<xpath>Defs/PawnKindDef[defName="Empire_Caster_Conflagrator"]/specificApparelRequirements</xpath>
+												<value>
+													<apparelRequired>
+														<li>Apparel_ArmorHelmetCataphractPrestige</li>
+														<li>Apparel_ArmorCataphractPrestige</li>
+													</apparelRequired>
+													<specificApparelRequirements Inherit="False">
+														<li>
+															<bodyPartGroup>FullHead</bodyPartGroup>
+															<color>(68,68,68)</color>
+														</li>
+														<li>
+															<bodyPartGroup>Torso</bodyPartGroup>
+															<apparelLayer>OnSkin</apparelLayer>
+															<stuff>Cloth</stuff>
+														</li>
+														<li>
+															<bodyPartGroup>Legs</bodyPartGroup>
+															<apparelLayer>OnSkin</apparelLayer>
+															<stuff>Cloth</stuff>
+														</li>
+													</specificApparelRequirements>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

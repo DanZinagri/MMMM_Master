@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!--
+		Info-card text for VBE's drug condiments, shown through the VEF stat extension added in
+		1.6/Mods/VanillaBrewingExpanded/Patches. The effect figures match VBE's hediffs. The duration was "12 hours" in
+		the original, copied from VCE's own condiments, which last half a day; VBE's drug condiments last a full day,
+		because their hediff has no timer of its own and lives as long as a one-day thought, so it now says 24 hours.
+	-->
+	<TMM_VCE_CondimentEffectsLuciferiumPowder>Consuming meals that include this condiment increases sight, blood pumping and filtration by 5%, increases consciousness, moving, breathing and digestion by 2%, and reduces pain by 5% for 24 hours.</TMM_VCE_CondimentEffectsLuciferiumPowder>
+	<TMM_VCE_CondimentEffectsWakeUpPowder>Consuming meals that include this condiment increases global work speed by 10%, increases meditation psyfocus gain by 5%, increases consciousness and moving by 3%, and reduces tiredness by 5% for 24 hours.</TMM_VCE_CondimentEffectsWakeUpPowder>
+	<TMM_VCE_CondimentEffectsGoJuiceStock>Consuming meals that include this condiment increases sight and moving by 5%, increases consciousness by 3%, and reduces pain by 10% for 24 hours.</TMM_VCE_CondimentEffectsGoJuiceStock>
+
+</LanguageData>

@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Psycasts Expanded meditation focus on other mods' buildings: archotech structures and vanometric power
+		sources give psyfocus strength, and royal furniture from vanilla, VFE Furniture and VFE Empire becomes a Wealth
+		focus source that grows stronger with more royal furniture nearby.
+		This folder only loads when VPE is active (see loadFolders.xml). Each partner mod's part is gated on its packageId;
+		the gate sits on an <li> inside the sequence, not on the <Operation> itself, because RimWorld reads MayRequire only
+		on list elements.
+
+		Changes from the original, which gated each part with a PatchOperationFindMod on the mod's display name:
+		- The VFE Empire op targeted `efName="VFEE_RoyalStool"`, a typo, so the royal stool never got its focus comp even
+		  though it had the focus stat and was listed in every offset table. Corrected to defName.
+		- The Alpha Biomes derelict structures already have a <statBases> node, so adding a second one logged a
+		  duplicate-node error and the later node replaced their stats. The op now adds into the existing <statBases>.
+		All 27 target defs were checked against the current VPE, VFE Furniture, VFE Empire, VFE Power, VFE Art, VGE,
+		Alpha Biomes and vanilla 1.6 defs; no installed mod already makes any of them a meditation focus source.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Buildings ops (buildings, furniture, floors, recipes and production).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<!-- Vanilla and Royalty: royal bed (Wealth focus) and vanometric power cell -->
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="RoyalBed"]/statBases</xpath>
+				<value>
+					<MeditationFocusStrength>0.16</MeditationFocusStrength>
+				</value>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/ThingDef[defName="RoyalBed"]/comps</xpath>
+				<match Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="RoyalBed"]/comps</xpath>
+					<value>
+						<li Class="CompProperties_MeditationFocus">
+							<statDef>MeditationFocusStrength</statDef>
+							<focusTypes>
+								<li>VPE_Wealth</li>
+							</focusTypes>
+							<offsets>
+								<li Class="FocusStrengthOffset_BuildingDefs">
+									<defs>
+										<RoyalBed>0.03</RoyalBed>
+										<Bed_Kingsize MayRequire="VanillaExpanded.VFECore">0.03</Bed_Kingsize>
+										<Table_RoyalEndTable MayRequire="VanillaExpanded.VFECore">0.02</Table_RoyalEndTable>
+										<Table_RoyalDresser MayRequire="VanillaExpanded.VFECore">0.03</Table_RoyalDresser>
+										<Seat_RoyalChair MayRequire="VanillaExpanded.VFECore">0.02</Seat_RoyalChair>
+										<Seat_RoyalArmchair MayRequire="VanillaExpanded.VFECore">0.03</Seat_RoyalArmchair>
+										<Table_Royal1x1c MayRequire="VanillaExpanded.VFECore">0.02</Table_Royal1x1c>
+										<Table_Royal2x2c MayRequire="VanillaExpanded.VFECore">0.02</Table_Royal2x2c>
+										<Table_Royal1x2c MayRequire="VanillaExpanded.VFECore">0.02</Table_Royal1x2c>
+										<Table_Royal3x3c MayRequire="VanillaExpanded.VFECore">0.03</Table_Royal3x3c>
+										<Table_Royal2x4c MayRequire="VanillaExpanded.VFECore">0.03</Table_Royal2x4c>
+										<VFEE_GrandTable MayRequire="OskarPotocki.VFE.Empire">0.04</VFEE_GrandTable>
+										<VFEE_RoyalStool MayRequire="OskarPotocki.VFE.Empire">0.02</VFEE_RoyalStool>
+									</defs>
+									<radius>8.9</radius>
+									<maxBuildings>6</maxBuildings>
+									<explanationKey>MeditationFocusPerWealthy</explanationKey>
+									<explanationKeyAbstract>MeditationFocusPerWealthyAbstract</explanationKeyAbstract>
+								</li>
+							</offsets>
+						</li>
+					</value>
+				</match>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/ThingDef[defName="RoyalBed"]/comps</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="RoyalBed"]</xpath>
+					<value>
+						<comps>
+							<li Class="CompProperties_MeditationFocus">
+								<statDef>MeditationFocusStrength</statDef>
+								<focusTypes>
+									<li>VPE_Wealth</li>
+								</focusTypes>
+								<offsets>
+									<li Class="FocusStrengthOffset_BuildingDefs">
+										<defs>
+											<RoyalBed>0.03</RoyalBed>
+											<Bed_Kingsize MayRequire="VanillaExpanded.VFECore">0.03</Bed_Kingsize>
+											<Table_RoyalEndTable MayRequire="VanillaExpanded.VFECore">0.02</Table_RoyalEndTable>
+											<Table_RoyalDresser MayRequire="VanillaExpanded.VFECore">0.03</Table_RoyalDresser>
+											<Seat_RoyalChair MayRequire="VanillaExpanded.VFECore">0.02</Seat_RoyalChair>
+											<Seat_RoyalArmchair MayRequire="VanillaExpanded.VFECore">0.03</Seat_RoyalArmchair>
+											<Table_Royal1x1c MayRequire="VanillaExpanded.VFECore">0.02</Table_Royal1x1c>
+											<Table_Royal2x2c MayRequire="VanillaExpanded.VFECore">0.02</Table_Royal2x2c>
+											<Table_Royal1x2c MayRequire="VanillaExpanded.VFECore">0.02</Table_Royal1x2c>
+											<Table_Royal3x3c MayRequire="VanillaExpanded.VFECore">0.03</Table_Royal3x3c>
+											<Table_Royal2x4c MayRequire="VanillaExpanded.VFECore">0.03</Table_Royal2x4c>
+											<VFEE_GrandTable MayRequire="OskarPotocki.VFE.Empire">0.04</VFEE_GrandTable>
+											<VFEE_RoyalStool MayRequire="OskarPotocki.VFE.Empire">0.02</VFEE_RoyalStool>
+										</defs>
+										<radius>8.9</radius>
+										<maxBuildings>6</maxBuildings>
+										<explanationKey>MeditationFocusPerWealthy</explanationKey>
+										<explanationKeyAbstract>MeditationFocusPerWealthyAbstract</explanationKeyAbstract>
+									</li>
+								</offsets>
+							</li>
+						</comps>
+					</value>
+				</nomatch>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="VanometricPowerCell"]/statBases</xpath>
+				<value>
+					<MeditationFocusStrength>0.36</MeditationFocusStrength>
+				</value>
+			</li>
+
+			<!-- Ideology archotech structures -->
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Ideology">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="ArchotechTower" or defName="MajorArchotechStructure" or defName="GrandArchotechStructure" or defName="ArchonexusCore"]</xpath>
+						<value>
+							<statBases>
+								<MeditationFocusStrength>0.90</MeditationFocusStrength>
+							</statBases>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<!-- VFE Power vanometric cells and archotech violence generator -->
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VFEPower">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="VFE_SmallVanometricPowerCell"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.24</MeditationFocusStrength>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="VFE_LargeVanometricPowerCell"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.42</MeditationFocusStrength>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="VPE_ArchotechViolenceGenerator"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.48</MeditationFocusStrength>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<!-- VFE Art archotech sculpture -->
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VFEArt">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="VFE_ArchotechSculpture"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.36</MeditationFocusStrength>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<!-- VGE archowomb and archocentipede former -->
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VGeneticsE">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="GR_ArchoWomb"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.18</MeditationFocusStrength>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="GR_ArchocentipedeFormer"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.18</MeditationFocusStrength>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<!-- Alpha Biomes derelict archotech structures (its Odyssey content) -->
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphabiomes,Ludeon.RimWorld.Odyssey">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="AB_DerelictArchotechTower" or defName="AB_DerelictMajorArchotechStructure" or defName="AB_DerelictArchonexusCore"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.50</MeditationFocusStrength>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<!-- VFE Furniture royal furniture (Wealth focus) -->
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VFECore">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Bed_Kingsize" or defName="Table_RoyalEndTable" or defName="Table_RoyalDresser" or defName="Seat_RoyalArmchair"]/comps</xpath>
+						<value>
+							<li Class="CompProperties_MeditationFocus">
+								<statDef>MeditationFocusStrength</statDef>
+								<focusTypes>
+									<li>VPE_Wealth</li>
+								</focusTypes>
+								<offsets>
+									<li Class="FocusStrengthOffset_BuildingDefs">
+										<defs>
+											<RoyalBed>0.03</RoyalBed>
+											<Bed_Kingsize MayRequire="VanillaExpanded.VFECore">0.03</Bed_Kingsize>
+											<Table_RoyalEndTable MayRequire="VanillaExpanded.VFECore">0.02</Table_RoyalEndTable>
+											<Table_RoyalDresser MayRequire="VanillaExpanded.VFECore">0.03</Table_RoyalDresser>
+											<Seat_RoyalChair MayRequire="VanillaExpanded.VFECore">0.02</Seat_RoyalChair>
+											<Seat_RoyalArmchair MayRequire="VanillaExpanded.VFECore">0.03</Seat_RoyalArmchair>
+											<Table_Royal1x1c MayRequire="VanillaExpanded.VFECore">0.02</Table_Royal1x1c>
+											<Table_Royal2x2c MayRequire="VanillaExpanded.VFECore">0.02</Table_Royal2x2c>
+											<Table_Royal1x2c MayRequire="VanillaExpanded.VFECore">0.02</Table_Royal1x2c>
+											<Table_Royal3x3c MayRequire="VanillaExpanded.VFECore">0.03</Table_Royal3x3c>
+											<Table_Royal2x4c MayRequire="VanillaExpanded.VFECore">0.03</Table_Royal2x4c>
+											<VFEE_GrandTable MayRequire="OskarPotocki.VFE.Empire">0.04</VFEE_GrandTable>
+											<VFEE_RoyalStool MayRequire="OskarPotocki.VFE.Empire">0.02</VFEE_RoyalStool>
+										</defs>
+										<radius>8.9</radius>
+										<maxBuildings>6</maxBuildings>
+										<explanationKey>MeditationFocusPerWealthy</explanationKey>
+										<explanationKeyAbstract>MeditationFocusPerWealthyAbstract</explanationKeyAbstract>
+									</li>
+								</offsets>
+							</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Seat_RoyalChair" or defName="Table_Royal1x1c" or defName="Table_Royal2x2c" or defName="Table_Royal1x2c" or defName="Table_Royal3x3c" or defName="Table_Royal2x4c"]</xpath>
+						<value>
+							<comps>
+								<li Class="CompProperties_MeditationFocus">
+									<statDef>MeditationFocusStrength</statDef>
+									<focusTypes>
+										<li>VPE_Wealth</li>
+									</focusTypes>
+									<offsets>
+										<li Class="FocusStrengthOffset_BuildingDefs">
+											<defs>
+												<RoyalBed>0.03</RoyalBed>
+												<Bed_Kingsize MayRequire="VanillaExpanded.VFECore">0.03</Bed_Kingsize>
+												<Table_RoyalEndTable MayRequire="VanillaExpanded.VFECore">0.02</Table_RoyalEndTable>
+												<Table_RoyalDresser MayRequire="VanillaExpanded.VFECore">0.03</Table_RoyalDresser>
+												<Seat_RoyalChair MayRequire="VanillaExpanded.VFECore">0.02</Seat_RoyalChair>
+												<Seat_RoyalArmchair MayRequire="VanillaExpanded.VFECore">0.03</Seat_RoyalArmchair>
+												<Table_Royal1x1c MayRequire="VanillaExpanded.VFECore">0.02</Table_Royal1x1c>
+												<Table_Royal2x2c MayRequire="VanillaExpanded.VFECore">0.02</Table_Royal2x2c>
+												<Table_Royal1x2c MayRequire="VanillaExpanded.VFECore">0.02</Table_Royal1x2c>
+												<Table_Royal3x3c MayRequire="VanillaExpanded.VFECore">0.03</Table_Royal3x3c>
+												<Table_Royal2x4c MayRequire="VanillaExpanded.VFECore">0.03</Table_Royal2x4c>
+												<VFEE_GrandTable MayRequire="OskarPotocki.VFE.Empire">0.04</VFEE_GrandTable>
+												<VFEE_RoyalStool MayRequire="OskarPotocki.VFE.Empire">0.02</VFEE_RoyalStool>
+											</defs>
+											<radius>8.9</radius>
+											<maxBuildings>6</maxBuildings>
+											<explanationKey>MeditationFocusPerWealthy</explanationKey>
+											<explanationKeyAbstract>MeditationFocusPerWealthyAbstract</explanationKeyAbstract>
+										</li>
+									</offsets>
+								</li>
+							</comps>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Bed_Kingsize"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.18</MeditationFocusStrength>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Table_RoyalEndTable"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.12</MeditationFocusStrength>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Table_RoyalDresser"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.14</MeditationFocusStrength>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Seat_RoyalChair"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.14</MeditationFocusStrength>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Seat_RoyalArmchair"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.16</MeditationFocusStrength>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Table_Royal1x1c"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.10</MeditationFocusStrength>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Table_Royal2x2c"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.13</MeditationFocusStrength>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Table_Royal1x2c"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.12</MeditationFocusStrength>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Table_Royal3x3c"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.16</MeditationFocusStrength>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Table_Royal2x4c"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.16</MeditationFocusStrength>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<!-- VFE Empire grand table and royal stool (Wealth focus) -->
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Empire">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="VFEE_GrandTable" or defName="VFEE_RoyalStool"]</xpath>
+						<value>
+							<comps>
+								<li Class="CompProperties_MeditationFocus">
+									<statDef>MeditationFocusStrength</statDef>
+									<focusTypes>
+										<li>VPE_Wealth</li>
+									</focusTypes>
+									<offsets>
+										<li Class="FocusStrengthOffset_BuildingDefs">
+											<defs>
+												<RoyalBed>0.03</RoyalBed>
+												<Bed_Kingsize MayRequire="VanillaExpanded.VFECore">0.03</Bed_Kingsize>
+												<Table_RoyalEndTable MayRequire="VanillaExpanded.VFECore">0.02</Table_RoyalEndTable>
+												<Table_RoyalDresser MayRequire="VanillaExpanded.VFECore">0.03</Table_RoyalDresser>
+												<Seat_RoyalChair MayRequire="VanillaExpanded.VFECore">0.02</Seat_RoyalChair>
+												<Seat_RoyalArmchair MayRequire="VanillaExpanded.VFECore">0.03</Seat_RoyalArmchair>
+												<Table_Royal1x1c MayRequire="VanillaExpanded.VFECore">0.02</Table_Royal1x1c>
+												<Table_Royal2x2c MayRequire="VanillaExpanded.VFECore">0.02</Table_Royal2x2c>
+												<Table_Royal1x2c MayRequire="VanillaExpanded.VFECore">0.02</Table_Royal1x2c>
+												<Table_Royal3x3c MayRequire="VanillaExpanded.VFECore">0.03</Table_Royal3x3c>
+												<Table_Royal2x4c MayRequire="VanillaExpanded.VFECore">0.03</Table_Royal2x4c>
+												<VFEE_GrandTable MayRequire="OskarPotocki.VFE.Empire">0.04</VFEE_GrandTable>
+												<VFEE_RoyalStool MayRequire="OskarPotocki.VFE.Empire">0.02</VFEE_RoyalStool>
+											</defs>
+											<radius>8.9</radius>
+											<maxBuildings>6</maxBuildings>
+											<explanationKey>MeditationFocusPerWealthy</explanationKey>
+											<explanationKeyAbstract>MeditationFocusPerWealthyAbstract</explanationKeyAbstract>
+										</li>
+									</offsets>
+								</li>
+							</comps>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="VFEE_GrandTable"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.20</MeditationFocusStrength>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="VFEE_RoyalStool"]/statBases</xpath>
+						<value>
+							<MeditationFocusStrength>0.11</MeditationFocusStrength>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

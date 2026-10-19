@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Quests Expanded - Ancients integrations:
+		- The ancient hospital armchair and bench become real seats (sittable, chair replace tag, standable). Upstream
+		  gives them Comfort but no way to sit on them; the conditional skips this if VQEA ever adds isSittable itself.
+		- With Big and Small, the Herculean and Enormous archite genes force the Giant trait. The trait is defined in the
+		  Big and Small Framework, so that is the gate; the original checked for Genes &amp; More by name.
+		This folder only loads when VQE Ancients is active (see loadFolders.xml). The gate sits on an <li> inside the
+		sequence, not on the <Operation> itself: RimWorld reads MayRequire only on list elements.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Buildings ops (buildings, furniture, floors, recipes and production).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/ThingDef[defName="VQEA_AncientHospitalArmchair"]/building/isSittable</xpath>
+				<nomatch Class="PatchOperationSequence">
+					<operations>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs/ThingDef[defName="VQEA_AncientHospitalArmchair" or defName="VQEA_AncientHospitalBench"]</xpath>
+							<value>
+								<replaceTags>
+									<li>Chair</li>
+								</replaceTags>
+								<socialPropernessMatters>true</socialPropernessMatters>
+								<pathCost>30</pathCost>
+								<passability>Standable</passability>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs/ThingDef[defName="VQEA_AncientHospitalArmchair" or defName="VQEA_AncientHospitalBench"]/building</xpath>
+							<value>
+								<isSittable>true</isSittable>
+							</value>
+						</li>
+					</operations>
+				</nomatch>
+			</li>
+
+		</operations>
+	</Operation>
+
+</Patch>

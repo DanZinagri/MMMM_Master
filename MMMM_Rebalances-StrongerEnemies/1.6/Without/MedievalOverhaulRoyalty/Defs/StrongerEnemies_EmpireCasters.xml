@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<PawnKindDef ParentName="StellicGuardBase" MayRequire="VanillaExpanded.VPsycastsE">
+												<defName>TMM_Empire_Caster_Staticlord</defName>
+												<label>staticlord</label>
+												<titleSelectOne>
+													<li>Freeholder</li>
+													<li>Yeoman</li>
+													<li>Acolyte</li>
+													<li>Knight</li>
+												</titleSelectOne>
+												<weaponTags Inherit="False">
+													<li>SpacerGun</li>
+													<li MayRequire="SirVan.EltexWeaponry">PsychicGun</li>
+												</weaponTags>
+												<skills>
+													<li>
+														<skill>Shooting</skill>
+														<range>11~16</range>
+													</li>
+												</skills>
+												<disallowedTraits>
+													<li>Brawler</li>
+												</disallowedTraits>
+												<initialResistanceRange>30~46</initialResistanceRange>
+												<modExtensions>
+													<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+														<implantDef>VPE_PsycastAbilityImplant</implantDef>
+														<initialLevel>1</initialLevel>
+														<statUpgradePoints>0~0</statUpgradePoints>
+														<unlockedPaths>
+															<VPE_Staticlord>1~4|4~10</VPE_Staticlord>
+														</unlockedPaths>
+													</li>
+												</modExtensions>
+												<xenotypeSet Inherit="False">
+													<xenotypeChances Inherit="False">
+														<Baseliner>1</Baseliner>
+														<Askbarn MayRequire="Rimsenal.Askbarn">3</Askbarn>
+													</xenotypeChances>
+												</xenotypeSet>
+											</PawnKindDef>
+
+	<PawnKindDef ParentName="StellicGuardBase" MayRequire="VanillaExpanded.VPsycastsE">
+												<defName>TMM_Empire_Caster_Frostshaper</defName>
+												<label>frostshaper</label>
+												<titleSelectOne>
+													<li>Freeholder</li>
+													<li>Yeoman</li>
+													<li>Acolyte</li>
+													<li>Knight</li>
+												</titleSelectOne>
+												<weaponTags Inherit="False">
+													<li>SpacerGun</li>
+													<li MayRequire="SirVan.EltexWeaponry">PsychicGun</li>
+												</weaponTags>
+												<skills>
+													<li>
+														<skill>Shooting</skill>
+														<range>11~16</range>
+													</li>
+												</skills>
+												<disallowedTraits>
+													<li>Brawler</li>
+												</disallowedTraits>
+												<initialResistanceRange>30~46</initialResistanceRange>
+												<modExtensions>
+													<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+														<implantDef>VPE_PsycastAbilityImplant</implantDef>
+														<initialLevel>1</initialLevel>
+														<statUpgradePoints>0~0</statUpgradePoints>
+														<unlockedPaths>
+															<VPE_Frostshaper>1~4|4~10</VPE_Frostshaper>
+														</unlockedPaths>
+													</li>
+												</modExtensions>
+												<xenotypeSet Inherit="False">
+													<xenotypeChances Inherit="False">
+														<Baseliner>2</Baseliner>
+													</xenotypeChances>
+												</xenotypeSet>
+											</PawnKindDef>
+
+	<PawnKindDef ParentName="StellicGuardBase" MayRequire="VanillaExpanded.VPsycastsE,VPE.Aeromancer.Sentinel">
+																<defName>TMM_Empire_Caster_Aeromancer</defName>
+																<label>aeromancer</label>
+																<titleSelectOne>
+																	<li>Freeholder</li>
+																	<li>Yeoman</li>
+																	<li>Acolyte</li>
+																	<li>Knight</li>
+																</titleSelectOne>
+																<weaponTags>
+																	<li>Bladelink</li>
+																</weaponTags>
+																<apparelRequired>
+																	<li>Apparel_ShieldBelt</li>
+																</apparelRequired>
+																<skills>
+																	<li>
+																		<skill>Melee</skill>
+																		<range>11~16</range>
+																	</li>
+																</skills>
+																<initialResistanceRange>30~46</initialResistanceRange>
+																<xenotypeSet Inherit="False">
+																	<xenotypeChances Inherit="False">
+																		<Baseliner>1</Baseliner>
+																		<GS_Nephilim MayRequire="Sov.Nephilim">2</GS_Nephilim>
+																	</xenotypeChances>
+																</xenotypeSet>
+																<modExtensions>
+																	<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+																		<implantDef>VPE_PsycastAbilityImplant</implantDef>
+																		<initialLevel>1</initialLevel>
+																		<statUpgradePoints>0~0</statUpgradePoints>
+																		<unlockedPaths>
+																			<VPE_CycloneSTNL>1~4|4~10</VPE_CycloneSTNL>
+																		</unlockedPaths>
+																	</li>
+																</modExtensions>
+															</PawnKindDef>
+
+	<PawnKindDef ParentName="StellicGuardBase" MayRequire="VanillaExpanded.VPsycastsE,VPE.Hydromancer.Sentinel">
+																<defName>TMM_Empire_Caster_Hydromancer</defName>
+																<label>hydromancer</label>
+																<titleSelectOne>
+																	<li>Freeholder</li>
+																	<li>Yeoman</li>
+																	<li>Acolyte</li>
+																	<li>Knight</li>
+																</titleSelectOne>
+																<weaponTags Inherit="False">
+																	<li>SpacerGun</li>
+																	<li MayRequire="SirVan.EltexWeaponry">PsychicGun</li>
+																</weaponTags>
+																<skills>
+																	<li>
+																		<skill>Shooting</skill>
+																		<range>11~16</range>
+																	</li>
+																</skills>
+																<disallowedTraits>
+																	<li>Brawler</li>
+																</disallowedTraits>
+																<initialResistanceRange>30~46</initialResistanceRange>
+																<xenotypeSet Inherit="False">
+																	<xenotypeChances Inherit="False">
+																		<Baseliner>1</Baseliner>
+																		<AG_Nereid MayRequire="sarg.alphagenes">1</AG_Nereid>
+																	</xenotypeChances>
+																</xenotypeSet>
+																<modExtensions>
+																	<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+																		<implantDef>VPE_PsycastAbilityImplant</implantDef>
+																		<initialLevel>1</initialLevel>
+																		<statUpgradePoints>0~0</statUpgradePoints>
+																		<unlockedPaths>
+																			<VPE_HydromancerSTNL>1~4|4~10</VPE_HydromancerSTNL>
+																		</unlockedPaths>
+																	</li>
+																</modExtensions>
+															</PawnKindDef>
+
+</Defs>

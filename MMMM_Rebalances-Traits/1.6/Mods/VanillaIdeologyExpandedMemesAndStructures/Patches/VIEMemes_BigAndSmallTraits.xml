@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The royal and aristocratic memes treat the Big and Small unpretentious trait as disagreeable.
+		This folder only loads when VIE - Memes and Structures is active (see loadFolders.xml); Big and Small and the
+		DLCs are gated inside. The royal meme keeps its extra Royalty check because VIE only defines it under Royalty.
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally.
+
+		Verified against VIE 1.6: neither meme already has a disagreeableTraits list, so both adds land.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core,Ludeon.RimWorld.Ideology">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Royalty">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/MemeDef[defName="VME_Royal"]</xpath>
+								<value>
+									<disagreeableTraits>
+										<li>BS_Unpretentious</li>
+									</disagreeableTraits>
+								</value>
+							</li>
+						</operations>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/MemeDef[defName="VME_Aristocratic"]</xpath>
+						<value>
+							<disagreeableTraits>
+								<li>BS_Unpretentious</li>
+							</disagreeableTraits>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

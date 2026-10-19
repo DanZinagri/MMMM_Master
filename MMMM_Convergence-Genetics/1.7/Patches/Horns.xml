@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Horn integration: horn genes from Alpha Genes, Big and Small, Lamias, Biotech Expansion Mythic, Beliar, Roo's
+		faun/minotaur/satyr and the cosmetic horn packs all give Alpha Genes' horn attack hediff, with matching effect
+		descriptions. Moved from the core root file AA5B_Horns.xml (setting TMM_HornIntegration, default on). Name FindMods kept
+		for Helltaker Cosmetic Genes and Biotech Cosmetic Kit (no known packageId). Checked with analysis/patch_sim.py: all
+		installed-mod ops apply.
+	-->
+
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="AG_HornAttack"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools/li/cooldownTime</xpath>
+								<value>
+									<cooldownTime>3</cooldownTime>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="AG_HornAttack"]/label</xpath>
+								<value>
+									<label>horns</label>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/GeneDef[defName="AG_BullHorns" or defName="AG_AntlerHorns" or defName="AG_EldritchHorns" or defName="AG_HornCrown" or defName="AG_DemonHorns" or defName="AG_DemonHornsQuadruple"]/customEffectDescriptions</xpath>
+								<value>
+									<customEffectDescriptions>
+										<li>Adds a 16 stab damage, 3 seconds cooldown melee attack</li>
+									</customEffectDescriptions>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/GeneDef[defName="AG_DevilsheepHorns" or defName="AG_Drakonori_Horns"]/modExtensions/li[@Class="VEF.Genes.GeneExtension"]</xpath>
+								<value>
+									<hediffsToBodyParts>
+										<li>
+											<hediff>AG_HornAttack</hediff>
+											<bodyparts>
+												<li>Head</li>
+											</bodyparts>
+										</li>
+									</hediffsToBodyParts>
+								</value>
+							</li>
+							<li Class="PatchOperationAddModExtension">
+								<xpath>Defs/GeneDef[defName="Headbone_MiniHorns" or defName="Headbone_CenterHorn"]</xpath>
+								<value>
+									<li Class="VEF.Genes.GeneExtension">
+										<hediffsToBodyParts>
+											<li>
+												<hediff>AG_HornAttack</hediff>
+												<bodyparts>
+													<li>Head</li>
+												</bodyparts>
+											</li>
+										</hediffsToBodyParts>
+									</li>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>/Defs/GeneDef[defName="AG_DevilsheepHorns" or defName="AG_Drakonori_Horns" or defName="Headbone_MiniHorns" or defName="Headbone_CenterHorn"]</xpath>
+								<value>
+									<customEffectDescriptions>
+										<li>Adds a 16 stab damage, 3 seconds cooldown melee attack</li>
+									</customEffectDescriptions>
+								</value>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Anomaly">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationReplace">
+												<xpath>/Defs/GeneDef[defName="AG_TentacleHorns"]/customEffectDescriptions</xpath>
+												<value>
+													<customEffectDescriptions>
+														<li>Adds a 16 stab damage, 3 seconds cooldown melee attack</li>
+													</customEffectDescriptions>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="biotexpans.mythic">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAddModExtension">
+												<xpath>Defs/GeneDef[defName="BTEMy_DraconicHorns"]</xpath>
+												<value>
+													<li Class="VEF.Genes.GeneExtension">
+														<hediffsToBodyParts>
+															<li>
+																<hediff>AG_HornAttack</hediff>
+																<bodyparts>
+																	<li>Head</li>
+																</bodyparts>
+															</li>
+														</hediffsToBodyParts>
+													</li>
+												</value>
+											</li>
+											<li Class="PatchOperationAdd">
+												<xpath>/Defs/GeneDef[defName="BTEMy_DraconicHorns"]</xpath>
+												<value>
+													<customEffectDescriptions>
+														<li>Adds a 16 stab damage, 3 seconds cooldown melee attack</li>
+													</customEffectDescriptions>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="ElSov.Beliar">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAddModExtension">
+												<xpath>Defs/GeneDef[defName="BX_ProfaneHorns"]</xpath>
+												<value>
+													<li Class="VEF.Genes.GeneExtension">
+														<hediffsToBodyParts>
+															<li>
+																<hediff>AG_HornAttack</hediff>
+																<bodyparts>
+																	<li>Head</li>
+																</bodyparts>
+															</li>
+														</hediffsToBodyParts>
+													</li>
+												</value>
+											</li>
+											<li Class="PatchOperationAdd">
+												<xpath>/Defs/GeneDef[defName="BX_ProfaneHorns"]</xpath>
+												<value>
+													<customEffectDescriptions>
+														<li>Adds a 16 stab damage, 3 seconds cooldown melee attack</li>
+													</customEffectDescriptions>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="RedMattis.LamiasAndOtherSnakes">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationReplace">
+												<xpath>Defs/GeneDef[defName="AG_BullHorns_LOSAlternative"]/customEffectDescriptions</xpath>
+												<value>
+													<customEffectDescriptions>
+														<li>Adds a 16 stab damage, 3 seconds cooldown melee attack</li>
+													</customEffectDescriptions>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAddModExtension">
+												<xpath>Defs/GeneDef[@Name="BS_Hornbase"]</xpath>
+												<value>
+													<li Class="VEF.Genes.GeneExtension">
+														<hediffsToBodyParts>
+															<li>
+																<hediff>AG_HornAttack</hediff>
+																<bodyparts>
+																	<li>Head</li>
+																</bodyparts>
+															</li>
+														</hediffsToBodyParts>
+													</li>
+												</value>
+											</li>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/GeneDef[@Name="BS_Hornbase"]</xpath>
+												<value>
+													<customEffectDescriptions>
+														<li>Adds a 16 stab damage, 3 seconds cooldown melee attack</li>
+													</customEffectDescriptions>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="tug.Minotaur">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAddModExtension">
+												<xpath>Defs/GeneDef[defName="RBM_BovineHorns"]</xpath>
+												<value>
+													<li Class="VEF.Genes.GeneExtension">
+														<hediffsToBodyParts>
+															<li>
+																<hediff>AG_HornAttack</hediff>
+																<bodyparts>
+																	<li>Head</li>
+																</bodyparts>
+															</li>
+														</hediffsToBodyParts>
+													</li>
+												</value>
+											</li>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/GeneDef[defName="RBM_BovineHorns"]</xpath>
+												<value>
+													<customEffectDescriptions>
+														<li>Adds a 16 stab damage, 3 seconds cooldown melee attack</li>
+													</customEffectDescriptions>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="V.Rooboid.Faun">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAddModExtension">
+												<xpath>Defs/GeneDef[defName="RBSF_DeerHorns"]</xpath>
+												<value>
+													<li Class="VEF.Genes.GeneExtension">
+														<hediffsToBodyParts>
+															<li>
+																<hediff>AG_HornAttack</hediff>
+																<bodyparts>
+																	<li>Head</li>
+																</bodyparts>
+															</li>
+														</hediffsToBodyParts>
+													</li>
+												</value>
+											</li>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/GeneDef[defName="RBSF_DeerHorns"]</xpath>
+												<value>
+													<customEffectDescriptions>
+														<li>Adds a 16 stab damage, 3 seconds cooldown melee attack</li>
+													</customEffectDescriptions>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="tug.Satyr">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAddModExtension">
+												<xpath>Defs/GeneDef[defName="RBSF_GoatHorns"]</xpath>
+												<value>
+													<li Class="VEF.Genes.GeneExtension">
+														<hediffsToBodyParts>
+															<li>
+																<hediff>AG_HornAttack</hediff>
+																<bodyparts>
+																	<li>Head</li>
+																</bodyparts>
+															</li>
+														</hediffsToBodyParts>
+													</li>
+												</value>
+											</li>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/GeneDef[defName="RBSF_GoatHorns"]</xpath>
+												<value>
+													<customEffectDescriptions>
+														<li>Adds a 16 stab damage, 3 seconds cooldown melee attack</li>
+													</customEffectDescriptions>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Helltaker Cosmetic Genes</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationSequence">
+											<operations>
+												<li Class="PatchOperationAddModExtension">
+													<xpath>Defs/GeneDef[defName="LMHornsQueen" or defName="LMHornsQueenAncient" or defName="LMHornsAbyss" or defName="LMHornsAbyssAncient" or defName="LMHornsRegular" or defName="LMHornsRegularAncient" or defName="LMHornsSadistic" or defName="LMHornsSadisticAncient" or defName="LMHornsTiny" or defName="LMHornsTinyAncient" or defName="LMHornsGoat" or defName="LMHornsGoatAncient" or defName="LMHornsJudgment" or defName="LMHornsJudgmentAncient" or defName="LMHornsKrampus" or defName="LMHornsKrampusAncient"]</xpath>
+													<value>
+														<li Class="VEF.Genes.GeneExtension">
+															<hediffsToBodyParts>
+																<li>
+																	<hediff>AG_HornAttack</hediff>
+																	<bodyparts>
+																		<li>Head</li>
+																	</bodyparts>
+																</li>
+															</hediffsToBodyParts>
+														</li>
+													</value>
+												</li>
+												<li Class="PatchOperationAdd">
+													<xpath>Defs/GeneDef[defName="LMHornsQueen" or defName="LMHornsQueenAncient" or defName="LMHornsAbyss" or defName="LMHornsAbyssAncient" or defName="LMHornsRegular" or defName="LMHornsRegularAncient" or defName="LMHornsSadistic" or defName="LMHornsSadisticAncient" or defName="LMHornsTiny" or defName="LMHornsTinyAncient" or defName="LMHornsGoat" or defName="LMHornsGoatAncient" or defName="LMHornsJudgment" or defName="LMHornsJudgmentAncient" or defName="LMHornsKrampus" or defName="LMHornsKrampusAncient"]</xpath>
+													<value>
+														<customEffectDescriptions>
+															<li>Adds a 16 stab damage, 3 seconds cooldown melee attack</li>
+														</customEffectDescriptions>
+													</value>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Biotech Cosmetic Kit - Horns Halos and More</li>
+								</mods>
+								<match Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationSequence">
+											<operations>
+												<li Class="PatchOperationAddModExtension">
+													<xpath>Defs/GeneDef[defName="MM_Unihorn" or defName="MMHorns_LittleSideways" or defName="MMHorns_GreatSideways" or defName="MMHorns_GreatCurly" or defName="MMHorns_Wicked" or defName="MMHorns_Matriarch" or defName="MMHorns_Forehead" or defName="MMHorns_PiercedSpiral" or defName="MMHorns_Downturned" or defName="MMHorns_Twirly" or defName="MMHorns_DoubleCrown" or defName="MMHorns_PointyNubs" or defName="MMHorns_GreatScorpio" or defName="MMHorns_Scorpio" or defName="MMHorns_Crescent" or defName="MMHorns_Tall" or defName="MMHorns_Pisces" or defName="MMHorns_Heart" or defName="MMHorns_Random" or defName="MM_UnihornDark" or defName="MMHorns_LittleCurlyDark" or defName="MMHorns_UprightDark" or defName="MMHorns_GreatDark" or defName="MMHorns_AbstractDark" or defName="MMHorns_FrontCurvedHornsDark" or defName="MMHorns_NubbyDark" or defName="MMHorns_LittleSidewaysDark" or defName="MMHorns_GreatSidewaysDark" or defName="MMHorns_GreatCurlyDark" or defName="MMHorns_WickedDark" or defName="MMHorns_MatriarchDark" or defName="MMHorns_ForeheadDark" or defName="MMHorns_PiercedSpiralDark" or defName="MMHorns_DownturnedDark" or defName="MMHorns_TwirlyDark" or defName="MMHorns_DoubleCrownDark" or defName="MMHorns_PointyNubsDark" or defName="MMHorns_GreatScorpioDark" or defName="MMHorns_ScorpioDark" or defName="MMHorns_CrescentDark" or defName="MMHorns_TallDark" or defName="MMHorns_PiscesDark" or defName="MMHorns_HeartDark" or defName="MMHorns_RandomDark" or defName="MM_UnihornKeratin" or defName="MMHorns_LittleCurlyKeratin" or defName="MMHorns_UprightKeratin" or defName="MMHorns_GreatKeratin" or defName="MMHorns_AbstractKeratin" or defName="MMHorns_FrontCurvedHornsKeratin" or defName="MMHorns_NubbyKeratin" or defName="MMHorns_LittleSidewaysKeratin" or defName="MMHorns_GreatSidewaysKeratin" or defName="MMHorns_GreatCurlyKeratin" or defName="MMHorns_WickedKeratin" or defName="MMHorns_MatriarchKeratin" or defName="MMHorns_ForeheadKeratin" or defName="MMHorns_PiercedSpiralKeratin" or defName="MMHorns_DownturnedKeratin" or defName="MMHorns_TwirlyKeratin" or defName="MMHorns_DoubleCrownKeratin" or defName="MMHorns_PointyNubsKeratin" or defName="MMHorns_GreatScorpioKeratin" or defName="MMHorns_ScorpioKeratin" or defName="MMHorns_CrescentKeratin" or defName="MMHorns_TallKeratin" or defName="MMHorns_PiscesKeratin" or defName="MMHorns_HeartKeratin" or defName="MMHorns_RandomKeratin"]</xpath>
+													<value>
+														<li Class="VEF.Genes.GeneExtension">
+															<hediffsToBodyParts>
+																<li>
+																	<hediff>AG_HornAttack</hediff>
+																	<bodyparts>
+																		<li>Head</li>
+																	</bodyparts>
+																</li>
+															</hediffsToBodyParts>
+														</li>
+													</value>
+												</li>
+												<li Class="PatchOperationAdd">
+													<xpath>Defs/GeneDef[defName="MM_Unihorn" or defName="MMHorns_LittleSideways" or defName="MMHorns_GreatSideways" or defName="MMHorns_GreatCurly" or defName="MMHorns_Wicked" or defName="MMHorns_Matriarch" or defName="MMHorns_Forehead" or defName="MMHorns_PiercedSpiral" or defName="MMHorns_Downturned" or defName="MMHorns_Twirly" or defName="MMHorns_DoubleCrown" or defName="MMHorns_PointyNubs" or defName="MMHorns_GreatScorpio" or defName="MMHorns_Scorpio" or defName="MMHorns_Crescent" or defName="MMHorns_Tall" or defName="MMHorns_Pisces" or defName="MMHorns_Heart" or defName="MMHorns_Random" or defName="MM_UnihornDark" or defName="MMHorns_LittleCurlyDark" or defName="MMHorns_UprightDark" or defName="MMHorns_GreatDark" or defName="MMHorns_AbstractDark" or defName="MMHorns_FrontCurvedHornsDark" or defName="MMHorns_NubbyDark" or defName="MMHorns_LittleSidewaysDark" or defName="MMHorns_GreatSidewaysDark" or defName="MMHorns_GreatCurlyDark" or defName="MMHorns_WickedDark" or defName="MMHorns_MatriarchDark" or defName="MMHorns_ForeheadDark" or defName="MMHorns_PiercedSpiralDark" or defName="MMHorns_DownturnedDark" or defName="MMHorns_TwirlyDark" or defName="MMHorns_DoubleCrownDark" or defName="MMHorns_PointyNubsDark" or defName="MMHorns_GreatScorpioDark" or defName="MMHorns_ScorpioDark" or defName="MMHorns_CrescentDark" or defName="MMHorns_TallDark" or defName="MMHorns_PiscesDark" or defName="MMHorns_HeartDark" or defName="MMHorns_RandomDark" or defName="MM_UnihornKeratin" or defName="MMHorns_LittleCurlyKeratin" or defName="MMHorns_UprightKeratin" or defName="MMHorns_GreatKeratin" or defName="MMHorns_AbstractKeratin" or defName="MMHorns_FrontCurvedHornsKeratin" or defName="MMHorns_NubbyKeratin" or defName="MMHorns_LittleSidewaysKeratin" or defName="MMHorns_GreatSidewaysKeratin" or defName="MMHorns_GreatCurlyKeratin" or defName="MMHorns_WickedKeratin" or defName="MMHorns_MatriarchKeratin" or defName="MMHorns_ForeheadKeratin" or defName="MMHorns_PiercedSpiralKeratin" or defName="MMHorns_DownturnedKeratin" or defName="MMHorns_TwirlyKeratin" or defName="MMHorns_DoubleCrownKeratin" or defName="MMHorns_PointyNubsKeratin" or defName="MMHorns_GreatScorpioKeratin" or defName="MMHorns_ScorpioKeratin" or defName="MMHorns_CrescentKeratin" or defName="MMHorns_TallKeratin" or defName="MMHorns_PiscesKeratin" or defName="MMHorns_HeartKeratin" or defName="MMHorns_RandomKeratin"]</xpath>
+													<value>
+														<customEffectDescriptions>
+															<li>Adds a 16 stab damage, 3 seconds cooldown melee attack</li>
+														</customEffectDescriptions>
+													</value>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</match>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		- Brawnum's slow melee gene joins the shared MeleeAttackSpeed exclusion group (VRE - Archon defines it), so it
+		cannot stack with another mod's melee speed gene.
+		- The Brawnum xenotype uses Alpha Genes' pack mule instead of Det's own strong back, and the duplicate is
+		handed to Cherry Picker.
+		This folder only loads when Det's Xenotypes - Brawnum is active (see loadFolders.xml).
+		Verified against Brawnum 1.6: DV_Melee_Slow has no exclusionTags and the xenotype does list DV_StrongBack.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd" MayRequire="vanillaracesexpanded.archon">
+				<xpath>Defs/GeneDef[defName="DV_Melee_Slow"]</xpath>
+				<value>
+					<exclusionTags>
+						<li>MeleeAttackSpeed</li>
+					</exclusionTags>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace" MayRequire="sarg.alphagenes">
+				<xpath>Defs/XenotypeDef[defName="DV_Brawnum"]/genes/li[text()="DV_StrongBack"]</xpath>
+				<value>
+					<li>AG_PackMule</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="sarg.alphagenes">
+				<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+				<value>
+					<li>GeneDef/DV_StrongBack</li>
+					<li>GeneDef/DV_StrongBack_Astrogene</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

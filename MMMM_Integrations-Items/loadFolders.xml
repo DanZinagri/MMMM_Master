@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li>1.6</li>
+		<!-- Rare fishing catches: the pool is Odyssey's; RareCatches_TreasureAddOn.xml additionally needs the Treasure AddOn, which is checked inside the folder. -->
+		<li IfModActive="Ludeon.RimWorld.Odyssey">1.6/Mods/FishingRareCatches</li>
+		<li IfModActive="det.avaloi">1.6/Mods/DetsXenotypeAvaloi</li>
+		<li IfModActive="RedMattis.BigSmall.Core">1.6/Mods/BigAndSmallGenesAndMore</li>
+		<!-- mirrors Big and Small - Genes &amp; More, which only loads the giant weapons when at least one Big and Small content mod is active -->
+		<li IfModActiveAll="RedMattis.BigSmall.Core" IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025">1.6/Mods/BigAndSmallGiantWeapons</li>
+		<li IfModActive="tug.Minotaur">1.6/Mods/RoosMinotaur</li>
+		<li IfModActive="VanillaExpanded.VBrewE">1.6/Mods/VanillaBrewingExpanded</li>
+		<li IfModActive="XMB.AncientUrbanrUins.MO">1.6/Mods/AncientUrbanRuins</li>
+		<li IfModActive="sarg.alphacrafts">1.6/Mods/AlphaCrafts</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.6/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActive="Spino.Megafauna">1.6/Mods/Megafauna</li>
+		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
+		<li IfModActive="VanillaExpanded.VAPPE">1.6/Mods/VanillaApparelExpanded</li>
+	</v1.6>
+	<v1.7>
+		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li>1.7</li>
+		<!-- Rare fishing catches: the pool is Odyssey's; RareCatches_TreasureAddOn.xml additionally needs the Treasure AddOn, which is checked inside the folder. -->
+		<li IfModActive="Ludeon.RimWorld.Odyssey">1.7/Mods/FishingRareCatches</li>
+		<li IfModActive="det.avaloi">1.7/Mods/DetsXenotypeAvaloi</li>
+		<li IfModActive="RedMattis.BigSmall.Core">1.7/Mods/BigAndSmallGenesAndMore</li>
+		<!-- mirrors Big and Small - Genes &amp; More, which only loads the giant weapons when at least one Big and Small content mod is active -->
+		<li IfModActiveAll="RedMattis.BigSmall.Core" IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025">1.7/Mods/BigAndSmallGiantWeapons</li>
+		<li IfModActive="tug.Minotaur">1.7/Mods/RoosMinotaur</li>
+		<li IfModActive="VanillaExpanded.VBrewE">1.7/Mods/VanillaBrewingExpanded</li>
+		<li IfModActive="XMB.AncientUrbanrUins.MO">1.7/Mods/AncientUrbanRuins</li>
+		<li IfModActive="sarg.alphacrafts">1.7/Mods/AlphaCrafts</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.7/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActive="Spino.Megafauna">1.7/Mods/Megafauna</li>
+		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>
+		<li IfModActive="VanillaExpanded.VAPPE">1.7/Mods/VanillaApparelExpanded</li>
+	</v1.7>
+</loadFolders>

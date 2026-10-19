@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The Stoneborn use the Big and Small and vanilla equivalents of three of their own genes: vanilla undergrounder
+		in place of the Stoneborn one, the B&amp;S dvergr constitution in place of vanilla robust, and vanilla remarkable
+		mining in place of strong mining to match the B&amp;S mining curve.
+		This folder only loads when Det's Xenotypes - Stoneborn and B&amp;S - Genes &amp; More are both active
+		(see loadFolders.xml).
+		Verified against Stoneborn 1.6: DV_Undergrounder, Robust and AptitudeStrong_Mining are all in the xenotype's
+		gene list, so all three replacements land. A fourth operation swapping DV_SmallBuild for DwarfFrame was dropped
+		because the current Stoneborn xenotype does not list DV_SmallBuild at all.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/XenotypeDef[defName="Stoneborn"]/genes/li[text()="DV_Undergrounder"]</xpath>
+				<value>
+					<li>Undergrounder</li>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/XenotypeDef[defName="Stoneborn"]/genes/li[text()="Robust"]</xpath>
+				<value>
+					<li>BS_DvergrConstitution</li>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/XenotypeDef[defName="Stoneborn"]/genes/li[text()="AptitudeStrong_Mining"]</xpath>
+				<value>
+					<li>AptitudeRemarkable_Mining</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

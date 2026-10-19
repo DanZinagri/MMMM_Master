@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		ReGrowth: Extinct Animals + Vanilla Genetics Expanded: with Megafauna, the woolly mammoth, woolly rhinoceros, synthetion
+		and megalenhydris yield megafauna genetic material; with Dinosauria or Biomes! Prehistoric, the velociraptor and woolly
+		stegosaurus move from VGE's own ReGrowth reptile list to its dinosaur list.
+		This folder only loads with ReGrowth: Extinct Animals (see loadFolders.xml); the other gates sit on <li>s. The dinosaur
+		gate matches the mods VGE loads its GR_Dinosauria list for (Too Many Mods checked Dinosauria only).
+		Verified against VGE 1.6: GR_Megafauna and GR_Dinosauria come from VGE's Megafauna/Dinosauria folders, and
+		GR_TierTwoAnimalsReptilesReGrowthExtinct (VGE's own ReGrowth patch) lists both dinosaurs. ReGrowth: Extinct Animals,
+		Dinosauria and Biomes! Prehistoric are not installed here, so the RG_ animals are unchecked.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VGeneticsE,Spino.Megafauna">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/GeneticRim.ExtractableAnimalsList[defName="GR_Megafauna"]/extractableAnimals</xpath>
+						<value>
+							<li>RG_WoollyMammoth</li>
+							<li>RG_WoollyRhinoceros</li>
+							<li>RG_Synthetion</li>
+							<li>RG_Megalenhydris</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VGeneticsE">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequireAnyOf="spincrus.dinosauria,BiomesTeam.BiomesPrehistoric">
+						<operations>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/GeneticRim.ExtractableAnimalsList[defName="GR_TierTwoAnimalsReptilesReGrowthExtinct"]/extractableAnimals/li[text()="RG_Velociraptor" or text()="RG_WoollyStegosaurus"]</xpath>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/GeneticRim.ExtractableAnimalsList[defName="GR_Dinosauria"]/extractableAnimals</xpath>
+								<value>
+									<li>RG_Velociraptor</li>
+									<li>RG_WoollyStegosaurus</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

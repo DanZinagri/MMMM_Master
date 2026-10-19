@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Psycasts Expanded rebalances: psyfocus and entropy costs raised on about a dozen psycasts, longer durations
+		for Blade Focus and Firing Focus with a stronger Firing Focus, a weaker Protection damage reduction, a smaller
+		Paralysis Pulse, a slower-casting and smaller Thunderbolt, a goodwill cost on Mind Control, thralls unable to do
+		animal, artistic and intellectual work, and matching description updates. With VPE - Gravcaster, its enhanced
+		gravity hediff also stops slowing movement.
+		This folder only loads when VPE is active (see loadFolders.xml); the Gravcaster change is gated on its packageId.
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads MayRequire only on
+		list elements.
+
+		In the original this sat behind a Too Many Mods setting (TMM_VPE_PsycastRebalances, default on). The setting is
+		dropped: this mod is the opt-in now. Tree-order changes that used to share the block were deleted beforehand.
+
+		Verified against VPE 1.6 by evaluating every xpath against the combined defs: all 28 operations find their target
+		and every replacement changes the value. Thunderbolt and Vortex replace their whole psycast extension but keep the
+		upstream path, level, order and prerequisite, so only their costs move.
+	-->
+	<!--
+		Two more VPE changes, previously ungated in the core:
+		- Enchant Quality can target buildings, so built furniture and structures can be upgraded in place instead of
+		  having to be minified first. Upstream sets canTargetBuildings false; vanilla's CanTarget accepts a building
+		  before it reaches the item-only thingCategory check, so the flip is enough.
+		- The melee Empire warlord (Empire_Caster_Warlord_Melee) spawns as a Warlord psycaster. Upstream VPE gives only
+		  the ranged warlord a psycast extension, though both spawn in Empire raids at the same weight. Stat upgrade points
+		  are 0~0, matching Too Many Mods' caster rebalance, where upstream's ranged warlord has 2~6.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAddModExtension">
+				<xpath>Defs/PawnKindDef[defName="Empire_Caster_Warlord_Melee"]</xpath>
+				<value>
+					<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+						<implantDef>VPE_PsycastAbilityImplant</implantDef>
+						<initialLevel>1</initialLevel>
+						<statUpgradePoints>0~0</statUpgradePoints>
+						<unlockedPaths>
+							<VPE_Warlord>1~4|2~12</VPE_Warlord>
+						</unlockedPaths>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

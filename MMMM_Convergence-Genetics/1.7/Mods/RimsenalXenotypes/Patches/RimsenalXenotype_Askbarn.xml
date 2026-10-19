@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Rimsenal Xenotype Pack - Askbarn overlap removal (Askbarn and Uredd xenotypes). Each replaced Rimsenal gene goes on this
+		mod's Cherry Picker list (revive entries in 1.6/Defs/CherryPicker.xml):
+		  - With Alpha Genes: both use AG reduced fertility instead of Rimsenal's identical low fertility (x0.5 either way).
+		  - With Det's Venators: Askbarn are farsighted (Venators) instead of longshot.
+		  - With VRE Lycanthrope: Uredd use Lycanthrope's superior dodge instead of born warrior. Note the Highborn block in the
+		    core gene rebalance file gives Highborn born warrior, which this cherry-pick then removes when Lycanthrope is loaded.
+		  - With VRE Archon: Uredd gain Archon's fast melee hitter.
+		This folder loads when a Rimsenal xenotype pack is active (see loadFolders.xml); each block is gated on its mods via an <li>.
+		Verified against Askbarn, Alpha Genes, Venators and Lycanthrope 1.6: only Askbarn and Uredd carry LowFertility,
+		Askbarn carries RSLongshot, Uredd carries RSBornWarrior. VRE Archon is not installed here, so VRE_FastMeleeHitter is
+		unchecked.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Askbarn,sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="Askbarn"]/genes/li[text()="LowFertility"]</xpath>
+						<value>
+							<li>AG_ReducedFertile</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="Uredd"]/genes/li[text()="LowFertility"]</xpath>
+						<value>
+							<li>AG_ReducedFertile</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/LowFertility</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Askbarn,det.venators">
+				<operations>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/XenotypeDef[defName="Askbarn"]/genes/li[text()="RSLongshot"]</xpath>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="Askbarn"]/genes</xpath>
+						<value>
+							<li>DV_Farsighted</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/RSLongshot</li>
+							<li>GeneDef/RSLongshot_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Askbarn,vanillaracesexpanded.lycanthrope">
+				<operations>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/XenotypeDef[defName="Uredd"]/genes/li[text()="RSBornWarrior"]</xpath>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="Uredd"]/genes</xpath>
+						<value>
+							<li>VRE_SuperiorDodge</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/RSBornWarrior</li>
+							<li>GeneDef/RSBornWarrior_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Askbarn,vanillaracesexpanded.archon">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="Uredd"]/genes</xpath>
+						<value>
+							<li>VRE_FastMeleeHitter</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

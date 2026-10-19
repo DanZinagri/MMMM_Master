@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The Stoneborn outlander faction requires the Craft culture meme (VIE - Memes and Structures).
+
+		This folder loads only when Det's Xenotypes - Stoneborn and VIE - Memes and Structures are both active
+		(see loadFolders.xml).
+
+		Verified against the current 1.6 release: OutlanderRoughStoneborn has no requiredMemes, so the meme is added,
+		not replaced. Nothing here duplicates upstream.
+
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Factions ops (factions, pawn kinds, traders and royal titles).
+		Moved 2026-10-05: the TMM_Dwarven culture assignments (Stoneborn outlanders, Little People) now live with the
+		culture itself in MMMM Integrations - Ideology, since they do nothing without its CultureDef.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+
+			<li Class="PatchOperationAdd" MayRequire="VanillaExpanded.VMemesE,det.stoneborn">
+				<xpath>Defs/FactionDef[defName="OutlanderRoughStoneborn"]/requiredMemes</xpath>
+				<value>
+					<li>VME_CraftCulture</li>
+				</value>
+			</li>
+
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The gravship compact smithy and compact tailor accept Vanilla Factions Expanded - Medieval 2's workbench
+		facilities, so a medieval ship can benefit from an anvil, bellows, loom or mannequin stand.
+		This folder only loads when both mods are active (see loadFolders.xml), so no FindMod checks are needed.
+		The conditional guard is kept from the original: it skips the whole block if the anvil is already linked,
+		so a future upstream patch cannot end up duplicated.
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="VGE_CompactSmithy"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities/li[text()="VFEM2_SmithingAnvil"]</xpath>
+		<nomatch Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="VGE_CompactSmithy"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+					<value>
+						<li>VFEM2_SmithingAnvil</li>
+						<li>VFEM2_ForgeBellows</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="VGE_CompactTailor"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+					<value>
+						<li>VFEM2_TailoringLoom</li>
+						<li>VFEM2_MannequinStand</li>
+					</value>
+				</li>
+			</operations>
+		</nomatch>
+	</Operation>
+
+</Patch>

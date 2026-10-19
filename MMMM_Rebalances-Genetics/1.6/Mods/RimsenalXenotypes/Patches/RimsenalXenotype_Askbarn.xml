@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Rimsenal Xenotype Pack - Askbarn:
+		  - Lightning reflexes loses its +0.1 move speed and +10 melee dodge (keeps x0.7 aiming delay).
+		  - Born warrior becomes a pure dodge gene: its +3 melee hit / +10 dodge offsets and x1.25 damage / x0.7 cooldown
+		    factors become x1.3 melee dodge, metabolism -3 becomes -1, and its MeleeDamage exclusion tag becomes MeleeDodge
+		    (the shared dodge group; see the Geist header in MMMM_Convergence-Genetics).
+		  - Uredd gain strong melee damage to make up for it.
+		This folder loads when a Rimsenal xenotype pack is active (see loadFolders.xml); each block is gated on its mods via an <li>.
+		Verified against Askbarn 1.6.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Askbarn">
+				<operations>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/GeneDef[defName="RSLightningReflexes"]/statOffsets</xpath>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="RSBornWarrior"]/exclusionTags</xpath>
+						<value>
+							<exclusionTags>
+								<li>MeleeDodge</li>
+							</exclusionTags>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/GeneDef[defName="RSBornWarrior"]/statOffsets</xpath>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="RSBornWarrior"]/statFactors</xpath>
+						<value>
+							<statFactors>
+								<MeleeDodgeChance>1.3</MeleeDodgeChance>
+							</statFactors>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="RSBornWarrior"]/biostatMet</xpath>
+						<value>
+							<biostatMet>-1</biostatMet>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="Uredd"]/genes</xpath>
+						<value>
+							<li>MeleeDamage_Strong</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

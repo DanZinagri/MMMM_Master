@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved here from the root file 1.7/Patches/ImplantRebalance.xml.
+		This folder loads only when NONE of the 16 mods listed for this folder in loadFolders.xml is active (see loadFolders.xml). The same condition used to be a
+		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="lts.I">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Anomaly">
+						<operations>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Maleficus' Fleshmass Mutations</li>
+									<li>Archotech Bionics</li>
+								</mods>
+								<nomatch Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationRemove">
+											<xpath>Defs/HediffDef[defName="LeftExtraArchotechArm" or defName="RightExtraArchotechArm"]/stages/li/statFactors</xpath>
+										</li>
+										<li Class="PatchOperationRemove">
+											<xpath>Defs/HediffDef[defName="LeftExtraBionicArm"]/stages/li[label="unwieldy" or label="inconvenient" or label="acclimatised" or label="mastered"]/statFactors</xpath>
+										</li>
+										<li Class="PatchOperationRemove">
+											<xpath>Defs/HediffDef[defName="RightExtraBionicArm"]/stages/li[label="unwieldy" or label="inconvenient" or label="acclimatised" or label="mastered"]/statFactors</xpath>
+										</li>
+										<li Class="PatchOperationRemove">
+											<xpath>Defs/HediffDef[defName="LeftExtraPowerClaw"]/stages/li[label="unwieldy" or label="inconvenient" or label="acclimatised" or label="mastered"]/statFactors</xpath>
+										</li>
+										<li Class="PatchOperationRemove">
+											<xpath>Defs/HediffDef[defName="RightExtraPowerClaw"]/stages/li[label="unwieldy" or label="inconvenient" or label="acclimatised" or label="mastered"]/statFactors</xpath>
+										</li>
+										<li Class="PatchOperationRemove">
+											<xpath>Defs/HediffDef[defName="LeftExtraDrillArm"]/stages/li[label="unwieldy" or label="inconvenient" or label="acclimatised" or label="mastered"]/statFactors</xpath>
+										</li>
+										<li Class="PatchOperationRemove">
+											<xpath>Defs/HediffDef[defName="RightExtraDrillArm"]/stages/li[label="unwieldy" or label="inconvenient" or label="acclimatised" or label="mastered"]/statFactors</xpath>
+										</li>
+										<li Class="PatchOperationRemove">
+											<xpath>Defs/HediffDef[defName="LeftExtraFieldHand"]/stages/li[label="unwieldy" or label="inconvenient" or label="acclimatised" or label="mastered"]/statFactors</xpath>
+										</li>
+										<li Class="PatchOperationRemove">
+											<xpath>Defs/HediffDef[defName="RightExtraFieldHand"]/stages/li[label="unwieldy" or label="inconvenient" or label="acclimatised" or label="mastered"]/statFactors</xpath>
+										</li>
+										<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Anomaly">
+											<operations>
+												<li Class="PatchOperationRemove">
+													<xpath>Defs/HediffDef[defName="LeftExtraNerveShredderClaw"]/stages/li[label="unwieldy" or label="inconvenient" or label="acclimatised" or label="mastered"]/statFactors</xpath>
+												</li>
+												<li Class="PatchOperationRemove">
+													<xpath>Defs/HediffDef[defName="RightExtraNerveShredderClaw"]/stages/li[label="unwieldy" or label="inconvenient" or label="acclimatised" or label="mastered"]/statFactors</xpath>
+												</li>
+												<li Class="PatchOperationRemove">
+													<xpath>Defs/HediffDef[defName="LeftExtraDeadlifeVenomClaw"]/stages/li[label="unwieldy" or label="inconvenient" or label="acclimatised" or label="mastered"]/statFactors</xpath>
+												</li>
+												<li Class="PatchOperationRemove">
+													<xpath>Defs/HediffDef[defName="RightExtraDeadlifeVenomClaw"]/stages/li[label="unwieldy" or label="inconvenient" or label="acclimatised" or label="mastered"]/statFactors</xpath>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

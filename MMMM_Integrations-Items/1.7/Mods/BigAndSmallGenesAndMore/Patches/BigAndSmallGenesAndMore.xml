@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Alpha Genes content taught about Big and Small.
+		- The medium and major armour genes gain a B&amp;S pawn extension, so a pawn who also carries a gene that
+		forbids armour or apparel gets a matching tough-skin or natural-armour hediff instead of nothing, plus
+		effect text saying so.
+		- Three display categories are pointed at the Alpha Genes ones so the B&amp;S horn and armour genes sort into
+		the same gene-list sections, and the Alpha Genes gene tools category moves under Items.
+		This folder only loads when B&amp;S - Genes &amp; More is active (see loadFolders.xml); Alpha Genes is gated inside.
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally.
+
+		Verified against the current 1.6 releases: BS_Hornbase is displayCategory BS_Horns, BS_NaturalArmor_Great is
+		Archite, the AG_GeneTools category parent is Manufactured, and both Alpha Genes category defs exist, so all
+		four land.
+
+		Worth revisiting: AG_ArmourMedium and AG_ArmourMajor already define customEffectDescriptions upstream, reading
+		"+30% blunt and sharp natural armour." and "+40% blunt and sharp natural armour." respectively. These adds
+		append a second node of the same name rather than adding list entries to the existing one, and the later node
+		wins, so the Alpha Genes line disappears. Pointing the xpath at .../customEffectDescriptions and making the
+		value bare li entries would keep both. Left as the original author wrote it.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Items ops (items: apparel, weapons, food, drugs and loot).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>
+							Defs/ThingCategoryDef[defName="AG_GeneTools"]/parent</xpath>
+						<value>
+							<parent>Items</parent>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

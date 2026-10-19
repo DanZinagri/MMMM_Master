@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Too Many Mods' trait rebalance: trait stats. Moved whole from the core root file AA1C_TraitRebalance.xml, where it sat behind the
+		TMM_TraitRebalances setting (default on); installing this mod is the opt-in now.
+		Each block is gated on the mods it touches (MayRequire / MayRequireAnyOf on an <li>); mods with no known packageId keep a
+		name FindMod; blocks that depend on another mod being present or absent now live in gated load folders (loadFolders.xml). Checked with analysis/patch_sim.py against the installed mods:
+		every op whose mods are installed applies. Blocks for mods not installed here are unchecked.
+		The [LC] Consolidated Traits block was removed (unsupported).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/TraitDef[defName="Tough"]/degreeDatas/li/statFactors</xpath>
+				<value>
+					<statFactors>
+						<IncomingDamageFactor>0.7</IncomingDamageFactor>
+					</statFactors>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationRemove">
+								<success>Always</success>
+								<xpath>Defs/TraitDef[defName="Small" or defName="Dwarfism"]/degreeDatas/li/statFactors/MoveSpeed</xpath>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraitDef[defName="Large"]/degreeDatas/li/statFactors/MoveSpeed</xpath>
+								<success>Always</success>
+								<value>
+									<MoveSpeed>0.95</MoveSpeed>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationFindMod">
+						<mods>
+							<li>Karmi's Patches - Big and Small</li>
+						</mods>
+						<nomatch Class="PatchOperationSequence">
+							<operations>
+								<li Class="PatchOperationReplace">
+									<xpath>Defs/TraitDef[defName="Gigantism"]/commonality</xpath>
+									<value>
+										<commonality>0.2</commonality>
+									</value>
+								</li>
+								<li Class="PatchOperationReplace">
+									<xpath>Defs/TraitDef[defName="Large"]/commonality</xpath>
+									<value>
+										<commonality>0.5</commonality>
+									</value>
+								</li>
+								<li Class="PatchOperationReplace">
+									<xpath>Defs/TraitDef[defName="Small"]/commonality</xpath>
+									<value>
+										<commonality>0.5</commonality>
+									</value>
+								</li>
+								<li Class="PatchOperationReplace">
+									<xpath>Defs/TraitDef[defName="Dwarfism"]/commonality</xpath>
+									<value>
+										<commonality>0.25</commonality>
+									</value>
+								</li>
+							</operations>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="hlx.UltratechAlteredCarbon">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/AlteredCarbon.StackSavingOptions[defName="AC_StackSavingOptions"]/ignoresTraits</xpath>
+								<value>
+									<li>Brawler</li>
+									<li>QuickSleeper</li>
+									<li>SpeedOffset</li>
+									<li>ShootingAccuracy</li>
+									<li>Nimble</li>
+									<li MayRequire="Ludeon.RimWorld.Anomaly">Joyous</li>
+									<li MayRequire="Hautarche.HautsTraits">HVT_Hotfoot</li>
+									<li MayRequire="Hautarche.HautsTraits">HVT_Strong</li>
+									<li MayRequire="Goji.TheSimsTraits">ST_HugePower</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

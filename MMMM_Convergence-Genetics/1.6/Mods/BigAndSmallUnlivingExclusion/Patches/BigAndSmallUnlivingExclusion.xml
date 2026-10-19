@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small's Unliving gene and vanilla's non-senescent gene both stop ageing, so they are made mutually
+		exclusive and the redundant effect text is dropped from Unliving.
+
+		Gating, which is unusual: VU_Unliving is defined by Big and Small - Genes & More, not by the Vampires and the
+		Undead submod. The original only applied this when that submod was ABSENT, because it ships its own handling.
+		The folder therefore loads on Genes & More and is disallowed when Vampires and the Undead is present
+		(see loadFolders.xml), which replaces the original's nested mod checks entirely.
+
+		The original also skipped this when Hellsing ARMS Ultimate was installed; that check was dropped on request.
+
+		Verified against the current releases: VU_Unliving has customEffectDescriptions and no exclusionTags, and
+		vanilla DiseaseFree has no exclusionTags either, which is why the second gene is handled conditionally.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/GeneDef[defName="VU_Unliving"]/customEffectDescriptions</xpath>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/GeneDef[defName="VU_Unliving"]</xpath>
+				<value>
+					<exclusionTags>
+						<li>Nonsenescent</li>
+					</exclusionTags>
+				</value>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/GeneDef[defName="DiseaseFree"]/exclusionTags</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/GeneDef[defName="DiseaseFree"]</xpath>
+					<value>
+						<exclusionTags>
+							<li>Nonsenescent</li>
+						</exclusionTags>
+					</value>
+				</nomatch>
+				<match Class="PatchOperationAdd">
+					<xpath>Defs/GeneDef[defName="DiseaseFree"]/exclusionTags</xpath>
+					<value>
+						<li>Nonsenescent</li>
+					</value>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

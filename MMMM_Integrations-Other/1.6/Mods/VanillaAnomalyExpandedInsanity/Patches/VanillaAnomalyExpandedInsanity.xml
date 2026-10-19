@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Anomaly Expanded - Insanity + other anomaly content: killing their horrors restores sanity, their psychic rituals
+		cost it, and their dark hediffs drain it, the same way VAE Insanity treats vanilla Anomaly:
+		  - Anomaly Portal: killing a metal storm. New Anomaly Threats: killing rusted soldiers, the collector and the bile
+		    serpent; the two rust-creation rituals. Rustspark Crisis: killing its creatures; rustspark infusion.
+		  - Void Universe: six of its rituals. VPE Fleshshaper: its three regeneration/sustenance hediffs.
+		  - Alpha Genes: the greater toughspikes, flesh whip and flesh spitter hediffs (the genes gain a "-0.4% sanity per day"
+		    line; none had customEffectDescriptions), flesh power, pseudo-deadlife and plagued claws.
+		  - Integrated Implants: metalhorror symbiont, blacksight and dreadheart regeneration drain sanity, and the voidlink's
+		    five stages trade their mental break threshold offset for a sanity multiplier (0.2 to 1.0).
+		This folder only loads with VAE Insanity (see loadFolders.xml). Void Universe and Rustspark Crisis are not installed and
+		their packageIds are unknown, so those two blocks keep their mod-name checks.
+		Verified against VAE Insanity, Alpha Genes and Integrated Implants 1.6 (every hediff exists, none is already in VAE
+		Insanity's lists, and the voidlink stages carry MentalBreakThreshold). Anomaly Portal, New Anomaly Threats, Void
+		Universe, Rustspark Crisis and VPE Fleshshaper are not installed here, so their defs are unchecked.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Other ops (everything else (thoughts, sanity, meditation focus, hediffs, animals, plants)).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="22.anomalyportal">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/VAEInsanity.SanityEffectsDef[defName="VAEI_SanityEffects"]/killedThingsEffects</xpath>
+						<value>
+							<li>
+								<thing>AP_MetalStorm</thing>
+								<effect>0.05</effect>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/VAEInsanity.SanityEffectsDef[defName="VAEI_SanityEffects"]/hediffEffects</xpath>
+						<value>
+							<li>
+								<hediff>AG_GreaterToughspikes</hediff>
+								<effect>-0.004</effect>
+							</li>
+							<li>
+								<hediff>AG_GreaterFleshWhip</hediff>
+								<effect>-0.004</effect>
+							</li>
+							<li>
+								<hediff>AG_FleshSpitter</hediff>
+								<effect>-0.004</effect>
+							</li>
+							<li>
+								<hediff>AG_FleshPower</hediff>
+								<effect>-0.01</effect>
+							</li>
+							<li>
+								<hediff>AG_PseudoDeadlife</hediff>
+								<effect>-0.01</effect>
+							</li>
+							<li>
+								<hediff>AG_PlaguedClaws</hediff>
+								<effect>-0.04</effect>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="lts.I">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/VAEInsanity.SanityEffectsDef[defName="VAEI_SanityEffects"]/hediffEffects</xpath>
+						<value>
+							<li>
+								<hediff>MetalhorrorSymbiont</hediff>
+								<effect>-0.004</effect>
+							</li>
+							<li>
+								<hediff>Blacksight</hediff>
+								<effect>-0.04</effect>
+							</li>
+							<li>
+								<hediff>DreadheartRegeneration</hediff>
+								<effect>-0.20</effect>
+							</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/HediffDef[defName="LTS_Voidlink"]/stages/li[label="humming"]/statOffsets/MentalBreakThreshold</xpath>
+						<value>
+							<VAEI_SanityMultiplier>0.20</VAEI_SanityMultiplier>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/HediffDef[defName="LTS_Voidlink"]/stages/li[label="pulsing"]/statOffsets/MentalBreakThreshold</xpath>
+						<value>
+							<VAEI_SanityMultiplier>0.40</VAEI_SanityMultiplier>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/HediffDef[defName="LTS_Voidlink"]/stages/li[label="roaring"]/statOffsets/MentalBreakThreshold</xpath>
+						<value>
+							<VAEI_SanityMultiplier>0.60</VAEI_SanityMultiplier>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/HediffDef[defName="LTS_Voidlink"]/stages/li[label="screaming"]/statOffsets/MentalBreakThreshold</xpath>
+						<value>
+							<VAEI_SanityMultiplier>0.80</VAEI_SanityMultiplier>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/HediffDef[defName="LTS_Voidlink"]/stages/li[label="cacophonous"]/statOffsets/MentalBreakThreshold</xpath>
+						<value>
+							<VAEI_SanityMultiplier>1.00</VAEI_SanityMultiplier>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="GoGaTio.NewAnomalyThreats">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/VAEInsanity.SanityEffectsDef[defName="VAEI_SanityEffects"]/killedThingsEffects</xpath>
+						<value>
+							<li>
+								<thing>NAT_RustedGuardsman</thing>
+								<effect>0.01</effect>
+							</li>
+							<li>
+								<thing>NAT_RustedOfficer</thing>
+								<effect>0.02</effect>
+							</li>
+							<li>
+								<thing>NAT_RustedSoldier</thing>
+								<effect>0.01</effect>
+							</li>
+							<li>
+								<thing>NAT_RustedTrooper</thing>
+								<effect>0.01</effect>
+							</li>
+							<li>
+								<thing>NAT_Collector</thing>
+								<effect>0.04</effect>
+							</li>
+							<li>
+								<thing>NAT_BileSerpent</thing>
+								<effect>0.01</effect>
+							</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/VAEInsanity.SanityEffectsDef[defName="VAEI_SanityEffects"]/psychicRitualEffects</xpath>
+						<value>
+							<li>
+								<ritual>NAT_CreateRust_Soldier</ritual>
+								<invokerEffect>-0.005</invokerEffect>
+								<chanterEffect>-0.002</chanterEffect>
+							</li>
+							<li>
+								<ritual>NAT_CreateRust_Trooper</ritual>
+								<invokerEffect>-0.005</invokerEffect>
+								<chanterEffect>-0.002</chanterEffect>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Dlc collaboration - Void universe</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/VAEInsanity.SanityEffectsDef[defName="VAEI_SanityEffects"]/psychicRitualEffects</xpath>
+					<value>
+						<li>
+							<ritual>UV_Ritual_RevealInformation</ritual>
+							<invokerEffect>-0.005</invokerEffect>
+							<chanterEffect>-0.002</chanterEffect>
+						</li>
+						<li>
+							<ritual>UV_Ritual_FleshSealing</ritual>
+							<invokerEffect>-0.01</invokerEffect>
+							<chanterEffect>-0.005</chanterEffect>
+						</li>
+						<li>
+							<ritual>UV_Ritual_DarkInfusion</ritual>
+							<invokerEffect>-0.01</invokerEffect>
+							<chanterEffect>-0.005</chanterEffect>
+						</li>
+						<li>
+							<ritual>UV_TwistedReconstruction</ritual>
+							<targetEffect>-0.02</targetEffect>
+							<invokerEffect>-0.01</invokerEffect>
+							<chanterEffect>-0.005</chanterEffect>
+						</li>
+						<li>
+							<ritual>UV_ParallelDimension</ritual>
+							<invokerEffect>-0.01</invokerEffect>
+							<chanterEffect>-0.005</chanterEffect>
+						</li>
+						<li>
+							<ritual>UV_Ritual_GoldenCanary</ritual>
+							<invokerEffect>-0.02</invokerEffect>
+							<chanterEffect>-0.02</chanterEffect>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Rustspark Crisis</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/VAEInsanity.SanityEffectsDef[defName="VAEI_SanityEffects"]/killedThingsEffects</xpath>
+					<value>
+						<li>
+							<thing>RP_Rustspark</thing>
+							<effect>0.05</effect>
+						</li>
+						<li>
+							<thing>RP_Biometalbeast</thing>
+							<effect>0.03</effect>
+						</li>
+						<li>
+							<thing>RP_Spraycyst</thing>
+							<effect>0.03</effect>
+						</li>
+						<li>
+							<thing>RP_Causticyst</thing>
+							<effect>0.03</effect>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/VAEInsanity.SanityEffectsDef[defName="VAEI_SanityEffects"]/hediffEffects</xpath>
+					<value>
+						<li>
+							<hediff>RP_RustsparkInfusion</hediff>
+							<effect>-0.01</effect>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VPE.Fleshshaper.Sentinel">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/VAEInsanity.SanityEffectsDef[defName="VAEI_SanityEffects"]/hediffEffects</xpath>
+						<value>
+							<li>
+								<hediff>FleshregenerationSTNL</hediff>
+								<effect>-0.01</effect>
+							</li>
+							<li>
+								<hediff>TempregenerationSTNL</hediff>
+								<effect>-0.04</effect>
+							</li>
+							<li>
+								<hediff>SustenanceSTNL</hediff>
+								<effect>-0.01</effect>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

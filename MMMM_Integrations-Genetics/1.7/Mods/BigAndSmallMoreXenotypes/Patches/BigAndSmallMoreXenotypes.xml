@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The spider-like Big and Small - More Xenotypes xenotypes gain Alpha Genes insect or acidic blood.
+		This folder only loads when More Xenotypes is active (see loadFolders.xml); Alpha Genes is gated per operation.
+		Verified against More Xenotypes 1.6: none of these xenotypes already lists the gene being added.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd" MayRequire="sarg.alphagenes">
+				<xpath>Defs/XenotypeDef[defName="BS_Weaver"]/genes</xpath>
+				<value>
+					<li>AG_InsectBlood</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="sarg.alphagenes">
+				<xpath>Defs/XenotypeDef[defName="BS_Devilspider"]/genes</xpath>
+				<value>
+					<li>AG_InsectBlood</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="sarg.alphagenes">
+				<xpath>Defs/XenotypeDef[defName="BS_Abomination"]/genes</xpath>
+				<value>
+					<li>AG_AcidicBlood</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

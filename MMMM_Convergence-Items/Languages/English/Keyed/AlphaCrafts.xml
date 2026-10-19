@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!-- Condiment effect descriptions for Alpha Crafts' mayonnaises (1.6/Mods/AlphaCrafts). The first overrides VCE's own
+	text for its retired mayo, which Alpha Crafts' plain mayonnaise now uses. -->
+	<VCE_CondimentEffectsMayo>Mayonnaise, while terrible for you, adds a pleasing tang and is very calorically dense. Consuming meals that include this condiment lowers hunger rate by 15% and increases mood by 1 for 12 hours.</VCE_CondimentEffectsMayo>
+	<VCE_CondimentEffectsInfusedMayo>Mayonnaise, while terrible for you, adds a pleasing tang and is very calorically dense. Consuming meals that include this condiment lowers hunger rate by 15% and increases mood by 3 for 12 hours.</VCE_CondimentEffectsInfusedMayo>
+	<VCE_CondimentEffectsBlackMayo>Mayonnaise, while terrible for you, adds a pleasing tang and is very calorically dense. Consuming meals that include this condiment lowers hunger rate by 15% and increases mood by 4 for 12 hours.</VCE_CondimentEffectsBlackMayo>
+
+</LanguageData>

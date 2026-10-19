@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- Cherry Picker lists owned by this mod. Patches append the duplicate defs they retire to _Basics; _All is the revive list. -->
+	<CherryPicker.DefList MayRequire="Owlchemist.CherryPicker">
+		<defName>MMMM_ConvergenceItems_CherryPicker_Basics</defName>
+		<label>MMMM Convergence - Items: uncheck this to enable basic removals</label>
+		<defs>
+		</defs>
+	</CherryPicker.DefList>
+
+	<CherryPicker.DefList MayRequire="Owlchemist.CherryPicker">
+		<defName>MMMM_ConvergenceItems_CherryPicker_All</defName>
+		<label>MMMM Convergence - Items: uncheck then re-check this to revive everything</label>
+		<defs>
+			<li>ThingDef/VCE_Mayo</li>
+			<li>RecipeDef/VCE_Mayo</li>
+			<li>ThingDef/GR_DinoGenomeExcavator</li>
+			<li>RecipeDef/GR_CraftDinoGenomeExcavator</li>
+			<li>ThingDef/GR_MegafaunaGenomeExcavator</li>
+			<li>RecipeDef/GR_CraftMegafaunaGenomeExcavator</li>
+			<li>ThingDef/GR_DragonGenomeExcavator</li>
+			<li>RecipeDef/GR_CraftDragonGenomeExcavator</li>
+		</defs>
+	</CherryPicker.DefList>
+
+</Defs>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Flame turrets cost 20 chemfuel to build and spawn with a full tank, so the ones placed in generated faction
+		bases actually have fuel.
+		This folder only loads when both VFE - Security and Vanilla Base Generation Expanded are active
+		(see loadFolders.xml); base generation is the point of the change.
+		Verified against VFE - Security 1.6: the cost list has no chemfuel and initialFuelPercent is 0.
+		The Security: Re-Examined part is gated on its packageId (Smxrez.securityreexamined, read from the installed mod).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/ThingDef[defName="VFES_Turret_Flame"]/costList/Chemfuel</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="VFES_Turret_Flame"]/costList</xpath>
+					<value>
+						<Chemfuel>20</Chemfuel>
+					</value>
+				</nomatch>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="VFES_Turret_Flame"]/comps/li[@Class="CompProperties_Refuelable"]/initialFuelPercent</xpath>
+				<value>
+					<initialFuelPercent>1</initialFuelPercent>
+				</value>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="Smxrez.securityreexamined">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/ThingDef[defName="VFES_Turret_FloorTurretPopup"]/costList/Chemfuel</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/ThingDef[defName="VFES_Turret_FloorTurretPopup"]/costList</xpath>
+							<value>
+								<Chemfuel>20</Chemfuel>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="VFES_Turret_FloorTurretPopup"]/comps/li[@Class="CompProperties_Refuelable"]/initialFuelPercent</xpath>
+						<value>
+							<initialFuelPercent>1</initialFuelPercent>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

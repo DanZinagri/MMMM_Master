@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Phytokins get the UV powered gene (Alpha Genes).
+		This folder only loads when both Vanilla Races Expanded - Phytokin and Alpha Genes are active (see loadFolders.xml),
+		so no FindMod checks are needed. The DLC-only xenotypes are gated with MayRequire on the operation itself.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/XenotypeDef[defName="VRE_Ocularkin" or defName="VRE_Poluxkin"]/genes</xpath>
+				<value>
+					<li MayRequire="sarg.alphagenes">AG_UVPowered_Mild</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Royalty">
+				<xpath>/Defs/XenotypeDef[defName="VRE_Animakin"]/genes</xpath>
+				<value>
+					<li MayRequire="sarg.alphagenes">AG_UVPowered_Mild</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology">
+				<xpath>/Defs/XenotypeDef[defName="VRE_Gauranlenkin"]/genes</xpath>
+				<value>
+					<li MayRequire="sarg.alphagenes">AG_UVPowered_Mild</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

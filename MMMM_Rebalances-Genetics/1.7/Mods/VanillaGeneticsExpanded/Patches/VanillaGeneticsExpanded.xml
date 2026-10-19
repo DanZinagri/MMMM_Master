@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Genetics Expanded:
+		  - The archotech excavator, archogrowth cell, archocentipede former, DNA storage bank and archowomb become Archotech
+		    tech level (each only when the def sets none of its own; the excavator inherits Ultra, the rest have none).
+		  - With Big and Small: size serums cost 4 ultratech medicine + 100 neutroamine (was 4 neutroamine, 4 ultratech
+		    medicine, 1 spacer component); the gene integrator and dicombobulator cost more; B&S serums become fully tradeable
+		    under a BS_GeneTools trade tag, which VGE's orbital and outlander gene traders stock and buy.
+		This folder only loads with Vanilla Genetics Expanded (see loadFolders.xml).
+		The B&S serum defs live in B&S Genes & More's AnyContentMod folder, which only loads with a B&S content mod, so that
+		block is gated on the same list B&S uses (Too Many Mods checked six of them by name).
+		Verified against VGE and B&S 1.6.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/ThingDef[defName="GR_ArchotechGenomeExcavator"]/techLevel</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="GR_ArchotechGenomeExcavator"]</xpath>
+					<value>
+						<techLevel>Archotech</techLevel>
+					</value>
+				</nomatch>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/ThingDef[defName="GR_ArchoGrowthcell"]/techLevel</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="GR_ArchoGrowthcell"]</xpath>
+					<value>
+						<techLevel>Archotech</techLevel>
+					</value>
+				</nomatch>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/ThingDef[defName="GR_ArchocentipedeFormer"]/techLevel</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="GR_ArchocentipedeFormer"]</xpath>
+					<value>
+						<techLevel>Archotech</techLevel>
+					</value>
+				</nomatch>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/ThingDef[defName="GR_DNAStorageBank"]/techLevel</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="GR_DNAStorageBank"]</xpath>
+					<value>
+						<techLevel>Archotech</techLevel>
+					</value>
+				</nomatch>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/ThingDef[defName="GR_ArchoWomb"]/techLevel</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="GR_ArchoWomb"]</xpath>
+					<value>
+						<techLevel>Archotech</techLevel>
+					</value>
+				</nomatch>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequireAnyOf="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/ThingDef[@Name="BS_SerumSizeSerumBase"]/costList</xpath>
+								<value>
+									<costList>
+										<MedicineUltratech>4</MedicineUltratech>
+										<Neutroamine>100</Neutroamine>
+									</costList>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/ThingDef[defName="BS_GeneGeneIntegrator"]/costList</xpath>
+								<value>
+									<costList Inherit="False">
+										<MedicineUltratech>4</MedicineUltratech>
+										<ComponentSpacer>2</ComponentSpacer>
+										<Neutroamine>20</Neutroamine>
+									</costList>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/ThingDef[defName="BS_GeneDicombobulator"]/costList</xpath>
+								<value>
+									<costList Inherit="False">
+										<MedicineUltratech>2</MedicineUltratech>
+										<ComponentSpacer>1</ComponentSpacer>
+										<Neutroamine>20</Neutroamine>
+									</costList>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/ThingDef[@Name="BS_SerumBase"]/tradeability</xpath>
+								<value>
+									<tradeability>All</tradeability>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>/Defs/ThingDef[@Name="BS_SerumBase"]</xpath>
+								<value>
+									<tradeTags>
+										<li>BS_GeneTools</li>
+									</tradeTags>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>/Defs/TraderKindDef[defName="GR_OrbitalTrader"]/stockGenerators</xpath>
+								<value>
+									<li Class="StockGenerator_Tag">
+										<tradeTag>BS_GeneTools</tradeTag>
+										<thingDefCountRange>1~4</thingDefCountRange>
+										<countRange>0~2</countRange>
+									</li>
+									<li Class="StockGenerator_BuyTradeTag">
+										<tag>BS_GeneTools</tag>
+									</li>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>/Defs/TraderKindDef[defName="GR_Outlander_CaravanTrader"]/stockGenerators</xpath>
+								<value>
+									<li Class="StockGenerator_Tag">
+										<tradeTag>BS_GeneTools</tradeTag>
+										<thingDefCountRange>1~2</thingDefCountRange>
+										<countRange>0~1</countRange>
+									</li>
+									<li Class="StockGenerator_BuyTradeTag">
+										<tag>BS_GeneTools</tag>
+									</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

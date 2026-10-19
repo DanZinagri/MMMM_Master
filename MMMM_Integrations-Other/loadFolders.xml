@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li IfModActive="vanillaracesexpanded.highmate">1.6/Mods/VREHighmate</li>
+		<li IfModActive="VanillaExpanded.VanillaTraitsExpanded">1.6/Mods/VanillaTraitsExpanded</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.6/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActive="feb.biopunklivestock">1.6/Mods/FEBsBiopunkLivestock</li>
+		<li IfModActive="VanillaExpanded.VAnomalyEInsanity">1.6/Mods/VanillaAnomalyExpandedInsanity</li>
+		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
+		<li IfModActive="ReGrowth.BOTR.ExtinctAnimalsPack">1.6/Mods/ReGrowthExtinctAnimals</li>
+	</v1.6>
+	<v1.7>
+		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li IfModActive="vanillaracesexpanded.highmate">1.7/Mods/VREHighmate</li>
+		<li IfModActive="VanillaExpanded.VanillaTraitsExpanded">1.7/Mods/VanillaTraitsExpanded</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.7/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActive="feb.biopunklivestock">1.7/Mods/FEBsBiopunkLivestock</li>
+		<li IfModActive="VanillaExpanded.VAnomalyEInsanity">1.7/Mods/VanillaAnomalyExpandedInsanity</li>
+		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>
+		<li IfModActive="ReGrowth.BOTR.ExtinctAnimalsPack">1.7/Mods/ReGrowthExtinctAnimals</li>
+	</v1.7>
+</loadFolders>

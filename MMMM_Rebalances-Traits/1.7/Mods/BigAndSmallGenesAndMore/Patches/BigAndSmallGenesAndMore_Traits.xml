@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The Big and Small alcohol addict trait conflicts with the vanilla ascetic trait.
+		This folder only loads when B&amp;S - Genes &amp; More is active (see loadFolders.xml), so no FindMod check is needed.
+		Verified against B&amp;S 1.6: the trait has a conflictingTraits list holding DrugDesire and a Vanilla Traits
+		Expanded entry, and Ascetic is not in it, so the add lands.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/TraitDef[defName="BS_AlcoholAddict"]/conflictingTraits</xpath>
+				<value>
+					<li>Ascetic</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

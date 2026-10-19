@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Many Many Many Mods Modularized - Integrations - Traits</name>
+	<author>DanZinagri</author>
+	<packageId>DanZinagri.MMMM.Integrations.Traits</packageId>
+	<supportedVersions>
+		<li>1.6</li>
+		<li>1.7</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>Ludeon.RimWorld.Biotech</packageId>
+			<displayName>Biotech</displayName>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>Wara.toomanymods</li>
+		<li>VanillaExpanded.VPsycastsE</li>
+		<li>VanillaExpanded.VanillaTraitsExpanded</li>
+		<li>VanillaExpanded.VCEF</li>
+		<li>vanillaracesexpanded.highmate</li>
+		<li>VanillaExpanded.VanillaSocialInteractionsExpanded</li>
+		<li>Goji.TheSimsTraits</li>
+	</loadAfter>
+	<description>Mod integrations</description>
+</ModMetaData>

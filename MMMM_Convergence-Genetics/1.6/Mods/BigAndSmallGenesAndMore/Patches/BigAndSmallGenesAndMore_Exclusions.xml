@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Two Big and Small genes given exclusion tags so they cannot stack with another mod's version of the same thing.
+		  - The venom talons join a shared Hands group. Among the mods installed here the only other gene carrying that
+		    tag comes from Oops all BUGPARTS 2, so that is the pairing this resolves.
+		  - The greater hemogen drain joins a shared HemogenDrain group, which VRE - Sanguophage's low and extreme
+		    hemogen drain genes both use.
+		This folder only loads when Big and Small - Genes &amp; More is active (see loadFolders.xml), which is where both
+		genes are defined. Neither carries a mod check: an exclusion tag nothing else uses simply never fires, so the
+		operations are harmless when the partner mod is absent.
+		Verified against Genes &amp; More 1.6: neither gene already has an exclusionTags list. The hemogen drain keeps the
+		original author's Conditional wrapper, which skips the add if some other patch got there first.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="LoS_VenomTalons"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>Hands</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/GeneDef[defName="VU_GreaterHemogenDrain"]/exclusionTags</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[defName="VU_GreaterHemogenDrain"]</xpath>
+			<value>
+				<exclusionTags>
+					<li>HemogenDrain</li>
+				</exclusionTags>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

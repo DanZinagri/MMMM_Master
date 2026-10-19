@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small's giant weapon wielder overlaps Alpha Genes' tough sinews. The B&amp;S trait is relabelled to match
+		the Alpha Genes name, and a shared ToughSinews exclusion tag is put on the B&amp;S gene and the large body frames
+		so a pawn cannot stack them.
+		This folder only loads when B&amp;S - Genes &amp; More is active (see loadFolders.xml); Alpha Genes is gated inside.
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally.
+
+		Verified against the current 1.6 releases, with two things worth knowing:
+		- AG_ToughSinews itself carries no exclusionTags upstream, so as written the tag only binds the Big and Small
+		genes to each other. Nothing stops a pawn taking BS_GiantWeaponWielder and AG_ToughSinews together. Giving
+		the Alpha Genes gene the same tag would be the fix, but that is a behaviour change, so it is left alone.
+		- OgreFrame has no exclusionTags node, so the multi-def add skips it. The other four frames get the tag.
+		Split by category into the MMMM Convergence sub-mods: this copy holds only the Genetics ops (genes and xenotypes).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/GeneDef[defName="BS_GiantWeaponWielder"]</xpath>
+						<value>
+							<exclusionTags>
+								<li>ToughSinews</li>
+							</exclusionTags>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/GeneDef[defName="JotunFrame" or defName="OgreFrame" or defName="GreatOgreFrame" or defName="TitanFrame" or defName="BS_EndlessGrowth"]/exclusionTags</xpath>
+						<value>
+							<li>ToughSinews</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<!--
+		Cherry Picker note: the astrogene entry is not dead weight. Alpha Genes defines no _Astrogene defs in XML at
+		all, one per gene is built at runtime by AlphaGenes.dll, so the def exists in game even though grepping the
+		mod's files finds nothing. An earlier comment in this project claimed otherwise; it was wrong.
+		The list itself, MMMM_ConvergenceGenetics_CherryPicker_Basics, belongs to this mod, and the matching revive entries are
+		in 1.6/Defs/CherryPicker.xml.
+		Fix 2026-10-08: the retired gene is now swapped for BS_GiantWeaponWielder in every xenotype that carries it (dropped
+		where the xenotype already has it). Before, Alpha Genes Integrated's Neanderthal lost tough sinews to Cherry Picker with
+		nothing in its place. This folds in the standalone "Big and Small - Alpha Genes Integrated" mod (DanZinagri.BSAGI),
+		which did the same for the Neanderthal only; About.xml marks it incompatible, since both would add the gene.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="BS_GiantWeaponWielder"]]/genes/li[text()="AG_ToughSinews"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[genes/li[text()="BS_GiantWeaponWielder"]]/genes/li[text()="AG_ToughSinews"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="AG_ToughSinews"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="AG_ToughSinews"]</xpath>
+							<value>
+								<li>BS_GiantWeaponWielder</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/AG_ToughSinews</li>
+							<li>GeneDef/AG_ToughSinews_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

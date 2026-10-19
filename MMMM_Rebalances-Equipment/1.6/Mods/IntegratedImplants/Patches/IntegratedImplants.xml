@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Integrated Implants rebalances. This folder only loads when Integrated Implants is active (see loadFolders.xml).
+		Voicelock: masochists no longer get the "voicelocked" mood penalty and instead get +8 ("masochist voicelocked",
+		Defs/ThoughtDefs.xml). Verified the thought has no nullifyingTraits upstream.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThoughtDef[defName="LTS_ActiveVoicelock"]</xpath>
+				<value>
+					<nullifyingTraits>
+						<li>Masochist</li>
+					</nullifyingTraits>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!--
+		With Big and Small - Genes & More and Anomaly: the deacidifier membrane gives 60% acid resistance through B&S's acid
+		damage multiplier (x0.4) instead of full acid-burn immunity, and both descriptions say "resistance" instead of
+		"immunity". Verified upstream stages are an AcidBurn damage factor of 0 and SM_AcidDmgMult exists in B&S.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core,Ludeon.RimWorld.Anomaly">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/HediffDef[defName="DeacidifierMembrane"]/stages</xpath>
+						<value>
+							<stages>
+								<li>
+									<statFactors>
+										<SM_AcidDmgMult>0.4</SM_AcidDmgMult>
+									</statFactors>
+								</li>
+							</stages>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/HediffDef[defName="DeacidifierMembrane"]/description</xpath>
+						<value>
+							<description>An installed implant that grants its user resistance to acid. The implant is crafted from the archite stomach lining that prevents devourers from digesting themselves and maintained by the influence of an archotech shard. By implanting a thin layer of these archites between the dermal layers, the user gains resistance to acid damage and digestion.</description>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="DeacidifierMembrane"]/description</xpath>
+						<value>
+							<description>An installed implant that grants its user resistance to acid. The implant is crafted from the archite stomach lining that prevents devourers from digesting themselves and maintained by the influence of an archotech shard. By implanting a thin layer of these archites between the dermal layers, the user gains resistance to acid damage and digestion.</description>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

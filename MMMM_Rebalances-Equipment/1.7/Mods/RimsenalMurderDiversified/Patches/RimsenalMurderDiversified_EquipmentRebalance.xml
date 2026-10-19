@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved here from the root file 1.7/Patches/EquipmentRebalance.xml.
+		This folder loads only when rimsenal.core is active (see loadFolders.xml). The same condition used to be a
+		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Apparel_CloseCombatArmor"]/description</xpath>
+								<value>
+									<description>Power armor with a built-in shield, focused for close-range combat.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Apparel_CloseCombatArmor"]/statBases/ArmorRating_Sharp</xpath>
+								<value>
+									<ArmorRating_Sharp>0.85</ArmorRating_Sharp>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Apparel_CloseCombatArmor"]/statBases/ArmorRating_Blunt</xpath>
+								<value>
+									<ArmorRating_Blunt>0.55</ArmorRating_Blunt>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Apparel_CloseCombatArmor"]/statBases/ArmorRating_Heat</xpath>
+								<value>
+									<ArmorRating_Heat>0.5</ArmorRating_Heat>
+								</value>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/ThingDef[defName="Apparel_CloseCombatArmor"]/equippedStatOffsets/MoveSpeed</xpath>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="Apparel_AssaultArmor"]/equippedStatOffsets</xpath>
+								<value>
+									<MeleeHitChance>-5</MeleeHitChance>
+									<MeleeDodgeChance>-5</MeleeDodgeChance>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="Apparel_HazardCarapace"]/equippedStatOffsets</xpath>
+								<value>
+									<Flammability>-0.9</Flammability>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="YP_SagPung"]</xpath>
+								<value>
+									<equippedStatOffsets>
+										<ShootingAccuracyPawn>8</ShootingAccuracyPawn>
+									</equippedStatOffsets>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Apparel_DropsuitH"]/equippedStatOffsets/AimingDelayFactor</xpath>
+								<value>
+									<AimingDelayFactor>-0.1</AimingDelayFactor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Apparel_StrikesuitH"]/equippedStatOffsets/AimingDelayFactor</xpath>
+								<value>
+									<AimingDelayFactor>-0.15</AimingDelayFactor>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAddModExtension">
+										<xpath>Defs/ThingDef[defName="Apparel_HazardCarapace"]</xpath>
+										<value>
+											<li Class="VEF.Apparels.ApparelExtension">
+												<equippedStatFactors>
+													<SM_AcidDmgMult>0.4</SM_AcidDmgMult>
+												</equippedStatFactors>
+											</li>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="vanillaexpanded.gravship">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="Apparel_StrikesuitH" or defName="Apparel_AssaultArmorH" or defName="Apparel_FSArmorH" or defName="Apparel_CloseCombatHelmet" or defName="Apparel_DropsuitH"]/equippedStatOffsets/VacuumResistance</xpath>
+										<value>
+											<VacuumResistance>0.61</VacuumResistance>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="Apparel_Strikesuit" or defName="Apparel_Dropsuit" or defName="Apparel_Shocksuit"]/equippedStatOffsets/VacuumResistance</xpath>
+										<value>
+											<VacuumResistance>0.31</VacuumResistance>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="Apparel_DropsuitH"]/description</xpath>
+										<value>
+											<description>A cutting-edge helmet loaded with flashy gadgets — most of which are completely useless planetside. Fortunately, the targeting-assist pseudo-AI still works.</description>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="Apparel_ReflactorArmorH"]/equippedStatOffsets/VacuumResistance</xpath>
+										<value>
+											<VacuumResistance>0.65</VacuumResistance>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="Apparel_HazardCarapaceH"]/description</xpath>
+										<value>
+											<description>Part of the Alecto Hazard Carapace set, this helmet offers superior protection against extreme heat, cold, vacuum and radiation.</description>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

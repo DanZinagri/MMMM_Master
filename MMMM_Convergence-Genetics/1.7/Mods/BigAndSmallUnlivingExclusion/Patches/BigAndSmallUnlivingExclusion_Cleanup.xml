@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Xenotypes that carry BOTH vanilla non-senescent and Big and Small's Unliving gene drop the vanilla one, so they
+		stay valid once the exclusion patch in this same folder makes the two mutually exclusive.
+
+		Why these live here rather than with their own mods' patches: the exclusion tag is only applied when Vampires
+		and the Undead is ABSENT, which is what this folder's loadFolders gate checks. The original had the Races
+		removal firing whenever Big and Small - Races was active and the Lamias one behind a Royalty check, neither of
+		which matches that condition. With Vampires and the Undead installed both used to strip non-senescent from
+		xenotypes that nothing had made conflict, which is a plain nerf. Moving them here ties them to the patch that
+		creates the need, so the two can no longer drift apart.
+		The mod gates sit on <li> nodes inside a sequence, not on the <Operation> itself: RimWorld reads MayRequire only
+		on list elements.
+
+		Vanilla's gene has the confusing defName DiseaseFree but is labelled "non-senescent" and prevents chronic
+		age-related conditions. VU_Unliving makes its carrier immune to the same six: carcinoma, heart attack,
+		dementia, Alzheimer's, asthma and artery blockage. The duplication is exact.
+
+		Verified against the current 1.6 releases: six Big and Small xenotypes carry both genes. Four are the Races ones
+		below, one is the Lamias viper prototype, and the sixth is the Revenant from Vampires and the Undead, which
+		needs nothing because it only exists in the very case where this folder does not load.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationRemove" MayRequire="RedMattis.BigSmall">
+				<xpath>Defs/XenotypeDef[defName="BS_Hearthguard" or defName="BS_Hearthdoll" or defName="BS_PilotableFleshGolem" or defName="BS_FleshGolemServant"]/genes/li[text()="DiseaseFree"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove" MayRequire="RedMattis.LamiasAndOtherSnakes">
+				<xpath>Defs/XenotypeDef[defName="BS_ViperPrototypeBiomecha"]/genes/li[text()="DiseaseFree"]</xpath>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

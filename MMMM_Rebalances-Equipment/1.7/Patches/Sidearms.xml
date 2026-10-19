@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Sidearms: pistols and small guns from Vanilla Arsenal, Vanilla Weapons Expanded (+ Frontier, Coilguns), Big and Small,
+		Impact / Glitter / Phase Weaponry, Rimsenal and Reinforced Mechanoid 2 can be used with a shield (VEF usableWithShields)
+		where they were not already. Moved from the core root file ZZ5_Sidearm.xml (no setting). Glitter Weaponry keeps a name FindMod
+		(its packageId could not be confirmed); other mods found by name moved to gated load folders. Checked with analysis/patch_sim.py: all installed-mod ops apply.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="det.vanillaarsenal">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/ThingDef[defName="DV_Gun_BurstPistol"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+								<nomatch Class="PatchOperationAddModExtension">
+									<xpath>Defs/ThingDef[defName="DV_Gun_BurstPistol"]</xpath>
+									<value>
+										<li Class="VEF.Things.ThingDefExtension">
+											<usableWithShields>true</usableWithShields>
+										</li>
+									</value>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="rimsenal.feral">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/ThingDef[defName="Gun_Gnasher"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+								<nomatch Class="PatchOperationAddModExtension">
+									<xpath>Defs/ThingDef[defName="Gun_Gnasher"]</xpath>
+									<value>
+										<li Class="VEF.Things.ThingDefExtension">
+											<usableWithShields>true</usableWithShields>
+										</li>
+									</value>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Mlie.ReinforcedMechanoid2">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/ThingDef[defName="RM_Gun_ChargePistol"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+								<nomatch Class="PatchOperationAddModExtension">
+									<xpath>Defs/ThingDef[defName="RM_Gun_ChargePistol"]</xpath>
+									<value>
+										<li Class="VEF.Things.ThingDefExtension">
+											<usableWithShields>true</usableWithShields>
+										</li>
+									</value>
+								</nomatch>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/ThingDef[defName="RM_Gun_ChargeLancePistol"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+								<nomatch Class="PatchOperationAddModExtension">
+									<xpath>Defs/ThingDef[defName="RM_Gun_ChargeLancePistol"]</xpath>
+									<value>
+										<li Class="VEF.Things.ThingDefExtension">
+											<usableWithShields>true</usableWithShields>
+										</li>
+									</value>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VWEFT">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VWEC">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationConditional">
+										<xpath>Defs/ThingDef[defName="VWEFT_Gun_GaussRevolver"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+										<nomatch Class="PatchOperationAddModExtension">
+											<xpath>Defs/ThingDef[defName="VWEFT_Gun_GaussRevolver"]</xpath>
+											<value>
+												<li Class="VEF.Things.ThingDefExtension">
+													<usableWithShields>true</usableWithShields>
+												</li>
+											</value>
+										</nomatch>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VWE">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/ThingDef[defName="VWE_Gun_HandCannon"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+								<nomatch Class="PatchOperationAddModExtension">
+									<xpath>Defs/ThingDef[defName="VWE_Gun_HandCannon"]</xpath>
+									<value>
+										<li Class="VEF.Things.ThingDefExtension">
+											<usableWithShields>true</usableWithShields>
+										</li>
+									</value>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequireAnyOf="RedMattis.BigSmall,RedMattis.MoreXenos,RedMattis.Yokai,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.Undead">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationConditional">
+										<xpath>Defs/ThingDef[defName="BS_JotunJavelin"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+										<nomatch Class="PatchOperationAddModExtension">
+											<xpath>Defs/ThingDef[defName="BS_JotunJavelin"]</xpath>
+											<value>
+												<li Class="VEF.Things.ThingDefExtension">
+													<usableWithShields>true</usableWithShields>
+												</li>
+											</value>
+										</nomatch>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Glitter Weaponry</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<operations>
+						<li Class="PatchOperationSequence">
+							<operations>
+								<li Class="PatchOperationConditional">
+									<xpath>Defs/ThingDef[defName="Laser_Handcannon"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+									<nomatch Class="PatchOperationAddModExtension">
+										<xpath>Defs/ThingDef[defName="Laser_Handcannon"]</xpath>
+										<value>
+											<li Class="VEF.Things.ThingDefExtension">
+												<usableWithShields>true</usableWithShields>
+											</li>
+										</value>
+									</nomatch>
+								</li>
+							</operations>
+						</li>
+					</operations>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="detvisor.impactweaponryreloaded">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/ThingDef[defName="DV_Gun_ImpactStubber"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+								<nomatch Class="PatchOperationAddModExtension">
+									<xpath>Defs/ThingDef[defName="DV_Gun_ImpactStubber"]</xpath>
+									<value>
+										<li Class="VEF.Things.ThingDefExtension">
+											<usableWithShields>true</usableWithShields>
+										</li>
+									</value>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Spacer">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/ThingDef[defName="Gun_SmartMachinePistol"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+								<nomatch Class="PatchOperationAddModExtension">
+									<xpath>Defs/ThingDef[defName="Gun_SmartMachinePistol"]</xpath>
+									<value>
+										<li Class="VEF.Things.ThingDefExtension">
+											<usableWithShields>true</usableWithShields>
+										</li>
+									</value>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

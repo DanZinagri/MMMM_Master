@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Cherry Picker entries for genes that MMMM Convergence swaps out of xenotypes (each gated on the same mods as the swap),
+		added to this mod's MMMM_ConvergenceGenetics_CherryPicker_Basics list; revive entries are in 1.6/Defs/CherryPicker.xml.
+		Kept from Too Many Mods' core ZZ9_AutoCherryPicker.xml: only entries whose def a Convergence patch replaces or removes
+		(li[text()="..."] ops), plus their _Astrogene twins. Everything else in that file was dropped.
+		Fix 2026-10-03: genes retired to Cherry Picker are now swapped in every xenotype that carries them (removed where the
+		xenotype already has the replacement), so no xenotype from any mod loses one. Genes without a clean one-for-one
+		replacement are no longer retired.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BetterGeneInheritance,vanillaracesexpanded.highmate">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/VRE_RecessiveGenome</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes,ElSov.Beliar">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/BX_BasaltSkin</li>
+							<li>GeneDef/BX_BasaltSkin_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes,vanillaracesexpanded.archon">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/AG_SlowGestation</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes,RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/AG_LargerBodySize</li>
+							<li>GeneDef/AG_LargerBodySize_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core,vanillaracesexpanded.lycanthrope">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/BS_NightOwl</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes,Arquebus.StagzMerfolk">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/Stagz_SwiftSwim</li>
+							<li>GeneDef/Stagz_SwiftSwim_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes,vanillaracesexpanded.insector">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/AG_VFEI_VatGrownInsectoidSkin</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes,vanillaracesexpanded.phytokin">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/VRE_Female</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core,vanillaracesexpanded.phytokin,sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/VRE_Female</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes,RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="AG_HeatImmunity"]]/genes/li[text()="MaxTemp_HugeIncrease"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[genes/li[text()="AG_HeatImmunity"]]/genes/li[text()="MaxTemp_HugeIncrease"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="MaxTemp_HugeIncrease"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="MaxTemp_HugeIncrease"]</xpath>
+							<value>
+								<li>AG_HeatImmunity</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="AG_ColdImmunity"]]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[genes/li[text()="AG_ColdImmunity"]]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+							<value>
+								<li>AG_ColdImmunity</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="AG_HeatImmunity"]]/genes/li[text()="FireImmunity"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[genes/li[text()="AG_HeatImmunity"]]/genes/li[text()="FireImmunity"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="FireImmunity"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="FireImmunity"]</xpath>
+							<value>
+								<li>AG_HeatImmunity</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="AG_ArmourMajor"]]/genes/li[text()="BS_NaturalArmor"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[genes/li[text()="AG_ArmourMajor"]]/genes/li[text()="BS_NaturalArmor"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="BS_NaturalArmor"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="BS_NaturalArmor"]</xpath>
+							<value>
+								<li>AG_ArmourMajor</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/MaxTemp_HugeIncrease</li>
+							<li>GeneDef/MaxTemp_HugeIncrease_Astrogene</li>
+							<li>GeneDef/MinTemp_HugeDecrease</li>
+							<li>GeneDef/MinTemp_HugeDecrease_Astrogene</li>
+							<li>GeneDef/FireImmunity</li>
+							<li>GeneDef/FireImmunity_Astrogene</li>
+							<li>GeneDef/AG_Painless</li>
+							<li>GeneDef/AG_Painless_Astrogene</li>
+							<li>GeneDef/BS_NaturalArmor</li>
+							<li>GeneDef/BS_NaturalArmor_Astrogene</li>
+							<li>GeneDef/AG_Male</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core,biotexpans.core">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/BS_Unarmed_Strong</li>
+							<li>GeneDef/BS_Unarmed_Strong_Astrogene</li>
+							<li>GeneDef/BS_Unarmed_VeryStrong</li>
+							<li>GeneDef/BS_Unarmed_VeryStrong_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core,det.stoneborn">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/DV_Undergrounder</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core,vanillaracesexpanded.archon">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/BS_ShortPregnancy</li>
+							<li>GeneDef/BS_ShortPregnancy_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core,vanillaracesexpanded.highmate">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="VRE_Flirty"]]/genes/li[text()="BS_Flirty"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[genes/li[text()="VRE_Flirty"]]/genes/li[text()="BS_Flirty"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="BS_Flirty"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="BS_Flirty"]</xpath>
+							<value>
+								<li>VRE_Flirty</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/BS_Flirty</li>
+							<li>GeneDef/VU_Libido_Succubus</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core,vanillaracesexpanded.sanguophage">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/BS_Talons</li>
+							<li>GeneDef/BS_Talons_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core,vanillaracesexpanded.waster">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/BS_Instability_Catastrophic</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes,det.avaloi">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/DV_ToxResist_Terrible</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes,vanillaracesexpanded.saurid">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/AG_EggLaying</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

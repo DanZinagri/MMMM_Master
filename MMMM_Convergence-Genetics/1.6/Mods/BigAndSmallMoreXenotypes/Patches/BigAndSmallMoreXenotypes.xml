@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small - More Xenotypes: genes swapped for other mods' equivalents, so the same effect is not provided
+		twice under two names.
+		This folder only loads when More Xenotypes is active (see loadFolders.xml); each swap carries MayRequire for
+		the mod that supplies the replacement.
+		Verified against the current 1.6 releases: every gene being replaced is present in its xenotype, so all of
+		these land.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+
+			<!-- Parasite uses Biotech Expansion's feral might instead of B&S very strong unarmed -->
+			<li Class="PatchOperationReplace" MayRequire="biotexpans.core">
+				<xpath>Defs/XenotypeDef[defName="BS_Parasite"]/genes/li[text()="BS_Unarmed_VeryStrong"]</xpath>
+				<value>
+					<li>BTE_FeralMight</li>
+				</value>
+			</li>
+
+			<!-- Hive queen uses the vanilla-style female-only body gene instead of Alpha Genes' own -->
+			<li Class="PatchOperationReplace" MayRequire="sarg.alphagenes">
+				<xpath>Defs/XenotypeDef[defName="BS_HiveQueen"]/genes/li[text()="AG_Female"]</xpath>
+				<value>
+					<li>Body_FemaleOnly</li>
+				</value>
+			</li>
+
+			<!-- Hive queen and weaver use Alpha Genes' major armour instead of B&S natural armor -->
+			<li Class="PatchOperationReplace" MayRequire="sarg.alphagenes">
+				<xpath>Defs/XenotypeDef[defName="BS_HiveQueen"]/genes/li[text()="BS_NaturalArmor"]</xpath>
+				<value>
+					<li>AG_ArmourMajor</li>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace" MayRequire="sarg.alphagenes">
+				<xpath>Defs/XenotypeDef[defName="BS_Weaver"]/genes/li[text()="BS_NaturalArmor"]</xpath>
+				<value>
+					<li>AG_ArmourMajor</li>
+				</value>
+			</li>
+
+			<!-- Hive queen uses VRE Insector's vat-grown skin instead of the Alpha Genes copy -->
+			<li Class="PatchOperationReplace" MayRequire="sarg.alphagenes,vanillaracesexpanded.insector">
+				<xpath>Defs/XenotypeDef[defName="BS_HiveQueen"]/genes/li[text()="AG_VFEI_VatGrownInsectoidSkin"]</xpath>
+				<value>
+					<li>VRE_VatGrownInsectoidSkin</li>
+				</value>
+			</li>
+
+			<!-- Parasite uses Alpha Genes' medium armour instead of B&S tough skin -->
+			<li Class="PatchOperationReplace" MayRequire="sarg.alphagenes">
+				<xpath>Defs/XenotypeDef[defName="BS_Parasite"]/genes/li[text()="BS_ToughSkin"]</xpath>
+				<value>
+					<li>AG_ArmourMedium</li>
+				</value>
+			</li>
+
+			<!-- Abomination and broodmother use VRE Archon's short pregnancy -->
+			<li Class="PatchOperationReplace" MayRequire="vanillaracesexpanded.archon">
+				<xpath>Defs/XenotypeDef[defName="BS_Abomination" or defName="BS_Broodmother"]/genes/li[text()="BS_ShortPregnancy"]</xpath>
+				<value>
+					<li>VRE_ShortPregnancy</li>
+				</value>
+			</li>
+
+			<!-- Weaver and parasite use VRE Lycanthrope's nocturnal gene instead of B&S night owl -->
+			<li Class="PatchOperationReplace" MayRequire="vanillaracesexpanded.lycanthrope">
+				<xpath>Defs/XenotypeDef[defName="BS_Weaver" or defName="BS_Parasite"]/genes/li[text()="BS_NightOwl"]</xpath>
+				<value>
+					<li>VRE_Nocturnal</li>
+				</value>
+			</li>
+
+			<!-- Devilspider swaps B&S heat tolerance and fire immunity for the Alpha Genes equivalent -->
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_Devilspider"]/genes</xpath>
+						<value>
+							<li>AG_HeatImmunity</li>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>
+							Defs/XenotypeDef[defName="BS_Devilspider"]/genes/li[text()="MaxTemp_LargeIncrease"]</xpath>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>
+							Defs/XenotypeDef[defName="BS_Devilspider"]/genes/li[text()="FireImmunity"]</xpath>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

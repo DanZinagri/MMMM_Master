@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		ATH's style Gothic and Bloody Gothic: Biotech's Bloodfeeding meme uses ATH's Bloody Gothic building style
+		(priority 3) instead of vanilla's Morbid.
+		This folder only loads when ATH's Gothic styles are active (see loadFolders.xml); the Biotech gate sits on an <li>.
+		The original folder had no packageId gate (TODO in the core loadFolders); it is now anthitei.athsstylegothic.style.
+		Verified: the vanilla meme's thingStyleCategories is Morbid (priority 3) and the BloodyGothic StyleCategoryDef exists.
+		Cybranian - Ideology Virtues also patches this meme, but only adds a virtues extension.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Biotech">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/MemeDef[defName="Bloodfeeding"]/thingStyleCategories</xpath>
+						<value>
+							<thingStyleCategories>
+								<li>
+									<category>BloodyGothic</category>
+									<priority>3</priority>
+								</li>
+							</thingStyleCategories>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

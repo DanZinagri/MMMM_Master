@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Cremation works on Big and Small's non-human humanlike races.
+		Vanilla's cremate bill defaults to the single Corpse_Human thing, so corpses of B&S humanlike races are not
+		selected by default. These operations add the CorpsesHumanlike category to that default filter, and disallow
+		unnatural corpses (Anomaly) so shamblers and the like are not swept up with them.
+		This folder only loads when Big and Small - Framework is active (see loadFolders.xml), so no FindMod check is
+		needed.
+		Verified against RimWorld 1.6: the vanilla recipe's defaultIngredientFilter has neither a categories list nor a
+		specialFiltersToDisallow list, which is why each change creates the element before appending to it. The
+		conditionals are not redundant: they keep the append safe if another mod adds either list first.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/RecipeDef[defName="CremateCorpse"]/defaultIngredientFilter/categories</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/RecipeDef[defName="CremateCorpse"]/defaultIngredientFilter</xpath>
+					<value>
+						<categories/>
+					</value>
+				</nomatch>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/RecipeDef[defName="CremateCorpse"]/defaultIngredientFilter/categories</xpath>
+				<value>
+					<li>CorpsesHumanlike</li>
+				</value>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/RecipeDef[defName="CremateCorpse"]/defaultIngredientFilter/specialFiltersToDisallow</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/RecipeDef[defName="CremateCorpse"]/defaultIngredientFilter</xpath>
+					<value>
+						<specialFiltersToDisallow/>
+					</value>
+				</nomatch>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/RecipeDef[defName="CremateCorpse"]/defaultIngredientFilter/specialFiltersToDisallow</xpath>
+				<value>
+					<li MayRequire="Ludeon.RimWorld.Anomaly">AllowCorpsesUnnatural</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

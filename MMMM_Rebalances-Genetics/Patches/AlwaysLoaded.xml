@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Keeps RimWorld from logging "did not load any content" when none of the mods this sub-mod rebalances are active.
+		Every other folder here is gated in loadFolders.xml, and the game counts any loaded patch operation as content.
+		This one does nothing: a FindMod with no match/nomatch always succeeds without touching the defs.
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Core</li>
+		</mods>
+	</Operation>
+
+</Patch>

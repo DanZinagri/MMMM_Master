@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The siren xenotype gains Goji's Merren siren song gene.
+		This folder only loads when Lamias is active (see loadFolders.xml). Merren keeps a FindMod check rather than a
+		MayRequire because that mod is not installed here, so its packageId could not be verified and a wrong id would
+		fail silently.
+		Verified against Lamias 1.6: the siren does not already list the gene.
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Goji's Fantasy Race: Merren</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/XenotypeDef[defName="LoS_Siren"]/genes</xpath>
+					<value>
+						<li>Stagz_SirenSong</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

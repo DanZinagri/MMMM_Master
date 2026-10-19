@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Armour Expanded's heavy marine armor and (with Royalty) royal siege armor list apparel layers Middle and
+		Shell, which their parent ApparelArmorPowerBase already provides; list inheritance appends the child's list, so both
+		ended up with Middle, Shell, Middle, Shell. Inherit="False" makes each use only its own list. Cosmetic in effect:
+		vanilla picks the same outermost layer either way, so it mainly cleans up the info card.
+		This folder only loads when VAE is active (see loadFolders.xml); the siege armor is gated on Royalty, where VAE
+		defines it.
+		Verified against VAE 1.6: both armours and their parent list exactly Middle and Shell. Layers: Capes and Armor
+		(Yy.CapesandArmor) adds a second layers node to both armours instead of replacing the first, so with that mod the
+		layers are messy regardless of this patch.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>Defs/ThingDef[defName="VAE_Apparel_HeavyMarineArmor"]/apparel/layers</xpath>
+				<attribute>Inherit</attribute>
+				<value>False</value>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Royalty">
+				<operations>
+					<li Class="PatchOperationAttributeAdd">
+						<xpath>Defs/ThingDef[defName="VAE_Apparel_RoyalSiegeArmor"]/apparel/layers</xpath>
+						<attribute>Inherit</attribute>
+						<value>False</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

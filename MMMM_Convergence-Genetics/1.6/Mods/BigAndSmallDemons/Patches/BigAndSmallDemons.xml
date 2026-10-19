@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The demon xenotypes' libido and heat genes lined up with the mods that ship equivalents.
+
+		Gating, which is why this is its own folder: the demon xenotypes are not Heaven and Hell or Vampires and the
+		Undead defs. Big and Small - Genes &amp; More defines them, inside a folder its own LoadFolders only loads when
+		RedMattis.Undead or RedMattis.Heaven is active. This folder mirrors that exact condition.
+
+		Changed from the original, on review: the succubus already carries VU_Libido_Succubus, and the original ADDED a
+		second libido gene on top of it rather than replacing it, so a succubus ended up with two. Both operations are
+		now replacements of VU_Libido_Succubus, which is what the same author's lilim patch in the Heaven and Hell file
+		does. The two branches were already mutually exclusive, but Charmweavers used to win when both mods were
+		installed; the check is now the other way round so the Highmate gene wins, as requested.
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Races Expanded - Highmate</li>
+		</mods>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef[defName="VU_Succubus"]/genes/li[text()="VU_Libido_Succubus"]</xpath>
+			<value>
+				<li>VRE_Libido_VeryHigh</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationFindMod">
+			<mods>
+				<li>ReSplice: Charmweavers</li>
+			</mods>
+			<match Class="PatchOperationReplace">
+				<xpath>Defs/XenotypeDef[defName="VU_Succubus"]/genes/li[text()="VU_Libido_Succubus"]</xpath>
+				<value>
+					<li>RS_Libido_Extreme</li>
+				</value>
+			</match>
+		</nomatch>
+	</Operation>
+
+	<!--
+		The succubus, hellguard, gatekeeper and imp gain Alpha Genes' heat immunity.
+
+		Worth deciding before release: this is written as a plain addition, but the equivalent operation for the angels
+		and Satan in the Heaven and Hell file removes MaxTemp_HugeIncrease and FireImmunity as it adds the Alpha Genes
+		gene. All four of these demons carry both of those, so as written they end up with the Alpha Genes immunity on
+		top of the two they already had. Adding the matching removals would make this a real swap, but that is a
+		behaviour change, so the original is left alone here.
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="VU_Succubus"]/genes</xpath>
+						<value>
+							<li>AG_HeatImmunity</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="VU_Hellguard"]/genes</xpath>
+						<value>
+							<li>AG_HeatImmunity</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="VU_Imp"]/genes</xpath>
+						<value>
+							<li>AG_HeatImmunity</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

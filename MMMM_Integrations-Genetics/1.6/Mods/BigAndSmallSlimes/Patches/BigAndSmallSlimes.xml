@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Slime xenotypes gain Alpha Genes blood and flesh genes that match what they are made of: chocolate flesh for
+		the banana split, cryo blood and cryo vomit for the frost slimes, tar blood for the lava slimes, slime blood
+		for the green and toxic ones, water blood for the rest, and passive regeneration for the elixir slime.
+		This folder only loads when Slimes is active (see loadFolders.xml); Alpha Genes is gated per operation, and the
+		giant variants additionally need Big and Small - Races, which is where those xenotypes come from.
+		Verified against the current 1.6 releases: none of these xenotypes already lists the gene being added.
+	-->
+	<!--
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally. Do not flatten this wrapper away.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_BananaSplitSlime"]/genes</xpath>
+						<value>
+							<li>AG_ChocolateFlesh</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_ElixirSlime"]/genes</xpath>
+						<value>
+							<li>AG_PassiveRegenerator</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_FrostSlime"]/genes</xpath>
+						<value>
+							<li>AG_CryoBlood</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_FrostSlime"]/genes</xpath>
+						<value>
+							<li>AG_PukeCryo</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_LavaSlime"]/genes</xpath>
+						<value>
+							<li>AG_TarBlood</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_ToxicSlduge" or defName="BS_GreenSlime" or defName="BS_BananaSplitSlime"]/genes</xpath>
+						<value>
+							<li>AG_SlimeBlood</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_EmperorSlime" or defName="BS_PinkSlime" or defName="BS_ElixirSlime"]/genes</xpath>
+						<value>
+							<li>AG_WaterBlood</li>
+						</value>
+					</li>
+
+					<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/XenotypeDef[defName="BS_BananaSplitSlimeGiant"]/genes</xpath>
+								<value>
+									<li>AG_ChocolateFlesh</li>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/XenotypeDef[defName="BS_FrostSlimeGiant"]/genes</xpath>
+								<value>
+									<li>AG_CryoBlood</li>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/XenotypeDef[defName="BS_FrostSlimeGiant"]/genes</xpath>
+								<value>
+									<li>AG_PukeCryo</li>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/XenotypeDef[defName="BS_LavaSlimeGiant"]/genes</xpath>
+								<value>
+									<li>AG_TarBlood</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

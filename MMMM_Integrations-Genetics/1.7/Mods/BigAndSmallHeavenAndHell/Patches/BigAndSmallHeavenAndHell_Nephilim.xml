@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small - Heaven and Hell joined up with Nephilim Xenotype Reborn.
+		  - The Heaven faction can roll nephilim, and its melee servitors always do.
+		  - With EBSG Framework and Ideology, the Heaven faction requires the gracetouched meme.
+		  - The four angel and demon xenotypes gain the grace, resurrection, heal and holy hymn genes.
+		  - The grigori description is rewritten and Big and Small's own nephilim is renamed to goliath, so the two
+		    mods do not both offer something called a nephilim.
+		This folder only loads when Heaven and Hell is active (see loadFolders.xml); the partner mods are gated inside.
+		The mod gates sit on <li> nodes inside sequences, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally.
+		Name fix applied on review: the original checked for a mod named "Nephilim Xenotype". Mod-name checks
+		are exact matches and the mod is named "Nephilim Xenotype Reborn", so those checks never fired. The
+		packageId sov.nephilim is used here instead, which cannot drift the same way.
+		The original sat behind a Too Many Mods setting toggle (TMM_BS_NephilimBeliarIntegration, default on).
+		That toggle is dropped: the folder gate and the MayRequire checks already keep it inert unless the
+		mods it joins are installed.
+
+		Verified against the current 1.6 releases: every gene, meme and xenotype referenced exists, the Heaven faction
+		has both a xenotypeChances block and a requiredMemes list, the melee servitor has a xenotypeChances block, and
+		none of the four xenotypes already carries any of the genes being added. All eight operations land.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Genetics ops (genes and xenotypes).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sov.nephilim">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_Grigori"]/description</xpath>
+						<value>
+							<description>Grigori are outcasts amongst angels, considered by many to be worse than even demons, these angels were allegedly tasked with watching over and guiding humanity. It is said that they were much more capable of understanding and connecting with humans than other angels. Reportedly a more humanlike nature was their downfall, as stories speak of the grigori teaching forbidden secrets and even coupling with humans.</description>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_Nephilim"]/label</xpath>
+						<value>
+							<label>goliath</label>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_Authority"]/genes</xpath>
+						<value>
+							<li>GS_Grace_New</li>
+							<li>GS_Resurrect_Gene</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_Malakim"]/genes</xpath>
+						<value>
+							<li>GS_Grace_New</li>
+							<li>GS_Heal</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_Satan"]/genes</xpath>
+						<value>
+							<li>GS_Grace_New</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_Grigori"]/genes</xpath>
+						<value>
+							<li>GS_Grace_New</li>
+							<li>GS_Heal</li>
+							<li>GS_HolyHymnn_Gene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+		</operations>
+	</Operation>
+
+</Patch>

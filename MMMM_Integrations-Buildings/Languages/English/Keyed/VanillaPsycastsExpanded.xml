@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!-- Explanation text for the "wealthy building" meditation focus offsets in 1.6/Mods/VanillaPsycastsExpanded (moved from Too Many Mods' core Keyed/Misc_Gameplay.xml). -->
+	<MeditationFocusPerWealthyAbstract>2-6% per nearby wealthy building (max {0})</MeditationFocusPerWealthyAbstract>
+	<MeditationFocusPerWealthy>2-6% per nearby wealthy building ({0} / {1})</MeditationFocusPerWealthy>
+
+</LanguageData>

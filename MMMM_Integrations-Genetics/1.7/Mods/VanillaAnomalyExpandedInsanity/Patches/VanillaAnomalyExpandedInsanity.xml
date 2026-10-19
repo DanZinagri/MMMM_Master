@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Anomaly Expanded - Insanity + other anomaly content: killing their horrors restores sanity, their psychic rituals
+		cost it, and their dark hediffs drain it, the same way VAE Insanity treats vanilla Anomaly:
+		  - Anomaly Portal: killing a metal storm. New Anomaly Threats: killing rusted soldiers, the collector and the bile
+		    serpent; the two rust-creation rituals. Rustspark Crisis: killing its creatures; rustspark infusion.
+		  - Void Universe: six of its rituals. VPE Fleshshaper: its three regeneration/sustenance hediffs.
+		  - Alpha Genes: the greater toughspikes, flesh whip and flesh spitter hediffs (the genes gain a "-0.4% sanity per day"
+		    line; none had customEffectDescriptions), flesh power, pseudo-deadlife and plagued claws.
+		  - Integrated Implants: metalhorror symbiont, blacksight and dreadheart regeneration drain sanity, and the voidlink's
+		    five stages trade their mental break threshold offset for a sanity multiplier (0.2 to 1.0).
+		This folder only loads with VAE Insanity (see loadFolders.xml). Void Universe and Rustspark Crisis are not installed and
+		their packageIds are unknown, so those two blocks keep their mod-name checks.
+		Verified against VAE Insanity, Alpha Genes and Integrated Implants 1.6 (every hediff exists, none is already in VAE
+		Insanity's lists, and the voidlink stages carry MentalBreakThreshold). Anomaly Portal, New Anomaly Threats, Void
+		Universe, Rustspark Crisis and VPE Fleshshaper are not installed here, so their defs are unchecked.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Genetics ops (genes and xenotypes).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/GeneDef[defName="AG_GreaterToughspikes" or defName="AG_GreaterFleshWhip" or defName="AG_FleshSpitter"]</xpath>
+						<value>
+							<customEffectDescriptions>
+								<li>-0.4% sanity per day</li>
+							</customEffectDescriptions>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Items from other mods join the rare fishing catch pool (vanilla Odyssey's RareFishingCatchesBase).
+		Unlike the Treasure AddOn file next to this one, these entries apply whether or not that add-on is present,
+		so this file is gated only on Odyssey (which defines the pool) plus the mod each entry comes from.
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Integrated Implants</li>
+		</mods>
+		<match Class="PatchOperationFindMod">
+			<mods>
+				<li>Odyssey</li>
+			</mods>
+			<match Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+						<value>
+							<li>
+								<!-- vanilla bionics: 2 -->
+								<weight>1.0</weight>
+								<thingSetMaker Class="ThingSetMaker_Count">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>LTS_GourmandTongue</li>
+												<li MayRequire="ludeon.rimworld.royalty">LTS_PrestigeSubdermalArmour</li>
+												<li>BiochameleonDevice</li>
+												<li>CranialInsulation</li>
+												<li>BiotunerImplant</li>
+												<li>LTS_SubdermalArmour</li>
+												<li>Synthmarrow</li>
+												<li>HackingPortImplant</li>
+												<li>LTS_MemoryDatabank</li>
+												<li>LTS_FireSupressionSystem</li>
+												<li>PsychicLevitator</li>
+												<li>Archowomb</li>
+												<li>SkeletalBracing</li>
+												<li>PsychicNullifier</li>
+												<li>CryptoWakeImplant</li>
+												<li>ArchotechVoicebox</li>
+											</thingDefs>
+										</filter>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</match>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Vehicles Expanded</li>
+		</mods>
+		<match Class="PatchOperationFindMod">
+			<mods>
+				<li>Odyssey</li>
+			</mods>
+			<match Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>0.1</weight>
+								<thingSetMaker Class="ThingSetMaker_Count">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>VVE_CarWheel</li>
+											</thingDefs>
+										</filter>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</match>
+		</match>
+	</Operation>
+
+</Patch>

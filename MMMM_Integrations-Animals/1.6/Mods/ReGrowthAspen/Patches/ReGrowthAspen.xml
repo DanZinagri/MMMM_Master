@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		ReGrowth 2: Aspen: extra wild animal spawns in RG_AspenForest from other animal mods.
+		This folder only loads with ReGrowth 2: Aspen (see loadFolders.xml). The first block's Mythic Ages / Dark Ages entries
+		carry their own MayRequire; every other block is gated on its animal mod, and each block is its own operation so one
+		failing cannot stop the rest.
+		From Too Many Mods' ReGrowthAspen.xml, where it had no setting. Its Alpha Mythology block was dropped (2026-10-13): that
+		mod never got a 1.6 build.
+		Why the checks matter: a biome that lists a pawn kind that does not exist, or gets the same animal twice (here and in
+		the animal's own wildBiomes or another mod's patch), throws when it builds its commonality table
+		(BiomeDef.CommonalityOfAnimal), which breaks wild animal spawning in that biome.
+		Audited 2026-10-13 (analysis/regrowth_audit.py) against the installed 1.6 mods: every Alpha Animals, Megafauna,
+		Vanilla Animals Expanded, Mythic Ages and Dark Ages pawn kind exists, none is already in the biome's own list or lists
+		the biome in its race's wildBiomes, no installed mod patches any of them in, and no animal appears twice in this file.
+		Not installed here, checked from other sources instead: Dinosauria (spincrus.dinosauria) has no public source. All
+		its names match the race defNames that Combat Extended's and Alpha Biomes' Dinosauria patches target; that its pawn
+		kinds share those names and that none already lists this biome is unconfirmed.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/BiomeDef[defName="RG_AspenForest"]/wildAnimals</xpath>
+				<value>
+					<DA_DwarvenMuffton MayRequire="Van.Beasts">0.1</DA_DwarvenMuffton>
+					<DA_Crestel MayRequire="Van.Beasts">0.05</DA_Crestel>
+					<DA_NorthernDrog MayRequire="Van.Beasts">0.01</DA_NorthernDrog>
+					<DA_ForestOwlcat MayRequire="Van.Beasts">0.15</DA_ForestOwlcat>
+					<DA_RedhornedLarpah MayRequire="Van.Beasts">0.01</DA_RedhornedLarpah>
+					<DA_Taraal MayRequire="Van.Beasts">0.03</DA_Taraal>
+					<MA_Deermoss MayRequire="veterano.mythicages.megafaunabestiary">0.03</MA_Deermoss>
+					<MA_Direhorse MayRequire="veterano.mythicages.megafaunabestiary">0.02</MA_Direhorse>
+					<MA_Dunbear MayRequire="veterano.mythicages.megafaunabestiary">0.01</MA_Dunbear>
+					<MA_Duskhorn MayRequire="veterano.mythicages.megafaunabestiary">0.01</MA_Duskhorn>
+					<MA_Gnaut MayRequire="veterano.mythicages.megafaunabestiary">0.1</MA_Gnaut>
+					<MA_Hellboar MayRequire="veterano.mythicages.megafaunabestiary">0.01</MA_Hellboar>
+					<MA_Plastemmoth MayRequire="veterano.mythicages.megafaunabestiary">0.01</MA_Plastemmoth>
+					<MA_Raptorkhan MayRequire="veterano.mythicages.megafaunabestiary">0.02</MA_Raptorkhan>
+					<MA_Scarodon MayRequire="veterano.mythicages.megafaunabestiary">0.01</MA_Scarodon>
+					<MA_Sporemole MayRequire="veterano.mythicages.megafaunabestiary">0.005</MA_Sporemole>
+					<MA_Worhin MayRequire="veterano.mythicages.megafaunabestiary">0.01</MA_Worhin>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphaanimals">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/BiomeDef[defName="RG_AspenForest"]/wildAnimals</xpath>
+						<value>
+							<AA_Aerofleet>0.2</AA_Aerofleet>
+							<AA_AngelMothLarva>0.05</AA_AngelMothLarva>
+							<AA_AnimaColossus>0.005</AA_AnimaColossus>
+							<AA_AnimusVox>0.05</AA_AnimusVox>
+							<AA_LarvalAtispec>0.005</AA_LarvalAtispec>
+							<AA_AuroraSylph>0.03</AA_AuroraSylph>
+							<AA_Bumbledrone>0.04</AA_Bumbledrone>
+							<AA_DecayDrake>0.005</AA_DecayDrake>
+							<AA_Drainer>0.05</AA_Drainer>
+							<AA_DrainerLarva>0.05</AA_DrainerLarva>
+							<AA_EmpressButterflyLarva>0.005</AA_EmpressButterflyLarva>
+							<AA_EmpressButterfly>0.005</AA_EmpressButterfly>
+							<AA_Feralisk>0.07</AA_Feralisk>
+							<AA_Gigantelope>0.5</AA_Gigantelope>
+							<AA_GreyCoatedMouflon>0.03</AA_GreyCoatedMouflon>
+							<AA_Groundrunner>0.1</AA_Groundrunner>
+							<AA_Mantrap>0.05</AA_Mantrap>
+							<AA_MeadowAve>0.2</AA_MeadowAve>
+							<AA_MegaLouse>0.03</AA_MegaLouse>
+							<AA_Murkling>0.5</AA_Murkling>
+							<AA_OvergrownColossus>0.01</AA_OvergrownColossus>
+							<AA_PebbleMit>0.03</AA_PebbleMit>
+							<AA_Skiphound>0.005</AA_Skiphound>
+							<AA_TeratogenicOriginator>0.005</AA_TeratogenicOriginator>
+							<AA_Wildpod>0.5</AA_Wildpod>
+							<AA_Wildpawn>0.5</AA_Wildpawn>
+							<AA_CrescendoAnole>0.01</AA_CrescendoAnole>
+							<AA_FissionMouse>0.01</AA_FissionMouse>
+							<AA_GreatDevourer>0.001</AA_GreatDevourer>
+							<AA_Helixien>0.05</AA_Helixien>
+							<AA_MammothWorm>0.001</AA_MammothWorm>
+							<AA_Nightling>0.001</AA_Nightling>
+							<AA_Razorjack>0.001</AA_Razorjack>
+							<AA_RipperHound>0.001</AA_RipperHound>
+							<AA_Swarmling>0.01</AA_Swarmling>
+							<AA_TetraSlug>0.001</AA_TetraSlug>
+							<AA_PhoenixOwlcat>0.01</AA_PhoenixOwlcat>
+							<AA_WindBeast>0.001</AA_WindBeast>
+							<AA_Terramorph>0.01</AA_Terramorph>
+							<AA_Erin>0.01</AA_Erin>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Spino.Megafauna">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/BiomeDef[defName="RG_AspenForest"]/wildAnimals</xpath>
+						<value>
+							<Arthropleura>0.006</Arthropleura>
+							<Daeodon>0.01</Daeodon>
+							<Titanis>0.005</Titanis>
+							<Smilodon>0.006</Smilodon>
+							<Megalania>0.03</Megalania>
+							<Dinornis>0.004</Dinornis>
+							<Quinkana>0.005</Quinkana>
+							<Meganeura>0.01</Meganeura>
+							<Doedicurus>0.004</Doedicurus>
+							<Gigantopithecus>0.015</Gigantopithecus>
+							<Paraceratherium>0.008</Paraceratherium>
+							<WoollyMammoth>0.005</WoollyMammoth>
+							<Elasmotherium>0.004</Elasmotherium>
+							<Chalicotherium>0.008</Chalicotherium>
+							<Megaloceros>0.01</Megaloceros>
+							<Procoptodon>0.003</Procoptodon>
+							<ShortfacedBear>0.006</ShortfacedBear>
+							<Andrewsarchus>0.006</Andrewsarchus>
+							<Deinotherium>0.002</Deinotherium>
+							<Aurochs>0.006</Aurochs>
+							<Megalochelys>0.01</Megalochelys>
+							<Zygolophodon>0.004</Zygolophodon>
+							<Platybelodon>0.004</Platybelodon>
+							<Uintatherium>0.003</Uintatherium>
+							<Pulmonoscorpius>0.003</Pulmonoscorpius>
+							<Dinopithecus>0.002</Dinopithecus>
+							<Castoroides>0.01</Castoroides>
+							<Enhydriodon>0.008</Enhydriodon>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="spincrus.dinosauria">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/BiomeDef[defName="RG_AspenForest"]/wildAnimals</xpath>
+						<value>
+							<Dakotaraptor>0.05</Dakotaraptor>
+							<Carnotaurus>0.002</Carnotaurus>
+							<Triceratops>0.01</Triceratops>
+							<TyrannosaurusRex>0.008</TyrannosaurusRex>
+							<Yutyrannus>0.02</Yutyrannus>
+							<Allosaurus>0.005</Allosaurus>
+							<Spinosaurus>0.008</Spinosaurus>
+							<Minmi>0.04</Minmi>
+							<Baryonyx>0.005</Baryonyx>
+							<Stygimoloch>0.005</Stygimoloch>
+							<Pachycephalosaurus>0.005</Pachycephalosaurus>
+							<Quetzalcoatlus>0.004</Quetzalcoatlus>
+							<Pteranodon>0.008</Pteranodon>
+							<Utahraptor>0.005</Utahraptor>
+							<Therizinosaurus>0.005</Therizinosaurus>
+							<Iguanodon>0.01</Iguanodon>
+							<Parasaur>0.01</Parasaur>
+							<Ankylosaurus>0.04</Ankylosaurus>
+							<Brachiosaurus>0.004</Brachiosaurus>
+							<Brontosaurus>0.02</Brontosaurus>
+							<Diplodocus>0.025</Diplodocus>
+							<Magyarosaurus>0.035</Magyarosaurus>
+							<Dilophosaurus>0.03</Dilophosaurus>
+							<Velociraptor>0.03</Velociraptor>
+							<Compsognathus>0.03</Compsognathus>
+							<Gallimimus>0.05</Gallimimus>
+							<Gigantoraptor>0.005</Gigantoraptor>
+							<Corythosaurus>0.01</Corythosaurus>
+							<Deinocheirus>0.005</Deinocheirus>
+							<Dryosaurus>0.005</Dryosaurus>
+							<Stegosaurus>0.04</Stegosaurus>
+							<Protoceratops>0.02</Protoceratops>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

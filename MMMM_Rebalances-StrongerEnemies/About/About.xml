@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Many Many Many Mods Modularized - Rebalances - Stronger Enemies</name>
+	<author>DanZinagri</author>
+	<packageId>DanZinagri.MMMM.Rebalances.StrongerEnemies</packageId>
+	<supportedVersions>
+		<li>1.6</li>
+		<li>1.7</li>
+	</supportedVersions>
+	<loadAfter>
+		<li>Wara.toomanymods</li>
+		<li>22.anomalyportal</li>
+		<li>biotexpans.mammalia</li>
+		<li>det.avaloi</li>
+		<li>detvisor.impactweaponryreloaded</li>
+		<li>EL.InvMech</li>
+		<li>ElSov.Highborn</li>
+		<li>GoGaTio.LostFactoryMechanoids</li>
+		<li>hlx.UltratechAlteredCarbon</li>
+		<li>Ludeon.RimWorld.Anomaly</li>
+		<li>Ludeon.RimWorld.Biotech</li>
+		<li>Ludeon.RimWorld.Odyssey</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+		<li>Mlie.ReinforcedMechanoid2</li>
+		<li>OskarPotocki.VanillaFactionsExpanded.SettlersModule</li>
+		<li>OskarPotocki.VFE.Deserters</li>
+		<li>OskarPotocki.VFE.Empire</li>
+		<li>OskarPotocki.VFE.Medieval2</li>
+		<li>OskarPotocki.VFE.Pirates</li>
+		<li>PrestigeSpecialistArmours.Final</li>
+		<li>RedMattis.BigSmall</li>
+		<li>RedMattis.Heaven</li>
+		<li>Rimsenal.Askbarn</li>
+		<li>rimsenal.core</li>
+		<li>rimsenal.federation</li>
+		<li>Rimsenal.Harana</li>
+		<li>Rimsenal.Spacer</li>
+		<li>sarg.alphaanimals</li>
+		<li>sarg.alphagenes</li>
+		<li>sarg.alphamechs</li>
+		<li>SirVan.EltexWeaponry</li>
+		<li>SmashPhil.VehicleFramework</li>
+		<li>Sov.Nephilim</li>
+		<li>VanillaExpanded.VARME</li>
+		<li>VanillaExpanded.VPsycastsE</li>
+		<li>VanillaExpanded.VWEC</li>
+		<li>vanillaracesexpanded.archon</li>
+		<li>vanillaracesexpanded.hussar</li>
+		<li>vanillaracesexpanded.sanguophage</li>
+		<li>VexedTrees980.RimElvesBiotech</li>
+		<li>VPE.Aeromancer.Sentinel</li>
+		<li>VPE.Hydromancer.Sentinel</li>
+	</loadAfter>
+	<description>Rebalances</description>
+</ModMetaData>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Alpha Biomes' glowstool (AB_Glowstool) is retired in favour of vanilla's Glowstool: the Mycotic Jungle spawns vanilla
+		Glowstool at the same weight (3), vanilla Glowstool is made to grow in any light (no longer cave-only or killed by
+		light) so it can live on the jungle's surface, and AB_Glowstool goes on this mod's Cherry Picker list. With
+		Progression: Agriculture, its glowstool seed bundle and the two recipes that make it are retired too.
+		Note the light change applies to vanilla Glowstool everywhere, not just in the jungle.
+		This folder only loads when Alpha Biomes is active (see loadFolders.xml); the Progression gate sits on an <li>.
+
+		Verified against Alpha Biomes 1.6: the Mycotic Jungle lists AB_Glowstool (3) and not vanilla Glowstool, and vanilla
+		Glowstool's own plant node has none of the four fields added, so the add creates them. VPE Mushrooms also adds
+		AB_Glowstool to its mushroom sow tags; that still applies, it just no longer matters once the def is cherry-picked.
+		The revive entries are in 1.6/Defs/CherryPicker.xml.
+
+		Progression: Agriculture makes the same biome swap itself when VFE Medieval 2 is also loaded (its Alpha Biomes patch,
+		plus a ReplaceLib replacer). So the biome swap is a Conditional that only runs while AB_Glowstool is still listed,
+		and the other operations are separate from it, so the light change and cherry-picks still apply when Progression
+		got there first. Before this, the failed swap stopped the whole sequence (seen in a full load on 2026-09-29).
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BiomeDef[defName="AB_MycoticJungle"]/wildPlants/AB_Glowstool</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/BiomeDef[defName="AB_MycoticJungle"]/wildPlants/AB_Glowstool</xpath>
+			<value>
+				<Glowstool>3</Glowstool>
+			</value>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Glowstool"]/plant</xpath>
+				<value>
+					<growMinGlow>0</growMinGlow>
+					<growOptimalGlow>0</growOptimalGlow>
+					<cavePlant>false</cavePlant>
+					<diesToLight>false</diesToLight>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceOther_CherryPicker_Basics"]/defs</xpath>
+				<value>
+					<li>ThingDef/AB_Glowstool</li>
+				</value>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="ferny.progressionagriculture">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceOther_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>ThingDef/AB_Glowstool_SeedBundle</li>
+							<li>RecipeDef/MakeAB_GlowstoolSeedBundle</li>
+							<li>RecipeDef/MakeAB_GlowstoolSeedBundleDoubleCost</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- 1.6/Mods/<Name> loads when that mod is active; 1.6/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<li>/</li>
+		<li>1.6</li>
+		<li IfModNotActive="Maux36.Rimpsyche.Disposition">1.6/Without/RimpsycheDisposition</li>
+		<li IfModActive="VanillaExpanded.VMemesE">1.6/Mods/VanillaIdeologyExpandedMemesAndStructures</li>
+		<li IfModActive="RedMattis.BigSmall.Core">1.6/Mods/BigAndSmallGenesAndMore</li>
+		<li IfModActive="hlx.UltratechAlteredCarbon">1.6/Mods/AlteredCarbon</li>
+	</v1.6>
+	<v1.7>
+		<!-- 1.7/Mods/<Name> loads when that mod is active; 1.7/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<li>/</li>
+		<li>1.7</li>
+		<li IfModNotActive="Maux36.Rimpsyche.Disposition">1.7/Without/RimpsycheDisposition</li>
+		<li IfModActive="VanillaExpanded.VMemesE">1.7/Mods/VanillaIdeologyExpandedMemesAndStructures</li>
+		<li IfModActive="RedMattis.BigSmall.Core">1.7/Mods/BigAndSmallGenesAndMore</li>
+		<li IfModActive="hlx.UltratechAlteredCarbon">1.7/Mods/AlteredCarbon</li>
+	</v1.7>
+</loadFolders>

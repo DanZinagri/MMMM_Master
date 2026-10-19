@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small - Races: genes swapped for the equivalents other mods ship, so the same effect is not provided
+		twice under two names.
+		  - Natural armour and tough skin become the Alpha Genes armour genes across ten xenotypes.
+		  - Cold and heat tolerance become the Alpha Genes immunities, with the fire immunity gene dropped alongside.
+		  - The great ogre and the two titans use VRE - Waster's extreme instability.
+		  - Three xenotypes use VRE - Archon's short pregnancy.
+		  - The titans and fire giants use VRE - Starjack's total vacuum resistance in place of the B&amp;S EVA gene.
+		This folder only loads when Big and Small - Races is active (see loadFolders.xml); each swap carries MayRequire
+		for the mod that supplies the replacement.
+		The mod gates sit on <li> nodes inside sequences, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements.
+
+		Verified against the current 1.6 releases: every gene being replaced is present in its xenotype, so all nine
+		operations land.
+		Fix 2026-10-03: genes retired to Cherry Picker are now swapped in every xenotype that carries them (removed where the
+		xenotype already has the replacement), so no xenotype from any mod loses one. Genes without a clean one-for-one
+		replacement are no longer retired.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_TrollAdult" or defName="BS_Surtr" or defName="BS_Ymir" or defName="BS_Svartalf" or defName="BS_Hearthdoll"]/genes/li[text()="BS_NaturalArmor"]</xpath>
+						<value>
+							<li>AG_ArmourMajor</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_Troll" or defName="BS_Redcap" or defName="BS_Jotun" or defName="BS_PilotableFleshGolem" or defName="BS_FleshGolemServant"]/genes/li[text()="BS_ToughSkin"]</xpath>
+						<value>
+							<li>AG_ArmourMedium</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_FrostJotun" or defName="BS_Ymir" or defName="BS_BrokenTitan"]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+						<value>
+							<li>AG_ColdImmunity</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_FireJotun" or defName="BS_Surtr"]/genes/li[text()="MaxTemp_HugeIncrease"]</xpath>
+						<value>
+							<li>AG_HeatImmunity</li>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>
+							Defs/XenotypeDef[defName="BS_FireJotun" or defName="BS_Surtr"]/genes/li[text()="FireImmunity"]</xpath>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.waster">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_GreatOgre"]/genes/li[text()="Instability_Major"]</xpath>
+						<value>
+							<li>VRE_Instability_Extreme</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_BrokenTitan" or defName="BS_Corrupterd_Titan"]/genes/li[text()="BS_Instability_Catastrophic"]</xpath>
+						<value>
+							<li>VRE_Instability_Extreme</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.archon">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_Corrupterd_Titan" or defName="BS_Gnome" or defName="BS_Redcap"]/genes/li[text()="BS_ShortPregnancy"]</xpath>
+						<value>
+							<li>VRE_ShortPregnancy</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.starjack">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_BrokenTitan" or defName="BS_Surtr" or defName="BS_Ymir"]/genes/li[text()="BS_EVA_Gene"]</xpath>
+						<value>
+							<li>VREStarjack_VacuumResistance_Total</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<!--
+		Cherry Picker note: the astrogene entry is not dead weight. Alpha Genes defines no _Astrogene defs in XML at
+		all, one per gene is built at runtime by AlphaGenes.dll, so the def exists in game even though grepping the
+		mod's files finds nothing. An earlier comment in this project claimed otherwise; it was wrong.
+		The list itself, MMMM_ConvergenceGenetics_CherryPicker_Basics, belongs to this mod, and the matching revive entries are
+		in 1.6/Defs/CherryPicker.xml.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.starjack">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="VREStarjack_VacuumResistance_Total"]]/genes/li[text()="BS_EVA_Gene"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[genes/li[text()="VREStarjack_VacuumResistance_Total"]]/genes/li[text()="BS_EVA_Gene"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="BS_EVA_Gene"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="BS_EVA_Gene"]</xpath>
+							<value>
+								<li>VREStarjack_VacuumResistance_Total</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/BS_EVA_Gene</li>
+							<li>GeneDef/BS_EVA_Gene_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

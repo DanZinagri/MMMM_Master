@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Too Many Mods' implant rebalance: implant and prosthetic stats. Moved whole from the core root file AA1D1_ImplantRebalance.xml, where it sat behind the
+		TMM_ImplantRebalances setting (default on); installing this mod is the opt-in now.
+		Each block is gated on the mods it touches (MayRequire / MayRequireAnyOf on an <li>); mods with no known packageId keep a
+		name FindMod; blocks that depend on another mod being present or absent now live in gated load folders (loadFolders.xml). Checked with analysis/patch_sim.py against the installed mods:
+		every op whose mods are installed applies. Blocks for mods not installed here are unchecked.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VGeneticsE">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="GR_ThrumboSkin"]/stages</xpath>
+								<value>
+									<stages>
+										<li>
+											<minSeverity>0</minSeverity>
+											<statOffsets>
+												<ComfyTemperatureMax>5</ComfyTemperatureMax>
+												<ComfyTemperatureMin>-5</ComfyTemperatureMin>
+												<ArmorRating_Sharp>0.01</ArmorRating_Sharp>
+												<ArmorRating_Blunt>0.01</ArmorRating_Blunt>
+												<ArmorRating_Heat>0.01</ArmorRating_Heat>
+											</statOffsets>
+										</li>
+										<li>
+											<minSeverity>0.1</minSeverity>
+											<statOffsets>
+												<ComfyTemperatureMax>7.5</ComfyTemperatureMax>
+												<ComfyTemperatureMin>-7.5</ComfyTemperatureMin>
+												<ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+												<ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+												<ArmorRating_Heat>0.05</ArmorRating_Heat>
+											</statOffsets>
+										</li>
+										<li>
+											<minSeverity>0.2</minSeverity>
+											<statOffsets>
+												<ComfyTemperatureMax>10</ComfyTemperatureMax>
+												<ComfyTemperatureMin>-10</ComfyTemperatureMin>
+												<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+												<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+												<ArmorRating_Heat>0.1</ArmorRating_Heat>
+											</statOffsets>
+										</li>
+										<li>
+											<minSeverity>0.3</minSeverity>
+											<statOffsets>
+												<ComfyTemperatureMax>12.5</ComfyTemperatureMax>
+												<ComfyTemperatureMin>-12.5</ComfyTemperatureMin>
+												<ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+												<ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+												<ArmorRating_Heat>0.15</ArmorRating_Heat>
+											</statOffsets>
+										</li>
+										<li>
+											<minSeverity>0.4</minSeverity>
+											<statOffsets>
+												<ComfyTemperatureMax>15</ComfyTemperatureMax>
+												<ComfyTemperatureMin>-15</ComfyTemperatureMin>
+												<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+												<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+												<ArmorRating_Heat>0.2</ArmorRating_Heat>
+											</statOffsets>
+										</li>
+										<li>
+											<minSeverity>0.5</minSeverity>
+											<statOffsets>
+												<ComfyTemperatureMax>17.5</ComfyTemperatureMax>
+												<ComfyTemperatureMin>-17.5</ComfyTemperatureMin>
+												<ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+												<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+												<ArmorRating_Heat>0.25</ArmorRating_Heat>
+											</statOffsets>
+										</li>
+										<li>
+											<minSeverity>0.6</minSeverity>
+											<statOffsets>
+												<ComfyTemperatureMax>20</ComfyTemperatureMax>
+												<ComfyTemperatureMin>-20</ComfyTemperatureMin>
+												<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+												<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+												<ArmorRating_Heat>0.3</ArmorRating_Heat>
+											</statOffsets>
+										</li>
+									</stages>
+								</value>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Royalty">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationReplace">
+												<xpath>Defs/HediffDef[defName="ToughskinGland"]/stages/li/statOffsets</xpath>
+												<value>
+													<statOffsets>
+														<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+														<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+														<ArmorRating_Heat>0.2</ArmorRating_Heat>
+													</statOffsets>
+												</value>
+											</li>
+											<li Class="PatchOperationReplace">
+												<xpath>Defs/HediffDef[defName="ArmorskinGland"]/stages/li/statOffsets</xpath>
+												<value>
+													<statOffsets>
+														<ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+														<ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+														<ArmorRating_Heat>0.3</ArmorRating_Heat>
+														<PawnBeauty>-1</PawnBeauty>
+													</statOffsets>
+												</value>
+											</li>
+											<li Class="PatchOperationReplace">
+												<xpath>Defs/HediffDef[defName="StoneskinGland"]/stages/li/statOffsets</xpath>
+												<value>
+													<statOffsets>
+														<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+														<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+														<ArmorRating_Heat>0.4</ArmorRating_Heat>
+														<PawnBeauty>-2</PawnBeauty>
+													</statOffsets>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="lts.I">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationReplace">
+												<xpath>Defs/HediffDef[defName="LTS_SubdermalArmour"]/stages/li/statOffsets</xpath>
+												<value>
+													<statOffsets>
+														<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+														<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+														<ArmorRating_Heat>0.2</ArmorRating_Heat>
+													</statOffsets>
+												</value>
+											</li>
+											<li Class="PatchOperationReplace">
+												<xpath>Defs/HediffDef[defName="LTS_PrestigeSubdermalArmour"]/stages/li/statOffsets</xpath>
+												<value>
+													<statOffsets>
+														<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+														<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+														<ArmorRating_Heat>0.2</ArmorRating_Heat>
+														<PsychicSensitivity>0.1</PsychicSensitivity>
+														<PsychicEntropyRecoveryRate>0.06</PsychicEntropyRecoveryRate>
+													</statOffsets>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="lts.I">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="InternalClimateControlImplant"]/stages/li/statOffsets</xpath>
+								<value>
+									<statOffsets>
+										<ComfyTemperatureMin>-10</ComfyTemperatureMin>
+										<ComfyTemperatureMax>10</ComfyTemperatureMax>
+									</statOffsets>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="PsychicLevitator"]/statBases/MarketValue</xpath>
+								<value>
+									<MarketValue>4000</MarketValue>
+								</value>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/HediffDef[defName="StrengthEnhancer"]/stages/li/statFactors</xpath>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/HediffDef[defName="StrengthEnhancer"]/stages/li/statOffsets</xpath>
+								<value>
+									<MeleeDamageFactor>0.2</MeleeDamageFactor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="LTS_PrestigeSubdermalArmour"]/tags</xpath>
+								<value>
+									<tags>
+										<li>ArmorGland</li>
+									</tags>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="LTS_SubdermalArmour"]/tags</xpath>
+								<value>
+									<tags>
+										<li>ArmorGland</li>
+									</tags>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/RecipeDef[defName="LTS_InstallSubdermalArmour"]/incompatibleWithHediffTags</xpath>
+								<value>
+									<incompatibleWithHediffTags>
+										<li>ArmorGland</li>
+									</incompatibleWithHediffTags>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/RecipeDef[defName="LTS_InstallPrestigeSubdermalArmour"]/incompatibleWithHediffTags</xpath>
+								<value>
+									<incompatibleWithHediffTags>
+										<li>ArmorGland</li>
+									</incompatibleWithHediffTags>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="LTS_ShoulderTurretActive"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs/li/burstShotCount</xpath>
+								<value>
+									<burstShotCount>1</burstShotCount>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="LTS_ShoulderChargeTurretActive"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs/li/burstShotCount</xpath>
+								<value>
+									<burstShotCount>1</burstShotCount>
+								</value>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/HediffDef[defName="ArchotechVoicebox"]/stages/li/statOffsets/TradePriceImprovement</xpath>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Odyssey">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/ThingDef[defName="PsychicLevitator"]</xpath>
+												<value>
+													<tradeability>Sellable</tradeability>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="lts.I">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Anomaly">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="SlayersCollar"]/costList/Shard</xpath>
+										<value>
+											<Shard>4</Shard>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/HediffDef[defName="MetalhorrorSymbiont"]/stages</xpath>
+										<value>
+											<stages>
+												<li>
+													<statFactors>
+														<MeleeDamageFactor>1.1</MeleeDamageFactor>
+														<IncomingDamageFactor>0.9</IncomingDamageFactor>
+													</statFactors>
+													<damageFactors>
+														<Flame>2</Flame>
+														<Burn>2</Burn>
+													</damageFactors>
+												</li>
+											</stages>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/HediffDef[defName="Blacksight"]/stages</xpath>
+										<value>
+											<stages>
+												<li>
+													<label>extreme light</label>
+													<statOffsets>
+														<LTS_DarkVision>1</LTS_DarkVision>
+													</statOffsets>
+													<statFactors>
+														<MeleeCooldownFactor>2.1</MeleeCooldownFactor>
+														<MoveSpeed>0.7</MoveSpeed>
+													</statFactors>
+													<painOffset>0.15</painOffset>
+												</li>
+												<li>
+													<label>serious light</label>
+													<minSeverity>0.2</minSeverity>
+													<statOffsets>
+														<LTS_DarkVision>1</LTS_DarkVision>
+													</statOffsets>
+													<statFactors>
+														<MeleeCooldownFactor>1.7</MeleeCooldownFactor>
+														<MoveSpeed>0.8</MoveSpeed>
+													</statFactors>
+													<painOffset>0.1</painOffset>
+												</li>
+												<li>
+													<label>moderate light</label>
+													<minSeverity>0.6</minSeverity>
+													<statOffsets>
+														<LTS_DarkVision>1</LTS_DarkVision>
+													</statOffsets>
+													<statFactors>
+														<MeleeCooldownFactor>1.3</MeleeCooldownFactor>
+														<MoveSpeed>0.9</MoveSpeed>
+													</statFactors>
+													<painOffset>0.05</painOffset>
+												</li>
+												<li>
+													<label>initial</label>
+													<minSeverity>0.9</minSeverity>
+													<statOffsets>
+														<LTS_DarkVision>1</LTS_DarkVision>
+													</statOffsets>
+												</li>
+												<li>
+													<label>moderate dark</label>
+													<minSeverity>1.1</minSeverity>
+													<statOffsets>
+														<LTS_DarkVision>1</LTS_DarkVision>
+													</statOffsets>
+													<statFactors>
+														<MoveSpeed>1.1</MoveSpeed>
+														<MeleeCooldownFactor>0.9</MeleeCooldownFactor>
+													</statFactors>
+												</li>
+												<li>
+													<label>serious dark</label>
+													<minSeverity>1.4</minSeverity>
+													<statOffsets>
+														<LTS_DarkVision>1</LTS_DarkVision>
+													</statOffsets>
+													<statFactors>
+														<MoveSpeed>1.25</MoveSpeed>
+														<MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+													</statFactors>
+												</li>
+												<li>
+													<label>extreme dark</label>
+													<minSeverity>1.8</minSeverity>
+													<statOffsets>
+														<LTS_DarkVision>1</LTS_DarkVision>
+													</statOffsets>
+													<statFactors>
+														<MoveSpeed>1.4</MoveSpeed>
+														<MeleeCooldownFactor>0.7</MeleeCooldownFactor>
+													</statFactors>
+												</li>
+											</stages>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="lts.I">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+						<operations>
+							<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Anomaly">
+								<operations>
+									<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Royalty">
+										<operations>
+											<li Class="PatchOperationSequence">
+												<operations>
+													<li Class="PatchOperationReplace">
+														<xpath>Defs/HediffDef[defName="LTS_PsychicReaper"]/stages/li/statOffsets/PsyfocusPerKill</xpath>
+														<value>
+															<PsyfocusPerKill>0.01</PsyfocusPerKill>
+														</value>
+													</li>
+												</operations>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="lts.I">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="WarprogrammerInterfaceImplant"]/description</xpath>
+								<value>
+									<description>An implant which increases the melee and ranged abilities of a mechanitor's mechs, further scaling with the mechanitor's own intellectual skill.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="WarprogrammerInterface"]/description</xpath>
+								<value>
+									<description>A neural implant which allows for the uploading of specialised tactical protocols to any mechanoids controlled by the mechanitor. The bonuses granted to mechs melee and ranged abilities further scale with the mechanitor's own intellectual skill.\n\nIt can be self-installed without surgery.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/StatDef[defName="ShootingAccuracyPawnOffsetMech" or defName="AimingDelayFactorOffsetMech"]/skillNeedFactors/li[skill="Shooting"]</xpath>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/StatDef[defName="MeleeHitChanceOffsetMech" or defName="MeleeDodgeChanceOffsetMech"]/skillNeedFactors/li[skill="Melee"]</xpath>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="GoGaTio.LostFactoryMechanoids">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="lts.I">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationRemove">
+										<xpath>Defs/HediffDef[defName="WarprogrammerInterfaceImplant"]/stages/li/statOffsets/ShootingAccuracyPawnOffsetMech</xpath>
+									</li>
+									<li Class="PatchOperationRemove">
+										<xpath>Defs/HediffDef[defName="WarprogrammerInterfaceImplant"]/stages/li/statOffsets/MeleeHitChanceOffsetMech</xpath>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/HediffDef[defName="LFM_CombatSublinkImplant"]/stages</xpath>
+										<value>
+											<stages>
+												<li>
+													<minSeverity>1</minSeverity>
+													<statOffsets>
+														<ShootingAccuracyPawnOffsetMech>1</ShootingAccuracyPawnOffsetMech>
+														<MeleeHitChanceOffsetMech>1</MeleeHitChanceOffsetMech>
+													</statOffsets>
+												</li>
+												<li>
+													<minSeverity>2</minSeverity>
+													<statOffsets>
+														<ShootingAccuracyPawnOffsetMech>2</ShootingAccuracyPawnOffsetMech>
+														<MeleeHitChanceOffsetMech>2</MeleeHitChanceOffsetMech>
+													</statOffsets>
+												</li>
+												<li>
+													<minSeverity>3</minSeverity>
+													<statOffsets>
+														<ShootingAccuracyPawnOffsetMech>3</ShootingAccuracyPawnOffsetMech>
+														<MeleeHitChanceOffsetMech>3</MeleeHitChanceOffsetMech>
+													</statOffsets>
+												</li>
+												<li>
+													<minSeverity>4</minSeverity>
+													<statOffsets>
+														<ShootingAccuracyPawnOffsetMech>4</ShootingAccuracyPawnOffsetMech>
+														<MeleeHitChanceOffsetMech>4</MeleeHitChanceOffsetMech>
+													</statOffsets>
+												</li>
+												<li>
+													<minSeverity>5</minSeverity>
+													<statOffsets>
+														<ShootingAccuracyPawnOffsetMech>5</ShootingAccuracyPawnOffsetMech>
+														<MeleeHitChanceOffsetMech>5</MeleeHitChanceOffsetMech>
+													</statOffsets>
+												</li>
+												<li>
+													<minSeverity>6</minSeverity>
+													<statOffsets>
+														<ShootingAccuracyPawnOffsetMech>6</ShootingAccuracyPawnOffsetMech>
+														<MeleeHitChanceOffsetMech>6</MeleeHitChanceOffsetMech>
+													</statOffsets>
+												</li>
+											</stages>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/HediffDef[defName="LFM_CombatSublinkImplant"]/description</xpath>
+										<value>
+											<description>A neural implant which increases the shooting accuracy and melee hit chance of any mechanoids controlled by the mechanitor, further scaling with the mechanitor's own intellectual skill.\n\nThis implant can be installed up to 6 times to increase its effect.</description>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="LFM_CombatSublinkHigh"]/description</xpath>
+										<value>
+											<description>A neural implant which increases the shooting accuracy and melee hit chance of any mechanoids controlled by the mechanitor, further scaling with the mechanitor's own intellectual skill.\n\nThis high-tier implant can increase it from 3 to 6 level.\n\nIt can be self-installed without surgery.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="LFM_CombatSublink"]/description</xpath>
+										<value>
+											<description>A neural implant which increases the shooting accuracy and melee hit chance of any mechanoids controlled by the mechanitor, further scaling with the mechanitor's own intellectual skill.\n\nThis standard-tier sublink can only increase it up to 3 level. To go higher, a higher-tier sublink implant must be used.\n\nIt can be self-installed without surgery.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+										</value>
+									</li>
+									<li Class="PatchOperationRemove">
+										<xpath>Defs/StatDef[defName="ShootingAccuracyPawn"]/parts/li[stat="LFM_ShootingAccuracyOffsetMech"]</xpath>
+									</li>
+									<li Class="PatchOperationRemove">
+										<xpath>Defs/StatDef[defName="LFM_ShootingAccuracyOffsetMech"]</xpath>
+									</li>
+									<li Class="PatchOperationRemove">
+										<xpath>Defs/StatDef[defName="MeleeHitChance"]/parts/li[stat="LFM_MeleeHitChanceOffsetMech"]</xpath>
+									</li>
+									<li Class="PatchOperationRemove">
+										<xpath>Defs/StatDef[defName="LFM_MeleeHitChanceOffsetMech"]</xpath>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Ushanka.GlittertechExpansion">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/HediffDef[defName="USH_InstalledPlasteelSkinReplacement" or defName="USH_InstalledGoldenTeethReplacement"]/tags</xpath>
+								<value>
+									<li>ArmorGland</li>
+								</value>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="vanillaexpanded.gravship">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationRemove">
+												<xpath>Defs/HediffDef[defName="USH_InstalledGlitterlink"]/stages/li/statOffsets/VacuumResistance</xpath>
+											</li>
+											<li Class="PatchOperationRemove">
+												<xpath>Defs/HediffDef[defName="USH_InstalledGlitterlink"]/stages/li/statOffsets/ToxicResistance</xpath>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Royalty">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="HealingEnhancer"]/stages</xpath>
+								<value>
+									<stages>
+										<li>
+											<statOffsets>
+												<InjuryHealingFactor>0.5</InjuryHealingFactor>
+											</statOffsets>
+										</li>
+									</stages>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<HediffDef ParentName="VRE_BondHediff_Base">
+			<defName>TMM_PsychicBondRest</defName>
+			<label>Psychic bond (Rest)</label>
+			<description>Both psychically-bonded individuals benefit from increased rest rate.</description>
+			<stages>
+				<li>
+					<statFactors>
+						<RestRateMultiplier>1.2</RestRateMultiplier>
+					</statFactors>
+				</li>
+			</stages>
+		</HediffDef>
+
+</Defs>

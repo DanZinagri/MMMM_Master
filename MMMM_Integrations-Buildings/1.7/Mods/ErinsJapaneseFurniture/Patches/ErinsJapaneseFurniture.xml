@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Erin's Japanese Furniture: the electric and torch andons (both lights) show their glow radius while being placed,
+		like vanilla lamps.
+		This folder only loads when Erin's Japanese Furniture is active (see loadFolders.xml).
+		Verified against its 1.6 defs: neither andon, nor its FurnitureWithQualityBase parent, has placeWorkers, so the add
+		creates the list.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Erin_ElectricAndon" or defName="Erin_TorchAndon"]</xpath>
+		<value>
+			<placeWorkers>
+				<li>PlaceWorker_GlowRadius</li>
+			</placeWorkers>
+		</value>
+	</Operation>
+
+</Patch>

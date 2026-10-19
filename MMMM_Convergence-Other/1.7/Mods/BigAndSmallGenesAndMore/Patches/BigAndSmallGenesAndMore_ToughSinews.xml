@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small's giant weapon wielder overlaps Alpha Genes' tough sinews. The B&amp;S trait is relabelled to match
+		the Alpha Genes name, and a shared ToughSinews exclusion tag is put on the B&amp;S gene and the large body frames
+		so a pawn cannot stack them.
+		This folder only loads when B&amp;S - Genes &amp; More is active (see loadFolders.xml); Alpha Genes is gated inside.
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally.
+
+		Verified against the current 1.6 releases, with two things worth knowing:
+		- AG_ToughSinews itself carries no exclusionTags upstream, so as written the tag only binds the Big and Small
+		genes to each other. Nothing stops a pawn taking BS_GiantWeaponWielder and AG_ToughSinews together. Giving
+		the Alpha Genes gene the same tag would be the fix, but that is a behaviour change, so it is left alone.
+		- OgreFrame has no exclusionTags node, so the multi-def add skips it. The other four frames get the tag.
+		Split by category into the MMMM Convergence sub-mods: this copy holds the traits ops, which live in MMMM Convergence - Other.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/TraitDef[defName="BS_Giant"]/degreeDatas/li/label</xpath>
+						<value>
+							<label>tough sinews</label>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

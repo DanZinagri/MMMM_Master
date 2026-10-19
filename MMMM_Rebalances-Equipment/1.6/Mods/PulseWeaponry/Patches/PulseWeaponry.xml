@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Pulse Weaponry: DV_PulseSuppressor also carry the GunHeavy weapon tag, so Empire cataphracts (who draw from GunHeavy, like vanilla's beam
+		repeater) can spawn with them as well.
+		This folder only loads when Pulse Weaponry is active (see loadFolders.xml).
+		Verified: upstream the weapon carries only SpacerGun. Progression: Arsenal also patches it, but only research.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="DV_PulseSuppressor"]/weaponTags</xpath>
+		<value>
+			<li>GunHeavy</li>
+		</value>
+	</Operation>
+
+</Patch>

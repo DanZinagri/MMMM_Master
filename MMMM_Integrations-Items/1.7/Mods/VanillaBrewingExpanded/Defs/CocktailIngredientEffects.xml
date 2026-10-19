@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--
+    Cocktail effects for four spirits from other mods, matching how VBE's own spirits behave when used as a cocktail
+    ingredient: each spirit gets a thought, and the thought carries a hediff for as long as it lasts.
+      - Alpha Memes fine corpse rum: +8 mood and 25% slower hunger.
+      - Alpha Memes basic corpse rum: 25% slower hunger, no mood.
+      - Det's Keshig gorewine: melee cooldown 20% shorter.
+      - Rimsenal Harana neutroshine: injury healing and immunity gain 10% faster.
+    The patch beside this file points each spirit at its thought and files it under VBE's spirit categories.
+    This folder only loads when Vanilla Brewing Expanded is active (see loadFolders.xml); each def carries a MayRequire
+    for the mod that owns its spirit. They were written as patches adding to the Defs root and now live here as
+    plain defs, with the same result in game.
+  -->
+
+	<HediffDef MayRequire="Sarg.AlphaMemes">
+    <defName>TMM_VBE_FineRumAsIngredient</defName>
+    <label>drank fine rum based cocktail</label>
+    <makesSickThought>false</makesSickThought>
+    <description>This colonist drank a cocktail that had fine rum as one of its ingredients.</description>
+    <tendable>false</tendable>
+    <isBad>false</isBad>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <hediffClass>HediffWithComps</hediffClass>
+    <initialSeverity>1.0</initialSeverity>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+      <li Class="VEF.Cooking.HediffCompProperties_WhileHavingThoughts">
+        <thoughtDefs>
+          <li>TMM_VBE_FineRumAsIngredient</li>
+        </thoughtDefs>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <hungerRateFactor>0.75</hungerRateFactor>
+      </li>
+    </stages>
+  </HediffDef>
+
+	<ThoughtDef MayRequire="Sarg.AlphaMemes">
+    <defName>TMM_VBE_FineRumAsIngredient</defName>
+    <thoughtClass>VEF.Cooking.Thought_Hediff</thoughtClass>
+    <hediff>TMM_VBE_FineRumAsIngredient</hediff>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>Drank fine rum based cocktail</label>
+        <description>The cocktail was so delicious, it allows me to reminisce fondly about our fallen comrades.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+	<HediffDef MayRequire="Sarg.AlphaMemes">
+    <defName>TMM_VBE_SuspiciousRumAsIngredient</defName>
+    <label>drank suspicious rum based cocktail</label>
+    <makesSickThought>false</makesSickThought>
+    <description>This colonist drank a cocktail that had suspicious rum as one of its ingredients.</description>
+    <tendable>false</tendable>
+    <isBad>false</isBad>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <hediffClass>HediffWithComps</hediffClass>
+    <initialSeverity>1.0</initialSeverity>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+      <li Class="VEF.Cooking.HediffCompProperties_WhileHavingThoughts">
+        <thoughtDefs>
+          <li>TMM_VBE_SuspiciousRumAsIngredient</li>
+        </thoughtDefs>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <hungerRateFactor>0.75</hungerRateFactor>
+      </li>
+    </stages>
+  </HediffDef>
+
+	<ThoughtDef MayRequire="Sarg.AlphaMemes">
+    <defName>TMM_VBE_SuspiciousRumAsIngredient</defName>
+    <thoughtClass>VEF.Cooking.Thought_Hediff</thoughtClass>
+    <hediff>TMM_VBE_SuspiciousRumAsIngredient</hediff>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>Drank suspicious rum based cocktail</label>
+        <description>Yummy.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+	<HediffDef MayRequire="det.keshig">
+    <defName>TMM_VBE_GorewineAsIngredient</defName>
+    <label>drank gorewine based cocktail</label>
+    <makesSickThought>false</makesSickThought>
+    <description>This colonist drank a cocktail that had gorewine as one of its ingredients.</description>
+    <tendable>false</tendable>
+    <isBad>false</isBad>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <hediffClass>HediffWithComps</hediffClass>
+    <initialSeverity>1.0</initialSeverity>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+      <li Class="VEF.Cooking.HediffCompProperties_WhileHavingThoughts">
+        <thoughtDefs>
+          <li>TMM_VBE_GorewineAsIngredient</li>
+        </thoughtDefs>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeleeCooldownFactor>-0.2</MeleeCooldownFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+	<ThoughtDef MayRequire="det.keshig">
+    <defName>TMM_VBE_GorewineAsIngredient</defName>
+    <thoughtClass>VEF.Cooking.Thought_Hediff</thoughtClass>
+    <hediff>TMM_VBE_GorewineAsIngredient</hediff>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>Drank gorewine based cocktail</label>
+        <description>Yummy.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+	<HediffDef MayRequire="Rimsenal.Harana">
+    <defName>TMM_VBE_NeutroshineAsIngredient</defName>
+    <label>drank neutroshine based cocktail</label>
+    <makesSickThought>false</makesSickThought>
+    <description>This colonist drank a cocktail that had neutroshine as one of its ingredients.</description>
+    <tendable>false</tendable>
+    <isBad>false</isBad>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <hediffClass>HediffWithComps</hediffClass>
+    <initialSeverity>1.0</initialSeverity>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+      <li Class="VEF.Cooking.HediffCompProperties_WhileHavingThoughts">
+        <thoughtDefs>
+          <li>TMM_VBE_NeutroshineAsIngredient</li>
+        </thoughtDefs>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statFactors>
+          <InjuryHealingFactor>1.1</InjuryHealingFactor>
+          <ImmunityGainSpeed>1.1</ImmunityGainSpeed>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+	<ThoughtDef MayRequire="Rimsenal.Harana">
+    <defName>TMM_VBE_NeutroshineAsIngredient</defName>
+    <thoughtClass>VEF.Cooking.Thought_Hediff</thoughtClass>
+    <hediff>TMM_VBE_NeutroshineAsIngredient</hediff>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>Drank neutroshine based cocktail</label>
+        <description>Yummy...?</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The ghoul xenotype uses VRE - Lycanthrope's nocturnal gene instead of Big and Small's night owl.
+		This folder only loads when both Vampires and the Undead and VRE - Lycanthrope are active
+		(see loadFolders.xml), so no FindMod checks are needed.
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="VU_Ghoul"]/genes/li[text()="BS_NightOwl"]</xpath>
+		<value>
+			<li>VRE_Nocturnal</li>
+		</value>
+	</Operation>
+
+</Patch>

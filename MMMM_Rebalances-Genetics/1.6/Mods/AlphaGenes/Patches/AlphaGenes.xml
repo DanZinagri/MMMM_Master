@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Additions to Alpha Genes' wretch blacklists, so wretches are not generated with: Biotech Expansion's
+		shearable/milkable genes, Big and Small's extreme temperature needs and Simply Robots' android parts, Starjack's
+		extreme oxygen sensitivity and gene randomizer, and anything named like sleeve quality, astrogenes, VRE pollution
+		genes or the Grigori fertility gene. VPE's Thrall trait joins Alpha Genes' blacklisted traits.
+		This folder only loads when Alpha Genes is active (see loadFolders.xml).
+
+		The DLL that made the germline mutator respect these lists is no longer here: it became the separate mod
+		"Alpha Genes - Germline Mutator Blacklist" (1.7 only), which has its own default list and settings menu.
+
+		Fix: the VPE Thrall entry was gated on "VanillaExpanded.VanillaExpanded.VPsycastsE", a doubled packageId no mod has,
+		so it never loaded; it now uses VPE's real packageId.
+		Verified against the current 1.6 releases: every target def exists, no entry is already on Alpha Genes' lists, and
+		the listed genes/trait exist in their installed mods (Biotech Expansion and Simply Robots are not installed here).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/AlphaGenes.BlackListedTraitsDef[defName="AG_BlackListedTraits"]/blackListedTraits</xpath>
+				<value>
+					<li MayRequire="VanillaExpanded.VPsycastsE">VPE_Thrall</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/AlphaGenes.WretchBlacklistDef[defName="AG_WretchBlacklistDef"]/blackListedGenes</xpath>
+				<value>
+					<!-- covered in the code: genes with prerequisite, archite genes, AG_OnlyOnCharacterCreation, genes from VRE - Insector -->
+					<!-- covered by the author: B&S, WVC -->
+					<li MayRequire="biotexpans.core">BTE_ShearableGene</li>
+					<li MayRequire="biotexpans.core">BTE_MilkableGene</li>
+					<li MayRequire="RedMattis.BigSmall.Core">MinTemp_HugeNeed</li>
+					<li MayRequire="RedMattis.BigSmall.Core">MaxTemp_HugeNeed</li>
+					<li MayRequire="RedMattis.BigSmall.SimpleAndroids">BS_CommandoHead</li>
+					<li MayRequire="RedMattis.BigSmall.SimpleAndroids">BS_CommandoBody</li>
+					<li MayRequire="RedMattis.BigSmall.SimpleAndroids">BS_TVHead</li>
+					<li MayRequire="vanillaracesexpanded.starjack">VREStarjack_OxygenSensitivity_Extreme</li>
+					<li MayRequire="vanillaracesexpanded.starjack">VREStarjack_Gene_Randomizer</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/AlphaGenes.WretchBlacklistDef[defName="AG_WretchBlacklistDef"]/blackListedDefNameStrings</xpath>
+				<value>
+					<li>AC_SleeveQuality_</li>
+					<li>_Astrogene</li>
+					<li>VRE_Pollution</li>
+					<!-- turns pawn into Grigori: string-based as this might be removed...should I just use string for all cases?-->
+					<li>BS_GrigoriFertile</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!--
+		Alpha Genes' archotech gene remover, endogenefier and xenogenefier count as archotech tech level, like the other
+		archotech tech-level changes in this mod. Verified: none of the three sets a techLevel upstream.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="AG_ArchoGeneRemover" or defName="AG_ArchoEndogenefier" or defName="AG_ArchoXenogenefier"]</xpath>
+				<value>
+					<techLevel>Archotech</techLevel>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!--
+		With Integrated Implants, Alpha Genes' increased command range gene gives +15 to Integrated Implants' mech remote
+		control distance stat (TMM_AG_IncreasedCommandRange, Defs/HediffDefs.xml) instead of Alpha Genes' own hediff, which
+		sets command range to 35 tiles; the description is updated to match. Its opposite gene is cherry-picked in
+		MMMM_Convergence-Genetics. Verified: the gene's hediff and descriptions are as described, and the stat exists in Integrated
+		Implants.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="lts.I">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="AG_IncreasedCommandRange"]/modExtensions/li[@Class="VEF.Genes.GeneExtension"]/hediffToWholeBody</xpath>
+						<value>
+							<hediffToWholeBody>TMM_AG_IncreasedCommandRange</hediffToWholeBody>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="AG_IncreasedCommandRange"]/customEffectDescriptions</xpath>
+						<value>
+							<customEffectDescriptions>
+								<li>Mech command range +15</li>
+								<li>This gene is only active if the carrier is a mechanitor.</li>
+							</customEffectDescriptions>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

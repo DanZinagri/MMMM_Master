@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small - Races content joined up with three other mods.
+		  - The frost jotun gains Alpha Genes' cryo blood and cryo vomit, matching what it is made of.
+		  - The Little People faction can roll Det's Stoneborn alongside its own dwarves, with the dwarf chance cut from
+		    0.65 to 0.3 to make room for an equal Stoneborn chance.
+		  - The dvergr union, Muspelheim and Niflheim factions build VFE - Medieval 2 settlements, and their tiles are
+		    marked unbridgeable.
+		This folder only loads when Big and Small - Races is active (see loadFolders.xml); the partner mods are gated
+		per operation.
+		The mod gates sit on <li> nodes inside sequences, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements.
+
+		Verified against the current 1.6 releases: the frost jotun has neither Alpha Genes gene, the Little People
+		faction does list BS_Dwarf at 0.65 in its xenotype chances, the Stoneborn xenotype exists, and all three Norse
+		factions already carry a modExtensions list for the settlement options to join.
+
+		A fourth operation was dropped rather than moved: it set Inherit="False" on those three factions' modExtensions.
+		Nothing in their parent chain defines modExtensions, so it never did anything. See the removals log.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Genetics ops (genes and xenotypes).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_FrostJotun"]/genes</xpath>
+						<value>
+							<li>AG_CryoBlood</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_FrostJotun"]/genes</xpath>
+						<value>
+							<li>AG_PukeCryo</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+		</operations>
+	</Operation>
+
+</Patch>

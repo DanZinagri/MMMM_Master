@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Keshig's dodge genes join the shared MeleeDodge exclusion group, so a pawn cannot stack two melee dodge genes
+		from different mods. VRE - Lycanthrope defines that tag group; this project applies it to the equivalent genes
+		in Keshig, Geist, Goji's Merren, the Rimsenal xenotypes and Vanilla Quests Expanded - Ancients.
+		This folder only loads when Det's Xenotypes - Keshig is active (see loadFolders.xml).
+		Verified against Keshig 1.6: neither gene has exclusionTags, so the whole element is added.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="DV_DodgeChance_Low" or defName="DV_DodgeChance_High"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>MeleeDodge</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+
+</Patch>

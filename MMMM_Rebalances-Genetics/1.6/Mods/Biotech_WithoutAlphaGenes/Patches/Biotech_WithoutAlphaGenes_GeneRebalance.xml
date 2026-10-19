@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved here from the gene rebalance file (1.6/Mods/Biotech/Patches/GeneRebalance.xml).
+		This folder loads only when Ludeon.RimWorld.Biotech is active and sarg.alphagenes is NOT active (see loadFolders.xml). The same condition used to be a
+		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName="BS_ChocolateProduction"]/modExtensions/li[@Class="BigAndSmall.ProductionGeneSettings"]/baseAmount</xpath>
+								<value>
+									<baseAmount>60</baseAmount>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

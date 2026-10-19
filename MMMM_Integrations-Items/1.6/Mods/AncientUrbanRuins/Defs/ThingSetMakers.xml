@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Loot set used by the Alpha Crafts rack changes in Patches/AncientUrbanRuins.xml. -->
+
+	<ThingSetMakerDef MayRequire="sarg.alphacrafts">
+		<defName>TMM_ArtisanGoods_Large</defName>
+		<root Class="ThingSetMaker_RandomOption">
+			<options>
+				<!-- high market value -->
+				<li>
+					<weight>1.5</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>AC_Flour</li>
+									<li>AC_ScentedCandle</li>
+									<li>AC_Soap</li>
+								</thingDefs>
+							</filter>
+							<countRange>10~28</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+				<!-- low market value -->
+				<li>
+					<weight>1.0</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>AC_AloeVeraSalve</li>
+									<li>AC_Essence</li>
+									<li>AC_Perfume</li>
+									<li MayRequire="VanillaExpanded.VBrewE">AC_PipeTobacco</li>
+									<li MayRequire="VanillaExpanded.VBrewE">AC_TeaSachets</li>
+								</thingDefs>
+							</filter>
+							<countRange>30~64</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+			</options>
+		</root>
+	</ThingSetMakerDef>
+
+</Defs>

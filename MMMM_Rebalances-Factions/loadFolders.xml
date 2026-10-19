@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- 1.6/Mods/<Name> loads when that mod is active; 1.6/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<li>/</li>
+		<li>1.6</li>
+		<li IfModActive="sarg.alphagenes" IfModNotActive="mytigio.harbingerkin">1.6/Mods/AlphaGenes_WithoutHarbingerKin</li>
+		<li IfModActive="Crows.DragonBond">1.6/Mods/DragonBond</li>
+		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.6/Mods/BigAndSmallLamias</li>
+		<li IfModActive="RedMattis.BSSlimes">1.6/Mods/BigAndSmallSlimes</li>
+		<li IfModActive="sarg.alphagenes">1.6/Mods/AlphaGenes</li>
+	</v1.6>
+	<v1.7>
+		<!-- 1.7/Mods/<Name> loads when that mod is active; 1.7/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<li>/</li>
+		<li>1.7</li>
+		<li IfModActive="sarg.alphagenes" IfModNotActive="mytigio.harbingerkin">1.7/Mods/AlphaGenes_WithoutHarbingerKin</li>
+		<li IfModActive="Crows.DragonBond">1.7/Mods/DragonBond</li>
+		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.7/Mods/BigAndSmallLamias</li>
+		<li IfModActive="RedMattis.BSSlimes">1.7/Mods/BigAndSmallSlimes</li>
+		<li IfModActive="sarg.alphagenes">1.7/Mods/AlphaGenes</li>
+	</v1.7>
+</loadFolders>

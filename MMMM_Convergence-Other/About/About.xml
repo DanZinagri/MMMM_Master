@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Many Many Many Mods Modularized - Convergence - Other</name>
+	<author>DanZinagri</author>
+	<packageId>DanZinagri.MMMM.Convergence.Other</packageId>
+	<supportedVersions>
+		<li>1.6</li>
+		<li>1.7</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>Ludeon.RimWorld.Biotech</packageId>
+			<displayName>Biotech</displayName>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>Wara.toomanymods</li>
+		<li>Owlchemist.CherryPicker</li>
+		<li>sarg.alphabiomes</li>
+		<li>ferny.progressionagriculture</li>
+		<li>onyxae.dragonsdescent</li>
+		<li>VanillaExpanded.VanillaTraitsExpanded</li>
+		<li>VanillaExpanded.VMemesE</li>
+		<li>sarg.alphacrafts</li>
+		<li>Trickity.Samurai.Faction</li>
+		<li>sarg.alphagenes</li>
+		<li>RedMattis.BigSmall.Core</li>
+	</loadAfter>
+	<description>Overlap Removal</description>
+</ModMetaData>

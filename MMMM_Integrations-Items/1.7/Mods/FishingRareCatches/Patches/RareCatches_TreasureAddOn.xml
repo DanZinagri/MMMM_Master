@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Items from other mods join the rare fishing catch pool (vanilla Odyssey's RareFishingCatchesBase).
+		This file only loads when Vanilla Fishing Expanded - Treasure AddOn is active (see loadFolders.xml).
+		That gate is the original author's design choice, not a technical requirement: the pool itself comes from
+		Odyssey, and the add-on is a big set of patches that fills it with modded loot. These entries extend that
+		same loot philosophy with weights chosen to match it, so they only apply to players who run the add-on.
+		The per-mod FindMod checks are kept rather than converted to MayRequire: several of these mods are not
+		installed here, so their packageIds could not be verified, and a wrong id in a MayRequire fails silently.
+	-->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Fishing Expanded - Treasure AddOn</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Big and Small - Genes &amp; More</li>
+					</mods>
+					<match Class="PatchOperationFindMod">
+						<mods>
+							<li>Big and Small - Races</li>
+							<li>Big and Small - More Xenotypes</li>
+							<li>Big and Small - Yokai</li>
+							<li>Big and Small - Slimes</li>
+							<li>Big and Small - Heaven and Hell</li>
+							<li>Big and Small - Vampires and the Undead</li>
+						</mods>
+						<match Class="PatchOperationSequence">
+							<operations>
+								<li Class="PatchOperationAdd">
+									<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+									<value>
+										<!-- Gene tools x10 from Alpha Genes: 0.1 -->
+										<li>
+											<weight>0.06</weight>
+											<thingSetMaker Class="ThingSetMaker_Count">
+												<fixedParams>
+													<filter>
+														<thingDefs>
+															<li>BS_Giant_Serum</li>
+															<li>BS_Shrink_Serum</li>
+															<li>BS_GeneDicombobulator</li>
+															<li>BS_GeneGeneIntegrator</li>
+															<li>BS_CreateXenogerm</li>
+															<li>BS_CreateXenogerm_Endo</li>
+														</thingDefs>
+													</filter>
+												</fixedParams>
+											</thingSetMaker>
+										</li>
+										<!-- Archotech gene tools x3 from Alpha Genes: 0.05 -->
+										<li>
+											<weight>0.03</weight>
+											<thingSetMaker Class="ThingSetMaker_Count">
+												<fixedParams>
+													<filter>
+														<thingDefs>
+															<li>BS_CreateArchiteXenogerm</li>
+															<li>BS_CreateArchiteXenogerm_Endo</li>
+														</thingDefs>
+													</filter>
+												</fixedParams>
+											</thingSetMaker>
+										</li>
+										<li MayRequire="ludeon.rimworld.anomaly">
+											<weight>0.05</weight>
+											<thingSetMaker Class="ThingSetMaker_Count">
+												<fixedParams>
+													<filter>
+														<thingDefs>
+															<li>BS_DarkSoulshard</li>
+														</thingDefs>
+													</filter>
+												</fixedParams>
+											</thingSetMaker>
+										</li>
+									</value>
+								</li>
+							</operations>
+						</match>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Integrated Implants</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+								<value>
+									<li MayRequire="ludeon.rimworld.anomaly">
+										<weight>0.1</weight>
+										<thingSetMaker Class="ThingSetMaker_Count">
+											<fixedParams>
+												<filter>
+													<thingDefs>
+														<li>DreadmeldCore</li>
+														<li>NociosphereEmitter</li>
+														<li>NoctolithSensor</li>
+													</thingDefs>
+												</filter>
+											</fixedParams>
+										</thingSetMaker>
+									</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Megafauna</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+								<value>
+									<li>
+										<weight>0.15</weight>
+										<thingSetMaker Class="ThingSetMaker_Count">
+											<fixedParams>
+												<filter>
+													<thingDefs>
+														<li>MegalocerosAntlers</li>
+														<li>DoedicurusShell</li>
+														<li>ElasmotheriumHorn</li>
+														<li>DeinotheriumTusk</li>
+														<li>ZygolophodonTusk</li>
+														<li>PlatybelodonTusk</li>
+														<li>SmilodonFangs</li>
+													</thingDefs>
+												</filter>
+											</fixedParams>
+										</thingSetMaker>
+									</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Mythic Ages: Megafauna Bestiary</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+								<value>
+									<li>
+										<weight>0.1</weight>
+										<thingSetMaker Class="ThingSetMaker_Count">
+											<fixedParams>
+												<filter>
+													<thingDefs>
+														<li>MA_MegaBone</li>
+													</thingDefs>
+												</filter>
+												<countRange>12~30</countRange>
+											</fixedParams>
+										</thingSetMaker>
+									</li>
+									<li>
+										<weight>0.1</weight>
+										<thingSetMaker Class="ThingSetMaker_Count">
+											<fixedParams>
+												<filter>
+													<thingDefs>
+														<li>MA_ScarSaberTooth</li>
+														<li>MA_DuskhornHorn</li>
+													</thingDefs>
+												</filter>
+											</fixedParams>
+										</thingSetMaker>
+									</li>
+								</value>
+							</li>
+						</operations>
+					</match>
+				</li>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Vanilla Weapons Expanded</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<operations>
+							<!-- VWE Weapons x8: 0.5 -->
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+								<value>
+									<li>
+										<weight>0.1</weight>
+										<thingSetMaker Class="ThingSetMaker_Count">
+											<fixedParams>
+												<qualityGenerator>Reward</qualityGenerator>
+												<filter>
+													<thingDefs>
+														<li>Gun_Revolver</li>
+														<li>Gun_Autopistol</li>
+														<li>Gun_MachinePistol</li>
+														<li>Gun_BoltActionRifle</li>
+														<li>Gun_PumpShotgun</li>
+														<li>Gun_ChainShotgun</li>
+														<li>Gun_HeavySMG</li>
+														<li>Gun_LMG</li>
+														<li>Gun_AssaultRifle</li>
+														<li>Gun_SniperRifle</li>
+														<li>Gun_Minigun</li>
+													</thingDefs>
+												</filter>
+											</fixedParams>
+										</thingSetMaker>
+									</li>
+									<li>
+										<weight>0.05</weight>
+										<thingSetMaker Class="ThingSetMaker_Count">
+											<fixedParams>
+												<qualityGenerator>Reward</qualityGenerator>
+												<filter>
+													<thingDefs>
+														<li MayRequire="OskarPotocki.VFE.Empire">VFEE_Gun_ChargeThumper</li>
+														<li MayRequire="OskarPotocki.VFE.Deserters">VFED_Gun_ChargeCycler</li>
+														<!-- not included in VFETA -->
+														<li>VWE_SawedOffShotgun</li>
+														<li>VWE_CombatHandgun</li>
+														<li>VWE_Gun_LeverActionRifle</li>
+														<li>VWE_Gun_HMG</li>
+														<li>VWE_Gun_ServiceRifle</li>
+														<li>VWE_Gun_Carbine</li>
+														<li>VWE_Gun_MarksmanRifle</li>
+														<li>VWE_Gun_ChargeLMG</li>
+														<li>VWE_Gun_ChargeMinigun</li>
+														<li>VWE_Gun_ChargeShotgun</li>
+													</thingDefs>
+												</filter>
+											</fixedParams>
+										</thingSetMaker>
+									</li>
+								</value>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Phase Weaponry</li>
+								</mods>
+								<match Class="PatchOperationAdd">
+									<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+									<value>
+										<li>
+											<weight>0.05</weight>
+											<thingSetMaker Class="ThingSetMaker_Count">
+												<fixedParams>
+													<qualityGenerator>Reward</qualityGenerator>
+													<filter>
+														<thingDefs>
+															<li>DV_Gun_PhasePistol</li>
+															<li>DV_Gun_PhaseRifle</li>
+															<li>DV_Gun_PhasePrecisionRifle</li>
+														</thingDefs>
+													</filter>
+												</fixedParams>
+											</thingSetMaker>
+										</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Pulse Weaponry</li>
+								</mods>
+								<match Class="PatchOperationAdd">
+									<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+									<value>
+										<li>
+											<weight>0.05</weight>
+											<thingSetMaker Class="ThingSetMaker_Count">
+												<fixedParams>
+													<qualityGenerator>Reward</qualityGenerator>
+													<filter>
+														<thingDefs>
+															<li>DV_PulseSMG</li>
+															<li>DV_PulseRifle</li>
+															<li>DV_PulseSuppressor</li>
+														</thingDefs>
+													</filter>
+												</fixedParams>
+											</thingSetMaker>
+										</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Impact Weaponry - Reloaded</li>
+								</mods>
+								<match Class="PatchOperationAdd">
+									<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+									<value>
+										<li>
+											<weight>0.1</weight>
+											<thingSetMaker Class="ThingSetMaker_Count">
+												<fixedParams>
+													<qualityGenerator>Reward</qualityGenerator>
+													<filter>
+														<thingDefs>
+															<li>DV_Gun_ImpactSlugger</li>
+															<li>DV_Gun_ImpactSMG</li>
+															<li>DV_Gun_ImpactRifle</li>
+															<li>DV_Gun_ImpactStubber</li>
+															<li>DV_Gun_ImpactCannon</li>
+															<li MayRequire="ebsg.framework">DV_Gun_ImpactSlinger</li>
+														</thingDefs>
+													</filter>
+												</fixedParams>
+											</thingSetMaker>
+										</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Ion Weaponry (Continued)</li>
+								</mods>
+								<match Class="PatchOperationAdd">
+									<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+									<value>
+										<li>
+											<weight>0.1</weight>
+											<thingSetMaker Class="ThingSetMaker_Count">
+												<fixedParams>
+													<qualityGenerator>Reward</qualityGenerator>
+													<filter>
+														<thingDefs>
+															<li>IW_Gun_IonPistol</li>
+															<li>IW_Gun_IonPDW</li>
+															<li>IW_Gun_IonDMR</li>
+															<li>IW_Gun_IonSlugthrower</li>
+															<li>IW_Gun_IonLMG</li>
+															<li>IW_Gun_IonRifle</li>
+															<li>IW_Gun_HeavyIonLance</li>
+														</thingDefs>
+													</filter>
+												</fixedParams>
+											</thingSetMaker>
+										</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Rimsenal - Augmented Vanilla Pack</li>
+								</mods>
+								<match Class="PatchOperationAdd">
+									<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+									<value>
+										<li>
+											<weight>0.15</weight>
+											<thingSetMaker Class="ThingSetMaker_Count">
+												<fixedParams>
+													<qualityGenerator>Reward</qualityGenerator>
+													<filter>
+														<thingDefs>
+															<li>Gun_ChargeSidearm</li>
+															<li>Gun_ScatterCharger</li>
+															<li>Gun_EMPRifle</li>
+															<li>Gun_AssaultCharger</li>
+															<li>Gun_CFR</li>
+															<li MayRequire="Ludeon.RimWorld.Odyssey">Gun_RSBeamCarbine</li>
+															<li MayRequire="Ludeon.RimWorld.Odyssey">Gun_RSBeamPistol</li>
+															<li MayRequire="Ludeon.RimWorld.Odyssey">Gun_RSBeamSniper</li>
+															<li MayRequire="Ludeon.RimWorld.Odyssey">Gun_RSBeamShotgun</li>
+															<li>Gun_RSBattleRifle</li>
+															<li>Gun_RSCarbine</li>
+															<li>Gun_PistolHeavyRevolver</li>
+															<li>Gun_RSAMRifle</li>
+															<li>Gun_Repeater</li>
+															<li>Gun_AutomaticRifle</li>
+															<li>Gun_MarksmanRifle</li>
+															<li>Gun_MilitiaRifle</li>
+															<li>Gun_RSThumper</li>
+														</thingDefs>
+													</filter>
+												</fixedParams>
+											</thingSetMaker>
+										</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Spacer Arsenal</li>
+								</mods>
+								<match Class="PatchOperationAdd">
+									<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+									<value>
+										<li>
+											<weight>0.1</weight>
+											<thingSetMaker Class="ThingSetMaker_Count">
+												<fixedParams>
+													<qualityGenerator>Reward</qualityGenerator>
+													<filter>
+														<thingDefs>
+															<li>DV_Weapon_GrenadeThump</li>
+															<li>DV_Weapon_GrenadePlasma</li>
+															<li>DV_Weapon_GrenadeContact</li>
+															<li>DV_Gun_NeutronStreamer</li>
+															<li>DV_Gun_ClashHMG</li>
+															<li>DV_Gun_ClashRifle</li>
+															<li>DV_Gun_SonicStunner</li>
+															<li>DV_Gun_BruteRifle</li>
+															<li>DV_Gun_PhotonSMG</li>
+															<li>DV_Gun_PlasmaBlaster</li>
+															<li>DV_Gun_CoilgunLance</li>
+														</thingDefs>
+													</filter>
+												</fixedParams>
+											</thingSetMaker>
+										</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Vanilla Weapons Expanded - Coilguns</li>
+								</mods>
+								<match Class="PatchOperationAdd">
+									<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+									<value>
+										<li>
+											<weight>0.1</weight>
+											<thingSetMaker Class="ThingSetMaker_Count">
+												<fixedParams>
+													<qualityGenerator>Reward</qualityGenerator>
+													<filter>
+														<thingDefs>
+															<li>VWE_Gun_GaussRifle</li>
+															<li>VWE_Gun_GaussMagnum</li>
+															<li>VWE_Gun_GaussLance</li>
+															<li MayRequire="VanillaExpanded.VWEFT">VWEFT_Gun_GaussRevolver</li>
+															<li MayRequire="VanillaExpanded.VWEFT">VWEFT_Gun_GaussRepeater</li>
+														</thingDefs>
+													</filter>
+												</fixedParams>
+											</thingSetMaker>
+										</li>
+									</value>
+								</match>
+							</li>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>Vanilla Weapons Expanded - Tribal</li>
+								</mods>
+								<match Class="PatchOperationAdd">
+									<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+									<value>
+										<li>
+											<weight>0.1</weight>
+											<thingSetMaker Class="ThingSetMaker_Count">
+												<fixedParams>
+													<qualityGenerator>Reward</qualityGenerator>
+													<filter>
+														<thingDefs>
+															<li>VWE_Throwing_Shards</li>
+															<li>VWE_MeleeWeapon_HeavyClub</li>
+															<li>VWE_MeleeWeapon_LightClub</li>
+															<li>VWE_MeleeWeapon_TribalAxe</li>
+															<li>VWE_MeleeWeapon_Shiv</li>
+														</thingDefs>
+													</filter>
+												</fixedParams>
+											</thingSetMaker>
+										</li>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

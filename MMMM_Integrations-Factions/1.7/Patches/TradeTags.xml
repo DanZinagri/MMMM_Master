@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved from the core root file ZZ4_TradeTags.xml (no setting).
+		Trade tags so other mods' gear shows up with the right traders:
+		  - Biotech: the mechanitor headset, mech commander/mechlord helmets and mechlord suit get the Mechanitor tag; with Alpha
+		    Mechs its mech commander/breaker gear too (and, with Royalty, its prestige versions); Rimsenal Spacer traders buy
+		    Mechanitor goods.
+		  - VFE Empire: deserter and absolver gear become BlackMarket goods (the absolver pieces lose their tradeability limit);
+		    with VFE Deserters the fletchling too; Rimsenal Factions' BlackCorp orbital trader and VFE Medieval 2's merchant guild
+		    trader buy BlackMarket goods.
+		Each block is gated on its mods via an <li>. Checked with analysis/patch_sim.py against the installed mods: every op applies
+		(the Alpha Mechs prestige defs come from Alpha Mechs' own Royalty patch). Rimsenal Spacer and Rimsenal Factions are not
+		installed here; their ids are the ones Too Many Mods gated on.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Factions ops (factions, pawn kinds, traders and royal titles).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Biotech">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationSequence" MayRequire="Rimsenal.Spacer">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAdd">
+												<xpath>/Defs/TraderKindDef[defName="Base_Spacer_Standard" or defName="Caravan_Spacer_BulkGoods" or defName="Caravan_Spacer_Exotic"]/stockGenerators</xpath>
+												<value>
+													<li Class="StockGenerator_BuyTradeTag">
+														<tag>Mechanitor</tag>
+													</li>
+													<li Class="StockGenerator_BuyTradeTag">
+														<tag>HighTechArmor</tag>
+													</li>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Empire">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationSequence" MayRequire="Bonible.rimsenalfactions">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/TraderKindDef[defName="Orbital_BlackCorp"]/stockGenerators</xpath>
+												<value>
+													<li Class="StockGenerator_BuyTradeTag">
+														<tag>BlackMarket</tag>
+													</li>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Medieval2">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/TraderKindDef[defName="VFEM2_MerchantGuildTrader"]/stockGenerators</xpath>
+												<value>
+													<li Class="StockGenerator_BuyTradeTag">
+														<tag>BlackMarket</tag>
+													</li>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

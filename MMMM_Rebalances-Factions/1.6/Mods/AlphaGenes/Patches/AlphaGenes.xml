@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Xenohuman Union and Xenohuman Pirates: Alpha Genes' own xenotype mix is kept but random custom xenotypes drop from 0.60
+		to 0.15, and other mods' xenotypes join (Rimsenal Askbarn/Harana, Det's Venators/Boglegs/Avaloi/Brawnum/Keshig,
+		Nephilim, Beliar, VRE Hussar's Uhlan, vanilla Hussar), each MayRequire'd. These replace the whole set; TMM_WVC adds
+		WVC xenotypes on top and must load after this mod.
+		In the original this sat behind TMM_AG_XenohumanFactions (default on); installing this mod is the opt-in now.
+		Verified against Alpha Genes 1.6: both factions ship the same list at 0.60 random custom, and every Alpha Genes
+		xenotype named here exists.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/FactionDef[defName="AG_OutlanderCivilUnion"]/xenotypeSet</xpath>
+				<value>
+					<xenotypeSet Inherit="False">
+						<xenotypeChances>
+							<AG_RandomCustom>0.15</AG_RandomCustom>
+							<AG_Animusen>0.05</AG_Animusen>
+							<AG_Helixien>0.05</AG_Helixien>
+							<AG_Hiveling>0.05</AG_Hiveling>
+							<AG_Taukai>0.05</AG_Taukai>
+							<AG_MindDevourer>0.05</AG_MindDevourer>
+							<AG_Wretch>0.025</AG_Wretch>
+							<AG_Efreet>0.0125</AG_Efreet>
+							<AG_Drakonori>0.0125</AG_Drakonori>
+							<AG_Nereid>0.0125</AG_Nereid>
+							<AG_Forsaken>0.01</AG_Forsaken>
+							<AG_Fleetkind>0.005</AG_Fleetkind>
+							<Askbarn MayRequire="Rimsenal.Askbarn">0.05</Askbarn>
+							<Uredd MayRequire="Rimsenal.Askbarn">0.05</Uredd>
+							<Harana MayRequire="Rimsenal.Harana">0.05</Harana>
+							<DV_Venator MayRequire="det.venators">0.05</DV_Venator>
+							<DV_Bogleg MayRequire="det.boglegs">0.05</DV_Bogleg>
+							<DV_Avaloi MayRequire="det.avaloi">0.05</DV_Avaloi>
+							<DV_Brawnum MayRequire="det.brawnum">0.05</DV_Brawnum>
+							<GS_Nephilim MayRequire="Sov.Nephilim">0.02</GS_Nephilim>
+						</xenotypeChances>
+					</xenotypeSet>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/FactionDef[defName="AG_XenohumanPirates"]/xenotypeSet</xpath>
+				<value>
+					<xenotypeSet Inherit="False">
+						<xenotypeChances>
+							<AG_RandomCustom>0.15</AG_RandomCustom>
+							<AG_Animusen>0.05</AG_Animusen>
+							<AG_Helixien>0.05</AG_Helixien>
+							<AG_Hiveling>0.05</AG_Hiveling>
+							<AG_Taukai>0.05</AG_Taukai>
+							<AG_MindDevourer>0.05</AG_MindDevourer>
+							<AG_Wretch>0.025</AG_Wretch>
+							<AG_Efreet>0.0125</AG_Efreet>
+							<AG_Drakonori>0.0125</AG_Drakonori>
+							<AG_Nereid>0.0125</AG_Nereid>
+							<AG_Forsaken>0.01</AG_Forsaken>
+							<AG_Fleetkind>0.005</AG_Fleetkind>
+							<Hussar>0.01</Hussar>
+							<Askbarn MayRequire="Rimsenal.Askbarn">0.05</Askbarn>
+							<Uredd MayRequire="Rimsenal.Askbarn">0.05</Uredd>
+							<Harana MayRequire="Rimsenal.Harana">0.05</Harana>
+							<DV_Venator MayRequire="det.venators">0.05</DV_Venator>
+							<DV_Bogleg MayRequire="det.boglegs">0.05</DV_Bogleg>
+							<DV_Avaloi MayRequire="det.avaloi">0.05</DV_Avaloi>
+							<DV_Keshig MayRequire="det.keshig">0.05</DV_Keshig>
+							<BX_Beliar MayRequire="ElSov.Beliar">0.05</BX_Beliar>
+							<VREH_Uhlan MayRequire="vanillaracesexpanded.hussar">0.02</VREH_Uhlan>
+						</xenotypeChances>
+					</xenotypeSet>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

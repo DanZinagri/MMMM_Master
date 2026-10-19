@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li>1.6</li>
+		<li IfModActive="VanillaExpanded.VPlantsEMushrooms">1.6/Mods/VanillaPlantsExpandedMushrooms</li>
+		<li IfModActiveAll="vanillaexpanded.gravship,OskarPotocki.VFE.Medieval2">1.6/Mods/VanillaGravshipExpanded</li>
+		<li IfModActive="VanillaExpanded.VFEArchitect">1.6/Mods/VanillaFurnitureExpandedArchitect</li>
+		<li IfModActive="RedMattis.BetterPrerequisites">1.6/Mods/BigAndSmallFramework</li>
+		<!-- Butcher First itself has no verified packageId, so it is checked by name inside the patch -->
+		<li IfModActive="VanillaExpanded.VCookE,VanillaExpanded.VCookESushi,VanillaExpanded.VCookEHaute">1.6/Mods/ButcherFirst</li>
+		<li IfModActive="OskarPotocki.VFE.Classical">1.6/Mods/VanillaFactionsExpandedClassical</li>
+		<li IfModActive="VanillaExpanded.VBrewE">1.6/Mods/VanillaBrewingExpanded</li>
+		<li IfModActive="OskarPotocki.VanillaFactionsExpanded.SettlersModule">1.6/Mods/VanillaFactionsExpandedSettlers</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE">1.6/Mods/VanillaPsycastsExpanded</li>
+		<li IfModActive="vanillaquestsexpanded.ancients">1.6/Mods/VanillaQuestsExpandedAncients</li>
+		<li IfModActive="erin.japanesefurniture">1.6/Mods/ErinsJapaneseFurniture</li>
+		<li IfModActive="XMB.AncientUrbanrUins.MO">1.6/Mods/AncientUrbanRuins</li>
+		<li IfModActive="sarg.alphaanimals">1.6/Mods/AlphaAnimals</li>
+		<li IfModActive="sarg.alphacrafts">1.6/Mods/AlphaCrafts</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.6/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActive="OskarPotocki.VFE.Deserters">1.6/Mods/VanillaFactionsExpandedDeserters</li>
+		<li IfModActive="Sarg.AlphaMemes">1.6/Mods/AlphaMemes</li>
+		<li IfModActive="OskarPotocki.VFE.Empire">1.6/Mods/VanillaFactionsExpandedEmpire</li>
+		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
+	</v1.6>
+	<v1.7>
+		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li>1.7</li>
+		<li IfModActive="VanillaExpanded.VPlantsEMushrooms">1.7/Mods/VanillaPlantsExpandedMushrooms</li>
+		<li IfModActiveAll="vanillaexpanded.gravship,OskarPotocki.VFE.Medieval2">1.7/Mods/VanillaGravshipExpanded</li>
+		<li IfModActive="VanillaExpanded.VFEArchitect">1.7/Mods/VanillaFurnitureExpandedArchitect</li>
+		<li IfModActive="RedMattis.BetterPrerequisites">1.7/Mods/BigAndSmallFramework</li>
+		<!-- Butcher First itself has no verified packageId, so it is checked by name inside the patch -->
+		<li IfModActive="VanillaExpanded.VCookE,VanillaExpanded.VCookESushi,VanillaExpanded.VCookEHaute">1.7/Mods/ButcherFirst</li>
+		<li IfModActive="OskarPotocki.VFE.Classical">1.7/Mods/VanillaFactionsExpandedClassical</li>
+		<li IfModActive="VanillaExpanded.VBrewE">1.7/Mods/VanillaBrewingExpanded</li>
+		<li IfModActive="OskarPotocki.VanillaFactionsExpanded.SettlersModule">1.7/Mods/VanillaFactionsExpandedSettlers</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE">1.7/Mods/VanillaPsycastsExpanded</li>
+		<li IfModActive="vanillaquestsexpanded.ancients">1.7/Mods/VanillaQuestsExpandedAncients</li>
+		<li IfModActive="erin.japanesefurniture">1.7/Mods/ErinsJapaneseFurniture</li>
+		<li IfModActive="XMB.AncientUrbanrUins.MO">1.7/Mods/AncientUrbanRuins</li>
+		<li IfModActive="sarg.alphaanimals">1.7/Mods/AlphaAnimals</li>
+		<li IfModActive="sarg.alphacrafts">1.7/Mods/AlphaCrafts</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.7/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActive="OskarPotocki.VFE.Deserters">1.7/Mods/VanillaFactionsExpandedDeserters</li>
+		<li IfModActive="Sarg.AlphaMemes">1.7/Mods/AlphaMemes</li>
+		<li IfModActive="OskarPotocki.VFE.Empire">1.7/Mods/VanillaFactionsExpandedEmpire</li>
+		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>
+	</v1.7>
+</loadFolders>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<HediffDef MayRequire="sarg.alphagenes,RedMattis.BigSmall.Core">
+												<defName>TMM_BS_FortifiedBody</defName>
+												<label>fortified body</label>
+												<description>Fortified skin. This shrugs off attacks as though they were wearing heavily padded riot gear.</description>
+												<hediffClass>HediffWithComps</hediffClass>
+												<scenarioCanAdd>false</scenarioCanAdd>
+												<maxSeverity>1.0</maxSeverity>
+												<isBad>false</isBad>
+												<stages>
+													<li>
+														<minSeverity>0</minSeverity>
+														<statOffsets>
+															<ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+															<ArmorRating_Sharp>0.4</ArmorRating_Sharp>
+														</statOffsets>
+													</li>
+												</stages>
+											</HediffDef>
+
+</Defs>

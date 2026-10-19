@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Races Expanded - Pigskin and Big and Small overlap.
+		- Boarskin uses Endless growth (BS_EndlessGrowth) instead of VRE Evergrowing.
+		- Big and Small xenotypes use VRE Pigskin aging genes (VRE_SlowAging / VRE_FastAging / VRE_RapidAging) instead of
+		BS_VerySlowAging / BS_SlowAging / BS_FastAging / BS_VeryFastAging; each block is gated with MayRequire on the B&amp;S sub-mod it belongs to.
+		- The retired duplicates are handed to Cherry Picker.
+		This folder only loads when both VRE - Pigskin and Big and Small - Genes &amp; More are active (see loadFolders.xml), so no FindMod checks are needed.
+		Fix 2026-10-03: genes retired to Cherry Picker are now swapped in every xenotype that carries them (removed where the
+		xenotype already has the replacement), so no xenotype from any mod loses one. Genes without a clean one-for-one
+		replacement are no longer retired.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/XenotypeDef[defName="VRE_Boarskin"]/genes/li[text()="VRE_EverGrowing"]</xpath>
+				<value>
+					<li MayRequire="RedMattis.BigSmall.Core">BS_EndlessGrowth</li>
+				</value>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Bugs"><!-- was: Big and Small - Xeno Insectoid Hive -->
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_XenoConsort" or defName="BS_XenoAlate" or defName="BS_XenoNymph" or defName="BS_XenoNymphMutant"]/genes/li[text()="BS_VeryFastAging"]</xpath>
+						<value>
+							<li>VRE_RapidAging</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_XenoQueen" or defName="BS_XenoPrincess" or defName="BS_XenoEmissary" or defName="BS_XenoAbomination"]/genes/li[text()="BS_FastAging"]</xpath>
+						<value>
+							<li>VRE_FastAging</li>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/GeneDef[defName="BS_EndlessGrowth"]/modExtensions/li[@Class="BigAndSmall.GenePrerequisites"]</xpath>
+					</li>
+				</operations>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes,RedMattis.MoreXenos"><!-- was: Alpha Genes + Big and Small - More Xenotypes -->
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_HiveQueen"]/genes/li[text()="BS_FastAging"]</xpath>
+						<value>
+							<li>VRE_FastAging</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.MoreXenos"><!-- was: Big and Small - More Xenotypes -->
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_Broodmother"]/genes/li[text()="BS_FastAging"]</xpath>
+						<value>
+							<li>VRE_FastAging</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall"><!-- was: Big and Small - Races -->
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_Gnome" or defName="BS_Half_Jotun" or defName="BS_Ymir" or defName="BS_Surtr" or defName="BS_FireJotun" or defName="BS_FrostJotun"]/genes/li[text()="BS_VerySlowAging"]</xpath>
+						<value>
+							<li>VRE_SlowAging</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_Svartalf" or defName="BS_Dwarf" or defName="BS_GreatOgre"]/genes/li[text()="BS_SlowAging"]</xpath>
+						<value>
+							<li>VRE_SlowAging</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_Redcap"]/genes/li[text()="BS_FastAging"]</xpath>
+						<value>
+							<li>VRE_FastAging</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.Heaven"><!-- was: Big and Small - Heaven and Hell -->
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_Nephilim"]/genes/li[text()="BS_VerySlowAging"]</xpath>
+						<value>
+							<li>VRE_SlowAging</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BSSlimes"><!-- was: Big and Small - Slimes -->
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_EmperorSlime" or defName="BS_FrostSlime"]/genes/li[text()="BS_SlowAging"]</xpath>
+						<value>
+							<li>VRE_SlowAging</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BSSlimes,RedMattis.BigSmall"><!-- was: Big and Small - Slimes + Big and Small - Races -->
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_FrostSlimeGiant"]/genes/li[text()="BS_VerySlowAging"]</xpath>
+						<value>
+							<li>VRE_SlowAging</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_LavaSlimeGiant"]/genes/li[text()="BS_SlowAging"]</xpath>
+						<value>
+							<li>VRE_SlowAging</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.Undead"><!-- was: Big and Small - Vampires and the Undead -->
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="VU_Ghoul"]/genes/li[text()="BS_SlowAging"]</xpath>
+						<value>
+							<li>VRE_SlowAging</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.LamiasAndOtherSnakes"><!-- was: Big and Small - Lamias and other Snake-People -->
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="Naga" or defName="LoS_Silver"]/genes/li[text()="BS_SlowAging"]</xpath>
+						<value>
+							<li>VRE_SlowAging</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="LoS_Adderman"]/genes/li[text()="BS_FastAging"]</xpath>
+						<value>
+							<li>VRE_FastAging</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.Yokai"><!-- was: Big and Small - Yokai -->
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_RedOni" or defName="BS_BlueOni"]/genes/li[text()="BS_SlowAging"]</xpath>
+						<value>
+							<li>VRE_SlowAging</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_GreatRedOni" or defName="BS_GreatBlueOni"]/genes/li[text()="BS_VerySlowAging"]</xpath>
+						<value>
+							<li>VRE_SlowAging</li>
+						</value>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="VRE_SlowAging"]]/genes/li[text()="BS_VerySlowAging"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[genes/li[text()="VRE_SlowAging"]]/genes/li[text()="BS_VerySlowAging"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="BS_VerySlowAging"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="BS_VerySlowAging"]</xpath>
+							<value>
+								<li>VRE_SlowAging</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="VRE_SlowAging"]]/genes/li[text()="BS_SlowAging"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[genes/li[text()="VRE_SlowAging"]]/genes/li[text()="BS_SlowAging"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="BS_SlowAging"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="BS_SlowAging"]</xpath>
+							<value>
+								<li>VRE_SlowAging</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="VRE_FastAging"]]/genes/li[text()="BS_FastAging"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[genes/li[text()="VRE_FastAging"]]/genes/li[text()="BS_FastAging"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="BS_FastAging"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="BS_FastAging"]</xpath>
+							<value>
+								<li>VRE_FastAging</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="VRE_RapidAging"]]/genes/li[text()="BS_VeryFastAging"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[genes/li[text()="VRE_RapidAging"]]/genes/li[text()="BS_VeryFastAging"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="BS_VeryFastAging"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="BS_VeryFastAging"]</xpath>
+							<value>
+								<li>VRE_RapidAging</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_LesserOni"]/genes</xpath>
+						<value>
+							<li>VRE_SlowAging</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+				<value>
+					<li>GeneDef/VRE_EverGrowing</li>
+					<li>GeneDef/VRE_EverGrowing_Astrogene</li>
+					<li>GeneDef/BS_VerySlowAging</li>
+					<li>GeneDef/BS_SlowAging</li>
+					<li>GeneDef/BS_FastAging</li>
+					<li>GeneDef/BS_VeryFastAging</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

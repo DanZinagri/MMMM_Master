@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The highmate xenotype uses Better Gene Inheritance's recessive genes instead of VRE - Highmate's own recessive
+		genome, so the same inheritance behaviour is not supplied twice under two names.
+		This folder only loads when Better Gene Inheritance and VRE - Highmate are both active (see loadFolders.xml),
+		so no FindMod checks are needed.
+
+		Load order matters here, unlike most of these patches. Highmate is a vanilla Biotech xenotype and does not ship
+		with VRE_RecessiveGenome; VRE - Highmate adds it with a patch of its own, in its 1.6/Patches/XenotypeDefs.xml.
+		RimWorld applies patches in mod order, so this replacement only finds its target if this mod loads after VRE -
+		Highmate. About.xml lists it under loadAfter for that reason. Do not remove that entry.
+
+		Verified against the current 1.6 releases: BGI_RecessiveGenes exists in Better Gene Inheritance, and VRE -
+		Highmate's patch puts VRE_RecessiveGenome on the highmate through both its match and nomatch branches, so the
+		gene is there whichever branch runs.
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="Highmate"]/genes/li[text()="VRE_RecessiveGenome"]</xpath>
+		<value>
+			<li>BGI_RecessiveGenes</li>
+		</value>
+	</Operation>
+
+</Patch>

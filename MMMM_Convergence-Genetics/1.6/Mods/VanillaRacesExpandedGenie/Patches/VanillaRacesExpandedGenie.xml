@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Races Expanded - Genie and Big and Small overlap.
+		- Genie uses Very slow wound healing (WoundHealing_VerySlow) instead of VRE_WoundHealing_VerySlow, which is cherry-picked.
+		- The equivalent slow-bleeding genes from both mods share a Bleedspeed exclusion tag so they cannot stack.
+		This folder only loads when both VRE - Genie and Big and Small - Genes &amp; More are active (see loadFolders.xml), so no FindMod checks are needed.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/XenotypeDef[defName="Genie"]/genes/li[text()="VRE_WoundHealing_VerySlow"]</xpath>
+				<value>
+					<li MayRequire="RedMattis.BigSmall.Core">WoundHealing_VerySlow</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/GeneDef[defName="BS_SlowBleeding" or defName="VRE_Hemophiliac"]/exclusionTags</xpath>
+				<value>
+					<li>Bleedspeed</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+				<value>
+					<li>GeneDef/VRE_WoundHealing_VerySlow</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		FEB's Biopunk Livestock: the toxoga thoughts (reactions to the toxoga) respect other mods' animal-lover and
+		animal-hater traits the way they respect vanilla's Kind and Psychopath. VTE's Animal lover and Menagerist and B&S's
+		Animal friend get the positive thought and are spared the neutral/negative ones; VTE's Animal hater gets the negative
+		one and is spared the neutral/positive ones. Each trait is MayRequire'd on its mod.
+		This folder only loads when FEB's Biopunk Livestock is active (see loadFolders.xml).
+		Changes from the original: BS_AnimalFriend is defined in B&S Genes & More, so it is now gated on RedMattis.BigSmall.Core
+		(the original gated it on B&S Races and skipped it with Genes & More alone); the Bundle of Traits entries
+		(BOT_AnimalWhisperer) were dropped with the rest of that mod's support.
+		Verified against FEB 1.6: every requiredTraits / nullifyingTraits list targeted exists, and the VTE and B&S traits exist.
+		No other installed mod patches these thoughts.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThoughtDef[defName="FEB_ToxogaThoughtPositive"]/requiredTraits</xpath>
+				<value>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalLover</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Menagerist</li>
+					<li MayRequire="RedMattis.BigSmall.Core">BS_AnimalFriend</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThoughtDef[defName="FEB_ToxogaThoughtNeutral"]/nullifyingTraits</xpath>
+				<value>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalLover</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Menagerist</li>
+					<li MayRequire="RedMattis.BigSmall.Core">BS_AnimalFriend</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThoughtDef[defName="FEB_ToxogaThoughtNegative"]/nullifyingTraits</xpath>
+				<value>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalLover</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Menagerist</li>
+					<li MayRequire="RedMattis.BigSmall.Core">BS_AnimalFriend</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThoughtDef[defName="FEB_ToxogaThoughtPositive"]/nullifyingTraits</xpath>
+				<value>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThoughtDef[defName="FEB_ToxogaThoughtNegative"]/requiredTraits</xpath>
+				<value>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

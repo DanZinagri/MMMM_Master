@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Rim-Gnoblins content reworked, none of it to do with how the mod meets another mod.
+		  - The dreg coffin becomes a dreg barrel that ferments 50 chemfuel into 25 dreg, instead of processing
+		    humanlike corpses. Label, description, ingredients and the process label all follow from that, and a new
+		    process is added so the building can still take meat.
+		  - The lost gnoblins scenario gains a starting research project and extra starting items, and its description
+		    is rewritten to match.
+		  - Shard methamphetamine's overdose severity is retuned.
+		This folder only loads when Rim-Gnoblins is active (see loadFolders.xml).
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads MayRequire only on
+		list elements.
+
+		The methamphetamine change shipped inside the Big and Small block of the original, so it only applied when that
+		mod was installed even though it has nothing to do with it. That gate is preserved rather than quietly widened,
+		but it looks accidental and is worth revisiting.
+		Rim-Gnoblins is not installed here, so none of its own defs could be checked: the Gnoblin xenotype,
+		RG_ToxGlands, Size_ExtremeDwarfism and Age_RapidDevelopment are all taken on trust from the original
+		patch. The folder gate reuses the packageId the core mod already used, which is likewise unverified.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="RG_DregCoffin"]/label</xpath>
+				<value>
+					<label>dreg barrel</label>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/PipeSystem.ProcessDef[defName="RG_DregCoffinCorpsesHumanlike"]/label</xpath>
+				<value>
+					<label>Ferment chemfuel into dreg</label>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/PipeSystem.ProcessDef[defName="RG_DregCoffinCorpsesHumanlike"]/description</xpath>
+				<value>
+					<description>Ferment 50 chemfuel into 25 dreg.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/PipeSystem.ProcessDef[defName="RG_DregCoffinCorpsesHumanlike"]/ingredients</xpath>
+				<value>
+					<ingredients>
+						<li>
+							<thing>Chemfuel</thing>
+							<countNeeded>50</countNeeded>
+						</li>
+					</ingredients>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="DregMethamphetamine"]/description</xpath>
+				<value>
+					<description>A cocktail of toxic chemical derivatives made from chemfuel that had been vaporized, crystallized, and then crushed into small shards. Dreg neuters the mind completely; it's commonly used out of desperation, or sold as "lowgrade" to shard-addicts in withdrawal - the method used to cook dreg means it's usually associated with the morally corrupt and utterly destitute.\n\nDreg is incredibly crude, and especially dangerous when mixed with other drugs as it often leads to heavy overdosing.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/PipeSystem.ProcessDef[defName="RG_DregCoffinCorpsesHumanlike"]/labelOverride</xpath>
+				<match Class="PatchOperationReplace">
+					<xpath>Defs/PipeSystem.ProcessDef[defName="RG_DregCoffinCorpsesHumanlike"]/labelOverride</xpath>
+					<value>
+						<labelOverride>Ferment 50 chemfuel into 25 dreg</labelOverride>
+					</value>
+				</match>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/PipeSystem.ProcessDef[defName="RG_DregCoffinCorpsesHumanlike"]</xpath>
+					<value>
+						<labelOverride>Ferment 50 chemfuel into 25 dreg</labelOverride>
+					</value>
+				</nomatch>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ScenarioDef[defName="LostGnoblins"]/description</xpath>
+				<value>
+					<description>Your people had to scuttle off into the night after flame-wielding blood machines scorched their way into the halls of your home, charring those who attempted to fight and cooking those further within. Six of you escaped with hardly the essentials needed to create a new warren, but it's better than nothing.\n\nNote: This start will not be easy, and you will need to keep a constant flow of chemfuel to brew more dreg.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ScenarioDef[defName="LostGnoblins"]/scenario/parts</xpath>
+				<value>
+					<li Class="ScenPart_StartingResearch">
+						<def>StartingResearch</def>
+						<project>BiofuelRefining</project>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ScenarioDef[defName="LostGnoblins"]/scenario/parts</xpath>
+				<value>
+					<li Class="ScenPart_StartingThing_Defined">
+						<def>StartingThing_Defined</def>
+						<thingDef>Chemfuel</thingDef>
+						<count>150</count>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs</xpath>
+				<value>
+					<PipeSystem.ProcessDef>
+						<defName>TMM_RG_DregCoffinMeat</defName>
+						<label>Ferment meat into dreg</label>
+						<description>Ferment 50 meat into 10 dreg.</description>
+						<spawnOnInteractionCell>true</spawnOnInteractionCell>
+						<labelOverride>Ferment 50 meat into 10 dreg</labelOverride>
+						<priorityInBillList>0</priorityInBillList>
+						<ingredients>
+							<li>
+								<thingCategory>MeatRaw</thingCategory>
+								<countNeeded>50</countNeeded>
+							</li>
+						</ingredients>
+						<ticks>180000</ticks>
+						<results>
+							<li>
+								<thing>DregMethamphetamine</thing>
+								<count>10</count>
+							</li>
+						</results>
+						<autoExtract>false</autoExtract>
+						<destroyIngredientsOnStart>true</destroyIngredientsOnStart>
+						<temperatureRuinable>true</temperatureRuinable>
+						<minSafeTemperature>25</minSafeTemperature>
+						<maxSafeTemperature>65</maxSafeTemperature>
+						<progressPerDegreePerTick>20</progressPerDegreePerTick>
+					</PipeSystem.ProcessDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="RG_DregCoffin"]/comps/li[@Class="PipeSystem.CompProperties_AdvancedResourceProcessor"]/processes</xpath>
+				<value>
+					<li>TMM_RG_DregCoffinMeat</li>
+				</value>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="ShardMethamphetamine"]/comps/li[@Class="CompProperties_Drug"]/overdoseSeverityOffset</xpath>
+						<value>
+							<overdoseSeverityOffset>0.28~0.30</overdoseSeverityOffset>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

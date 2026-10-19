@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Roo's Minotaur hands its oversized-weapon handling to Big and Small rather than running a parallel system.
+		  - The minotaur xenotype swaps the Herculean gene for B&amp;S's giant weapon wielder and large frame, and the
+		    retired gene goes on this mod's Cherry Picker list.
+		  - The eight minotaur weapons move from Roo's own RBM_HerculeanClass to B&amp;S's BS_GiantWeapon class, so one
+		    weapon-class system governs who can lift them.
+		  - The Harrier pawn kind's weapon tags are rewritten around B&amp;S's RangedHeavyGiant tag.
+		This folder only loads when Roo's Minotaur Xenotype is active (see loadFolders.xml); the Big and Small modules
+		are gated per operation.
+		The mod gates sit on <li> nodes inside sequences, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements. MayRequire is all-of and MayRequireAnyOf is any-of; both on one node
+		means both must pass.
+
+		Verified against the current 1.6 releases: the xenotype does carry RBM_Herculean and neither B&amp;S gene, all
+		eight weapons list RBM_HerculeanClass, and BS_GiantWeapon is a real WeaponClassDef, defined in Big and Small -
+		Framework rather than Genes &amp; More, which is what that operation's gate checks for.
+
+		One judgement call: the descriptionHyperlinks removal sits here rather than with the description rewrites in the
+		Integrations mod. It strips the weapons' info-card link to the Herculean gene, which only makes sense once that
+		gene has been retired by the operations above. Move it across if you would rather keep all the description work
+		together.
+		Split by category into the MMMM Convergence sub-mods: this copy holds only the Items ops (items: apparel, weapons, food, drugs and loot).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BetterPrerequisites">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="RBME_EpsilonAxe" or defName="RBM_Bullslinger" or defName="RBM_TaurailGun" or defName="RBM_Labrys" or defName="RBM_Damocles" or defName="RBM_Oxenammer" or defName="RBM_Tunbell" or defName="RBM_Midaspear"]/weaponClasses/li[text()="RBM_HerculeanClass"]</xpath>
+						<value>
+							<li>BS_GiantWeapon</li>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/ThingDef[@Name="HerculeanBase"]/descriptionHyperlinks</xpath>
+					</li>
+				</operations>
+			</li>
+
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Psycasts Expanded meditation focus on other mods' buildings: archotech structures and vanometric power
+		sources give psyfocus strength, and royal furniture from vanilla, VFE Furniture and VFE Empire becomes a Wealth
+		focus source that grows stronger with more royal furniture nearby.
+		This folder only loads when VPE is active (see loadFolders.xml). Each partner mod's part is gated on its packageId;
+		the gate sits on an <li> inside the sequence, not on the <Operation> itself, because RimWorld reads MayRequire only
+		on list elements.
+
+		Changes from the original, which gated each part with a PatchOperationFindMod on the mod's display name:
+		- The VFE Empire op targeted `efName="VFEE_RoyalStool"`, a typo, so the royal stool never got its focus comp even
+		  though it had the focus stat and was listed in every offset table. Corrected to defName.
+		- The Alpha Biomes derelict structures already have a <statBases> node, so adding a second one logged a
+		  duplicate-node error and the later node replaced their stats. The op now adds into the existing <statBases>.
+		All 27 target defs were checked against the current VPE, VFE Furniture, VFE Empire, VFE Power, VFE Art, VGE,
+		Alpha Biomes and vanilla 1.6 defs; no installed mod already makes any of them a meditation focus source.
+		Split by category into the MMMM Integrations sub-mods: this copy holds the Traits ops plus VPE's pointsOnly flips, which the trait grants need, so the two stay together.
+	-->
+	<!--
+		Focus types for traits: VPE's Group, Science and Wealth meditation focus types become available to pawns with
+		matching traits (Kind, Greedy, Too Smart, and traits from VTE, VRE Highmate and The Sims Traits). VPE marks these
+		three types pointsOnly, which makes its PawnCanUse postfix refuse them unless bought with psycast points, so the
+		trait grants only work together with the pointsOnly flip; the two stay one block.
+		In the original this sat behind a Too Many Mods setting (TMM_VPE_FocusTypeForTraits, default on). The setting is
+		dropped: this mod is the opt-in now.
+		Verified against VPE, VTE, VRE Highmate and vanilla 1.6: all three focus defs ship pointsOnly=true, and every trait
+		target has one degree with no focus types yet. The Sims Traits is not installed, so its three operations are
+		unverified.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<!-- VPE: let the Group, Science and Wealth focus types be granted by traits, not only bought with points -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/MeditationFocusDef[defName="VPE_Group"]/modExtensions/li[@Class="VanillaPsycastsExpanded.MeditationFocusExtension"]/pointsOnly</xpath>
+				<value>
+					<pointsOnly>false</pointsOnly>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/MeditationFocusDef[defName="VPE_Science"]/modExtensions/li[@Class="VanillaPsycastsExpanded.MeditationFocusExtension"]/pointsOnly</xpath>
+				<value>
+					<pointsOnly>false</pointsOnly>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/MeditationFocusDef[defName="VPE_Wealth"]/modExtensions/li[@Class="VanillaPsycastsExpanded.MeditationFocusExtension"]/pointsOnly</xpath>
+				<value>
+					<pointsOnly>false</pointsOnly>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/TraitDef[defName="Kind"]/degreeDatas/li</xpath>
+				<value>
+					<allowedMeditationFocusTypes>
+						<li>VPE_Group</li>
+					</allowedMeditationFocusTypes>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/TraitDef[defName="Greedy"]/degreeDatas/li</xpath>
+				<value>
+					<allowedMeditationFocusTypes>
+						<li>VPE_Wealth</li>
+					</allowedMeditationFocusTypes>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/TraitDef[defName="TooSmart"]/degreeDatas/li</xpath>
+				<value>
+					<allowedMeditationFocusTypes>
+						<li>VPE_Science</li>
+					</allowedMeditationFocusTypes>
+				</value>
+			</li>
+
+			<!-- Vanilla Traits Expanded: Academian, Prodigy, Fun-loving, Tycoon -->
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VanillaTraitsExpanded">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/TraitDef[defName="VTE_Academian"]/degreeDatas/li</xpath>
+						<value>
+							<allowedMeditationFocusTypes>
+								<li>VPE_Science</li>
+							</allowedMeditationFocusTypes>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/TraitDef[defName="VTE_Prodigy"]/degreeDatas/li</xpath>
+						<value>
+							<allowedMeditationFocusTypes>
+								<li>VPE_Science</li>
+							</allowedMeditationFocusTypes>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/TraitDef[defName="VTE_FunLoving"]/degreeDatas/li</xpath>
+						<value>
+							<allowedMeditationFocusTypes>
+								<li>VPE_Group</li>
+							</allowedMeditationFocusTypes>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/TraitDef[defName="VTE_Tycoon"]/degreeDatas/li</xpath>
+						<value>
+							<allowedMeditationFocusTypes>
+								<li>VPE_Wealth</li>
+							</allowedMeditationFocusTypes>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<!-- VRE Highmate: Distressed -->
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.highmate">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/TraitDef[defName="VRE_Distressed"]/degreeDatas/li</xpath>
+						<value>
+							<allowedMeditationFocusTypes>
+								<li>VPE_Group</li>
+							</allowedMeditationFocusTypes>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<!-- The Sims Traits: Manipulative (its focus types replaced), Proper, Materialistic -->
+			<li Class="PatchOperationSequence" MayRequire="Goji.TheSimsTraits">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/TraitDef[defName="ST_Manipulative"]/degreeDatas/li/allowedMeditationFocusTypes</xpath>
+						<value>
+							<allowedMeditationFocusTypes>
+								<li>VPE_Group</li>
+							</allowedMeditationFocusTypes>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/TraitDef[defName="ST_Proper"]/degreeDatas/li</xpath>
+						<value>
+							<allowedMeditationFocusTypes>
+								<li>VPE_Group</li>
+							</allowedMeditationFocusTypes>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/TraitDef[defName="ST_Materialistic"]/degreeDatas/li</xpath>
+						<value>
+							<allowedMeditationFocusTypes>
+								<li>VPE_Wealth</li>
+							</allowedMeditationFocusTypes>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li IfModActiveAll="vanillaracesexpanded.phytokin,sarg.alphagenes">1.6/Mods/VanillaRacesExpandedPhytokin</li>
+		<li IfModActiveAll="vanillaracesexpanded.insector,sarg.alphagenes">1.6/Mods/VanillaRacesExpandedInsector</li>
+		<li IfModActiveAll="vanillaracesexpanded.lycanthrope,VanillaExpanded.VanillaTraitsExpanded">1.6/Mods/VanillaRacesExpandedLycanthrope</li>
+		<li IfModActive="det.brawnum">1.6/Mods/DetsXenotypeBrawnum</li>
+		<li IfModActive="RedMattis.MoreXenos">1.6/Mods/BigAndSmallMoreXenotypes</li>
+		<li IfModActive="RedMattis.Yokai">1.6/Mods/BigAndSmallYokai</li>
+		<!-- mirrors Big and Small - Genes &amp; More, which only loads its undead defs under these same three mods -->
+		<li IfModActive="RedMattis.Undead,RedMattis.Yokai,RedMattis.Undead.ZombieApoc">1.6/Mods/BigAndSmallUndeadSkeletal</li>
+		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.6/Mods/BigAndSmallLamias</li>
+		<li IfModActive="RedMattis.BSSlimes">1.6/Mods/BigAndSmallSlimes</li>
+		<li IfModActive="RedMattis.BigSmall.Core">1.6/Mods/BigAndSmallGenesAndMore</li>
+		<li IfModActive="RedMattis.Heaven">1.6/Mods/BigAndSmallHeavenAndHell</li>
+		<!-- mirrors Big and Small - Genes &amp; More, which only loads its demon xenotypes under these two mods -->
+		<li IfModActive="RedMattis.Undead,RedMattis.Heaven">1.6/Mods/BigAndSmallDemons</li>
+		<li IfModActive="RedMattis.BigSmall">1.6/Mods/BigAndSmallRaces</li>
+		<li IfModActive="ElSov.Beliar">1.6/Mods/BeliarXenotype</li>
+		<li IfModActive="vanillaquestsexpanded.ancients">1.6/Mods/VanillaQuestsExpandedAncients</li>
+		<li IfModActive="sarg.alphagenes">1.6/Mods/AlphaGenes</li>
+		<li IfModActive="RedMattis.BigSmall.SimpleAndroids">1.6/Mods/BigAndSmallSimplyRobots</li>
+		<li IfModActive="det.buzzers">1.6/Mods/DetsXenotypeBuzzers</li>
+		<li IfModActive="Arquebus.StagzMerfolk">1.6/Mods/GojisFantasyRaceMerren</li>
+		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana">1.6/Mods/RimsenalXenotypes</li>
+		<li IfModActive="VanillaExpanded.VAnomalyEInsanity">1.6/Mods/VanillaAnomalyExpandedInsanity</li>
+	</v1.6>
+	<v1.7>
+		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li IfModActiveAll="vanillaracesexpanded.phytokin,sarg.alphagenes">1.7/Mods/VanillaRacesExpandedPhytokin</li>
+		<li IfModActiveAll="vanillaracesexpanded.insector,sarg.alphagenes">1.7/Mods/VanillaRacesExpandedInsector</li>
+		<li IfModActiveAll="vanillaracesexpanded.lycanthrope,VanillaExpanded.VanillaTraitsExpanded">1.7/Mods/VanillaRacesExpandedLycanthrope</li>
+		<li IfModActive="det.brawnum">1.7/Mods/DetsXenotypeBrawnum</li>
+		<li IfModActive="RedMattis.MoreXenos">1.7/Mods/BigAndSmallMoreXenotypes</li>
+		<li IfModActive="RedMattis.Yokai">1.7/Mods/BigAndSmallYokai</li>
+		<!-- mirrors Big and Small - Genes &amp; More, which only loads its undead defs under these same three mods -->
+		<li IfModActive="RedMattis.Undead,RedMattis.Yokai,RedMattis.Undead.ZombieApoc">1.7/Mods/BigAndSmallUndeadSkeletal</li>
+		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.7/Mods/BigAndSmallLamias</li>
+		<li IfModActive="RedMattis.BSSlimes">1.7/Mods/BigAndSmallSlimes</li>
+		<li IfModActive="RedMattis.BigSmall.Core">1.7/Mods/BigAndSmallGenesAndMore</li>
+		<li IfModActive="RedMattis.Heaven">1.7/Mods/BigAndSmallHeavenAndHell</li>
+		<!-- mirrors Big and Small - Genes &amp; More, which only loads its demon xenotypes under these two mods -->
+		<li IfModActive="RedMattis.Undead,RedMattis.Heaven">1.7/Mods/BigAndSmallDemons</li>
+		<li IfModActive="RedMattis.BigSmall">1.7/Mods/BigAndSmallRaces</li>
+		<li IfModActive="ElSov.Beliar">1.7/Mods/BeliarXenotype</li>
+		<li IfModActive="vanillaquestsexpanded.ancients">1.7/Mods/VanillaQuestsExpandedAncients</li>
+		<li IfModActive="sarg.alphagenes">1.7/Mods/AlphaGenes</li>
+		<li IfModActive="RedMattis.BigSmall.SimpleAndroids">1.7/Mods/BigAndSmallSimplyRobots</li>
+		<li IfModActive="det.buzzers">1.7/Mods/DetsXenotypeBuzzers</li>
+		<li IfModActive="Arquebus.StagzMerfolk">1.7/Mods/GojisFantasyRaceMerren</li>
+		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana">1.7/Mods/RimsenalXenotypes</li>
+		<li IfModActive="VanillaExpanded.VAnomalyEInsanity">1.7/Mods/VanillaAnomalyExpandedInsanity</li>
+	</v1.7>
+</loadFolders>

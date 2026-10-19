@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li IfModActive="RedMattis.Yokai">1.6/Mods/BigAndSmallYokai</li>
+		<li IfModActive="tug.Minotaur">1.6/Mods/RoosMinotaur</li>
+		<li IfModActive="Trickity.Samurai.Faction">1.6/Mods/TsSamuraiFaction</li>
+	</v1.6>
+	<v1.7>
+		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li IfModActive="RedMattis.Yokai">1.7/Mods/BigAndSmallYokai</li>
+		<li IfModActive="tug.Minotaur">1.7/Mods/RoosMinotaur</li>
+		<li IfModActive="Trickity.Samurai.Faction">1.7/Mods/TsSamuraiFaction</li>
+	</v1.7>
+</loadFolders>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li IfModActive="VanillaExpanded.VanillaTraitsExpanded">1.6/Mods/VanillaTraitsExpanded</li>
+		<li IfModActive="VanillaExpanded.VCEF">1.6/Mods/VanillaFishingExpanded</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE">1.6/Mods/VanillaPsycastsExpanded</li>
+	</v1.6>
+	<v1.7>
+		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li IfModActive="VanillaExpanded.VanillaTraitsExpanded">1.7/Mods/VanillaTraitsExpanded</li>
+		<li IfModActive="VanillaExpanded.VCEF">1.7/Mods/VanillaFishingExpanded</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE">1.7/Mods/VanillaPsycastsExpanded</li>
+	</v1.7>
+</loadFolders>

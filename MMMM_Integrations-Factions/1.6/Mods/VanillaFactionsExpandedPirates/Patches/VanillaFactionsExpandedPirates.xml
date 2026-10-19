@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		VFE Pirates + Royalty: the pirate player faction (VFEP_PlayerPirate, the New Cove start) joins the Empire's
+		permanentEnemyToEveryoneExcept list alongside the vanilla player factions, so a pirate start is not locked into
+		permanent war with the Empire.
+		This folder only loads when VFE Pirates is active (see loadFolders.xml); the Royalty gate sits on an <li>
+		inside the sequence, because RimWorld reads MayRequire only on list elements.
+		Verified against Royalty and VFE Pirates 1.6: the Empire's list has the vanilla player factions but not
+		VFEP_PlayerPirate, and no installed mod adds it.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Royalty">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/FactionDef[defName="Empire"]/permanentEnemyToEveryoneExcept</xpath>
+						<value>
+							<li>VFEP_PlayerPirate</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

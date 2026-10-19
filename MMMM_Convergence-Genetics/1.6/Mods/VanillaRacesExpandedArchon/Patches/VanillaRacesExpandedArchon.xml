@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Races Expanded - Archon and Big and Small overlap.
+		Archon uses Early maturity (BS_EarlyMaturity) instead of VRE_EarlyMaturity, which is cherry-picked.
+		This folder only loads when both VRE - Archon and Big and Small - Genes &amp; More are active (see loadFolders.xml),
+		so no FindMod checks are needed.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/XenotypeDef[defName="VRE_Archon"]/genes/li[text()="VRE_EarlyMaturity"]</xpath>
+				<value>
+					<li MayRequire="RedMattis.BigSmall.Core">BS_EarlyMaturity</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+				<value>
+					<li>GeneDef/VRE_EarlyMaturity</li>
+					<li>GeneDef/VRE_EarlyMaturity_Astrogene</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!-- Activation text for the VFE Pirates guardian warcasket shield, whose active time 1.6/Patches/EquipmentRebalance.xml cuts to 5 seconds (moved from Too Many Mods' core Keyed/UI.xml). -->
+	<VFEP.ActivateShieldDescNerfed>Click to activate the shield field. It has 5 seconds of active mode and then 90 seconds cooldown.</VFEP.ActivateShieldDescNerfed>
+
+</LanguageData>

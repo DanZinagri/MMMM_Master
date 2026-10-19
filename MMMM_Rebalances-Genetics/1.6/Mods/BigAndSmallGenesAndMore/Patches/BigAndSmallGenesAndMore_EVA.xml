@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The Big and Small EVA gene costs nine archite points when VRE - Starjack is installed, which is where the
+		alternative vacuum resistance gene comes from.
+		This folder only loads when Big and Small - Genes &amp; More is active (see loadFolders.xml), which is where the
+		EVA gene is defined. The original also demanded Big and Small - Races; that check is dropped, because the gene
+		is not a Races def and requiring Races would have skipped the change for anyone running Genes &amp; More alone.
+		The mod gates sit on <li> nodes inside sequences, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements.
+
+		Verified against Genes &amp; More 1.6: BS_EVA_Gene exists and has no biostatArc, so the add lands.
+
+		Worth revisiting: the Convergence mod's Cherry Picker list retires BS_EVA_Gene when Starjack is installed,
+		in which case this archite cost never applies. That list is opt-in, so the cost matters for anyone who
+		leaves it unchecked.
+
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.starjack">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/GeneDef[defName="BS_EVA_Gene"]</xpath>
+						<value>
+							<biostatArc>9</biostatArc>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

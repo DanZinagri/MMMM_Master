@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small - Yokai: content swapped for other mods' equivalents so the same thing is not provided twice.
+		- the Yokai union faction requires Bushido (VIE - Memes and Structures) instead of the vanilla Raider meme
+		- the oni use Alpha Genes' medium armour instead of B&S tough skin
+		- the kitsune and great red oni use Alpha Genes' heat immunity instead of B&S heat tolerance and fire immunity
+		- the nekomata uses VRE - Lycanthrope's nocturnal gene instead of B&S night owl
+		This folder only loads when Yokai is active (see loadFolders.xml); each swap carries MayRequire for the mod
+		that supplies the replacement.
+		Verified against the current 1.6 releases: every gene being replaced is present in its xenotype.
+		Split by category into the MMMM Convergence sub-mods: this copy holds only the Factions ops (factions, pawn kinds, traders and royal titles).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VMemesE">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/FactionDef[defName="BS_YokaiUnion"]/requiredMemes</xpath>
+						<value>
+							<li MayRequire="Ludeon.RimWorld.Ideology">VME_Bushido</li>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/FactionDef[defName="BS_YokaiUnion"]/requiredMemes/li[text()="Raider"]</xpath>
+					</li>
+				</operations>
+			</li>
+
+		</operations>
+	</Operation>
+
+</Patch>

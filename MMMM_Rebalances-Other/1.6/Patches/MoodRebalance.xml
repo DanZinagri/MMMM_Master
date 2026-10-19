@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Too Many Mods' mood rebalance: thought and mood values. Moved whole from the core root file AA3C_MoodRebalance.xml, where it sat behind the
+		TMM_MoodRebalances setting (default on); installing this mod is the opt-in now.
+		Each block is gated on the mods it touches (MayRequire / MayRequireAnyOf on an <li>); mods with no known packageId keep a
+		name FindMod; blocks that depend on another mod being present or absent now live in gated load folders (loadFolders.xml). Checked with analysis/patch_sim.py against the installed mods:
+		every op whose mods are installed applies. Blocks for mods not installed here are unchecked.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphabiomes">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/TerrainDef[defName="AB_WebbedMarshyTerrain"]/statBases/Beauty</xpath>
+								<value>
+									<Beauty>-30</Beauty>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/TerrainDef[defName="AB_WebbedMarshyTerrain"]/statBases/BeautyOutdoors</xpath>
+								<value>
+									<BeautyOutdoors>-30</BeautyOutdoors>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Anomaly">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/HediffDef[defName="MindNumbSerum"]/stages/li/capMods</xpath>
+								<value>
+									<capMods>
+										<li>
+											<capacity>Consciousness</capacity>
+											<setMax>0.9</setMax>
+										</li>
+									</capMods>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThoughtDef[defName="PawnWithGoodOpinionDied"]/stages/li[label="my friend {0} died"]/baseMoodEffect</xpath>
+				<value>
+					<baseMoodEffect>-20</baseMoodEffect>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThoughtDef[defName="MySonDied"]/stages/li[label="my son {0} died"]/baseMoodEffect</xpath>
+				<value>
+					<baseMoodEffect>-40</baseMoodEffect>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThoughtDef[defName="MyDaughterDied"]/stages/li[label="my daughter {0} died"]/baseMoodEffect</xpath>
+				<value>
+					<baseMoodEffect>-40</baseMoodEffect>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThoughtDef[defName="MyHusbandDied"]/stages/li[label="my husband {0} died"]/baseMoodEffect</xpath>
+				<value>
+					<baseMoodEffect>-40</baseMoodEffect>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThoughtDef[defName="MyWifeDied"]/stages/li[label="my wife {0} died"]/baseMoodEffect</xpath>
+				<value>
+					<baseMoodEffect>-40</baseMoodEffect>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThoughtDef[defName="MyFianceDied"]/stages/li[label="my fiance {0} died"]/baseMoodEffect</xpath>
+				<value>
+					<baseMoodEffect>-36</baseMoodEffect>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThoughtDef[defName="MyFianceeDied"]/stages/li[label="my fiancée {0} died"]/baseMoodEffect</xpath>
+				<value>
+					<baseMoodEffect>-36</baseMoodEffect>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThoughtDef[defName="MyLoverDied"]/stages/li[label="my lover {0} died"]/baseMoodEffect</xpath>
+				<value>
+					<baseMoodEffect>-36</baseMoodEffect>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThoughtDef[defName="MyFatherDied"]/stages/li[label="my father {0} died"]/baseMoodEffect</xpath>
+				<value>
+					<baseMoodEffect>-16</baseMoodEffect>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThoughtDef[defName="MyMotherDied"]/stages/li[label="my mother {0} died"]/baseMoodEffect</xpath>
+				<value>
+					<baseMoodEffect>-16</baseMoodEffect>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Royalty">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/ThoughtDef[defName="PsychicHarmonization"]/stages/li[label="psychic harmony: {HARMONIZER_labelShort}"]/baseMoodEffect</xpath>
+								<value>
+									<baseMoodEffect>2</baseMoodEffect>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]/stages/li[label="low psychic drone"]/baseMoodEffect</xpath>
+								<value>
+									<baseMoodEffect>-24</baseMoodEffect>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]/stages/li[label="moderate psychic drone"]/baseMoodEffect</xpath>
+								<value>
+									<baseMoodEffect>-36</baseMoodEffect>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]/stages/li[label="high psychic drone"]/baseMoodEffect</xpath>
+								<value>
+									<baseMoodEffect>-48</baseMoodEffect>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]/stages/li[label="extreme psychic drone"]/baseMoodEffect</xpath>
+								<value>
+									<baseMoodEffect>-60</baseMoodEffect>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="veterano.mythicages.megafaunabestiary">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThoughtDef[defName="MA_AteCookedPlastemmothMeat"]/stages/li/baseMoodEffect</xpath>
+								<value>
+									<baseMoodEffect>5</baseMoodEffect>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThoughtDef[defName="MA_AteCookedScarodonMeat" or defName="MA_AteCookedDunbearMeat"]/stages/li/baseMoodEffect</xpath>
+								<value>
+									<baseMoodEffect>4</baseMoodEffect>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThoughtDef[defName="MA_AteHippoMeatCooked" or defName="MA_AteRaptorkhanMeatCooked" or defName="MA_AteCookedWorhinMeat"]/stages/li/baseMoodEffect</xpath>
+								<value>
+									<baseMoodEffect>3</baseMoodEffect>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThoughtDef[defName="MA_AteCookedSivatheriumMeat"]/stages/li/baseMoodEffect</xpath>
+								<value>
+									<baseMoodEffect>2</baseMoodEffect>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThoughtDef[defName="MA_AteCookedGnautBeef" or defName="MA_AteCookedHorseBeef" or defName="MA_AteHarpeagleLegsCooked" or defName="MA_AteCookedDuskhornMeat" or defName="MA_AteCookedBirdMeat"]/stages/li/baseMoodEffect</xpath>
+								<value>
+									<baseMoodEffect>1</baseMoodEffect>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

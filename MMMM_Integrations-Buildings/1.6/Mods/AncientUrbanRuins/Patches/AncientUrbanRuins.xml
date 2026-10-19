@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Ancient Urban Ruins loot: other mods' items join AUR's container loot tables (beverages, food, collectibles, medical
+		supplies, tools, injectors, flak apparel), each block gated on the mod that supplies the items. Alpha Crafts also
+		restocks the snack racks and double/three-layer racks (the TMM_ArtisanGoods_Large set is in Defs/). With the AUR
+		Vanilla-plus-loot add-on and Vanilla Armour Expanded but neither gloves mod, the add-on's boots-and-gloves flak
+		option is removed; that check stays a FindMod because it fires on the mods being absent.
+		This folder only loads when Ancient Urban Ruins is active (see loadFolders.xml).
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Buildings ops (buildings, furniture, floors, recipes and production).
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphacrafts">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="AM_DoubleDeckRacks" or defName="AM_ThreeLayerRacks"]/modExtensions/li[@Class="AncientMarket_Libraray.ModExtension_Lootbox"]/loots</xpath>
+						<value>
+							<loots>
+								<li>TMM_ArtisanGoods_Large</li>
+							</loots>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="AM_Snack_StorageRacks"]/modExtensions/li[@Class="AncientMarket_Libraray.ModExtension_Lootbox"]/loots</xpath>
+						<value>
+							<loots>
+								<li>AM_PotatoChips</li>
+							</loots>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- VFE Spacer Module: AUR's large-screen television links to the television speaker facility (+10% joy gain within 6
+	cells), like VFE Spacer's own televisions. The TV ships with no facility comp, so the nomatch branch adds one. -->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VFESpacer">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/ThingDef[defName="AM_LargeScreenTelevision"]/comps/li[@Class = "CompProperties_AffectedByFacilities"]</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/ThingDef[defName="AM_LargeScreenTelevision"]/comps/li[@Class = "CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+							<value>
+								<li>VFES_TelevisionSpeaker</li>
+							</value>
+						</match>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/ThingDef[defName="AM_LargeScreenTelevision"]/comps</xpath>
+							<value>
+								<li Class="CompProperties_AffectedByFacilities">
+									<linkableFacilities>
+										<li>VFES_TelevisionSpeaker</li>
+									</linkableFacilities>
+								</li>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<!--
+		AUR's mall bench, pew and wooden bench become usable seats (sittable, chair replace tag, standable, path cost 30)
+		with Comfort 0.4 (bench, pew) and 0.5 (wooden bench). Upstream they are scenery with no seat or comfort stats.
+		The original made only the bench and pew sittable but gave the wooden bench a comfort stat too, which does nothing
+		on something that cannot be sat on; the wooden bench now joins the sittable op.
+		Verified against AUR 1.6: none of the three has a building, comfort, replaceTags, passability or pathCost node of
+		its own, so every add creates its node.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="AM_MallBench" or defName="AM_MallPew" or defName="AM_MallWoodenBench"]</xpath>
+				<value>
+					<replaceTags>
+						<li>Chair</li>
+					</replaceTags>
+					<building>
+						<isSittable>true</isSittable>
+					</building>
+					<socialPropernessMatters>true</socialPropernessMatters>
+					<passability>Standable</passability>
+					<pathCost>30</pathCost>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="AM_MallWoodenBench"]/statBases</xpath>
+				<value>
+					<Comfort>0.5</Comfort>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="AM_MallBench" or defName="AM_MallPew"]/statBases</xpath>
+				<value>
+					<Comfort>0.4</Comfort>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- One folder per biome mod, gated on that mod. Each animal mod is gated inside the patches with MayRequire. -->
+		<li>/</li>
+		<li IfModActive="ReGrowth.BOTR.AspenForest">1.6/Mods/ReGrowthAspen</li>
+		<li IfModActive="ReGrowth.BOTR.BoilingForest">1.6/Mods/ReGrowthBoiling</li>
+		<li IfModActive="sarg.alphabiomes">1.6/Mods/AlphaBiomes</li>
+	</v1.6>
+	<v1.7>
+		<!-- One folder per biome mod, gated on that mod. Each animal mod is gated inside the patches with MayRequire. -->
+		<li>/</li>
+		<li IfModActive="ReGrowth.BOTR.AspenForest">1.7/Mods/ReGrowthAspen</li>
+		<li IfModActive="ReGrowth.BOTR.BoilingForest">1.7/Mods/ReGrowthBoiling</li>
+		<li IfModActive="sarg.alphabiomes">1.7/Mods/AlphaBiomes</li>
+	</v1.7>
+</loadFolders>

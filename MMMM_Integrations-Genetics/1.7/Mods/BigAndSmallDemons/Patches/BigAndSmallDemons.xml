@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		A join that needs Heaven and Hell OR Vampires and the Undead rather than Heaven and Hell alone.
+		  - Nephilim Xenotype Reborn's halo gene gains Big and Small's BS_Halo exclusion tag, so a pawn cannot wear
+		    both mods' halos at once. Verified: the Heaven and Hell halo gene does carry that tag.
+
+		Gating, which is why this is its own folder: the demon xenotypes (the original reason for the folder) are not Heaven and Hell or Vampires and the
+		Undead defs. Big and Small - Genes &amp; More defines them, inside a folder its own LoadFolders only loads when
+		RedMattis.Undead or RedMattis.Heaven is active. This folder mirrors that exact condition, which is also what
+		the original any-of mod check came to.
+		The mod gates sit on <li> nodes inside sequences, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally.
+		Name fix applied on review: the original checked for a mod named "Nephilim Xenotype". Mod-name checks
+		are exact matches and the mod is named "Nephilim Xenotype Reborn", so those checks never fired. The
+		packageId sov.nephilim is used here instead, which cannot drift the same way.
+		The original sat behind a Too Many Mods setting toggle (TMM_BS_NephilimBeliarIntegration, default on).
+		That toggle is dropped: the folder gate and the MayRequire checks already keep it inert unless the
+		mods it joins are installed.
+
+		Verified against the current 1.6 releases: the Nephilim halo base already has an exclusionTags list so the add
+		lands.
+		The demon xenotypes' Beliar racism gene was removed on 2026-09-29 (the user dropped all Beliar racism content).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sov.nephilim">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>
+							Defs/GeneDef[@Name="GS_HaloBaseNEW"]/exclusionTags</xpath>
+						<value>
+							<li>BS_Halo</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

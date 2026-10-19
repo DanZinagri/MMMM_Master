@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- Cherry Picker lists owned by this mod. Patches append the duplicate defs they retire to _Basics; _All is the revive list. -->
+	<CherryPicker.DefList MayRequire="Owlchemist.CherryPicker">
+		<defName>MMMM_ConvergenceOther_CherryPicker_Basics</defName>
+		<label>MMMM Convergence - Other: uncheck this to enable basic removals</label>
+		<defs>
+		</defs>
+	</CherryPicker.DefList>
+
+	<CherryPicker.DefList MayRequire="Owlchemist.CherryPicker">
+		<defName>MMMM_ConvergenceOther_CherryPicker_All</defName>
+		<label>MMMM Convergence - Other: uncheck then re-check this to revive everything</label>
+		<defs>
+			<li>ThingDef/AB_Glowstool</li>
+			<li>ThingDef/AB_Glowstool_SeedBundle</li>
+			<li>RecipeDef/MakeAB_GlowstoolSeedBundle</li>
+			<li>RecipeDef/MakeAB_GlowstoolSeedBundleDoubleCost</li>
+		</defs>
+	</CherryPicker.DefList>
+
+</Defs>

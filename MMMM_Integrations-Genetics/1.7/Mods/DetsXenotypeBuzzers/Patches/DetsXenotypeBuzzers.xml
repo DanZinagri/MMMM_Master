@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Det's Xenotypes - Buzzers + Alpha Genes: the Buzzer xenotype also carries Alpha Genes' hiveling voice and insect blood.
+		This folder only loads when Buzzers is active (see loadFolders.xml); the Alpha Genes part sits on an <li>.
+		Changes from the original: its relabel of AG_HivelingVoice to "insect voice" was dropped (Alpha Genes keeps its own
+		name, matching the VRE Insector integration). The original's second block (Venators' farsighted gene added to the
+		Buzzer while Buzzers' own compound-eyes gene was stripped to 0 metabolism and no stats) was dropped, together with the
+		"bulbous eyes" rename in the core name-change file that described the stripped gene.
+		The original folder had no packageId gate (TODO in the core loadFolders); it is now det.buzzers, taken from other mods'
+		gates. Buzzers is not installed here, so DV_Buzzer could not be checked; both Alpha Genes genes exist.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="DV_Buzzer"]/genes</xpath>
+						<value>
+							<li>AG_HivelingVoice</li>
+							<li>AG_InsectBlood</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

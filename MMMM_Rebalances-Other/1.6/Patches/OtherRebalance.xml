@@ -1,0 +1,915 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Too Many Mods' other rebalance: assorted buildings, items, pawn kinds and factions. Moved whole from the core root file AA1D2_OtherRebalance.xml, where it sat behind the
+		TMM_OtherRebalances setting (default on); installing this mod is the opt-in now.
+		Each block is gated on the mods it touches (MayRequire / MayRequireAnyOf on an <li>); mods with no known packageId keep a
+		name FindMod; blocks that depend on another mod being present or absent now live in gated load folders (loadFolders.xml). Checked with analysis/patch_sim.py against the installed mods:
+		every op whose mods are installed applies. Blocks for mods not installed here are unchecked.
+		Dropped two ops on VFEE_Deserter_* pawn kinds: no installed mod defines them (not VFE Empire, VFE Deserters or VPE),
+		so they failed in Too Many Mods too. The PsychicAmplifier contraband op targets an extension VFE Deserters adds by patch.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Medieval2">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAttributeAdd">
+								<xpath>Defs/TraderKindDef[defName="Base_Outlander_Standard"]</xpath>
+								<attribute>Name</attribute>
+								<value>OutlanderBaseTrader</value>
+							</li>
+							<li Class="PatchOperationAttributeAdd">
+								<xpath>Defs/TraderKindDef[defName="VFEM2_MerchantGuildTrader"]</xpath>
+								<attribute>ParentName</attribute>
+								<value>OutlanderBaseTrader</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraderKindDef[defName="VFEM2_MerchantGuildTrader"]/stockGenerators</xpath>
+								<value>
+									<stockGenerators>
+										<li Class="StockGenerator_SingleDef">
+											<thingDef>MedicineHerbal</thingDef>
+											<countRange>30~60</countRange>
+										</li>
+										<li Class="StockGenerator_SingleDef">
+											<thingDef>Pemmican</thingDef>
+											<countRange>700~950</countRange>
+										</li>
+										<li Class="StockGenerator_BuyTradeTag">
+											<tag>Mechanitor</tag>
+										</li>
+										<li Class="StockGenerator_BuyTradeTag">
+											<tag>HighTechArmor</tag>
+										</li>
+									</stockGenerators>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEM2_2x1CastleDoor" or defName="VFEM2_2x1CastleGate"]/statBases/MaxHitPoints</xpath>
+								<value>
+									<!-- original: 800 -->
+									<MaxHitPoints>300</MaxHitPoints>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEM2_3x1CastleDoor" or defName="VFEM2_3x1CastleGate"]/statBases/MaxHitPoints</xpath>
+								<value>
+									<!-- original: 1200 -->
+									<MaxHitPoints>450</MaxHitPoints>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEM2_4x1CastleDoor" or defName="VFEM2_4x1CastleGate"]/statBases/MaxHitPoints</xpath>
+								<value>
+									<!-- original: 1600 -->
+									<MaxHitPoints>600</MaxHitPoints>
+								</value>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/HediffDef[defName="VFEM2_StrengthDraught"]/stages/li[label="potent"]/statFactors/IncomingDamageFactor</xpath>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VFEArchitect">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEArch_ArmoredDoor"]/statBases/MaxHitPoints</xpath>
+								<value>
+									<!-- original: 450 -->
+									<MaxHitPoints>225</MaxHitPoints>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Mlie.ReinforcedMechanoid2">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Royalty">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="RM_Apparel_SkimmerPack"]/statBases/MarketValue</xpath>
+										<value>
+											<MarketValue>110</MarketValue>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Mlie.ReinforcedMechanoid2">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="RM_Mech_Sentinel"]/comps/li[@Class="ReinforcedMechanoids.CompProperties_MentalStateOnDamage"]/chanceOfMentalBreak</xpath>
+								<value>
+									<chanceOfMentalBreak>0.005</chanceOfMentalBreak>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="RM_VanometricMechanoidCell"]</xpath>
+								<value>
+									<tradeability>Sellable</tradeability>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="RM_Mech_Marshal"]/comps/li[@Class="VEF.Apparels.CompProperties_ShieldBubble"]</xpath>
+								<value>
+									<li Class="CompProperties_Shield"/>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="RM_Mech_Marshal"]/statBases</xpath>
+								<value>
+									<EnergyShieldEnergyMax>1.5</EnergyShieldEnergyMax>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Mlie.ReinforcedMechanoid2">
+				<operations>
+					<li Class="PatchOperationFindMod">
+						<mods>
+							<li>Reinforced Mechanoid2 Extended</li>
+						</mods>
+						<nomatch Class="PatchOperationSequence">
+							<operations>
+								<li Class="PatchOperationReplace">
+									<xpath>Defs/ThingDef[defName="RM_Mech_Caretaker"]/comps/li[@Class="VEF.Apparels.CompProperties_ShieldField"]</xpath>
+									<value>
+										<li Class="CompProperties_ProjectileInterceptor">
+											<radius>10</radius>
+											<interceptGroundProjectiles>true</interceptGroundProjectiles>
+											<interceptAirProjectiles>true</interceptAirProjectiles>
+											<interceptNonHostileProjectiles>true</interceptNonHostileProjectiles>
+											<interceptOutgoingProjectiles>false</interceptOutgoingProjectiles>
+											<color>(0.6, 0.6, 0.8)</color>
+											<idlePulseSpeed>3</idlePulseSpeed>
+											<minIdleAlpha>0.05</minIdleAlpha>
+											<reactivateEffect>BulletShieldGenerator_Reactivate</reactivateEffect>
+											<activeSound>BulletShield_Ambience</activeSound>
+											<hitPoints>1600</hitPoints>
+											<hitPointsRestoreInstantlyAfterCharge>true</hitPointsRestoreInstantlyAfterCharge>
+											<chargeDurationTicks>4000</chargeDurationTicks>
+											<drawWithNoSelection>True</drawWithNoSelection>
+											<disarmedByEmpForTicks>600</disarmedByEmpForTicks>
+											<gizmoTipKey>ProjectileInterceptorTip</gizmoTipKey>
+										</li>
+									</value>
+								</li>
+							</operations>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="AG_RuinedHospitalBed"]/costList</xpath>
+								<value>
+									<costList>
+										<Steel>60</Steel>
+										<ComponentIndustrial>2</ComponentIndustrial>
+									</costList>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_Ghostwalk"]/modExtensions/li[@Class="VanillaPsycastsExpanded.AbilityExtension_Psycast"]/psyfocusCost</xpath>
+								<value>
+									<psyfocusCost>0.05</psyfocusCost>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="ReBuild.COTR.DoorsAndCorners">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationRemove">
+										<xpath>Defs/ThingDef[defName="RB_OrnateWall"]/comps/li[@Class="CompProperties_MeditationFocus"]/focusTypes/li[text()="Minimal"]</xpath>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="RB_OrnateWall"]/statBases/MeditationFocusStrength</xpath>
+										<value>
+											<MeditationFocusStrength>0.08</MeditationFocusStrength>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/PawnKindDef[defName="Empire_Caster_Conflagrator" or defName="Empire_Caster_Archotechist" or defName="Empire_Caster_Warlord_Ranged" or defName="Empire_Caster_Protector" or defName="Empire_Caster_Warlord_Melee"or defName="Tribal_Caster_Conflagrator" or defName="Tribal_Caster_Frostshaper" or defName="Tribal_Caster_Staticlord" or defName="Tribal_Caster_Wildspeaker"]/modExtensions/li[@Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts"]/statUpgradePoints</xpath>
+								<value>
+									<statUpgradePoints>0~0</statUpgradePoints>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="zal.eltexweaponry">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Royalty">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[@Name="EW_BasePersonaEltexGun"]/weaponTags</xpath>
+										<value>
+											<weaponTags>
+												<li>PsychicGun</li>
+												<li>Bladelink</li>
+											</weaponTags>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[@Name="EW_BaseEltexGun"]/weaponTags</xpath>
+										<value>
+											<weaponTags>
+												<li>PsychicGun</li>
+											</weaponTags>
+										</value>
+									</li>
+									<li Class="PatchOperationRemove">
+										<xpath>Defs/ThingDef[defName="EW_Gun_EltexRifle" or defName="EW_Gun_PersonaEltexRifle"]/weaponTags</xpath>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="EW_Melee_EltexWarmace"]/weaponTags</xpath>
+										<value>
+											<weaponTags>
+												<li>PsychicMelee</li>
+											</weaponTags>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/PawnKindDef[defName="Empire_Fighter_Cataphract"]/weaponTags</xpath>
+										<value>
+											<li>PsychicGun</li>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="zal.eltexweaponry">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/PawnKindDef[defName="Empire_Caster_Conflagrator" or defName="Empire_Caster_Archotechist" or defName="Empire_Caster_Warlord_Ranged" or defName="Empire_Caster_Protector"]/weaponTags</xpath>
+										<value>
+											<li>PsychicGun</li>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="zal.eltexweaponry">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Empire">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/PawnKindDef[defName="VFEE_Deserter"]/weaponTags</xpath>
+										<value>
+											<li>PsychicGun</li>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphaanimals">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="AA_BlueGelBattery"]/comps/li[@Class="CompProperties_Battery"]/storedEnergyMax</xpath>
+								<value>
+									<storedEnergyMax>2000</storedEnergyMax>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="AA_HexaGelBattery"]/comps/li[@Class="CompProperties_Battery"]/storedEnergyMax</xpath>
+								<value>
+									<storedEnergyMax>6000</storedEnergyMax>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Empire">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEE_StellicThrone"]/statBases/Beauty</xpath>
+								<value>
+									<Beauty>120</Beauty>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEE_GrandTable"]/costList/Gold</xpath>
+								<value>
+									<Gold>120</Gold>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Anomaly">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="GoldenCube"]/statBases/MarketValue</xpath>
+								<value>
+									<MarketValue>0</MarketValue>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="Metalblood"]/stages/li/statFactors/IncomingDamageFactor</xpath>
+								<value>
+									<IncomingDamageFactor>0.7</IncomingDamageFactor>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/HediffDef[defName="DeathRefusalSickness"]</xpath>
+								<value>
+									<isBad>false</isBad>
+									<initialSeverity>1</initialSeverity>
+									<maxSeverity>1</maxSeverity>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/HediffDef[defName="DeathRefusalSickness"]/comps</xpath>
+								<value>
+									<li Class="HediffCompProperties_SeverityPerDay">
+										<severityPerDay>-0.8</severityPerDay>
+									</li>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/HediffDef[defName="DeathRefusalSickness"]/stages</xpath>
+								<value>
+									<stages>
+										<li>
+											<label>mild</label>
+											<painOffset>0.1</painOffset>
+											<vomitMtbDays>4</vomitMtbDays>
+											<capMods>
+												<li>
+													<capacity>Consciousness</capacity>
+													<setMax>0.9</setMax>
+												</li>
+											</capMods>
+										</li>
+										<li>
+											<minSeverity>0.4</minSeverity>
+											<label>moderate</label>
+											<painOffset>0.2</painOffset>
+											<vomitMtbDays>0.25</vomitMtbDays>
+											<capMods>
+												<li>
+													<capacity>Consciousness</capacity>
+													<setMax>0.8</setMax>
+												</li>
+											</capMods>
+										</li>
+										<li>
+											<minSeverity>0.7</minSeverity>
+											<label>severe</label>
+											<capMods>
+												<li>
+													<capacity>Consciousness</capacity>
+													<setMax>0.01</setMax>
+												</li>
+											</capMods>
+										</li>
+									</stages>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Deserters">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/VFED.VisibilityLevelDef[defName="VFED_Hidden"]</xpath>
+								<value>
+									<specialEffects>
+										<li Class="VFED.VisibilityEffect_Incident">
+											<label>Imperial patrol caravan event becomes active</label>
+											<incident>VFED_ImperialPatrol</incident>
+											<becomesActive>true</becomesActive>
+										</li>
+									</specialEffects>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/VFED.VisibilityLevelDef[defName="VFED_Whispers"]</xpath>
+								<value>
+									<specialEffects>
+										<li Class="VFED.VisibilityEffect_Incident">
+											<label>Absolver raid can now occur.</label>
+											<incident>VFED_Raid_Absolver</incident>
+											<becomesActive>true</becomesActive>
+										</li>
+									</specialEffects>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/VFED.VisibilityLevelDef[defName="VFED_Rumors"]/specialEffects</xpath>
+								<value>
+									<specialEffects>
+										<li Class="VFED.VisibilityEffect_ArmySize">
+											<label>All imperial armies on all quest locations where Empire would spawn are 20% bigger</label>
+											<multiplier>1.2</multiplier>
+										</li>
+										<li Class="VFED.VisibilityEffect_Incident">
+											<label>Imperial propaganda can now drop</label>
+											<incident>VFED_PropagandaDrop</incident>
+											<becomesActive>true</becomesActive>
+										</li>
+									</specialEffects>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/VFED.VisibilityLevelDef[defName="VFED_News"]/specialEffects</xpath>
+								<value>
+									<specialEffects>
+										<li Class="VFED.VisibilityEffect_RaidChance">
+											<label>Raids from the Empire faction happen 2x as often</label>
+											<multiplier>2</multiplier>
+										</li>
+										<li Class="VFED.VisibilityEffect_ArmySize">
+											<label>All imperial armies on all quest locations where Empire would spawn are 50% bigger</label>
+											<multiplier>1.5</multiplier>
+										</li>
+										<li Class="VFED.VisibilityEffect_Incident">
+											<label>Chased deserter quest no longer occurs</label>
+											<incident>VFED_GiveQuest_ChasedDeserter</incident>
+											<becomesInactive>true</becomesInactive>
+										</li>
+										<li Class="VFED.VisibilityEffect_AerodroneBombardment">
+											<label>Aerodrone bombardment event becomes available.</label>
+										</li>
+									</specialEffects>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/VFED.VisibilityLevelDef[defName="VFED_PublicEnemy"]/specialEffects</xpath>
+								<value>
+									<specialEffects>
+										<li Class="VFED.VisibilityEffect_RaidChance">
+											<label>Raids from the Empire faction happen 3x as often</label>
+											<multiplier>3</multiplier>
+										</li>
+										<li Class="VFED.VisibilityEffect_ArmySize">
+											<label>All imperial armies on all quest locations where Empire would spawn are 100% bigger</label>
+											<multiplier>2</multiplier>
+										</li>
+										<li Class="VFED.VisibilityEffect_Goodwill">
+											<label>Relations with a random faction drop by -10 once a day.</label>
+											<goodwill>-10</goodwill>
+										</li>
+									</specialEffects>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFED_PsychicAmplifier"]/modExtensions/li[@Class="VFED.ContrabandExtension"]</xpath>
+								<value>
+									<li Class="VFED.ContrabandExtension">
+										<category>VFED_Deserter</category>
+										<intelCost>4</intelCost>
+										<useCriticalIntel>true</useCriticalIntel>
+									</li>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="PsychicAmplifier"]/modExtensions/li[@Class="VFED.ContrabandExtension"]</xpath>
+								<value>
+									<li Class="VFED.ContrabandExtension">
+										<category>VFED_Deserter</category>
+										<intelCost>7</intelCost>
+										<useCriticalIntel>true</useCriticalIntel>
+									</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VFEArt">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFE_DecorativePlantPot"]/statBases/Beauty</xpath>
+								<value>
+									<Beauty>20</Beauty>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="22.anomalyportal">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="AP_MetalStorm"]/statBases/PsychicSensitivity</xpath>
+								<value>
+									<PsychicSensitivity>1.5</PsychicSensitivity>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphaimplants">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraderKindDef[defName="Base_Outlander_Standard"]/stockGenerators/li[tradeTag="TechHediff"]/thingDefCountRange</xpath>
+								<value>
+									<thingDefCountRange>6~8</thingDefCountRange>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraderKindDef[defName="Caravan_Outlander_Exotic"]/stockGenerators/li[tradeTag="TechHediff"]/thingDefCountRange</xpath>
+								<value>
+									<thingDefCountRange>6</thingDefCountRange>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraderKindDef[defName="Orbital_Exotic"]/stockGenerators/li[tradeTag="TechHediff"]/thingDefCountRange</xpath>
+								<value>
+									<thingDefCountRange>6~10</thingDefCountRange>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/TraderKindDef[defName="Orbital_PirateMerchant"]/stockGenerators/li[tradeTag="TechHediff"]/thingDefCountRange</xpath>
+								<value>
+									<thingDefCountRange>-4~10</thingDefCountRange>
+								</value>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="Rimsenal.Spacer">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationReplace">
+												<xpath>Defs/TraderKindDef[defName="Base_Spacer_Standard"]/stockGenerators/li[tradeTag="TechHediff"]/thingDefCountRange</xpath>
+												<value>
+													<thingDefCountRange>6~8</thingDefCountRange>
+												</value>
+											</li>
+											<li Class="PatchOperationReplace">
+												<xpath>Defs/TraderKindDef[defName="Caravan_Spacer_Exotic"]/stockGenerators/li[tradeTag="TechHediff"]/thingDefCountRange</xpath>
+												<value>
+													<thingDefCountRange>6</thingDefCountRange>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaexpanded.skills">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/VSE.Expertise.ExpertiseDef[defName="CloseQuarters"]/statOffsets/AimingDelayFactor</xpath>
+								<value>
+									<AimingDelayFactor>-0.03</AimingDelayFactor>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphabiomes">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Odyssey">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="AB_GoldenCubeTree"]/modExtensions/li[@Class="VEF.Plants.DualCropExtension"]/outPutAmount</xpath>
+										<value>
+											<outPutAmount>5</outPutAmount>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaquestsexpanded.generator">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VQE_ConstructionPallet_Chemfuel"]/modExtensions/li[@Class="VEF.Buildings.LootableBuildingDetails"]/contents</xpath>
+								<value>
+									<contents>
+										<li>
+											<thing>Chemfuel</thing>
+											<count>450</count>
+										</li>
+									</contents>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VQE_ConstructionPallet_Components"]/modExtensions/li[@Class="VEF.Buildings.LootableBuildingDetails"]/contents</xpath>
+								<value>
+									<contents>
+										<li>
+											<thing>ComponentIndustrial</thing>
+											<count>12</count>
+										</li>
+										<li>
+											<thing>ChunkSlagSteel</thing>
+											<count>4</count>
+										</li>
+									</contents>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VQE_ConstructionPallet_Scrap"]/modExtensions/li[@Class="VEF.Buildings.LootableBuildingDetails"]/contents</xpath>
+								<value>
+									<contents>
+										<li>
+											<thing>Steel</thing>
+											<count>120</count>
+										</li>
+										<li>
+											<thing>ChunkSlagSteel</thing>
+											<count>4</count>
+										</li>
+									</contents>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VQE_ConstructionPallet_Wood"]/modExtensions/li[@Class="VEF.Buildings.LootableBuildingDetails"]/contents</xpath>
+								<value>
+									<contents>
+										<li>
+											<thing>WoodLog</thing>
+											<count>300</count>
+										</li>
+									</contents>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Erin.JapaneseFurniture">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VFECore">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="Erin_LowTable"]/statBases/MaxHitPoints</xpath>
+										<value>
+											<MaxHitPoints>35</MaxHitPoints>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Insectoid2">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/ThingDef[defName="VFEI2_InsectJellyWall"]/building/alwaysDeconstructible</xpath>
+								<nomatch Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAdd">
+											<xpath>Defs/ThingDef[defName="VFEI2_InsectJellyWall" or defName="VFEI2_RoyalJellyWall"]/building</xpath>
+											<value>
+												<alwaysDeconstructible>true</alwaysDeconstructible>
+												<deconstructible>true</deconstructible>
+											</value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/ThingDef[defName="VFEI2_InsectJellyWall"]/killedLeavings/InsectJelly</xpath>
+											<value>
+												<InsectJelly>1</InsectJelly>
+											</value>
+										</li>
+										<li Class="PatchOperationReplace">
+											<xpath>Defs/ThingDef[defName="VFEI2_RoyalJellyWall"]/killedLeavings/InsectJelly</xpath>
+											<value>
+												<VFEI2_RoyalInsectJelly>1</VFEI2_RoyalInsectJelly>
+											</value>
+										</li>
+									</operations>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPsycastsE">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VFESpacer">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationRemove">
+										<xpath>Defs/ThingDef[defName="Shelf_RepairRack"]/costList/MechSerumHealer</xpath>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

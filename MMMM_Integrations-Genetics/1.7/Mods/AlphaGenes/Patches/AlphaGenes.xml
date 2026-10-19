@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Alpha Genes integrations. This folder only loads when Alpha Genes is active (see loadFolders.xml); each
+		block is gated on its partner mods.
+	-->
+
+	<!--
+		Alpha Genes + ReGrowth 2: water striding nullifies ReGrowth's "wet" and "extremely wet" thoughts. Verified both
+		are ThoughtDefs with no nullifyingGenes list yet; the conditionals create one.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="ReGrowth.BOTR.Core">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/*[defName="RG_Wet"]/nullifyingGenes</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/*[defName="RG_Wet"]</xpath>
+							<value>
+								<nullifyingGenes/>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/*[defName="RG_Wet"]/nullifyingGenes</xpath>
+						<value>
+							<li>AG_WaterStriding</li>
+						</value>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/*[defName="RG_ExtremelyWet"]/nullifyingGenes</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/*[defName="RG_ExtremelyWet"]</xpath>
+							<value>
+								<nullifyingGenes/>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/*[defName="RG_ExtremelyWet"]/nullifyingGenes</xpath>
+						<value>
+							<li>AG_WaterStriding</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<!--
+		Alpha Genes + Big and Small Framework: insect jelly production runs on B&S's production gene (a progress bar and
+		a B&S ProductionGeneSettings: 6 insect jelly per day) instead of Alpha Genes' hediff, which states 12 per day.
+		Verified against Alpha Genes 1.6: the gene has no geneClass and no ProductionGeneSettings of its own.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BetterPrerequisites">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/GeneDef[defName="AG_InsectJellyProduction"]</xpath>
+						<value>
+							<geneClass>BigAndSmall.ProductionGene</geneClass>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/GeneDef[defName="AG_InsectJellyProduction"]/modExtensions/li[@Class="VEF.Genes.GeneExtension"]/hediffToWholeBody</xpath>
+					</li>
+					<li Class="PatchOperationAddModExtension">
+						<xpath>Defs/GeneDef[defName="AG_InsectJellyProduction"]</xpath>
+						<value>
+							<li Class="BigAndSmall.ProductionGeneSettings">
+								<product>InsectJelly</product>
+								<frequencyInDays>1</frequencyInDays>
+								<baseAmount>6</baseAmount>
+								<progressName>Producing Jelly</progressName>
+								<saveKey>BSAG_JellyProduction</saveKey>
+							</li>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/GeneDef[defName="AG_InsectJellyProduction"]/customEffectDescriptions</xpath>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<!--
+		Alpha Genes water striding also sets vanilla 1.6's gene waterCellCost to 1 (only if Alpha Genes has not set one), so
+		the pathfinder treats water as ordinary ground for carriers and they actually route through it. Upstream the gene
+		only removes the movement penalty, so pawns still path around water they could cross at full speed.
+		Verified: GeneDef.waterCellCost is a vanilla field (read by Pawn.WaterCellCost for pathfinding), and AG_WaterStriding
+		does not set it in Alpha Genes 1.6.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/GeneDef[defName="AG_WaterStriding"]/waterCellCost</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/GeneDef[defName="AG_WaterStriding"]</xpath>
+					<value>
+						<waterCellCost>1</waterCellCost>
+					</value>
+				</nomatch>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

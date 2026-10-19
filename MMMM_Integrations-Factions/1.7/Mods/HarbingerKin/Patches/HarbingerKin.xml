@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		HarbingerKin - Phytokin: the Horax cult fields Harbingerkin (weight 0.2), creating its xenotype set if it has none.
+		(Without HarbingerKin, MMMM_Rebalances gives the cult VRE Phytokin's Ocularkin instead.)
+		This folder only loads when HarbingerKin is active (see loadFolders.xml).
+		Verified: vanilla's Horax cult has no xenotype set of its own.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/FactionDef[defName="HoraxCult"]/xenotypeSet</xpath>
+				<match Class="PatchOperationAdd">
+					<xpath>Defs/FactionDef[defName="HoraxCult"]/xenotypeSet/xenotypeChances</xpath>
+					<value>
+						<mytigio_Harbingerkin>0.2</mytigio_Harbingerkin>
+					</value>
+				</match>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/FactionDef[defName="HoraxCult"]</xpath>
+					<value>
+						<xenotypeSet Inherit="False">
+							<xenotypeChances>
+								<mytigio_Harbingerkin>0.2</mytigio_Harbingerkin>
+							</xenotypeChances>
+						</xenotypeSet>
+					</value>
+				</nomatch>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

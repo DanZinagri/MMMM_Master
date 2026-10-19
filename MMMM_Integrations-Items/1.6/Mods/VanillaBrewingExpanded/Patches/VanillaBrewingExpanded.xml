@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Brewing Expanded joined up with its neighbours.
+		  - The vanilla brewery becomes a kitchen work table, like VBE's own bar. Vanilla files it under workshop, so a
+		    brewery in the kitchen alongside the bar would otherwise count against the room.
+		  - VBE's three drug condiments show the "condiment effects" line on their info card that VCE shows on its own
+		    condiments. This is display only: VEF reads the extension in ThingDef.SpecialDisplayStats and adds a stat
+		    line, nothing more. VBE already makes these three items VCE condiments; the text is in this mod's Keyed
+		    strings.
+		  - Four spirits from Alpha Memes, Det's Keshig and Rimsenal Harana point at the cocktail effects defined in
+		    Defs/CocktailIngredientEffects.xml, and are filed under VBE's spirit categories if they have none of their own.
+		This folder only loads when Vanilla Brewing Expanded is active (see loadFolders.xml); partner mods are gated
+		inside. The mod gates sit on <li> nodes inside sequences: RimWorld reads MayRequire only on list elements.
+
+		Verified against the current 1.6 releases: vanilla's brewery is workTableRoomRole Workshop and nothing else in
+		the workshop folder changes it; the three condiments exist in VBE's VanillaCookingExpanded folder under
+		VCE_Condiments and carry no stat extension yet; all four spirits exist with their own ingestible block, none has
+		a specialThoughtAsIngredient, and both VBE spirit categories exist.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Items ops (items: apparel, weapons, food, drugs and loot).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VCookE">
+				<operations>
+					<li Class="PatchOperationAddModExtension">
+						<xpath>/Defs/ThingDef[defName="VBE_LuciferiumPowder"]</xpath>
+						<value>
+							<li Class="VEF.AnimalBehaviours.AnimalStatExtension">
+								<statToAdd>
+									<li>VCE_CondimentEffects</li>
+								</statToAdd>
+								<statValues>
+									<li>VCE_CondimentEffectsTitle</li>
+								</statValues>
+								<statDescriptions>
+									<li>TMM_VCE_CondimentEffectsLuciferiumPowder</li>
+								</statDescriptions>
+							</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAddModExtension">
+						<xpath>/Defs/ThingDef[defName="VBE_WakeUpPowder"]</xpath>
+						<value>
+							<li Class="VEF.AnimalBehaviours.AnimalStatExtension">
+								<statToAdd>
+									<li>VCE_CondimentEffects</li>
+								</statToAdd>
+								<statValues>
+									<li>VCE_CondimentEffectsTitle</li>
+								</statValues>
+								<statDescriptions>
+									<li>TMM_VCE_CondimentEffectsWakeUpPowder</li>
+								</statDescriptions>
+							</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAddModExtension">
+						<xpath>/Defs/ThingDef[defName="VBE_GoJuiceStock"]</xpath>
+						<value>
+							<li Class="VEF.AnimalBehaviours.AnimalStatExtension">
+								<statToAdd>
+									<li>VCE_CondimentEffects</li>
+								</statToAdd>
+								<statValues>
+									<li>VCE_CondimentEffectsTitle</li>
+								</statValues>
+								<statDescriptions>
+									<li>TMM_VCE_CondimentEffectsGoJuiceStock</li>
+								</statDescriptions>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="Sarg.AlphaMemes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="AM_CorpseRumFine"]/ingestible</xpath>
+						<value>
+							<specialThoughtAsIngredient>TMM_VBE_FineRumAsIngredient</specialThoughtAsIngredient>
+						</value>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/ThingDef[defName="AM_CorpseRumFine"]/thingCategories</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/ThingDef[defName="AM_CorpseRumFine"]</xpath>
+							<value>
+								<thingCategories>
+									<li>VBE_DrinksLuxurySpirits</li>
+								</thingCategories>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="AM_CorpseRumBasic"]/ingestible</xpath>
+						<value>
+							<specialThoughtAsIngredient>TMM_VBE_SuspiciousRumAsIngredient</specialThoughtAsIngredient>
+						</value>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/ThingDef[defName="AM_CorpseRumBasic"]/thingCategories</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/ThingDef[defName="AM_CorpseRumBasic"]</xpath>
+							<value>
+								<thingCategories>
+									<li>VBE_DrinksSimpleSpirits</li>
+								</thingCategories>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="det.keshig">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="DV_Gorewine"]/ingestible</xpath>
+						<value>
+							<specialThoughtAsIngredient>TMM_VBE_GorewineAsIngredient</specialThoughtAsIngredient>
+						</value>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/ThingDef[defName="DV_Gorewine"]/thingCategories</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/ThingDef[defName="DV_Gorewine"]</xpath>
+							<value>
+								<thingCategories>
+									<li>VBE_DrinksSimpleSpirits</li>
+								</thingCategories>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Harana">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Neutroshine"]/ingestible</xpath>
+						<value>
+							<specialThoughtAsIngredient>TMM_VBE_NeutroshineAsIngredient</specialThoughtAsIngredient>
+						</value>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/ThingDef[defName="Neutroshine"]/thingCategories</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/ThingDef[defName="Neutroshine"]</xpath>
+							<value>
+								<thingCategories>
+									<li>VBE_DrinksSimpleSpirits</li>
+								</thingCategories>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

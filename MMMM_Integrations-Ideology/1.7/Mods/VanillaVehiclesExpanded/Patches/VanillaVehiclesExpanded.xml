@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The Nauticals meme (Vanilla Vehicles Expanded) gains the Corsair style category from Alpha Memes.
+		This folder only loads when Vanilla Vehicles Expanded, Alpha Memes and Ideology are all active
+		(see loadFolders.xml), so no FindMod checks are needed.
+		Ideology is part of the gate because VVE only defines VVE_Nauticals in its own Mods/Ideology folder;
+		the original patch lacked that check and would fail on an Ideology-less save.
+		Verified against VVE 1.6: the meme has no thingStyleCategories upstream, so the whole element is added.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/MemeDef[defName="VVE_Nauticals"]</xpath>
+		<value>
+			<thingStyleCategories>
+				<li>
+					<category>AM_Corsair</category>
+					<priority>3</priority>
+				</li>
+			</thingStyleCategories>
+		</value>
+	</Operation>
+
+</Patch>

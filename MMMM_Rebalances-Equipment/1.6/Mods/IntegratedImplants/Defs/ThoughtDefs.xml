@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- Masochist voicelock thought for Integrated Implants; see Patches/IntegratedImplants.xml. -->
+
+	<ThoughtDef>
+		<defName>TMM_ActiveVoicelock_Masochist</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>LTS_ActiveVoicelock</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+		<requiredTraits>
+			<li>Masochist</li>
+		</requiredTraits>
+		<stages>
+			<li>
+				<label>masochist voicelocked</label>
+				<description>I am being silenced by an implant. It feels so good!</description>
+				<baseMoodEffect>8</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+</Defs>

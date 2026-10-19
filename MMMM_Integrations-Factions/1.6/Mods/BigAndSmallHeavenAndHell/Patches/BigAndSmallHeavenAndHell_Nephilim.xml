@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small - Heaven and Hell joined up with Nephilim Xenotype Reborn.
+		  - The Heaven faction can roll nephilim, and its melee servitors always do.
+		  - With EBSG Framework and Ideology, the Heaven faction requires the gracetouched meme.
+		  - The four angel and demon xenotypes gain the grace, resurrection, heal and holy hymn genes.
+		  - The grigori description is rewritten and Big and Small's own nephilim is renamed to goliath, so the two
+		    mods do not both offer something called a nephilim.
+		This folder only loads when Heaven and Hell is active (see loadFolders.xml); the partner mods are gated inside.
+		The mod gates sit on <li> nodes inside sequences, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally.
+		Name fix applied on review: the original checked for a mod named "Nephilim Xenotype". Mod-name checks
+		are exact matches and the mod is named "Nephilim Xenotype Reborn", so those checks never fired. The
+		packageId sov.nephilim is used here instead, which cannot drift the same way.
+		The original sat behind a Too Many Mods setting toggle (TMM_BS_NephilimBeliarIntegration, default on).
+		That toggle is dropped: the folder gate and the MayRequire checks already keep it inert unless the
+		mods it joins are installed.
+
+		Verified against the current 1.6 releases: every gene, meme and xenotype referenced exists, the Heaven faction
+		has both a xenotypeChances block and a requiredMemes list, the melee servitor has a xenotypeChances block, and
+		none of the four xenotypes already carries any of the genes being added. All eight operations land.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Factions ops (factions, pawn kinds, traders and royal titles).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sov.nephilim">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>
+							Defs/FactionDef[defName="BS_Heaven"]/xenotypeSet/xenotypeChances</xpath>
+						<value>
+							<GS_Nephilim>0.1</GS_Nephilim>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>
+							Defs/PawnKindDef[defName="BS_ServitorMelee"]/xenotypeSet/xenotypeChances</xpath>
+						<value>
+							<GS_Nephilim>99999</GS_Nephilim>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="sov.nephilim,ebsg.framework,Ludeon.RimWorld.Ideology">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/FactionDef[defName="BS_Heaven"]/requiredMemes</xpath>
+						<value>
+							<li>GS_Gracetouched</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

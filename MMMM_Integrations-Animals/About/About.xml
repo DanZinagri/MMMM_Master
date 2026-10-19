@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Many Many Many Mods Modularized - Integrations - Animals</name>
+	<author>DanZinagri</author>
+	<packageId>DanZinagri.MMMM.Integrations.Animals</packageId>
+	<supportedVersions>
+		<li>1.6</li>
+		<li>1.7</li>
+	</supportedVersions>
+	<loadAfter>
+		<li>Wara.toomanymods</li>
+		<li>ReGrowth.BOTR.Core</li>
+		<li>ReGrowth.BOTR.AspenForest</li>
+		<li>ReGrowth.BOTR.BoilingForest</li>
+		<li>sarg.alphabiomes</li>
+		<li>sarg.alphaanimals</li>
+		<li>Spino.Megafauna</li>
+		<li>spincrus.dinosauria</li>
+		<li>VanillaExpanded.VanillaAnimalsExpanded</li>
+		<li>veterano.mythicages.megafaunabestiary</li>
+		<li>Van.Beasts</li>
+	</loadAfter>
+	<description>Mod integrations</description>
+</ModMetaData>

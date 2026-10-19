@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Alpha Crafts' horn grinder accepts horns and tusks from Megafauna, Dinosauria, Dark Ages: Beasts and Monsters,
+		Dragons Descent and Mythic Ages: Megafauna Bestiary, each labelled in the powdered horn's ingredient overrides;
+		Mythic Ages' wild fat can also be pressed into oil. One top-level block per animal mod, each gated on that mod.
+		This folder only loads when Alpha Crafts is active (see loadFolders.xml).
+		Verified against the installed mods: every item exists and none is already in the recipes (which list items, not
+		categories); Alpha Crafts itself only handles Alpha Animals and Odyssey horns. Dinosauria and Dragons Descent are
+		not installed, so their entries are unverified. With Medieval Overhaul, Progression: Kitchen replaces Mythic Ages'
+		wild fat with Medieval Overhaul's fat, which may leave the oil-press entry with nothing to do.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Items ops (items: apparel, weapons, food, drugs and loot).
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Spino.Megafauna">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="AC_PowderedHorn"]/comps/li[@Class="AlphaCrafts.CompProperties_LabelByIngredients"]/overrides</xpath>
+						<value>
+							<li>
+								<key>MegalocerosAntlers</key>
+								<value>powdered megaloceros antlers</value>
+							</li>
+							<li>
+								<key>ElasmotheriumHorn</key>
+								<value>powdered elasmotherium horn</value>
+							</li>
+							<li>
+								<key>DeinotheriumTusk</key>
+								<value>powdered deinotherium tusk</value>
+							</li>
+							<li>
+								<key>ZygolophodonTusk</key>
+								<value>powdered zygolophodon tusk</value>
+							</li>
+							<li>
+								<key>PlatybelodonTusk</key>
+								<value>powdered platybelodon tusk</value>
+							</li>
+							<li>
+								<key>MammothTusk</key>
+								<value>powdered mammoth tusk</value>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="spincrus.dinosauria">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="AC_PowderedHorn"]/comps/li[@Class="AlphaCrafts.CompProperties_LabelByIngredients"]/overrides</xpath>
+						<value>
+							<li>
+								<key>TriceratopsHorn</key>
+								<value>powdered triceratops horn</value>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Van.Beasts">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="AC_PowderedHorn"]/comps/li[@Class="AlphaCrafts.CompProperties_LabelByIngredients"]/overrides</xpath>
+						<value>
+							<li>
+								<key>DA_DrogTusk</key>
+								<value>powdered drog tusk</value>
+							</li>
+							<li>
+								<key>DA_GoldiloxHorn</key>
+								<value>powdered goldilox horn</value>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="onyxae.dragonsdescent">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="AC_PowderedHorn"]/comps/li[@Class="AlphaCrafts.CompProperties_LabelByIngredients"]/overrides</xpath>
+						<value>
+							<li>
+								<key>DragonHorn</key>
+								<value>powdered dragon horn</value>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="veterano.mythicages.megafaunabestiary">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="AC_PowderedHorn"]/comps/li[@Class="AlphaCrafts.CompProperties_LabelByIngredients"]/overrides</xpath>
+						<value>
+							<li>
+								<key>MA_ScarSaberTooth</key>
+								<value>powdered scar saber-tooth</value>
+							</li>
+							<li>
+								<key>MA_DuskhornHorn</key>
+								<value>powdered duskhorn horn</value>
+							</li>
+							<li>
+								<key>MA_PlastemmothTusk</key>
+								<value>powdered plastemmoth tusk</value>
+							</li>
+							<li>
+								<key>MA_DeermossHorn</key>
+								<value>powdered deermoss horn</value>
+							</li>
+							<li>
+								<key>MA_Brontorhin</key>
+								<value>powdered brontorhin</value>
+							</li>
+							<li>
+								<key>MA_SivatheriumHorn</key>
+								<value>powdered sivatherium horn</value>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

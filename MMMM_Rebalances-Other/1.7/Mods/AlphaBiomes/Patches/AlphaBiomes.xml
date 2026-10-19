@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Alpha Biomes' three derelict archotech structures (its Odyssey content) count as archotech tech level, matching the
+		VFE Art and VFE Power archotech tech-level changes already in this mod. With Vanilla Psycasts Expanded that also lets
+		them serve as an Archotechnology meditation focus.
+		This folder only loads when Alpha Biomes is active (see loadFolders.xml); the Odyssey gate sits on an <li>.
+		Verified against Alpha Biomes 1.6: none of the three has a techLevel, so each conditional takes its add branch.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Odyssey">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/ThingDef[defName="AB_DerelictArchotechTower"]/techLevel</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/ThingDef[defName="AB_DerelictArchotechTower"]</xpath>
+							<value>
+								<techLevel>Archotech</techLevel>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/ThingDef[defName="AB_DerelictMajorArchotechStructure"]/techLevel</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/ThingDef[defName="AB_DerelictMajorArchotechStructure"]</xpath>
+							<value>
+								<techLevel>Archotech</techLevel>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/ThingDef[defName="AB_DerelictArchonexusCore"]/techLevel</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/ThingDef[defName="AB_DerelictArchonexusCore"]</xpath>
+							<value>
+								<techLevel>Archotech</techLevel>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<!--
+		Two small Alpha Biomes tweaks: the tar IED trap's sprite is drawn 0.18 lower, and frostleaf can be dried into hay at
+		electric and fueled stoves as well as the campfire.
+		Verified against Alpha Biomes 1.6: the trap's own graphicData only sets texPath (no drawOffset), and
+		AB_FrostleafToHay's recipeUsers is just Campfire. No other installed mod patches either def.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="AB_TrapIED_Tar"]/graphicData</xpath>
+				<value>
+					<drawOffset>
+						<x>0.0</x>
+						<y>0.0</y>
+						<z>-0.18</z>
+					</drawOffset>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/RecipeDef[defName="AB_FrostleafToHay"]/recipeUsers</xpath>
+				<value>
+					<li>ElectricStove</li>
+					<li>FueledStove</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

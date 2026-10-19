@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The melee affinity gene gets a blank xenogene background icon instead of Geist's own artwork.
+
+		Split out of the convergence operation it shipped in, because comparing it against Geist 1.6 shows it is not an
+		overlap fix at all. The operation replaces the gene's whole modExtensions node, but the EBSG skill-change block
+		inside it is character for character what the gene already has. The single real difference is
+		backgroundPathXenogenes, which goes from UI/GorkMork to UI/EXBlank. That is a cosmetic preference, so it sits
+		here rather than with the two exclusion tags.
+
+		Worth tightening later: replacing the whole node to change one path is fragile. If Geist ever adds a third mod
+		extension, this silently deletes it. Pointing the xpath at
+		.../modExtensions/li[@Class="VEF.Genes.GeneExtension"]/backgroundPathXenogenes would do the same job safely.
+		Left as the original author wrote it.
+
+		Verified against Geist 1.6: the gene has a modExtensions node, and EBSGFramework.EBSGExtension is still a real
+		class in EBSG Framework, so the replacement value loads. Only the thought-side class was renamed, which is a
+		separate fix made in the Beliar folder.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/GeneDef[defName="GS_Melee_Affinity"]/modExtensions</xpath>
+				<value>
+					<modExtensions>
+						<li Class="EBSGFramework.EBSGExtension">
+							<skillChanges>
+								<li>
+									<skill>Melee</skill>
+									<passionChange>2</passionChange>
+								</li>
+							</skillChanges>
+						</li>
+						<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core" Class="VEF.Genes.GeneExtension">
+							<backgroundPathXenogenes>UI/EXBlank</backgroundPathXenogenes>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

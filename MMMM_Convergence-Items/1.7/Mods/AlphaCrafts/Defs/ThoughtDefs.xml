@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Ingredient thoughts for Alpha Crafts' infused and black garlic mayonnaise; see Patches/AlphaCrafts.xml. -->
+
+	<ThoughtDef MayRequire="VanillaExpanded.VCookE">
+		<thoughtClass>VEF.Cooking.Thought_Hediff</thoughtClass>
+		<hediff>VCE_ConsumedMayo</hediff>
+		<defName>TMM_ConsumedInfusedMayo</defName>
+		<durationDays>0.5</durationDays>
+		<stages>
+			<li>
+				<label>consumed infused mayo</label>
+				<description>I ate delicious infused mayo. So filling!</description>
+				<baseMoodEffect>3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef MayRequire="VanillaExpanded.VCookE,VanillaExpanded.VPlantsEMore">
+		<thoughtClass>VEF.Cooking.Thought_Hediff</thoughtClass>
+		<hediff>VCE_ConsumedMayo</hediff>
+		<defName>TMM_ConsumedBlackMayo</defName>
+		<durationDays>0.5</durationDays>
+		<stages>
+			<li>
+				<label>consumed black mayo</label>
+				<description>I ate delicious black mayo. Quite filling!</description>
+				<baseMoodEffect>4</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+</Defs>

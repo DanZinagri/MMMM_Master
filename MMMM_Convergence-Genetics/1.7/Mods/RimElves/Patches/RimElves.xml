@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Rim-Elves genes swapped for the equivalents other mods ship, with each retired gene going on this mod's
+		Cherry Picker list.
+		  - Alpha Genes: the elf's chemical susceptibility loses its toxic resistance factor (and drops from 5 to 3
+		    metabolism to match), and the elf gains Alpha Genes' toxic vulnerability gene for that part instead.
+		  - Big and Small: the elf's gigantism becomes Big and Small's large frame.
+		  - Det's Stoneborn + VRE Pigskin: the elf's slow development becomes Pigskin's slow aging plus Stoneborn's
+		    long lifespan; both mods are needed, as in the original.
+		This folder only loads when Rim-Elves is active (see loadFolders.xml); each swap carries MayRequire for the
+		mod that supplies the replacement.
+		The mod gates sit on <li> nodes inside the sequence, not on the <Operation> itself: RimWorld reads MayRequire
+		only on list elements.
+
+		Verified against the current 1.6 releases: RE_Elve lists Size_Gigantism and Age_SlowDevelopment, both genes
+		are Rim-Elves' own, RE_ChemicalSusceptibility ships biostatMet 5 with a ToxicResistance factor, and
+		AG_ToxResist_Vulnerability, BS_LargeFrame, VRE_SlowAging and DV_LifespanLong all exist. The astrogene
+		Cherry Picker entries name defs built at runtime, not in any XML: both Alpha Genes and VRE Starjack generate
+		_Astrogene copies of other mods' genes.
+		Fix 2026-10-03: a retired gene is now swapped in every xenotype that carries it (not just this mod's), and only
+		retired under the same mods as its replacement. Before, other mods' xenotypes sharing the gene (and this one, when
+		the replacement mod was absent) lost it to Cherry Picker with nothing in its place.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="RE_Elve"]/genes</xpath>
+						<value>
+							<li>AG_ToxResist_Vulnerability</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="RE_ChemicalSusceptibility"]/biostatMet</xpath>
+						<value>
+							<biostatMet>3</biostatMet>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/GeneDef[defName="RE_ChemicalSusceptibility"]/statFactors/ToxicResistance</xpath>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="Size_Gigantism"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="Size_Gigantism"]</xpath>
+							<value>
+								<li>BS_LargeFrame</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/Size_Gigantism</li>
+							<li>GeneDef/Size_Gigantism_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="det.stoneborn,vanillaracesexpanded.pigskin">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="RE_Elve"]/genes/li[text()="Age_SlowDevelopment"]</xpath>
+						<value>
+							<li>VRE_SlowAging</li>
+							<li>DV_LifespanLong</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/Age_SlowDevelopment</li>
+							<li>GeneDef/Age_SlowDevelopment_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

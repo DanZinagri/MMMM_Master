@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Apparel Expanded + ReBuild: Doors and Corners: glasses cost 5 steel + 1 glass (was 10 steel) and sunglasses
+		5 plasteel + 1 glass (was 10 plasteel).
+		This folder only loads with VAE (see loadFolders.xml); the ReBuild gate sits on an <li>.
+		Overlap: Progression: Attire (ferny.progressionattire) also replaces the sunglasses costList (10 steel), so with both
+		loaded whichever patch runs last wins. Not installed here alongside this, so left as is for review.
+		Verified against VAE and ReBuild D&C 1.6.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="ReBuild.COTR.DoorsAndCorners">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>/Defs/ThingDef[defName="VAE_Headgear_Glasses"]/costList</xpath>
+						<value>
+							<costList>
+								<Steel>5</Steel>
+								<RB_Glass>1</RB_Glass>
+							</costList>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>/Defs/ThingDef[defName="VAE_Headgear_Sunglasses"]/costList</xpath>
+						<value>
+							<costList>
+								<Plasteel>5</Plasteel>
+								<RB_Glass>1</RB_Glass>
+							</costList>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Beliar's profane horns sort into the Alpha Genes horn category with everything else horned.
+		Split out of the convergence operation it shipped in, to match the standing call that display-category changes
+		are integrations rather than overlap fixes. Move it back if that reading is wrong here.
+		Verified against Beliar 1.6: the gene has no displayCategory of its own, so the add creates one.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/GeneDef[defName="BX_ProfaneHorns"]</xpath>
+						<value>
+							<displayCategory>AG_Cosmetic_Horns</displayCategory>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

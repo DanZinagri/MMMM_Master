@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved here from the root file 1.7/Patches/Sidearms.xml.
+		This folder loads only when rimsenal.evp is active (see loadFolders.xml). The same condition used to be a
+		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/ThingDef[defName="Gun_DumbfirePistol"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+								<nomatch Class="PatchOperationAddModExtension">
+									<xpath>Defs/ThingDef[defName="Gun_DumbfirePistol"]</xpath>
+									<value>
+										<li Class="VEF.Things.ThingDefExtension">
+											<usableWithShields>true</usableWithShields>
+										</li>
+									</value>
+								</nomatch>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/ThingDef[defName="Gun_PistolHeavyRevolver"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+								<nomatch Class="PatchOperationAddModExtension">
+									<xpath>Defs/ThingDef[defName="Gun_PistolHeavyRevolver"]</xpath>
+									<value>
+										<li Class="VEF.Things.ThingDefExtension">
+											<usableWithShields>true</usableWithShields>
+										</li>
+									</value>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

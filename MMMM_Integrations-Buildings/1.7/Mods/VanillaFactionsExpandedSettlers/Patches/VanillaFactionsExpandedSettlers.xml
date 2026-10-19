@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		VFE Settlers' chemlamp and chemlamp post show their light radius while being placed, like vanilla's lamps do.
+		This adds vanilla's PlaceWorker_GlowRadius, which draws that ring for any building with a glower.
+		This folder only loads when VFE Settlers is active (see loadFolders.xml), so no FindMod check is needed.
+
+		Verified against VFE Settlers 1.6: both lamps have a CompProperties_Glower with glowRadius 10, and neither they
+		nor their parent BuildingBase define placeWorkers, so the add creates the list rather than overwriting one. No
+		other mod in the workshop folder adds a place worker to either lamp.
+		A single-mod fix rather than a join between mods; filed here as the closest fit.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingDef[defName="Chemlamp" or defName="ChemlampPost"]</xpath>
+		<value>
+			<placeWorkers>
+				<li>PlaceWorker_GlowRadius</li>
+			</placeWorkers>
+		</value>
+	</Operation>
+
+</Patch>

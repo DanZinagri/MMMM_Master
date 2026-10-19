@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li>1.6</li>
+		<li IfModActiveAll="vanillaracesexpanded.archon,VanillaExpanded.VMemesE">1.6/Mods/VanillaRacesExpandedArchon</li>
+		<li IfModActiveAll="det.stoneborn,VanillaExpanded.VMemesE">1.6/Mods/DetsXenotypeStoneborn</li>
+		<li IfModActive="RedMattis.Heaven">1.6/Mods/BigAndSmallHeavenAndHell</li>
+		<li IfModActive="RedMattis.BigSmall">1.6/Mods/BigAndSmallRaces</li>
+		<li IfModActive="Sov.Tenmo">1.6/Mods/GeistXenotype</li>
+		<li IfModActive="Ludeon.RimWorld.Royalty">1.6/Mods/Royalty</li>
+		<li IfModActive="OskarPotocki.VFE.Pirates">1.6/Mods/VanillaFactionsExpandedPirates</li>
+		<li IfModActive="mytigio.HarbingerKin">1.6/Mods/HarbingerKin</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.6/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActive="Trickity.Samurai.Faction">1.6/Mods/TsSamuraiFaction</li>
+		<li IfModActive="OskarPotocki.VFE.Empire">1.6/Mods/VanillaFactionsExpandedEmpire</li>
+		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
+	</v1.6>
+	<v1.7>
+		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li>1.7</li>
+		<li IfModActiveAll="vanillaracesexpanded.archon,VanillaExpanded.VMemesE">1.7/Mods/VanillaRacesExpandedArchon</li>
+		<li IfModActiveAll="det.stoneborn,VanillaExpanded.VMemesE">1.7/Mods/DetsXenotypeStoneborn</li>
+		<li IfModActive="RedMattis.Heaven">1.7/Mods/BigAndSmallHeavenAndHell</li>
+		<li IfModActive="RedMattis.BigSmall">1.7/Mods/BigAndSmallRaces</li>
+		<li IfModActive="Sov.Tenmo">1.7/Mods/GeistXenotype</li>
+		<li IfModActive="Ludeon.RimWorld.Royalty">1.7/Mods/Royalty</li>
+		<li IfModActive="OskarPotocki.VFE.Pirates">1.7/Mods/VanillaFactionsExpandedPirates</li>
+		<li IfModActive="mytigio.HarbingerKin">1.7/Mods/HarbingerKin</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.7/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActive="Trickity.Samurai.Faction">1.7/Mods/TsSamuraiFaction</li>
+		<li IfModActive="OskarPotocki.VFE.Empire">1.7/Mods/VanillaFactionsExpandedEmpire</li>
+		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>
+	</v1.7>
+</loadFolders>

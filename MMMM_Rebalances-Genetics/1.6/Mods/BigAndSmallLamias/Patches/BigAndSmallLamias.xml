@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Two tuning changes for Big and Small - Lamias and other Snake-People.
+		- The snake tribal federation stops inheriting its parent's xenotype set, so it fields only the four snake
+		xenotypes its own def lists. Verified against Lamias 1.6: the faction does inherit from TribeBase and does
+		define its own xenotypeSet, so this is a real change.
+		- The Tiamat scenario xenotype loses Alpha Genes' exotic organism gene.
+		This folder only loads when Lamias is active (see loadFolders.xml).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationRemove" MayRequire="sarg.alphagenes">
+				<xpath>
+					Defs/XenotypeDef[defName="LoS_ScenarioTiamat"]/genes/li[text()="AlphaGenes_ExoticOrganism"]</xpath>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

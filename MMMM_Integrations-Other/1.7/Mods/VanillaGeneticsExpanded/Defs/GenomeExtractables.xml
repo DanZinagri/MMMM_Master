@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--
+		Vanilla Genetics Expanded genome extraction for other mods' animals: VQE Cryptoforge's ice crawler and megamidge
+		(insectoid, tier 2), Mythic Ages: Megafauna Bestiary (canine, avian, equine, ursine) and Dark Ages: Beasts and Monsters
+		(avian, canine). Each list carries a MayRequire on its animal mod; the folder only loads with VGE.
+		Was PatchOperationAdd on Defs in Too Many Mods; defNames kept. Verified the VQE and Mythic Ages animals exist and no
+		installed mod lists them for extraction. Dark Ages is not installed; Van.Beasts is the id Too Many Mods uses elsewhere.
+	-->
+
+	<GeneticRim.ExtractableAnimalsList MayRequire="vanillaquestsexpanded.cryptoforge">
+		<defName>TMM_GR_TierTwoAnimalsVQECryptoforge</defName>
+		<tier>2</tier>
+		<itemProduced>GR_InsectoidGenetic</itemProduced>
+		<extractableAnimals>
+			<li>VQE_IceCrawler</li>
+			<li>VQE_Megamidge</li>
+		</extractableAnimals>
+	</GeneticRim.ExtractableAnimalsList>
+
+	<GeneticRim.ExtractableAnimalsList MayRequire="veterano.mythicages.megafaunabestiary">
+		<defName>TMM_GR_TierOneAnimalsCanineMAMB</defName>
+		<tier>1</tier>
+		<itemProduced>GR_CanineGenetic</itemProduced>
+		<extractableAnimals>
+			<li>MA_Scarodon</li>
+		</extractableAnimals>
+	</GeneticRim.ExtractableAnimalsList>
+
+	<GeneticRim.ExtractableAnimalsList MayRequire="veterano.mythicages.megafaunabestiary">
+		<defName>TMM_GR_TierOneAnimalsBirdMAMB</defName>
+		<tier>1</tier>
+		<itemProduced>GR_AvianGenetic</itemProduced>
+		<extractableAnimals>
+			<li>MA_Raptorkhan</li>
+			<li>MA_Harpeagle</li>
+		</extractableAnimals>
+	</GeneticRim.ExtractableAnimalsList>
+
+	<GeneticRim.ExtractableAnimalsList MayRequire="veterano.mythicages.megafaunabestiary">
+		<defName>TMM_GR_TierTwoAnimalsEquinesMAMB</defName>
+		<tier>2</tier>
+		<itemProduced>GR_EquineGenetic</itemProduced>
+		<extractableAnimals>
+			<li>MA_Direhorse</li>
+		</extractableAnimals>
+	</GeneticRim.ExtractableAnimalsList>
+
+	<GeneticRim.ExtractableAnimalsList MayRequire="veterano.mythicages.megafaunabestiary">
+		<defName>TMM_GR_TierOneAnimalsUrsinesMAMB</defName>
+		<tier>1</tier>
+		<itemProduced>GR_UrsineGenetic</itemProduced>
+		<extractableAnimals>
+			<li>MA_Dunbear</li>
+		</extractableAnimals>
+	</GeneticRim.ExtractableAnimalsList>
+
+	<GeneticRim.ExtractableAnimalsList MayRequire="Van.Beasts">
+		<defName>TMM_GR_TierOneAnimalsBirdDABM</defName>
+		<tier>1</tier>
+		<itemProduced>GR_AvianGenetic</itemProduced>
+		<extractableAnimals>
+			<li>DA_Crestel</li>
+			<li>DA_Taraal</li>
+			<li>DA_Pilgrim</li>
+		</extractableAnimals>
+	</GeneticRim.ExtractableAnimalsList>
+
+	<GeneticRim.ExtractableAnimalsList MayRequire="Van.Beasts">
+		<defName>TMM_GR_TierOneAnimalsCanineDABM</defName>
+		<tier>1</tier>
+		<itemProduced>GR_CanineGenetic</itemProduced>
+		<extractableAnimals>
+			<li>DA_ImperialRedhound</li>
+		</extractableAnimals>
+	</GeneticRim.ExtractableAnimalsList>
+
+</Defs>

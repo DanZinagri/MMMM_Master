@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Megafauna: the zygolophodon tusk hits like a real (giant) weapon: point 25 damage / 1.75 s and base 18 / 2 s, up from
+		5 / 5 s and 4 / 5 s. Kept behind the B&S Framework gate like the original, since the buff goes with MMMM_Integrations-Items
+		making it a giant-only weapon; without B&S every pawn would get a strong tusk.
+		This folder only loads when Megafauna is active (see loadFolders.xml).
+		Fix: the original nested its sequence as a bare <li> inside the Genes & More FindMod instead of a <match>, so the
+		FindMod had nothing to run and none of the Megafauna tusk changes ever applied.
+		Verified the upstream tools against Megafauna 1.6.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BetterPrerequisites">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="ZygolophodonTusk"]/tools</xpath>
+						<value>
+							<tools>
+								<li>
+									<label>point</label>
+									<capacities>
+										<li>Scratch</li>
+										<li>Stab</li>
+									</capacities>
+									<power>25</power>
+									<cooldownTime>1.75</cooldownTime>
+								</li>
+								<li>
+									<label>base</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>18</power>
+									<cooldownTime>2</cooldownTime>
+								</li>
+							</tools>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

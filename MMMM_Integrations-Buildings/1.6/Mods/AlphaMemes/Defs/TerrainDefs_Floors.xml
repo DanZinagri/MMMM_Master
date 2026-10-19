@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--
+		Alpha Memes' stone tile styles (Jewish, Jewish fine, Kemetic, Kemetic fine, Steampunk, Ocular) for two more stones:
+		Gulden Biome (Continued)'s aurelian stone and Odyssey's vacstone, six floors each. Each floor carries a def-level
+		MayRequire on the mod that supplies its stone; this folder only loads when Alpha Memes is active (see loadFolders.xml).
+		The original injected these with PatchOperationAdd on Defs inside name FindMods.
+		Verified: all six Alpha Memes parent styles exist, Alpha Memes itself makes no aurelian or vacstone tiles, and
+		Odyssey's BlocksVacstone exists. Flooring Floors adds its own floor styles for both stones, not Alpha Memes' ones, so
+		there is no overlap. Gulden Biome is not installed here, so the aurelian stone blocks are unverified.
+	-->
+
+	<TerrainDef ParentName="AM_JewishTileStoneBase" MayRequire="pphhyy.guldennew">
+		<defName>TMM_AM_JewishTileAurelianStone</defName>
+		<label>jewish aurelian stone tile</label>
+		<color>(174,154,118)</color>
+		<costList>
+			<BlocksAurelianStone>4</BlocksAurelianStone>
+		</costList>
+		<statBases>
+			<Beauty>4</Beauty>
+		</statBases>
+	</TerrainDef>
+
+	<TerrainDef ParentName="AM_JewishFineStoneTiles" MayRequire="pphhyy.guldennew">
+		<defName>TMM_AM_JewishFineTileAurelianStone</defName>
+		<label>jewish fine aurelian stone tile</label>
+		<costList>
+			<BlocksAurelianStone>20</BlocksAurelianStone>
+		</costList>
+		<statBases>
+			<Beauty>6</Beauty>
+		</statBases>
+	</TerrainDef>
+
+	<TerrainDef ParentName="AM_KemeticTileStoneBase" MayRequire="pphhyy.guldennew">
+		<defName>TMM_AM_KemeticTileAurelianStone</defName>
+		<label>kemetic aurelian stone tile</label>
+		<color>(174,154,118)</color>
+		<costList>
+			<BlocksAurelianStone>4</BlocksAurelianStone>
+		</costList>
+		<statBases>
+			<Beauty>4</Beauty>
+		</statBases>
+	</TerrainDef>
+
+	<TerrainDef ParentName="AM_KemeticFineStoneTiles" MayRequire="pphhyy.guldennew">
+		<defName>TMM_AM_KemeticFineTileAurelianStone</defName>
+		<label>kemetic fine aurelian stone tile</label>
+		<color>(174,154,118)</color>
+		<costList>
+			<BlocksAurelianStone>20</BlocksAurelianStone>
+		</costList>
+		<statBases>
+			<Beauty>6</Beauty>
+		</statBases>
+	</TerrainDef>
+
+	<TerrainDef ParentName="AM_SteampunkTileStoneBase" MayRequire="pphhyy.guldennew">
+		<defName>TMM_AM_SteampunkTileAurelianStone</defName>
+		<label>steampunk aurelian stone tile</label>
+		<color>(174,154,118)</color>
+		<costList>
+			<BlocksAurelianStone>4</BlocksAurelianStone>
+		</costList>
+		<statBases>
+			<Beauty>4</Beauty>
+		</statBases>
+	</TerrainDef>
+
+	<TerrainDef ParentName="AM_OcularStone" MayRequire="pphhyy.guldennew">
+		<defName>TMM_AM_Tile_OcularAurelianStone</defName>
+		<label>ocular aurelian stone floor</label>
+		<color>(174,154,118)</color>
+		<costList>
+			<BlocksAurelianStone>20</BlocksAurelianStone>
+		</costList>
+		<statBases>
+			<Beauty>6</Beauty>
+		</statBases>
+	</TerrainDef>
+
+	<TerrainDef ParentName="AM_JewishTileStoneBase" MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>TMM_AM_JewishTileVacstone</defName>
+		<label>jewish vacstone tile</label>
+		<color>(115,106,98)</color>
+		<costList>
+			<BlocksVacstone>4</BlocksVacstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="AM_JewishFineStoneTiles" MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>TMM_AM_JewishFineTileVacstone</defName>
+		<label>jewish fine vacstone tile</label>
+		<costList>
+			<BlocksVacstone>20</BlocksVacstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="AM_KemeticTileStoneBase" MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>TMM_AM_KemeticTileVacstone</defName>
+		<label>kemetic vacstone tile</label>
+		<color>(115,106,98)</color>
+		<costList>
+			<BlocksVacstone>4</BlocksVacstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="AM_KemeticFineStoneTiles" MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>TMM_AM_KemeticFineTileVacstone</defName>
+		<label>kemetic fine vacstone tile</label>
+		<color>(115,106,98)</color>
+		<costList>
+			<BlocksVacstone>20</BlocksVacstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="AM_SteampunkTileStoneBase" MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>TMM_AM_SteampunkTileVacstone</defName>
+		<label>steampunk vacstone tile</label>
+		<color>(115,106,98)</color>
+		<costList>
+			<BlocksVacstone>4</BlocksVacstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="AM_OcularStone" MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>TMM_AM_Tile_OcularVacstone</defName>
+		<label>ocular vacstone floor</label>
+		<color>(115,106,98)</color>
+		<costList>
+			<BlocksVacstone>20</BlocksVacstone>
+		</costList>
+	</TerrainDef>
+
+</Defs>

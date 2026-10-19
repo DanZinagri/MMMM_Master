@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved from the core root file ZZ3_DefaultStorage.xml (no setting).
+		Default storage filters: hoppers and meal recipes don't take VCE Sushi's human surimi by default, and hoppers don't take
+		VAE Waste's toxic meat (VAE Waste already keeps it out of meals itself, so Too Many Mods' duplicate entry was dropped).
+		Checked with analysis/patch_sim.py: both apply.
+		Fix 2026-10-06: a player's mod list had a Hopper with no filter/disallowedThingDefs, so both Hopper adds failed (and the
+		failure stopped the sushi sequence before the meal-recipe add). The Hopper adds now create the list when it is missing
+		and skip quietly when the Hopper has no storage filter at all; the meal-recipe add is its own operation.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VCookESushi">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/ThingDef[defName="Hopper"]/building/defaultStorageSettings/filter/disallowedThingDefs</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/ThingDef[defName="Hopper"]/building/defaultStorageSettings/filter/disallowedThingDefs</xpath>
+							<value>
+								<li>VCE_HumanSurimi</li>
+							</value>
+						</match>
+						<nomatch Class="PatchOperationConditional">
+							<xpath>Defs/ThingDef[defName="Hopper"]/building/defaultStorageSettings/filter</xpath>
+							<match Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="Hopper"]/building/defaultStorageSettings/filter</xpath>
+								<value>
+									<disallowedThingDefs>
+										<li>VCE_HumanSurimi</li>
+									</disallowedThingDefs>
+								</value>
+							</match>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VCookESushi">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[@Name="CookMealBase"]/defaultIngredientFilter/disallowedThingDefs</xpath>
+						<value>
+							<li>VCE_HumanSurimi</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VAEWaste">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/ThingDef[defName="Hopper"]/building/defaultStorageSettings/filter/disallowedThingDefs</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/ThingDef[defName="Hopper"]/building/defaultStorageSettings/filter/disallowedThingDefs</xpath>
+							<value>
+								<li>VAEWaste_ToxicMeat</li>
+							</value>
+						</match>
+						<nomatch Class="PatchOperationConditional">
+							<xpath>Defs/ThingDef[defName="Hopper"]/building/defaultStorageSettings/filter</xpath>
+							<match Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="Hopper"]/building/defaultStorageSettings/filter</xpath>
+								<value>
+									<disallowedThingDefs>
+										<li>VAEWaste_ToxicMeat</li>
+									</disallowedThingDefs>
+								</value>
+							</match>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--
+    A dedicated hussar cataphract for the Empire. Vanilla gives the ordinary cataphract a 0.4 chance of rolling
+    hussar, which leaves it carrying hussar drawbacks on a kit tuned for a baseliner. This replaces that with a
+    separate pawn kind that is always a hussar and is tuned for one: no brawler trait, a shooting skill range, and
+    higher will and resistance.
+
+    This def is only half the integration. The other half is Patches/PawnKinds_Empire.xml beside it, which takes the
+    hussar chance off the ordinary cataphract and puts this kind into the Empire's four pawn groups. Neither half
+    does anything useful alone.
+  -->
+
+	<PawnKindDef MayRequire="Ludeon.RimWorld.Royalty" ParentName="CataphractBase">
+    <defName>Empire_Fighter_Cataphract_Hussar</defName>
+    <label>hussar cataphract</label>
+    <royalTitleChance>0.1</royalTitleChance>
+    <titleSelectOne>
+      <li>Freeholder</li>
+      <li>Yeoman</li>
+    </titleSelectOne>
+    <combatPower>150</combatPower>
+    <weaponTags>
+      <li>GunHeavy</li>
+      <li>SpacerGun</li>
+    </weaponTags>
+    <apparelColor>(250,250,250)</apparelColor>
+    <apparelRequired>
+      <li>Apparel_ArmorHelmetCataphract</li>
+      <li>Apparel_ArmorCataphract</li>
+    </apparelRequired>
+    <specificApparelRequirements Inherit="False">
+      <li>
+        <bodyPartGroup>UpperHead</bodyPartGroup>
+        <alternateTagChoices>
+          <li>
+            <tag>Gunlink</tag>
+            <chance>0.2</chance>
+          </li>
+        </alternateTagChoices>
+      </li>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+        <stuff>Synthread</stuff>
+      </li>
+      <li>
+        <bodyPartGroup>Legs</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+        <stuff>Synthread</stuff>
+      </li>
+    </specificApparelRequirements>
+    <techHediffsTags>
+      <li>Advanced</li>
+      <li>ImplantEmpireCommon</li>
+    </techHediffsTags>
+    <techHediffsRequired>
+      <li>ArmorskinGland</li>
+    </techHediffsRequired>
+    <skills>
+      <li>
+        <skill>Shooting</skill>
+        <range>8~12</range>
+      </li>
+    </skills>
+    <disallowedTraits>
+      <li>Brawler</li>
+    </disallowedTraits>
+    <initialWillRange>4~6</initialWillRange>
+    <initialResistanceRange>17~26</initialResistanceRange>
+    <useFactionXenotypes>false</useFactionXenotypes>
+    <xenotypeSet>
+      <xenotypeChances>
+        <Hussar MayRequire="Ludeon.RimWorld.Biotech">1</Hussar>
+      </xenotypeChances>
+    </xenotypeSet>
+  </PawnKindDef>
+
+</Defs>

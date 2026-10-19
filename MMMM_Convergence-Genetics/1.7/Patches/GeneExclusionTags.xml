@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Gene exclusion groups from Too Many Mods' general gene rebalance (core AA1B_GeneRebalance.xml, setting on by default):
+		genes that do the same job as another mod's gene join its exclusion group so they cannot stack.
+		  - VRE Insector geneline genes: antimicrobial peptides / immunodeficiency join WoundHealingRate, rapid / slowed life
+		    cycle join Aging, hardened / weakened chitin join Toughness.
+		  - Alpha Genes' forsaken head emblem joins MeleeDodge (see the Geist header).
+		  - Big and Small's psychic warrior and VRE Hussar's toughness join Toughness.
+		  - Deathless-type genes share TMM_Deathless (from core AA5D_Deathless.xml, no setting): Biotech's deathless, B&S immortal
+		    and returning soul, VRE Archon's transcendent. The tag name is kept because TMM_WVC uses it too.
+		Each block is gated on its mod via an <li>. Checked with analysis/patch_sim.py: all apply against the installed mods.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.insector">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_AntimicrobialPeptides" or defName="VRE_Immunodeficiency"]/exclusionTags</xpath>
+								<value>
+									<li>WoundHealingRate</li>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_RapidLifeCycle" or defName="VRE_SlowedLifeCycle"]/exclusionTags</xpath>
+								<value>
+									<li>Aging</li>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_HardenedChitin" or defName="VRE_WeakenedChitin"]/exclusionTags</xpath>
+								<value>
+									<li>Toughness</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/GeneDef[defName="AG_ForsakenHeadEmblem"]</xpath>
+								<value>
+									<exclusionTags>
+										<li>MeleeDodge</li>
+									</exclusionTags>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/GeneDef[defName="BS_PsychicWarrior"]/exclusionTags</xpath>
+								<value>
+									<li>Toughness</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.hussar">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/GeneDef[defName="VREH_Toughness"]</xpath>
+								<value>
+									<exclusionTags>
+										<li>Toughness</li>
+									</exclusionTags>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Biotech">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/GeneDef[defName="Deathless"]/exclusionTags</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/GeneDef[defName="Deathless"]</xpath>
+							<value>
+								<exclusionTags>
+									<li>TMM_Deathless</li>
+								</exclusionTags>
+							</value>
+						</nomatch>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/GeneDef[defName="Deathless"]/exclusionTags</xpath>
+							<value>
+								<li>TMM_Deathless</li>
+							</value>
+						</match>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>/Defs/GeneDef[defName="BS_Immortal" or defName="BS_ReturningSoul"]/exclusionTags</xpath>
+						<value>
+							<li>TMM_Deathless</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.archon">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>/Defs/GeneDef[defName="VRE_Transcendent"]</xpath>
+						<value>
+							<exclusionTags>
+								<li>TMM_Deathless</li>
+							</exclusionTags>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

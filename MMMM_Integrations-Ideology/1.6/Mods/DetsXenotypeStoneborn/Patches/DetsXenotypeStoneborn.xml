@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Dwarven culture for the Stoneborn faction and Big and Small's two dwarf factions.
+		A TMM_Dwarven CultureDef is created, using the Dwarven Style Pack's style category, and given to the
+		Stoneborn outlander faction (replacing Rustican), to Big and Small's Little People union (industrial) and to its
+		Dvergr Trade Union (medieval, replacing the inherited BS_MedievalCulture; added 2026-10-14 on a player's request).
+		(The Stoneborn faction's Craft culture meme requirement is in MMMM Integrations - Factions.)
+
+		This folder loads when either Det's Xenotypes - Stoneborn or Big and Small - Races is active
+		(see loadFolders.xml); every operation then carries MayRequire for what it actually needs.
+
+		Verified against the current 1.6 releases: OutlanderRoughStoneborn has no requiredMemes (so the meme is added,
+		not replaced), its allowedCultures is Rustican (so the culture swap is a real change), and BS_LittlePeople has
+		no allowedCultures at all, and BS_Dvergr_Medieval_Union only inherits BS_MedievalCulture from BS_MedievalFactionBase
+		(Big and Small - Framework); Muspelheim and Niflheim share that base and keep their culture. Nothing here duplicates upstream.
+
+		Keep the TMM_Dwarven defName: ideoligions and factions reference cultures by def.
+
+		Note on scope: in the original mod this file lived in the always-loaded Patches folder, so the Big and Small
+		path worked without Det's Stoneborn installed. The 2026-09-19 reorganisation put it in a folder gated on
+		det.stoneborn, which silently disabled that path; the any-of gate here restores it.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Ideology ops (memes, cultures, precepts and styles).
+		Moved 2026-10-05: the two allowedCultures ops came here from MMMM Integrations - Factions so the culture and the
+		factions that use it always load together.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+
+			<li Class="PatchOperationAdd" MayRequire="det.dwarvenstyle">
+				<xpath>Defs</xpath>
+				<value>
+					<CultureDef>
+						<defName>TMM_Dwarven</defName>
+						<label>dwarven</label>
+						<description>A hardy dwarven culture common among small people.</description>
+						<ideoNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerIdeoRustican</ideoNameMaker>
+						<deityNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerDeityRustican</deityNameMaker>
+						<deityTypeMaker MayRequire="Ludeon.RimWorld.Ideology">DeityTypeMakerRustican</deityTypeMaker>
+						<leaderTitleMaker MayRequire="Ludeon.RimWorld.Ideology">LeaderTitleMaker_Rustican</leaderTitleMaker>
+						<festivalNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerFestivalRustican</festivalNameMaker>
+						<allowedPlaceTags>
+							<li>OriginSpacer</li>
+						</allowedPlaceTags>
+						<iconPath>World/WorldObjects/Expanding/Town</iconPath>
+						<thingStyleCategories>
+							<li MayRequire="Ludeon.RimWorld.Ideology">
+								<category>DV_Dwarven</category>
+								<priority>999</priority>
+							</li>
+						</thingStyleCategories>
+						<styleItemTags>
+							<li>
+								<tag>Rural</tag>
+								<baseWeight>1</baseWeight>
+								<weightFactor>1</weightFactor>
+							</li>
+							<li>
+								<tag>NoBeard</tag>
+								<baseWeight>0.25</baseWeight>
+								<weightFactor>1</weightFactor>
+							</li>
+							<li>
+								<tag>BeardRural</tag>
+								<baseWeight>1</baseWeight>
+								<weightFactor>1</weightFactor>
+							</li>
+							<li>
+								<tag>NoTattoo</tag>
+								<baseWeight>1</baseWeight>
+								<weightFactor>1</weightFactor>
+							</li>
+						</styleItemTags>
+					</CultureDef>
+				</value>
+			</li>
+
+			<li Class="PatchOperationReplace" MayRequire="det.dwarvenstyle,det.stoneborn">
+				<xpath>Defs/FactionDef[defName="OutlanderRoughStoneborn"]/allowedCultures</xpath>
+				<value>
+					<allowedCultures Inherit="False">
+						<li>TMM_Dwarven</li>
+					</allowedCultures>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="det.dwarvenstyle,RedMattis.BigSmall">
+				<xpath>Defs/FactionDef[defName="BS_LittlePeople"]</xpath>
+				<value>
+					<allowedCultures Inherit="False">
+						<li>TMM_Dwarven</li>
+					</allowedCultures>
+				</value>
+			</li>
+			<!-- The medieval Dvergr Trade Union inherits Big and Small's medieval culture from its base faction; the
+			Conditional replaces the node if it ever gets its own, and adds it otherwise. -->
+			<li Class="PatchOperationConditional" MayRequire="det.dwarvenstyle,RedMattis.BigSmall">
+				<xpath>Defs/FactionDef[defName="BS_Dvergr_Medieval_Union"]/allowedCultures</xpath>
+				<match Class="PatchOperationReplace">
+					<xpath>Defs/FactionDef[defName="BS_Dvergr_Medieval_Union"]/allowedCultures</xpath>
+					<value>
+						<allowedCultures Inherit="False">
+							<li>TMM_Dwarven</li>
+						</allowedCultures>
+					</value>
+				</match>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/FactionDef[defName="BS_Dvergr_Medieval_Union"]</xpath>
+					<value>
+						<allowedCultures Inherit="False">
+							<li>TMM_Dwarven</li>
+						</allowedCultures>
+					</value>
+				</nomatch>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

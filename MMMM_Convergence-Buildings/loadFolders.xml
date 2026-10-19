@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li IfModActive="sarg.alphacrafts">1.6/Mods/AlphaCrafts</li>
+		<li IfModActive="Trickity.Samurai.Faction">1.6/Mods/TsSamuraiFaction</li>
+		<li IfModActive="onyxae.dragonsdescent">1.6/Mods/DragonsDescent</li>
+		<li IfModActive="pphhyy.guldennew">1.6/Mods/GuldenBiome</li>
+	</v1.6>
+	<v1.7>
+		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li IfModActive="sarg.alphacrafts">1.7/Mods/AlphaCrafts</li>
+		<li IfModActive="Trickity.Samurai.Faction">1.7/Mods/TsSamuraiFaction</li>
+		<li IfModActive="onyxae.dragonsdescent">1.7/Mods/DragonsDescent</li>
+		<li IfModActive="pphhyy.guldennew">1.7/Mods/GuldenBiome</li>
+	</v1.7>
+</loadFolders>

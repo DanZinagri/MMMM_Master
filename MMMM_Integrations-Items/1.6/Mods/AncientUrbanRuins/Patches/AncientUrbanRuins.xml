@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Ancient Urban Ruins loot: other mods' items join AUR's container loot tables (beverages, food, collectibles, medical
+		supplies, tools, injectors, flak apparel), each block gated on the mod that supplies the items. Alpha Crafts also
+		restocks the snack racks and double/three-layer racks (the TMM_ArtisanGoods_Large set is in Defs/). With the AUR
+		Vanilla-plus-loot add-on and Vanilla Armour Expanded but neither gloves mod, the add-on's boots-and-gloves flak
+		option is removed; that check stays a FindMod because it fires on the mods being absent.
+		This folder only loads when Ancient Urban Ruins is active (see loadFolders.xml).
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Items ops (items: apparel, weapons, food, drugs and loot).
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="bb.generic.loot.exp.anc.urban.ruins">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VARME">
+						<operations>
+							<li Class="PatchOperationFindMod">
+								<mods>
+									<li>VAE - More Gloves and Boots</li>
+									<li>Cat's Boots and Gloves</li>
+								</mods>
+								<nomatch Class="PatchOperationSequence">
+									<operations>
+										<!-- remove boots and gloves -->
+										<li Class="PatchOperationRemove">
+											<xpath>Defs/ThingSetMakerDef[defName="AM_FlakApparel"]/root/options/li[weight=0.1]</xpath>
+										</li>
+									</operations>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="CatLover366.BootsAndGloves">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_FlakApparel"]/root/options</xpath>
+						<value>
+							<li MayRequire="vanillaexpanded.varme">
+								<weight>0.1</weight>
+								<thingSetMaker Class="ThingSetMaker_Count">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>CAT_Footwear_ReconBoots</li>
+												<li>CAT_Footwear_FlakBoots</li>
+												<li>CAT_Footwear_RiotBoots</li>
+												<li MayRequire="Ludeon.RimWorld.Odyssey">CAT_Footwear_VacsuitBoots</li>
+												<li>CAT_Handwear_ReconGloves</li>
+												<li>CAT_Handwear_FlakGloves</li>
+												<li>CAT_Handwear_RiotGloves</li>
+												<li MayRequire="Ludeon.RimWorld.Odyssey">CAT_Handwear_VacsuitGloves</li>
+											</thingDefs>
+										</filter>
+										<countRange>1~1</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphacrafts">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_Collectible"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>1.5</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>AC_Essence</li>
+												<li>AC_Flour</li>
+												<li>AC_Perfume</li>
+												<li>AC_ScentedCandle</li>
+												<li>AC_Soap</li>
+												<li>AC_AloeVeraSalve</li>
+												<li MayRequire="VanillaExpanded.VBrewE">AC_PipeTobacco</li>
+												<li MayRequire="VanillaExpanded.VBrewE">AC_TeaSachets</li>
+											</thingDefs>
+										</filter>
+										<countRange>5~9</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_PotatoChips"]/root/options</xpath>
+						<value>
+							<options>
+								<li>
+									<weight>0.5</weight>
+									<thingSetMaker Class="ThingSetMaker_StackCount">
+										<fixedParams>
+											<filter>
+												<thingDefs>
+													<li>AC_Chips</li>
+												</thingDefs>
+											</filter>
+											<countRange>8~10</countRange>
+										</fixedParams>
+									</thingSetMaker>
+								</li>
+							</options>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_Food"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>2.0</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>AC_Pickles</li>
+												<li>AC_PickledEggs</li>
+												<li>AC_Vinegar</li>
+												<li>AC_BalsamicVinegar</li>
+												<li>AC_CuredHiveConfections</li>
+											</thingDefs>
+										</filter>
+										<countRange>5~8</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+							<li>
+								<weight>0.3</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>AC_TruffleOil</li>
+												<li>AC_InfusedOil</li>
+											</thingDefs>
+										</filter>
+										<countRange>2~4</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_Beverages"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>1.0</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li MayRequire="VanillaExpanded.VBrewE">AC_CoffeeLiquor</li>
+												<li MayRequire="VanillaExpanded.VPlantsEMore">AC_BeetKvass</li>
+											</thingDefs>
+										</filter>
+										<countRange>3~5</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphacrafts">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Insectoid2">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingSetMakerDef[defName="AM_MedicalSupplies"]/root/options</xpath>
+								<value>
+									<li>
+										<weight>0.1</weight>
+										<thingSetMaker Class="ThingSetMaker_StackCount">
+											<fixedParams>
+												<filter>
+													<thingDefs>
+														<li>AC_RoyalSalve</li>
+													</thingDefs>
+												</filter>
+												<countRange>3~6</countRange>
+											</fixedParams>
+										</thingSetMaker>
+									</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphacrafts">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VCookE">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingSetMakerDef[defName="AM_Food"]/root/options</xpath>
+								<value>
+									<li>
+										<weight>1.0</weight>
+										<thingSetMaker Class="ThingSetMaker_StackCount">
+											<fixedParams>
+												<filter>
+													<thingDefs>
+														<li>AC_SaltedCaramel</li>
+														<li>AC_Chutney</li>
+													</thingDefs>
+												</filter>
+												<countRange>2~3</countRange>
+											</fixedParams>
+										</thingSetMaker>
+									</li>
+									<li>
+										<weight>1.5</weight>
+										<thingSetMaker Class="ThingSetMaker_StackCount">
+											<fixedParams>
+												<filter>
+													<thingDefs>
+														<li>AC_Jam</li>
+														<li>AC_CondensedMilk</li>
+														<li MayRequire="VanillaExpanded.VPlantsE">AC_Kimchi</li>
+														<li MayRequire="VanillaExpanded.VCookESushi">AC_Miso</li>
+													</thingDefs>
+												</filter>
+												<countRange>5~8</countRange>
+											</fixedParams>
+										</thingSetMaker>
+									</li>
+									<li>
+										<weight>0.7</weight>
+										<thingSetMaker Class="ThingSetMaker_StackCount">
+											<fixedParams>
+												<filter>
+													<thingDefs>
+														<li>AC_Molasses</li>
+														<li MayRequire="VanillaExpanded.VPlantsEMore">AC_BlackGarlic</li>
+													</thingDefs>
+												</filter>
+												<countRange>12~20</countRange>
+											</fixedParams>
+										</thingSetMaker>
+									</li>
+								</value>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VPlantsEMore">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/ThingSetMakerDef[defName="AM_Beverages"]/root/options</xpath>
+										<value>
+											<li>
+												<weight>0.5</weight>
+												<thingSetMaker Class="ThingSetMaker_StackCount">
+													<fixedParams>
+														<filter>
+															<thingDefs>
+																<li>AC_ChichaMorada</li>
+															</thingDefs>
+														</filter>
+														<countRange>3~5</countRange>
+													</fixedParams>
+												</thingSetMaker>
+											</li>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VBrewE">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_Beverages"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>6.0</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>VBE_Whiskey</li>
+												<li>VBE_Tequila</li>
+												<li>VBE_Vodka</li>
+												<li>VBE_Gin</li>
+												<li>VBE_Juice</li>
+												<li>VBE_Soda</li>
+												<li>VBE_EnergyDrink</li>
+												<li MayRequire="VanillaExpanded.VPlantsE">VBE_Cider</li>
+											</thingDefs>
+										</filter>
+										<countRange>3~5</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+							<li>
+								<weight>0.5</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>VBE_DoubleWhiskey</li>
+												<li MayRequire="Trickity.Samurai.Faction">TSF_Sake</li>
+											</thingDefs>
+										</filter>
+										<countRange>1~3</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_Collectible"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>0.1</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>SmokeleafJoint</li>
+												<li>VBE_Cigarettes</li>
+											</thingDefs>
+										</filter>
+										<countRange>13~26</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+							<li>
+								<weight>0.1</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>VBE_Cigars</li>
+											</thingDefs>
+										</filter>
+										<countRange>2~4</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="det.buzzers">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_Injector"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>0.3</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>DV_LungPurifier</li>
+											</thingDefs>
+										</filter>
+										<countRange>6~11</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="det.keshig">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_Beverages"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>0.2</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>DV_Gorewine</li>
+											</thingDefs>
+										</filter>
+										<countRange>4~6</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="lambda.Kumis">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_Beverages"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>0.2</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>lambda_Kumis</li>
+											</thingDefs>
+										</filter>
+										<countRange>7~11</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VAEAccessories">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_Tool"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>0.1</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>VAEA_Apparel_ToolBelt</li>
+											</thingDefs>
+										</filter>
+										<countRange>1~1</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_FlakApparel"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>0.02</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>VAEA_Apparel_AmmoPack</li>
+											</thingDefs>
+										</filter>
+										<countRange>1~1</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_MedicalSupplies"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>0.1</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>VAEA_Apparel_MedicBag</li>
+											</thingDefs>
+										</filter>
+										<countRange>1~1</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VCookE">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_Collectible"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>0.1</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>VCE_AgaveNectar</li>
+												<li>VCE_ChocolateSyrup</li>
+												<li>VCE_InsectJellyPreserves</li>
+											</thingDefs>
+										</filter>
+										<countRange>6~9</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Classical">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_Food"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>0.5</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>VFEC_Jerky</li>
+											</thingDefs>
+										</filter>
+										<countRange>40~70</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_MedicalSupplies"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>0.1</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>VFEC_Opium</li>
+											</thingDefs>
+										</filter>
+										<countRange>6~14</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Medieval2">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_Beverages"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>0.8</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>VFEM2_Wine</li>
+												<li>VFEM2_Mead</li>
+											</thingDefs>
+										</filter>
+										<countRange>3~6</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Pirates">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_Beverages"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>0.4</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>VFEP_Rum</li>
+											</thingDefs>
+										</filter>
+										<countRange>12~24</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VanillaFactionsExpanded.SettlersModule">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_Beverages"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>0.2</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>Chemshine</li>
+											</thingDefs>
+										</filter>
+										<countRange>6~12</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.genie">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingSetMakerDef[defName="AM_MedicalSupplies"]/root/options</xpath>
+						<value>
+							<li>
+								<weight>0.1</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>VRE_Antibiotics</li>
+											</thingDefs>
+										</filter>
+										<countRange>8~18</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

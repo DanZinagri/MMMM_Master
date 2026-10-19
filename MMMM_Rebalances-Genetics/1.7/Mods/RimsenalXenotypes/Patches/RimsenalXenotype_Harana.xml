@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Rimsenal Xenotype Pack - Harana: agile striker loses its +5 melee dodge and its x0.7 melee cooldown and now only cuts
+		aiming delay (x0.8, was x0.7); Harana lose the quick movement gene.
+		This folder loads when a Rimsenal xenotype pack is active (see loadFolders.xml); each block is gated on its mods via an <li>.
+		Verified against Harana 1.6.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Harana">
+				<operations>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/GeneDef[defName="AgileStriker"]/statOffsets</xpath>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="AgileStriker"]/statFactors</xpath>
+						<value>
+							<statFactors>
+								<AimingDelayFactor>0.8</AimingDelayFactor>
+							</statFactors>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>/Defs/XenotypeDef[defName="Harana"]/genes/li[text()="MoveSpeed_Quick"]</xpath>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

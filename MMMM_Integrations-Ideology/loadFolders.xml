@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li IfModActiveAll="OskarPotocki.VanillaVehiclesExpanded,Sarg.AlphaMemes,Ludeon.RimWorld.Ideology">1.6/Mods/VanillaVehiclesExpanded</li>
+		<li IfModActive="VanillaExpanded.VMemesE">1.6/Mods/VanillaIdeologyExpandedMemesAndStructures</li>
+		<li IfModActive="VanillaExpanded.VCEF">1.6/Mods/VanillaFishingExpanded</li>
+		<li IfModActive="det.stoneborn,RedMattis.BigSmall">1.6/Mods/DetsXenotypeStoneborn</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.6/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActive="anthitei.athsstylegothic.style">1.6/Mods/ATHsStyleGothicAndBloodyGothic</li>
+	</v1.6>
+	<v1.7>
+		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li IfModActiveAll="OskarPotocki.VanillaVehiclesExpanded,Sarg.AlphaMemes,Ludeon.RimWorld.Ideology">1.7/Mods/VanillaVehiclesExpanded</li>
+		<li IfModActive="VanillaExpanded.VMemesE">1.7/Mods/VanillaIdeologyExpandedMemesAndStructures</li>
+		<li IfModActive="VanillaExpanded.VCEF">1.7/Mods/VanillaFishingExpanded</li>
+		<li IfModActive="det.stoneborn,RedMattis.BigSmall">1.7/Mods/DetsXenotypeStoneborn</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.7/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActive="anthitei.athsstylegothic.style">1.7/Mods/ATHsStyleGothicAndBloodyGothic</li>
+	</v1.7>
+</loadFolders>

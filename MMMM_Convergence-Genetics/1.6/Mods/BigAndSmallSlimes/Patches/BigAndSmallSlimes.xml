@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The elixir slime uses Biotech Expansion's feral might instead of Big and Small's strong unarmed gene.
+		This folder only loads when Big and Small - Slimes is active (see loadFolders.xml).
+		Verified against Slimes 1.6: the xenotype does list BS_Unarmed_Strong, so the swap lands.
+	-->
+	<!--
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally. Do not flatten this wrapper away.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace" MayRequire="biotexpans.core">
+				<xpath>Defs/XenotypeDef[defName="BS_ElixirSlime"]/genes/li[text()="BS_Unarmed_Strong"]</xpath>
+				<value>
+					<li>BTE_FeralMight</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- Hediff for Alpha Genes' increased command range gene with Integrated Implants; see Patches/AlphaGenes.xml. -->
+
+	<HediffDef MayRequire="lts.I">
+		<defName>TMM_AG_IncreasedCommandRange</defName>
+		<label>increased command range</label>
+		<description>This person has an increased range when commanding drafted mechanoids.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.52, 1, 0.95)</defaultLabelColor>
+		<comps>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<statOffsets>
+					<MechRemoteControlDistanceOffset>15</MechRemoteControlDistanceOffset>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+</Defs>

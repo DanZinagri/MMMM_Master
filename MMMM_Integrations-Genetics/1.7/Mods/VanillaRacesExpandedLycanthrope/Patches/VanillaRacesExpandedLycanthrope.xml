@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The Territorial gene (VRE - Lycanthrope) suppresses the Wanderlust trait (Vanilla Traits Expanded).
+		This folder only loads when both mods are active (see loadFolders.xml), so no FindMod checks are needed.
+		VRE_Territorial has no suppressedTraits list upstream (checked against VRE - Lycanthrope 1.6), so the whole element is added.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="VRE_Territorial"]</xpath>
+		<value>
+			<suppressedTraits>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">
+					<def>VTE_Wanderlust</def>
+				</li>
+			</suppressedTraits>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Gulden Biome (Continued) + Vanilla Brewing Expanded: one ambrosia mush recipe instead of two. VBE's ambrosia mush also
+		accepts Gulden's ambrosia (and, with Dragons Descent, draconic ambrosia), and the separate Gulden ambrosia mush recipe
+		(VBE_GuldenAmbrosiaMush) is removed.
+		This folder only loads when Gulden Biome is active (see loadFolders.xml); the VBE gate sits on an <li>.
+		Verified against VBE 1.6: VBE_AmbrosiaMush exists and takes only vanilla Ambrosia. Gulden Biome is not installed here,
+		so GuldenAmbrosia and VBE_GuldenAmbrosiaMush could not be checked; if the latter no longer exists the removal fails
+		(logged) after the two adds have applied.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VBrewE">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="VBE_AmbrosiaMush"]/ingredients/li/filter/thingDefs</xpath>
+						<value>
+							<li>GuldenAmbrosia</li>
+							<li MayRequire="onyxae.dragonsdescent">DraconicAmbrosia</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="VBE_AmbrosiaMush"]/fixedIngredientFilter/thingDefs</xpath>
+						<value>
+							<li>GuldenAmbrosia</li>
+							<li MayRequire="onyxae.dragonsdescent">DraconicAmbrosia</li>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/RecipeDef[defName="VBE_GuldenAmbrosiaMush"]</xpath>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

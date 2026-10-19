@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved here from the root file 1.7/Patches/StrongerEnemies.xml.
+		This folder loads only when rimsenal.core is active (see loadFolders.xml). The same condition used to be a
+		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="VexedTrees980.RimElvesBiotech">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/PawnKindDef[defName="Elven_Soldier_BladeGuard"]/apparelRequired</xpath>
+										<value>
+											<apparelRequired Inherit="False">
+												<li>Apparel_CloseCombatArmor</li>
+												<li>Apparel_CloseCombatHelmet</li>
+												<li>Apparel_ShieldBelt</li>
+											</apparelRequired>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

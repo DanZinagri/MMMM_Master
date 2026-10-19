@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Megafauna + Big and Small: the zygolophodon tusk becomes a B&S giant weapon (weaponClasses BS_GiantWeapon, which the
+		B&S Framework defines, so that is the gate; the original checked Genes & More), and its description says it is too
+		large for a regular human instead of too big to use as a weapon. Its damage buff is in MMMM_Rebalances.
+		This folder only loads when Megafauna is active (see loadFolders.xml).
+		Fix: the original nested its sequence as a bare <li> inside the Genes & More FindMod instead of a <match>, so the
+		FindMod had nothing to run and none of the Megafauna tusk changes ever applied.
+		Verified against Megafauna 1.6: the tusk has no weaponClasses of its own (parent ResourceVerbBase).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BetterPrerequisites">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="ZygolophodonTusk"]</xpath>
+						<value>
+							<weaponClasses Inherit="False">
+								<li>BS_GiantWeapon</li>
+							</weaponClasses>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="ZygolophodonTusk"]/description</xpath>
+						<value>
+							<description>A zygolophodon's enormous tusk. Extremely durable and valuable. Too large to be wielded by a regular human.</description>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

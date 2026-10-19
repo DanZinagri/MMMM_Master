@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Many Many Many Mods Modularized - Convergence - Buildings</name>
+	<author>DanZinagri</author>
+	<packageId>DanZinagri.MMMM.Convergence.Buildings</packageId>
+	<supportedVersions>
+		<li>1.6</li>
+		<li>1.7</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>Ludeon.RimWorld.Biotech</packageId>
+			<displayName>Biotech</displayName>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>Wara.toomanymods</li>
+		<li>sarg.alphacrafts</li>
+		<li>VanillaExpanded.VCookE</li>
+		<li>Trickity.Samurai.Faction</li>
+		<li>VanillaExpanded.VBrewE</li>
+		<li>VanillaExpanded.VFEFactory</li>
+		<li>onyxae.dragonsdescent</li>
+		<li>pphhyy.guldennew</li>
+		<li>ludeon.rimworld.ideology</li>
+	</loadAfter>
+	<description>Overlap Removal</description>
+</ModMetaData>

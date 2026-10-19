@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Rimsenal Xenotype Pack - Zohar + Alpha Genes: the Zohar's sensitive stomach becomes Alpha Genes' frail stomach, and
+		Zohar's gene goes on this mod's Cherry Picker list (revive entry in 1.6/Defs/CherryPicker.xml).
+		This folder loads when any Rimsenal xenotype pack is active (see loadFolders.xml); this file is gated on Zohar and
+		Alpha Genes via an <li>.
+		Verified against Zohar and Alpha Genes 1.6: only the Zohar xenotype carries Gene_SensitiveStomach, and AG_FrailStomach
+		exists. Character Development - Additional Gene Quirks also lists Gene_SensitiveStomach in a reward.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Zohar,sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="Zohar"]/genes/li[text()="Gene_SensitiveStomach"]</xpath>
+						<value>
+							<li>AG_FrailStomach</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/Gene_SensitiveStomach</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

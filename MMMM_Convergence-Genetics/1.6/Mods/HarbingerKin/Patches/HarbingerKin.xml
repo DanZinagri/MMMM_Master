@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		HarbingerKin - Phytokin genes swapped for the Big and Small / Alpha Genes equivalents, with the retired HarbingerKin
+		genes going on this mod's Cherry Picker list. This folder only loads when HarbingerKin is active (see loadFolders.xml).
+		HarbingerKin itself swaps Myt_Male -> AG_Male and Myt_TwistedFlesh -> AG_TwistedFlesh when Alpha Genes is present
+		(its Patches/AlphaGenesPatch.xml); this mod loads after it.
+		  - With the B&S Framework (where Body_MaleOnly lives; the original checked Genes & More): the Harbingerkin's male
+		    gene becomes B&S's male-only gene, whichever of AG_Male / Myt_Male it carries. The Alpha Genes check stays a
+		    FindMod because its nomatch branch fires on Alpha Genes being absent.
+		  - With B&S Genes & More: the xenotype gains B&S's bloodlust gene and the flesh-eater gene stops forcing the vanilla
+		    Bloodlust trait itself (it keeps Cannibal and corpse eater).
+		  - Cherry Picker: Myt_Male is retired when Alpha Genes or the B&S Framework replaces it.
+		Fix: the original also retired Myt_TwistedFlesh with only B&S installed, but only Alpha Genes replaces that gene, so a
+		B&S-only setup left the Harbingerkin with no flesh gene at all. It is now retired only with Alpha Genes.
+		Verified against HarbingerKin, B&S and Alpha Genes 1.6: the xenotype carries Myt_Male and Myt_TwistedFlesh, the
+		flesh-eater gene forces Bloodlust + Cannibal + corpse eater, and Body_MaleOnly, BS_Bloodlust and AG_TwistedFlesh exist.
+		Revive entries are in 1.6/Defs/CherryPicker.xml.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BetterPrerequisites">
+				<operations>
+					<li Class="PatchOperationFindMod">
+						<mods>
+							<li>Alpha Genes</li>
+						</mods>
+						<match Class="PatchOperationSequence">
+							<operations>
+								<li Class="PatchOperationReplace">
+									<xpath>Defs/XenotypeDef[defName="mytigio_Harbingerkin"]/genes/li[text()="AG_Male"]</xpath>
+									<value>
+										<li>Body_MaleOnly</li>
+									</value>
+								</li>
+							</operations>
+						</match>
+						<nomatch Class="PatchOperationSequence">
+							<operations>
+								<li Class="PatchOperationReplace">
+									<xpath>Defs/XenotypeDef[defName="mytigio_Harbingerkin"]/genes/li[text()="Myt_Male"]</xpath>
+									<value>
+										<li>Body_MaleOnly</li>
+									</value>
+								</li>
+							</operations>
+						</nomatch>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="mytigio_Harbingerkin"]/genes</xpath>
+						<value>
+							<li>BS_Bloodlust</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="myt_flesheater"]/forcedTraits</xpath>
+						<value>
+							<forcedTraits>
+								<li>
+									<def>Cannibal</def>
+								</li>
+								<li>
+									<def>myt_corpseeater</def>
+								</li>
+							</forcedTraits>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd" MayRequireAnyOf="sarg.alphagenes,RedMattis.BetterPrerequisites">
+				<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+				<value>
+					<li>GeneDef/Myt_Male</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="sarg.alphagenes">
+				<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+				<value>
+					<li>GeneDef/Myt_TwistedFlesh</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

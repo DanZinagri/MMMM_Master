@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Head genes: special head shapes from vanilla, Beliar, Big and Small, Biotech Expansion, Det's Avaloi, Rimsenal Askbarn /
+		Harana and VRE Genie join a shared head exclusion group so only one applies. Moved from the core root file AA5C_Heads.xml
+		(no setting). Dropped the displayCategory moves into Alpha Genes' cosmetic heads category (gene recategorisation rule);
+		the ops that replaced displayCategory to slip exclusionTags in are now plain adds of the tags. Checked with
+		analysis/patch_sim.py: all installed-mod ops apply, no duplicate nodes.
+	-->
+
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>/Defs/GeneDef[defName="Head_Gaunt"]</xpath>
+								<value>
+									<exclusionTags>
+										<li>AG_Heads</li>
+										<li>Heads</li>
+										<li>Head</li>
+									</exclusionTags>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="ElSov.Beliar">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>/Defs/GeneDef[defName="BX_ProfaneHead"]</xpath>
+										<value>
+											<exclusionTags>
+												<li>AG_Heads</li>
+												<li>Heads</li>
+												<li>Head</li>
+											</exclusionTags>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>/Defs/GeneDef[defName="BS_BrokenTitanHead" or defName="BS_OgreHead" or defName="BS_DevourerHead" or defName="BS_DragonHead" or defName="BS_SatanHead" or defName="BS_GhoulHead"]</xpath>
+										<value>
+											<exclusionTags>
+												<li>AG_Heads</li>
+												<li>Heads</li>
+												<li>Head</li>
+											</exclusionTags>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="biotexpans.mammalia">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>/Defs/GeneDef[defName="BTEMa_LupineHead" or defName="BTEMa_CervineHead" or defName="BTEMa_RodentHead" or defName="BTEMa_BatHead" or defName="BTEMa_ElephantHead" or defName="BTEMa_SheepHead" or defName="BTEMa_BovineHead"]</xpath>
+										<value>
+											<exclusionTags>
+												<li>AG_Heads</li>
+												<li>Heads</li>
+												<li>Head</li>
+											</exclusionTags>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="biotexpans.mythic">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>/Defs/GeneDef[defName="BTEMy_DraconicHead" or defName="BTEMy_PhoenixHead" or defName="BTEMy_FluffyFoxHead"]</xpath>
+										<value>
+											<exclusionTags>
+												<li>AG_Heads</li>
+												<li>Heads</li>
+												<li>Head</li>
+											</exclusionTags>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="det.avaloi">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>/Defs/GeneDef[defName="DV_Head_Avaloi"]</xpath>
+										<value>
+											<exclusionTags>
+												<li>AG_Heads</li>
+												<li>Heads</li>
+												<li>Head</li>
+											</exclusionTags>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Harana">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>/Defs/GeneDef[defName="Narrow_Pointy_Head" or defName="Narrow_Normal_Head"]</xpath>
+										<value>
+											<exclusionTags>
+												<li>AG_Heads</li>
+												<li>Heads</li>
+												<li>Head</li>
+											</exclusionTags>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Askbarn">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>/Defs/GeneDef[defName="Pointy_Average_Head"]</xpath>
+										<value>
+											<exclusionTags>
+												<li>AG_Heads</li>
+												<li>Heads</li>
+												<li>Head</li>
+											</exclusionTags>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.genie">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>/Defs/GeneDef[defName="VRE_ElongatedHead"]</xpath>
+										<value>
+											<exclusionTags>
+												<li>AG_Heads</li>
+												<li>Heads</li>
+												<li>Head</li>
+											</exclusionTags>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

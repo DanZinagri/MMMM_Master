@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Beliar uses Alpha Genes' heat immunity instead of its own basalt skin and large heat tolerance, so the same
+		protection is not granted twice under three names.
+		This folder only loads when Beliar Xenotype is active (see loadFolders.xml); Alpha Genes is gated inside.
+		The mod gates sit on <li> nodes inside sequences, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements.
+
+		Verified against Beliar 1.6: the xenotype does list BX_BasaltSkin and MaxTemp_LargeIncrease and does not
+		already carry AG_HeatImmunity, so all three operations land.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BX_Beliar"]/genes</xpath>
+						<value>
+							<li>AG_HeatImmunity</li>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/XenotypeDef[defName="BX_Beliar"]/genes/li[text()="BX_BasaltSkin"]</xpath>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/XenotypeDef[defName="BX_Beliar"]/genes/li[text()="MaxTemp_LargeIncrease"]</xpath>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

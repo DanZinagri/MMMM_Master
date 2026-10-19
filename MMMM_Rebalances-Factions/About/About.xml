@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Many Many Many Mods Modularized - Rebalances - Factions</name>
+	<author>DanZinagri</author>
+	<packageId>DanZinagri.MMMM.Rebalances.Factions</packageId>
+	<supportedVersions>
+		<li>1.6</li>
+		<li>1.7</li>
+	</supportedVersions>
+	<loadAfter>
+		<li>Wara.toomanymods</li>
+		<li>biotexpans.mammalia</li>
+		<li>biotexpans.mythic</li>
+		<li>Crows.DragonBond</li>
+		<li>det.avaloi</li>
+		<li>det.boglegs</li>
+		<li>det.brawnum</li>
+		<li>det.buzzers</li>
+		<li>det.keshig</li>
+		<li>det.stoneborn</li>
+		<li>det.venators</li>
+		<li>ElSov.Beliar</li>
+		<li>Ludeon.RimWorld.Anomaly</li>
+		<li>OskarPotocki.VanillaFactionsExpanded.SettlersModule</li>
+		<li>RedMattis.BigSmall</li>
+		<li>RedMattis.BSSlimes</li>
+		<li>RedMattis.LamiasAndOtherSnakes</li>
+		<li>Rimsenal.Askbarn</li>
+		<li>Rimsenal.Harana</li>
+		<li>sarg.alphagenes</li>
+		<li>Sov.Nephilim</li>
+		<li>Trickity.Samurai.Faction</li>
+		<li>vanillaracesexpanded.hussar</li>
+		<li>vanillaracesexpanded.phytokin</li>
+		<li>vanillaracesexpanded.saurid</li>
+		<li>VexedTrees980.RimElvesBiotech</li>
+		<li>VexedTrees980.RimGnoblinsBiotech</li>
+	</loadAfter>
+	<description>Rebalances</description>
+</ModMetaData>

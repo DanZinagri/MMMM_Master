@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The Half-foot xenotype uses other mods' equivalents instead of Det's own genes, and the duplicates are handed
+		to Cherry Picker:
+		DV_Bandwidth_High  -> AG_BandwidthIncrease  (Alpha Genes)
+		DV_Melee_Fast      -> VRE_FastMeleeHitter   (VRE - Archon)
+		DV_ExtrasmallBuild -> BS_SmallFrame         (Big and Small), and the now-redundant weak melee gene is removed
+		This folder only loads when Det's Xenotypes - Half-foot is active (see loadFolders.xml); each swap is gated on
+		the mod that provides the replacement.
+
+		Fix 2026-10-03: a retired gene is now swapped in every xenotype that carries it (not just this mod's), and only
+		retired under the same mods as its replacement. Before, other mods' xenotypes sharing the gene (and this one, when
+		the replacement mod was absent) lost it to Cherry Picker with nothing in its place.
+		Verified against Half-foot 1.6: the xenotype def lists DV_Bandwidth_High, DV_Melee_Fast and MeleeDamage_Weak.
+		DV_ExtrasmallBuild is different: Half-foot adds it to the xenotype from its own patch, which is itself gated on
+		Vanilla Expanded Framework. That is why the swap below is wrapped in a conditional; without VEF the gene is
+		never added and a bare Replace would fail. It also relies on load order, so keep det.halffoot in loadAfter.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="DV_Bandwidth_High"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="DV_Bandwidth_High"]</xpath>
+							<value>
+								<li>AG_BandwidthIncrease</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/DV_Bandwidth_High</li>
+							<li>GeneDef/DV_Bandwidth_High_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.archon">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="DV_Melee_Fast"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="DV_Melee_Fast"]</xpath>
+							<value>
+								<li>VRE_FastMeleeHitter</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/DV_Melee_Fast</li>
+							<li>GeneDef/DV_Melee_Fast_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="DV_ExtrasmallBuild"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="DV_ExtrasmallBuild"]</xpath>
+							<value>
+								<li>BS_SmallFrame</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="DV_Halffoot"]/genes/li[text()="MeleeDamage_Weak"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[defName="DV_Halffoot"]/genes/li[text()="MeleeDamage_Weak"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/DV_ExtrasmallBuild</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		ReSplice: Charmweavers genes lined up with the shared gene groups.
+		  - With Alpha Genes: the Charmweaver's own angelic beauty gene becomes Alpha Genes' angelic beauty, and the ReSplice
+		    gene (and its runtime astrogene) goes on this mod's Cherry Picker list; revive entries in 1.6/Defs/CherryPicker.xml.
+		  - ReSplice's temperature-insensitive gene covers both comfortable-temperature ends but only carried the
+		    MinTemperature exclusion tag; it gains MaxTemperature too, so it cannot stack with max-temperature genes.
+		This folder only loads when ReSplice: Charmweavers is active (see loadFolders.xml).
+		Verified against ReSplice: Charmweavers and Alpha Genes 1.6: the Charmweaver carries RS_Beauty_Angelic, AG_Beauty_Angelic
+		exists, and RS_TemperatureInsensitive's exclusionTags hold only MinTemperature. No other installed mod patches either gene.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="RS_Charmweaver"]/genes/li[text()="RS_Beauty_Angelic"]</xpath>
+						<value>
+							<li>AG_Beauty_Angelic</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/RS_Beauty_Angelic</li>
+							<li>GeneDef/RS_Beauty_Angelic_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="RS_TemperatureInsensitive"]/exclusionTags</xpath>
+		<value>
+			<li>MaxTemperature</li>
+		</value>
+	</Operation>
+
+</Patch>

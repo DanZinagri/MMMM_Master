@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Goji's Fantasy Race: Merren + ReGrowth 2: Merren's aquatic gene nullifies ReGrowth's "wet" and "extremely wet" thoughts
+		(creating the lists if needed; the Alpha Genes water-striding integration adds to the same lists).
+		This folder only loads when Merren is active (see loadFolders.xml); the ReGrowth gate sits on an <li>.
+		The original core folder was gated on packageId "Goji.Merren", which no mod has, so none of this ever loaded; the
+		gate is now Arquebus.StagzMerfolk, confirmed against Merren's About.xml. Verified against Merren 1.6: the coastal merfolk
+		carry both Stagz_SwiftSwim and Stagz_Aquatic, and none of the Stagz_ genes patched here has exclusionTags of its own.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="ReGrowth.BOTR.Core">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/*[defName="RG_Wet"]/nullifyingGenes</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/*[defName="RG_Wet"]</xpath>
+							<value>
+								<nullifyingGenes/>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/*[defName="RG_Wet"]/nullifyingGenes</xpath>
+						<value>
+							<li>Stagz_Aquatic</li>
+						</value>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/*[defName="RG_ExtremelyWet"]/nullifyingGenes</xpath>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/*[defName="RG_ExtremelyWet"]</xpath>
+							<value>
+								<nullifyingGenes/>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/*[defName="RG_ExtremelyWet"]/nullifyingGenes</xpath>
+						<value>
+							<li>Stagz_Aquatic</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

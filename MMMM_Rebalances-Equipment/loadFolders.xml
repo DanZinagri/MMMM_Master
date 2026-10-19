@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- 1.6/Mods/<Name> loads when that mod is active; 1.6/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<li>/</li>
+		<li>1.6</li>
+		<li IfModNotActive="RedMattis.BigSmall.Overtuned">1.6/Without/BigAndSmallOvertuned</li>
+		<li IfModNotActive="frozensnowfox.advancedbionicsexpansion,frozensnowfox.vanillabionicsexpansion,kentington.saveourship2,teok25.archotechexpanded,teok25.archotechexpanded.prosthetics">1.6/Without/OtherArchotechSpineMods</li>
+		<li IfModNotActive="alien.arasakacorporation01a,bambaryla.bor,doug.conn,explodoboy.SNSAmbitionCosmic,explodoboy.SNSAmbitionCosmic.Gen4Addon,feaurie.greyscythebionics,frozensnowfox.advancedbionicsexpansion,mrkociak.yetanotherprostheticexpansionmodcore,Para0234.SNSAmbitionCosmic,para0234.SNSAmbitionCosmicGen4Addon,rah.rbse,StatistNo1.EvolvedOrgansRedux,vat.epoeforked,Xahkarias.EvolvedOrgansRedux,ykara.elstrages.epoe,ykara.epoe">1.6/Without/OtherBionicsMods</li>
+		<li IfModActive="frozensnowfox.vanillabionicsexpansion">1.6/Mods/FSFVanillaBionicsExpansion</li>
+		<li IfModActive="det.phaseweaponry">1.6/Mods/PhaseWeaponry</li>
+		<li IfModActive="rimsenal.evp">1.6/Mods/RimsenalAugmentedVanilla</li>
+		<li IfModActive="rimsenal.core">1.6/Mods/RimsenalMurderDiversified</li>
+		<li IfModActive="VanillaExpanded.VAEAccessories">1.6/Mods/VanillaApparelExpandedAccessories</li>
+		<li IfModActive="VanillaExpanded.VWE">1.6/Mods/VanillaWeaponsExpanded</li>
+		<li IfModActive="VanillaExpanded.VWETB">1.6/Mods/VanillaWeaponsExpandedTribals</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core" IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025">1.6/Mods/BigAndSmallGiantWeapons</li>
+		<li IfModActive="lts.I">1.6/Mods/IntegratedImplants</li>
+		<li IfModActive="VanillaExpanded.VARME">1.6/Mods/VanillaArmourExpanded</li>
+		<li IfModActive="detvisor.impactweaponryreloaded">1.6/Mods/ImpactWeaponry</li>
+		<li IfModActive="detvisor.pulseweaponry">1.6/Mods/PulseWeaponry</li>
+		<li IfModActive="Spino.Megafauna">1.6/Mods/Megafauna</li>
+	</v1.6>
+	<v1.7>
+		<!-- 1.7/Mods/<Name> loads when that mod is active; 1.7/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<li>/</li>
+		<li>1.7</li>
+		<li IfModNotActive="RedMattis.BigSmall.Overtuned">1.7/Without/BigAndSmallOvertuned</li>
+		<li IfModNotActive="frozensnowfox.advancedbionicsexpansion,frozensnowfox.vanillabionicsexpansion,kentington.saveourship2,teok25.archotechexpanded,teok25.archotechexpanded.prosthetics">1.7/Without/OtherArchotechSpineMods</li>
+		<li IfModNotActive="alien.arasakacorporation01a,bambaryla.bor,doug.conn,explodoboy.SNSAmbitionCosmic,explodoboy.SNSAmbitionCosmic.Gen4Addon,feaurie.greyscythebionics,frozensnowfox.advancedbionicsexpansion,mrkociak.yetanotherprostheticexpansionmodcore,Para0234.SNSAmbitionCosmic,para0234.SNSAmbitionCosmicGen4Addon,rah.rbse,StatistNo1.EvolvedOrgansRedux,vat.epoeforked,Xahkarias.EvolvedOrgansRedux,ykara.elstrages.epoe,ykara.epoe">1.7/Without/OtherBionicsMods</li>
+		<li IfModActive="frozensnowfox.vanillabionicsexpansion">1.7/Mods/FSFVanillaBionicsExpansion</li>
+		<li IfModActive="det.phaseweaponry">1.7/Mods/PhaseWeaponry</li>
+		<li IfModActive="rimsenal.evp">1.7/Mods/RimsenalAugmentedVanilla</li>
+		<li IfModActive="rimsenal.core">1.7/Mods/RimsenalMurderDiversified</li>
+		<li IfModActive="VanillaExpanded.VAEAccessories">1.7/Mods/VanillaApparelExpandedAccessories</li>
+		<li IfModActive="VanillaExpanded.VWE">1.7/Mods/VanillaWeaponsExpanded</li>
+		<li IfModActive="VanillaExpanded.VWETB">1.7/Mods/VanillaWeaponsExpandedTribals</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core" IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025">1.7/Mods/BigAndSmallGiantWeapons</li>
+		<li IfModActive="lts.I">1.7/Mods/IntegratedImplants</li>
+		<li IfModActive="VanillaExpanded.VARME">1.7/Mods/VanillaArmourExpanded</li>
+		<li IfModActive="detvisor.impactweaponryreloaded">1.7/Mods/ImpactWeaponry</li>
+		<li IfModActive="detvisor.pulseweaponry">1.7/Mods/PulseWeaponry</li>
+		<li IfModActive="Spino.Megafauna">1.7/Mods/Megafauna</li>
+	</v1.7>
+</loadFolders>

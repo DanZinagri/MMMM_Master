@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Rimsenal Xenotype Pack - Harana gets a dodge gene from whichever partner mod is loaded:
+		  - VRE Lycanthrope: superior dodge.
+		  - Askbarn without Lycanthrope: Det's Keshig's high dodge chance if Keshig is loaded, otherwise Askbarn's born warrior.
+		    The Lycanthrope and Keshig checks test for a mod being absent, so they stay as FindMods.
+		This folder loads when a Rimsenal xenotype pack is active (see loadFolders.xml); each block is gated on its mods via an <li>.
+		Verified against Harana, Askbarn, Lycanthrope and Keshig 1.6.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Harana,vanillaracesexpanded.lycanthrope">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="Harana"]/genes</xpath>
+						<value>
+							<li>VRE_SuperiorDodge</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationFindMod" MayRequire="Rimsenal.Harana,Rimsenal.Askbarn">
+				<mods>
+					<li>Vanilla Races Expanded - Lycanthrope</li>
+				</mods>
+				<nomatch Class="PatchOperationSequence">
+					<operations>
+						<li Class="PatchOperationFindMod">
+							<mods>
+								<li>Det's Xenotypes - Keshig</li>
+							</mods>
+							<match Class="PatchOperationAdd">
+								<xpath>Defs/XenotypeDef[defName="Harana"]/genes</xpath>
+								<value>
+									<li>DV_DodgeChance_High</li>
+								</value>
+							</match>
+							<nomatch Class="PatchOperationAdd">
+								<xpath>Defs/XenotypeDef[defName="Harana"]/genes</xpath>
+								<value>
+									<li>RSBornWarrior</li>
+								</value>
+							</nomatch>
+						</li>
+					</operations>
+				</nomatch>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

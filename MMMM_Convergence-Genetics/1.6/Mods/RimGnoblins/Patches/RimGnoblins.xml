@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Rim-Gnoblins genes swapped for the equivalents other mods ship, with each retired gene going on this mod's
+		Cherry Picker list.
+		  - The gnoblin's tox glands become Alpha Genes' venom fangs.
+		  - Its extreme dwarfism becomes Big and Small's small frame.
+		  - Its rapid development gene is retuned to match VRE - Pigskin's fast aging and the two are made mutually
+		    exclusive through a shared Lifespan tag, and the gnoblin gains the Pigskin gene. The metabolism change is
+		    part of bringing the two to parity, not a separate tuning pass.
+		  - Det's Stoneborn long lifespan joins the same Lifespan group.
+		This folder only loads when Rim-Gnoblins is active (see loadFolders.xml); each swap carries MayRequire for the
+		mod that supplies the replacement.
+		The mod gates sit on <li> nodes inside sequences, not on the <Operation> itself: RimWorld reads MayRequire only
+		on list elements.
+
+		Verified against the current 1.6 releases: AG_VenomFangs, BS_SmallFrame and VRE_FastAging all exist, and
+		DV_LifespanLong has no exclusionTags of its own so that add creates one. The Lifespan group is invented by this
+		project rather than defined upstream, and both its members are in this file, so it is complete.
+		Rim-Gnoblins is not installed here, so none of its own defs could be checked: the Gnoblin xenotype,
+		RG_ToxGlands, Size_ExtremeDwarfism and Age_RapidDevelopment are all taken on trust from the original
+		patch. The folder gate reuses the packageId the core mod already used, which is likewise unverified.
+		Fix 2026-10-03: a retired gene is now swapped in every xenotype that carries it (not just this mod's), and only
+		retired under the same mods as its replacement. Before, other mods' xenotypes sharing the gene (and this one, when
+		the replacement mod was absent) lost it to Cherry Picker with nothing in its place.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="Gnoblin"]/genes/li[text()="RG_ToxGlands"]</xpath>
+						<value>
+							<li>AG_VenomFangs</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/RG_ToxGlands</li>
+							<li>GeneDef/RG_ToxGlands_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="Size_ExtremeDwarfism"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="Size_ExtremeDwarfism"]</xpath>
+							<value>
+								<li>BS_SmallFrame</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/Size_ExtremeDwarfism</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.pigskin">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="Age_RapidDevelopment"]/label</xpath>
+						<value>
+							<label>short lifespan</label>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="Age_RapidDevelopment"]/exclusionTags</xpath>
+						<value>
+							<exclusionTags>
+								<li>Lifespan</li>
+							</exclusionTags>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="Age_RapidDevelopment"]/biostatMet</xpath>
+						<value>
+							<biostatMet>2</biostatMet>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="Age_RapidDevelopment"]/statFactors/LifespanFactor</xpath>
+						<value>
+							<LifespanFactor>0.5</LifespanFactor>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/GeneDef[defName="Age_RapidDevelopment"]/biologicalAgeTickFactorFromAgeCurve</xpath>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="Gnoblin"]/genes</xpath>
+						<value>
+							<li>VRE_FastAging</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="det.stoneborn">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/GeneDef[defName="DV_LifespanLong"]</xpath>
+						<value>
+							<exclusionTags>
+								<li>Lifespan</li>
+							</exclusionTags>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

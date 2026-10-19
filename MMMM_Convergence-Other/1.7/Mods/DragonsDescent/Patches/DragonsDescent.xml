@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Dragons Descent adjustments. This folder only loads when Dragons Descent is active (see loadFolders.xml).
+		  - The dragon crown and scale helm stop inheriting their parent's recipe benches (recipeUsers Inherit="False").
+		  - Making chemfuel from hard scale moves from the fueled/electric smithy to the biofuel refinery.
+		  - VTE's Animal hater nullifies the "nuzzled by a dragon" thought (creating the list if needed).
+		  - With Ideology, the Ritual_Weak / Moderate / Large / Major recipes use vanilla's theist ritual sustainer sound.
+		Dragons Descent is not installed here, so its defs could not be checked; the vanilla BiofuelRefinery recipes list,
+		VTE_AnimalHater and RitualSustainer_Theist exist.
+		Split by category into the MMMM Convergence sub-mods: this copy holds only the Other ops (everything else (thoughts, sanity, meditation focus, hediffs, animals, plants)).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/ThoughtDef[defName="DD_DragonNuzzled"]/nullifyingTraits</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/ThoughtDef[defName="DD_DragonNuzzled"]</xpath>
+					<value>
+						<nullifyingTraits>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+						</nullifyingTraits>
+					</value>
+				</nomatch>
+				<match Class="PatchOperationAdd">
+					<xpath>Defs/ThoughtDef[defName="DD_DragonNuzzled"]/nullifyingTraits</xpath>
+					<value>
+						<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+					</value>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

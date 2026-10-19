@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		T's Samurai Faction + VIE Memes and Structures: the samurai clan requires VIE's Bushido meme.
+		This folder only loads when T's Samurai Faction is active (see loadFolders.xml); the VIE Memes gate sits on an <li>.
+		Verified: TSF_SamuraiClan has no requiredMemes upstream, so the add creates the list; VME_Bushido exists.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VMemesE">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/FactionDef[defName="TSF_SamuraiClan"]</xpath>
+						<value>
+							<requiredMemes>
+								<li MayRequire="Ludeon.RimWorld.Ideology">VME_Bushido</li>
+							</requiredMemes>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<!--
+		The shinobi clan fields impids (0.1, Biotech), Geists (0.2, Geist Xenotype) and lesser oni (0.1, Big and Small - Yokai),
+		each entry gated on its mod. Upstream the clan has no xenotype set, so the add creates one. Verified GS_Geist exists in
+		Geist. The core faction patches (AA6A) added a second xenotype set with the same entries plus impids, which duplicated
+		this node when Geist was loaded; the two are merged here.
+		The original block also created a hidden dummy FactionDef named TSF_SamuraiBase to silence a Geist red error (a Geist
+		patch once targeted T's Samurai's abstract parent as if it were a def). Current Geist no longer references T's Samurai
+		and no installed mod targets that name, so the dummy was dropped.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/FactionDef[defName="TSF_SamuraiClanShinobi"]</xpath>
+				<value>
+					<xenotypeSet>
+						<xenotypeChances>
+							<Impid MayRequire="Ludeon.RimWorld.Biotech">0.1</Impid>
+							<GS_Geist MayRequire="Sov.Tenmo">0.2</GS_Geist>
+							<BS_LesserOni MayRequire="RedMattis.Yokai">0.1</BS_LesserOni>
+						</xenotypeChances>
+					</xenotypeSet>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

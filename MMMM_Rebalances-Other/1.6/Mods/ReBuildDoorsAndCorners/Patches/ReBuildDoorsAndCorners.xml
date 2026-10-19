@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		ReBuild: Doors and Corners: with Vanilla Furniture Expanded, ReBuild's floor lamp has 50 max hit points (was 25; VFE's
+		own floor lamp has 40).
+		This folder only loads with ReBuild: Doors and Corners (see loadFolders.xml); the VFE gate sits on an <li>.
+		Verified against ReBuild D&C and VFE 1.6: RB_FloorLamp sets MaxHitPoints in its own statBases, and no installed mod
+		patches it.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VFECore">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="RB_FloorLamp"]/statBases/MaxHitPoints</xpath>
+						<value>
+							<MaxHitPoints>50</MaxHitPoints>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

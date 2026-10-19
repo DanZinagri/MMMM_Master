@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Description and recipe touch-ups around the minotaur weapons.
+		  - Seven minotaur weapons and five Big and Small giant weapons gain a closing line saying they are too
+		    large for a regular human to wield, which is the rule B&amp;S enforces once the two mods are combined.
+		  - The two Hellenic helmets stop inheriting their parent's bench list, and the sling can be made at a crafting
+		    spot.
+		This folder only loads when Roo's Minotaur Xenotype is active (see loadFolders.xml); everything else is gated
+		per operation.
+		The mod gates sit on <li> nodes inside sequences, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements. MayRequire is all-of and MayRequireAnyOf is any-of; both on one node
+		means both must pass.
+
+		Verified against the current 1.6 releases: all twelve weapons exist and carry a description, the sling has a
+		recipeMaker with no recipeUsers so the add creates one, and both helmets define recipeUsers holding
+		ElectricSmithy and FueledSmithy while their shared parent ArmorHelmetMakeableBase defines the very same two.
+		Without Inherit="False" the merged list would name each bench twice, so that operation is a real de-duplication,
+		not the no-op the same pattern turned out to be in the Big and Small Races file.
+
+		The five Big and Small descriptions are gated on Genes &amp; More plus any one Big and Small content mod, because
+		those weapons live in that mod's Conditional/AnyContentMod folder. They have nothing to do with Roo's Minotaur
+		beyond the author having filed them here.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="RBME_EpsilonAxe"]/description</xpath>
+				<value>
+					<description>A skullshattering axe widely used by minotaur savages. Though it's burdened with a long cooldown and poor accuracy, it can cut its victims' heads clean off in a single swing. Too large to be wielded by a regular human.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="RBM_Bullslinger"]/description</xpath>
+				<value>
+					<description>An ancient, obsidian bow of unknown origin, passed down by countless generations of minotaurs. It fires blisteringly cold arrows, accurate enough to trim the nosehair of a pigskin from five acres away. Too large to be wielded by a regular human.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="RBM_TaurailGun"]/description</xpath>
+				<value>
+					<description>An ancient obsidian railgun powered by a glowing gemstone. Little is known about this fabled weapon, other than that victims of its blast seldom live to tell the tale. Those unfortunate enough to be in its impact zone and still survive will become terrified and flee the area. Too large to be wielded by a regular human.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="RBM_Labrys"]/description</xpath>
+				<value>
+					<description>An oversized obsidian axe that is seen as a symbol of minotaur culture. Its immense weight burdens it with an immense cooldown, but it can tear through its victims' necks like they were little more than parchment. Too large to be wielded by a regular human.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="RBM_Damocles"]/description</xpath>
+				<value>
+					<description>A heavy, obsidian sword with many tales surrounding it in certain cultures. In exchange for its blinding attack speed and chance to land a critical hit during battle, holding it imparts an incredibly anxious feeling onto the wielder. Too large to be wielded by a regular human.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="RBM_Tunbell"]/description</xpath>
+				<value>
+					<description>An elusive, obsidian staff that resembles a large tuning fork. The shrill sound it makes upon impact is enough to make enemy pawns deaf. Too large to be wielded by a regular human.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="RBM_Midaspear"]/description</xpath>
+				<value>
+					<description>An obsidian weapon with a gold-encrusted spearhead. If this weapon lands the killing blow to a pawn, there is a high chance that it will turn their bloodied corpse into gold. This only works on humanlikes though. Too large to be wielded by a regular human.</description>
+				</value>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core" MayRequireAnyOf="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="BS_JotunRifle"]/description</xpath>
+						<value>
+							<description>A heavy rifle designed to be wielded by a combat mech for use against other mechs other other heavy military hardware.\n\nThe weapon is too large to be wielded by a regular human, even if they could somehow manage the terrible recoil.</description>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="BS_GiantMinigun"]/description</xpath>
+						<value>
+							<description>A hugely oversized multi-barrel machine gun. It's unwieldy for regular human and clearly made to be mounted on some sort of vehicle or mech. The weapon is made for laying down supressive fire and does not require aiming, and thanks to the belt-fed ammo the weapon fire for a long time without reloading.</description>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="BS_JotunRocketLauncher"]/description</xpath>
+						<value>
+							<description>A heavy rocket launcher originally designed to be welded to a combat mech for use against other mechs other other heavy military hardware.\n\nThe weapon is too large to be wielded by a regular human, even if they could somehow manage the terrible recoil.</description>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="BS_JotunJavelin"]/description</xpath>
+						<value>
+							<description>These huge javelins are primarily made for throwing, but they also make for acceptable melee weapons. They take a long time to throw, but one hit can do devastating damage. Too large to be wielded by a regular human.</description>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="BS_OgreThrowinRock"]/description</xpath>
+						<value>
+							<description>These large rocks have been crudely chiseled for throwing at enemies. Too heavy to be wielded by a regular human.</description>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="tug.minotaur.expanded">
+				<operations>
+					<li Class="PatchOperationAttributeSet">
+						<xpath>Defs/ThingDef[defName="RBME_HellenicHelmet" or defName="RBME_RoyalHellenicHelmet"]/recipeMaker/recipeUsers</xpath>
+						<attribute>Inherit</attribute>
+						<value>False</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="RBME_Sling"]/recipeMaker</xpath>
+						<value>
+							<recipeUsers>
+								<li>CraftingSpot</li>
+							</recipeUsers>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

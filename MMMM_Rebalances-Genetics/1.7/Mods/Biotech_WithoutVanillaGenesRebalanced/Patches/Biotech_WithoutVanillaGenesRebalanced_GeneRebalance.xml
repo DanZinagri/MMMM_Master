@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved here from the gene rebalance file (1.7/Mods/Biotech/Patches/GeneRebalance.xml).
+		This folder loads only when Ludeon.RimWorld.Biotech is active and RedMattis.VanillaGenesRebalanced is NOT active (see loadFolders.xml). The same condition used to be a
+		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="WoundHealing_Slow"]/biostatMet</xpath>
+						<value>
+							<biostatMet>3</biostatMet>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="MoveSpeed_Slow"]/statOffsets/MoveSpeed</xpath>
+						<value>
+							<MoveSpeed>-0.4</MoveSpeed>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="MoveSpeed_Quick"]/statOffsets/MoveSpeed</xpath>
+						<value>
+							<MoveSpeed>0.4</MoveSpeed>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="MoveSpeed_VeryQuick"]/statOffsets/MoveSpeed</xpath>
+						<value>
+							<MoveSpeed>0.7</MoveSpeed>
+						</value>
+					</li>
+					<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName="BS_MoveSpeed_UltraQuick"]/statOffsets/MoveSpeed</xpath>
+								<value>
+									<MoveSpeed>1.0</MoveSpeed>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName="BS_Very_Slow"]/statOffsets/MoveSpeed</xpath>
+								<value>
+									<MoveSpeed>-1.0</MoveSpeed>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName="BS_Very_Slow"]/biostatMet</xpath>
+								<value>
+									<biostatMet>5</biostatMet>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName="WoundHealing_VerySlow"]/statFactors/InjuryHealingFactor</xpath>
+								<value>
+									<InjuryHealingFactor>0.25</InjuryHealingFactor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName="WoundHealing_VerySlow"]/description</xpath>
+								<value>
+									<description>Carriers of this gene heal from wounds at a fourth of the normal speed.</description>
+								</value>
+							</li>
+						</operations>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="NakedSpeed"]/conditionalStatAffecters</xpath>
+						<value>
+							<conditionalStatAffecters>
+								<li Class="ConditionalStatAffecter_Clothed">
+									<statOffsets>
+										<MoveSpeed>-0.4</MoveSpeed>
+									</statOffsets>
+								</li>
+								<li Class="ConditionalStatAffecter_Unclothed">
+									<statOffsets>
+										<MoveSpeed>0.8</MoveSpeed>
+									</statOffsets>
+								</li>
+							</conditionalStatAffecters>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneTemplateDef[defName="AddictionResistant"]/biostatMet</xpath>
+						<value>
+							<biostatMet>-1</biostatMet>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneTemplateDef[defName="AddictionResistant"]/chemicalBiostatOverrides</xpath>
+						<value>
+							<chemicalBiostatOverrides>
+								<li>
+									<chemical>Alcohol</chemical>
+									<biostatMet>0</biostatMet>
+								</li>
+								<li>
+									<chemical>Smokeleaf</chemical>
+									<biostatMet>0</biostatMet>
+								</li>
+							</chemicalBiostatOverrides>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneTemplateDef[defName="AddictionImmune"]/biostatMet</xpath>
+						<value>
+							<biostatMet>-2</biostatMet>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneTemplateDef[defName="AddictionImmune"]/chemicalBiostatOverrides</xpath>
+						<value>
+							<chemicalBiostatOverrides>
+								<li>
+									<chemical>Alcohol</chemical>
+									<biostatMet>-1</biostatMet>
+								</li>
+								<li>
+									<chemical>Smokeleaf</chemical>
+									<biostatMet>-1</biostatMet>
+								</li>
+							</chemicalBiostatOverrides>
+						</value>
+					</li>
+					<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VBrewE">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/GeneTemplateDef[defName="AddictionImmune"]/chemicalBiostatOverrides</xpath>
+								<value>
+									<li>
+										<chemical>VBE_Caffeine</chemical>
+										<biostatMet>-1</biostatMet>
+									</li>
+									<li>
+										<chemical>VBE_Tobacco</chemical>
+										<biostatMet>-1</biostatMet>
+									</li>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/GeneTemplateDef[defName="AddictionResistant"]/chemicalBiostatOverrides</xpath>
+								<value>
+									<li>
+										<chemical>VBE_Caffeine</chemical>
+										<biostatMet>0</biostatMet>
+									</li>
+									<li>
+										<chemical>VBE_Tobacco</chemical>
+										<biostatMet>0</biostatMet>
+									</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+					<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.genie">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/GeneTemplateDef[defName="AddictionImmune"]/chemicalBiostatOverrides</xpath>
+								<value>
+									<li>
+										<chemical>VRE_Antibiotics</chemical>
+										<biostatMet>-1</biostatMet>
+									</li>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/GeneTemplateDef[defName="AddictionResistant"]/chemicalBiostatOverrides</xpath>
+								<value>
+									<li>
+										<chemical>VRE_Antibiotics</chemical>
+										<biostatMet>0</biostatMet>
+									</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+					<li Class="PatchOperationSequence" MayRequire="Halicade.PsilocapGenes">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName="PCG_PsilocapImmune"]/biostatMet</xpath>
+								<value>
+									<biostatMet>-2</biostatMet>
+								</value>
+							</li>
+						</operations>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="AnimalWarcall"]/biostatMet</xpath>
+						<value>
+							<biostatMet>-2</biostatMet>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/AbilityDef[defName="FoamSpray"]/charges</xpath>
+						<value>
+							<charges>9</charges>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="Proj_Acid"]/projectile/damageAmountBase</xpath>
+						<value>
+							<damageAmountBase>60</damageAmountBase>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/AbilityDef[defName="FireSpew"]/cooldownTicksRange</xpath>
+						<value>
+							<cooldownTicksRange>30000</cooldownTicksRange>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

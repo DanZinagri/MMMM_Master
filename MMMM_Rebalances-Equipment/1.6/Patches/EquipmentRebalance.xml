@@ -1,0 +1,1224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Too Many Mods' equipment rebalance: weapon, armour and apparel stats across many mods. Moved whole from the core root file AA1A_EquipmentRebalance.xml, where it sat behind the
+		TMM_EquipmentRebalances setting (default on); installing this mod is the opt-in now.
+		Each block is gated on the mods it touches (MayRequire / MayRequireAnyOf on an <li>); mods with no known packageId keep a
+		name FindMod; blocks that depend on another mod being present or absent now live in gated load folders (loadFolders.xml). Checked with analysis/patch_sim.py against the installed mods:
+		every op whose mods are installed applies. Blocks for mods not installed here are unchecked.
+		Fix: 28 nested FindMods had their match op written as a bare <li>, so Too Many Mods never applied them; they now apply.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="CAT.CryptoPack">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="vanillaquestsexpanded.cryptoforge">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="CAT_CryptoHarpoonProj"]/projectile/damageAmountBase</xpath>
+										<value>
+											<damageAmountBase>15</damageAmountBase>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Medieval2">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEM2_Warbow"]/statBases/RangedWeapon_Cooldown</xpath>
+								<value>
+									<RangedWeapon_Cooldown>4.5</RangedWeapon_Cooldown>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEM2_Warbow"]/verbs/li[@Class="VFEMedieval.VerbProperties_Warbow"]/range</xpath>
+								<value>
+									<range>24.9</range>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEM2_Apparel_PlateHelmetHeavy"]/statBases/StuffEffectMultiplierArmor</xpath>
+								<value>
+									<StuffEffectMultiplierArmor>0.90</StuffEffectMultiplierArmor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEM2_Apparel_LeatherHelmet"]/statBases/StuffEffectMultiplierInsulation_Cold</xpath>
+								<value>
+									<StuffEffectMultiplierInsulation_Cold>0.3</StuffEffectMultiplierInsulation_Cold>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEM2_Apparel_HeavyLeatherHelmet"]/statBases/StuffEffectMultiplierInsulation_Cold</xpath>
+								<value>
+									<StuffEffectMultiplierInsulation_Cold>0.4</StuffEffectMultiplierInsulation_Cold>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEM2_Apparel_HeavyLeatherArmor"]/statBases/StuffEffectMultiplierArmor</xpath>
+								<value>
+									<StuffEffectMultiplierArmor>0.60</StuffEffectMultiplierArmor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEM2_Apparel_LeatherArmor"]/statBases/StuffEffectMultiplierArmor</xpath>
+								<value>
+									<StuffEffectMultiplierArmor>0.40</StuffEffectMultiplierArmor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEM2_Apparel_PaddedArmor"]/statBases/StuffEffectMultiplierArmor</xpath>
+								<value>
+									<StuffEffectMultiplierArmor>0.40</StuffEffectMultiplierArmor>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/StatDef[defName="CarryingCapacity"]/parts/li[@Class="StatPart_Quality"]</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/StatDef[defName="CarryingCapacity"]/parts</xpath>
+					<value>
+						<li Class="StatPart_Quality">
+							<factorAwful>0.5</factorAwful>
+							<factorPoor>0.8</factorPoor>
+							<factorNormal>1</factorNormal>
+							<factorGood>1.2</factorGood>
+							<factorExcellent>1.5</factorExcellent>
+							<factorMasterwork>1.7</factorMasterwork>
+							<factorLegendary>2</factorLegendary>
+						</li>
+					</value>
+				</nomatch>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Mlie.ReinforcedMechanoid2">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="RM_Bullet_ChargeLancePistol"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>30</damageAmountBase>
+									<armorPenetrationBase>0.45</armorPenetrationBase>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="RM_Gun_ChargeLancePistol"]/verbs/li[verbClass="Verb_Shoot"]/range</xpath>
+								<value>
+									<range>29.9</range>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VWEQ">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/ThingDef[defName="VWE_Gun_AutomaticPistol"]/statBases/RangedWeapon_Cooldown</xpath>
+								<match Class="PatchOperationReplace">
+									<xpath>Defs/ThingDef[defName="VWE_Gun_AutomaticPistol"]/statBases/RangedWeapon_Cooldown</xpath>
+									<value>
+										<RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+									</value>
+								</match>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="CAT.StellicArsenal">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="CAT_StellicCarbine"]/verbs/li[label="auto mode"]/defaultCooldownTime</xpath>
+								<value>
+									<defaultCooldownTime>3.6</defaultCooldownTime>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="CAT_ValianceShot"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>9</damageAmountBase>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="CAT_EradicatorShot"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>32</damageAmountBase>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="zal.eltexweaponry">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="EW_Gun_EltexPistol"]/modExtensions/li[@Class="EltexWeaponry.ModExtension_PsychicDamage"]/bonusDamage</xpath>
+								<value>
+									<bonusDamage>6</bonusDamage>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="EW_Gun_EltexLance"]/modExtensions/li[@Class="EltexWeaponry.ModExtension_PsychicDamage"]/bonusDamage</xpath>
+								<value>
+									<bonusDamage>20</bonusDamage>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VARME">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAE_Apparel_PlateHelmet"]/statBases/StuffEffectMultiplierArmor</xpath>
+								<value>
+									<StuffEffectMultiplierArmor>0.5</StuffEffectMultiplierArmor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAE_Apparel_Gambeson"]/statBases/StuffEffectMultiplierArmor</xpath>
+								<value>
+									<!-- button-down shirt: 0.2 -->
+									<StuffEffectMultiplierArmor>0.25</StuffEffectMultiplierArmor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAE_Apparel_Gambeson"]/statBases/StuffEffectMultiplierInsulation_Cold</xpath>
+								<value>
+									<!-- button-down shirt: 0.26 -->
+									<StuffEffectMultiplierInsulation_Cold>0.28</StuffEffectMultiplierInsulation_Cold>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAE_Apparel_QuiltedVest"]/statBases/StuffEffectMultiplierArmor</xpath>
+								<value>
+									<!-- button-down shirt: 0.2 -->
+									<StuffEffectMultiplierArmor>0.3</StuffEffectMultiplierArmor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAE_Apparel_HeavyMarineArmor"]/statBases/EnergyShieldEnergyMax</xpath>
+								<value>
+									<EnergyShieldEnergyMax>0.4</EnergyShieldEnergyMax>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VARME">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Royalty">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="VAE_Apparel_RoyalSiegeArmor"]/statBases/EnergyShieldEnergyMax</xpath>
+										<value>
+											<EnergyShieldEnergyMax>0.4</EnergyShieldEnergyMax>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VAPPE">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAE_Apparel_ShirtandTie" or defName="VAE_Apparel_SuitJacket"]/equippedStatOffsets/TradePriceImprovement</xpath>
+								<value>
+									<NegotiationAbility>0.15</NegotiationAbility>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAE_Apparel_MilitaryUniform"]/statBases/StuffEffectMultiplierArmor</xpath>
+								<value>
+									<StuffEffectMultiplierArmor>0.25</StuffEffectMultiplierArmor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAE_Apparel_MilitaryJacket"]/statBases/StuffEffectMultiplierArmor</xpath>
+								<value>
+									<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAE_Apparel_Jumpsuit"]/statBases/StuffEffectMultiplierArmor</xpath>
+								<value>
+									<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAE_Apparel_Jeans"]/statBases/StuffEffectMultiplierArmor</xpath>
+								<value>
+									<StuffEffectMultiplierArmor>0.25</StuffEffectMultiplierArmor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAE_Apparel_MilitaryUniform"]/costStuffCount</xpath>
+								<value>
+									<costStuffCount>140</costStuffCount>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAE_Apparel_MilitaryUniform"]/costList</xpath>
+								<value>
+									<costList>
+										<Plasteel>20</Plasteel>
+									</costList>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Glitter Weaponry</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<operations>
+						<li Class="PatchOperationSequence">
+							<operations>
+								<li Class="PatchOperationReplace">
+									<xpath>Defs/ThingDef[defName="Laser_Handcannon"]/statBases/RangedWeapon_Cooldown</xpath>
+									<value>
+										<RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+									</value>
+								</li>
+								<li Class="PatchOperationReplace">
+									<xpath>Defs/ThingDef[defName="Laser_Carbine"]/verbs/li/warmupTime</xpath>
+									<value>
+										<warmupTime>1.0</warmupTime>
+									</value>
+								</li>
+								<li Class="PatchOperationReplace">
+									<xpath>Defs/ThingDef[defName="Laser_Carbine"]/statBases/RangedWeapon_Cooldown</xpath>
+									<value>
+										<RangedWeapon_Cooldown>2.9</RangedWeapon_Cooldown>
+									</value>
+								</li>
+								<li Class="PatchOperationReplace">
+									<xpath>Defs/ThingDef[defName="Laser_Saber"]/tools/li[label="edge"]/armorPenetration</xpath>
+									<value>
+										<armorPenetration>1.2</armorPenetration>
+									</value>
+								</li>
+							</operations>
+						</li>
+					</operations>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="detvisor.pulseweaponry">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="PulseBullet"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>8</damageAmountBase>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="DV_PulseSMG"]/statBases/RangedWeapon_Cooldown</xpath>
+								<value>
+									<RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="DV_PulseSMG"]/verbs/li/warmupTime</xpath>
+								<value>
+									<warmupTime>0.5</warmupTime>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="det.phaseweaponry">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="DV_Gun_PhasePistol"]/statBases/RangedWeapon_Cooldown</xpath>
+								<value>
+									<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="DV_Gun_PhasePrecisionRifle"]/statBases/RangedWeapon_Cooldown</xpath>
+								<value>
+									<RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="DV_Gun_PhasePrecisionRifle"]/verbs/li[verbClass="Verb_Shoot"]/warmupTime</xpath>
+								<value>
+									<warmupTime>1.1</warmupTime>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VexedTrees980.RimElvesBiotech">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="MeleeWeapon_BaneBrand"]/tools/li[label="point"]/armorPenetration</xpath>
+								<value>
+									<armorPenetration>0.25</armorPenetration>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="MeleeWeapon_BaneBrand"]/tools/li[label="edge"]/armorPenetration</xpath>
+								<value>
+									<armorPenetration>0.25</armorPenetration>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Bow_ElvenCharge"]/verbs/li[verbClass="Verb_Shoot"]/warmupTime</xpath>
+								<value>
+									<warmupTime>2.0</warmupTime>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Arrow_ElvenChargeBow"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>30</damageAmountBase>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Pirates">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/VFEPirates.WarcasketDef[defName="VFEP_Warcasket_Guardian"]/comps/li[@Class="VEF.Apparels.CompProperties_ShieldField"]/workingTimeTicks</xpath>
+								<value>
+									<workingTimeTicks>300</workingTimeTicks>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/VFEPirates.WarcasketDef[defName="VFEP_Warcasket_Guardian"]/comps/li[@Class="VEF.Apparels.CompProperties_ShieldField"]/activationDescKey</xpath>
+								<value>
+									<activationDescKey>VFEP.ActivateShieldDescNerfed</activationDescKey>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Pirates">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Royalty">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/VFEPirates.WarcasketDef[defName="VFEP_Warcasket_Guardian"]/costList/ComponentSpacer</xpath>
+										<value>
+											<ComponentSpacer>4</ComponentSpacer>
+											<BroadshieldCore>1</BroadshieldCore>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="rimsenal.feral">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="Apparel_HuskerHood" or defName="Apparel_SkulkerHood" or defName="Apparel_ThumperHood" or defName="Apparel_FeralHood" or defName="Apparel_ScorcherHelmet"]/statBases</xpath>
+								<value>
+									<StuffEffectMultiplierArmor>0.25</StuffEffectMultiplierArmor>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="Apparel_ScorcherHelmet"]/equippedStatOffsets</xpath>
+								<value>
+									<ToxicEnvironmentResistance>0.5</ToxicEnvironmentResistance>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Gun_SkullBuster"]/equippedStatOffsets/MoveSpeed</xpath>
+								<value>
+									<MoveSpeed>-0.35</MoveSpeed>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Spacer">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Apparel_SmartVisor"]/description</xpath>
+								<value>
+									<description>A target acquisition computer that assists the user. It categorizes and analyzes the targets and presents the user with which ones to neutralize first. An onboard targeting computer displays firing solutions on a retinal projection. It offers little protection.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Apparel_SmartVisor"]/statBases</xpath>
+								<value>
+									<statBases>
+										<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+										<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+										<ArmorRating_Heat>0.1</ArmorRating_Heat>
+										<Insulation_Cold>0</Insulation_Cold>
+										<Insulation_Heat>0</Insulation_Heat>
+									</statBases>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="Apparel_SmartVisor"]/equippedStatOffsets</xpath>
+								<value>
+									<MeleeHitChance>3</MeleeHitChance>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Spacer">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="lts.I">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/ThingDef[defName="Apparel_SmartVisor"]/equippedStatOffsets</xpath>
+										<value>
+											<LTS_DarkVision>1</LTS_DarkVision>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VFE.Pirates">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEP_Bullet_WarcasketChargeLance"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>20</damageAmountBase>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEP_Bullet_WarcasketChargeBlaster"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>20</damageAmountBase>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEP_Bullet_WarcasketMinigun"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>24</damageAmountBase>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFEP_Bullet_WarcasketSlugthrower"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>24</damageAmountBase>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VanillaFactionsExpanded.SettlersModule">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFES_Gun_DoubleActionRevolver"]/verbs/li/burstShotCount</xpath>
+								<value>
+									<burstShotCount>2</burstShotCount>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VFES_Gun_DoubleBarreledShotgun"]/statBases/RangedWeapon_Cooldown</xpath>
+								<value>
+									<RangedWeapon_Cooldown>2.4</RangedWeapon_Cooldown>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="det.voltweaponry">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="DV_VoltProj_Gattler"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>10</damageAmountBase>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="DV_VoltProj_Carbine"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>8</damageAmountBase>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="DV_VoltProj_DMR"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>12</damageAmountBase>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="DV_VoltProj_Trenchgun"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>6</damageAmountBase>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="hlx.UltratechAlteredCarbon">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/ThingDef[defName="AC_Apparel_ChrysalisHelmet"]/statBases/VEF_RangedCooldownFactor</xpath>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/ThingDef[defName="AC_Apparel_ChrysalisHelmet"]/equippedStatOffsets/AimingDelayFactor</xpath>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/ThingDef[defName="AC_Apparel_FusilierHelmet"]/statBases/VEF_RangedCooldownFactor</xpath>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/ThingDef[defName="AC_Apparel_FusilierHelmet"]/equippedStatOffsets/ShootingAccuracyPawn</xpath>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="AC_Apparel_FusilierHelmet"]/equippedStatOffsets/AimingDelayFactor</xpath>
+								<value>
+									<AimingDelayFactor>-0.15</AimingDelayFactor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="AC_Apparel_FusilierHelmet"]/description</xpath>
+								<value>
+									<description>A variant of the chrysalis armor helmet with a heavy layer of plasteel-weave plates, next-gen solid ablative coatings and a package of several multi-spectrum sensors, including a classifier AI, allowing the user to see in darkness and smokey conditions. The integrated ballistic rangefinder provides optimal firing solutions, decreasing the user’s effective aiming delay by 15%.</description>
+								</value>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/ThingDef[defName="AC_Apparel_DragoonHelmet"]/equippedStatOffsets/AimingDelayFactor</xpath>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/ThingDef[defName="AC_Apparel_DragoonHelmet"]/equippedStatOffsets/ShootingAccuracyPawn</xpath>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/ThingDef[defName="AC_Apparel_LancierHelmet"]/statBases/VEF_RangedCooldownFactor</xpath>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="AC_Apparel_LancierHelmet"]/equippedStatOffsets/AimingDelayFactor</xpath>
+								<value>
+									<AimingDelayFactor>-0.15</AimingDelayFactor>
+								</value>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/comps/li[@Class="VEF.Apparels.CompProperties_ShieldBubble"]</xpath>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/statBases/EnergyShieldRechargeRate</xpath>
+								<match Class="PatchOperationReplace">
+									<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/statBases/EnergyShieldRechargeRate</xpath>
+									<value>
+										<EnergyShieldRechargeRate>0.13</EnergyShieldRechargeRate>
+									</value>
+								</match>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/statBases</xpath>
+									<value>
+										<EnergyShieldRechargeRate>0.13</EnergyShieldRechargeRate>
+									</value>
+								</nomatch>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/statBases/EnergyShieldEnergyMax</xpath>
+								<match Class="PatchOperationReplace">
+									<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/statBases/EnergyShieldEnergyMax</xpath>
+									<value>
+										<EnergyShieldEnergyMax>1.2</EnergyShieldEnergyMax>
+									</value>
+								</match>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/statBases</xpath>
+									<value>
+										<EnergyShieldEnergyMax>1.2</EnergyShieldEnergyMax>
+									</value>
+								</nomatch>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/comps</xpath>
+								<value>
+									<li Class="CompProperties_Shield">
+										<blocksRangedWeapons>false</blocksRangedWeapons>
+									</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="det.spacerarsenal">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="DV_BruteProjectile"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>16</damageAmountBase>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="DV_Gun_ClashRifle"]/statBases/RangedWeapon_Cooldown</xpath>
+								<value>
+									<RangedWeapon_Cooldown>3.0</RangedWeapon_Cooldown>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="zal.ionweaponry">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="IW_Bullet_IonRifle"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>5</damageAmountBase>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="det.vanillaarsenal">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="DV_Gun_LeverShotgun"]/statBases/RangedWeapon_Cooldown</xpath>
+								<value>
+									<RangedWeapon_Cooldown>2.6</RangedWeapon_Cooldown>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="DV_Gun_CombatShotgun"]/statBases/RangedWeapon_Cooldown</xpath>
+								<value>
+									<RangedWeapon_Cooldown>3.0</RangedWeapon_Cooldown>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="DV_Bullet_LightCarbine"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>6</damageAmountBase>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="tug.SatyrFaun.Expanded">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="RBSF_Faehelm"]/statBases/StuffEffectMultiplierArmor</xpath>
+								<value>
+									<StuffEffectMultiplierArmor>0.7</StuffEffectMultiplierArmor>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="tug.Minotaur.Expanded">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="RBME_HellenicHelmet"]/statBases/StuffEffectMultiplierArmor</xpath>
+								<value>
+									<StuffEffectMultiplierArmor>0.5</StuffEffectMultiplierArmor>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="RBME_RoyalHellenicHelmet"]/statBases/StuffEffectMultiplierArmor</xpath>
+								<value>
+									<StuffEffectMultiplierArmor>0.55</StuffEffectMultiplierArmor>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="onyxae.dragonsdescent">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="DD_Arrow_RecurveProjectile"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>9</damageAmountBase>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="tug.Minotaur.Expanded">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Proj_Sling"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>21</damageAmountBase>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="ElSov.Highborn">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="HBX_Rapier"]/tools/li[label="point"]/power</xpath>
+								<value>
+									<power>16</power>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="HBX_Rapier"]/tools/li[label="edge"]/power</xpath>
+								<value>
+									<power>20</power>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Trickity.Samurai.Faction">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/ThingDef[defName="TSFApparel_AshigaruArmor" or defName="TSFApparel_SamuraiArmor" or defName="TSFApparel_DaimyoArmor" or defName="TSFApparel_AshigaruHelmet" or defName="TSFApparel_SamuraiHelmet" or defName="TSFApparel_DaimyoHelmet"]/stuffCategories/li[text()="Leathery"]</xpath>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="TSFApparel_DaimyoArmor"]/costList</xpath>
+								<value>
+									<costList>
+										<Gold>4</Gold>
+										<Cloth>20</Cloth>
+									</costList>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="TSFApparel_DaimyoArmor"]/costStuffCount</xpath>
+								<value>
+									<costStuffCount>160</costStuffCount>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="TSFApparel_SamuraiArmor"]</xpath>
+								<value>
+									<costList>
+										<Cloth>20</Cloth>
+									</costList>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="TSFApparel_SamuraiArmor"]/costStuffCount</xpath>
+								<value>
+									<costStuffCount>160</costStuffCount>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="TSFApparel_AshigaruArmor"]</xpath>
+								<value>
+									<costList>
+										<Cloth>20</Cloth>
+									</costList>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="TSFApparel_AshigaruArmor"]/costStuffCount</xpath>
+								<value>
+									<costStuffCount>80</costStuffCount>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Trickity.Samurai.Faction">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="vanillaexpanded.gravship">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="TSFApparel_OniHelmet"]/equippedStatOffsets/VacuumResistance</xpath>
+										<value>
+											<VacuumResistance>0.55</VacuumResistance>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="hlx.UltratechAlteredCarbon">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="vanillaexpanded.gravship">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[@Name="AC_ApparelArmorHelmetChrysalisMakeableBase"]/equippedStatOffsets/VacuumResistance</xpath>
+										<value>
+											<VacuumResistance>0.62</VacuumResistance>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="det.spacerarsenal">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="vanillaexpanded.gravship">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="DV_Apparel_EnsignHelmet"]/equippedStatOffsets/VacuumResistance</xpath>
+										<value>
+											<VacuumResistance>0.65</VacuumResistance>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="DV_Apparel_EnsignHelmet"]/statBases/ArmorRating_Sharp</xpath>
+										<value>
+											<ArmorRating_Sharp>0.80</ArmorRating_Sharp>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="detvisor.impactweaponryreloaded">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="vanillaexpanded.gravship">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[@Name="DV_ApparelArmorHelmetCrusaderBase"]/statBases/ArmorRating_Sharp</xpath>
+										<value>
+											<ArmorRating_Sharp>1.10</ArmorRating_Sharp>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[@Name="DV_ApparelArmorHelmetCrusaderBase"]/equippedStatOffsets/VacuumResistance</xpath>
+										<value>
+											<VacuumResistance>0.67</VacuumResistance>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="rimsenal.federation">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="vanillaexpanded.gravship">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/ThingDef[defName="Apparel_MarksmanGearH"]/equippedStatOffsets/VacuumResistance</xpath>
+										<value>
+											<VacuumResistance>0.59</VacuumResistance>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VWENL">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/HediffDef[defName="VWE_TearGas"]/stages/li/painFactor</xpath>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaquestsexpanded.ancients">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VQEA_Apparel_PatientGown"]/statBases/ArmorRating_Blunt</xpath>
+								<value>
+									<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

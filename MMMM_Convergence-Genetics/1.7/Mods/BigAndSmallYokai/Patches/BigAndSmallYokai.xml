@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small - Yokai: content swapped for other mods' equivalents so the same thing is not provided twice.
+		- the Yokai union faction requires Bushido (VIE - Memes and Structures) instead of the vanilla Raider meme
+		- the oni use Alpha Genes' medium armour instead of B&S tough skin
+		- the kitsune and great red oni use Alpha Genes' heat immunity instead of B&S heat tolerance and fire immunity
+		- the nekomata uses VRE - Lycanthrope's nocturnal gene instead of B&S night owl
+		This folder only loads when Yokai is active (see loadFolders.xml); each swap carries MayRequire for the mod
+		that supplies the replacement.
+		Verified against the current 1.6 releases: every gene being replaced is present in its xenotype.
+		Split by category into the MMMM Convergence sub-mods: this copy holds only the Genetics ops (genes and xenotypes).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+
+			<li Class="PatchOperationReplace" MayRequire="sarg.alphagenes">
+				<xpath>Defs/XenotypeDef[defName="BS_RedOni" or defName="BS_GreatRedOni" or defName="BS_GreatBlueOni"]/genes/li[text()="BS_ToughSkin"]</xpath>
+				<value>
+					<li>AG_ArmourMedium</li>
+				</value>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_Kitsune"]/genes</xpath>
+						<value>
+							<li>AG_HeatImmunity</li>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>
+							Defs/XenotypeDef[defName="BS_Kitsune"]/genes/li[text()="MaxTemp_LargeIncrease"]</xpath>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>
+							Defs/XenotypeDef[defName="BS_Kitsune"]/genes/li[text()="FireImmunity"]</xpath>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_GreatRedOni"]/genes</xpath>
+						<value>
+							<li>AG_HeatImmunity</li>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>
+							Defs/XenotypeDef[defName="BS_GreatRedOni"]/genes/li[text()="MaxTemp_HugeIncrease"]</xpath>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>
+							Defs/XenotypeDef[defName="BS_GreatRedOni"]/genes/li[text()="FireImmunity"]</xpath>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationReplace" MayRequire="vanillaracesexpanded.lycanthrope">
+				<xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes/li[text()="BS_NightOwl"]</xpath>
+				<value>
+					<li>VRE_Nocturnal</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

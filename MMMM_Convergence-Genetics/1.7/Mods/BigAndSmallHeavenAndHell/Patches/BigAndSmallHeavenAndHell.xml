@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small - Heaven and Hell: angel and demon genes swapped for the equivalents from Alpha Genes, VRE -
+		Sanguophage and VRE - Highmate, so the same effect is not provided twice under two names.
+		  - Satan's natural armour and the nephilim and gluttons' tough skin become the Alpha Genes armour genes.
+		  - Heat and cold tolerance genes become the Alpha Genes immunities, with the originals removed.
+		  - Satan and the lilim use the Sanguophage talons, the grigori and lilim the Highmate flirty gene, and the
+		    lilim the Highmate very high libido in place of the Big and Small succubus libido.
+		This folder only loads when Heaven and Hell is active (see loadFolders.xml); each swap carries MayRequire for
+		the mod that supplies the replacement.
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally.
+
+		Verified against Heaven and Hell 1.6: every gene being replaced or removed is present in its xenotype, so all
+		fourteen operations land.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_Satan"]/genes/li[text()="BS_NaturalArmor"]</xpath>
+						<value>
+							<li>AG_ArmourMajor</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_Nephilim" or defName="BS_Glutton" or defName="BS_LilGlutton"]/genes/li[text()="BS_ToughSkin"]</xpath>
+						<value>
+							<li>AG_ArmourMedium</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_Authority"]/genes</xpath>
+						<value>
+							<li>AG_HeatImmunity</li>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>
+							Defs/XenotypeDef[defName="BS_Authority"]/genes/li[text()="MaxTemp_HugeIncrease"]</xpath>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>
+							Defs/XenotypeDef[defName="BS_Authority"]/genes/li[text()="FireImmunity"]</xpath>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_Malakim"]/genes</xpath>
+						<value>
+							<li>AG_ColdImmunity</li>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>
+							Defs/XenotypeDef[defName="BS_Malakim"]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_Satan"]/genes</xpath>
+						<value>
+							<li>AG_ColdImmunity</li>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>
+							Defs/XenotypeDef[defName="BS_Satan"]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_Grigori"]/genes</xpath>
+						<value>
+							<li>AG_ColdImmunity</li>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>
+							Defs/XenotypeDef[defName="BS_Grigori"]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.sanguophage">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_Satan" or defName="BS_Lilim"]/genes/li[text()="BS_Talons"]</xpath>
+						<value>
+							<li>VRE_Talons</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.highmate">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_Grigori" or defName="BS_Lilim"]/genes/li[text()="BS_Flirty"]</xpath>
+						<value>
+							<li>VRE_Flirty</li>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="BS_Lilim"]/genes/li[text()="VU_Libido_Succubus"]</xpath>
+						<value>
+							<li>VRE_Libido_VeryHigh</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

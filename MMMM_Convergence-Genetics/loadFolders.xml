@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li>1.6</li>
+		<li IfModActiveAll="vanillaracesexpanded.saurid,det.buzzers">1.6/Mods/VanillaRacesExpandedSaurid</li>
+		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.Core">1.6/Mods/VanillaRacesExpandedPigskin</li>
+		<li IfModActiveAll="vanillaracesexpanded.hussar,RedMattis.BigSmall.Core">1.6/Mods/VanillaRacesExpandedHussar</li>
+		<li IfModActiveAll="vanillaracesexpanded.genie,RedMattis.BigSmall.Core">1.6/Mods/VanillaRacesExpandedGenie</li>
+		<li IfModActiveAll="vanillaracesexpanded.archon,RedMattis.BigSmall.Core">1.6/Mods/VanillaRacesExpandedArchon</li>
+		<li IfModActive="det.keshig">1.6/Mods/DetsXenotypeKeshig</li>
+		<li IfModActive="det.halffoot">1.6/Mods/DetsXenotypeHalfFoot</li>
+		<li IfModActive="det.brawnum">1.6/Mods/DetsXenotypeBrawnum</li>
+		<li IfModActive="det.avaloi">1.6/Mods/DetsXenotypeAvaloi</li>
+		<li IfModActive="RedMattis.MoreXenos">1.6/Mods/BigAndSmallMoreXenotypes</li>
+		<!-- VU_Unliving is a Genes &amp; More gene; the original only fixed it when the Vampires and the Undead submod was absent. -->
+		<li IfModActive="RedMattis.BigSmall.Core" IfModNotActive="RedMattis.Undead">1.6/Mods/BigAndSmallUnlivingExclusion</li>
+		<li IfModActiveAll="RedMattis.Undead,vanillaracesexpanded.lycanthrope">1.6/Mods/BigAndSmallVampiresAndUndead</li>
+		<li IfModActive="RedMattis.Yokai">1.6/Mods/BigAndSmallYokai</li>
+		<li IfModActive="RedMattis.BigSmall.Bugs">1.6/Mods/BigAndSmallXenoInsectoidHive</li>
+		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.6/Mods/BigAndSmallLamias</li>
+		<li IfModActive="RedMattis.BSSlimes">1.6/Mods/BigAndSmallSlimes</li>
+		<li IfModActiveAll="vanillaracesexpanded.insector,oskarpotocki.vfe.insectoid2,RedMattis.BigSmall.Core">1.6/Mods/VanillaRacesExpandedInsector</li>
+		<li IfModActiveAll="vanillaracesexpanded.highmate,RedMattis.BigSmall.Core">1.6/Mods/VREHighmate</li>
+		<!-- Body_FemaleOnly is a Framework gene, so the gate checks Framework rather than Genes &amp; More. -->
+		<li IfModActiveAll="vanillaracesexpanded.phytokin,RedMattis.BetterPrerequisites">1.6/Mods/VanillaRacesExpandedPhytokin</li>
+		<li IfModActiveAll="det.stoneborn,RedMattis.BigSmall.Core">1.6/Mods/DetsXenotypeStoneborn</li>
+		<li IfModActive="RedMattis.BigSmall.Core">1.6/Mods/BigAndSmallGenesAndMore</li>
+		<li IfModActive="RedMattis.Heaven">1.6/Mods/BigAndSmallHeavenAndHell</li>
+		<!-- mirrors Big and Small - Genes &amp; More, which only loads its demon xenotypes under these two mods -->
+		<li IfModActive="RedMattis.Undead,RedMattis.Heaven">1.6/Mods/BigAndSmallDemons</li>
+		<li IfModActive="RedMattis.BigSmall">1.6/Mods/BigAndSmallRaces</li>
+		<li IfModActive="ElSov.Beliar">1.6/Mods/BeliarXenotype</li>
+		<li IfModActive="Sov.Tenmo">1.6/Mods/GeistXenotype</li>
+		<li IfModActiveAll="RedMattis.BetterGeneInheritance,vanillaracesexpanded.highmate">1.6/Mods/BetterGeneInheritance</li>
+		<li IfModActive="tug.Minotaur">1.6/Mods/RoosMinotaur</li>
+		<!-- packageId taken from the core mod; Rim-Gnoblins is not installed here so it could not be verified -->
+		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.6/Mods/RimGnoblins</li>
+		<li IfModActive="VexedTrees980.RimElvesBiotech">1.6/Mods/RimElves</li>
+		<li IfModActive="sarg.alphagenes">1.6/Mods/AlphaGenes</li>
+		<li IfModActive="mytigio.HarbingerKin">1.6/Mods/HarbingerKin</li>
+		<li IfModActive="ReSplice.XOTR.Charmweavers">1.6/Mods/ReSpliceCharmweavers</li>
+		<li IfModActive="Arquebus.StagzMerfolk">1.6/Mods/GojisFantasyRaceMerren</li>
+		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana,Rimsenal.Zohar">1.6/Mods/RimsenalXenotypes</li>
+	</v1.6>
+	<v1.7>
+		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li>1.7</li>
+		<li IfModActiveAll="vanillaracesexpanded.saurid,det.buzzers">1.7/Mods/VanillaRacesExpandedSaurid</li>
+		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.Core">1.7/Mods/VanillaRacesExpandedPigskin</li>
+		<li IfModActiveAll="vanillaracesexpanded.hussar,RedMattis.BigSmall.Core">1.7/Mods/VanillaRacesExpandedHussar</li>
+		<li IfModActiveAll="vanillaracesexpanded.genie,RedMattis.BigSmall.Core">1.7/Mods/VanillaRacesExpandedGenie</li>
+		<li IfModActiveAll="vanillaracesexpanded.archon,RedMattis.BigSmall.Core">1.7/Mods/VanillaRacesExpandedArchon</li>
+		<li IfModActive="det.keshig">1.7/Mods/DetsXenotypeKeshig</li>
+		<li IfModActive="det.halffoot">1.7/Mods/DetsXenotypeHalfFoot</li>
+		<li IfModActive="det.brawnum">1.7/Mods/DetsXenotypeBrawnum</li>
+		<li IfModActive="det.avaloi">1.7/Mods/DetsXenotypeAvaloi</li>
+		<li IfModActive="RedMattis.MoreXenos">1.7/Mods/BigAndSmallMoreXenotypes</li>
+		<!-- VU_Unliving is a Genes &amp; More gene; the original only fixed it when the Vampires and the Undead submod was absent. -->
+		<li IfModActive="RedMattis.BigSmall.Core" IfModNotActive="RedMattis.Undead">1.7/Mods/BigAndSmallUnlivingExclusion</li>
+		<li IfModActiveAll="RedMattis.Undead,vanillaracesexpanded.lycanthrope">1.7/Mods/BigAndSmallVampiresAndUndead</li>
+		<li IfModActive="RedMattis.Yokai">1.7/Mods/BigAndSmallYokai</li>
+		<li IfModActive="RedMattis.BigSmall.Bugs">1.7/Mods/BigAndSmallXenoInsectoidHive</li>
+		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.7/Mods/BigAndSmallLamias</li>
+		<li IfModActive="RedMattis.BSSlimes">1.7/Mods/BigAndSmallSlimes</li>
+		<li IfModActiveAll="vanillaracesexpanded.insector,oskarpotocki.vfe.insectoid2,RedMattis.BigSmall.Core">1.7/Mods/VanillaRacesExpandedInsector</li>
+		<li IfModActiveAll="vanillaracesexpanded.highmate,RedMattis.BigSmall.Core">1.7/Mods/VREHighmate</li>
+		<!-- Body_FemaleOnly is a Framework gene, so the gate checks Framework rather than Genes &amp; More. -->
+		<li IfModActiveAll="vanillaracesexpanded.phytokin,RedMattis.BetterPrerequisites">1.7/Mods/VanillaRacesExpandedPhytokin</li>
+		<li IfModActiveAll="det.stoneborn,RedMattis.BigSmall.Core">1.7/Mods/DetsXenotypeStoneborn</li>
+		<li IfModActive="RedMattis.BigSmall.Core">1.7/Mods/BigAndSmallGenesAndMore</li>
+		<li IfModActive="RedMattis.Heaven">1.7/Mods/BigAndSmallHeavenAndHell</li>
+		<!-- mirrors Big and Small - Genes &amp; More, which only loads its demon xenotypes under these two mods -->
+		<li IfModActive="RedMattis.Undead,RedMattis.Heaven">1.7/Mods/BigAndSmallDemons</li>
+		<li IfModActive="RedMattis.BigSmall">1.7/Mods/BigAndSmallRaces</li>
+		<li IfModActive="ElSov.Beliar">1.7/Mods/BeliarXenotype</li>
+		<li IfModActive="Sov.Tenmo">1.7/Mods/GeistXenotype</li>
+		<li IfModActiveAll="RedMattis.BetterGeneInheritance,vanillaracesexpanded.highmate">1.7/Mods/BetterGeneInheritance</li>
+		<li IfModActive="tug.Minotaur">1.7/Mods/RoosMinotaur</li>
+		<!-- packageId taken from the core mod; Rim-Gnoblins is not installed here so it could not be verified -->
+		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.7/Mods/RimGnoblins</li>
+		<li IfModActive="VexedTrees980.RimElvesBiotech">1.7/Mods/RimElves</li>
+		<li IfModActive="sarg.alphagenes">1.7/Mods/AlphaGenes</li>
+		<li IfModActive="mytigio.HarbingerKin">1.7/Mods/HarbingerKin</li>
+		<li IfModActive="ReSplice.XOTR.Charmweavers">1.7/Mods/ReSpliceCharmweavers</li>
+		<li IfModActive="Arquebus.StagzMerfolk">1.7/Mods/GojisFantasyRaceMerren</li>
+		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana,Rimsenal.Zohar">1.7/Mods/RimsenalXenotypes</li>
+	</v1.7>
+</loadFolders>

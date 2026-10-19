@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Two demon changes that are neither overlap fixes nor cross-mod joins, split out of larger operations.
+		  - With ReSplice: Charmweavers installed the succubus drops from poor to terrible with animals. Why the
+		    Charmweavers check is there is not obvious; it is the original author's and is kept.
+		  - The gatekeeper gains vanilla strong melee damage. This travelled inside an Alpha Genes heat immunity
+		    operation, so it only applies when Alpha Genes is installed even though the gene is vanilla Biotech. That
+		    gate is preserved rather than quietly widened.
+		This folder mirrors Big and Small - Genes &amp; More, which only loads the demon xenotypes under
+		RedMattis.Undead or RedMattis.Heaven (see loadFolders.xml).
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally.
+
+		Verified against Genes &amp; More 1.6: the succubus does list AptitudePoor_Animals, and the gatekeeper has
+		AptitudeStrong_Melee but no MeleeDamage_Strong, so both operations land.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="resplice.xotr.charmweavers">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="VU_Succubus"]/genes/li[text()="AptitudePoor_Animals"]</xpath>
+						<value>
+							<li>AptitudeTerrible_Animals</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="VU_Gatekeeper"]/genes</xpath>
+						<value>
+							<li>MeleeDamage_Strong</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

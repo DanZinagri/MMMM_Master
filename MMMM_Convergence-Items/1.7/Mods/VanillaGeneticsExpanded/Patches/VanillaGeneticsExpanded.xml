@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Genetics Expanded + Alpha Animals: MMMM Integrations - Items lets the alpha genome excavator cover the dinosaur,
+		megafauna and dragon tiers, so the single-tier excavators and their recipes go on this mod's Cherry Picker list
+		(revive entries in 1.6/Defs/CherryPicker.xml).
+		This folder only loads with Vanilla Genetics Expanded (see loadFolders.xml).
+		Dinosauria, Biomes! Prehistoric and Dragon Genetics are not installed here, so those defs are unchecked.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphaanimals">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequireAnyOf="spincrus.dinosauria,BiomesTeam.BiomesPrehistoric">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceItems_CherryPicker_Basics"]/defs</xpath>
+								<value>
+									<li>ThingDef/GR_DinoGenomeExcavator</li>
+									<li>RecipeDef/GR_CraftDinoGenomeExcavator</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphaanimals">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Spino.Megafauna">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceItems_CherryPicker_Basics"]/defs</xpath>
+								<value>
+									<li>ThingDef/GR_MegafaunaGenomeExcavator</li>
+									<li>RecipeDef/GR_CraftMegafaunaGenomeExcavator</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphaanimals">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Hol.DragonGenetics">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceItems_CherryPicker_Basics"]/defs</xpath>
+								<value>
+									<li>ThingDef/GR_DragonGenomeExcavator</li>
+									<li>RecipeDef/GR_CraftDragonGenomeExcavator</li>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

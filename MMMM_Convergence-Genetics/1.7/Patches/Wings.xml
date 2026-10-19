@@ -1,0 +1,1074 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Wing integration: flying/gliding wing genes from Alpha Genes, VRE Insector / Hussar, Biotech Expansion, Rimsenal Harana,
+		Big and Small, Geist/Nephilim/Seraphim and VQE Ancients share one mechanic: Alpha Genes' hover hediff, water crossing
+		(waterCellCost), matching metabolism/complexity costs, a Wings exclusion group and effect descriptions.
+		Moved from the core root file AA5A_Wings.xml (setting TMM_WingIntegration, default on). Dropped the displayCategory
+		moves into Alpha Genes' wing category (gene recategorisation rule). Name FindMods kept for Seraphim Xenotype (no known
+		packageId) and Big and Small - Framework (absence check). Checked with analysis/patch_sim.py: all installed-mod ops apply.
+	-->
+
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaquestsexpanded.ancients">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/GeneDef[defName="VQEA_Levitation"]/waterCellCost</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>Defs/GeneDef[defName="VQEA_Levitation"]</xpath>
+									<value>
+										<waterCellCost>1</waterCellCost>
+									</value>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.insector">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_InsectWings"]</xpath>
+										<value>
+											<customEffectDescriptions>
+												<li>Colonist will ignore terrain movement costs</li>
+											</customEffectDescriptions>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.insector">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_InsectWings"]/exclusionTags</xpath>
+								<value>
+									<li>Wing</li>
+									<li>Wings</li>
+								</value>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_InsectWings"]/waterCellCost</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_InsectWings"]</xpath>
+									<value>
+										<waterCellCost>1</waterCellCost>
+									</value>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName="AG_RainbowWings" or defName="AG_BatWings" or defName="AG_PegasusWings" or defName="AG_MothWings" or defName="AG_BumbledroneWings" or defName="AG_WaspWings" or defName="AG_DrainerWings" or defName="AG_FeatheredWings" or defName="AG_DemonWings" or defName="AG_DrakonoriWings"]/biostatCpx</xpath>
+								<value>
+									<biostatCpx>2</biostatCpx>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/GeneDef[defName="AG_RainbowWings" or defName="AG_BatWings" or defName="AG_PegasusWings" or defName="AG_MothWings" or defName="AG_BumbledroneWings" or defName="AG_WaspWings" or defName="AG_DrainerWings" or defName="AG_FeatheredWings" or defName="AG_DemonWings" or defName="AG_DrakonoriWings"]/biostatMet</xpath>
+								<value>
+									<biostatMet>-2</biostatMet>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/GeneDef[defName="AG_RainbowWings" or defName="AG_BatWings" or defName="AG_PegasusWings" or defName="AG_MothWings" or defName="AG_BumbledroneWings" or defName="AG_WaspWings" or defName="AG_DrainerWings" or defName="AG_FeatheredWings" or defName="AG_DemonWings" or defName="AG_DrakonoriWings"]</xpath>
+								<value>
+									<waterCellCost>1</waterCellCost>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.hussar">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/GeneDef[defName="VREH_Glidewings"]/biostatCpx</xpath>
+										<value>
+											<biostatCpx>1</biostatCpx>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/GeneDef[defName="VREH_Glidewings"]</xpath>
+										<value>
+											<customEffectDescriptions>
+												<li>Colonist will ignore terrain movement costs</li>
+											</customEffectDescriptions>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.hussar">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/GeneDef[defName="VREH_Glidewings"]/waterCellCost</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>Defs/GeneDef[defName="VREH_Glidewings"]</xpath>
+									<value>
+										<waterCellCost>1</waterCellCost>
+									</value>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="biotexpans.mammalia">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/GeneDef[defName="BTEMa_HideboundWings"]</xpath>
+								<value>
+									<exclusionTags>
+										<li>Wing</li>
+										<li>Wings</li>
+									</exclusionTags>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="biotexpans.mammalia">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/GeneDef[defName="BTEMa_HideboundWings"]/waterCellCost</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>Defs/GeneDef[defName="BTEMa_HideboundWings"]</xpath>
+									<value>
+										<waterCellCost>1</waterCellCost>
+									</value>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="biotexpans.mammalia">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/GeneDef[defName="BTEMa_HideboundWings"]</xpath>
+										<value>
+											<customEffectDescriptions>
+												<li>Colonist will ignore terrain movement costs</li>
+											</customEffectDescriptions>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="biotexpans.mythic">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/GeneDef[defName="BTEMy_DraconicWings" or defName="BTEMy_DraconicWingsNoAurum" or defName="BTEMy_PhoenixWings" or defName="BTEMy_PhoenixWingsNoAurum"]</xpath>
+								<value>
+									<exclusionTags>
+										<li>Wing</li>
+										<li>Wings</li>
+									</exclusionTags>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="biotexpans.mythic">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/GeneDef[defName="BTEMy_DraconicWings" or defName="BTEMy_DraconicWingsNoAurum" or defName="BTEMy_PhoenixWings" or defName="BTEMy_PhoenixWingsNoAurum"]</xpath>
+								<value>
+									<waterCellCost>1</waterCellCost>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="biotexpans.mythic">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/GeneDef[defName="BTEMy_DraconicWings" or defName="BTEMy_DraconicWingsNoAurum" or defName="BTEMy_PhoenixWings" or defName="BTEMy_PhoenixWingsNoAurum"]</xpath>
+										<value>
+											<customEffectDescriptions>
+												<li>Colonist will ignore terrain movement costs</li>
+											</customEffectDescriptions>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>/Defs/GeneDef[defName="BTEMy_DraconicWingsNoAurum"]/biostatMet</xpath>
+										<value>
+											<biostatMet>-4</biostatMet>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/GeneDef[defName="BTEMy_PhoenixWingsNoAurum"]/biostatMet</xpath>
+										<value>
+											<biostatMet>-4</biostatMet>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="ReSplice.XOTR.Charmweavers">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/GeneDef[defName="RS_Wing_Batlike"]/waterCellCost</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>Defs/GeneDef[defName="RS_Wing_Batlike"]</xpath>
+									<value>
+										<waterCellCost>1</waterCellCost>
+									</value>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="ReSplice.XOTR.Charmweavers">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/GeneDef[defName="RS_Wing_Batlike"]/biostatMet</xpath>
+										<value>
+											<biostatMet>-2</biostatMet>
+										</value>
+									</li>
+									<li Class="PatchOperationRemove">
+										<xpath>Defs/GeneDef[defName="RS_Wing_Batlike"]/statOffsets</xpath>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/GeneDef[defName="RS_Wing_Batlike"]</xpath>
+										<value>
+											<customEffectDescriptions>
+												<li>Colonist will ignore terrain movement costs</li>
+											</customEffectDescriptions>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Harana">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/GeneDef[defName="Gene_Hwing"]/waterCellCost</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>Defs/GeneDef[defName="Gene_Hwing"]</xpath>
+									<value>
+										<waterCellCost>1</waterCellCost>
+									</value>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Rimsenal.Harana">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/GeneDef[defName="Gene_ShortJump"]/biostatMet</xpath>
+										<value>
+											<biostatMet>-1</biostatMet>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/GeneDef[defName="Gene_Hwing"]</xpath>
+										<value>
+											<biostatMet>-2</biostatMet>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/GeneDef[defName="Gene_Hwing"]/biostatCpx</xpath>
+										<value>
+											<biostatCpx>1</biostatCpx>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/GeneDef[defName="Gene_Hwing"]</xpath>
+										<value>
+											<customEffectDescriptions>
+												<li>Colonist will ignore terrain movement costs</li>
+											</customEffectDescriptions>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/GeneDef[@Name="BS_FunctionalWingBase"]/waterCellCost</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>Defs/GeneDef[@Name="BS_FunctionalWingBase"]</xpath>
+									<value>
+										<waterCellCost>1</waterCellCost>
+									</value>
+								</nomatch>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/GeneDef[@Name="BS_Spiderbase"]/waterCellCost</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>Defs/GeneDef[@Name="BS_Spiderbase"]</xpath>
+									<value>
+										<waterCellCost>1</waterCellCost>
+									</value>
+								</nomatch>
+							</li>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/GeneDef[@Name="LoS_SnakeTailBase"]/waterCellCost</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>Defs/GeneDef[@Name="LoS_SnakeTailBase"]</xpath>
+									<value>
+										<waterCellCost>1</waterCellCost>
+									</value>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/GeneDef[@Name="BS_SpoderLegs"]/biostatMet</xpath>
+										<value>
+											<biostatMet>-3</biostatMet>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/GeneDef[@Name="BS_FunctionalWingBase"]/biostatMet</xpath>
+										<value>
+											<biostatMet>-2</biostatMet>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/GeneDef[@Name="BS_FunctionalWingBase"]/biostatCpx</xpath>
+										<value>
+											<biostatCpx>2</biostatCpx>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/GeneDef[@Name="BS_FunctionalWingBase"]/customEffectDescriptions</xpath>
+										<value>
+											<customEffectDescriptions>
+												<li>Colonist will ignore terrain movement costs</li>
+											</customEffectDescriptions>
+										</value>
+									</li>
+									<li Class="PatchOperationRemove">
+										<xpath>Defs/GeneDef[@Name="BS_FunctionalWingBase"]/abilities</xpath>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/GeneDef[@Name="BS_FunctionalWingBase"]</xpath>
+										<value>
+											<abilities Inherit="False">
+												<li>AG_WingPoweredJump</li>
+											</abilities>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Sov.Nephilim">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationConditional">
+								<xpath>Defs/GeneDef[defName="GS_WingsB"]/waterCellCost</xpath>
+								<nomatch Class="PatchOperationAdd">
+									<xpath>Defs/GeneDef[defName="GS_WingsB"]</xpath>
+									<value>
+										<waterCellCost>1</waterCellCost>
+									</value>
+								</nomatch>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="Sov.Nephilim">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/GeneDef[defName="GS_WingsB"]/biostatCpx</xpath>
+										<value>
+											<biostatCpx>2</biostatCpx>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/GeneDef[defName="GS_WingsB"]/biostatMet</xpath>
+										<value>
+											<biostatMet>-2</biostatMet>
+										</value>
+									</li>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/GeneDef[defName="GS_WingsB"]</xpath>
+										<value>
+											<customEffectDescriptions>
+												<li>Colonist will ignore terrain movement costs</li>
+											</customEffectDescriptions>
+										</value>
+									</li>
+									<li Class="PatchOperationReplace">
+										<xpath>Defs/GeneDef[defName="GS_short_glide"]/biostatMet</xpath>
+										<value>
+											<biostatMet>-1</biostatMet>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationFindMod">
+						<mods>
+							<li>Seraphim Xenotype</li>
+						</mods>
+						<match Class="PatchOperationSequence">
+							<operations>
+								<li Class="PatchOperationSequence">
+									<operations>
+										<li Class="PatchOperationAdd">
+											<xpath>Defs/GeneDef[defName="GS_WingsB"]</xpath>
+											<value>
+												<customEffectDescriptions>
+													<li>Colonist will ignore terrain movement costs</li>
+												</customEffectDescriptions>
+											</value>
+										</li>
+									</operations>
+								</li>
+							</operations>
+						</match>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationFindMod">
+						<mods>
+							<li>Seraphim Xenotype</li>
+						</mods>
+						<match Class="PatchOperationSequence">
+							<operations>
+								<li Class="PatchOperationSequence" MayRequire="EBSG.Framework">
+									<operations>
+										<li Class="PatchOperationSequence">
+											<operations>
+												<li Class="PatchOperationReplace">
+													<xpath>Defs/GeneDef[defName="GS_Levitate"]/biostatMet</xpath>
+													<value>
+														<biostatMet>-2</biostatMet>
+													</value>
+												</li>
+												<li Class="PatchOperationRemove">
+													<xpath>Defs/XenotypeDef[defName="GS_Seraphim"]/genes/li[text()="GS_Levitate"]</xpath>
+												</li>
+												<li Class="PatchOperationAdd">
+													<xpath>Defs/GeneDef[defName="GS_Levitate"]</xpath>
+													<value>
+														<exclusionTags>
+															<li>Wing</li>
+															<li>Wings</li>
+														</exclusionTags>
+													</value>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+							</operations>
+						</match>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Big and Small - Framework</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<operations>
+						<li Class="PatchOperationSequence">
+							<operations>
+								<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+									<operations>
+										<li Class="PatchOperationSequence">
+											<operations>
+												<li Class="PatchOperationRemove">
+													<xpath>Defs/GeneDef[defName="AG_RainbowWings" or defName="AG_BatWings" or defName="AG_PegasusWings" or defName="AG_MothWings" or defName="AG_BumbledroneWings" or defName="AG_WaspWings" or defName="AG_DrainerWings" or defName="AG_FeatheredWings" or defName="AG_DemonWings" or defName="AG_DrakonoriWings"]/modExtensions/li[@Class="VEF.Genes.GeneExtension"]/hediffToWholeBody</xpath>
+												</li>
+												<li Class="PatchOperationAddModExtension">
+													<xpath>Defs/GeneDef[defName="AG_RainbowWings" or defName="AG_BatWings" or defName="AG_PegasusWings" or defName="AG_MothWings" or defName="AG_BumbledroneWings" or defName="AG_WaspWings" or defName="AG_DrainerWings" or defName="AG_FeatheredWings" or defName="AG_DemonWings" or defName="AG_DrakonoriWings"]</xpath>
+													<value>
+														<li Class="BigAndSmall.PawnExtension">
+															<thingDefSwap>BS_HumanoidWithWings</thingDefSwap>
+															<renderCacheOff>true</renderCacheOff>
+															<applyBodyHediff>
+																<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+																	<hediff>BS_Floating</hediff>
+																</li>
+															</applyBodyHediff>
+														</li>
+													</value>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+								<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.insector">
+									<operations>
+										<li Class="PatchOperationSequence">
+											<operations>
+												<li Class="PatchOperationRemove">
+													<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_InsectWings"]/modExtensions/li[@Class="VEF.Genes.GeneExtension"]/hediffToWholeBody</xpath>
+												</li>
+												<li Class="PatchOperationAddModExtension">
+													<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_InsectWings"]</xpath>
+													<value>
+														<li Class="BigAndSmall.PawnExtension">
+															<thingDefSwap>BS_HumanoidWithWings</thingDefSwap>
+															<renderCacheOff>true</renderCacheOff>
+															<applyBodyHediff>
+																<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+																	<hediff>BS_Floating</hediff>
+																</li>
+															</applyBodyHediff>
+														</li>
+													</value>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+								<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.hussar">
+									<operations>
+										<li Class="PatchOperationSequence">
+											<operations>
+												<li Class="PatchOperationRemove">
+													<xpath>Defs/GeneDef[defName="VREH_Glidewings"]/modExtensions/li[@Class="VEF.Genes.GeneExtension"]/hediffToWholeBody</xpath>
+												</li>
+												<li Class="PatchOperationAddModExtension">
+													<xpath>Defs/GeneDef[defName="VREH_Glidewings"]</xpath>
+													<value>
+														<li Class="BigAndSmall.PawnExtension">
+															<thingDefSwap>BS_HumanoidWithWings</thingDefSwap>
+															<renderCacheOff>true</renderCacheOff>
+															<applyBodyHediff>
+																<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+																	<hediff>BS_Floating</hediff>
+																</li>
+															</applyBodyHediff>
+														</li>
+													</value>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+								<li Class="PatchOperationSequence" MayRequire="biotexpans.mammalia">
+									<operations>
+										<li Class="PatchOperationSequence">
+											<operations>
+												<li Class="PatchOperationAddModExtension">
+													<xpath>Defs/GeneDef[defName="BTEMa_HideboundWings"]</xpath>
+													<value>
+														<li Class="BigAndSmall.PawnExtension">
+															<thingDefSwap>BS_HumanoidWithWings</thingDefSwap>
+															<renderCacheOff>true</renderCacheOff>
+															<applyBodyHediff>
+																<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+																	<hediff>BS_Floating</hediff>
+																</li>
+															</applyBodyHediff>
+														</li>
+													</value>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+								<li Class="PatchOperationSequence" MayRequire="biotexpans.mythic">
+									<operations>
+										<li Class="PatchOperationSequence">
+											<operations>
+												<li Class="PatchOperationAddModExtension">
+													<xpath>Defs/GeneDef[defName="BTEMy_DraconicWings" or defName="BTEMy_DraconicWingsNoAurum" or defName="BTEMy_PhoenixWings" or defName="BTEMy_PhoenixWingsNoAurum"]</xpath>
+													<value>
+														<li Class="BigAndSmall.PawnExtension">
+															<thingDefSwap>BS_HumanoidWithWings</thingDefSwap>
+															<renderCacheOff>true</renderCacheOff>
+															<applyBodyHediff>
+																<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+																	<hediff>BS_Floating</hediff>
+																</li>
+															</applyBodyHediff>
+														</li>
+													</value>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+								<li Class="PatchOperationSequence" MayRequire="ReSplice.XOTR.Charmweavers">
+									<operations>
+										<li Class="PatchOperationSequence">
+											<operations>
+												<li Class="PatchOperationAddModExtension">
+													<xpath>Defs/GeneDef[defName="RS_Wing_Batlike"]</xpath>
+													<value>
+														<li Class="BigAndSmall.PawnExtension">
+															<thingDefSwap>BS_HumanoidWithWings</thingDefSwap>
+															<renderCacheOff>true</renderCacheOff>
+															<applyBodyHediff>
+																<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+																	<hediff>BS_Floating</hediff>
+																</li>
+															</applyBodyHediff>
+														</li>
+													</value>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+								<li Class="PatchOperationSequence" MayRequire="Rimsenal.Harana">
+									<operations>
+										<li Class="PatchOperationSequence">
+											<operations>
+												<li Class="PatchOperationAddModExtension">
+													<xpath>Defs/GeneDef[defName="Gene_Hwing"]</xpath>
+													<value>
+														<li Class="BigAndSmall.PawnExtension">
+															<thingDefSwap>BS_HumanoidWithWings</thingDefSwap>
+															<renderCacheOff>true</renderCacheOff>
+															<applyBodyHediff>
+																<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+																	<hediff>BS_Floating</hediff>
+																</li>
+															</applyBodyHediff>
+														</li>
+													</value>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+								<li Class="PatchOperationSequence" MayRequire="Sov.Nephilim">
+									<operations>
+										<li Class="PatchOperationSequence">
+											<operations>
+												<li Class="PatchOperationAddModExtension">
+													<xpath>Defs/GeneDef[defName="GS_WingsB"]</xpath>
+													<value>
+														<li Class="BigAndSmall.PawnExtension">
+															<thingDefSwap>BS_HumanoidWithWings</thingDefSwap>
+															<renderCacheOff>true</renderCacheOff>
+															<applyBodyHediff>
+																<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+																	<hediff>BS_Floating</hediff>
+																</li>
+															</applyBodyHediff>
+														</li>
+													</value>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+								<li Class="PatchOperationFindMod">
+									<mods>
+										<li>Seraphim Xenotype</li>
+									</mods>
+									<match Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationSequence">
+												<operations>
+													<li Class="PatchOperationAddModExtension">
+														<xpath>Defs/GeneDef[defName="GS_WingsB"]</xpath>
+														<value>
+															<li Class="BigAndSmall.PawnExtension">
+																<thingDefSwap>BS_HumanoidWithWings</thingDefSwap>
+																<renderCacheOff>true</renderCacheOff>
+																<applyBodyHediff>
+																	<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+																		<hediff>BS_Floating</hediff>
+																	</li>
+																</applyBodyHediff>
+															</li>
+														</value>
+													</li>
+												</operations>
+											</li>
+										</operations>
+									</match>
+								</li>
+							</operations>
+						</li>
+					</operations>
+				</match>
+				<nomatch Class="PatchOperationSequence">
+					<operations>
+						<li Class="PatchOperationSequence">
+							<operations>
+								<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.insector">
+									<operations>
+										<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+											<operations>
+												<li Class="PatchOperationSequence">
+													<operations>
+														<li Class="PatchOperationReplace">
+															<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_InsectWings"]/modExtensions/li[@Class="VEF.Genes.GeneExtension"]/hediffToWholeBody</xpath>
+															<value>
+																<hediffToWholeBody>AG_Hover</hediffToWholeBody>
+															</value>
+														</li>
+													</operations>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+								<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+									<operations>
+										<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.hussar">
+											<operations>
+												<li Class="PatchOperationSequence">
+													<operations>
+														<li Class="PatchOperationReplace">
+															<xpath>Defs/GeneDef[defName="VREH_Glidewings"]/modExtensions/li[@Class="VEF.Genes.GeneExtension"]/hediffToWholeBody</xpath>
+															<value>
+																<hediffToWholeBody>AG_Hover</hediffToWholeBody>
+															</value>
+														</li>
+													</operations>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+								<li Class="PatchOperationSequence" MayRequire="biotexpans.mammalia">
+									<operations>
+										<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+											<operations>
+												<li Class="PatchOperationSequence">
+													<operations>
+														<li Class="PatchOperationAddModExtension">
+															<xpath>Defs/GeneDef[defName="BTEMa_HideboundWings"]</xpath>
+															<value>
+																<li Class="VEF.Genes.GeneExtension">
+																	<hediffToWholeBody>AG_Hover</hediffToWholeBody>
+																</li>
+															</value>
+														</li>
+													</operations>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+								<li Class="PatchOperationSequence" MayRequire="biotexpans.mythic">
+									<operations>
+										<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+											<operations>
+												<li Class="PatchOperationSequence">
+													<operations>
+														<li Class="PatchOperationAddModExtension">
+															<xpath>Defs/GeneDef[defName="BTEMy_DraconicWings" or defName="BTEMy_DraconicWingsNoAurum" or defName="BTEMy_PhoenixWings" or defName="BTEMy_PhoenixWingsNoAurum"]</xpath>
+															<value>
+																<li Class="VEF.Genes.GeneExtension">
+																	<hediffToWholeBody>AG_Hover</hediffToWholeBody>
+																</li>
+															</value>
+														</li>
+													</operations>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+								<li Class="PatchOperationSequence" MayRequire="ReSplice.XOTR.Charmweavers">
+									<operations>
+										<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+											<operations>
+												<li Class="PatchOperationSequence">
+													<operations>
+														<li Class="PatchOperationAddModExtension">
+															<xpath>Defs/GeneDef[defName="RS_Wing_Batlike"]</xpath>
+															<value>
+																<li Class="VEF.Genes.GeneExtension">
+																	<hediffToWholeBody>AG_Hover</hediffToWholeBody>
+																</li>
+															</value>
+														</li>
+													</operations>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+								<li Class="PatchOperationSequence" MayRequire="Rimsenal.Harana">
+									<operations>
+										<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+											<operations>
+												<li Class="PatchOperationSequence">
+													<operations>
+														<li Class="PatchOperationAddModExtension">
+															<xpath>Defs/GeneDef[defName="Gene_Hwing"]</xpath>
+															<value>
+																<li Class="VEF.Genes.GeneExtension">
+																	<hediffToWholeBody>AG_Hover</hediffToWholeBody>
+																</li>
+															</value>
+														</li>
+													</operations>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+								<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+									<operations>
+										<li Class="PatchOperationSequence" MayRequire="Sov.Nephilim">
+											<operations>
+												<li Class="PatchOperationSequence">
+													<operations>
+														<li Class="PatchOperationAddModExtension">
+															<xpath>Defs/GeneDef[defName="GS_WingsB"]</xpath>
+															<value>
+																<li Class="VEF.Genes.GeneExtension">
+																	<hediffToWholeBody>AG_Hover</hediffToWholeBody>
+																</li>
+															</value>
+														</li>
+													</operations>
+												</li>
+											</operations>
+										</li>
+									</operations>
+								</li>
+								<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+									<operations>
+										<li Class="PatchOperationFindMod">
+											<mods>
+												<li>Seraphim Xenotype</li>
+											</mods>
+											<match Class="PatchOperationSequence">
+												<operations>
+													<li Class="PatchOperationSequence">
+														<operations>
+															<li Class="PatchOperationAddModExtension">
+																<xpath>Defs/GeneDef[defName="GS_WingsB"]</xpath>
+																<value>
+																	<li Class="VEF.Genes.GeneExtension">
+																		<hediffToWholeBody>AG_Hover</hediffToWholeBody>
+																	</li>
+																</value>
+															</li>
+														</operations>
+													</li>
+												</operations>
+											</match>
+										</li>
+									</operations>
+								</li>
+							</operations>
+						</li>
+					</operations>
+				</nomatch>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

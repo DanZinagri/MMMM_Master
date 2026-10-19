@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Butcher First taught about Vanilla Cooking Expanded's extra cooking benches. It lowers the vanilla cooking work
+		giver so butchering is done first; VCE's own work givers are not covered by it, so without this they keep
+		out-prioritising butchering. Each one drops by ten to sit at the same rank it had relative to vanilla cooking.
+
+		This folder loads when any Vanilla Cooking Expanded module is active (see loadFolders.xml). Butcher First keeps
+		a FindMod check on its NAME rather than a MayRequire, because the mod is not installed here, so its packageId
+		could not be verified and a wrong id would fail silently. The VCE modules are gated by packageId.
+
+		Verified against the current 1.6 releases: all six work givers exist. Vanilla DoBillsCook is priorityInType 100,
+		the four core VCE givers are 100, 101, 101, 101, and the sushi and haute givers are both 100, so every replace
+		lands and none is redundant.
+		The original's "same as DoBillsCook" comments are stale: that giver is 100 now, not 90. The numbers here are
+		only correct on the assumption that Butcher First sets it to 90, which could not be checked without the mod.
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Butcher First</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VCookE">
+					<operations>
+						<li Class="PatchOperationReplace">
+							<xpath>Defs/WorkGiverDef[defName="VCE_DoBillsGrill"]/priorityInType</xpath>
+							<value>
+								<!-- same as DoBillsCook -->
+								<priorityInType>90</priorityInType>
+							</value>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>Defs/WorkGiverDef[defName="VCE_DoBillsFryer"]/priorityInType</xpath>
+							<value>
+								<priorityInType>91</priorityInType>
+							</value>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>Defs/WorkGiverDef[defName="VCE_DoBillsCanning"]/priorityInType</xpath>
+							<value>
+								<priorityInType>91</priorityInType>
+							</value>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>Defs/WorkGiverDef[defName="VCE_DoBillsPrep"]/priorityInType</xpath>
+							<value>
+								<priorityInType>91</priorityInType>
+							</value>
+						</li>
+					</operations>
+				</li>
+
+				<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VCookESushi">
+					<operations>
+						<li Class="PatchOperationReplace">
+							<xpath>Defs/WorkGiverDef[defName="VCE_DoBillsSushi"]/priorityInType</xpath>
+							<value>
+								<!-- same as DoBillsCook -->
+								<priorityInType>90</priorityInType>
+							</value>
+						</li>
+					</operations>
+				</li>
+
+				<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VCookEHaute">
+					<operations>
+						<li Class="PatchOperationReplace">
+							<xpath>Defs/WorkGiverDef[defName="VCE_DoBillsCookHaute"]/priorityInType</xpath>
+							<value>
+								<!-- same as DoBillsCook -->
+								<priorityInType>90</priorityInType>
+							</value>
+						</li>
+					</operations>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

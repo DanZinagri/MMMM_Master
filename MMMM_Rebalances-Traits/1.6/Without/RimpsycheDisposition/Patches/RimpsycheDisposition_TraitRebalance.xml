@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved here from the root file 1.6/Patches/TraitRebalance.xml.
+		This folder loads only when Maux36.Rimpsyche.Disposition is NOT active (see loadFolders.xml). The same condition used to be a
+		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>/Defs/TraitDef[defName="ShootingAccuracy"]/degreeDatas/li[label="trigger-happy"]/statOffsets</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>/Defs/TraitDef[defName="ShootingAccuracy"]/degreeDatas/li[label="trigger-happy"]/statOffsets</xpath>
+							<value>
+								<statOffsets>
+									<ShootingAccuracyPawn>-5</ShootingAccuracyPawn>
+								</statOffsets>
+								<statFactors>
+									<AimingDelayFactor>0.5</AimingDelayFactor>
+								</statFactors>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>/Defs/TraitDef[defName="ShootingAccuracy"]/degreeDatas/li[label="careful shooter"]/statOffsets</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>/Defs/TraitDef[defName="ShootingAccuracy"]/degreeDatas/li[label="careful shooter"]/statOffsets</xpath>
+							<value>
+								<statOffsets>
+									<ShootingAccuracyPawn>5</ShootingAccuracyPawn>
+								</statOffsets>
+								<statFactors>
+									<AimingDelayFactor>1.25</AimingDelayFactor>
+								</statFactors>
+							</value>
+						</match>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

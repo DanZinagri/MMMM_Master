@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Alpha Crafts' horn grinder accepts horns and tusks from Megafauna, Dinosauria, Dark Ages: Beasts and Monsters,
+		Dragons Descent and Mythic Ages: Megafauna Bestiary, each labelled in the powdered horn's ingredient overrides;
+		Mythic Ages' wild fat can also be pressed into oil. One top-level block per animal mod, each gated on that mod.
+		This folder only loads when Alpha Crafts is active (see loadFolders.xml).
+		Verified against the installed mods: every item exists and none is already in the recipes (which list items, not
+		categories); Alpha Crafts itself only handles Alpha Animals and Odyssey horns. Dinosauria and Dragons Descent are
+		not installed, so their entries are unverified. With Medieval Overhaul, Progression: Kitchen replaces Mythic Ages'
+		wild fat with Medieval Overhaul's fat, which may leave the oil-press entry with nothing to do.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Buildings ops (buildings, furniture, floors, recipes and production).
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Spino.Megafauna">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_GrindHorns"]/ingredients/li/filter/thingDefs</xpath>
+						<value>
+							<li>MegalocerosAntlers</li>
+							<li>ElasmotheriumHorn</li>
+							<li>DeinotheriumTusk</li>
+							<li>ZygolophodonTusk</li>
+							<li>PlatybelodonTusk</li>
+							<li>MammothTusk</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_GrindHorns"]/fixedIngredientFilter/thingDefs</xpath>
+						<value>
+							<li>MegalocerosAntlers</li>
+							<li>ElasmotheriumHorn</li>
+							<li>DeinotheriumTusk</li>
+							<li>ZygolophodonTusk</li>
+							<li>PlatybelodonTusk</li>
+							<li>MammothTusk</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_GrindHorns"]/defaultIngredientFilter/thingDefs</xpath>
+						<value>
+							<li>MegalocerosAntlers</li>
+							<li>ElasmotheriumHorn</li>
+							<li>DeinotheriumTusk</li>
+							<li>ZygolophodonTusk</li>
+							<li>PlatybelodonTusk</li>
+							<li>MammothTusk</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="spincrus.dinosauria">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_GrindHorns"]/ingredients/li/filter/thingDefs</xpath>
+						<value>
+							<li>TriceratopsHorn</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_GrindHorns"]/fixedIngredientFilter/thingDefs</xpath>
+						<value>
+							<li>TriceratopsHorn</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_GrindHorns"]/defaultIngredientFilter/thingDefs</xpath>
+						<value>
+							<li>TriceratopsHorn</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Van.Beasts">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_GrindHorns"]/ingredients/li/filter/thingDefs</xpath>
+						<value>
+							<li>DA_DrogTusk</li>
+							<li>DA_GoldiloxHorn</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_GrindHorns"]/fixedIngredientFilter/thingDefs</xpath>
+						<value>
+							<li>DA_DrogTusk</li>
+							<li>DA_GoldiloxHorn</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_GrindHorns"]/defaultIngredientFilter/thingDefs</xpath>
+						<value>
+							<li>DA_DrogTusk</li>
+							<li>DA_GoldiloxHorn</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="onyxae.dragonsdescent">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_GrindHorns"]/ingredients/li/filter/thingDefs</xpath>
+						<value>
+							<li>DragonHorn</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_GrindHorns"]/fixedIngredientFilter/thingDefs</xpath>
+						<value>
+							<li>DragonHorn</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_GrindHorns"]/defaultIngredientFilter/thingDefs</xpath>
+						<value>
+							<li>DragonHorn</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="veterano.mythicages.megafaunabestiary">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_GrindHorns"]/ingredients/li/filter/thingDefs</xpath>
+						<value>
+							<li>MA_ScarSaberTooth</li>
+							<li>MA_DuskhornHorn</li>
+							<li>MA_PlastemmothTusk</li>
+							<li>MA_DeermossHorn</li>
+							<li>MA_Brontorhin</li>
+							<li>MA_SivatheriumHorn</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_GrindHorns"]/fixedIngredientFilter/thingDefs</xpath>
+						<value>
+							<li>MA_ScarSaberTooth</li>
+							<li>MA_DuskhornHorn</li>
+							<li>MA_PlastemmothTusk</li>
+							<li>MA_DeermossHorn</li>
+							<li>MA_Brontorhin</li>
+							<li>MA_SivatheriumHorn</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_GrindHorns"]/defaultIngredientFilter/thingDefs</xpath>
+						<value>
+							<li>MA_ScarSaberTooth</li>
+							<li>MA_DuskhornHorn</li>
+							<li>MA_PlastemmothTusk</li>
+							<li>MA_DeermossHorn</li>
+							<li>MA_Brontorhin</li>
+							<li>MA_SivatheriumHorn</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_PressOil"]/ingredients/li/filter/thingDefs</xpath>
+						<value>
+							<li>MA_WildFat</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_PressOil"]/fixedIngredientFilter/thingDefs</xpath>
+						<value>
+							<li>MA_WildFat</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/RecipeDef[defName="AC_PressOil"]/defaultIngredientFilter/thingDefs</xpath>
+						<value>
+							<li>MA_WildFat</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

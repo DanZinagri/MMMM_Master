@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Adds a rest bond effect to VRE - Highmate: when either psychically bonded partner is a quick sleeper (or has Vanilla Traits Expanded's heavy sleeper), both partners gain TMM_PsychicBondRest
+		(+20% rest rate). The hediff itself is defined in Defs/HighmateBondEffectHediffs.xml.
+		traitRequirements is an any-of trigger list: the game applies the hediff to both partners while either one has a
+		listed trait, and removes it otherwise.
+		This folder only loads when VRE - Highmate is active (see loadFolders.xml), so no FindMod check is needed.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VanillaRacesExpandedHighmate.HighmateBondEffectDef[defName="VRE_HighmateBondEffectDefs"]/bondHediffTraits</xpath>
+		<value>
+			<li>
+				<traitRequirements>
+					<li>
+						<def>QuickSleeper</def>
+					</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">
+						<def>VTE_HeavySleeper</def>
+					</li>
+				</traitRequirements>
+				<hediff>TMM_PsychicBondRest</hediff>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		VQE Deadlife: the military pallet of plasteel holds 150 plasteel and the pallet of advanced components 8 spacer
+		components. Moved from Too Many Mods' core AA3B_ShamblerXenotype.xml (setting TMM_MoreShamblerXenotypes, default on).
+		This folder only loads with VQE Deadlife (see loadFolders.xml). Checked with analysis/patch_sim.py: both apply.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="VQED_MilitaryPalletOfPlasteel"]/modExtensions/li[@Class="VEF.Buildings.LootableBuildingDetails"]/contents</xpath>
+				<value>
+					<contents>
+						<li>
+							<thing>Plasteel</thing>
+							<count>150</count>
+						</li>
+					</contents>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="VQED_MilitaryPalletOfAdvancedComponents"]/modExtensions/li[@Class="VEF.Buildings.LootableBuildingDetails"]/contents</xpath>
+				<value>
+					<contents>
+						<li>
+							<thing>ComponentSpacer</thing>
+							<count>8</count>
+						</li>
+					</contents>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

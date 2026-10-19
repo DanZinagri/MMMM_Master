@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Many Many Many Mods Modularized - Integrations - Genetics</name>
+	<author>DanZinagri</author>
+	<packageId>DanZinagri.MMMM.Integrations.Genetics</packageId>
+	<supportedVersions>
+		<li>1.6</li>
+		<li>1.7</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>Ludeon.RimWorld.Biotech</packageId>
+			<displayName>Biotech</displayName>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>Wara.toomanymods</li>
+		<li>det.keshig</li>
+		<li>Rimsenal.Harana</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+		<li>Sov.Tenmo</li>
+		<li>sov.nephilim</li>
+		<li>elsov.beliar</li>
+		<li>RedMattis.BSSlimes</li>
+		<li>RedMattis.LamiasAndOtherSnakes</li>
+		<li>RedMattis.Yokai</li>
+		<li>RedMattis.Undead</li>
+		<li>RedMattis.BetterPrerequisites</li>
+		<li>RedMattis.MoreXenos</li>
+		<li>RedMattis.Heaven</li>
+		<li>det.brawnum</li>
+		<li>det.avaloi</li>
+		<li>sarg.alphagenes</li>
+		<li>vanillaracesexpanded.phytokin</li>
+		<li>vanillaracesexpanded.insector</li>
+		<li>vanillaracesexpanded.lycanthrope</li>
+		<li>VanillaExpanded.VanillaTraitsExpanded</li>
+		<li>vanillaracesexpanded.archon</li>
+		<li>RedMattis.BigSmall</li>
+		<li>RedMattis.BigSmall.Core</li>
+		<li>Ludeon.RimWorld.Ideology</li>
+		<li>vanillaquestsexpanded.ancients</li>
+		<li>det.buzzers</li>
+		<li>ReGrowth.BOTR.Core</li>
+		<li>RedMattis.BigSmall.SimpleAndroids</li>
+		<li>ElSov.Highborn</li>
+		<li>Rimsenal.Askbarn</li>
+		<li>biotexpans.core</li>
+		<li>det.venators</li>
+		<li>vanillaracesexpanded.hussar</li>
+		<li>vanillaracesexpanded.pigskin</li>
+		<li>vanillaracesexpanded.saurid</li>
+		<li>Arquebus.StagzMerfolk</li>
+		<li>VanillaExpanded.VAnomalyEInsanity</li>
+		<li>redmattis.undead.zombieapoc</li>
+	</loadAfter>
+	<description>Mod integrations</description>
+</ModMetaData>

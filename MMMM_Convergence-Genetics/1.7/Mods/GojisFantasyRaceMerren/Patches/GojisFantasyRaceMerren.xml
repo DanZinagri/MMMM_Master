@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Goji's Fantasy Race: Merren overlap removal. This folder only loads when Merren is active (see loadFolders.xml).
+		  - With Alpha Genes: coastal merfolk use Alpha Genes' water striding instead of Merren's swift swim; water striding now
+		    requires Merren's aquatic gene, and Alpha Genes' Nereid gains that aquatic gene so it keeps working. Note the
+		    prerequisite applies to water striding everywhere: any other xenotype carrying it without the aquatic gene would
+		    have it inactive (among installed mods only the Nereid carries it).
+		  - Merren's keen reflexes and nimbleness join the shared MeleeDodge exclusion group.
+		  - With Geist: the Geist uses Merren's nimbleness instead of its own nimble gene, which goes on this mod's Cherry
+		    Picker list (revive entries in 1.6/Defs/CherryPicker.xml).
+		The original core folder was gated on packageId "Goji.Merren", which no mod has, so none of this ever loaded; the
+		gate is now Arquebus.StagzMerfolk, confirmed against Merren's About.xml. Verified against Merren 1.6: the coastal merfolk
+		carry both Stagz_SwiftSwim and Stagz_Aquatic, and none of the Stagz_ genes patched here has exclusionTags of its own.
+		Verified on the partner side: AG_WaterStriding has no prerequisite, the Nereid lacks the aquatic gene, and the Geist
+		carries GS_Nimble.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="Stagz_Merfolk_Coastal"]/genes/li[text()="Stagz_SwiftSwim"]</xpath>
+						<value>
+							<li>AG_WaterStriding</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/GeneDef[defName="AG_WaterStriding"]</xpath>
+						<value>
+							<prerequisite>Stagz_Aquatic</prerequisite>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="AG_Nereid"]/genes</xpath>
+						<value>
+							<li>Stagz_Aquatic</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/GeneDef[defName="Stagz_KeenReflexes" or defName="Stagz_Nimbleness"]</xpath>
+				<value>
+					<exclusionTags>
+						<li>MeleeDodge</li>
+					</exclusionTags>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Sov.Tenmo">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="GS_Geist"]/genes/li[text()="GS_Nimble"]</xpath>
+						<value>
+							<li>Stagz_Nimbleness</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/GS_Nimble</li>
+							<li>GeneDef/GS_Nimble_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

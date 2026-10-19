@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The sling sounds like a thrown grenade instead of a small bow.
+		This folder only loads when Vanilla Weapons Expanded - Tribal is active (see loadFolders.xml).
+		Verified against VWE - Tribal 1.6: soundInteract is Bow_Small upstream, so this replaces a real value.
+		The original wrapped this in a 'Combat Extended absent' check. That check was dropped: this project does not
+		support Combat Extended, so the guard could never do anything useful here.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="VWE_Sling"]/verbs/li/soundCast</xpath>
+				<value>
+					<soundCast>ThrowGrenade</soundCast>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="VWE_Sling"]/soundInteract</xpath>
+				<value>
+					<soundInteract>ThrowGrenade</soundInteract>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved here from the root file 1.6/Patches/ImplantRebalance.xml.
+		This folder loads only when frozensnowfox.vanillabionicsexpansion is active (see loadFolders.xml). The same condition used to be a
+		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="FSFArchotechSpine"]</xpath>
+								<value>
+									<tradeability>Sellable</tradeability>
+								</value>
+							</li>
+							<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VGeneticsE">
+								<operations>
+									<li Class="PatchOperationSequence">
+										<operations>
+											<li Class="PatchOperationAdd">
+												<xpath>Defs/ThingDef[defName="FSFArchotechHeart" or defName="FSFArchotechStomach" or defName="FSFArchotechKidney"]</xpath>
+												<value>
+													<tradeability>Sellable</tradeability>
+												</value>
+											</li>
+										</operations>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		A pawn with no hearing will not listen to the radio.
+		This folder only loads when Vanilla Furniture Expanded is active (see loadFolders.xml), so no FindMod check
+		is needed. Verified against VFE 1.6: the VFE_ListenToMusic JoyGiverDef has no requiredCapacities upstream.
+		The conditional guard is kept from the original so a future upstream version adding its own list wins instead
+		of ending up with two.
+		Note the xpath must say JoyGiverDef: VFE defines both a JobDef and a JoyGiverDef named VFE_ListenToMusic.
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/JoyGiverDef[defName="VFE_ListenToMusic"]/requiredCapacities</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/JoyGiverDef[defName="VFE_ListenToMusic"]</xpath>
+			<value>
+				<requiredCapacities>
+					<li>Hearing</li>
+				</requiredCapacities>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

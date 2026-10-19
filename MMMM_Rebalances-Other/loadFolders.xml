@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- 1.6/Mods/<Name> loads when that mod is active; 1.6/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<li>/</li>
+		<li>1.6</li>
+		<li IfModActive="RedMattis.BigSmall.SimpleAndroids" IfModNotActive="Trickity.Samurai.Faction">1.6/Mods/BigAndSmallSimplyRobots_WithoutTsSamuraiFaction</li>
+		<li IfModActive="det.aprilfools.archocubes">1.6/Mods/MarchOfTheArchocubes</li>
+		<li IfModActive="VanillaExpanded.VMemesE">1.6/Mods/VanillaIdeologyExpandedMemesAndStructures</li>
+		<li IfModActive="VanillaExpanded.VFECore">1.6/Mods/VanillaFurnitureExpanded</li>
+		<li IfModActive="VanillaExpanded.VFEArt">1.6/Mods/VanillaFurnitureExpandedArt</li>
+		<li IfModActive="VanillaExpanded.VFEPower">1.6/Mods/VanillaFurnitureExpandedPower</li>
+		<li IfModActiveAll="VanillaExpanded.VFESecurity,VanillaExpanded.BaseGeneration">1.6/Mods/VanillaFurnitureExpandedSecurity</li>
+		<li IfModActiveAll="vanillaquestsexpanded.cryptoforge,Ludeon.RimWorld.Odyssey">1.6/Mods/VanillaQuestsExpandedCryptoforge</li>
+		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.6/Mods/RimGnoblins</li>
+		<li IfModActive="VanillaExpanded.VBrewE">1.6/Mods/VanillaBrewingExpanded</li>
+		<li IfModActive="sarg.alphabiomes">1.6/Mods/AlphaBiomes</li>
+		<li IfModActive="sarg.alphacrafts">1.6/Mods/AlphaCrafts</li>
+		<li IfModActive="RedMattis.BigSmall.SimpleAndroids">1.6/Mods/BigAndSmallSimplyRobots</li>
+		<li IfModActive="ReBuild.COTR.DoorsAndCorners">1.6/Mods/ReBuildDoorsAndCorners</li>
+		<li IfModActive="vanillaquestsexpanded.deadlife">1.6/Mods/VanillaQuestsExpandedDeadlife</li>
+	</v1.6>
+	<v1.7>
+		<!-- 1.7/Mods/<Name> loads when that mod is active; 1.7/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<li>/</li>
+		<li>1.7</li>
+		<li IfModActive="RedMattis.BigSmall.SimpleAndroids" IfModNotActive="Trickity.Samurai.Faction">1.7/Mods/BigAndSmallSimplyRobots_WithoutTsSamuraiFaction</li>
+		<li IfModActive="det.aprilfools.archocubes">1.7/Mods/MarchOfTheArchocubes</li>
+		<li IfModActive="VanillaExpanded.VMemesE">1.7/Mods/VanillaIdeologyExpandedMemesAndStructures</li>
+		<li IfModActive="VanillaExpanded.VFECore">1.7/Mods/VanillaFurnitureExpanded</li>
+		<li IfModActive="VanillaExpanded.VFEArt">1.7/Mods/VanillaFurnitureExpandedArt</li>
+		<li IfModActive="VanillaExpanded.VFEPower">1.7/Mods/VanillaFurnitureExpandedPower</li>
+		<li IfModActiveAll="VanillaExpanded.VFESecurity,VanillaExpanded.BaseGeneration">1.7/Mods/VanillaFurnitureExpandedSecurity</li>
+		<li IfModActiveAll="vanillaquestsexpanded.cryptoforge,Ludeon.RimWorld.Odyssey">1.7/Mods/VanillaQuestsExpandedCryptoforge</li>
+		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.7/Mods/RimGnoblins</li>
+		<li IfModActive="VanillaExpanded.VBrewE">1.7/Mods/VanillaBrewingExpanded</li>
+		<li IfModActive="sarg.alphabiomes">1.7/Mods/AlphaBiomes</li>
+		<li IfModActive="sarg.alphacrafts">1.7/Mods/AlphaCrafts</li>
+		<li IfModActive="RedMattis.BigSmall.SimpleAndroids">1.7/Mods/BigAndSmallSimplyRobots</li>
+		<li IfModActive="ReBuild.COTR.DoorsAndCorners">1.7/Mods/ReBuildDoorsAndCorners</li>
+		<li IfModActive="vanillaquestsexpanded.deadlife">1.7/Mods/VanillaQuestsExpandedDeadlife</li>
+	</v1.7>
+</loadFolders>

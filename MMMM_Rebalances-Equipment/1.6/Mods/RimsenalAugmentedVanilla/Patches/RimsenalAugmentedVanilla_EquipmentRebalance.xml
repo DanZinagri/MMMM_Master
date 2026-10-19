@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved here from the root file 1.6/Patches/EquipmentRebalance.xml.
+		This folder loads only when rimsenal.evp is active (see loadFolders.xml). The same condition used to be a
+		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Gun_RSCarbine"]/statBases</xpath>
+								<value>
+									<statBases>
+										<WorkToMake>39500</WorkToMake>
+										<Mass>2.8</Mass>
+										<AccuracyTouch>0.8</AccuracyTouch>
+										<AccuracyShort>0.9</AccuracyShort>
+										<AccuracyMedium>0.65</AccuracyMedium>
+										<AccuracyLong>0.55</AccuracyLong>
+										<RangedWeapon_Cooldown>1.4</RangedWeapon_Cooldown>
+									</statBases>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Bullet_ThrowingClubs"]/projectile/damageAmountBase</xpath>
+								<value>
+									<damageAmountBase>9</damageAmountBase>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Gun_RSBattleRifle"]/statBases/AccuracyTouch</xpath>
+								<value>
+									<AccuracyTouch>0.55</AccuracyTouch>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="Gun_RSBattleRifle"]/costList</xpath>
+								<value>
+									<costList>
+										<Steel>100</Steel>
+										<ComponentIndustrial>10</ComponentIndustrial>
+									</costList>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Ideology Expanded - Memes and Structures rebalances.
+		- Five VIE memes gain agreeable / disagreeable vanilla traits.
+		- The Patissier's Make a dessert ability targets items instead of pawns, gains 8 charges, and its group
+		cooldown goes from 2.5 days to 5 days (only when Vanilla Cooking Expanded is present, which is what adds
+		the ability in the first place).
+		This folder only loads when VIE - Memes and Structures is active (see loadFolders.xml), so no FindMod checks
+		are needed. Verified against VIE 1.6: none of these five memes define agreeableTraits or disagreeableTraits
+		upstream, and VME_MakeADessert has no charges or cooldownPerCharge, so each whole element is added.
+		The named-node trait entries (for example Industriousness 2) are the vanilla shorthand for a TraitRequirement:
+		the node name is the trait and its text is the degree.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VCookE">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/AbilityDef[defName="VME_MakeADessert"]/verbProperties/targetParams</xpath>
+						<value>
+							<targetParams>
+								<canTargetSelf>false</canTargetSelf>
+								<canTargetBuildings>false</canTargetBuildings>
+								<canTargetPawns>false</canTargetPawns>
+								<canTargetItems>true</canTargetItems>
+								<thingCategory>Item</thingCategory>
+								<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+							</targetParams>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/AbilityDef[defName="VME_MakeADessert"]</xpath>
+						<value>
+							<charges>8</charges>
+							<cooldownPerCharge>true</cooldownPerCharge>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/AbilityGroupDef[defName="VME_Patissier"]/cooldownTicks</xpath>
+						<value>
+							<cooldownTicks>180000</cooldownTicks>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

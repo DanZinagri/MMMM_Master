@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The archotech sculpture counts as archotech tech level.
+		This folder only loads when Vanilla Furniture Expanded - Art is active (see loadFolders.xml).
+		Verified against VFE - Art 1.6: the def has no techLevel, so this sets one rather than overriding.
+		Side effect worth knowing: with Vanilla Psycasts Expanded, archotech-tech-level buildings can serve as an
+		Archotechnology meditation focus, which is why the original author set these.
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="VFE_ArchotechSculpture"]/techLevel</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="VFE_ArchotechSculpture"]</xpath>
+			<value>
+				<techLevel>Archotech</techLevel>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

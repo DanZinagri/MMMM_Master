@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The blue oni gain Det's Avaloi psychic inebriation gene.
+		This folder only loads when Big and Small - Yokai is active (see loadFolders.xml); Avaloi is gated per
+		operation because the gene comes from there.
+		Verified against Yokai 1.6: neither xenotype already lists the gene.
+	-->
+	<!--
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally. Do not flatten this wrapper away.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="det.avaloi">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_BlueOni"]/genes</xpath>
+						<value>
+							<li>DV_PsychicInebriation</li>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="BS_GreatBlueOni"]/genes</xpath>
+						<value>
+							<li>DV_PsychicInebriation</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

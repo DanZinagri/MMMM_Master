@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small - Simply Robots tuning, through the robots' B&S PawnExtension filters and race settings:
+		  - hediffs robots can never get (other mods' diseases, parasites, allergies, plagued claws);
+		  - gene tags and categories robots cannot carry (blood, bleeding, immunity, leather/meat, cell instability; drugs
+		    for the commando bot and TV android; mood for the non-sapient ones);
+		  - no VAE Insanity sanity need for the TV android and the non-sapient commando bot (vanilla disablesNeeds);
+		  - surgeries robots cannot take (VGE animal-part implants) and traits they cannot have (drug, food, sexuality and
+		    flesh-body traits, several per mod);
+		  - food and drink the commando bot and TV android will never eat, each entry MayRequire'd; with Alpha Crafts, its
+		    sake too unless T's Samurai Faction is installed (that part lives in the BigAndSmallSimplyRobots_WithoutTsSamuraiFaction folder).
+		This folder only loads when Simply Robots is active (see loadFolders.xml). Entries for other mods carry MayRequire.
+		Changes from the original: an exact duplicate op (adding Drugs to the same geneCategoryFilters blacklist twice) was
+		dropped. Simply Robots is not installed here, so its defs could not be checked.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/HediffDef[@Name="BS_BaseRobotHumanoid"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/hediffFilters/banlist</xpath>
+				<value>
+					<li MayRequire="sarg.alphagenes,Ludeon.RimWorld.Anomaly">AG_PlaguedClaws</li>
+					<li MayRequire="sarg.alphabiomes">AB_SporesAllergy</li>
+					<li MayRequire="sarg.alphabiomes">AB_SporesAllergy_Heightened</li>
+					<li MayRequire="sarg.alphabiomes">AB_Paralysis</li>
+					<li MayRequire="sarg.alphabiomes">AB_RavagingIntestinalParasites</li>
+					<li MayRequire="sarg.alphabiomes">AB_ViralAbasia</li>
+					<li MayRequire="sarg.alphabiomes">AB_BacterialGangrene</li>
+					<li MayRequire="sarg.alphabiomes">AB_Gangrene</li>
+					<li MayRequire="sarg.alphaanimals">AA_LockJawDisease</li>
+					<li MayRequire="sarg.alphaanimals">AA_Paralysis</li>
+					<li MayRequire="sarg.alphaanimals">AA_SwarmlingImplantation</li>
+					<li MayRequire="sarg.alphaanimals">AA_VirulentFungalInfection</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/HediffDef[@Name="BS_CommandoBotHediffBase" or @Name="BS_TVAndroidHediffBase"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/geneCategoryFilters/blacklist</xpath>
+				<value>
+					<li>Drugs</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/HediffDef[@Name="BS_BaseRobotHumanoid"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/geneTagFilters/blacklist</xpath>
+				<value>
+					<li>Bleeding</li>
+					<li>Bleedspeed</li>
+					<li>Blood</li>
+					<li>BloodType</li>
+					<li>CellInstability</li>
+					<li>Immunity</li>
+					<li>Leather</li>
+					<li>LeatherAmount</li>
+					<li>Leathers</li>
+					<li>MeatAmount</li>
+					<li>SuperClotting</li>
+					<li>AG_Bleeding</li>
+					<li>AG_BloodType</li>
+					<li>AG_Leather</li>
+					<li>BS_BleedRate</li>
+					<li>wVC_GeneticInstabilityGenes</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/HediffDef[defName="BS_TVAndroid"]/stages/li/disablesNeeds</xpath>
+				<value>
+					<li MayRequire="VanillaExpanded.VAnomalyEInsanity">VAEI_Sanity</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/HediffDef[defName="BS_CommandoBot_NonSapient"]/stages/li</xpath>
+				<value>
+					<disablesNeeds>
+						<li MayRequire="VanillaExpanded.VAnomalyEInsanity">VAEI_Sanity</li>
+					</disablesNeeds>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/HediffDef[defName="BS_CommandoBot_NonSapient"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]</xpath>
+				<value>
+					<geneCategoryFilters>
+						<blacklist>
+							<li>Mood</li>
+						</blacklist>
+					</geneCategoryFilters>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/HediffDef[defName="BS_TVAndroid"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/geneCategoryFilters/blacklist</xpath>
+				<value>
+					<li>Mood</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/HediffDef[@Name="BS_BaseRobotHumanoid"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/surgeryRecipes/blacklist</xpath>
+				<value>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallBearClaws</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallDiggingBearClaws</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallBearMuscleTissue</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallHibernationModule</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallOvipositor</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallMuffaloMuscles</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallMuffaloMammaries</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallMuffaloSkin</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallBoomalopeNodules</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallChemfuelStomach</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallChemfuelHeart</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallWolfMuscularFibers</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallDevouringJaws</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallNeuronReinforcement</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallMousePheromones</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallMoleratNerveDampener</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallBunnyEars</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallCompoundEye</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallCatEye</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallInsectoidAntennae</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallPsychicDampeners</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallKidneyToxicFilters</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallHumanThrumboHorn</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallThrumboSkin</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallVenomousFangs</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_InstallIguanaScales</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/HediffDef[defName="BS_CommandoBot_NonSapient" or defName="BS_TVAndroid"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]</xpath>
+				<value>
+					<traitFilters>
+						<blacklist>
+							<li>NaturalMood</li>
+							<li>Ascetic</li>
+							<li>TooSmart</li>
+							<li>Masochist</li>
+							<li>Greedy</li>
+							<li>Jealous</li>
+							<li>Undergrounder</li>
+							<li>DislikesMen</li>
+							<li>DislikesWomen</li>
+							<li>TorturedArtist</li>
+							<li>Nerves</li>
+							<li>Neurotic</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Brave</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalLover</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Vengeful</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Snob</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Prodigy</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_ChildOfSea</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_ChildOfMountain</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Desensitized</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Schizoid</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Aestheticist</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Agrizoophobe</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Asocial</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Graver</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Hedonist</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Hysteric</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Judgemental</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Outdoorsy</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_RepressedRage</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Sadist</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Staid</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Sunbather</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Tempestophile</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Vicious</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Visionary</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Prideful</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Humble</li>
+							<li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Biotech">HVT_Misopedist</li>
+							<li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Biotech">HVT_Caretaker</li>
+							<li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Biotech">HVT_Mechaphile</li>
+							<li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Biotech">HVT_Mechaphobe</li>
+							<li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Biotech">HVT_GenePurist</li>
+							<li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Anomaly">HVT_Catastrophist</li>
+							<li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Anomaly">HVT_Corruptible</li>
+							<li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Anomaly">HVT_Twisted</li>
+							<li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Odyssey">HVT_Earthborne</li>
+							<li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Odyssey">HVT_Skybound</li>
+							<li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Odyssey">HVT_CelestialCelerity</li>
+							<li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Odyssey">HVT_Globetrotter</li>
+						</blacklist>
+					</traitFilters>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/HediffDef[@Name="BS_TVAndroidHediffBase"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]</xpath>
+				<value>
+					<traitFilters>
+						<blacklist>
+							<li>DrugDesire</li>
+							<li>Cannibal</li>
+							<li>NightOwl</li>
+							<li>Gay</li>
+							<li>Bisexual</li>
+							<li>Asexual</li>
+							<li>Gourmand</li>
+							<li>QuickSleeper</li>
+							<li MayRequire="RedMattis.BigSmall">BS_AlcoholAddict</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Stoner</li>
+							<li MayRequire="CaptainCrunch.VFETraitsAddonSmoker">VTE_Smoker</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_HeavySleeper</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Insatiable</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Prude</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_DrunkenMaster</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Lush</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Insomniac</li>
+							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_RefinedPalate</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Lech</li>
+							<li MayRequire="Hautarche.HautsTraits">HVT_Lovesick</li>
+							<li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Odyssey">HVT_Pescatarian</li>
+						</blacklist>
+					</traitFilters>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/HediffDef[@Name="BS_CommandoBotHediffBase"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/traitFilters/blacklist</xpath>
+				<value>
+					<li>DrugDesire</li>
+					<li>Cannibal</li>
+					<li>NightOwl</li>
+					<li>Gay</li>
+					<li>Bisexual</li>
+					<li>Asexual</li>
+					<li>Gourmand</li>
+					<li>QuickSleeper</li>
+					<li MayRequire="RedMattis.BigSmall">BS_AlcoholAddict</li>
+					<li MayRequire="CaptainCrunch.VFETraitsAddonSmoker">VTE_Smoker</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Stoner</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_HeavySleeper</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Insatiable</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Prude</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_DrunkenMaster</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Lush</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Insomniac</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_RefinedPalate</li>
+					<li MayRequire="Hautarche.HautsTraits">HVT_Lech</li>
+					<li MayRequire="Hautarche.HautsTraits">HVT_Lovesick</li>
+					<li MayRequire="Hautarche.HautsTraits,Ludeon.RimWorld.Odyssey">HVT_Pescatarian</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/HediffDef[@Name="BS_BaseRobotHumanoid"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/traitFilters/blacklist</xpath>
+				<value>
+					<li>Transhumanist</li>
+					<li>Immunity</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_IronStomach</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Squeamish</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_ThinSkinned</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_ThickSkinned</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[@Name="BS_CommandoBotThingBase" or @Name="BS_TVAndroidThingBase"]/race/willNeverEat</xpath>
+				<value>
+					<li>Ambrosia</li>
+					<li MayRequire="Ludeon.RimWorld.Odyssey">Drug_Psilocap</li>
+					<li MayRequire="VexedTrees980.RimGnoblinsBiotech">DregMethamphetamine</li>
+					<li MayRequire="VexedTrees980.RimGnoblinsBiotech">ShardMethamphetamine</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_Ambrandy</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_Gin</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_Tequila</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_Vodka</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_Whiskey</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_DoubleWhiskey</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_HotCoffee</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_IceCoffee</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_EnergyDrink</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_Tea</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_SimpleCocktail</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_FineCocktail</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_LavishCocktail</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_GourmetCocktail</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_Cigarettes</li>
+					<li MayRequire="VanillaExpanded.VBrewE">VBE_Cigars</li>
+					<li MayRequire="VanillaExpanded.VBrewE,VanillaExpanded.VPlantsE">VBE_Cider</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT">VBE_BlackTea</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT">VBE_CannibalCoffee</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT">VBE_IrishCoffee</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT">VBE_Kombucha</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT">VBE_LatteCoffee</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT">VBE_MochaCoffee</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT">VBE_PumpkinCoffee</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT">VBE_Yuenyeung</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT,VanillaExpanded.VCookE">VBE_DalgonaCoffee</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT,VanillaExpanded.VCookE">VBE_GreenTea</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT,VanillaExpanded.VCookE">VBE_MasalaChai</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT,VanillaExpanded.VCookE">VBE_MintCoffee</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT,VanillaExpanded.VCookE">VBE_MintTea</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT,VanillaExpanded.VCookE">VBE_NoonChai</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT,VanillaExpanded.VPlantsE">VBE_EarlGreyTea</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT,VanillaExpanded.VPlantsE">VBE_LemonCoffee</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT,VanillaExpanded.VPlantsE">VBE_Lemonade</li>
+					<li MayRequire="VanillaExpanded.VBrewECandT,VanillaExpanded.VPlantsE">VBE_LemonTea</li>
+					<li MayRequire="sarg.alphacrafts">AC_ChocolateLiquor</li>
+					<li MayRequire="sarg.alphacrafts,VanillaExpanded.VBrewE">AC_CoffeeLiquor</li>
+					<li MayRequire="sarg.alphacrafts,VanillaExpanded.VBrewE">AC_PipeTobacco</li>
+					<li MayRequire="sarg.alphacrafts,VanillaExpanded.VBrewE">AC_ArtisanalKombucha</li>
+					<li MayRequire="sarg.alphacrafts,VanillaExpanded.VBrewE">AC_FlavouredKombucha</li>
+					<li MayRequire="sarg.alphacrafts,VanillaExpanded.VCookE,VanillaExpanded.VPlantsEMore">AC_ChichaMorada</li>
+					<li MayRequire="sarg.alphacrafts,sarg.alphabiomes">AC_IcedElixir</li>
+					<li MayRequire="OskarPotocki.VFE.Medieval2">VFEM2_Wine</li>
+					<li MayRequire="OskarPotocki.VFE.Medieval2">VFEM2_Mead</li>
+					<li MayRequire="OskarPotocki.VFE.Pirates">VFEP_Rum</li>
+					<li MayRequire="vanillaracesexpanded.genie">VRE_Antibiotics</li>
+					<li MayRequire="Rimsenal.Harana">Neutroshine</li>
+					<li MayRequire="sarg.alphabiomes">AB_PsychotropicFungus</li>
+					<li MayRequire="sarg.alphabiomes">AB_RawRimeNodules</li>
+					<li MayRequire="det.keshig">DV_Gorewine</li>
+					<li MayRequire="det.buzzers">DV_LungPurifier</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_ElectroEgg</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_FeatherdustJoint</li>
+					<li MayRequire="VanillaExpanded.VGeneticsE">GR_PoisonAmpoule</li>
+					<li MayRequire="OskarPotocki.VanillaFactionsExpanded.SettlersModule">Chemshine</li>
+					<li MayRequire="MrHydralisk.ComplementaryOdyssey">CO_Vacsop</li>
+					<li MayRequire="Van.Beasts">DA_BarogOil</li>
+					<li MayRequire="Van.Beasts">DA_RedTear</li>
+					<li MayRequire="Van.Beasts">DA_Karhan</li>
+					<li MayRequire="Van.Beasts">DA_ScarletScent</li>
+					<li MayRequire="onyxae.dragonsdescent">DraconicAmbrosia</li>
+					<li MayRequire="onyxae.dragonsdescent">DragonsBlood</li>
+					<li MayRequire="onyxae.dragonsdescent">MoonStone</li>
+					<li MayRequire="feb.biopunklivestock">FEB_Apothemycin</li>
+					<li MayRequire="lambda.Kumis">lambda_Kumis</li>
+					<li MayRequire="Sarg.AlphaMemes">AM_CorpseRumBasic</li>
+					<li MayRequire="Sarg.AlphaMemes">AM_CorpseRumFine</li>
+					<li MayRequire="veterano.mythicages.megafaunabestiary">MA_MossmireDraught</li>
+					<li MayRequire="veterano.mythicages.megafaunabestiary">MA_EmberheartSlices</li>
+					<li MayRequire="veterano.mythicages.megafaunabestiary">MA_HellboarLiverSlice</li>
+					<li MayRequire="veterano.mythicages.megafaunabestiary">MA_SkyfeatherPipe</li>
+					<li MayRequire="Ushanka.BiologicalWarfare">USH_InfectionVaccine</li>
+					<li MayRequire="Ushanka.BiologicalWarfare">USH_ScariaVaccine</li>
+					<li MayRequire="Ushanka.BiologicalWarfare">USH_PlagueVaccine</li>
+					<li MayRequire="Ushanka.BiologicalWarfare">USH_SleepingSicknessVaccine</li>
+					<li MayRequire="Ushanka.BiologicalWarfare">USH_MalariaVaccine</li>
+					<li MayRequire="Ushanka.BiologicalWarfare">USH_FluVaccine</li>
+					<li MayRequire="Ushanka.BiologicalWarfare">USH_FluAntiserum</li>
+					<li MayRequire="Ushanka.BiologicalWarfare">USH_ScariaAntiserum</li>
+					<li MayRequire="Ushanka.BiologicalWarfare">USH_PlagueAntiserum</li>
+					<li MayRequire="Ushanka.BiologicalWarfare">USH_MalariaAntiserum</li>
+					<li MayRequire="Ushanka.BiologicalWarfare">USH_SleepingSicknessAntiserum</li>
+					<li MayRequire="Ushanka.BiologicalWarfare">USH_InfectionAntiserum</li>
+					<li MayRequire="Ushanka.BiologicalWarfare">USH_FleshBreaker</li>
+					<li MayRequire="Ushanka.BiologicalWarfare">USH_MalariaReproductionPills</li>
+					<li MayRequire="Ushanka.BiologicalWarfare">USH_SleepingSicknessReproductionPills</li>
+					<li MayRequire="OskarPotocki.VFE.Classical">VFEC_Opium</li>
+					<li MayRequire="Ushanka.GlittertechExpansion">USH_AddictionRemover</li>
+					<li MayRequire="Ushanka.GlittertechExpansion">USH_GammaSerum</li>
+					<li MayRequire="Ushanka.GlittertechExpansion">USH_Shimmertalk</li>
+					<li MayRequire="VPE.Fleshshaper.Sentinel">FleshmassHealnodeSTNL</li>
+					<li MayRequire="Trickity.Samurai.Faction">TSF_Sake</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

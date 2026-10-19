@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Faction tweaks, moved from the core root file AA6A_FactionPatches.xml (setting TMM_FactionTweaks, default on; installing
+		this mod is the opt-in now):
+		  - Biotech Expansion Mammalia / Mythic: one of each tribe at world creation; the Mythic house-fire tribe is hidden.
+		  - Settlement weight 0.25 for VFE Settlers factions, rough Saurid outlanders, Rim-Gnoblin pirates, rough Rim-Elf
+		    isolationists, Keshig pirates, rough Stoneborn outlanders (with B&S Races) and rough Buzzer outlanders; 0.5 for
+		    DragonBond's two factions (which must also exist once at game start) and T's Samurai factions.
+		Each block is gated on its mods via an <li>; DragonBond's part is in 1.7/Mods/DragonBond
+		(Biotech Expansion's ids come from TMM's shambler patch). Fix: the T's Samurai base already sets settlementGenerationWeight (1), so the Add made a duplicate node; it is a
+		Replace now. The shinobi clan xenotype set went to MMMM_Integrations-Factions (merged with the Geist one there).
+		Checked with analysis/patch_sim.py: every installed-mod op applies, no duplicate nodes.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="biotexpans.mammalia">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/FactionDef[defName="TribeCivilMammals"]/startingCountAtWorldCreation</xpath>
+								<value>
+									<startingCountAtWorldCreation>1</startingCountAtWorldCreation>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="biotexpans.mythic">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/FactionDef[defName="TribeMythicHouseFire"]/startingCountAtWorldCreation</xpath>
+								<value>
+									<startingCountAtWorldCreation>1</startingCountAtWorldCreation>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/FactionDef[defName="TribeMythicHouseFire"]</xpath>
+								<value>
+									<hidden>true</hidden>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VanillaFactionsExpanded.SettlersModule">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/FactionDef[@Name="SettlerFactionBase"]/settlementGenerationWeight</xpath>
+								<value>
+									<settlementGenerationWeight>0.25</settlementGenerationWeight>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="vanillaracesexpanded.saurid">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/FactionDef[defName="VRESaurids_OutlanderRoughSaurid"]</xpath>
+								<value>
+									<settlementGenerationWeight>0.25</settlementGenerationWeight>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VexedTrees980.RimGnoblinsBiotech">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/FactionDef[defName="GnoblinPirates"]/settlementGenerationWeight</xpath>
+								<value>
+									<settlementGenerationWeight>0.25</settlementGenerationWeight>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="VexedTrees980.RimElvesBiotech">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/FactionDef[defName="ElvenIsolationistsRough"]/settlementGenerationWeight</xpath>
+								<value>
+									<settlementGenerationWeight>0.25</settlementGenerationWeight>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="det.keshig">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/FactionDef[defName="DV_PirateKeshig"]</xpath>
+								<value>
+									<settlementGenerationWeight>0.25</settlementGenerationWeight>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="det.stoneborn">
+						<operations>
+							<li Class="PatchOperationSequence">
+								<operations>
+									<li Class="PatchOperationAdd">
+										<xpath>Defs/FactionDef[defName="OutlanderRoughStoneborn"]</xpath>
+										<value>
+											<settlementGenerationWeight>0.25</settlementGenerationWeight>
+										</value>
+									</li>
+								</operations>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="det.buzzers">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/FactionDef[defName="DV_OutlanderRoughBuzzer"]</xpath>
+								<value>
+									<settlementGenerationWeight>0.25</settlementGenerationWeight>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="Trickity.Samurai.Faction">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/FactionDef[@Name="TSF_SamuraiBase"]/settlementGenerationWeight</xpath>
+								<value>
+									<settlementGenerationWeight>0.5</settlementGenerationWeight>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Traits Expanded traits join other systems: vanilla and VSIE inspirations they should be barred from, and
+		meditation focus types they should allow.
+		This folder only loads when Vanilla Traits Expanded is active (see loadFolders.xml), so no FindMod check is needed
+		for VTE itself; optional contributors are gated per operation or per list entry.
+		Verified against VTE 1.6: none of these traits define disallowedInspirations or allowedMeditationFocusTypes
+		upstream, and the vanilla Chimera thought has no nullifyingTraits, so each whole element is added.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Other ops (everything else (thoughts, sanity, meditation focus, hediffs, animals, plants)).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+
+			<!-- Brave shrugs off the sight of a chimera -->
+			<li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Anomaly">
+				<xpath>Defs/ThoughtDef[defName="Chimera"]</xpath>
+				<value>
+					<nullifyingTraits>
+						<li>VTE_Brave</li>
+					</nullifyingTraits>
+				</value>
+			</li>
+
+		</operations>
+	</Operation>
+
+</Patch>

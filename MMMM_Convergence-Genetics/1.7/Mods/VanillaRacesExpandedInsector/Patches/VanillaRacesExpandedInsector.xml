@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The VRE - Insector colossal and microsized geneline genes hand their body-size work to Big and Small instead of
+		doing it themselves: the VEF body size offset becomes a B&amp;S one, the whole-body size hediff is dropped, the
+		colossal gene gains the B&amp;S giant trait, and both descriptions lose the clauses about effects B&amp;S now owns.
+		This folder only loads when VRE - Insector, VFE - Insectoids 2 and B&amp;S - Genes &amp; More are all active
+		(see loadFolders.xml), so no FindMod checks are needed.
+		Verified against VRE - Insector 1.6: both genes exist, both carry a VEF.Genes.GeneExtension with
+		hediffToWholeBody and a VEF_BodySize_Offset stat offset, and neither already has forcedTraits or
+		customEffectDescriptions, so every operation lands.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Colossal"]</xpath>
+				<value>
+					<forcedTraits>
+						<li>
+							<def>BS_Giant</def>
+						</li>
+					</forcedTraits>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Colossal"]/description</xpath>
+				<value>
+					<description>Carriers of this gene grow to colossal proportions, while reducing movement speed and melee dodge chance.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Microsized"]/description</xpath>
+				<value>
+					<description>Carriers of this gene exhibit a microsized stature, significantly smaller than their counterparts.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Colossal" or defName="VRE_Microsized"]</xpath>
+				<value>
+					<customEffectDescriptions>
+						<li>Body size affects HP, melee damage, diet, mining speed, ranged dodge chance and self-production genes.</li>
+					</customEffectDescriptions>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Microsized"]/statOffsets/VEF_BodySize_Offset</xpath>
+				<value>
+					<SM_BodySizeOffset>-0.5</SM_BodySizeOffset>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Colossal"]/statOffsets/VEF_BodySize_Offset</xpath>
+				<value>
+					<SM_BodySizeOffset>0.5</SM_BodySizeOffset>
+				</value>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Colossal"]/modExtensions/li[@Class="VEF.Genes.GeneExtension"]/hediffToWholeBody</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Microsized"]/modExtensions/li[@Class="VEF.Genes.GeneExtension"]/hediffToWholeBody</xpath>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

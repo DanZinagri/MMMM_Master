@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved here from the root file 1.7/Patches/EquipmentRebalance.xml.
+		This folder loads only when VanillaExpanded.VAEAccessories is active (see loadFolders.xml). The same condition used to be a
+		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
+		Fix 2026-10-14: the ammo pack's cooldown bonus is VEF's apparel stat VEF_RangedCooldownFactor in statBases (x0.75),
+		not an equippedStatOffsets entry, so the old Replace on equippedStatOffsets/RangedCooldownFactor found nothing and
+		failed (it already did in Too Many Mods). It now sets the VEF stat to x0.8, the same -20% the original aimed for.
+	-->
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAEA_Apparel_MiniTurretPack"]/apparel/bodyPartGroups</xpath>
+								<value>
+									<bodyPartGroups>
+										<li>Torso</li>
+										<li>Waist</li>
+									</bodyPartGroups>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAEA_Apparel_Quiver"]/apparel/bodyPartGroups</xpath>
+								<value>
+									<bodyPartGroups>
+										<li>Torso</li>
+										<li>Waist</li>
+									</bodyPartGroups>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd">
+								<xpath>Defs/ThingDef[defName="VAEA_Apparel_Backpack"]/equippedStatOffsets</xpath>
+								<value>
+									<CarryingCapacity>50</CarryingCapacity>
+								</value>
+							</li>
+							<li Class="PatchOperationReplace">
+								<xpath>Defs/ThingDef[defName="VAEA_Apparel_AmmoPack"]/statBases/VEF_RangedCooldownFactor</xpath>
+								<value>
+									<VEF_RangedCooldownFactor>0.8</VEF_RangedCooldownFactor>
+								</value>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

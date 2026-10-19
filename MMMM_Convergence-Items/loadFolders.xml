@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<v1.6>
+		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li>1.6</li>
+		<!-- mirrors Big and Small - Genes &amp; More, which only loads the gene tools when at least one Big and Small content mod is active -->
+		<li IfModActiveAll="RedMattis.BigSmall.Core" IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025">1.6/Mods/BigAndSmallGeneTools</li>
+		<li IfModActive="tug.Minotaur">1.6/Mods/RoosMinotaur</li>
+		<li IfModActive="sarg.alphacrafts">1.6/Mods/AlphaCrafts</li>
+		<li IfModActive="Trickity.Samurai.Faction">1.6/Mods/TsSamuraiFaction</li>
+		<li IfModActive="onyxae.dragonsdescent">1.6/Mods/DragonsDescent</li>
+		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
+	</v1.6>
+	<v1.7>
+		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<li>/</li>
+		<li>1.7</li>
+		<!-- mirrors Big and Small - Genes &amp; More, which only loads the gene tools when at least one Big and Small content mod is active -->
+		<li IfModActiveAll="RedMattis.BigSmall.Core" IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025">1.7/Mods/BigAndSmallGeneTools</li>
+		<li IfModActive="tug.Minotaur">1.7/Mods/RoosMinotaur</li>
+		<li IfModActive="sarg.alphacrafts">1.7/Mods/AlphaCrafts</li>
+		<li IfModActive="Trickity.Samurai.Faction">1.7/Mods/TsSamuraiFaction</li>
+		<li IfModActive="onyxae.dragonsdescent">1.7/Mods/DragonsDescent</li>
+		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>
+	</v1.7>
+</loadFolders>

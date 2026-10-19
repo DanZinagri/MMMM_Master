@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The returned skeletal xenotype gains Alpha Genes' heat and cold immunity.
+
+		Gating, which is why this is its own folder: VU_ReturnedSkeletal is not a Yokai or Vampires-and-the-Undead def
+		at all. Big and Small - Genes & More defines it, inside a folder that its own loadFolders only loads when one
+		of RedMattis.Undead, RedMattis.Yokai or RedMattis.Undead.ZombieApoc is active. This folder mirrors that exact
+		condition, which also covers the zombie apocalypse submod that the original's check missed.
+
+		Worth a look later: the xenotype already carries MaxTemp_HugeIncrease and MinTemp_HugeDecrease, and this adds
+		the Alpha Genes immunities on top without removing them. The equivalent Yokai patches (kitsune, great red oni)
+		do remove the B&S genes when adding the Alpha Genes one, so the two are inconsistent.
+
+		Fix 2026-10-18: each immunity is added only when the xenotype lacks it. MMMM Convergence - Genetics swaps
+		MaxTemp_HugeIncrease / MinTemp_HugeDecrease for these same genes everywhere; when Convergence loaded first, this
+		add then listed both immunities twice ("Hyperlink to AG_ColdImmunity more than once"). Any load order works now.
+	-->
+	<!--
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally. Do not flatten this wrapper away.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="VU_ReturnedSkeletal"]/genes[not(li[text()="AG_HeatImmunity"])]</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="VU_ReturnedSkeletal"]/genes</xpath>
+							<value>
+								<li>AG_HeatImmunity</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="VU_ReturnedSkeletal"]/genes[not(li[text()="AG_ColdImmunity"])]</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="VU_ReturnedSkeletal"]/genes</xpath>
+							<value>
+								<li>AG_ColdImmunity</li>
+							</value>
+						</match>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

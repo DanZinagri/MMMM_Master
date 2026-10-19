@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Alpha Genes' fire obsession and vanilla's fire terror join a shared Pyrophobia exclusion group, so a pawn cannot carry
+		both. The group is invented by this project and both members are here, so it is complete.
+		This folder only loads when Alpha Genes is active (see loadFolders.xml).
+		Verified against Alpha Genes and vanilla 1.6: neither gene has exclusionTags, so each conditional creates the list.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/GeneDef[defName="AG_FireObsession"]/exclusionTags</xpath>
+				<match Class="PatchOperationAdd">
+					<xpath>Defs/GeneDef[defName="AG_FireObsession"]/exclusionTags</xpath>
+					<value>
+						<li>Pyrophobia</li>
+					</value>
+				</match>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/GeneDef[defName="AG_FireObsession"]</xpath>
+					<value>
+						<exclusionTags>
+							<li>Pyrophobia</li>
+						</exclusionTags>
+					</value>
+				</nomatch>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/GeneDef[defName="FireTerror"]/exclusionTags</xpath>
+				<match Class="PatchOperationAdd">
+					<xpath>Defs/GeneDef[defName="FireTerror"]/exclusionTags</xpath>
+					<value>
+						<li>Pyrophobia</li>
+					</value>
+				</match>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/GeneDef[defName="FireTerror"]</xpath>
+					<value>
+						<exclusionTags>
+							<li>Pyrophobia</li>
+						</exclusionTags>
+					</value>
+				</nomatch>
+			</li>
+		</operations>
+	</Operation>
+
+	<!--
+		Big and Small - Genes & More: the Helixien's slow movement becomes B&S's very slow gene, and the Taukai's
+		painlessness becomes B&S's no-pain gene (only if the Taukai still carries AG_Painless).
+		Verified against Alpha Genes and B&S 1.6: both genes being replaced are in those xenotypes, and both B&S genes exist.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/XenotypeDef[defName="AG_Helixien"]/genes/li[text()="MoveSpeed_Slow"]</xpath>
+						<value>
+							<li>BS_Very_Slow</li>
+						</value>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="AG_Taukai"]/genes/li[text()="AG_Painless"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef[defName="AG_Taukai"]/genes/li[text()="AG_Painless"]</xpath>
+							<value>
+								<li>BS_Pain_None</li>
+							</value>
+						</match>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<!--
+		B&S Genes & More + VRE Sanguophage: the Malachai (Alpha Genes' sanguophage xenotype) takes B&S's large frame
+		instead of Alpha Genes' larger body size, and B&S's no-pain instead of AG_Painless.
+		Verified against Alpha Genes, B&S and VRE Sanguophage 1.6: the Malachai carries both genes being replaced.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core,vanillaracesexpanded.sanguophage">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/XenotypeDef[defName="AG_Malachai"]/genes</xpath>
+						<value>
+							<li>BS_LargeFrame</li>
+						</value>
+					</li>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/XenotypeDef[defName="AG_Malachai"]/genes/li[text()="AG_LargerBodySize"]</xpath>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="AG_Malachai"]/genes/li[text()="AG_Painless"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef[defName="AG_Malachai"]/genes/li[text()="AG_Painless"]</xpath>
+							<value>
+								<li>BS_Pain_None</li>
+							</value>
+						</match>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<!--
+		Alpha Genes + Big and Small: any other xenotype with Alpha Genes' larger body size takes B&S's large frame instead,
+		so the cherry-picked gene (1.6/Patches/CherryPicks.xml, same gate) leaves no xenotype without a size gene.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="AG_LargerBodySize"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="AG_LargerBodySize"]</xpath>
+							<value>
+								<li>BS_LargeFrame</li>
+							</value>
+						</match>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<!--
+		With Integrated Implants, Alpha Genes' decreased command range gene is retired: the increased command range gene
+		is reworked onto Integrated Implants' command-range stat in MMMM_Rebalances, and its opposite is dropped. The revive
+		entry is in 1.6/Defs/CherryPicker.xml.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="lts.I">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/AG_DecreasedCommandRange</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Metabolic retuning of four genes, all of it gated on Alpha Genes in the original and kept that way here.
+		- Chocolate production stops overriding the carrier's meat and costs one metabolism instead of two.
+		- Giant weapon wielder costs two metabolism instead of none.
+		- The Alpha Genes tough sinews gene gains nine archite points.
+		- With Roo's Minotaur Xenotype also active, giant weapon wielder loses its first mod extension, which is the
+		prerequisite block requiring strong melee damage or the B&amp;S psychic warrior gene.
+		This folder only loads when B&amp;S - Genes &amp; More is active (see loadFolders.xml); the partner mods are gated
+		inside.
+		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads
+		MayRequire only on list elements, so an <Operation MayRequire="..."> node loads and applies
+		unconditionally.
+
+		Verified against the current 1.6 releases: chocolate production has a Chocolate meatOverride and biostatMet -2,
+		giant weapon wielder has biostatMet 0 and its first mod extension is the prerequisite block, and AG_ToughSinews
+		has no biostatArc, so every operation lands.
+
+		Two things worth revisiting:
+		- The chocolate and giant-weapon metabolism numbers have nothing to do with Alpha Genes, but the original
+		author put them inside an Alpha Genes check, so they only apply when it is installed.
+		- The archite cost on AG_ToughSinews never applies if the Convergence mod's Cherry Picker list is left
+		  unchecked, because that list retires AG_ToughSinews. The list is opt-in, so the cost still matters for
+		  anyone who does not use it.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/GeneDef[defName="BS_ChocolateProduction"]/modExtensions/li[@Class="BigAndSmall.PawnExtension"]/meatOverride</xpath>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="BS_ChocolateProduction"]/biostatMet</xpath>
+						<value>
+							<biostatMet>-1</biostatMet>
+						</value>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/GeneDef[defName="BS_GiantWeaponWielder"]/biostatMet</xpath>
+						<value>
+							<biostatMet>-2</biostatMet>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/GeneDef[defName="AG_ToughSinews"]</xpath>
+						<value>
+							<biostatArc>9</biostatArc>
+						</value>
+					</li>
+					<li Class="PatchOperationSequence" MayRequire="tug.minotaur">
+						<operations>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/GeneDef[defName="BS_GiantWeaponWielder"]/modExtensions/li[position()=1]</xpath>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

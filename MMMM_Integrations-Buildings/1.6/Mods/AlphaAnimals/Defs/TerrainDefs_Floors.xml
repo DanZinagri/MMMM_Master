@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--
+		Sky steel (Alpha Animals) floor tiles: a plain metal tile, a fine tile (VFE Architect + Royalty, whose patch creates
+		FineMetalTileBase) and grate and studded tiles (ReBuild: Doors and Corners). The original injected these with
+		PatchOperationAdd on Defs inside name FindMods; each partner-mod tile now carries a def-level MayRequire, which also
+		stops RimWorld looking for its parent when that mod is absent.
+		This folder only loads when Alpha Animals is active (see loadFolders.xml). Verified: AA_SkySteel and all four parent
+		defs exist in the current 1.6 releases, and no installed mod already adds sky steel floors.
+	-->
+
+	<TerrainDef ParentName="TileMetalBase">
+		<defName>TMM_AA_SkySteelTile</defName>
+		<label>sky steel tile</label>
+		<renderPrecedence>241</renderPrecedence>
+		<description>For a futuristic but royal look, silver tiles fit perfectly into luxurious rooms. They are quick to clean and get a bonus to cleanliness.</description>
+		<color>(36,84,150)</color>
+		<statBases>
+			<Beauty>3</Beauty>
+			<WorkToBuild>800</WorkToBuild>
+			<Cleanliness>0.2</Cleanliness>
+			<CleaningTimeFactor>0.6</CleaningTimeFactor>
+		</statBases>
+		<costList>
+			<AA_SkySteel>70</AA_SkySteel>
+		</costList>
+		<designationHotKey>Misc2</designationHotKey>
+		<tags>
+			<li>FineFloor</li>
+		</tags>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FineMetalTileBase" MayRequire="VanillaExpanded.VFEArchitect,Ludeon.RimWorld.Royalty">
+		<defName>TMM_VFEArch_FineSkySteelTile</defName>
+		<label>fine sky steel tile</label>
+		<renderPrecedence>241</renderPrecedence>
+		<color>(36,84,150)</color>
+		<statBases>
+			<Beauty>6</Beauty>
+			<WorkToBuild>800</WorkToBuild>
+			<Cleanliness>0.2</Cleanliness>
+		</statBases>
+		<costList>
+			<AA_SkySteel>20</AA_SkySteel>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="RB_TileGrateMetalBase" MayRequire="ReBuild.COTR.DoorsAndCorners">
+		<defName>TMM_RB_SkySteelGrateTile</defName>
+		<label>sky steel grate tile</label>
+		<renderPrecedence>240</renderPrecedence>
+		<description>Sky steel grate tiles, for that spaceship workshop look. They are very quick to clean and get a bonus to cleanliness for use in medical settings.</description>
+		<color>(36,84,150)</color>
+		<statBases>
+			<WorkToBuild>1000</WorkToBuild>
+			<Beauty>3</Beauty>
+			<Cleanliness>0.2</Cleanliness>
+			<CleaningTimeFactor>0.3</CleaningTimeFactor>
+		</statBases>
+		<costList>
+			<AA_SkySteel>4</AA_SkySteel>
+		</costList>
+		<tags>
+			<li>FineFloor</li>
+		</tags>
+	</TerrainDef>
+
+	<TerrainDef ParentName="RB_TileStuddedMetalBase" MayRequire="ReBuild.COTR.DoorsAndCorners">
+		<defName>TMM_RB_SkySteelStuddedTile</defName>
+		<label>sky steel studded tile</label>
+		<renderPrecedence>240</renderPrecedence>
+		<description>Sky steel studded tiles, for that spaceship look. They are quick to clean and get a bonus to cleanliness for use in medical settings.</description>
+		<color>(36,84,150)</color>
+		<statBases>
+			<WorkToBuild>850</WorkToBuild>
+			<Beauty>1</Beauty>
+			<Cleanliness>0.2</Cleanliness>
+			<CleaningTimeFactor>0.6</CleaningTimeFactor>
+		</statBases>
+		<costList>
+			<AA_SkySteel>7</AA_SkySteel>
+		</costList>
+		<tags>
+			<li>FineFloor</li>
+		</tags>
+	</TerrainDef>
+
+</Defs>

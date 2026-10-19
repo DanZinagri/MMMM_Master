@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		T's Samurai Faction overlap removal. This folder only loads when T's Samurai Faction is active (see loadFolders.xml).
+		  - With Alpha Crafts, both mods ship sake: Alpha Crafts' AC_Sake, its rice-to-sake process and that process on the
+		    vinegar cask are removed, and every other mod's reference is moved onto T's Samurai sake (TSF_Sake): with VBE it joins
+		    VBE's luxury spirits and gives Alpha Crafts' sake ingredient thought; VIE Memes' supported-drinks list and Fishing
+		    Treasures' rare-catch loot drop their AC_Sake entries; VFE Factory's automated distillery sake process and FrozenSnowFox
+		    Tweaks' pirate raid loot are redirected to TSF_Sake.
+		  - With VIE Memes and Structures: the savage samurai clan requires VIE's Bushido meme instead of vanilla Raider.
+		Changes from the original: the VFE Factory and FrozenSnowFox redirects are new. The original deleted AC_Sake while those
+		two mods still referenced it, which logs unresolved-reference errors (Temporary Patches ships a matching VFE Factory
+		redirect, commented out). Both are conditionals, so they do nothing if the reference is gone; this mod loads after both.
+		Verified against the current 1.6 releases: every target exists; TSF_Sake had no thingCategories or ingredient thought; the
+		savage clan's requiredMemes include Raider. Every other AC_Sake reference in the MMMM/TMM mods already accounts for Samurai.
+		Split by category into the MMMM Convergence sub-mods: this copy holds the ideology ops (precept drinks), which live in MMMM Convergence - Other.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphacrafts">
+				<operations>
+					<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VMemesE">
+						<operations>
+							<li Class="PatchOperationRemove">
+								<xpath>Defs/VanillaMemesExpanded.SupportedDrinksForPreceptDefs[defName="VME_SupportedDrinksForPreceptDef"]/supportedDrinksForPrecept/li[text()="AC_Sake"]</xpath>
+							</li>
+						</operations>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

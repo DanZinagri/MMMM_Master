@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- Cherry Picker lists owned by this mod. Patches append the duplicate defs they retire to _Basics; _All is the revive list. -->
+	<CherryPicker.DefList MayRequire="Owlchemist.CherryPicker">
+		<defName>MMMM_ConvergenceGenetics_CherryPicker_Basics</defName>
+		<label>MMMM Convergence - Genetics: uncheck this to enable basic removals</label>
+		<defs>
+		</defs>
+	</CherryPicker.DefList>
+
+	<CherryPicker.DefList MayRequire="Owlchemist.CherryPicker">
+		<defName>MMMM_ConvergenceGenetics_CherryPicker_All</defName>
+		<label>MMMM Convergence - Genetics: uncheck then re-check this to revive everything</label>
+		<defs>
+			<li>GeneDef/AG_DecreasedCommandRange</li>
+			<li>GeneDef/AG_ToughSinews</li>
+			<li>GeneDef/AG_ToughSinews_Astrogene</li>
+			<li>GeneDef/BS_EVA_Gene</li>
+			<li>GeneDef/BS_EVA_Gene_Astrogene</li>
+			<li>GeneDef/DV_StrongBack</li>
+			<li>GeneDef/DV_StrongBack_Astrogene</li>
+			<li>GeneDef/DV_Bandwidth_High</li>
+			<li>GeneDef/DV_Bandwidth_High_Astrogene</li>
+			<li>GeneDef/DV_Melee_Fast</li>
+			<li>GeneDef/DV_Melee_Fast_Astrogene</li>
+			<li>GeneDef/DV_ExtrasmallBuild</li>
+			<li>GeneDef/GS_Nimble</li>
+			<li>GeneDef/GS_Nimble_Astrogene</li>
+			<li>GeneDef/Myt_Male</li>
+			<li>GeneDef/Myt_TwistedFlesh</li>
+			<li>GeneDef/RS_Beauty_Angelic</li>
+			<li>GeneDef/RS_Beauty_Angelic_Astrogene</li>
+			<li>GeneDef/Size_Gigantism</li>
+			<li>GeneDef/Size_Gigantism_Astrogene</li>
+			<li>GeneDef/Age_SlowDevelopment</li>
+			<li>GeneDef/Age_SlowDevelopment_Astrogene</li>
+			<li>GeneDef/RG_ToxGlands</li>
+			<li>GeneDef/RG_ToxGlands_Astrogene</li>
+			<li>GeneDef/Size_ExtremeDwarfism</li>
+			<li>GeneDef/LowFertility</li>
+			<li>GeneDef/RSLongshot</li>
+			<li>GeneDef/RSLongshot_Astrogene</li>
+			<li>GeneDef/RSBornWarrior</li>
+			<li>GeneDef/RSBornWarrior_Astrogene</li>
+			<li>GeneDef/Aggression_PassivelyAggressive</li>
+			<li>GeneDef/Gene_SensitiveStomach</li>
+			<li>GeneDef/RBM_Herculean</li>
+			<li>GeneDef/RBM_Herculean_Astrogene</li>
+			<li>GeneDef/VRE_EarlyMaturity</li>
+			<li>GeneDef/VRE_EarlyMaturity_Astrogene</li>
+			<li>GeneDef/VRE_WoundHealing_VerySlow</li>
+			<li>GeneDef/VREH_Giant</li>
+			<li>GeneDef/VREH_Giant_Astrogene</li>
+			<li>GeneDef/BS_Abrasive</li>
+			<li>GeneDef/VRE_EverGrowing</li>
+			<li>GeneDef/VRE_EverGrowing_Astrogene</li>
+			<li>GeneDef/BS_VerySlowAging</li>
+			<li>GeneDef/BS_SlowAging</li>
+			<li>GeneDef/BS_FastAging</li>
+			<li>GeneDef/BS_VeryFastAging</li>
+			<li>GeneDef/VRESaurids_Pheromones</li>
+			<li>GeneDef/VRE_RecessiveGenome</li>
+			<li>GeneDef/BX_BasaltSkin</li>
+			<li>GeneDef/BX_BasaltSkin_Astrogene</li>
+			<li>GeneDef/AG_SlowGestation</li>
+			<li>GeneDef/AG_LargerBodySize</li>
+			<li>GeneDef/AG_LargerBodySize_Astrogene</li>
+			<li>GeneDef/BS_NightOwl</li>
+			<li>GeneDef/Stagz_SwiftSwim</li>
+			<li>GeneDef/Stagz_SwiftSwim_Astrogene</li>
+			<li>GeneDef/AG_VFEI_VatGrownInsectoidSkin</li>
+			<li>GeneDef/VRE_Female</li>
+			<li>GeneDef/MaxTemp_HugeIncrease</li>
+			<li>GeneDef/MaxTemp_HugeIncrease_Astrogene</li>
+			<li>GeneDef/MinTemp_HugeDecrease</li>
+			<li>GeneDef/MinTemp_HugeDecrease_Astrogene</li>
+			<li>GeneDef/FireImmunity</li>
+			<li>GeneDef/FireImmunity_Astrogene</li>
+			<li>GeneDef/AG_Painless</li>
+			<li>GeneDef/AG_Painless_Astrogene</li>
+			<li>GeneDef/BS_NaturalArmor</li>
+			<li>GeneDef/BS_NaturalArmor_Astrogene</li>
+			<li>GeneDef/AG_Male</li>
+			<li>GeneDef/BS_Unarmed_Strong</li>
+			<li>GeneDef/BS_Unarmed_Strong_Astrogene</li>
+			<li>GeneDef/BS_Unarmed_VeryStrong</li>
+			<li>GeneDef/BS_Unarmed_VeryStrong_Astrogene</li>
+			<li>GeneDef/DV_Undergrounder</li>
+			<li>GeneDef/BS_ShortPregnancy</li>
+			<li>GeneDef/BS_ShortPregnancy_Astrogene</li>
+			<li>GeneDef/BS_Flirty</li>
+			<li>GeneDef/VU_Libido_Succubus</li>
+			<li>GeneDef/BS_Talons</li>
+			<li>GeneDef/BS_Talons_Astrogene</li>
+			<li>GeneDef/BS_Instability_Catastrophic</li>
+			<li>GeneDef/DV_ToxResist_Terrible</li>
+			<li>GeneDef/AG_EggLaying</li>
+		</defs>
+	</CherryPicker.DefList>
+
+</Defs>

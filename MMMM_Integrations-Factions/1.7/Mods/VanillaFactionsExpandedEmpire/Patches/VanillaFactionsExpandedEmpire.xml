@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		VFE Empire, unless Medieval Overhaul: Royalty is installed (it reworks the same throne rooms, so that check stays a
+		FindMod: it acts on the mod being absent):
+		  - with VFE Furniture, its royal armchair counts for the "royal stool or royal chair" throne-room requirement of the
+		    StellarchBase titles (matched by favorCost 308) and the High Stellarch;
+		  - the candelabra shows its glow radius while being placed.
+		This folder only loads when VFE Empire is active (see loadFolders.xml).
+		Verified against VFE Empire 1.6: requirement 14 of both targets is the royal stool / royal chair seat requirement, and the
+		candelabra is a glower with no placeWorkers. Better Architect Menu and Progression: Furniture patch the candelabra's
+		designation category and label only.
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Factions ops (factions, pawn kinds, traders and royal titles).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Medieval Overhaul: Royalty</li>
+				</mods>
+				<nomatch Class="PatchOperationSequence">
+					<operations>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs/RoyalTitleDef[favorCost=308]/throneRoomRequirements/li[position()=14]/things</xpath>
+							<value>
+								<li MayRequire="VanillaExpanded.VFECore">Seat_RoyalArmchair</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs/RoyalTitleDef[defName="VFEE_HighStellarch"]/throneRoomRequirements/li[position()=14]/things</xpath>
+							<value>
+								<li MayRequire="VanillaExpanded.VFECore">Seat_RoyalArmchair</li>
+							</value>
+						</li>
+					</operations>
+				</nomatch>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

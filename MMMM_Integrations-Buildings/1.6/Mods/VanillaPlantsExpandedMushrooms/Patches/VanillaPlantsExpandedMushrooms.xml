@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Lullabloom (Vanilla Plants Expanded - Mushrooms) becomes a linkable facility for beds, cribs and sleeping spots,
+		from vanilla and from other mods. The mushrooms mod ships the plant but no linkable patches at all, so without
+		this it connects to nothing.
+		This folder only loads when VPE - Mushrooms is active (see loadFolders.xml); contributing mods are gated per
+		operation with MayRequire.
+		Verified against RimWorld 1.6: every target below already has a CompProperties_AffectedByFacilities with a
+		linkableFacilities list, except SleepingSpotBase, which is why that one is built up conditionally.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+
+			<!-- Sleeping spots have no facilities comp in vanilla, so create whatever is missing -->
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/ThingDef[@Name="SleepingSpotBase"]/comps/li[@Class="CompProperties_AffectedByFacilities"]</xpath>
+				<match Class="PatchOperationConditional">
+					<xpath>Defs/ThingDef[@Name="SleepingSpotBase"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities/li[text()="VPE_Plant_Lullabloom"]</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[@Name="SleepingSpotBase"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+						<value>
+							<li>VPE_Plant_Lullabloom</li>
+						</value>
+					</nomatch>
+				</match>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[@Name="SleepingSpotBase"]/comps</xpath>
+					<value>
+						<li Class="CompProperties_AffectedByFacilities">
+							<linkableFacilities>
+								<li>VPE_Plant_Lullabloom</li>
+							</linkableFacilities>
+						</li>
+					</value>
+				</nomatch>
+			</li>
+
+			<!-- vanilla beds -->
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[@Name="BasicBedBase" or defName="Crib" or defName="HospitalBed" or defName="Bedroll" or defName="BedrollDouble"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+				<value>
+					<li>VPE_Plant_Lullabloom</li>
+				</value>
+			</li>
+
+			<!-- modded beds -->
+			<li Class="PatchOperationAdd" MayRequire="VanillaExpanded.VFECore">
+				<xpath>Defs/ThingDef[defName="Bed_Kingsize"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+				<value>
+					<li>VPE_Plant_Lullabloom</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="VanillaExpanded.VFECore">
+				<xpath>Defs/ThingDef[@Name="VFE_ChiseledBedBase" or @Name="VFE_SimpleBedBase" or @Name="VFE_ErgonomicBedBase"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+				<value>
+					<li>VPE_Plant_Lullabloom</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="VanillaExpanded.VFEMedical">
+				<xpath>Defs/ThingDef[defName="Bed_OperatingTable" or defName="Bed_CryptoBed"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+				<value>
+					<li>VPE_Plant_Lullabloom</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="OskarPotocki.VFE.Medieval2">
+				<xpath>Defs/ThingDef[defName="VFEM2_FurBed" or defName="VFEM2_DoubleFurBed"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+				<value>
+					<li>VPE_Plant_Lullabloom</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="VanillaExpanded.VFESpacer">
+				<xpath>Defs/ThingDef[@Name="VFES_AdvancedBedBase"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+				<value>
+					<li>VPE_Plant_Lullabloom</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="Sarg.AlphaMemes">
+				<xpath>Defs/ThingDef[defName="AM_AncientBed" or defName="AM_AncientDoubleBed" or defName="AM_AncientOperatingTable"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+				<value>
+					<li>VPE_Plant_Lullabloom</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="sarg.alphagenes">
+				<xpath>Defs/ThingDef[defName="AG_RuinedHospitalBed"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+				<value>
+					<li>VPE_Plant_Lullabloom</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd" MayRequire="vanillaexpanded.gravship">
+				<xpath>Defs/ThingDef[defName="VGE_CrewBunkBed" or defName="VGE_MedbayBed"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+				<value>
+					<li>VPE_Plant_Lullabloom</li>
+				</value>
+			</li>
+
+		</operations>
+	</Operation>
+
+</Patch>

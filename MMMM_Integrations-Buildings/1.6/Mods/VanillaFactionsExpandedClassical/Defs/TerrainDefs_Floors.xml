@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--
+    VFE Classical floors extended to other mods' materials.
+      - Bronze tiles in the VFE Architect fine-metal style and in ReBuild's grate and studded styles.
+      - Classical mosaics for the stones Gulden Biome, Odyssey, Alpha Memes and Alpha Biomes add. VFE Classical itself only defines
+        mosaics for the five vanilla stones and generates none, so without these those stones get no mosaic.
+    This folder only loads when VFE Classical is active (see loadFolders.xml). Each floor carries a MayRequire for the
+    mod that supplies its material or parent; RimWorld honours MayRequire on top-level defs, so a floor whose mod is
+    absent is simply skipped.
+
+    These were written as patches that added TerrainDefs to the Defs root. They are new defs, not changes to anyone
+    else's, so they now live here as a plain Defs file; the result in game is the same. Gulden Biome (Continued)
+    is not installed here, so its packageId, pphhyy.guldennew, was supplied by the user rather than verified.
+
+    Verified against the current 1.6 releases: VFEC_Bronze, BlocksVacstone, AM_BlocksPristineLimestone and the four
+    Alpha Biomes blocks all exist, and each floor's parent base exists in the mod that gates it. FineMetalTileBase
+    is itself added by a VFE Architect patch that only runs under Royalty, which is why that tile also needs Royalty.
+
+    Checked for overlap across the whole workshop folder: no other installed mod adds VFE Classical mosaics or bronze
+    tiles for these materials. Better Architect Menu sets a menu category on VFE Classical's mosaic base and bronze
+    tile; the mosaics here inherit that base, so they sort into its stone floors menu automatically. Every natural
+    stone in the install now has a mosaic, so generating them in code would add nothing.
+  -->
+
+	<TerrainDef MayRequire="VanillaExpanded.VFEArchitect,Ludeon.RimWorld.Royalty" ParentName="FineMetalTileBase">
+    <defName>TMM_VFEArch_FineBronzeTile</defName>
+    <label>fine bronze tile</label>
+    <renderPrecedence>241</renderPrecedence>
+    <color>(132,80,52)</color>
+    <statBases>
+      <Beauty>4</Beauty>
+      <WorkToBuild>800</WorkToBuild>
+      <Cleanliness>0.2</Cleanliness>
+    </statBases>
+    <costList>
+      <VFEC_Bronze>20</VFEC_Bronze>
+    </costList>
+  </TerrainDef>
+
+	<TerrainDef MayRequire="ReBuild.COTR.DoorsAndCorners" ParentName="RB_TileGrateMetalBase">
+    <defName>TMM_RB_BronzeGrateTile</defName>
+    <label>bronze grate tile</label>
+    <renderPrecedence>240</renderPrecedence>
+    <description>Bronze grate tiles, for that spaceship workshop look. They are very quick to clean and get a bonus to cleanliness for use in medical settings.</description>
+    <color>(132,80,52)</color>
+    <statBases>
+      <WorkToBuild>1000</WorkToBuild>
+      <Beauty>1</Beauty>
+      <Cleanliness>0.2</Cleanliness>
+      <CleaningTimeFactor>0.3</CleaningTimeFactor>
+    </statBases>
+    <costList>
+      <VFEC_Bronze>4</VFEC_Bronze>
+    </costList>
+    <tags>
+      <li>FineFloor</li>
+    </tags>
+  </TerrainDef>
+
+	<TerrainDef MayRequire="ReBuild.COTR.DoorsAndCorners" ParentName="RB_TileStuddedMetalBase">
+    <defName>TMM_RB_BronzeStuddedTile</defName>
+    <label>bronze studded tile</label>
+    <renderPrecedence>240</renderPrecedence>
+    <description>Bronze studded tiles, for that spaceship look. They are quick to clean and get a bonus to cleanliness for use in medical settings.</description>
+    <color>(132,80,52)</color>
+    <statBases>
+      <WorkToBuild>850</WorkToBuild>
+      <Beauty>1</Beauty>
+      <Cleanliness>0.2</Cleanliness>
+      <CleaningTimeFactor>0.6</CleaningTimeFactor>
+    </statBases>
+    <costList>
+      <VFEC_Bronze>7</VFEC_Bronze>
+    </costList>
+    <tags>
+      <li>FineFloor</li>
+    </tags>
+  </TerrainDef>
+
+	<TerrainDef MayRequire="pphhyy.guldennew" ParentName="VFEC_MosaicsStoneBase">
+    <defName>TMM_VFEC_MosaicsAurelianStone</defName>
+    <label>aurelian stone mosaics</label>
+    <color>(174,154,118)</color>
+    <costList>
+      <BlocksAurelianStone>10</BlocksAurelianStone>
+    </costList>
+    <statBases>
+      <Beauty>8</Beauty>
+    </statBases>
+  </TerrainDef>
+
+	<TerrainDef MayRequire="Ludeon.RimWorld.Odyssey" ParentName="VFEC_MosaicsStoneBase">
+    <defName>TMM_VFEC_MosaicsVacstone</defName>
+    <label>vacstone mosaics</label>
+    <color>(115,106,98)</color>
+    <costList>
+      <BlocksVacstone>10</BlocksVacstone>
+    </costList>
+  </TerrainDef>
+
+	<TerrainDef MayRequire="Sarg.AlphaMemes" ParentName="VFEC_MosaicsStoneBase">
+    <defName>TMM_VFEC_MosaicsPristineLimestone</defName>
+    <label>pristine limestone mosaics</label>
+    <color>(170,157,125)</color>
+    <costList>
+      <AM_BlocksPristineLimestone>10</AM_BlocksPristineLimestone>
+    </costList>
+  </TerrainDef>
+
+	<TerrainDef MayRequire="sarg.alphabiomes" ParentName="VFEC_MosaicsStoneBase">
+    <defName>TMM_VFEC_MosaicsRoseQuartz</defName>
+    <label>rose quartz mosaics</label>
+    <color>(110,75,75)</color>
+    <costList>
+      <GU_BlocksRoseQuartz>10</GU_BlocksRoseQuartz>
+    </costList>
+  </TerrainDef>
+
+	<TerrainDef MayRequire="sarg.alphabiomes" ParentName="VFEC_MosaicsStoneBase">
+    <defName>TMM_VFEC_MosaicsCragstone</defName>
+    <label>cragstone mosaics</label>
+    <color>(36,35,40)</color>
+    <costList>
+      <AB_BlocksCragstone>10</AB_BlocksCragstone>
+    </costList>
+  </TerrainDef>
+
+	<TerrainDef MayRequire="sarg.alphabiomes" ParentName="VFEC_MosaicsStoneBase">
+    <defName>TMM_VFEC_MosaicsOnyxglass</defName>
+    <label>onyxglass mosaics</label>
+    <color>(50,50,50)</color>
+    <costList>
+      <AB_BlocksObsidian>10</AB_BlocksObsidian>
+    </costList>
+  </TerrainDef>
+
+	<TerrainDef MayRequire="sarg.alphabiomes" ParentName="VFEC_MosaicsStoneBase">
+    <defName>TMM_VFEC_MosaicsMudstone</defName>
+    <label>mudstone mosaics</label>
+    <color>(41,35,31)</color>
+    <costList>
+      <AB_BlocksMudstone>10</AB_BlocksMudstone>
+    </costList>
+  </TerrainDef>
+
+</Defs>

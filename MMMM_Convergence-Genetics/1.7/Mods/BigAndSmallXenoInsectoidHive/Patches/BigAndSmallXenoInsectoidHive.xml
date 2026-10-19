@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small - Xeno Insectoid Hive: armour and instability genes swapped for the Alpha Genes and
+		VRE - Waster equivalents, so the same effect is not provided twice under two names.
+		This folder only loads when Xeno Insectoid Hive is active (see loadFolders.xml); each swap carries MayRequire
+		for the mod that supplies the replacement.
+		Verified against the current 1.6 releases: every gene being replaced is present in its xenotype.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace" MayRequire="sarg.alphagenes">
+				<xpath>Defs/XenotypeDef[defName="BS_XenoNymph" or defName="BS_XenoAlate" or defName="BS_XenoConsort" or defName="BS_XenoEmissary" or defName="BS_XenoWorker"]/genes/li[text()="BS_ToughSkin"]</xpath>
+				<value>
+					<li>AG_ArmourMedium</li>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace" MayRequire="sarg.alphagenes">
+				<xpath>Defs/XenotypeDef[defName="BS_XenoQueen" or defName="BS_XenoPrincess" or defName="BS_XenoWarrior" or defName="BS_XenoPredator" or defName="BS_MutantXenoQueen"]/genes/li[text()="BS_NaturalArmor"]</xpath>
+				<value>
+					<li>AG_ArmourMajor</li>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace" MayRequire="vanillaracesexpanded.waster">
+				<xpath>Defs/XenotypeDef[defName="BS_XenoAbomination" or defName="BS_MutantXenoQueen" or defName="BS_XenoNymphMutant"]/genes/li[text()="BS_Instability_Catastrophic"]</xpath>
+				<value>
+					<li>VRE_Instability_Extreme</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>
