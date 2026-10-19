@@ -27,6 +27,7 @@
 		<li IfModActive="Arquebus.StagzMerfolk">1.6/Mods/GojisFantasyRaceMerren</li>
 		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana">1.6/Mods/RimsenalXenotypes</li>
 		<li IfModActive="VanillaExpanded.VAnomalyEInsanity">1.6/Mods/VanillaAnomalyExpandedInsanity</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core,AOBA.Framework">1.6/Mods/FortifiedFeaturesFramework</li>
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
@@ -54,5 +55,6 @@
 		<li IfModActive="Arquebus.StagzMerfolk">1.7/Mods/GojisFantasyRaceMerren</li>
 		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana">1.7/Mods/RimsenalXenotypes</li>
 		<li IfModActive="VanillaExpanded.VAnomalyEInsanity">1.7/Mods/VanillaAnomalyExpandedInsanity</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core,AOBA.Framework">1.7/Mods/FortifiedFeaturesFramework</li>
 	</v1.7>
 </loadFolders>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Fortified Features Framework heavy weapons taught about Big and Small's giant weapon wielder.
+		Fortified (and Dead Man's Switch through it) gates heavy weapons on body size, with per-tier whitelists of
+		races, apparel, hediffs and genes that skip the size check. Alpha Genes' AG_ToughSinews is on the Light,
+		Standard and Bulky tiers. BS_GiantWeaponWielder only forces the BS_Giant trait, and Fortified never looks at
+		traits, so the gene did nothing for these weapons. MMMM Convergence - Genetics also retires AG_ToughSinews in
+		favour of this gene, which would otherwise leave those pawns with no way past the size check.
+		- Added to the three tiers that list AG_ToughSinews, plus AverageHumanCanUse (size 1.0). Fortified checks each
+		tier on its own, so without it a small giant-weapon wielder could use Light weapons but not the smaller
+		Average ones.
+		- Also added to TransHeavyAutomatroid (size 2.0), which matches Big and Small's own giant-weapon line (the
+		BS_Giant trait or a size above 1.99). Heavy (2.5) and UltraHeavy (3.0) are left alone on purpose.
+		- AverageHumanCanUse and TransHeavyAutomatroid have no EquippableWithGene node upstream, so it is created first
+		wherever it is missing.
+		This folder only loads when B&amp;S - Genes &amp; More and Fortified Features Framework are both active (see
+		loadFolders.xml).
+
+		Verified against the current releases: Fortified 3498575851 defines all five defs in
+		1.6/Defs/HeavyEquippableDef/FFF_EquippableDef.xml (1.7 loads the same file), and both DLL builds read
+		EquippableWithGene through HeavyEquippableExtension.CanEquippedBy(Pawn).
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid" or defName="BulkyAutomatroid" or defName="TransHeavyAutomatroid"][not(EquippableWithGene)]</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid" or defName="BulkyAutomatroid" or defName="TransHeavyAutomatroid"][not(EquippableWithGene)]</xpath>
+			<value>
+				<EquippableWithGene />
+			</value>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid" or defName="BulkyAutomatroid" or defName="TransHeavyAutomatroid"]/EquippableWithGene</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid" or defName="BulkyAutomatroid" or defName="TransHeavyAutomatroid"]/EquippableWithGene</xpath>
+			<value>
+				<li>BS_GiantWeaponWielder</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

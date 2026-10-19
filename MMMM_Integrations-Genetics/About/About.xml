@@ -53,6 +53,7 @@
 		<li>Arquebus.StagzMerfolk</li>
 		<li>VanillaExpanded.VAnomalyEInsanity</li>
 		<li>redmattis.undead.zombieapoc</li>
+		<li>AOBA.Framework</li>
 	</loadAfter>
 	<description>Mod integrations</description>
 </ModMetaData>
