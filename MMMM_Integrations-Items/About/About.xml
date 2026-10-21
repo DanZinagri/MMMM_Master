@@ -76,6 +76,9 @@
 		<li>redmattis.sapientanimals</li>
 		<li>vanillaexpanded.vplantse</li>
 		<li>vanillaexpanded.vweft</li>
+		<li>AOBA.Framework</li>
+		<li>vat.epoeforked</li>
+		<li>lts.I</li>
 	</loadAfter>
 	<description>Mod integrations</description>
 </ModMetaData>

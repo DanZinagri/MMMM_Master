@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Fortified Features Framework + EPOE-Forked: EPOE's muscle stimulator (arms; +50 carrying capacity) qualifies a pawn for
+		the heavy weapons of the three lightest Fortified tiers (AverageHumanCanUse 1.0, LightAutomatroid 1.1,
+		StandardAutomatroid 1.4 body size).
+		This is an XML approximation of "DMS-EPOE More Compatibility Patch" (sunsalfriedrice.DMS.EPOE.More.CompatPatch,
+		workshop 3781470754). That mod's DLL requires the full set together: 10 bionic fingers, 2 muscle stimulators,
+		2 optimized shoulders and 2 optimized hands. Fortified's whitelist can only say "any one of these hediffs", so a
+		combination cannot be expressed in XML; the muscle stimulator, EPOE's strength implant, stands in for the set. It is
+		looser than the original: one stimulator is enough.
+		The DLL is not taken over: its CanEquip postfix also sets "cannot equip" for every pawn without the full set, even
+		pawns that already qualify by body size, gene, apparel or another whitelisted hediff.
+		Kept apart from FortifiedEPOE so it still loads when DMS-EPOE Compatibility Patch 1.6 is active.
+		Verified 2026-10-21: MuscleStimulatorArms exists in EPOE-Forked 1.6.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
+				<match Class="PatchOperationAdd">
+					<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
+					<value>
+						<EquippableWithHediff />
+					</value>
+				</match>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid"]/EquippableWithHediff</xpath>
+				<value>
+					<li>MuscleStimulatorArms</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

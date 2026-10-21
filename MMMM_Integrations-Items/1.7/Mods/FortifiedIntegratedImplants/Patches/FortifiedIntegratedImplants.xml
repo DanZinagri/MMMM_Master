@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Fortified Features Framework + Integrated Implants: the strength enhancer and skeletal bracing implants qualify a pawn
+		for the heavy weapons of the three lightest Fortified tiers (AverageHumanCanUse 1.0, LightAutomatroid 1.1,
+		StandardAutomatroid 1.4 body size).
+		Taken from "DMS Bionics Compatibility Patch" (RavenZHOU.DMS.bionics.CompatPatch, workshop 3721524993), which whitelists
+		implants from 13 bionics mods; only the Integrated Implants entries are carried over, since that is the only one of
+		those mods installed here to verify against. This folder does not load when that mod is active (see loadFolders.xml).
+		Verified 2026-10-21: both hediffs exist in Integrated Implants 1.6.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
+				<match Class="PatchOperationAdd">
+					<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
+					<value>
+						<EquippableWithHediff />
+					</value>
+				</match>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid"]/EquippableWithHediff</xpath>
+				<value>
+					<li>StrengthEnhancer</li>
+					<li>SkeletalBracing</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

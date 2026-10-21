@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Fortified Features Framework + EPOE-Forked: EPOE's advanced bionic arm and advanced bionic hand qualify a pawn for the
+		heavy weapons of the three lightest Fortified tiers (AverageHumanCanUse 1.0, LightAutomatroid 1.1,
+		StandardAutomatroid 1.4 body size), the tiers Dead Man's Switch and its add-ons use. Fortified passes a pawn that has
+		ANY one hediff on a tier's EquippableWithHediff list.
+		Same content as "DMS-EPOE Compatibility Patch 1.6" (booty.DMS.EPOE.CompatPatch.Odyssey, workshop 3622254924), which is
+		why this folder does not load when that mod is active (see loadFolders.xml).
+		Verified 2026-10-21: both hediffs exist in EPOE-Forked 1.6, and all three tiers carry an EquippableWithHediff list in
+		Fortified 1.6 (its 1.7 load reuses the 1.6 Defs). The list is still created first if a tier lacks it.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
+				<match Class="PatchOperationAdd">
+					<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
+					<value>
+						<EquippableWithHediff />
+					</value>
+				</match>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid"]/EquippableWithHediff</xpath>
+				<value>
+					<li>AdvancedBionicArm</li>
+					<li>AdvancedBionicHand</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

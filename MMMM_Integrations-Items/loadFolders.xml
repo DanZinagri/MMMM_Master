@@ -19,6 +19,10 @@
 		<li IfModActive="Spino.Megafauna">1.6/Mods/Megafauna</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
 		<li IfModActive="VanillaExpanded.VAPPE">1.6/Mods/VanillaApparelExpanded</li>
+		<!-- Fortified heavy-weapon whitelists. The two copied from standalone compat mods are skipped when that mod is active. -->
+		<li IfModActiveAll="AOBA.Framework,vat.epoeforked" IfModNotActive="booty.DMS.EPOE.CompatPatch.Odyssey">1.6/Mods/FortifiedEPOE</li>
+		<li IfModActiveAll="AOBA.Framework,vat.epoeforked">1.6/Mods/FortifiedEPOEMuscleStimulator</li>
+		<li IfModActiveAll="AOBA.Framework,lts.I" IfModNotActive="RavenZHOU.DMS.bionics.CompatPatch">1.6/Mods/FortifiedIntegratedImplants</li>
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
@@ -38,5 +42,9 @@
 		<li IfModActive="Spino.Megafauna">1.7/Mods/Megafauna</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>
 		<li IfModActive="VanillaExpanded.VAPPE">1.7/Mods/VanillaApparelExpanded</li>
+		<!-- Fortified heavy-weapon whitelists. The two copied from standalone compat mods are skipped when that mod is active. -->
+		<li IfModActiveAll="AOBA.Framework,vat.epoeforked" IfModNotActive="booty.DMS.EPOE.CompatPatch.Odyssey">1.7/Mods/FortifiedEPOE</li>
+		<li IfModActiveAll="AOBA.Framework,vat.epoeforked">1.7/Mods/FortifiedEPOEMuscleStimulator</li>
+		<li IfModActiveAll="AOBA.Framework,lts.I" IfModNotActive="RavenZHOU.DMS.bionics.CompatPatch">1.7/Mods/FortifiedIntegratedImplants</li>
 	</v1.7>
 </loadFolders>
