@@ -89,22 +89,6 @@
 
 	<Operation Class="PatchOperationSequence">
 		<operations>
-			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes,Arquebus.StagzMerfolk">
-				<operations>
-					<li Class="PatchOperationAdd">
-						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
-						<value>
-							<li>GeneDef/Stagz_SwiftSwim</li>
-							<li>GeneDef/Stagz_SwiftSwim_Astrogene</li>
-						</value>
-					</li>
-				</operations>
-			</li>
-		</operations>
-	</Operation>
-
-	<Operation Class="PatchOperationSequence">
-		<operations>
 			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes,vanillaracesexpanded.insector">
 				<operations>
 					<li Class="PatchOperationAdd">

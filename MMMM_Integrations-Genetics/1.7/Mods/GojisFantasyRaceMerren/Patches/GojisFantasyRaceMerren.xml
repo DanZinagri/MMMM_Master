@@ -6,8 +6,8 @@
 		(creating the lists if needed; the Alpha Genes water-striding integration adds to the same lists).
 		This folder only loads when Merren is active (see loadFolders.xml); the ReGrowth gate sits on an <li>.
 		The original core folder was gated on packageId "Goji.Merren", which no mod has, so none of this ever loaded; the
-		gate is now Arquebus.StagzMerfolk, confirmed against Merren's About.xml. Verified against Merren 1.6: the coastal merfolk
-		carry both Stagz_SwiftSwim and Stagz_Aquatic, and none of the Stagz_ genes patched here has exclusionTags of its own.
+		gate is now Arquebus.StagzMerfolk, confirmed against Merren's About.xml. Verified against Merren 1.7: both merfolk
+		xenotypes carry Stagz_Aquatic.
 	-->
 	<Operation Class="PatchOperationSequence">
 		<operations>

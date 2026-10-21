@@ -11,6 +11,9 @@
 		shells removed. Dropped the VQE Ancients archite gene recategorisation (category label/priority and displayCategory
 		swaps, gene recategorisation rule). The pure exclusion-tag adds went to MMMM_Convergence-Genetics/1.7/Patches/GeneExclusionTags.xml;
 		tags that are part of a gene rework (forsaken body emblem, insect wings) stay here.
+		1.7 note (2026-10-20): the Merren block (keen reflexes 50% ranged dodge, fin ears / body fin conditionalStatAffecters
+		removal) is not in this copy. Merren 1.7 dropped Stagz_KeenReflexes and the fins' conditionalStatAffecters itself,
+		so every op failed. The 1.6 copy keeps it.
 	-->
 	<Operation Class="PatchOperationSequence">
 		<operations>
@@ -586,45 +589,6 @@
 										</value>
 									</li>
 								</operations>
-							</li>
-						</operations>
-					</li>
-				</operations>
-			</li>
-		</operations>
-	</Operation>
-
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationSequence" MayRequire="Arquebus.StagzMerfolk">
-				<operations>
-					<li Class="PatchOperationSequence">
-						<operations>
-							<li Class="PatchOperationReplace">
-								<xpath>Defs/GeneDef[defName="Stagz_KeenReflexes"]/modExtensions/li[@Class="StagzMerfolk.KeenReflexModExtension"]/MeleeToRangeCoefficient</xpath>
-								<value>
-									<MeleeToRangeCoefficient>0.5</MeleeToRangeCoefficient>
-								</value>
-							</li>
-							<li Class="PatchOperationReplace">
-								<xpath>Defs/GeneDef[defName="Stagz_KeenReflexes"]/customEffectDescriptions</xpath>
-								<value>
-									<customEffectDescriptions>
-										<li>50% of melee dodge chance is applied to ranged dodge chance.</li>
-									</customEffectDescriptions>
-								</value>
-							</li>
-							<li Class="PatchOperationReplace">
-								<xpath>Defs/GeneDef[defName="Stagz_KeenReflexes"]/description</xpath>
-								<value>
-									<description>Carriers of this gene have extremely fast reflexes. They can dodge incoming hits even from a distance.</description>
-								</value>
-							</li>
-							<li Class="PatchOperationRemove">
-								<xpath>Defs/GeneDef[defName="Stagz_FinEars"]/conditionalStatAffecters</xpath>
-							</li>
-							<li Class="PatchOperationRemove">
-								<xpath>Defs/GeneDef[defName="Stagz_BodyFin"]/conditionalStatAffecters</xpath>
 							</li>
 						</operations>
 					</li>
