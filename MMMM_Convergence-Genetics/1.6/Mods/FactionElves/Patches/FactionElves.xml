@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Faction - Elves overlap removal. This folder only loads when Faction - Elves is active (see loadFolders.xml); each
+		swap is gated on its partner mod on an <li>, and each retired gene goes on this mod's Cherry Picker list under the
+		same gate as its swap (revive entries in 1.6/Defs/CherryPicker.xml).
+		  - With Alpha Genes: the Elves' subfertility is identical to Alpha Genes' reduced fertility (Fertility x0.5,
+		    +1 metabolism; Alpha Genes adds 1 complexity). Every xenotype carrying Subfertility gets AG_ReducedFertile instead
+		    (dropped where it already has it), and Subfertility is retired.
+		  - With Big and Small - Genes & More: the Elves' efficient metabolism has no effect beyond +4 metabolism (complexity 2).
+		    B&S's extreme gene stabilizing gives the same +4 (complexity 9), so every xenotype carrying EfficientMetabolism
+		    gets BS_GeneStabilizing_Great instead (dropped where it already has it), and EfficientMetabolism is retired.
+		    B&S only degrades gene stabilizing to cell instability through its gene-incorporate ability, not through
+		    inheritance, so elf children keep it. It sits in vanilla's CellInstability exclusion group; no elf carries a
+		    cell instability gene.
+		  - With Alpha Genes: the Elves' tox sensitivity (ToxSensitivity_Partial) is labelled and costed as a drawback
+		    (+2 metabolism, "gain half more toxic buildup") but its stat is ToxicResistance +0.5, a buff. Alpha Genes' tox
+		    vulnerability is the intended effect (ToxicResistance -0.5, +2 metabolism), so every xenotype carrying
+		    ToxSensitivity_Partial gets AG_ToxResist_Vulnerability instead (dropped where it already has it), and
+		    ToxSensitivity_Partial is retired. No elf xenotype carries it in Faction - Elves 1.6.
+		  - With Genes & More: the dark elf's strong melee damage becomes B&S's darkness improved melee. Both are
+		    in vanilla's melee-damage exclusion group, so the two cannot be carried together. Scoped to the dark elf and not
+		    retired: MeleeDamage_Strong is a vanilla gene used everywhere.
+		Verified 2026-10-22/23 against Faction - Elves 1.6 (Subfertility, EfficientMetabolism and ToxSensitivity_Partial are
+		defined there; all four elf xenotypes carry the first two, the dark elf alone carries MeleeDamage_Strong), Alpha Genes
+		1.6 and B&S Genes & More 1.6.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="AG_ReducedFertile"]]/genes/li[text()="Subfertility"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[genes/li[text()="AG_ReducedFertile"]]/genes/li[text()="Subfertility"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="Subfertility"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="Subfertility"]</xpath>
+							<value>
+								<li>AG_ReducedFertile</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/Subfertility</li>
+							<li>GeneDef/Subfertility_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="AG_ToxResist_Vulnerability"]]/genes/li[text()="ToxSensitivity_Partial"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[genes/li[text()="AG_ToxResist_Vulnerability"]]/genes/li[text()="ToxSensitivity_Partial"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="ToxSensitivity_Partial"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="ToxSensitivity_Partial"]</xpath>
+							<value>
+								<li>AG_ToxResist_Vulnerability</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/ToxSensitivity_Partial</li>
+							<li>GeneDef/ToxSensitivity_Partial_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="BS_GeneStabilizing_Great"]]/genes/li[text()="EfficientMetabolism"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[genes/li[text()="BS_GeneStabilizing_Great"]]/genes/li[text()="EfficientMetabolism"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="EfficientMetabolism"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="EfficientMetabolism"]</xpath>
+							<value>
+								<li>BS_GeneStabilizing_Great</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][genes/li[text()="VU_DarknessMelee_Strong"]]/genes/li[text()="MeleeDamage_Strong"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][genes/li[text()="VU_DarknessMelee_Strong"]]/genes/li[text()="MeleeDamage_Strong"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"]/genes/li[text()="MeleeDamage_Strong"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"]/genes/li[text()="MeleeDamage_Strong"]</xpath>
+							<value>
+								<li>VU_DarknessMelee_Strong</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/EfficientMetabolism</li>
+							<li>GeneDef/EfficientMetabolism_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

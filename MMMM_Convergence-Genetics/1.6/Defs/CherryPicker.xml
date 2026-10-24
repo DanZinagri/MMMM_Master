@@ -96,6 +96,12 @@
 			<li>GeneDef/BS_Instability_Catastrophic</li>
 			<li>GeneDef/DV_ToxResist_Terrible</li>
 			<li>GeneDef/AG_EggLaying</li>
+			<li>GeneDef/Subfertility</li>
+			<li>GeneDef/Subfertility_Astrogene</li>
+			<li>GeneDef/EfficientMetabolism</li>
+			<li>GeneDef/EfficientMetabolism_Astrogene</li>
+			<li>GeneDef/ToxSensitivity_Partial</li>
+			<li>GeneDef/ToxSensitivity_Partial_Astrogene</li>
 		</defs>
 	</CherryPicker.DefList>
 

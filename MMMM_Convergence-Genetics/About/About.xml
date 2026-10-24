@@ -72,6 +72,7 @@
 		<li>biotexpans.mythic</li>
 		<li>tug.Satyr</li>
 		<li>kupa.AlphaGenesIntegrated</li>
+		<li>ICC.FOV.ELVES</li>
 	</loadAfter>
 	<incompatibleWith>
 		<li>DanZinagri.BSAGI</li>

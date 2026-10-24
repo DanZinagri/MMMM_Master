@@ -44,6 +44,7 @@
 		<li IfModActive="ReSplice.XOTR.Charmweavers">1.6/Mods/ReSpliceCharmweavers</li>
 		<li IfModActive="Arquebus.StagzMerfolk">1.6/Mods/GojisFantasyRaceMerren</li>
 		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana,Rimsenal.Zohar">1.6/Mods/RimsenalXenotypes</li>
+		<li IfModActive="ICC.FOV.ELVES">1.6/Mods/FactionElves</li>
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
@@ -88,5 +89,6 @@
 		<li IfModActive="ReSplice.XOTR.Charmweavers">1.7/Mods/ReSpliceCharmweavers</li>
 		<li IfModActive="Arquebus.StagzMerfolk">1.7/Mods/GojisFantasyRaceMerren</li>
 		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana,Rimsenal.Zohar">1.7/Mods/RimsenalXenotypes</li>
+		<li IfModActive="ICC.FOV.ELVES">1.7/Mods/FactionElves</li>
 	</v1.7>
 </loadFolders>

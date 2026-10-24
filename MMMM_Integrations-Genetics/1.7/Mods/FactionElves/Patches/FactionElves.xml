@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Faction - Elves integrations. This folder only loads when Faction - Elves is active (see loadFolders.xml); each block
+		is gated on its partner mod on an <li>. Gene adds skip a xenotype that already has the gene.
+		  - With Big and Small - Framework: extended lifespan (LongLifespan) runs B&S's truly ageless gene class, so a carrier's
+		    biological age is held at 25 at most (B&S checks every 500 ticks). Its own lifespan curve, age-disease immunity
+		    and fertility factor are def fields and keep working. Only set when the gene has no geneClass of its own.
+		    Pawns already in a save keep the gene class they were saved with; new pawns and new carriers get the effect.
+		  - With Alpha Genes: the high elf gains low mining yield, clean, frail back and golden hair; the celestia elf gains
+		    deep black skin, frail back, clean, low mining yield and psy-sensitive (vanilla's PsychicAbility_Enhanced, kept
+		    under this gate on request); the wild elf gains low mining yield and high survival instinct; the dark elf gains
+		    deep black and deep purple skin, low mining yield and night striding.
+		  - With Big and Small - Genes & More: the high elf gains uninsultable; the celestia elf gains uninsultable, marble
+		    white skin and blinding white hair (a B&S gene; Alpha Genes has none); the wild elf gains animal friend; the dark
+		    elf gains dark gray and blinding white hair, fast darkness healing and night owl.
+		  - With Genes & More and VRE - Lycanthrope: MMMM Convergence - Genetics retires BS_NightOwl to Cherry Picker in
+		    favour of VRE_Nocturnal, so the dark elf's night owl becomes VRE_Nocturnal here. It runs right after the add, in
+		    this file, so the result does not depend on the order of the Integrations and Convergence mods.
+		The dark elf's strong melee damage -> darkness improved melee swap is in MMMM Convergence - Genetics.
+		Verified 2026-10-23 (all four elves) against Faction - Elves 1.6, Alpha Genes 1.6, B&S Framework and Genes & More 1.6: every gene
+		exists, none of the added genes is on the elves already, and none shares an exclusion group with an elf gene
+		(fast darkness healing is in the wound-healing group; no elf has a healing gene).
+	-->
+	<!-- Big and Small - Framework: extended lifespan gains the truly ageless effect. -->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BetterPrerequisites">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/GeneDef[defName="LongLifespan"][not(geneClass)]</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/GeneDef[defName="LongLifespan"][not(geneClass)]</xpath>
+							<value>
+								<geneClass>BigAndSmall.TrulyAgeless</geneClass>
+							</value>
+						</match>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- Alpha Genes: high, celestia, wild and dark elf additions. -->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_HighElf"][not(genes/li[text()="AG_MiningYield_Low"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_HighElf"][not(genes/li[text()="AG_MiningYield_Low"])]/genes</xpath>
+							<value>
+								<li>AG_MiningYield_Low</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_HighElf"][not(genes/li[text()="AG_Clean"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_HighElf"][not(genes/li[text()="AG_Clean"])]/genes</xpath>
+							<value>
+								<li>AG_Clean</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_HighElf"][not(genes/li[text()="AG_FrailBack"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_HighElf"][not(genes/li[text()="AG_FrailBack"])]/genes</xpath>
+							<value>
+								<li>AG_FrailBack</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_HighElf"][not(genes/li[text()="AG_Hair_Golden"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_HighElf"][not(genes/li[text()="AG_Hair_Golden"])]/genes</xpath>
+							<value>
+								<li>AG_Hair_Golden</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="AG_Skin_TrueBlack"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="AG_Skin_TrueBlack"])]/genes</xpath>
+							<value>
+								<li>AG_Skin_TrueBlack</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="AG_FrailBack"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="AG_FrailBack"])]/genes</xpath>
+							<value>
+								<li>AG_FrailBack</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="AG_Clean"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="AG_Clean"])]/genes</xpath>
+							<value>
+								<li>AG_Clean</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="AG_MiningYield_Low"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="AG_MiningYield_Low"])]/genes</xpath>
+							<value>
+								<li>AG_MiningYield_Low</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="PsychicAbility_Enhanced"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="PsychicAbility_Enhanced"])]/genes</xpath>
+							<value>
+								<li>PsychicAbility_Enhanced</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_WildElf"][not(genes/li[text()="AG_MiningYield_Low"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_WildElf"][not(genes/li[text()="AG_MiningYield_Low"])]/genes</xpath>
+							<value>
+								<li>AG_MiningYield_Low</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_WildElf"][not(genes/li[text()="AG_SurvivalInstinct_High"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_WildElf"][not(genes/li[text()="AG_SurvivalInstinct_High"])]/genes</xpath>
+							<value>
+								<li>AG_SurvivalInstinct_High</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="AG_Skin_TrueBlack"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="AG_Skin_TrueBlack"])]/genes</xpath>
+							<value>
+								<li>AG_Skin_TrueBlack</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="AG_Skin_DeepPurple"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="AG_Skin_DeepPurple"])]/genes</xpath>
+							<value>
+								<li>AG_Skin_DeepPurple</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="AG_MiningYield_Low"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="AG_MiningYield_Low"])]/genes</xpath>
+							<value>
+								<li>AG_MiningYield_Low</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="AG_NightStriding"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="AG_NightStriding"])]/genes</xpath>
+							<value>
+								<li>AG_NightStriding</li>
+							</value>
+						</match>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- Big and Small - Genes & More: high, celestia, wild and dark elf additions. -->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_HighElf"][not(genes/li[text()="BS_InsultProof"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_HighElf"][not(genes/li[text()="BS_InsultProof"])]/genes</xpath>
+							<value>
+								<li>BS_InsultProof</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="BS_InsultProof"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="BS_InsultProof"])]/genes</xpath>
+							<value>
+								<li>BS_InsultProof</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="BS_Skin_Marble_White"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="BS_Skin_Marble_White"])]/genes</xpath>
+							<value>
+								<li>BS_Skin_Marble_White</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="BS_Hair_TrueWhite"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="BS_Hair_TrueWhite"])]/genes</xpath>
+							<value>
+								<li>BS_Hair_TrueWhite</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_WildElf"][not(genes/li[text()="BS_AnimalFriend"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_WildElf"][not(genes/li[text()="BS_AnimalFriend"])]/genes</xpath>
+							<value>
+								<li>BS_AnimalFriend</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="BS_Hair_DarkGray"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="BS_Hair_DarkGray"])]/genes</xpath>
+							<value>
+								<li>BS_Hair_DarkGray</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="BS_Hair_TrueWhite"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="BS_Hair_TrueWhite"])]/genes</xpath>
+							<value>
+								<li>BS_Hair_TrueWhite</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="VU_DarknessWoundHealing_Fast"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="VU_DarknessWoundHealing_Fast"])]/genes</xpath>
+							<value>
+								<li>VU_DarknessWoundHealing_Fast</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="BS_NightOwl"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="BS_NightOwl"])]/genes</xpath>
+							<value>
+								<li>BS_NightOwl</li>
+							</value>
+						</match>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- Genes & More + VRE - Lycanthrope: night owl follows Convergence's retirement of BS_NightOwl. -->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core,vanillaracesexpanded.lycanthrope">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][genes/li[text()="VRE_Nocturnal"]]/genes/li[text()="BS_NightOwl"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][genes/li[text()="VRE_Nocturnal"]]/genes/li[text()="BS_NightOwl"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"]/genes/li[text()="BS_NightOwl"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"]/genes/li[text()="BS_NightOwl"]</xpath>
+							<value>
+								<li>VRE_Nocturnal</li>
+							</value>
+						</match>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>
