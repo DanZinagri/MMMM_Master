@@ -23,6 +23,7 @@
 		<li IfModActiveAll="AOBA.Framework,vat.epoeforked" IfModNotActive="booty.DMS.EPOE.CompatPatch.Odyssey">1.6/Mods/FortifiedEPOE</li>
 		<li IfModActiveAll="AOBA.Framework,vat.epoeforked">1.6/Mods/FortifiedEPOEMuscleStimulator</li>
 		<li IfModActiveAll="AOBA.Framework,lts.I" IfModNotActive="RavenZHOU.DMS.bionics.CompatPatch">1.6/Mods/FortifiedIntegratedImplants</li>
+		<li IfModActiveAll="AOBA.Framework,OskarPotocki.VFE.Pirates">1.6/Mods/FortifiedWarcaskets</li>
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
@@ -46,5 +47,6 @@
 		<li IfModActiveAll="AOBA.Framework,vat.epoeforked" IfModNotActive="booty.DMS.EPOE.CompatPatch.Odyssey">1.7/Mods/FortifiedEPOE</li>
 		<li IfModActiveAll="AOBA.Framework,vat.epoeforked">1.7/Mods/FortifiedEPOEMuscleStimulator</li>
 		<li IfModActiveAll="AOBA.Framework,lts.I" IfModNotActive="RavenZHOU.DMS.bionics.CompatPatch">1.7/Mods/FortifiedIntegratedImplants</li>
+		<li IfModActiveAll="AOBA.Framework,OskarPotocki.VFE.Pirates">1.7/Mods/FortifiedWarcaskets</li>
 	</v1.7>
 </loadFolders>

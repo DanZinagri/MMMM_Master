@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Fortified Features Framework + Vanilla Factions Expanded - Pirates: a pawn wearing a warcasket shell qualifies for the
+		heavy weapons of the five Fortified tiers up to TransHeavyAutomatroid (AverageHumanCanUse 1.0, LightAutomatroid 1.1,
+		StandardAutomatroid 1.4, BulkyAutomatroid 1.7, TransHeavyAutomatroid 2.0 body size). Fortified passes a pawn that
+		wears ANY one apparel on a tier's EquippableWithApparel list, and it knows nothing about warcaskets, so a normal-size
+		pilot could fire a warcasket minigun but not a Dead Man's Switch HMG.
+		TransHeavy is the cap because it matches the giant line: Big and Small's BS_Giant trait (the other way to use
+		warcasket weapons) comes from size 1.6+ frames, and MMMM Integrations - Genetics already gives the giant weapon
+		wielder gene the same five tiers. Heavy (2.5) and UltraHeavy (3.0) are left alone.
+		Only the shell (the torso piece) is listed; it is what VEF's own warcasket-weapon check looks for (torso apparel
+		tagged Warcasket), and a warcasket cannot be worn without it.
+		Fortified needs every shell by defName, so shells from add-on mods are listed one by one, each with MayRequire on
+		its mod. A new warcasket mod needs its shell added here.
+		Verified 2026-10-27 against VFE Pirates 1.6 and 1.7 (13 shells), WarCasket Expanded 1.6 (4; the Centurion is
+		Biotech-only), Oracle's Miscellania 1.6 (Mods/VFE.Pirates folder), Eventide Warcasket 1.6 (2), Shipcracker
+		Warcasket 1.6, Toxin Warcasket 1.6 and Alpha Mechs 1.6 (Mods/VanillaPiratesExpanded; its shell is created by a
+		patch, which is fine since the list is resolved after all patches run), and Warcaskets: Adeptus Astartes
+		(workshop 2816582751, 6 shells; it only ships 1.3/1.4 folders, which 1.6 and 1.7 fall back to). All five tiers carry an
+		EquippableWithApparel list in Fortified 1.6 (its 1.7 load reuses the 1.6 Defs); it is still created first if
+		missing.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid" or defName="BulkyAutomatroid" or defName="TransHeavyAutomatroid") and not(EquippableWithApparel)]</xpath>
+				<match Class="PatchOperationAdd">
+					<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid" or defName="BulkyAutomatroid" or defName="TransHeavyAutomatroid") and not(EquippableWithApparel)]</xpath>
+					<value>
+						<EquippableWithApparel />
+					</value>
+				</match>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid" or defName="BulkyAutomatroid" or defName="TransHeavyAutomatroid"]/EquippableWithApparel</xpath>
+				<value>
+					<li>VFEP_Warcasket_Warcasket</li>
+					<li>VFEP_Warcasket_Marine</li>
+					<li>VFEP_Warcasket_Recon</li>
+					<li>VFEP_Warcasket_Cataphract</li>
+					<li>VFEP_Warcasket_Aerial</li>
+					<li>VFEP_Warcasket_Barrage</li>
+					<li>VFEP_Warcasket_Hazard</li>
+					<li>VFEP_Warcasket_Shock</li>
+					<li>VFEP_Warcasket_Siegebreaker</li>
+					<li>VFEP_Warcasket_Guardian</li>
+					<li>VFEP_Warcasket_Controller</li>
+					<li>VFEP_Warcasket_Sarcophagus</li>
+					<li>VFEP_Warcasket_Brute</li>
+					<li MayRequire="Aoba.WarCasket">Warcasket_Sentinel</li>
+					<li MayRequire="Aoba.WarCasket">Warcasket_GuardianX</li>
+					<li MayRequire="Aoba.WarCasket">Warcasket_Tyrant</li>
+					<li MayRequire="Aoba.WarCasket,Ludeon.RimWorld.Biotech">Warcasket_Centurion</li>
+					<li MayRequire="oracle.miscellania">VFEP_Warcasket_EarthEmpire</li>
+					<li MayRequire="notdvd.eventide">dvd_Warcasket_Eventide</li>
+					<li MayRequire="notdvd.eventide">dvd_Warcasket_Sovereign</li>
+					<li MayRequire="shunter.shipcrackerwarcasket">SCWC_Warcasket_Shipcracker</li>
+					<li MayRequire="shunter.toxinwarcasket">TXWC_Warcasket_Toxin</li>
+					<li MayRequire="sarg.alphamechs">VFEP_Warcasket_MechController</li>
+					<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine</li>
+					<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine_Vet</li>
+					<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine_Cpt</li>
+					<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine_MkII</li>
+					<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine_MKVI</li>
+					<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine_Terminator</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>
