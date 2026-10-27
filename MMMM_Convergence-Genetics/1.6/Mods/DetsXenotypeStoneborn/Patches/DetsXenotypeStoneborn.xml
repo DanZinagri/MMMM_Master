@@ -2,34 +2,100 @@
 <Patch>
 
 	<!--
-		The Stoneborn use the Big and Small and vanilla equivalents of three of their own genes: vanilla undergrounder
-		in place of the Stoneborn one, the B&amp;S dvergr constitution in place of vanilla robust, and vanilla remarkable
-		mining in place of strong mining to match the B&amp;S mining curve.
-		This folder only loads when Det's Xenotypes - Stoneborn and B&amp;S - Genes &amp; More are both active
-		(see loadFolders.xml).
-		Verified against Stoneborn 1.6: DV_Undergrounder, Robust and AptitudeStrong_Mining are all in the xenotype's
-		gene list, so all three replacements land. A fourth operation swapping DV_SmallBuild for DwarfFrame was dropped
-		because the current Stoneborn xenotype does not list DV_SmallBuild at all.
+		Det's Xenotypes - Stoneborn + Big and Small - Genes & More overlap removal. This folder only loads when both are
+		active (see loadFolders.xml).
+		  - Undergrounder: the Stoneborn's own gene becomes B&S's undergrounder gene (Undergrounder; vanilla only has the
+		    trait of that name). DV_Undergrounder is retired in 1.6/Patches/CherryPicks.xml under the same two mods.
+		  - Dwarfism: Stoneborn adds its own dwarfism gene (DV_SmallBuild) to the xenotype with a patch, and only when Vanilla
+		    Expanded Framework is active (Stoneborn 1.6/Patches/DwarfismPatch.xml). It becomes B&S's dwarf frame (DwarfFrame:
+		    body size -0.35, +5 metabolism), and DV_SmallBuild is retired (also gated on VEF, the only time it exists).
+		  - Robust becomes B&S's dwarven grit (BS_DvergrConstitution), but only on a Stoneborn that ends up with one of the
+		    small frames dwarven grit requires (dwarf, nisse, small or rabbit frame) and none of the genes it rules out (weak
+		    melee damage, violence disabled). Without VEF the Stoneborn has no frame, so it keeps Robust.
+		  - Strong mining becomes remarkable mining, to match the B&S mining curve.
+		Every swap is a Conditional, so one missing gene cannot stop the others. The dwarfism swap runs before the grit swap.
+		Fix 2026-10-26 (player report): the dwarfism -> dwarf frame swap, which Too Many Mods had, was dropped during the
+		split because the Stoneborn's XenotypeDef does not list DV_SmallBuild (Stoneborn's own patch adds it, which the
+		review tooling did not run). Without a frame, dwarven grit's B&S prerequisites were never met, so the Stoneborn lost
+		Robust for an inactive gene. The undergrounder note also wrongly called it vanilla.
+		Verified 2026-10-26 against Stoneborn 1.6 and B&S Genes & More 1.6. This mod loads after Stoneborn (About.xml), so
+		Stoneborn's dwarfism patch has already run.
 	-->
 	<Operation Class="PatchOperationSequence">
 		<operations>
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/XenotypeDef[defName="Stoneborn"]/genes/li[text()="DV_Undergrounder"]</xpath>
-				<value>
-					<li>Undergrounder</li>
-				</value>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/XenotypeDef[genes/li[text()="Undergrounder"]]/genes/li[text()="DV_Undergrounder"]</xpath>
+				<match Class="PatchOperationRemove">
+					<xpath>Defs/XenotypeDef[genes/li[text()="Undergrounder"]]/genes/li[text()="DV_Undergrounder"]</xpath>
+				</match>
 			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/XenotypeDef[defName="Stoneborn"]/genes/li[text()="Robust"]</xpath>
-				<value>
-					<li>BS_DvergrConstitution</li>
-				</value>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/XenotypeDef/genes/li[text()="DV_Undergrounder"]</xpath>
+				<match Class="PatchOperationReplace">
+					<xpath>Defs/XenotypeDef/genes/li[text()="DV_Undergrounder"]</xpath>
+					<value>
+						<li>Undergrounder</li>
+					</value>
+				</match>
 			</li>
-			<li Class="PatchOperationReplace">
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/XenotypeDef[genes/li[text()="DwarfFrame"]]/genes/li[text()="DV_SmallBuild"]</xpath>
+				<match Class="PatchOperationRemove">
+					<xpath>Defs/XenotypeDef[genes/li[text()="DwarfFrame"]]/genes/li[text()="DV_SmallBuild"]</xpath>
+				</match>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/XenotypeDef/genes/li[text()="DV_SmallBuild"]</xpath>
+				<match Class="PatchOperationReplace">
+					<xpath>Defs/XenotypeDef/genes/li[text()="DV_SmallBuild"]</xpath>
+					<value>
+						<li>DwarfFrame</li>
+					</value>
+				</match>
+			</li>
+			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/DV_SmallBuild</li>
+							<li>GeneDef/DV_SmallBuild_Astrogene</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/XenotypeDef[defName="Stoneborn"][genes/li[text()="DwarfFrame" or text()="GnomeFrame" or text()="BS_SmallFrame" or text()="BS_RabbitFrame"]][not(genes/li[text()="MeleeDamage_Weak" or text()="ViolenceDisabled"])]/genes/li[text()="Robust"]</xpath>
+				<match Class="PatchOperationReplace">
+					<xpath>Defs/XenotypeDef[defName="Stoneborn"][genes/li[text()="DwarfFrame" or text()="GnomeFrame" or text()="BS_SmallFrame" or text()="BS_RabbitFrame"]][not(genes/li[text()="MeleeDamage_Weak" or text()="ViolenceDisabled"])]/genes/li[text()="Robust"]</xpath>
+					<value>
+						<li>BS_DvergrConstitution</li>
+					</value>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
 				<xpath>Defs/XenotypeDef[defName="Stoneborn"]/genes/li[text()="AptitudeStrong_Mining"]</xpath>
-				<value>
-					<li>AptitudeRemarkable_Mining</li>
-				</value>
+				<match Class="PatchOperationReplace">
+					<xpath>Defs/XenotypeDef[defName="Stoneborn"]/genes/li[text()="AptitudeStrong_Mining"]</xpath>
+					<value>
+						<li>AptitudeRemarkable_Mining</li>
+					</value>
+				</match>
 			</li>
 		</operations>
 	</Operation>

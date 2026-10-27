@@ -102,6 +102,8 @@
 			<li>GeneDef/EfficientMetabolism_Astrogene</li>
 			<li>GeneDef/ToxSensitivity_Partial</li>
 			<li>GeneDef/ToxSensitivity_Partial_Astrogene</li>
+			<li>GeneDef/DV_SmallBuild</li>
+			<li>GeneDef/DV_SmallBuild_Astrogene</li>
 		</defs>
 	</CherryPicker.DefList>
 
