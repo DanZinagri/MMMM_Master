@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Dead Man's Switch: automatroid modification items (heavy hydraulic frame, ceramic plates, synthetic tendon, armor
+		plating, subsonic module and the rest of BaseModificationItem's children) no longer turn up at tribal traders.
+		This folder only loads when Dead Man's Switch is active (see loadFolders.xml).
+		  - Their shared parent BaseModificationItem tags them Serum. Vanilla's neolithic base trader and shaman caravan stock
+		    the Serum tag with no tech cap (it is how tribals sell serums), so every tribe sold them. The tag becomes
+		    ExoticMisc, which the outlander base, outlander exotic caravan, orbital and Empire traders also stock, so the
+		    high-tech outlets stay. Modded Serum-only traders (Det's Keshig, Forsaken, Leo - Events' black market) stop
+		    carrying them; Cinders of the Embergarden's outlander base stocks ExoticMisc too, so it keeps them.
+		  - The parent gets techLevel Industrial when it has none, so tech-capped stock generators can tell what they are.
+		    Children that set their own tech level keep it.
+		Dead Man's Switch's own code never reads the Serum tag; its supply-chain quest picks these items by category.
+		The nuclear battery carries Serum on its own def but is Sellable (traders buy it, never stock it), so it is left alone.
+		Verified 2026-10-28 against Dead Man's Switch 1.7: BaseModificationItem (in Defs/Things_Item/DMS_Modification.xml) has
+		tradeTags Serum, tradeability Buyable and no techLevel; its 9 children set no tradeTags or techLevel of their own.
+		The 1.6 release has no BaseModificationItem, so in the 1.6 copy both operations find nothing and do nothing.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/ThingDef[@Name="BaseModificationItem"][tradeTags/li[text()="ExoticMisc"]]/tradeTags/li[text()="Serum"]</xpath>
+				<match Class="PatchOperationRemove">
+					<xpath>Defs/ThingDef[@Name="BaseModificationItem"][tradeTags/li[text()="ExoticMisc"]]/tradeTags/li[text()="Serum"]</xpath>
+				</match>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/ThingDef[@Name="BaseModificationItem"]/tradeTags/li[text()="Serum"]</xpath>
+				<match Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[@Name="BaseModificationItem"]/tradeTags/li[text()="Serum"]</xpath>
+					<value>
+						<li>ExoticMisc</li>
+					</value>
+				</match>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/ThingDef[@Name="BaseModificationItem"][not(techLevel)]</xpath>
+				<match Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[@Name="BaseModificationItem"][not(techLevel)]</xpath>
+					<value>
+						<techLevel>Industrial</techLevel>
+					</value>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

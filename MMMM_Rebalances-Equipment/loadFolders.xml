@@ -21,6 +21,7 @@
 		<li IfModActive="detvisor.impactweaponryreloaded">1.6/Mods/ImpactWeaponry</li>
 		<li IfModActive="detvisor.pulseweaponry">1.6/Mods/PulseWeaponry</li>
 		<li IfModActive="Spino.Megafauna">1.6/Mods/Megafauna</li>
+		<li IfModActive="Aoba.DeadManSwitch.Core">1.6/Mods/DeadMansSwitch</li>
 	</v1.6>
 	<v1.7>
 		<!-- 1.7/Mods/<Name> loads when that mod is active; 1.7/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
@@ -42,5 +43,6 @@
 		<li IfModActive="detvisor.impactweaponryreloaded">1.7/Mods/ImpactWeaponry</li>
 		<li IfModActive="detvisor.pulseweaponry">1.7/Mods/PulseWeaponry</li>
 		<li IfModActive="Spino.Megafauna">1.7/Mods/Megafauna</li>
+		<li IfModActive="Aoba.DeadManSwitch.Core">1.7/Mods/DeadMansSwitch</li>
 	</v1.7>
 </loadFolders>
