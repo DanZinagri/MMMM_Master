@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--
+		Ponpeco Pajamas: PON Hot Milk can be made from any milk, not only vanilla milk.
+		Ponpeco builds the recipe from recipeMaker + costList (Milk 5), and a costList can only name one exact item, so the
+		generated recipes are replaced by these two real RecipeDefs (the patch in Patches/ nulls the recipeMaker). They keep
+		the generated defNames, Make_PonHotMilk and Make_PonHotMilkBulk, so existing bills keep working, and copy every
+		value the generator would have produced: Ponpeco's recipeMaker merged with vanilla's MakeableDrugBase (campfire,
+		electric and fueled stove; drug cooking speed, Cooking 2, cook effect, brewing sound, display priority 1461, work
+		from WorkToMake 200; bulk x4 from bulkRecipeCount 4 with 4x work, cost and target count).
+		Milks: vanilla milk, Medieval Overhaul's milk category (DankPyon_Milk, which MO, Mythic Ages, Dark Ages and Davai's
+		Sorted Categories put their milks in) and every drinkable milk found in the installed mods, each with MayRequire on
+		its mod. Left out on purpose (also blocked from the category, since Davai's patch files mechanoid milk under it): Vanilla Genetics Expanded's mechanoid milk (not food) and eldritch milk (strange
+		meat), the fermenting milks (unfinished items) and the processed dairy products (buttermilk, condensed milk).
+		Vanilla Cooking Expanded's plant milks (rice, almond, coconut, oat, soy) already produce vanilla milk.
+		Verified 2026-10-29 against Ponpeco Pajamas 1.6 (Common/Defs/DrugDefs/PonHotDrinks.xml) and the 1.7
+		RecipeDefGenerator; each milk was checked to exist in the folder its mod loads for this game version.
+	-->
+	<RecipeDef Name="MMMM_PonHotMilkRecipeBase" Abstract="True">
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<skillRequirements>
+			<Cooking>2</Cooking>
+		</skillRequirements>
+		<recipeUsers>
+			<li>Campfire</li>
+			<li>ElectricStove</li>
+			<li>FueledStove</li>
+		</recipeUsers>
+		<fixedIngredientFilter>
+			<categories>
+				<li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Milk</li>
+			</categories>
+			<thingDefs>
+				<li>Milk</li>
+				<li MayRequire="Spino.Megafauna">SivatheriumMilk</li>
+				<li MayRequire="sarg.alphaanimals">AA_BlueMilk</li>
+				<li MayRequire="sarg.alphaanimals">AA_GowMilk</li>
+				<li MayRequire="sarg.alphaanimals">AA_NightMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE">GR_WeirdMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE">GR_BearffaloMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE">GR_ThrumffaloMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE">GR_MuffalochickenMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE">GR_ChickenffaloMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE">GR_MuffalobearMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE">GR_WolffaloMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE">GR_RatMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE">GR_DinoMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE">GR_ParaMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE">GR_GreenMilk</li>
+				<li MayRequire="Mlie.RoyalThrumbos">RoyalThrumbo_Milk</li>
+				<li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_GoatMilk</li>
+				<li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_SheepMilk</li>
+				<li MayRequire="DankPyon.Medieval.Overhaul.House.Roxmont">DankPyon_RoxMilk</li>
+				<li MayRequire="Van.Beasts">DA_MufftonMilk</li>
+				<li MayRequire="Van.Beasts">DA_RegalMilk</li>
+				<li MayRequire="veterano.mythicages.megafaunabestiary">MA_MossmireMilk</li>
+				<li MayRequire="veterano.mythicages.megafaunabestiary">MA_AminoMilk</li>
+				<li MayRequire="veterano.mythicages.megafaunabestiary">MA_DuskMilk</li>
+				<li MayRequire="veterano.mythicages.megafaunabestiary">MA_CapryakMilk</li>
+				<li MayRequire="Euterpe.MilkyTitfuck">SEX_BreastMilk</li>
+				<li MayRequire="zal.animaanimalscombined">AnimaThrumboMilk</li>
+			</thingDefs>
+			<disallowedThingDefs>
+				<li MayRequire="VanillaExpanded.VGeneticsE">GR_MechaMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE">GR_EldritchMilk</li>
+			</disallowedThingDefs>
+		</fixedIngredientFilter>
+	</RecipeDef>
+
+	<RecipeDef ParentName="MMMM_PonHotMilkRecipeBase">
+		<defName>Make_PonHotMilk</defName>
+		<label>make PON Hot Milk</label>
+		<description>Make a PON Hot Milk.</description>
+		<jobString>Making PON Hot Milk.</jobString>
+		<displayPriority>1461</displayPriority>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Milk</li>
+					</categories>
+					<thingDefs>
+						<li>Milk</li>
+						<li MayRequire="Spino.Megafauna">SivatheriumMilk</li>
+						<li MayRequire="sarg.alphaanimals">AA_BlueMilk</li>
+						<li MayRequire="sarg.alphaanimals">AA_GowMilk</li>
+						<li MayRequire="sarg.alphaanimals">AA_NightMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_WeirdMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_BearffaloMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_ThrumffaloMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_MuffalochickenMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_ChickenffaloMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_MuffalobearMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_WolffaloMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_RatMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_DinoMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_ParaMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_GreenMilk</li>
+						<li MayRequire="Mlie.RoyalThrumbos">RoyalThrumbo_Milk</li>
+						<li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_GoatMilk</li>
+						<li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_SheepMilk</li>
+						<li MayRequire="DankPyon.Medieval.Overhaul.House.Roxmont">DankPyon_RoxMilk</li>
+						<li MayRequire="Van.Beasts">DA_MufftonMilk</li>
+						<li MayRequire="Van.Beasts">DA_RegalMilk</li>
+						<li MayRequire="veterano.mythicages.megafaunabestiary">MA_MossmireMilk</li>
+						<li MayRequire="veterano.mythicages.megafaunabestiary">MA_AminoMilk</li>
+						<li MayRequire="veterano.mythicages.megafaunabestiary">MA_DuskMilk</li>
+						<li MayRequire="veterano.mythicages.megafaunabestiary">MA_CapryakMilk</li>
+						<li MayRequire="Euterpe.MilkyTitfuck">SEX_BreastMilk</li>
+						<li MayRequire="zal.animaanimalscombined">AnimaThrumboMilk</li>
+					</thingDefs>
+					<disallowedThingDefs>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_MechaMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_EldritchMilk</li>
+					</disallowedThingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<products>
+			<PonHotMilk>1</PonHotMilk>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef ParentName="MMMM_PonHotMilkRecipeBase">
+		<defName>Make_PonHotMilkBulk</defName>
+		<label>make PON Hot Milk x4</label>
+		<description>Make 4 PON Hot Milks.</description>
+		<jobString>Making PON Hot Milk x4.</jobString>
+		<workAmount>800</workAmount>
+		<targetCountAdjustment>4</targetCountAdjustment>
+		<displayPriority>1464</displayPriority>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_Milk</li>
+					</categories>
+					<thingDefs>
+						<li>Milk</li>
+						<li MayRequire="Spino.Megafauna">SivatheriumMilk</li>
+						<li MayRequire="sarg.alphaanimals">AA_BlueMilk</li>
+						<li MayRequire="sarg.alphaanimals">AA_GowMilk</li>
+						<li MayRequire="sarg.alphaanimals">AA_NightMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_WeirdMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_BearffaloMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_ThrumffaloMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_MuffalochickenMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_ChickenffaloMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_MuffalobearMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_WolffaloMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_RatMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_DinoMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_ParaMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_GreenMilk</li>
+						<li MayRequire="Mlie.RoyalThrumbos">RoyalThrumbo_Milk</li>
+						<li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_GoatMilk</li>
+						<li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_SheepMilk</li>
+						<li MayRequire="DankPyon.Medieval.Overhaul.House.Roxmont">DankPyon_RoxMilk</li>
+						<li MayRequire="Van.Beasts">DA_MufftonMilk</li>
+						<li MayRequire="Van.Beasts">DA_RegalMilk</li>
+						<li MayRequire="veterano.mythicages.megafaunabestiary">MA_MossmireMilk</li>
+						<li MayRequire="veterano.mythicages.megafaunabestiary">MA_AminoMilk</li>
+						<li MayRequire="veterano.mythicages.megafaunabestiary">MA_DuskMilk</li>
+						<li MayRequire="veterano.mythicages.megafaunabestiary">MA_CapryakMilk</li>
+						<li MayRequire="Euterpe.MilkyTitfuck">SEX_BreastMilk</li>
+						<li MayRequire="zal.animaanimalscombined">AnimaThrumboMilk</li>
+					</thingDefs>
+					<disallowedThingDefs>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_MechaMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE">GR_EldritchMilk</li>
+					</disallowedThingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+		</ingredients>
+		<products>
+			<PonHotMilk>4</PonHotMilk>
+		</products>
+	</RecipeDef>
+
+</Defs>

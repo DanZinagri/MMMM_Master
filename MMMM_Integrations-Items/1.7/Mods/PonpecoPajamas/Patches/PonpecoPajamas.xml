@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Ponpeco Pajamas: PON Hot Milk stops generating its own recipes; Defs/PonpecoPajamas_HotMilk.xml replaces them with
+		any-milk versions under the same defNames. Inherit="False" + IsNull is needed: without it the drug base's
+		recipeMaker would be inherited and generate a drug-lab recipe with the same defName. The costList is kept.
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="PonHotMilk"]/recipeMaker</xpath>
+		<value>
+			<recipeMaker Inherit="False" IsNull="True" />
+		</value>
+	</Operation>
+
+	<!--
+		Progression: Kitchen + VFE Tribals gate PON Hot Milk behind their tribal research Ferny_HotMilk by patching the
+		recipeMaker's researchPrerequisite ("Mods and Shit/Ponpeco Pajamas + VFE Tribals/Patches/hot milk patch.xml"). That
+		recipeMaker is nulled above, so the same gate goes on the two replacement recipes here. Their other Ponpeco
+		changes (description, hediff severity and stats, thought) are on the item, hediff and thought and still apply.
+		Verified 2026-10-29 against Progression: Kitchen (3424640315); its LoadFolders only has a v1.5 block, which the
+		game also uses on 1.6 and 1.7.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationSequence" MayRequire="ferny.progressionkitchen,OskarPotocki.VFE.Tribals">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/RecipeDef[defName="Make_PonHotMilk" or defName="Make_PonHotMilkBulk"][not(researchPrerequisite)]</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/RecipeDef[defName="Make_PonHotMilk" or defName="Make_PonHotMilkBulk"][not(researchPrerequisite)]</xpath>
+							<value>
+								<researchPrerequisite>Ferny_HotMilk</researchPrerequisite>
+							</value>
+						</match>
+					</li>
+				</operations>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>
