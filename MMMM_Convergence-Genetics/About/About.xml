@@ -73,6 +73,20 @@
 		<li>tug.Satyr</li>
 		<li>kupa.AlphaGenesIntegrated</li>
 		<li>ICC.FOV.ELVES</li>
+		<li>DanZinagri.MMMM.Rebalances.Equipment</li>
+		<li>DanZinagri.MMMM.Rebalances.Factions</li>
+		<li>DanZinagri.MMMM.Rebalances.Genetics</li>
+		<li>DanZinagri.MMMM.Rebalances.Other</li>
+		<li>DanZinagri.MMMM.Rebalances.StrongerEnemies</li>
+		<li>DanZinagri.MMMM.Rebalances.Traits</li>
+		<li>DanZinagri.MMMM.Integrations.Animals</li>
+		<li>DanZinagri.MMMM.Integrations.Buildings</li>
+		<li>DanZinagri.MMMM.Integrations.Factions</li>
+		<li>DanZinagri.MMMM.Integrations.Genetics</li>
+		<li>DanZinagri.MMMM.Integrations.Ideology</li>
+		<li>DanZinagri.MMMM.Integrations.Items</li>
+		<li>DanZinagri.MMMM.Integrations.Other</li>
+		<li>DanZinagri.MMMM.Integrations.Traits</li>
 	</loadAfter>
 	<incompatibleWith>
 		<li>DanZinagri.BSAGI</li>

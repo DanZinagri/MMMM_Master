@@ -17,25 +17,35 @@
 		Archite, the AG_GeneTools category parent is Manufactured, and both Alpha Genes category defs exist, so all
 		four land.
 
-		Worth revisiting: AG_ArmourMedium and AG_ArmourMajor already define customEffectDescriptions upstream, reading
-		"+30% blunt and sharp natural armour." and "+40% blunt and sharp natural armour." respectively. These adds
-		append a second node of the same name rather than adding list entries to the existing one, and the later node
-		wins, so the Alpha Genes line disappears. Pointing the xpath at .../customEffectDescriptions and making the
-		value bare li entries would keep both. Left as the original author wrote it.
+		AG_ArmourMedium and AG_ArmourMajor already define customEffectDescriptions upstream (the natural armour
+		percentage), so the two B&amp;S lines are added into that list, keeping the upstream line; a gene without the
+		list gets a new one. Fix 2026-10-31: these adds used to append a second customEffectDescriptions node, and
+		whichever node came last won, so either the armour line or the B&amp;S lines vanished depending on whether
+		MMMM Rebalances - Genetics (which rewrites the armour line) loaded before or after this mod.
 		Split by category into the MMMM Integrations sub-mods: this copy holds only the Genetics ops (genes and xenotypes).
 	-->
 	<Operation Class="PatchOperationSequence">
 		<operations>
 			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
 				<operations>
-					<li Class="PatchOperationAdd">
-						<xpath>Defs/GeneDef[defName="AG_ArmourMedium"]</xpath>
-						<value>
-							<customEffectDescriptions>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/GeneDef[defName="AG_ArmourMedium"]/customEffectDescriptions</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/GeneDef[defName="AG_ArmourMedium"]/customEffectDescriptions</xpath>
+							<value>
 								<li>Increased effect when combined with genes preventing wearing armor</li>
 								<li>Nearly doubled effect when combined with genes preventing wearing apparel</li>
-							</customEffectDescriptions>
-						</value>
+							</value>
+						</match>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/GeneDef[defName="AG_ArmourMedium"]</xpath>
+							<value>
+								<customEffectDescriptions>
+									<li>Increased effect when combined with genes preventing wearing armor</li>
+									<li>Nearly doubled effect when combined with genes preventing wearing apparel</li>
+								</customEffectDescriptions>
+							</value>
+						</nomatch>
 					</li>
 					<li Class="PatchOperationAddModExtension">
 						<xpath>Defs/GeneDef[defName="AG_ArmourMedium"]</xpath>
@@ -68,14 +78,24 @@
 							</li>
 						</value>
 					</li>
-					<li Class="PatchOperationAdd">
-						<xpath>Defs/GeneDef[defName="AG_ArmourMajor"]</xpath>
-						<value>
-							<customEffectDescriptions>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/GeneDef[defName="AG_ArmourMajor"]/customEffectDescriptions</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/GeneDef[defName="AG_ArmourMajor"]/customEffectDescriptions</xpath>
+							<value>
 								<li>Increased effect when combined with genes preventing wearing armor</li>
 								<li>Nearly doubled effect when combined with genes preventing wearing apparel</li>
-							</customEffectDescriptions>
-						</value>
+							</value>
+						</match>
+						<nomatch Class="PatchOperationAdd">
+							<xpath>Defs/GeneDef[defName="AG_ArmourMajor"]</xpath>
+							<value>
+								<customEffectDescriptions>
+									<li>Increased effect when combined with genes preventing wearing armor</li>
+									<li>Nearly doubled effect when combined with genes preventing wearing apparel</li>
+								</customEffectDescriptions>
+							</value>
+						</nomatch>
 					</li>
 					<li Class="PatchOperationAddModExtension">
 						<xpath>Defs/GeneDef[defName="AG_ArmourMajor"]</xpath>

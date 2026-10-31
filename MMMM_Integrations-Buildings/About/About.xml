@@ -57,6 +57,12 @@
 		<li>VanillaExpanded.VAEWaste</li>
 		<li>ludeon.rimworld.anomaly</li>
 		<li>vanillaexpanded.vfemedical</li>
+		<li>DanZinagri.MMMM.Rebalances.Equipment</li>
+		<li>DanZinagri.MMMM.Rebalances.Factions</li>
+		<li>DanZinagri.MMMM.Rebalances.Genetics</li>
+		<li>DanZinagri.MMMM.Rebalances.Other</li>
+		<li>DanZinagri.MMMM.Rebalances.StrongerEnemies</li>
+		<li>DanZinagri.MMMM.Rebalances.Traits</li>
 	</loadAfter>
 	<description>Mod integrations</description>
 </ModMetaData>

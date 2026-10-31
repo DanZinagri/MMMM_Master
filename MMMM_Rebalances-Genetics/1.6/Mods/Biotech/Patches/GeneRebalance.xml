@@ -879,19 +879,15 @@
 								</value>
 							</li>
 							<li Class="PatchOperationReplace">
-								<xpath>Defs/GeneDef[defName="AG_ArmourMedium"]/customEffectDescriptions</xpath>
+								<xpath>Defs/GeneDef[defName="AG_ArmourMedium"]/customEffectDescriptions/li[contains(text(), "natural armo")]</xpath>
 								<value>
-									<customEffectDescriptions>
-										<li>+20% blunt and sharp natural armor.</li>
-									</customEffectDescriptions>
+									<li>+20% blunt and sharp natural armor.</li>
 								</value>
 							</li>
 							<li Class="PatchOperationReplace">
-								<xpath>Defs/GeneDef[defName="AG_ArmourMajor"]/customEffectDescriptions</xpath>
+								<xpath>Defs/GeneDef[defName="AG_ArmourMajor"]/customEffectDescriptions/li[contains(text(), "natural armo")]</xpath>
 								<value>
-									<customEffectDescriptions>
-										<li>+30% blunt and sharp natural armor.</li>
-									</customEffectDescriptions>
+									<li>+30% blunt and sharp natural armor.</li>
 								</value>
 							</li>
 						</operations>

@@ -81,6 +81,12 @@
 		<li>AOBA.Framework</li>
 		<li>vat.epoeforked</li>
 		<li>lts.I</li>
+		<li>DanZinagri.MMMM.Rebalances.Equipment</li>
+		<li>DanZinagri.MMMM.Rebalances.Factions</li>
+		<li>DanZinagri.MMMM.Rebalances.Genetics</li>
+		<li>DanZinagri.MMMM.Rebalances.Other</li>
+		<li>DanZinagri.MMMM.Rebalances.StrongerEnemies</li>
+		<li>DanZinagri.MMMM.Rebalances.Traits</li>
 	</loadAfter>
 	<description>Mod integrations</description>
 </ModMetaData>

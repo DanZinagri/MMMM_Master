@@ -22,6 +22,20 @@
 		<li>RedMattis.BigSmall.Core</li>
 		<li>Trickity.Samurai.Faction</li>
 		<li>ludeon.rimworld.ideology</li>
+		<li>DanZinagri.MMMM.Rebalances.Equipment</li>
+		<li>DanZinagri.MMMM.Rebalances.Factions</li>
+		<li>DanZinagri.MMMM.Rebalances.Genetics</li>
+		<li>DanZinagri.MMMM.Rebalances.Other</li>
+		<li>DanZinagri.MMMM.Rebalances.StrongerEnemies</li>
+		<li>DanZinagri.MMMM.Rebalances.Traits</li>
+		<li>DanZinagri.MMMM.Integrations.Animals</li>
+		<li>DanZinagri.MMMM.Integrations.Buildings</li>
+		<li>DanZinagri.MMMM.Integrations.Factions</li>
+		<li>DanZinagri.MMMM.Integrations.Genetics</li>
+		<li>DanZinagri.MMMM.Integrations.Ideology</li>
+		<li>DanZinagri.MMMM.Integrations.Items</li>
+		<li>DanZinagri.MMMM.Integrations.Other</li>
+		<li>DanZinagri.MMMM.Integrations.Traits</li>
 	</loadAfter>
 	<description>Overlap Removal</description>
 </ModMetaData>

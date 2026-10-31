@@ -15,22 +15,31 @@
 
 		Verified against Genes &amp; More 1.6: the succubus lists BS_ToughSkin and the hellguard lists BS_NaturalArmor,
 		and neither already lists the Alpha Genes gene, so both adds land.
+		Each add skips a xenotype that already has the gene. Fix 2026-10-31 (player report: "Hyperlink to AG_ArmourMajor
+		more than once on VU_Hellguard"): MMMM Convergence - Genetics swaps BS_NaturalArmor for AG_ArmourMajor, so when
+		it loads first the hellguard already had the gene and this plain add gave it a second copy.
 	-->
 	<Operation Class="PatchOperationSequence">
 		<operations>
 			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
 				<operations>
-					<li Class="PatchOperationAdd">
-						<xpath>Defs/XenotypeDef[defName="VU_Succubus"]/genes</xpath>
-						<value>
-							<li>AG_ArmourMedium</li>
-						</value>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="VU_Succubus"][not(genes/li[text()="AG_ArmourMedium"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="VU_Succubus"][not(genes/li[text()="AG_ArmourMedium"])]/genes</xpath>
+							<value>
+								<li>AG_ArmourMedium</li>
+							</value>
+						</match>
 					</li>
-					<li Class="PatchOperationAdd">
-						<xpath>Defs/XenotypeDef[defName="VU_Hellguard"]/genes</xpath>
-						<value>
-							<li>AG_ArmourMajor</li>
-						</value>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[defName="VU_Hellguard"][not(genes/li[text()="AG_ArmourMajor"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[defName="VU_Hellguard"][not(genes/li[text()="AG_ArmourMajor"])]/genes</xpath>
+							<value>
+								<li>AG_ArmourMajor</li>
+							</value>
+						</match>
 					</li>
 				</operations>
 			</li>
