@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		With Kabouter active, Alpha Genes' high mining yield (mining yield x1.2) costs metabolism -1 instead of -2.
+		MMMM Convergence - Genetics gives it to the Kabouter in place of their diligent miner (x1.1, metabolism -1), so this
+		keeps the Kabouter's metabolism unchanged by the swap.
+		This folder only loads when Kabouter and Alpha Genes are both active (see loadFolders.xml).
+		Verified 2026-10-31 against Alpha Genes 1.6 + 1.7 (GeneDefs_Aptitude.xml: biostatMet -2).
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_MiningYield_High"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-1</biostatMet>
+		</value>
+	</Operation>
+
+</Patch>

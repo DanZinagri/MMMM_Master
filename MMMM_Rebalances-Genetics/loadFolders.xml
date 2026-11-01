@@ -18,6 +18,7 @@
 		<li IfModActive="sarg.alphagenes">1.6/Mods/AlphaGenes</li>
 		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana">1.6/Mods/RimsenalXenotypes</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
+		<li IfModActiveAll="Sovereign.ChipChipChip,sarg.alphagenes">1.6/Mods/KabouterXenotype</li>
 	</v1.6>
 	<v1.7>
 		<!-- 1.7/Mods/<Name> loads when that mod is active; 1.7/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
@@ -36,5 +37,6 @@
 		<li IfModActive="sarg.alphagenes">1.7/Mods/AlphaGenes</li>
 		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana">1.7/Mods/RimsenalXenotypes</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>
+		<li IfModActiveAll="Sovereign.ChipChipChip,sarg.alphagenes">1.7/Mods/KabouterXenotype</li>
 	</v1.7>
 </loadFolders>

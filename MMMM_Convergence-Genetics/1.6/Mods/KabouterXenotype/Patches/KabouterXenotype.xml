@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Kabouter overlap removal: Kabouter's diligent miner (GS_MiningYield, mining yield x1.1, metabolism -1) is replaced by
+		Alpha Genes' high mining yield (AG_MiningYield_High, x1.2) in every xenotype that carries it (dropped where the
+		xenotype already has the Alpha Genes gene), and goes on this mod's Cherry Picker list (revive entries in
+		Defs/CherryPicker.xml). The astrogene entry is real: VRE Starjack builds GS_MiningYield_Astrogene at runtime (cpx 1,
+		met -1, no prerequisite). MMMM Rebalances - Genetics lowers AG_MiningYield_High to metabolism -1 while Kabouter is
+		active, so the Kabouter keeps its metabolism budget.
+		This folder only loads when Kabouter and Alpha Genes are both active (see loadFolders.xml).
+		Verified 2026-10-31 against Kabouter (3792986331, Defs/Genes.xml + Defs/Xenotype.xml: only GS_Kabouter lists the
+		gene, no Kabouter patch touches it) and Alpha Genes 1.6 + 1.7 (GeneDefs_Aptitude.xml).
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/XenotypeDef[genes/li[text()="AG_MiningYield_High"]]/genes/li[text()="GS_MiningYield"]</xpath>
+				<match Class="PatchOperationRemove">
+					<xpath>Defs/XenotypeDef[genes/li[text()="AG_MiningYield_High"]]/genes/li[text()="GS_MiningYield"]</xpath>
+				</match>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/XenotypeDef/genes/li[text()="GS_MiningYield"]</xpath>
+				<match Class="PatchOperationReplace">
+					<xpath>Defs/XenotypeDef/genes/li[text()="GS_MiningYield"]</xpath>
+					<value>
+						<li>AG_MiningYield_High</li>
+					</value>
+				</match>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+				<value>
+					<li>GeneDef/GS_MiningYield</li>
+					<li>GeneDef/GS_MiningYield_Astrogene</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

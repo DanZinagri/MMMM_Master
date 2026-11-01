@@ -87,6 +87,7 @@
 		<li>DanZinagri.MMMM.Integrations.Items</li>
 		<li>DanZinagri.MMMM.Integrations.Other</li>
 		<li>DanZinagri.MMMM.Integrations.Traits</li>
+		<li>Sovereign.ChipChipChip</li>
 	</loadAfter>
 	<incompatibleWith>
 		<li>DanZinagri.BSAGI</li>

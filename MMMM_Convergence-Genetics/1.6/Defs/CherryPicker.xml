@@ -27,6 +27,8 @@
 			<li>GeneDef/DV_ExtrasmallBuild</li>
 			<li>GeneDef/GS_Nimble</li>
 			<li>GeneDef/GS_Nimble_Astrogene</li>
+			<li>GeneDef/GS_MiningYield</li>
+			<li>GeneDef/GS_MiningYield_Astrogene</li>
 			<li>GeneDef/Myt_Male</li>
 			<li>GeneDef/Myt_TwistedFlesh</li>
 			<li>GeneDef/RS_Beauty_Angelic</li>
