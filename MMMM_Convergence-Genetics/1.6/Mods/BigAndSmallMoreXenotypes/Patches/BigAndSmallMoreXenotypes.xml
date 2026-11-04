@@ -20,14 +20,6 @@
 				</value>
 			</li>
 
-			<!-- Hive queen uses the vanilla-style female-only body gene instead of Alpha Genes' own -->
-			<li Class="PatchOperationReplace" MayRequire="sarg.alphagenes">
-				<xpath>Defs/XenotypeDef[defName="BS_HiveQueen"]/genes/li[text()="AG_Female"]</xpath>
-				<value>
-					<li>Body_FemaleOnly</li>
-				</value>
-			</li>
-
 			<!-- Hive queen and weaver use Alpha Genes' major armour instead of B&S natural armor -->
 			<li Class="PatchOperationReplace" MayRequire="sarg.alphagenes">
 				<xpath>Defs/XenotypeDef[defName="BS_HiveQueen"]/genes/li[text()="BS_NaturalArmor"]</xpath>

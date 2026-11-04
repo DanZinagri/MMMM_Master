@@ -230,6 +230,32 @@
 					</li>
 				</operations>
 			</li>
+			<!-- Body_FemaleOnly is a Framework gene, so this gate checks Framework rather than Genes &amp; More. -->
+			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes,RedMattis.BetterPrerequisites">
+				<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="Body_FemaleOnly"]]/genes/li[text()="AG_Female"]</xpath>
+						<match Class="PatchOperationRemove">
+							<xpath>Defs/XenotypeDef[genes/li[text()="Body_FemaleOnly"]]/genes/li[text()="AG_Female"]</xpath>
+						</match>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef/genes/li[text()="AG_Female"]</xpath>
+						<match Class="PatchOperationReplace">
+							<xpath>Defs/XenotypeDef/genes/li[text()="AG_Female"]</xpath>
+							<value>
+								<li>Body_FemaleOnly</li>
+							</value>
+						</match>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+						<value>
+							<li>GeneDef/AG_Female</li>
+						</value>
+					</li>
+				</operations>
+			</li>
 		</operations>
 	</Operation>
 
