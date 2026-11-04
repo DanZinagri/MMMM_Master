@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Combat Overhaul's hands and feet patch moves hand-only apparel on a layer containing "Middle" or "Shell" to
+		EyeCover. VFEC_OuterShell contains "Shell", so Medieval Overhaul's shields (LeftHand only) land on EyeCover with the
+		gloves and can no longer be worn with them, which breaks pawn kinds that require both. VCO skips anything that also
+		covers arms, as VFE Classical's shields do, so the shields get Arms too.
+		Works in either load order: if VCO patched first, the shield's layer is put back as well.
+		This folder only loads when both mods are active (see loadFolders.xml).
+	-->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[@Name="DankPyon_BaseShield"]/apparel/bodyPartGroups</xpath>
+		<value>
+			<li>Arms</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[@Name="DankPyon_BaseShield"]/apparel/layers/li[.="EyeCover"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[@Name="DankPyon_BaseShield"]/apparel/layers/li[.="EyeCover"]</xpath>
+			<value>
+				<li>VFEC_OuterShell</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>
