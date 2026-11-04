@@ -17,6 +17,7 @@
 			<li>ThingDef/AB_Glowstool_SeedBundle</li>
 			<li>RecipeDef/MakeAB_GlowstoolSeedBundle</li>
 			<li>RecipeDef/MakeAB_GlowstoolSeedBundleDoubleCost</li>
+			<li>TraitDef/CleaningSpeedOffset</li>
 		</defs>
 	</CherryPicker.DefList>
 

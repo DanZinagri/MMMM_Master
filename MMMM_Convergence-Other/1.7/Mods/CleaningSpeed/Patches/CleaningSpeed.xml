@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Cleaning Speed's Fastidious/Slovenly trait overlaps Vanilla Traits Expanded's Neat and Slob, which take its cleaning
+		speed values in MMMM Integrations - Traits. The trait is handed to Cherry Picker; the revive entry is in Defs/CherryPicker.xml.
+		This folder only loads when both mods are active (see loadFolders.xml).
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceOther_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>TraitDef/CleaningSpeedOffset</li>
+		</value>
+	</Operation>
+
+</Patch>
