@@ -36,7 +36,6 @@
 		<li IfModActive="Sov.Tenmo">1.6/Mods/GeistXenotype</li>
 		<li IfModActiveAll="RedMattis.BetterGeneInheritance,vanillaracesexpanded.highmate">1.6/Mods/BetterGeneInheritance</li>
 		<li IfModActive="tug.Minotaur">1.6/Mods/RoosMinotaur</li>
-		<!-- packageId taken from the core mod; Rim-Gnoblins is not installed here so it could not be verified -->
 		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.6/Mods/RimGnoblins</li>
 		<li IfModActive="VexedTrees980.RimElvesBiotech">1.6/Mods/RimElves</li>
 		<li IfModActive="sarg.alphagenes">1.6/Mods/AlphaGenes</li>
@@ -82,7 +81,6 @@
 		<li IfModActive="Sov.Tenmo">1.7/Mods/GeistXenotype</li>
 		<li IfModActiveAll="RedMattis.BetterGeneInheritance,vanillaracesexpanded.highmate">1.7/Mods/BetterGeneInheritance</li>
 		<li IfModActive="tug.Minotaur">1.7/Mods/RoosMinotaur</li>
-		<!-- packageId taken from the core mod; Rim-Gnoblins is not installed here so it could not be verified -->
 		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.7/Mods/RimGnoblins</li>
 		<li IfModActive="VexedTrees980.RimElvesBiotech">1.7/Mods/RimElves</li>
 		<li IfModActive="sarg.alphagenes">1.7/Mods/AlphaGenes</li>

@@ -30,6 +30,7 @@
 		<li IfModActiveAll="RedMattis.BigSmall.Core,AOBA.Framework">1.6/Mods/FortifiedFeaturesFramework</li>
 		<li IfModActive="ICC.FOV.ELVES">1.6/Mods/FactionElves</li>
 		<li IfModActive="Sovereign.Kork">1.6/Mods/KorgXenotype</li>
+		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.6/Mods/RimGnoblins</li>
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
@@ -60,5 +61,6 @@
 		<li IfModActiveAll="RedMattis.BigSmall.Core,AOBA.Framework">1.7/Mods/FortifiedFeaturesFramework</li>
 		<li IfModActive="ICC.FOV.ELVES">1.7/Mods/FactionElves</li>
 		<li IfModActive="Sovereign.Kork">1.7/Mods/KorgXenotype</li>
+		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.7/Mods/RimGnoblins</li>
 	</v1.7>
 </loadFolders>

@@ -16,9 +16,9 @@
 		The methamphetamine change shipped inside the Big and Small block of the original, so it only applied when that
 		mod was installed even though it has nothing to do with it. That gate is preserved rather than quietly widened,
 		but it looks accidental and is worth revisiting.
-		Rim-Gnoblins is not installed here, so none of its own defs could be checked: the Gnoblin xenotype,
-		RG_ToxGlands, Size_ExtremeDwarfism and Age_RapidDevelopment are all taken on trust from the original
-		patch. The folder gate reuses the packageId the core mod already used, which is likewise unverified.
+		Verified 2026-11-07 against Rim-Gnoblins (3018569666, which supports up to 1.6): RG_DregCoffin, the
+		LostGnoblins scenario, ShardMethamphetamine and DregMethamphetamine all exist, every operation applies in
+		simulation, and the folder gate's packageId (VexedTrees980.RimGnoblinsBiotech) is correct.
 	-->
 	<Operation Class="PatchOperationSequence">
 		<operations>

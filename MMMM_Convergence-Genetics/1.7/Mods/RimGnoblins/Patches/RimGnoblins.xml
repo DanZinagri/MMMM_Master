@@ -5,11 +5,16 @@
 		Rim-Gnoblins genes swapped for the equivalents other mods ship, with each retired gene going on this mod's
 		Cherry Picker list.
 		  - The gnoblin's tox glands become Alpha Genes' venom fangs.
-		  - Its extreme dwarfism becomes Big and Small's small frame.
-		  - Its rapid development gene is retuned to match VRE - Pigskin's fast aging and the two are made mutually
-		    exclusive through a shared Lifespan tag, and the gnoblin gains the Pigskin gene. The metabolism change is
-		    part of bringing the two to parity, not a separate tuning pass.
-		  - Det's Stoneborn long lifespan joins the same Lifespan group.
+		  - Its extreme dwarfism becomes Big and Small's small frame, and the xenotype also gains small people toughness
+		    (BS_TinyTough). Dwarfism only shrinks the body; B&amp;S pairs its small frames with a toughness gene, so this
+		    keeps small-frame pawns as durable as B&amp;S intends. Small people toughness requires a small frame, which the
+		    swap provides, and has no melee restriction (dwarven grit was rejected because the gnoblin's weak melee damage
+		    disables it). It is skipped where the xenotype already has it.
+		  - Its rapid development gene becomes a short lifespan gene: relabelled, lifespan factor 0.65 -> 0.5, metabolism
+		    -2 -> +2, its childhood growth curve removed, and its aging exclusion tags replaced by a new Lifespan tag.
+		    The gnoblin gains VRE - Pigskin's fast aging (2x aging speed for life) to carry the aging side. The two do
+		    not exclude each other (fast aging keeps its own Aging tag), so both apply and both count towards metabolism.
+		  - Det's Stoneborn long lifespan joins the Lifespan group, so it and short lifespan exclude each other.
 		This folder only loads when Rim-Gnoblins is active (see loadFolders.xml); each swap carries MayRequire for the
 		mod that supplies the replacement.
 		The mod gates sit on <li> nodes inside sequences, not on the <Operation> itself: RimWorld reads MayRequire only
@@ -17,10 +22,12 @@
 
 		Verified against the current 1.6 releases: AG_VenomFangs, BS_SmallFrame and VRE_FastAging all exist, and
 		DV_LifespanLong has no exclusionTags of its own so that add creates one. The Lifespan group is invented by this
-		project rather than defined upstream, and both its members are in this file, so it is complete.
-		Rim-Gnoblins is not installed here, so none of its own defs could be checked: the Gnoblin xenotype,
-		RG_ToxGlands, Size_ExtremeDwarfism and Age_RapidDevelopment are all taken on trust from the original
-		patch. The folder gate reuses the packageId the core mod already used, which is likewise unverified.
+		project rather than defined upstream; its only members (Age_RapidDevelopment and DV_LifespanLong) are both in
+		this file, so it is complete.
+		Verified 2026-11-07 against Rim-Gnoblins (3018569666, which supports up to 1.6): the Gnoblin xenotype,
+		RG_ToxGlands, Size_ExtremeDwarfism and Age_RapidDevelopment all exist, every operation applies in simulation,
+		and the folder gate's packageId (VexedTrees980.RimGnoblinsBiotech) is correct. The gnoblin is the only
+		installed xenotype with Size_ExtremeDwarfism, and BS_TinyTough shares no exclusion tag with its genes.
 		Fix 2026-10-03: a retired gene is now swapped in every xenotype that carries it (not just this mod's), and only
 		retired under the same mods as its replacement. Before, other mods' xenotypes sharing the gene (and this one, when
 		the replacement mod was absent) lost it to Cherry Picker with nothing in its place.
@@ -47,6 +54,16 @@
 
 			<li Class="PatchOperationSequence" MayRequire="RedMattis.BigSmall.Core">
 				<operations>
+					<!-- before the swap, while Size_ExtremeDwarfism still marks the xenotypes it applies to -->
+					<li Class="PatchOperationConditional">
+						<xpath>Defs/XenotypeDef[genes/li[text()="Size_ExtremeDwarfism"]][not(genes/li[text()="BS_TinyTough"])]/genes</xpath>
+						<match Class="PatchOperationAdd">
+							<xpath>Defs/XenotypeDef[genes/li[text()="Size_ExtremeDwarfism"]][not(genes/li[text()="BS_TinyTough"])]/genes</xpath>
+							<value>
+								<li>BS_TinyTough</li>
+							</value>
+						</match>
+					</li>
 					<li Class="PatchOperationConditional">
 						<xpath>Defs/XenotypeDef/genes/li[text()="Size_ExtremeDwarfism"]</xpath>
 						<match Class="PatchOperationReplace">
