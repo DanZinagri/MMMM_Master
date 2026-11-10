@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/FishingRareCatches/Patches/RareCatches_TreasureAddOn.xml: the operations that also need Vanilla Weapons Expanded and Vanilla Weapons Expanded - Coilguns. -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Fishing Expanded - Treasure AddOn</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+			<value>
+				<li>
+					<weight>0.1</weight>
+					<thingSetMaker Class="ThingSetMaker_Count">
+						<fixedParams>
+							<qualityGenerator>Reward</qualityGenerator>
+							<filter>
+								<thingDefs>
+									<li>VWE_Gun_GaussRifle</li>
+									<li>VWE_Gun_GaussMagnum</li>
+									<li>VWE_Gun_GaussLance</li>
+									<li MayRequire="VanillaExpanded.VWEFT">VWEFT_Gun_GaussRevolver</li>
+									<li MayRequire="VanillaExpanded.VWEFT">VWEFT_Gun_GaussRepeater</li>
+								</thingDefs>
+							</filter>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

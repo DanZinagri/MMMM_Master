@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/BigAndSmallGenesAndMore/Patches/BigAndSmallGenesAndMore_Metabolism.xml: the operations that also need Alpha Genes and Roo's Minotaur Xenotype. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="BS_GiantWeaponWielder"]/modExtensions/li[position()=1]</xpath>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Alpha Genes and Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/GeneDef[defName="BS_NaturalArmor_Great"]/customEffectDescriptions</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/GeneDef[defName="BS_NaturalArmor_Great"]/customEffectDescriptions</xpath>
+			<value>
+				<customEffectDescriptions>
+					<li>+40% blunt and sharp natural armor.</li>
+				</customEffectDescriptions>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[defName="BS_NaturalArmor_Great"]</xpath>
+			<value>
+				<customEffectDescriptions>
+					<li>+40% blunt and sharp natural armor.</li>
+				</customEffectDescriptions>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="BS_NaturalArmor_Great"]/statOffsets</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="BS_NaturalArmor_Great"]/statFactors</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/GeneDef[defName="BS_NaturalArmor_Great"]</xpath>
+		<value>
+			<li Class="VEF.Genes.GeneExtension">
+				<hediffToWholeBody>TMM_BS_FortifiedBody</hediffToWholeBody>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

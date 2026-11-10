@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Rimsenal Xenotype Pack - Harana gets a dodge gene from whichever partner mod is loaded:
+		  - VRE Lycanthrope: superior dodge.
+		  - Askbarn without Lycanthrope: Det's Keshig's high dodge chance if Keshig is loaded, otherwise Askbarn's born warrior.
+		    The Lycanthrope and Keshig checks test for a mod being absent, so their folders use IfModNotActive.
+		This folder loads when a Rimsenal xenotype pack is active (see loadFolders.xml); each block sits in a subfolder gated on its mods.
+		Verified against Harana, Askbarn, Lycanthrope and Keshig 1.6.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="Harana"]/genes</xpath>
+		<value>
+			<li>VRE_SuperiorDodge</li>
+		</value>
+	</Operation>
+
+</Patch>

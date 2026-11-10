@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/FishingRareCatches/Patches/RareCatches_TreasureAddOn.xml: the operations that also need Vanilla Weapons Expanded and Phase Weaponry. -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Fishing Expanded - Treasure AddOn</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+			<value>
+				<li>
+					<weight>0.05</weight>
+					<thingSetMaker Class="ThingSetMaker_Count">
+						<fixedParams>
+							<qualityGenerator>Reward</qualityGenerator>
+							<filter>
+								<thingDefs>
+									<li>DV_Gun_PhasePistol</li>
+									<li>DV_Gun_PhaseRifle</li>
+									<li>DV_Gun_PhasePrecisionRifle</li>
+								</thingDefs>
+							</filter>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

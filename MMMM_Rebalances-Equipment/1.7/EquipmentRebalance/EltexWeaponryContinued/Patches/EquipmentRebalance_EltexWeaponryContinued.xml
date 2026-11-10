@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/EquipmentRebalance.xml: the operations that also need Eltex Weaponry (Continued). -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="EW_Gun_EltexPistol"]/modExtensions/li[@Class="EltexWeaponry.ModExtension_PsychicDamage"]/bonusDamage</xpath>
+		<value>
+			<bonusDamage>6</bonusDamage>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="EW_Gun_EltexLance"]/modExtensions/li[@Class="EltexWeaponry.ModExtension_PsychicDamage"]/bonusDamage</xpath>
+		<value>
+			<bonusDamage>20</bonusDamage>
+		</value>
+	</Operation>
+
+</Patch>

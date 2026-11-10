@@ -12,16 +12,12 @@
 		already listed. Progression: Attire also appends Medieval Overhaul's anvil to the helmet's recipeUsers, which stacks.
 		Split by category into the MMMM Integrations sub-mods: this copy holds only the Factions ops (factions, pawn kinds, traders and royal titles).
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/FactionDef[defName="VFEM2_MerchantGuild"]/xenotypeSet/xenotypeChances</xpath>
-				<value>
-					<DV_Brawnum MayRequire="det.brawnum">0.1</DV_Brawnum>
-					<DV_Bogleg MayRequire="det.boglegs">0.1</DV_Bogleg>
-				</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="VFEM2_MerchantGuild"]/xenotypeSet/xenotypeChances</xpath>
+		<value>
+			<DV_Brawnum MayRequire="det.brawnum">0.1</DV_Brawnum>
+			<DV_Bogleg MayRequire="det.boglegs">0.1</DV_Bogleg>
+		</value>
 	</Operation>
 
 </Patch>

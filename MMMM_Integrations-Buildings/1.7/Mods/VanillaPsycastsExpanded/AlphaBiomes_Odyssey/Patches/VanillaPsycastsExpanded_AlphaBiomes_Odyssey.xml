@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaPsycastsExpanded/Patches/VanillaPsycastsExpanded.xml: the operations that also need Alpha Biomes and Odyssey. -->
+
+	<!-- Alpha Biomes derelict archotech structures (its Odyssey content) -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="AB_DerelictArchotechTower" or defName="AB_DerelictMajorArchotechStructure" or defName="AB_DerelictArchonexusCore"]/statBases</xpath>
+		<value>
+			<MeditationFocusStrength>0.50</MeditationFocusStrength>
+		</value>
+	</Operation>
+
+</Patch>

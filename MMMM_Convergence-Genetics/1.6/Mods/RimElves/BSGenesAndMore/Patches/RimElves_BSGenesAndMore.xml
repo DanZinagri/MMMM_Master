@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/RimElves/Patches/RimElves.xml: the operations that also need Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="Size_Gigantism"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="Size_Gigantism"]</xpath>
+			<value>
+				<li>BS_LargeFrame</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/Size_Gigantism</li>
+			<li>GeneDef/Size_Gigantism_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

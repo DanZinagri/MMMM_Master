@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/RimGnoblins/Patches/RimGnoblins.xml: the operations that also need Big and Small - Genes & More. -->
+
+	<!-- before the swap, while Size_ExtremeDwarfism still marks the xenotypes it applies to -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="Size_ExtremeDwarfism"]][not(genes/li[text()="BS_TinyTough"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[genes/li[text()="Size_ExtremeDwarfism"]][not(genes/li[text()="BS_TinyTough"])]/genes</xpath>
+			<value>
+				<li>BS_TinyTough</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="Size_ExtremeDwarfism"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="Size_ExtremeDwarfism"]</xpath>
+			<value>
+				<li>BS_SmallFrame</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/Size_ExtremeDwarfism</li>
+		</value>
+	</Operation>
+
+</Patch>

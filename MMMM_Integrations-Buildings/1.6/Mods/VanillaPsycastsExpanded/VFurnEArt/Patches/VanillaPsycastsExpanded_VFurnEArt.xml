@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaPsycastsExpanded/Patches/VanillaPsycastsExpanded.xml: the operations that also need Vanilla Furniture Expanded - Art. -->
+
+	<!-- VFE Art archotech sculpture -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="VFE_ArchotechSculpture"]/statBases</xpath>
+		<value>
+			<MeditationFocusStrength>0.36</MeditationFocusStrength>
+		</value>
+	</Operation>
+
+</Patch>

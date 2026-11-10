@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/AgreeingMemes.xml: the operations that also need Vanilla Ideology Expanded - Memes and Structures and Royalty. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="VME_Royal"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VME_Royal"]/agreeableTraits</xpath>
+			<value>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Snob</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VME_Royal"]</xpath>
+			<value>
+				<agreeableTraits>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Snob</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="VME_PsychicFocus"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VME_PsychicFocus"]/agreeableTraits</xpath>
+			<value>
+				<li MayRequire="Goji.TheSimsTraits">ST_Zen</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VME_PsychicFocus"]</xpath>
+			<value>
+				<agreeableTraits>
+					<li MayRequire="Goji.TheSimsTraits">ST_Zen</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="VME_Aristocratic"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VME_Aristocratic"]/agreeableTraits</xpath>
+			<value>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Snob</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VME_Aristocratic"]</xpath>
+			<value>
+				<agreeableTraits>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Snob</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

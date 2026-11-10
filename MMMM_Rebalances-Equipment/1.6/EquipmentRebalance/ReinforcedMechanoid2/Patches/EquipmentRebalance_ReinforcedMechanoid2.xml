@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need Mlie.ReinforcedMechanoid2. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="RM_Bullet_ChargeLancePistol"]/projectile/damageAmountBase</xpath>
+		<value>
+			<damageAmountBase>30</damageAmountBase>
+			<armorPenetrationBase>0.45</armorPenetrationBase>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="RM_Gun_ChargeLancePistol"]/verbs/li[verbClass="Verb_Shoot"]/range</xpath>
+		<value>
+			<range>29.9</range>
+		</value>
+	</Operation>
+
+</Patch>

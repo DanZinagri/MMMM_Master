@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/AgreeingMemes.xml: the operations that also need ReSplice: Charmweavers. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/MemeDef[defName="RS_LoveLusting"]</xpath>
+		<value>
+			<agreeableTraits>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Insatiable</li>
+			</agreeableTraits>
+			<disagreeableTraits>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Prude</li>
+			</disagreeableTraits>
+		</value>
+	</Operation>
+
+</Patch>

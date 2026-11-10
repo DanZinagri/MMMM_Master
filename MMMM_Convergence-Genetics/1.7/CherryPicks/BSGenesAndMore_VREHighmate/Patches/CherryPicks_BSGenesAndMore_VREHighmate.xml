@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/CherryPicks.xml: the operations that also need Big and Small - Genes & More and Vanilla Races Expanded - Highmate. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="VRE_Flirty"]]/genes/li[text()="BS_Flirty"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="VRE_Flirty"]]/genes/li[text()="BS_Flirty"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="BS_Flirty"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="BS_Flirty"]</xpath>
+			<value>
+				<li>VRE_Flirty</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/BS_Flirty</li>
+			<li>GeneDef/VU_Libido_Succubus</li>
+		</value>
+	</Operation>
+
+</Patch>

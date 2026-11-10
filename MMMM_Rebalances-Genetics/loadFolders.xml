@@ -3,39 +3,178 @@
 <loadFolders>
 	<v1.6>
 		<!-- 1.6/Mods/<Name> loads when that mod is active; 1.6/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
 		<li>1.6</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,Rimsenal.Zohar">1.6/Mods/Biotech/RimsenalZohar</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaquestsexpanded.ancients,sarg.alphagenes">1.6/Mods/Biotech/VQEAncients_AlphaGenes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaquestsexpanded.ancients,RedMattis.BigSmall.Core">1.6/Mods/Biotech/VQEAncients_BSGenesAndMore</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaquestsexpanded.ancients">1.6/Mods/Biotech/VQEAncients</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,Sov.Tenmo">1.6/Mods/Biotech/Geist</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,hlx.UltratechAlteredCarbon">1.6/Mods/Biotech/UltratechAlteredCarbon</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,det.buzzers">1.6/Mods/Biotech/Buzzers</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.starjack">1.6/Mods/Biotech/VREStarjack</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.Yokai">1.6/Mods/Biotech/BSYokai</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,det.venators">1.6/Mods/Biotech/DetsVenators</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.phytokin,mytigio.HarbingerKin">1.6/Mods/Biotech/VREPhytokin_HarbingerKin</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.phytokin,sarg.alphagenes">1.6/Mods/Biotech/VREPhytokin_AlphaGenes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.phytokin,Ludeon.RimWorld.Ideology">1.6/Mods/Biotech/VREPhytokin_Ideology</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.phytokin,Ludeon.RimWorld.Royalty">1.6/Mods/Biotech/VREPhytokin_Royalty</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.phytokin">1.6/Mods/Biotech/VREPhytokin</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.hussar">1.6/Mods/Biotech/VREHussar</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.waster">1.6/Mods/Biotech/VREWaster</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.lycanthrope">1.6/Mods/Biotech/VRELycanthrope</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.highmate">1.6/Mods/Biotech/VREHighmate</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,biotexpans.mammalia">1.6/Mods/Biotech/Mammalia</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BSSlimes">1.6/Mods/Biotech/BSSlimes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BigSmall.Core">1.6/Mods/Biotech/BSGenesAndMore</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,RedMattis.BigSmall.Core">1.6/Mods/Biotech/AlphaGenes_BSGenesAndMore</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,Ludeon.RimWorld.Anomaly">1.6/Mods/Biotech/AlphaGenes_Anomaly</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes">1.6/Mods/Biotech/AlphaGenes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,vanillaracesexpanded.fungoid">1.6/Mods/Biotech/AlphaGenes_VREFungoid</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,Rimsenal.Harana">1.6/Mods/Biotech/Harana</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BigSmall">1.6/Mods/Biotech/BSRaces</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.Heaven">1.6/Mods/Biotech/BSHeavenAndHell</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,VexedTrees980.RimElvesBiotech">1.6/Mods/Biotech/RimElves</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.pigskin">1.6/Mods/Biotech/VREPigskin</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,Arquebus.StagzMerfolk">1.6/Mods/Biotech/StagzMerfolk</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.insector">1.6/Mods/Biotech/VREInsector</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.insector,OskarPotocki.VFE.Insectoid2">1.6/Mods/Biotech/VREInsector_VFEInsectoids2</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.saurid">1.6/Mods/Biotech/VRESaurid</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.sanguophage,RedMattis.BigSmall.Core">1.6/Mods/Biotech/VRESanguophage_BSGenesAndMore</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.sanguophage">1.6/Mods/Biotech/VRESanguophage</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.archon,det.brawnum">1.6/Mods/Biotech/Archon_DetsBrawnum</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.archon">1.6/Mods/Biotech/Archon</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,tug.Minotaur">1.6/Mods/Biotech/RoosMinotaur</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,tug.Satyr,det.venators">1.6/Mods/Biotech/RoosSatyr_DetsVenators</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,V.Rooboid.Faun,det.venators">1.6/Mods/Biotech/RoosFaun_DetsVenators</li>
+		<li IfModActive="V.Rooboid.Faun,tug.Satyr" IfModActiveAll="Ludeon.RimWorld.Biotech,det.venators">1.6/Mods/Biotech/RoosFaunOrRoosSatyr_DetsVenators</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,Arquebus.StagzMerfolk,tug.Satyr">1.6/Mods/Biotech/RME_AlphaGenes_SM_RoosSatyr</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,Arquebus.StagzMerfolk,V.Rooboid.Faun">1.6/Mods/Biotech/RME_AlphaGenes_StagzMerfolk_RoosFaun</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,Arquebus.StagzMerfolk,tug.Minotaur">1.6/Mods/Biotech/RME_AlphaGenes_SM_RoosMinotaur</li>
+		<li IfModActive="tug.Minotaur,V.Rooboid.Faun,tug.Satyr" IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,Arquebus.StagzMerfolk">1.6/Mods/Biotech/RME_AlphaGenes_StagzMerfolk</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,Rimsenal.Askbarn,det.keshig">1.6/Mods/Biotech/RimsenalAskbarn_DetsKeshig</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,Rimsenal.Askbarn,ElSov.Highborn">1.6/Mods/Biotech/RimsenalAskbarn_Highborn</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.Undead">1.6/Mods/Biotech/BSVampiresAndTheUndead</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BigSmall.SimpleAndroids,RedMattis.BigSmall.Core">1.6/Mods/Biotech/SimpleAndroids_BSGenesAndMore</li>
 		<li IfModActive="Ludeon.RimWorld.Biotech">1.6/Mods/Biotech</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BigSmall.Core" IfModNotActive="sarg.alphagenes">1.6/Mods/Biotech_WithoutAlphaGenes/BSGenesAndMore</li>
 		<li IfModActive="Ludeon.RimWorld.Biotech" IfModNotActive="sarg.alphagenes">1.6/Mods/Biotech_WithoutAlphaGenes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes" IfModNotActive="kupa.AlphaGenesIntegrated">1.6/Mods/Biotech_WithoutAlphaGenesIntegrated/AlphaGenes</li>
 		<li IfModActive="Ludeon.RimWorld.Biotech" IfModNotActive="kupa.AlphaGenesIntegrated">1.6/Mods/Biotech_WithoutAlphaGenesIntegrated</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,Halicade.PsilocapGenes" IfModNotActive="RedMattis.VanillaGenesRebalanced">1.6/Mods/Biotech_WithoutVanillaGenesRebalanced/PsilocapGenes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.genie" IfModNotActive="RedMattis.VanillaGenesRebalanced">1.6/Mods/Biotech_WithoutVanillaGenesRebalanced/VREGenie</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,VanillaExpanded.VBrewE" IfModNotActive="RedMattis.VanillaGenesRebalanced">1.6/Mods/Biotech_WithoutVanillaGenesRebalanced/VBE</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BigSmall.Core" IfModNotActive="RedMattis.VanillaGenesRebalanced">1.6/Mods/Biotech_WithoutVanillaGenesRebalanced/BSGenesAndMore</li>
 		<li IfModActive="Ludeon.RimWorld.Biotech" IfModNotActive="RedMattis.VanillaGenesRebalanced">1.6/Mods/Biotech_WithoutVanillaGenesRebalanced</li>
+		<li IfModActiveAll="det.keshig,sarg.alphagenes">1.6/Mods/DetsXenotypeKeshig/AlphaGenes</li>
 		<li IfModActive="det.keshig">1.6/Mods/DetsXenotypeKeshig</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core,sarg.alphagenes,tug.minotaur">1.6/Mods/BigAndSmallGenesAndMore/AlphaGenes_RoosMinotaur</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core,sarg.alphagenes">1.6/Mods/BigAndSmallGenesAndMore/AlphaGenes</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core,vanillaracesexpanded.starjack">1.6/Mods/BigAndSmallGenesAndMore/VREStarjack</li>
 		<li IfModActive="RedMattis.BigSmall.Core">1.6/Mods/BigAndSmallGenesAndMore</li>
+		<li IfModActiveAll="RedMattis.LamiasAndOtherSnakes,sarg.alphagenes">1.6/Mods/BigAndSmallLamias/AlphaGenes</li>
 		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.6/Mods/BigAndSmallLamias</li>
+		<li IfModActiveAll="RedMattis.BSSlimes,ElSov.Highborn">1.6/Mods/BigAndSmallSlimes/Highborn</li>
 		<li IfModActive="RedMattis.BSSlimes">1.6/Mods/BigAndSmallSlimes</li>
+		<li IfModActive="RedMattis.Undead,RedMattis.Heaven" IfModActiveAll="resplice.xotr.charmweavers">1.6/Mods/BigAndSmallDemons/ReSpliceCharmweavers</li>
+		<li IfModActive="RedMattis.Undead,RedMattis.Heaven" IfModActiveAll="sarg.alphagenes">1.6/Mods/BigAndSmallDemons/AlphaGenes</li>
 		<li IfModActive="RedMattis.Undead,RedMattis.Heaven">1.6/Mods/BigAndSmallDemons</li>
 		<li IfModActive="Sov.Tenmo">1.6/Mods/GeistXenotype</li>
+		<li IfModActiveAll="sarg.alphagenes,lts.I">1.6/Mods/AlphaGenes/IntegratedImplants</li>
 		<li IfModActive="sarg.alphagenes">1.6/Mods/AlphaGenes</li>
+		<li IfModActiveAll="Rimsenal.Harana">1.6/Mods/RimsenalXenotypes/Harana</li>
+		<li IfModActiveAll="Rimsenal.Askbarn">1.6/Mods/RimsenalXenotypes/RimsenalAskbarn</li>
 		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana">1.6/Mods/RimsenalXenotypes</li>
+		<li IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025" IfModActiveAll="VanillaExpanded.VGeneticsE,RedMattis.BigSmall.Core">1.6/Mods/VanillaGeneticsExpanded/BSGenesAndMore_OptionalEtc</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
 		<li IfModActiveAll="Sovereign.ChipChipChip,sarg.alphagenes">1.6/Mods/KabouterXenotype</li>
 	</v1.6>
 	<v1.7>
 		<!-- 1.7/Mods/<Name> loads when that mod is active; 1.7/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
 		<li>1.7</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,Rimsenal.Zohar">1.7/Mods/Biotech/RimsenalZohar</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaquestsexpanded.ancients,sarg.alphagenes">1.7/Mods/Biotech/VQEAncients_AlphaGenes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaquestsexpanded.ancients,RedMattis.BigSmall.Core">1.7/Mods/Biotech/VQEAncients_BSGenesAndMore</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaquestsexpanded.ancients">1.7/Mods/Biotech/VQEAncients</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,Sov.Tenmo">1.7/Mods/Biotech/Geist</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,hlx.UltratechAlteredCarbon">1.7/Mods/Biotech/UltratechAlteredCarbon</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,det.buzzers">1.7/Mods/Biotech/Buzzers</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.starjack">1.7/Mods/Biotech/VREStarjack</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.Yokai">1.7/Mods/Biotech/BSYokai</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,det.venators">1.7/Mods/Biotech/DetsVenators</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.phytokin,mytigio.HarbingerKin">1.7/Mods/Biotech/VREPhytokin_HarbingerKin</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.phytokin,sarg.alphagenes">1.7/Mods/Biotech/VREPhytokin_AlphaGenes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.phytokin,Ludeon.RimWorld.Ideology">1.7/Mods/Biotech/VREPhytokin_Ideology</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.phytokin,Ludeon.RimWorld.Royalty">1.7/Mods/Biotech/VREPhytokin_Royalty</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.phytokin">1.7/Mods/Biotech/VREPhytokin</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.hussar">1.7/Mods/Biotech/VREHussar</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.waster">1.7/Mods/Biotech/VREWaster</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.lycanthrope">1.7/Mods/Biotech/VRELycanthrope</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.highmate">1.7/Mods/Biotech/VREHighmate</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,biotexpans.mammalia">1.7/Mods/Biotech/Mammalia</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BSSlimes">1.7/Mods/Biotech/BSSlimes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BigSmall.Core">1.7/Mods/Biotech/BSGenesAndMore</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,RedMattis.BigSmall.Core">1.7/Mods/Biotech/AlphaGenes_BSGenesAndMore</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,Ludeon.RimWorld.Anomaly">1.7/Mods/Biotech/AlphaGenes_Anomaly</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes">1.7/Mods/Biotech/AlphaGenes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,vanillaracesexpanded.fungoid">1.7/Mods/Biotech/AlphaGenes_VREFungoid</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,Rimsenal.Harana">1.7/Mods/Biotech/Harana</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BigSmall">1.7/Mods/Biotech/BSRaces</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.Heaven">1.7/Mods/Biotech/BSHeavenAndHell</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,VexedTrees980.RimElvesBiotech">1.7/Mods/Biotech/RimElves</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.pigskin">1.7/Mods/Biotech/VREPigskin</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.insector">1.7/Mods/Biotech/VREInsector</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.insector,OskarPotocki.VFE.Insectoid2">1.7/Mods/Biotech/VREInsector_VFEInsectoids2</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.saurid">1.7/Mods/Biotech/VRESaurid</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.sanguophage,RedMattis.BigSmall.Core">1.7/Mods/Biotech/VRESanguophage_BSGenesAndMore</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.sanguophage">1.7/Mods/Biotech/VRESanguophage</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.archon,det.brawnum">1.7/Mods/Biotech/Archon_DetsBrawnum</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.archon">1.7/Mods/Biotech/Archon</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,tug.Minotaur">1.7/Mods/Biotech/RoosMinotaur</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,tug.Satyr,det.venators">1.7/Mods/Biotech/RoosSatyr_DetsVenators</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,V.Rooboid.Faun,det.venators">1.7/Mods/Biotech/RoosFaun_DetsVenators</li>
+		<li IfModActive="V.Rooboid.Faun,tug.Satyr" IfModActiveAll="Ludeon.RimWorld.Biotech,det.venators">1.7/Mods/Biotech/RoosFaunOrRoosSatyr_DetsVenators</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,Arquebus.StagzMerfolk,tug.Satyr">1.7/Mods/Biotech/RME_AlphaGenes_SM_RoosSatyr</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,Arquebus.StagzMerfolk,V.Rooboid.Faun">1.7/Mods/Biotech/RME_AlphaGenes_StagzMerfolk_RoosFaun</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,Arquebus.StagzMerfolk,tug.Minotaur">1.7/Mods/Biotech/RME_AlphaGenes_SM_RoosMinotaur</li>
+		<li IfModActive="tug.Minotaur,V.Rooboid.Faun,tug.Satyr" IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,Arquebus.StagzMerfolk">1.7/Mods/Biotech/RME_AlphaGenes_StagzMerfolk</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,Rimsenal.Askbarn,det.keshig">1.7/Mods/Biotech/RimsenalAskbarn_DetsKeshig</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,Rimsenal.Askbarn,ElSov.Highborn">1.7/Mods/Biotech/RimsenalAskbarn_Highborn</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.Undead">1.7/Mods/Biotech/BSVampiresAndTheUndead</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BigSmall.SimpleAndroids,RedMattis.BigSmall.Core">1.7/Mods/Biotech/SimpleAndroids_BSGenesAndMore</li>
 		<li IfModActive="Ludeon.RimWorld.Biotech">1.7/Mods/Biotech</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BigSmall.Core" IfModNotActive="sarg.alphagenes">1.7/Mods/Biotech_WithoutAlphaGenes/BSGenesAndMore</li>
 		<li IfModActive="Ludeon.RimWorld.Biotech" IfModNotActive="sarg.alphagenes">1.7/Mods/Biotech_WithoutAlphaGenes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes" IfModNotActive="kupa.AlphaGenesIntegrated">1.7/Mods/Biotech_WithoutAlphaGenesIntegrated/AlphaGenes</li>
 		<li IfModActive="Ludeon.RimWorld.Biotech" IfModNotActive="kupa.AlphaGenesIntegrated">1.7/Mods/Biotech_WithoutAlphaGenesIntegrated</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,Halicade.PsilocapGenes" IfModNotActive="RedMattis.VanillaGenesRebalanced">1.7/Mods/Biotech_WithoutVanillaGenesRebalanced/PsilocapGenes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.genie" IfModNotActive="RedMattis.VanillaGenesRebalanced">1.7/Mods/Biotech_WithoutVanillaGenesRebalanced/VREGenie</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,VanillaExpanded.VBrewE" IfModNotActive="RedMattis.VanillaGenesRebalanced">1.7/Mods/Biotech_WithoutVanillaGenesRebalanced/VBE</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BigSmall.Core" IfModNotActive="RedMattis.VanillaGenesRebalanced">1.7/Mods/Biotech_WithoutVanillaGenesRebalanced/BSGenesAndMore</li>
 		<li IfModActive="Ludeon.RimWorld.Biotech" IfModNotActive="RedMattis.VanillaGenesRebalanced">1.7/Mods/Biotech_WithoutVanillaGenesRebalanced</li>
+		<li IfModActiveAll="det.keshig,sarg.alphagenes">1.7/Mods/DetsXenotypeKeshig/AlphaGenes</li>
 		<li IfModActive="det.keshig">1.7/Mods/DetsXenotypeKeshig</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core,sarg.alphagenes,tug.minotaur">1.7/Mods/BigAndSmallGenesAndMore/AlphaGenes_RoosMinotaur</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core,sarg.alphagenes">1.7/Mods/BigAndSmallGenesAndMore/AlphaGenes</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core,vanillaracesexpanded.starjack">1.7/Mods/BigAndSmallGenesAndMore/VREStarjack</li>
 		<li IfModActive="RedMattis.BigSmall.Core">1.7/Mods/BigAndSmallGenesAndMore</li>
+		<li IfModActiveAll="RedMattis.LamiasAndOtherSnakes,sarg.alphagenes">1.7/Mods/BigAndSmallLamias/AlphaGenes</li>
 		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.7/Mods/BigAndSmallLamias</li>
+		<li IfModActiveAll="RedMattis.BSSlimes,ElSov.Highborn">1.7/Mods/BigAndSmallSlimes/Highborn</li>
 		<li IfModActive="RedMattis.BSSlimes">1.7/Mods/BigAndSmallSlimes</li>
+		<li IfModActive="RedMattis.Undead,RedMattis.Heaven" IfModActiveAll="resplice.xotr.charmweavers">1.7/Mods/BigAndSmallDemons/ReSpliceCharmweavers</li>
+		<li IfModActive="RedMattis.Undead,RedMattis.Heaven" IfModActiveAll="sarg.alphagenes">1.7/Mods/BigAndSmallDemons/AlphaGenes</li>
 		<li IfModActive="RedMattis.Undead,RedMattis.Heaven">1.7/Mods/BigAndSmallDemons</li>
 		<li IfModActive="Sov.Tenmo">1.7/Mods/GeistXenotype</li>
+		<li IfModActiveAll="sarg.alphagenes,lts.I">1.7/Mods/AlphaGenes/IntegratedImplants</li>
 		<li IfModActive="sarg.alphagenes">1.7/Mods/AlphaGenes</li>
+		<li IfModActiveAll="Rimsenal.Harana">1.7/Mods/RimsenalXenotypes/Harana</li>
+		<li IfModActiveAll="Rimsenal.Askbarn">1.7/Mods/RimsenalXenotypes/RimsenalAskbarn</li>
 		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana">1.7/Mods/RimsenalXenotypes</li>
+		<li IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025" IfModActiveAll="VanillaExpanded.VGeneticsE,RedMattis.BigSmall.Core">1.7/Mods/VanillaGeneticsExpanded/BSGenesAndMore_OptionalEtc</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>
 		<li IfModActiveAll="Sovereign.ChipChipChip,sarg.alphagenes">1.7/Mods/KabouterXenotype</li>
 	</v1.7>

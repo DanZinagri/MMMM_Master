@@ -11,33 +11,14 @@
 		VTE_AnimalHater and RitualSustainer_Theist exist.
 		Split by category into the MMMM Convergence sub-mods: this copy holds only the Buildings ops (buildings, furniture, floors, recipes and production).
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationRemove">
-				<xpath>Defs/ThingDef[defName="FueledSmithy" or defName="ElectricSmithy"]/recipes/li[text()="Make_ChemfuelFromHardScale"]</xpath>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/ThingDef[defName="BiofuelRefinery"]/recipes</xpath>
-				<value>
-					<li>Make_ChemfuelFromHardScale</li>
-				</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="FueledSmithy" or defName="ElectricSmithy"]/recipes/li[text()="Make_ChemfuelFromHardScale"]</xpath>
 	</Operation>
-
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Ideology">
-				<operations>
-					<li Class="PatchOperationReplace">
-						<xpath>Defs/RecipeDef[defName="Ritual_Weak" or defName="Ritual_Moderate" or defName="Ritual_Large" or defName="Ritual_Major"]/soundWorking</xpath>
-						<value>
-							<soundWorking>RitualSustainer_Theist</soundWorking>
-						</value>
-					</li>
-				</operations>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BiofuelRefinery"]/recipes</xpath>
+		<value>
+			<li>Make_ChemfuelFromHardScale</li>
+		</value>
 	</Operation>
 
 </Patch>

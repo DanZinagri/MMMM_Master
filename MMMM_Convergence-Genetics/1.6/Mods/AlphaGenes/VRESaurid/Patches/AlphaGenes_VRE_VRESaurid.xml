@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Alpha Genes xenotypes use the VRE gene where both mods ship the same trait.
+		  - VRE Saurid: the Drakonori's egg laying becomes VRE Saurid's oviparous gene (both carry the Egglaying exclusion tag).
+		  - VRE Archon: the Lapis's slow gestation becomes VRE Archon's long pregnancy.
+		The Alpha Genes genes are not cherry-picked; other xenotypes may still use them.
+		This folder only loads when Alpha Genes is active (see loadFolders.xml); each swap is gated on its VRE mod.
+		Verified against Alpha Genes and VRE Saurid 1.6: both xenotypes list the gene being replaced, VRESaurids_Oviparous
+		exists, and no other installed mod does either swap. VRE Archon is not installed, so VRE_LongPregnancy is unverified.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="AG_Drakonori"]/genes</xpath>
+		<value>
+			<li>VRESaurids_Oviparous</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/XenotypeDef[defName="AG_Drakonori"]/genes/li[text()="AG_EggLaying"]</xpath>
+	</Operation>
+
+</Patch>

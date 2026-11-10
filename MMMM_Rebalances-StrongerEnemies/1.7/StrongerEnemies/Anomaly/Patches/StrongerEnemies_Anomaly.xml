@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/StrongerEnemies.xml: the operations that also need Anomaly. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="Horaxian_Highthrall"]</xpath>
+		<value>
+			<skills>
+				<li>
+					<skill>Shooting</skill>
+					<range>10~16</range>
+				</li>
+			</skills>
+			<itemQuality>Excellent</itemQuality>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="AwokenCorpse"]/stages/li[position()=1 or position()=2 or position()=3 or position()=4 or position()=5 or position()=6]/statFactors/IncomingDamageFactor</xpath>
+		<value>
+			<IncomingDamageFactor>0.1</IncomingDamageFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Sightstealer"]/race/baseHealthScale</xpath>
+		<value>
+			<baseHealthScale>1.5</baseHealthScale>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Gorehulk"]/race/baseHealthScale</xpath>
+		<value>
+			<baseHealthScale>2</baseHealthScale>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Chimera"]/race/baseHealthScale</xpath>
+		<value>
+			<baseHealthScale>4.5</baseHealthScale>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Noctol"]/race/baseHealthScale</xpath>
+		<value>
+			<baseHealthScale>3</baseHealthScale>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Devourer"]/race/baseHealthScale</xpath>
+		<value>
+			<baseHealthScale>9.6</baseHealthScale>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Revenant"]/race/baseHealthScale</xpath>
+		<value>
+			<baseHealthScale>15</baseHealthScale>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Metalhorror"]/statBases/ArmorRating_Sharp</xpath>
+		<value>
+			<ArmorRating_Sharp>1.0</ArmorRating_Sharp>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Metalhorror"]/statBases/ArmorRating_Blunt</xpath>
+		<value>
+			<ArmorRating_Blunt>1.0</ArmorRating_Blunt>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Metalhorror"]/tools/li[label="left blade" or label="right blade"]</xpath>
+		<value>
+			<armorPenetration>1.5</armorPenetration>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Bulbfreak"]/race/baseHealthScale</xpath>
+		<value>
+			<baseHealthScale>1</baseHealthScale>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Toughspike"]/statBases/ArmorRating_Blunt</xpath>
+		<value>
+			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Toughspike"]/statBases/ArmorRating_Sharp</xpath>
+		<value>
+			<ArmorRating_Sharp>0.8</ArmorRating_Sharp>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Toughspike"]/tools/li[label="left spike" or label="right spike"]</xpath>
+		<value>
+			<armorPenetration>0.8</armorPenetration>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Dreadmeld"]/race/baseHealthScale</xpath>
+		<value>
+			<baseHealthScale>20</baseHealthScale>
+		</value>
+	</Operation>
+
+</Patch>

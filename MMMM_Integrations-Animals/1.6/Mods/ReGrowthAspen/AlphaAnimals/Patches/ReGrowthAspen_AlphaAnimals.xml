@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/ReGrowthAspen/Patches/ReGrowthAspen.xml: the operations that also need Alpha Animals. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BiomeDef[defName="RG_AspenForest"]/wildAnimals</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/BiomeDef[defName="RG_AspenForest"]/wildAnimals</xpath>
+			<value>
+				<AA_Aerofleet>0.2</AA_Aerofleet>
+				<AA_AngelMothLarva>0.05</AA_AngelMothLarva>
+				<AA_AnimaColossus>0.005</AA_AnimaColossus>
+				<AA_AnimusVox>0.05</AA_AnimusVox>
+				<AA_LarvalAtispec>0.005</AA_LarvalAtispec>
+				<AA_AuroraSylph>0.03</AA_AuroraSylph>
+				<AA_Bumbledrone>0.04</AA_Bumbledrone>
+				<AA_DecayDrake>0.005</AA_DecayDrake>
+				<AA_Drainer>0.05</AA_Drainer>
+				<AA_DrainerLarva>0.05</AA_DrainerLarva>
+				<AA_EmpressButterflyLarva>0.005</AA_EmpressButterflyLarva>
+				<AA_EmpressButterfly>0.005</AA_EmpressButterfly>
+				<AA_Feralisk>0.07</AA_Feralisk>
+				<AA_Gigantelope>0.5</AA_Gigantelope>
+				<AA_GreyCoatedMouflon>0.03</AA_GreyCoatedMouflon>
+				<AA_Groundrunner>0.1</AA_Groundrunner>
+				<AA_Mantrap>0.05</AA_Mantrap>
+				<AA_MeadowAve>0.2</AA_MeadowAve>
+				<AA_MegaLouse>0.03</AA_MegaLouse>
+				<AA_Murkling>0.5</AA_Murkling>
+				<AA_OvergrownColossus>0.01</AA_OvergrownColossus>
+				<AA_PebbleMit>0.03</AA_PebbleMit>
+				<AA_Skiphound>0.005</AA_Skiphound>
+				<AA_TeratogenicOriginator>0.005</AA_TeratogenicOriginator>
+				<AA_Wildpod>0.5</AA_Wildpod>
+				<AA_Wildpawn>0.5</AA_Wildpawn>
+				<AA_CrescendoAnole>0.01</AA_CrescendoAnole>
+				<AA_FissionMouse>0.01</AA_FissionMouse>
+				<AA_GreatDevourer>0.001</AA_GreatDevourer>
+				<AA_Helixien>0.05</AA_Helixien>
+				<AA_MammothWorm>0.001</AA_MammothWorm>
+				<AA_Nightling>0.001</AA_Nightling>
+				<AA_Razorjack>0.001</AA_Razorjack>
+				<AA_RipperHound>0.001</AA_RipperHound>
+				<AA_Swarmling>0.01</AA_Swarmling>
+				<AA_TetraSlug>0.001</AA_TetraSlug>
+				<AA_PhoenixOwlcat>0.01</AA_PhoenixOwlcat>
+				<AA_WindBeast>0.001</AA_WindBeast>
+				<AA_Terramorph>0.01</AA_Terramorph>
+				<AA_Erin>0.01</AA_Erin>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

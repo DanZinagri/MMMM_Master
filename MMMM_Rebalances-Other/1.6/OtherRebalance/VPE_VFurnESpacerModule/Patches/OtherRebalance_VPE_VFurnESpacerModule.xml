@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/OtherRebalance.xml: the operations that also need Vanilla Psycasts Expanded and Vanilla Furniture Expanded - Spacer Module. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="Shelf_RepairRack"]/costList/MechSerumHealer</xpath>
+	</Operation>
+
+</Patch>

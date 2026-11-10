@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Vanilla Races Expanded - Pigskin. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VRE_OrganRegeneration"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-2</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VRE_SlowAging"]/biostatMet</xpath>
+		<value>
+			<biostatMet>0</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VRE_FastAging"]/biostatMet</xpath>
+		<value>
+			<biostatMet>1</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VRE_RapidAging"]/biostatMet</xpath>
+		<value>
+			<biostatMet>2</biostatMet>
+		</value>
+	</Operation>
+
+</Patch>

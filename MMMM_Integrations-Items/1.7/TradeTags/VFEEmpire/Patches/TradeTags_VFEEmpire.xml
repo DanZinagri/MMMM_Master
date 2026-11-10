@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/TradeTags.xml: the operations that also need Vanilla Factions Expanded - Empire. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="VFEE_Apparel_TechfriarCrown" or defName="VFEE_Apparel_AbsolverHelmet" or defName="VFEE_Apparel_ArmorAbsolver"]/tradeability</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="VFEE_Apparel_ArmorDeserter" or defName="VFEE_Apparel_JanissaryCuirass" or defName="VFEE_Apparel_DeserterHelmet" or defName="VFEE_Apparel_JanissaryHelmet"]/tradeTags</xpath>
+		<value>
+			<li>BlackMarket</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="VFEE_Apparel_TechfriarCrown" or defName="VFEE_Apparel_AbsolverHelmet" or defName="VFEE_Apparel_ArmorAbsolver" or defName="VEE_Gun_Fletcher"]</xpath>
+		<value>
+			<tradeTags>
+				<li>BlackMarket</li>
+			</tradeTags>
+		</value>
+	</Operation>
+
+</Patch>

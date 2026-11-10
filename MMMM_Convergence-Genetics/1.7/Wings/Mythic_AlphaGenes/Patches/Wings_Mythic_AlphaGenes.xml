@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/Wings.xml: the operations that also need biotexpans.mythic and Alpha Genes. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="BTEMy_DraconicWings" or defName="BTEMy_DraconicWingsNoAurum" or defName="BTEMy_PhoenixWings" or defName="BTEMy_PhoenixWingsNoAurum"]</xpath>
+		<value>
+			<customEffectDescriptions>
+				<li>Colonist will ignore terrain movement costs</li>
+			</customEffectDescriptions>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/GeneDef[defName="BTEMy_DraconicWingsNoAurum"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-4</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BTEMy_PhoenixWingsNoAurum"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-4</biostatMet>
+		</value>
+	</Operation>
+
+</Patch>

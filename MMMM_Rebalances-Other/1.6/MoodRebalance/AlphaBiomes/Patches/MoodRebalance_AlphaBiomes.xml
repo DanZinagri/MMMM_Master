@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/MoodRebalance.xml: the operations that also need Alpha Biomes. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/TerrainDef[defName="AB_WebbedMarshyTerrain"]/statBases/Beauty</xpath>
+		<value>
+			<Beauty>-30</Beauty>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/TerrainDef[defName="AB_WebbedMarshyTerrain"]/statBases/BeautyOutdoors</xpath>
+		<value>
+			<BeautyOutdoors>-30</BeautyOutdoors>
+		</value>
+	</Operation>
+
+</Patch>

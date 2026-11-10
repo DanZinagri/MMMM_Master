@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/AgreeingMemes.xml: the operations that also need Vanilla Genetics Expanded and Ideology. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/MemeDef[defName="GR_MadScientists"]</xpath>
+		<value>
+			<agreeableTraits>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Eccentric</li>
+			</agreeableTraits>
+		</value>
+	</Operation>
+
+</Patch>

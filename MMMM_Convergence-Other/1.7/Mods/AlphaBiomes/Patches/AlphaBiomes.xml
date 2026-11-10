@@ -7,7 +7,7 @@
 		light) so it can live on the jungle's surface, and AB_Glowstool goes on this mod's Cherry Picker list. With
 		Progression: Agriculture, its glowstool seed bundle and the two recipes that make it are retired too.
 		Note the light change applies to vanilla Glowstool everywhere, not just in the jungle.
-		This folder only loads when Alpha Biomes is active (see loadFolders.xml); the Progression gate sits on an <li>.
+		This folder only loads when Alpha Biomes is active (see loadFolders.xml); the Progression gate is a subfolder.
 
 		Verified against Alpha Biomes 1.6: the Mycotic Jungle lists AB_Glowstool (3) and not vanilla Glowstool, and vanilla
 		Glowstool's own plant node has none of the four fields added, so the add creates them. VPE Mushrooms also adds
@@ -29,37 +29,20 @@
 		</match>
 	</Operation>
 
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/ThingDef[defName="Glowstool"]/plant</xpath>
-				<value>
-					<growMinGlow>0</growMinGlow>
-					<growOptimalGlow>0</growOptimalGlow>
-					<cavePlant>false</cavePlant>
-					<diesToLight>false</diesToLight>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceOther_CherryPicker_Basics"]/defs</xpath>
-				<value>
-					<li>ThingDef/AB_Glowstool</li>
-				</value>
-			</li>
-
-			<li Class="PatchOperationSequence" MayRequire="ferny.progressionagriculture">
-				<operations>
-					<li Class="PatchOperationAdd">
-						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceOther_CherryPicker_Basics"]/defs</xpath>
-						<value>
-							<li>ThingDef/AB_Glowstool_SeedBundle</li>
-							<li>RecipeDef/MakeAB_GlowstoolSeedBundle</li>
-							<li>RecipeDef/MakeAB_GlowstoolSeedBundleDoubleCost</li>
-						</value>
-					</li>
-				</operations>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Glowstool"]/plant</xpath>
+		<value>
+			<growMinGlow>0</growMinGlow>
+			<growOptimalGlow>0</growOptimalGlow>
+			<cavePlant>false</cavePlant>
+			<diesToLight>false</diesToLight>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceOther_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>ThingDef/AB_Glowstool</li>
+		</value>
 	</Operation>
 
 </Patch>

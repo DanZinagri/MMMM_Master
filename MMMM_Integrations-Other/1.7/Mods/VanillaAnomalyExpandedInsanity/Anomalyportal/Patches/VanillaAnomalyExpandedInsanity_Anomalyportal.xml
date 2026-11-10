@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaAnomalyExpandedInsanity/Patches/VanillaAnomalyExpandedInsanity.xml: the operations that also need 22.anomalyportal. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VAEInsanity.SanityEffectsDef[defName="VAEI_SanityEffects"]/killedThingsEffects</xpath>
+		<value>
+			<li>
+				<thing>AP_MetalStorm</thing>
+				<effect>0.05</effect>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

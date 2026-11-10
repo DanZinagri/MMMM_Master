@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/TsSamuraiFaction/Patches/TsSamuraiFaction.xml: the operations that also need Alpha Crafts and Vanilla Brewing Expanded. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="TSF_Sake"]</xpath>
+		<value>
+			<thingCategories>
+				<li>VBE_DrinksLuxurySpirits</li>
+			</thingCategories>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="TSF_Sake"]/ingestible</xpath>
+		<value>
+			<specialThoughtAsIngredient>AC_SakeAsIngredient</specialThoughtAsIngredient>
+		</value>
+	</Operation>
+
+</Patch>

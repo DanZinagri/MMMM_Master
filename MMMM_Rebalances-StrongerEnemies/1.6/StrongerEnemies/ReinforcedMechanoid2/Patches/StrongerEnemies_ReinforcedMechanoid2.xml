@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/StrongerEnemies.xml: the operations that also need Mlie.ReinforcedMechanoid2. -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Reinforced Mechanoid2 Extended</li>
+		</mods>
+		<nomatch Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="RM_Mech_Caretaker"]/statBases/MoveSpeed</xpath>
+			<value>
+				<MoveSpeed>1.6</MoveSpeed>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Reinforced Mechanoid2 Extended</li>
+		</mods>
+		<nomatch Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="RM_Mech_Wraith"]/statBases/MoveSpeed</xpath>
+			<value>
+				<MoveSpeed>1.8</MoveSpeed>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Reinforced Mechanoid2 Extended</li>
+		</mods>
+		<nomatch Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="RM_Mech_Locust"]/statBases/MoveSpeed</xpath>
+			<value>
+				<MoveSpeed>1.9</MoveSpeed>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

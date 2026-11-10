@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/ImplantRebalance.xml: the operations that also need Integrated Implants and Odyssey. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="PsychicLevitator"]</xpath>
+		<value>
+			<tradeability>Sellable</tradeability>
+		</value>
+	</Operation>
+
+</Patch>

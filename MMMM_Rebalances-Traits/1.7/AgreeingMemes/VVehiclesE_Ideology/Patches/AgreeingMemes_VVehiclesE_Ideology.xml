@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/AgreeingMemes.xml: the operations that also need Vanilla Vehicles Expanded and Ideology. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="VVE_Nauticals"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VVE_Nauticals"]/agreeableTraits</xpath>
+			<value>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_ChildOfSea</li>
+				<li MayRequire="VanillaExpanded.VCEF">VCEF_Fisherman</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VVE_Nauticals"]</xpath>
+			<value>
+				<agreeableTraits>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_ChildOfSea</li>
+					<li MayRequire="VanillaExpanded.VCEF">VCEF_Fisherman</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="VVE_Roadragers"]/disagreeableTraits</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VVE_Roadragers"]</xpath>
+			<value>
+				<disagreeableTraits>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_ChildOfSea</li>
+					<li MayRequire="Hautarche.HautsTraits">HVT_Mariner</li>
+				</disagreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="VVE_Travelers"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VVE_Travelers"]/agreeableTraits</xpath>
+			<value>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Wanderlust</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VVE_Travelers"]</xpath>
+			<value>
+				<agreeableTraits>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Wanderlust</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

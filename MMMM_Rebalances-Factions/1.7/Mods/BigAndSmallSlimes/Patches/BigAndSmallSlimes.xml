@@ -9,14 +9,10 @@
 		This folder only loads when Slimes is active (see loadFolders.xml).
 		Verified against Slimes 1.6: the emperor slime does not already carry the gene.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationAttributeSet">
-				<xpath>Defs/FactionDef[defName="BS_SlimeFaction"]/xenotypeSet</xpath>
-				<attribute>Inherit</attribute>
-				<value>False</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationAttributeSet">
+		<xpath>Defs/FactionDef[defName="BS_SlimeFaction"]/xenotypeSet</xpath>
+		<attribute>Inherit</attribute>
+		<value>False</value>
 	</Operation>
 
 </Patch>

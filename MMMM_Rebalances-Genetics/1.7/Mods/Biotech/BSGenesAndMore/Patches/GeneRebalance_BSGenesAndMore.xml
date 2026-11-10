@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BS_HeatGenerator"]/description</xpath>
+		<value>
+			<description>Carriers of this gene will heat up their environment. They are also fire-proof and tolerant to extremely high temperatures. While somewhat tolerate low ambient temperatures, they are highly vulnerable to frostbite. Somewhat affected by body size.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BS_ColdGenerator"]/description</xpath>
+		<value>
+			<description>Carriers of this gene will dramatically cool down their environment. They are also immune to frostbite and extremely low temperatures. Not flammable, but takes increased damage from direct heat damage. Somewhat affected by body size.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VU_Lesser_Unliving_Resilience"]/description</xpath>
+		<value>
+			<description>Carriers of this gene are less bothered by holes through their body than most.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VU_Unliving_Resilience"]/description</xpath>
+		<value>
+			<description>Carriers of this gene are much less bothered by bullet holes than most.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="VU_Unliving_Resilience" or defName="VU_Lesser_Unliving_Resilience"]/statOffsets/SM_EVA_Level</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="VU_Unliving_Resilience" or defName="VU_Lesser_Unliving_Resilience"]/statOffsets/VacuumResistance</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VU_Lesser_Unliving_Resilience"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-2</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VU_Unliving_Resilience"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-4</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BS_EVA_Gene"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-2</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BS_JellyProduction"]/modExtensions/li[@Class="BigAndSmall.ProductionGeneSettings"]/baseAmount</xpath>
+		<value>
+			<baseAmount>24</baseAmount>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BS_NoFood_Hemogenic"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-1</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VU_Pounce"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-1</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="BS_PsychicArmor_Stage1"]/stages/li/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+				<ArmorRating_Sharp>0.10</ArmorRating_Sharp>
+			</statOffsets>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="BS_PsychicArmor_Stage2"]/stages/li</xpath>
+		<value>
+			<li>
+				<minSeverity>0</minSeverity>
+				<statOffsets>
+					<ArmorRating_Blunt>0.30</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.30</ArmorRating_Sharp>
+					<MeleeDamageFactor>0.3</MeleeDamageFactor>
+				</statOffsets>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="BS_PsychicArmor_Stage3"]/stages/li</xpath>
+		<value>
+			<li>
+				<minSeverity>0</minSeverity>
+				<statFactors>
+					<IncomingDamageFactor>0.80</IncomingDamageFactor>
+				</statFactors>
+				<statOffsets>
+					<MeleeDamageFactor>0.2</MeleeDamageFactor>
+				</statOffsets>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="OgreFrame"]/statFactors/LifespanFactor</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="OgreFrame"]/statFactors/IncomingDamageFactor</xpath>
+		<value>
+			<IncomingDamageFactor>0.95</IncomingDamageFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="OgreFrame"]/statOffsets/ComfyTemperatureMin</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="OgreFrame"]/statOffsets/MoveSpeed</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="OgreFrame"]/statOffsets</xpath>
+		<value>
+			<MeleeDodgeChance>-10</MeleeDodgeChance>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="OgreFrame"]/conditionalStatAffecters/li[@Class="ConditionalStatAffecter_Clothed"]/statOffsets/MoveSpeed</xpath>
+		<value>
+			<MoveSpeed>-0.9</MoveSpeed>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="OgreFrame"]/conditionalStatAffecters/li[@Class="ConditionalStatAffecter_Clothed"]/statFactors</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="GreatOgreFrame"]/statFactors/LifespanFactor</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="GreatOgreFrame"]/statFactors/IncomingDamageFactor</xpath>
+		<value>
+			<IncomingDamageFactor>0.9</IncomingDamageFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="GreatOgreFrame"]/statOffsets/ComfyTemperatureMin</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="GreatOgreFrame"]/statOffsets/MoveSpeed</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="GreatOgreFrame"]/statOffsets</xpath>
+		<value>
+			<MeleeDodgeChance>-10</MeleeDodgeChance>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="GreatOgreFrame"]/conditionalStatAffecters/li[@Class="ConditionalStatAffecter_Clothed"]/statOffsets/MoveSpeed</xpath>
+		<value>
+			<MoveSpeed>-1.5</MoveSpeed>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="GreatOgreFrame"]/conditionalStatAffecters/li[@Class="ConditionalStatAffecter_Clothed"]/statFactors</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="TitanFrame"]/statFactors/MoveSpeed</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="TitanFrame"]/statOffsets/MoveSpeed</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="TitanFrame"]/conditionalStatAffecters</xpath>
+		<value>
+			<conditionalStatAffecters>
+				<li Class="ConditionalStatAffecter_Clothed">
+					<statOffsets>
+						<MoveSpeed>-1.2</MoveSpeed>
+					</statOffsets>
+				</li>
+				<li Class="ConditionalStatAffecter_Unclothed">
+					<statOffsets>
+						<MoveSpeed>2.4</MoveSpeed>
+					</statOffsets>
+				</li>
+			</conditionalStatAffecters>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="MinTemp_SmallIncrease"]/statOffsets/ComfyTemperatureMin</xpath>
+		<value>
+			<ComfyTemperatureMin>5</ComfyTemperatureMin>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="MaxTemp_SmallDecrease"]/statOffsets/ComfyTemperatureMax</xpath>
+		<value>
+			<ComfyTemperatureMax>-5</ComfyTemperatureMax>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="WoundHealing_UltraFast"]/statFactors/InjuryHealingFactor</xpath>
+		<value>
+			<InjuryHealingFactor>8</InjuryHealingFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="WoundHealing_UltraFast"]/painFactor</xpath>
+		<value>
+			<painFactor>0.4</painFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VU_Lesser_Unliving_Resilience"]/statFactors/SM_BulletDmgMult</xpath>
+		<value>
+			<SM_BulletDmgMult>0.7</SM_BulletDmgMult>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VU_Unliving_Resilience"]/statFactors/SM_BulletDmgMult</xpath>
+		<value>
+			<SM_BulletDmgMult>0.5</SM_BulletDmgMult>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="BS_PsychicWarrior"]/modExtensions/li[@Class="BigAndSmall.GenePrerequisites"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BS_Incorporate"]/biostatArc</xpath>
+		<value>
+			<biostatArc>3</biostatArc>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BS_Incorporate"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-3</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VeryNakedSpeed"]/conditionalStatAffecters</xpath>
+		<value>
+			<conditionalStatAffecters>
+				<li Class="ConditionalStatAffecter_Clothed">
+					<statOffsets>
+						<MoveSpeed>-0.4</MoveSpeed>
+					</statOffsets>
+					<statFactors>
+						<MoveSpeed>0.8</MoveSpeed>
+					</statFactors>
+				</li>
+				<li Class="ConditionalStatAffecter_Unclothed">
+					<statOffsets>
+						<MoveSpeed>0.8</MoveSpeed>
+					</statOffsets>
+					<statFactors>
+						<MoveSpeed>1.2</MoveSpeed>
+					</statFactors>
+				</li>
+			</conditionalStatAffecters>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BS_SimpleMind"]/biostatMet</xpath>
+		<value>
+			<biostatMet>4</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BS_SpiderBody_Devil"]/modExtensions/li[@Class="BigAndSmall.ProductionGeneSettings"]/baseAmount</xpath>
+		<value>
+			<baseAmount>10</baseAmount>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BS_SpiderBody_Synthread"]/modExtensions/li[@Class="BigAndSmall.ProductionGeneSettings"]/baseAmount</xpath>
+		<value>
+			<baseAmount>20</baseAmount>
+		</value>
+	</Operation>
+
+</Patch>

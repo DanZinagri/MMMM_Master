@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaPlantsExpandedMushrooms/Patches/VanillaPlantsExpandedMushrooms.xml: the operations that also need Alpha Genes. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="AG_RuinedHospitalBed"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+		<value>
+			<li>VPE_Plant_Lullabloom</li>
+		</value>
+	</Operation>
+
+</Patch>

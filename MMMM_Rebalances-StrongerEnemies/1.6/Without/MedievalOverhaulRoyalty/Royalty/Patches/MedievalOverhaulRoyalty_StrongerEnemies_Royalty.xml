@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Without/MedievalOverhaulRoyalty/Patches/MedievalOverhaulRoyalty_StrongerEnemies.xml: the operations that also need Royalty. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[@Name="JanissaryBase" or @Name="CataphractBase" or @Name="StellicGuardBase"]/apparelMoney</xpath>
+		<value>
+			<apparelMoney>40000~60000</apparelMoney>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[@Name="JanissaryBase"]</xpath>
+		<value>
+			<itemQuality>Excellent</itemQuality>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[@Name="CataphractBase"]</xpath>
+		<value>
+			<itemQuality>Masterwork</itemQuality>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[@Name="StellicGuardBase"]/itemQuality</xpath>
+		<value>
+			<itemQuality>Legendary</itemQuality>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="Empire_Fighter_Champion"]</xpath>
+		<value>
+			<itemQuality>Excellent</itemQuality>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="Empire_Fighter_Grenadier"]</xpath>
+		<value>
+			<itemQuality>Excellent</itemQuality>
+		</value>
+	</Operation>
+
+</Patch>

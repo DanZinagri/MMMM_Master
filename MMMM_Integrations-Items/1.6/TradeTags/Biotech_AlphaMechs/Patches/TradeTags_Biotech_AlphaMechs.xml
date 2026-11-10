@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/TradeTags.xml: the operations that also need Biotech and Alpha Mechs. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="AM_MechCommanderHelm"]/tradeTags</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_MechCommanderHelm"]/tradeTags</xpath>
+			<value>
+				<li>Mechanitor</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_MechCommanderHelm"]</xpath>
+			<value>
+				<tradeTags>
+					<li>Mechanitor</li>
+				</tradeTags>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="AM_MechBreakerHelm"]/tradeTags</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_MechBreakerHelm"]/tradeTags</xpath>
+			<value>
+				<li>Mechanitor</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_MechBreakerHelm"]</xpath>
+			<value>
+				<tradeTags>
+					<li>Mechanitor</li>
+				</tradeTags>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="AM_MechCommanderSuit"]/tradeTags</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_MechCommanderSuit"]/tradeTags</xpath>
+			<value>
+				<li>Mechanitor</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_MechCommanderSuit"]</xpath>
+			<value>
+				<tradeTags>
+					<li>Mechanitor</li>
+				</tradeTags>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="AM_MechBreakerArmor"]/tradeTags</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_MechBreakerArmor"]/tradeTags</xpath>
+			<value>
+				<li>Mechanitor</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_MechBreakerArmor"]</xpath>
+			<value>
+				<tradeTags>
+					<li>Mechanitor</li>
+				</tradeTags>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

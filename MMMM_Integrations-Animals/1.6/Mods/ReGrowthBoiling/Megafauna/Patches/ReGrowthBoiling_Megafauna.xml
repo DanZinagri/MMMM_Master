@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/ReGrowthBoiling/Patches/ReGrowthBoiling.xml: the operations that also need Megafauna. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/BiomeDef[defName="RG_BoilingForest"]/wildAnimals</xpath>
+		<value>
+			<Arthropleura>0.002</Arthropleura>
+			<Doedicurus>0.002</Doedicurus>
+			<Daeodon>0.01</Daeodon>
+			<Titanis>0.008</Titanis>
+			<Smilodon>0.006</Smilodon>
+			<Titanoboa>0.008</Titanoboa>
+			<Procoptodon>0.008</Procoptodon>
+			<Megalania>0.01</Megalania>
+			<Dinocrocuta>0.008</Dinocrocuta>
+			<Dinornis>0.008</Dinornis>
+			<Quinkana>0.008</Quinkana>
+			<Megalochelys>0.01</Megalochelys>
+			<Meganeura>0.01</Meganeura>
+			<Pulmonoscorpius>0.01</Pulmonoscorpius>
+			<Castoroides>0.006</Castoroides>
+			<Aurochs>0.006</Aurochs>
+			<Josephoartigasia>0.006</Josephoartigasia>
+			<Gigantophis>0.006</Gigantophis>
+			<Zygolophodon>0.006</Zygolophodon>
+			<Platybelodon>0.006</Platybelodon>
+			<Dinopithecus>0.008</Dinopithecus>
+		</value>
+	</Operation>
+
+</Patch>

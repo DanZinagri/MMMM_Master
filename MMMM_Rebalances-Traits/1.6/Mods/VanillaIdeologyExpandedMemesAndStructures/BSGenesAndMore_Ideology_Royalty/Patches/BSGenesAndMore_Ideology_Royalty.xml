@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The royal and aristocratic memes treat the Big and Small unpretentious trait as disagreeable.
+		This folder only loads when VIE - Memes and Structures is active (see loadFolders.xml); Big and Small and the
+		DLCs are gated by subfolder. The royal meme keeps its extra Royalty check because VIE only defines it under Royalty.
+		Operations that also need another mod sit in a subfolder gated on it in loadFolders.xml.
+
+		Verified against VIE 1.6: neither meme already has a disagreeableTraits list, so both adds land.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/MemeDef[defName="VME_Royal"]</xpath>
+		<value>
+			<disagreeableTraits>
+				<li>BS_Unpretentious</li>
+			</disagreeableTraits>
+		</value>
+	</Operation>
+
+</Patch>

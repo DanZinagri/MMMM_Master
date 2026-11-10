@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/StrongerEnemies.xml: the operations that also need Odyssey. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[@Name="TradersGuildGunnerBase" or @Name="TradersGuild_Slasher"]</xpath>
+		<value>
+			<itemQuality>Excellent</itemQuality>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[@Name="TradersGuildEliteTierBase"]</xpath>
+		<value>
+			<itemQuality>Masterwork</itemQuality>
+			<maxApparelQuality>Masterwork</maxApparelQuality>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="Salvager_Pirate"]/skills</xpath>
+		<value>
+			<skills>
+				<li>
+					<skill>Shooting</skill>
+					<range>7~14</range>
+				</li>
+			</skills>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[@Name="TradersGuildEliteBase"]/skills</xpath>
+		<value>
+			<skills>
+				<li>
+					<skill>Shooting</skill>
+					<range>13~18</range>
+				</li>
+			</skills>
+		</value>
+	</Operation>
+
+</Patch>

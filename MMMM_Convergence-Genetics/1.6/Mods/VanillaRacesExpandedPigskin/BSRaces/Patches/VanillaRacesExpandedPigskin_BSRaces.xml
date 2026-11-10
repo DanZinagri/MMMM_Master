@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaRacesExpandedPigskin/Patches/VanillaRacesExpandedPigskin.xml: the operations that also need Big and Small - Races. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Gnome" or defName="BS_Half_Jotun" or defName="BS_Ymir" or defName="BS_Surtr" or defName="BS_FireJotun" or defName="BS_FrostJotun"]/genes/li[text()="BS_VerySlowAging"]</xpath>
+		<value>
+			<li>VRE_SlowAging</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Svartalf" or defName="BS_Dwarf" or defName="BS_GreatOgre"]/genes/li[text()="BS_SlowAging"]</xpath>
+		<value>
+			<li>VRE_SlowAging</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Redcap"]/genes/li[text()="BS_FastAging"]</xpath>
+		<value>
+			<li>VRE_FastAging</li>
+		</value>
+	</Operation>
+
+</Patch>

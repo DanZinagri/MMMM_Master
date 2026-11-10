@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Rimsenal Xenotype Pack - Askbarn and Highborn Xenotype. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="HBX_Fencer"]/statFactors</xpath>
+		<value>
+			<statFactors>
+				<MeleeHitChance>1.2</MeleeHitChance>
+			</statFactors>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="HBX_Fencer"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-1</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="HBX_Highborn"]/genes</xpath>
+		<value>
+			<li>RSBornWarrior</li>
+		</value>
+	</Operation>
+
+</Patch>

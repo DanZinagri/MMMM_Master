@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Vanilla Races Expanded - Phytokin and mytigio.HarbingerKin. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="myt_HarbingerAffinity"]/biostatMet</xpath>
+		<value>
+			<biostatMet>0</biostatMet>
+		</value>
+	</Operation>
+
+</Patch>

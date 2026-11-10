@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/OtherRebalance.xml: the operations that also need Anomaly. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="GoldenCube"]/statBases/MarketValue</xpath>
+		<value>
+			<MarketValue>0</MarketValue>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="Metalblood"]/stages/li/statFactors/IncomingDamageFactor</xpath>
+		<value>
+			<IncomingDamageFactor>0.7</IncomingDamageFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/HediffDef[defName="DeathRefusalSickness"]</xpath>
+		<value>
+			<isBad>false</isBad>
+			<initialSeverity>1</initialSeverity>
+			<maxSeverity>1</maxSeverity>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/HediffDef[defName="DeathRefusalSickness"]/comps</xpath>
+		<value>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.8</severityPerDay>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="DeathRefusalSickness"]/stages</xpath>
+		<value>
+			<stages>
+				<li>
+					<label>mild</label>
+					<painOffset>0.1</painOffset>
+					<vomitMtbDays>4</vomitMtbDays>
+					<capMods>
+						<li>
+							<capacity>Consciousness</capacity>
+							<setMax>0.9</setMax>
+						</li>
+					</capMods>
+				</li>
+				<li>
+					<minSeverity>0.4</minSeverity>
+					<label>moderate</label>
+					<painOffset>0.2</painOffset>
+					<vomitMtbDays>0.25</vomitMtbDays>
+					<capMods>
+						<li>
+							<capacity>Consciousness</capacity>
+							<setMax>0.8</setMax>
+						</li>
+					</capMods>
+				</li>
+				<li>
+					<minSeverity>0.7</minSeverity>
+					<label>severe</label>
+					<capMods>
+						<li>
+							<capacity>Consciousness</capacity>
+							<setMax>0.01</setMax>
+						</li>
+					</capMods>
+				</li>
+			</stages>
+		</value>
+	</Operation>
+
+</Patch>

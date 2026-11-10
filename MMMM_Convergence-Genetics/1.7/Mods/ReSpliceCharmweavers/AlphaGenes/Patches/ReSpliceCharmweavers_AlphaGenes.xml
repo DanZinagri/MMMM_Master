@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/ReSpliceCharmweavers/Patches/ReSpliceCharmweavers.xml: the operations that also need Alpha Genes. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="RS_Charmweaver"]/genes/li[text()="RS_Beauty_Angelic"]</xpath>
+		<value>
+			<li>AG_Beauty_Angelic</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/RS_Beauty_Angelic</li>
+			<li>GeneDef/RS_Beauty_Angelic_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

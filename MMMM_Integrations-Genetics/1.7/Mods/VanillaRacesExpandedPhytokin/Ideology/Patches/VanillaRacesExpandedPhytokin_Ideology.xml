@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaRacesExpandedPhytokin/Patches/VanillaRacesExpandedPhytokin.xml: the operations that also need Ideology. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/XenotypeDef[defName="VRE_Gauranlenkin"]/genes</xpath>
+		<value>
+			<li MayRequire="sarg.alphagenes">AG_UVPowered_Mild</li>
+		</value>
+	</Operation>
+
+</Patch>

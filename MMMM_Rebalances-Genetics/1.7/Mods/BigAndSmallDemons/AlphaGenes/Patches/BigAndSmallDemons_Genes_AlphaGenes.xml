@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/BigAndSmallDemons/Patches/BigAndSmallDemons_Genes.xml: the operations that also need Alpha Genes. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="VU_Gatekeeper"]/genes</xpath>
+		<value>
+			<li>MeleeDamage_Strong</li>
+		</value>
+	</Operation>
+
+</Patch>

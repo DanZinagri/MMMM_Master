@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/TsSamuraiFaction/Patches/TsSamuraiFaction.xml: the operations that also need Alpha Crafts and Vanilla Fishing Expanded - Fishing Treasures AddOn. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options/li[.//thingSetMaker/fixedParams/filter/thingDefs/li[text()="AC_Sake"]]</xpath>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/FishingRareCatches/Patches/RareCatches_TreasureAddOn.xml: the operations that also need Megafauna. -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Fishing Expanded - Treasure AddOn</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+			<value>
+				<li>
+					<weight>0.15</weight>
+					<thingSetMaker Class="ThingSetMaker_Count">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>MegalocerosAntlers</li>
+									<li>DoedicurusShell</li>
+									<li>ElasmotheriumHorn</li>
+									<li>DeinotheriumTusk</li>
+									<li>ZygolophodonTusk</li>
+									<li>PlatybelodonTusk</li>
+									<li>SmilodonFangs</li>
+								</thingDefs>
+							</filter>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need rimsenal.feral. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Apparel_HuskerHood" or defName="Apparel_SkulkerHood" or defName="Apparel_ThumperHood" or defName="Apparel_FeralHood" or defName="Apparel_ScorcherHelmet"]/statBases</xpath>
+		<value>
+			<StuffEffectMultiplierArmor>0.25</StuffEffectMultiplierArmor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Apparel_ScorcherHelmet"]/equippedStatOffsets</xpath>
+		<value>
+			<ToxicEnvironmentResistance>0.5</ToxicEnvironmentResistance>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Gun_SkullBuster"]/equippedStatOffsets/MoveSpeed</xpath>
+		<value>
+			<MoveSpeed>-0.35</MoveSpeed>
+		</value>
+	</Operation>
+
+</Patch>

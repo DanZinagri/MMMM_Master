@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Vanilla Quests Expanded - Ancients and Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VQEA_Enormous"]/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<SM_BodySizeOffset>1</SM_BodySizeOffset>
+				<MoveSpeed>-0.5</MoveSpeed>
+			</statOffsets>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VQEA_Enormous"]/statFactors</xpath>
+		<value>
+			<statFactors>
+				<MeleeDodgeChance>0.25</MeleeDodgeChance>
+				<StaggerDurationFactor>0.2</StaggerDurationFactor>
+			</statFactors>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="VQEA_Enormous"]</xpath>
+		<value>
+			<customEffectDescriptions>
+				<li>Can be stacked with other body size genes.</li>
+			</customEffectDescriptions>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VQEA_Woundless"]/statFactors/InjuryHealingFactor</xpath>
+		<value>
+			<InjuryHealingFactor>10</InjuryHealingFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VQEA_Woundless"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-4</biostatMet>
+		</value>
+	</Operation>
+
+</Patch>

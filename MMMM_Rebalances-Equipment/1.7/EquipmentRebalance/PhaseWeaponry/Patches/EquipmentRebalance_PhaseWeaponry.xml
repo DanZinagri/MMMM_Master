@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/EquipmentRebalance.xml: the operations that also need Phase Weaponry. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DV_Gun_PhasePistol"]/statBases/RangedWeapon_Cooldown</xpath>
+		<value>
+			<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DV_Gun_PhasePrecisionRifle"]/statBases/RangedWeapon_Cooldown</xpath>
+		<value>
+			<RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DV_Gun_PhasePrecisionRifle"]/verbs/li[verbClass="Verb_Shoot"]/warmupTime</xpath>
+		<value>
+			<warmupTime>1.1</warmupTime>
+		</value>
+	</Operation>
+
+</Patch>

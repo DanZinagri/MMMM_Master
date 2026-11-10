@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Wing integration: flying/gliding wing genes from Alpha Genes, VRE Insector / Hussar, Biotech Expansion, Rimsenal Harana,
+		Big and Small, Geist/Nephilim/Seraphim and VQE Ancients share one mechanic: Alpha Genes' hover hediff, water crossing
+		(waterCellCost), matching metabolism/complexity costs, a Wings exclusion group and effect descriptions.
+		Moved from the core root file AA5A_Wings.xml (setting TMM_WingIntegration, default on). Dropped the displayCategory
+		moves into Alpha Genes' wing category (gene recategorisation rule). Name FindMods kept for Seraphim Xenotype (no known
+		packageId) and Big and Small - Framework (absence check). Checked with analysis/patch_sim.py: all installed-mod ops apply.
+	-->
+
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/GeneDef[defName="VQEA_Levitation"]/waterCellCost</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[defName="VQEA_Levitation"]</xpath>
+			<value>
+				<waterCellCost>1</waterCellCost>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

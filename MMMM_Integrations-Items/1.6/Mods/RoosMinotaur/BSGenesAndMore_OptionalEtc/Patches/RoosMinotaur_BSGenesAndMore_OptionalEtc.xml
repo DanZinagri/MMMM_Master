@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/RoosMinotaur/Patches/RoosMinotaur.xml: the operations that also need Big and Small - Genes & More and RedMattis.Optional or Big and Small - Races or Big and Small - Slimes or Big and Small - Heaven and Hell or Big and Small - Xeno Insectoid Hive or Big and Small - Vampires and the Undead or Big and Small - Lamias and other Snake-People or Big and Small - More Xenotypes or Big and Small - Weapons or Big and Small - Sapient Animals or Big and Small - Yokai or RedMattis.MadApril2025. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="BS_JotunRifle"]/description</xpath>
+		<value>
+			<description>A heavy rifle designed to be wielded by a combat mech for use against other mechs other other heavy military hardware.\n\nThe weapon is too large to be wielded by a regular human, even if they could somehow manage the terrible recoil.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="BS_GiantMinigun"]/description</xpath>
+		<value>
+			<description>A hugely oversized multi-barrel machine gun. It's unwieldy for regular human and clearly made to be mounted on some sort of vehicle or mech. The weapon is made for laying down supressive fire and does not require aiming, and thanks to the belt-fed ammo the weapon fire for a long time without reloading.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="BS_JotunRocketLauncher"]/description</xpath>
+		<value>
+			<description>A heavy rocket launcher originally designed to be welded to a combat mech for use against other mechs other other heavy military hardware.\n\nThe weapon is too large to be wielded by a regular human, even if they could somehow manage the terrible recoil.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="BS_JotunJavelin"]/description</xpath>
+		<value>
+			<description>These huge javelins are primarily made for throwing, but they also make for acceptable melee weapons. They take a long time to throw, but one hit can do devastating damage. Too large to be wielded by a regular human.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="BS_OgreThrowinRock"]/description</xpath>
+		<value>
+			<description>These large rocks have been crudely chiseled for throwing at enemies. Too heavy to be wielded by a regular human.</description>
+		</value>
+	</Operation>
+
+</Patch>

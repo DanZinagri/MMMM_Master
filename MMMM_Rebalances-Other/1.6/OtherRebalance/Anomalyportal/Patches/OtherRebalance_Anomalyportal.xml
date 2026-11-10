@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/OtherRebalance.xml: the operations that also need 22.anomalyportal. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="AP_MetalStorm"]/statBases/PsychicSensitivity</xpath>
+		<value>
+			<PsychicSensitivity>1.5</PsychicSensitivity>
+		</value>
+	</Operation>
+
+</Patch>

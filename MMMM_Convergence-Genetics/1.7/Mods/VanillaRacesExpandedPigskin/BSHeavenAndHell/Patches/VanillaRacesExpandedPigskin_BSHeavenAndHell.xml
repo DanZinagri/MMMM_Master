@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaRacesExpandedPigskin/Patches/VanillaRacesExpandedPigskin.xml: the operations that also need Big and Small - Heaven and Hell. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Nephilim"]/genes/li[text()="BS_VerySlowAging"]</xpath>
+		<value>
+			<li>VRE_SlowAging</li>
+		</value>
+	</Operation>
+
+</Patch>

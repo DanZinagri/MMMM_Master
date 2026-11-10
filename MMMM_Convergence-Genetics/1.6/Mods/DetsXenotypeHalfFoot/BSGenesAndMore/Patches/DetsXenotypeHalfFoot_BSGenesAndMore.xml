@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/DetsXenotypeHalfFoot/Patches/DetsXenotypeHalfFoot.xml: the operations that also need Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="DV_ExtrasmallBuild"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="DV_ExtrasmallBuild"]</xpath>
+			<value>
+				<li>BS_SmallFrame</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="DV_Halffoot"]/genes/li[text()="MeleeDamage_Weak"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[defName="DV_Halffoot"]/genes/li[text()="MeleeDamage_Weak"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/DV_ExtrasmallBuild</li>
+		</value>
+	</Operation>
+
+</Patch>

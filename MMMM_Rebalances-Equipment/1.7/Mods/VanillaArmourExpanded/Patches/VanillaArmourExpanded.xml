@@ -12,23 +12,10 @@
 		(Yy.CapesandArmor) adds a second layers node to both armours instead of replacing the first, so with that mod the
 		layers are messy regardless of this patch.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationAttributeAdd">
-				<xpath>Defs/ThingDef[defName="VAE_Apparel_HeavyMarineArmor"]/apparel/layers</xpath>
-				<attribute>Inherit</attribute>
-				<value>False</value>
-			</li>
-			<li Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Royalty">
-				<operations>
-					<li Class="PatchOperationAttributeAdd">
-						<xpath>Defs/ThingDef[defName="VAE_Apparel_RoyalSiegeArmor"]/apparel/layers</xpath>
-						<attribute>Inherit</attribute>
-						<value>False</value>
-					</li>
-				</operations>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationAttributeAdd">
+		<xpath>Defs/ThingDef[defName="VAE_Apparel_HeavyMarineArmor"]/apparel/layers</xpath>
+		<attribute>Inherit</attribute>
+		<value>False</value>
 	</Operation>
 
 </Patch>

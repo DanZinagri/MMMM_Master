@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/BigAndSmallRaces/Patches/BigAndSmallRaces.xml: the operations that also need Vanilla Factions Expanded - Medieval 2. -->
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/FactionDef[defName="BS_Dvergr_Medieval_Union"]</xpath>
+		<value>
+			<li Class="KCSG.CustomGenOption">
+				<chooseFromSettlements Inherit="False">
+					<li>VFEM2_MedievalFactionBase</li>
+				</chooseFromSettlements>
+				<preventBridgeable>true</preventBridgeable>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/FactionDef[defName="BS_Muspelheim" or defName="BS_Niflheim"]</xpath>
+		<value>
+			<li Class="KCSG.CustomGenOption">
+				<chooseFromSettlements Inherit="False">
+					<li>VFEM2_MedievalFactionBase</li>
+				</chooseFromSettlements>
+				<preventBridgeable>true</preventBridgeable>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

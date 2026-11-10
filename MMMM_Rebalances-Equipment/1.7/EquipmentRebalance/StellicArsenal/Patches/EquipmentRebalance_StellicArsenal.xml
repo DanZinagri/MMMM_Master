@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/EquipmentRebalance.xml: the operations that also need Stellic Arsenal. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="CAT_StellicCarbine"]/verbs/li[label="auto mode"]/defaultCooldownTime</xpath>
+		<value>
+			<defaultCooldownTime>3.6</defaultCooldownTime>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="CAT_ValianceShot"]/projectile/damageAmountBase</xpath>
+		<value>
+			<damageAmountBase>9</damageAmountBase>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="CAT_EradicatorShot"]/projectile/damageAmountBase</xpath>
+		<value>
+			<damageAmountBase>32</damageAmountBase>
+		</value>
+	</Operation>
+
+</Patch>

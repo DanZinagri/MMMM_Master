@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/GeneExclusionTags.xml: the operations that also need Vanilla Races Expanded - Hussar. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="VREH_Toughness"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>Toughness</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+
+</Patch>

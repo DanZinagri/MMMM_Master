@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/StrongerEnemies.xml: the operations that also need Rimsenal.Spacer and Alpha Mechs. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="Spacer_Fighter_mechanist" or defName="Corporate_Fighter_mechanist"]/apparelRequired</xpath>
+		<value>
+			<apparelRequired Inherit="False">
+				<li>AM_MechCommanderHelm</li>
+				<li>AM_MechCommanderSuit</li>
+				<li>Apparel_PackBandwidth</li>
+				<li>Apparel_Unisuit</li>
+			</apparelRequired>
+		</value>
+	</Operation>
+
+</Patch>

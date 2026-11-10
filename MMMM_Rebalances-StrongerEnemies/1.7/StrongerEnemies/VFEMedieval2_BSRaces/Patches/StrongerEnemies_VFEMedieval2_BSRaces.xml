@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/StrongerEnemies.xml: the operations that also need Vanilla Factions Expanded - Medieval 2 and Big and Small - Races. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="BS_Jotun_Knight" or defName="BS_Jotun_Javelin" or defName="BS_Jotun_Raider" or defName="BS_Jotun_Lord" or defName="BS_Jotun_RaiderLord"]</xpath>
+		<value>
+			<startingHediffs>
+				<li>
+					<def>VFEM2_StrengthDraught</def>
+					<severity>1</severity>
+				</li>
+				<li>
+					<def>ToxicBuildup</def>
+					<severity>0.2</severity>
+				</li>
+			</startingHediffs>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="BS_Jotun_Berserker" or defName="BS_Jotun_Berserker_Simple"]</xpath>
+		<value>
+			<startingHediffs>
+				<li>
+					<def>VFEM2_PainkillerDraught</def>
+					<severity>1</severity>
+				</li>
+				<li>
+					<def>VFEM2_StrengthDraught</def>
+					<severity>1</severity>
+				</li>
+				<li>
+					<def>ToxicBuildup</def>
+					<severity>0.4</severity>
+				</li>
+			</startingHediffs>
+		</value>
+	</Operation>
+
+</Patch>

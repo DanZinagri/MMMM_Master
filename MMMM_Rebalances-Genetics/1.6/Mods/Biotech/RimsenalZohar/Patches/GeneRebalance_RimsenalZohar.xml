@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Rimsenal Xenotype Pack - Zohar. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="Gene_StrongWilled"]/statOffsets/MentalBreakThreshold</xpath>
+		<value>
+			<MentalBreakThreshold>-0.1</MentalBreakThreshold>
+		</value>
+	</Operation>
+
+</Patch>

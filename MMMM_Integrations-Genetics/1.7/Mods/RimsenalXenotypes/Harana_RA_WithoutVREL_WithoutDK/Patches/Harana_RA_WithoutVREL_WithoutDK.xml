@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/RimsenalXenotypes/Patches/RimsenalXenotype_Harana.xml: the operations that also need Rimsenal.Harana and Rimsenal Xenotype Pack - Askbarn and not Vanilla Races Expanded - Lycanthrope and not Det's Xenotypes - Keshig. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="Harana"]/genes</xpath>
+		<value>
+			<li>RSBornWarrior</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/ImplantRebalance.xml: the operations that also need Ushankas Glittertech Expansion. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/HediffDef[defName="USH_InstalledPlasteelSkinReplacement" or defName="USH_InstalledGoldenTeethReplacement"]/tags</xpath>
+		<value>
+			<li>ArmorGland</li>
+		</value>
+	</Operation>
+
+</Patch>

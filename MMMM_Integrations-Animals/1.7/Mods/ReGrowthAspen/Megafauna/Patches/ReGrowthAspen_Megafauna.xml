@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/ReGrowthAspen/Patches/ReGrowthAspen.xml: the operations that also need Megafauna. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BiomeDef[defName="RG_AspenForest"]/wildAnimals</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/BiomeDef[defName="RG_AspenForest"]/wildAnimals</xpath>
+			<value>
+				<Arthropleura>0.006</Arthropleura>
+				<Daeodon>0.01</Daeodon>
+				<Titanis>0.005</Titanis>
+				<Smilodon>0.006</Smilodon>
+				<Megalania>0.03</Megalania>
+				<Dinornis>0.004</Dinornis>
+				<Quinkana>0.005</Quinkana>
+				<Meganeura>0.01</Meganeura>
+				<Doedicurus>0.004</Doedicurus>
+				<Gigantopithecus>0.015</Gigantopithecus>
+				<Paraceratherium>0.008</Paraceratherium>
+				<WoollyMammoth>0.005</WoollyMammoth>
+				<Elasmotherium>0.004</Elasmotherium>
+				<Chalicotherium>0.008</Chalicotherium>
+				<Megaloceros>0.01</Megaloceros>
+				<Procoptodon>0.003</Procoptodon>
+				<ShortfacedBear>0.006</ShortfacedBear>
+				<Andrewsarchus>0.006</Andrewsarchus>
+				<Deinotherium>0.002</Deinotherium>
+				<Aurochs>0.006</Aurochs>
+				<Megalochelys>0.01</Megalochelys>
+				<Zygolophodon>0.004</Zygolophodon>
+				<Platybelodon>0.004</Platybelodon>
+				<Uintatherium>0.003</Uintatherium>
+				<Pulmonoscorpius>0.003</Pulmonoscorpius>
+				<Dinopithecus>0.002</Dinopithecus>
+				<Castoroides>0.01</Castoroides>
+				<Enhydriodon>0.008</Enhydriodon>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

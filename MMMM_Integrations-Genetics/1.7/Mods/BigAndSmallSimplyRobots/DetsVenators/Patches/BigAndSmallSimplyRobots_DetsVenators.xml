@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/BigAndSmallSimplyRobots/Patches/BigAndSmallSimplyRobots.xml: the operations that also need Det's Xenotypes - Venators. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="DV_Farsighted"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+			<value>
+				<li>
+					<def>DV_Farsighted</def>
+					<labelMechanoid>long-focus sensor</labelMechanoid>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

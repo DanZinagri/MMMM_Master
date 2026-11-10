@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/StrongerEnemies.xml: the operations that also need Vanilla Psycasts Expanded and vanillaracesexpanded.archon. -->
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/PawnKindDef[defName="ArchonWarrior"]</xpath>
+		<value>
+			<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+				<implantDef>VPE_PsycastAbilityImplant</implantDef>
+				<initialLevel>1</initialLevel>
+				<statUpgradePoints>0~0</statUpgradePoints>
+				<unlockedPaths>
+					<VREA_Transcendent>1~4|1~4</VREA_Transcendent>
+				</unlockedPaths>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

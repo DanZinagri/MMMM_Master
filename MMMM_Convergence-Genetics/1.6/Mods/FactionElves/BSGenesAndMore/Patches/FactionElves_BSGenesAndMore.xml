@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/FactionElves/Patches/FactionElves.xml: the operations that also need Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="BS_GeneStabilizing_Great"]]/genes/li[text()="EfficientMetabolism"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="BS_GeneStabilizing_Great"]]/genes/li[text()="EfficientMetabolism"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="EfficientMetabolism"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="EfficientMetabolism"]</xpath>
+			<value>
+				<li>BS_GeneStabilizing_Great</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][genes/li[text()="VU_DarknessMelee_Strong"]]/genes/li[text()="MeleeDamage_Strong"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][genes/li[text()="VU_DarknessMelee_Strong"]]/genes/li[text()="MeleeDamage_Strong"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"]/genes/li[text()="MeleeDamage_Strong"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"]/genes/li[text()="MeleeDamage_Strong"]</xpath>
+			<value>
+				<li>VU_DarknessMelee_Strong</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/EfficientMetabolism</li>
+			<li>GeneDef/EfficientMetabolism_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

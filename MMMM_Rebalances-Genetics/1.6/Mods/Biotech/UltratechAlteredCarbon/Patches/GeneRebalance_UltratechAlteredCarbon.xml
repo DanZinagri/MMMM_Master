@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need hlx.UltratechAlteredCarbon. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="AC_SleeveQuality_Awful" or defName="AC_SleeveQuality_Poor" or defName="AC_SleeveQuality_Legendary"]/statOffsets/IncomingDamageFactor</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="AC_SleeveQuality_Awful" or defName="AC_SleeveQuality_Poor" or defName="AC_SleeveQuality_Good" or defName="AC_SleeveQuality_Excellent" or defName="AC_SleeveQuality_Masterwork" or defName="AC_SleeveQuality_Legendary"]/statOffsets/MeleeDamageFactor</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="AC_SleeveQuality_Masterwork" or defName="AC_SleeveQuality_Legendary"]/statOffsets/MoveSpeed</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AC_SleeveQuality_Good"]/biostatMet</xpath>
+		<value>
+			<biostatMet>1</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AC_SleeveQuality_Good"]/statFactors/CancerRate</xpath>
+		<value>
+			<CancerRate>0.9</CancerRate>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AC_SleeveQuality_Excellent"]/biostatMet</xpath>
+		<value>
+			<biostatMet>2</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AC_SleeveQuality_Excellent"]/statFactors/CancerRate</xpath>
+		<value>
+			<CancerRate>0.8</CancerRate>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AC_SleeveQuality_Masterwork"]/biostatMet</xpath>
+		<value>
+			<biostatMet>3</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AC_SleeveQuality_Masterwork"]/statFactors/CancerRate</xpath>
+		<value>
+			<CancerRate>0.7</CancerRate>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AC_SleeveQuality_Legendary"]/biostatMet</xpath>
+		<value>
+			<biostatMet>4</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AC_SleeveQuality_Legendary"]/statFactors/CancerRate</xpath>
+		<value>
+			<CancerRate>0.5</CancerRate>
+		</value>
+	</Operation>
+
+</Patch>

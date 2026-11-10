@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/StrongerEnemies.xml: the operations that also need Vanilla Factions Expanded - Medieval 2. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="VFEM2_Clan_Peasant" or defName="VFEM2_Thrall" or defName="VFEM2_Raider" or defName="VFEM2_Spearman"]</xpath>
+		<value>
+			<startingHediffs>
+				<li>
+					<def>VFEM2_StrengthDraught</def>
+					<severity>1</severity>
+				</li>
+				<li>
+					<def>ToxicBuildup</def>
+					<severity>0.2</severity>
+				</li>
+			</startingHediffs>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="VFEM2_SiegeRaider"]</xpath>
+		<value>
+			<startingHediffs>
+				<li>
+					<def>VFEM2_StoneskinDraught</def>
+					<severity>1</severity>
+				</li>
+				<li>
+					<def>VFEM2_StrengthDraught</def>
+					<severity>1</severity>
+				</li>
+				<li>
+					<def>ToxicBuildup</def>
+					<severity>0.4</severity>
+				</li>
+			</startingHediffs>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="VFEM2_Berserker"]</xpath>
+		<value>
+			<startingHediffs>
+				<li>
+					<def>VFEM2_PainkillerDraught</def>
+					<severity>1</severity>
+				</li>
+				<li>
+					<def>VFEM2_StrengthDraught</def>
+					<severity>1</severity>
+				</li>
+				<li>
+					<def>ToxicBuildup</def>
+					<severity>0.4</severity>
+				</li>
+			</startingHediffs>
+		</value>
+	</Operation>
+
+</Patch>

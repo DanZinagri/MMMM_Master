@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/StrongerEnemies.xml: the operations that also need Nephilim Xenotype Reborn and Vanilla Factions Expanded - Empire. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="VFEE_Empire_Royal_Archcount" or defName="VFEE_Empire_Royal_Marquess" or defName="VFEE_Empire_Royal_Archduke" or defName="VFEE_Empire_Royal_Magister" or defName="VFEE_Empire_Royal_Despot"]/xenotypeSet/xenotypeChances</xpath>
+		<value>
+			<GS_Nephilim>0.15</GS_Nephilim>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="VFEE_Empire_Royal_HighStellarch" or defName="Empire_Royal_Stellarch"]/xenotypeSet/xenotypeChances</xpath>
+		<value>
+			<GS_Nephilim>0.25</GS_Nephilim>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/RimsenalXenotypes/Patches/RimsenalXenotype_Harana.xml: the operations that also need Rimsenal.Harana and Rimsenal Xenotype Pack - Askbarn. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="AgileStriker"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>AimingDelay</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="RSLightningReflexes"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>AimingDelay</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+
+</Patch>

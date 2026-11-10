@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/RimGnoblins/Patches/RimGnoblins.xml: the operations that also need Det's Xenotypes - Stoneborn. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="DV_LifespanLong"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>Lifespan</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+
+</Patch>

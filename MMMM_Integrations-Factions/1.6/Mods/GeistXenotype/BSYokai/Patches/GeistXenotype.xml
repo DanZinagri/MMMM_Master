@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The Big and Small Yokai union can field geists, at a one in ten chance.
+		This folder only loads when Geist Xenotype is active (see loadFolders.xml); Yokai is gated by subfolder.
+		Operations that also need another mod sit in a subfolder gated on it in loadFolders.xml.
+		The MayRequire on the GS_Geist entry itself is the original author's and is kept, though the folder gate already
+		guarantees Geist Xenotype is present.
+
+		Verified against Yokai 1.6: the faction has a xenotypeChances block listing eight Yokai xenotypes and no geist,
+		and the GS_Geist xenotype exists, so the add lands.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="BS_YokaiUnion"]/xenotypeSet/xenotypeChances</xpath>
+		<value>
+			<GS_Geist MayRequire="Sov.Tenmo">0.1</GS_Geist>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/Wings.xml: the operations that also need ReSplice: Charmweavers. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/GeneDef[defName="RS_Wing_Batlike"]/waterCellCost</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[defName="RS_Wing_Batlike"]</xpath>
+			<value>
+				<waterCellCost>1</waterCellCost>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

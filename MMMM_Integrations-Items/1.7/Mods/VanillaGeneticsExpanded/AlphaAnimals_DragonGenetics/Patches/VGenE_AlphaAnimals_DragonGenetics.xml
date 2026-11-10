@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaGeneticsExpanded/Patches/VanillaGeneticsExpanded.xml: the operations that also need Alpha Animals and Hol.DragonGenetics. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="GR_AlphaGenomeExcavator"]/comps/li[@Class="GeneticRim.CompProperties_TargetEffect_Extract"]/tier</xpath>
+		<value>
+			<li>dragon</li>
+		</value>
+	</Operation>
+
+</Patch>

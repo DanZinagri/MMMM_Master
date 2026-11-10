@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/StrongerEnemies.xml: the operations that also need Vanilla Psycasts Expanded and biotexpans.mammalia and Vehicle Framework. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="TribeCivilMammals" or defName="TribeRoughMammals"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3]/options</xpath>
+		<value>
+			<Tribal_Caster_Frostshaper>1</Tribal_Caster_Frostshaper>
+			<Tribal_Caster_Staticlord>1</Tribal_Caster_Staticlord>
+		</value>
+	</Operation>
+
+</Patch>

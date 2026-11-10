@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/Wings.xml: the operations that also need not Big and Small - Framework and Vanilla Races Expanded - Insector and Alpha Genes. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_InsectWings"]/modExtensions/li[@Class="VEF.Genes.GeneExtension"]/hediffToWholeBody</xpath>
+		<value>
+			<hediffToWholeBody>AG_Hover</hediffToWholeBody>
+		</value>
+	</Operation>
+
+</Patch>

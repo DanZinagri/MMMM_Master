@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/HarbingerKin/Patches/HarbingerKin.xml: the operations that also need Alpha Genes or Big and Small - Framework. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/Myt_Male</li>
+		</value>
+	</Operation>
+
+</Patch>

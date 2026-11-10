@@ -2,16 +2,32 @@
 
 <loadFolders>
 	<v1.6>
-		<!-- One folder per biome mod, gated on that mod. Each animal mod is gated inside the patches with MayRequire. -->
+		<!-- One folder per biome mod, gated on that mod. Each animal mod's patches sit in a subfolder gated on it. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActive="ReGrowth.BOTR.AspenForest,ReGrowth.BOTR.Core" IfModActiveAll="spincrus.dinosauria">1.6/Mods/ReGrowthAspen/Dinosauria</li>
+		<li IfModActive="ReGrowth.BOTR.AspenForest,ReGrowth.BOTR.Core" IfModActiveAll="Spino.Megafauna">1.6/Mods/ReGrowthAspen/Megafauna</li>
+		<li IfModActive="ReGrowth.BOTR.AspenForest,ReGrowth.BOTR.Core" IfModActiveAll="sarg.alphaanimals">1.6/Mods/ReGrowthAspen/AlphaAnimals</li>
 		<li IfModActive="ReGrowth.BOTR.AspenForest,ReGrowth.BOTR.Core">1.6/Mods/ReGrowthAspen</li>
+		<li IfModActiveAll="ReGrowth.BOTR.BoilingForest,VanillaExpanded.VanillaAnimalsExpanded">1.6/Mods/ReGrowthBoiling/VAnimalsE</li>
+		<li IfModActiveAll="ReGrowth.BOTR.BoilingForest,spincrus.dinosauria">1.6/Mods/ReGrowthBoiling/Dinosauria</li>
+		<li IfModActiveAll="ReGrowth.BOTR.BoilingForest,Spino.Megafauna">1.6/Mods/ReGrowthBoiling/Megafauna</li>
+		<li IfModActiveAll="ReGrowth.BOTR.BoilingForest,sarg.alphaanimals">1.6/Mods/ReGrowthBoiling/AlphaAnimals</li>
 		<li IfModActive="ReGrowth.BOTR.BoilingForest">1.6/Mods/ReGrowthBoiling</li>
 		<li IfModActive="sarg.alphabiomes">1.6/Mods/AlphaBiomes</li>
 	</v1.6>
 	<v1.7>
-		<!-- One folder per biome mod, gated on that mod. Each animal mod is gated inside the patches with MayRequire. -->
+		<!-- One folder per biome mod, gated on that mod. Each animal mod's patches sit in a subfolder gated on it. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActive="ReGrowth.BOTR.AspenForest,ReGrowth.BOTR.Core" IfModActiveAll="spincrus.dinosauria">1.7/Mods/ReGrowthAspen/Dinosauria</li>
+		<li IfModActive="ReGrowth.BOTR.AspenForest,ReGrowth.BOTR.Core" IfModActiveAll="Spino.Megafauna">1.7/Mods/ReGrowthAspen/Megafauna</li>
+		<li IfModActive="ReGrowth.BOTR.AspenForest,ReGrowth.BOTR.Core" IfModActiveAll="sarg.alphaanimals">1.7/Mods/ReGrowthAspen/AlphaAnimals</li>
 		<li IfModActive="ReGrowth.BOTR.AspenForest,ReGrowth.BOTR.Core">1.7/Mods/ReGrowthAspen</li>
+		<li IfModActiveAll="ReGrowth.BOTR.BoilingForest,VanillaExpanded.VanillaAnimalsExpanded">1.7/Mods/ReGrowthBoiling/VAnimalsE</li>
+		<li IfModActiveAll="ReGrowth.BOTR.BoilingForest,spincrus.dinosauria">1.7/Mods/ReGrowthBoiling/Dinosauria</li>
+		<li IfModActiveAll="ReGrowth.BOTR.BoilingForest,Spino.Megafauna">1.7/Mods/ReGrowthBoiling/Megafauna</li>
+		<li IfModActiveAll="ReGrowth.BOTR.BoilingForest,sarg.alphaanimals">1.7/Mods/ReGrowthBoiling/AlphaAnimals</li>
 		<li IfModActive="ReGrowth.BOTR.BoilingForest">1.7/Mods/ReGrowthBoiling</li>
 		<li IfModActive="sarg.alphabiomes">1.7/Mods/AlphaBiomes</li>
 	</v1.7>

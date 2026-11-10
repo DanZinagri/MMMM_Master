@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/GeneExclusionTags.xml: the operations that also need Biotech. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/GeneDef[defName="Deathless"]/exclusionTags</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[defName="Deathless"]/exclusionTags</xpath>
+			<value>
+				<li>TMM_Deathless</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[defName="Deathless"]</xpath>
+			<value>
+				<exclusionTags>
+					<li>TMM_Deathless</li>
+				</exclusionTags>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

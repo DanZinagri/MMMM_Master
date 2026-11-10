@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/AncientUrbanRuins/Patches/AncientUrbanRuins.xml: the operations that also need VanillaExpanded.VAEAccessories. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[defName="AM_Tool"]/root/options</xpath>
+		<value>
+			<li>
+				<weight>0.1</weight>
+				<thingSetMaker Class="ThingSetMaker_StackCount">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li>VAEA_Apparel_ToolBelt</li>
+							</thingDefs>
+						</filter>
+						<countRange>1~1</countRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[defName="AM_FlakApparel"]/root/options</xpath>
+		<value>
+			<li>
+				<weight>0.02</weight>
+				<thingSetMaker Class="ThingSetMaker_StackCount">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li>VAEA_Apparel_AmmoPack</li>
+							</thingDefs>
+						</filter>
+						<countRange>1~1</countRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[defName="AM_MedicalSupplies"]/root/options</xpath>
+		<value>
+			<li>
+				<weight>0.1</weight>
+				<thingSetMaker Class="ThingSetMaker_StackCount">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li>VAEA_Apparel_MedicBag</li>
+							</thingDefs>
+						</filter>
+						<countRange>1~1</countRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

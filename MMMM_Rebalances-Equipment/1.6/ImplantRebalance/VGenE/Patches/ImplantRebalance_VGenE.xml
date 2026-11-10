@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Too Many Mods' implant rebalance: implant and prosthetic stats. Moved whole from the core root file AA1D1_ImplantRebalance.xml, where it sat behind the
+		TMM_ImplantRebalances setting (default on); installing this mod is the opt-in now.
+		Each block sits in a load folder gated on the mods it touches (see loadFolders.xml); mods with no known packageId keep a name FindMod per operation. Checked with analysis/patch_sim.py against the installed mods:
+		every op whose mods are installed applies. Blocks for mods not installed here are unchecked.
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="GR_ThrumboSkin"]/stages</xpath>
+		<value>
+			<stages>
+				<li>
+					<minSeverity>0</minSeverity>
+					<statOffsets>
+						<ComfyTemperatureMax>5</ComfyTemperatureMax>
+						<ComfyTemperatureMin>-5</ComfyTemperatureMin>
+						<ArmorRating_Sharp>0.01</ArmorRating_Sharp>
+						<ArmorRating_Blunt>0.01</ArmorRating_Blunt>
+						<ArmorRating_Heat>0.01</ArmorRating_Heat>
+					</statOffsets>
+				</li>
+				<li>
+					<minSeverity>0.1</minSeverity>
+					<statOffsets>
+						<ComfyTemperatureMax>7.5</ComfyTemperatureMax>
+						<ComfyTemperatureMin>-7.5</ComfyTemperatureMin>
+						<ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+						<ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+						<ArmorRating_Heat>0.05</ArmorRating_Heat>
+					</statOffsets>
+				</li>
+				<li>
+					<minSeverity>0.2</minSeverity>
+					<statOffsets>
+						<ComfyTemperatureMax>10</ComfyTemperatureMax>
+						<ComfyTemperatureMin>-10</ComfyTemperatureMin>
+						<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+						<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+						<ArmorRating_Heat>0.1</ArmorRating_Heat>
+					</statOffsets>
+				</li>
+				<li>
+					<minSeverity>0.3</minSeverity>
+					<statOffsets>
+						<ComfyTemperatureMax>12.5</ComfyTemperatureMax>
+						<ComfyTemperatureMin>-12.5</ComfyTemperatureMin>
+						<ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+						<ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+						<ArmorRating_Heat>0.15</ArmorRating_Heat>
+					</statOffsets>
+				</li>
+				<li>
+					<minSeverity>0.4</minSeverity>
+					<statOffsets>
+						<ComfyTemperatureMax>15</ComfyTemperatureMax>
+						<ComfyTemperatureMin>-15</ComfyTemperatureMin>
+						<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+						<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+						<ArmorRating_Heat>0.2</ArmorRating_Heat>
+					</statOffsets>
+				</li>
+				<li>
+					<minSeverity>0.5</minSeverity>
+					<statOffsets>
+						<ComfyTemperatureMax>17.5</ComfyTemperatureMax>
+						<ComfyTemperatureMin>-17.5</ComfyTemperatureMin>
+						<ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+						<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+						<ArmorRating_Heat>0.25</ArmorRating_Heat>
+					</statOffsets>
+				</li>
+				<li>
+					<minSeverity>0.6</minSeverity>
+					<statOffsets>
+						<ComfyTemperatureMax>20</ComfyTemperatureMax>
+						<ComfyTemperatureMin>-20</ComfyTemperatureMin>
+						<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+						<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+						<ArmorRating_Heat>0.3</ArmorRating_Heat>
+					</statOffsets>
+				</li>
+			</stages>
+		</value>
+	</Operation>
+
+</Patch>

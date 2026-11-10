@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Rimsenal Xenotype Pack - Harana overlap removal:
+		  - With Det's Stoneborn: Harana are irascible (Stoneborn's gene) instead of Rimsenal's passively aggressive gene,
+		    which goes on this mod's Cherry Picker list (revive entry in 1.6/Defs/CherryPicker.xml). Only Harana carries it.
+		  - With VRE Archon: Harana gain Archon's fast melee hitter.
+		  - With Askbarn: Harana's agile striker and Askbarn's lightning reflexes both cut aiming delay, so they share a new
+		    AimingDelay exclusion group (neither gene had exclusion tags; nothing else carries the tag).
+		This folder loads when a Rimsenal xenotype pack is active (see loadFolders.xml); each block sits in a subfolder gated on its mods.
+		Verified against Harana, Askbarn and Stoneborn 1.6. VRE Archon is not installed here, so VRE_FastMeleeHitter is unchecked.
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="Harana"]/genes/li[text()="Aggression_PassivelyAggressive"]</xpath>
+		<value>
+			<li>DV_Aggression_Irascible</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/Aggression_PassivelyAggressive</li>
+		</value>
+	</Operation>
+
+</Patch>

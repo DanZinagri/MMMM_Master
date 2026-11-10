@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/CherryPicks.xml: the operations that also need Alpha Genes and Big and Small - Framework. -->
+
+	<!-- Body_FemaleOnly is a Framework gene, so this gate checks Framework rather than Genes &amp; More. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="Body_FemaleOnly"]]/genes/li[text()="AG_Female"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="Body_FemaleOnly"]]/genes/li[text()="AG_Female"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="AG_Female"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="AG_Female"]</xpath>
+			<value>
+				<li>Body_FemaleOnly</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/AG_Female</li>
+		</value>
+	</Operation>
+
+</Patch>

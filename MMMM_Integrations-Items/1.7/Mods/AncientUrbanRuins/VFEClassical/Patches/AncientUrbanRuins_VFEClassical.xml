@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/AncientUrbanRuins/Patches/AncientUrbanRuins.xml: the operations that also need Vanilla Factions Expanded - Classical. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[defName="AM_Food"]/root/options</xpath>
+		<value>
+			<li>
+				<weight>0.5</weight>
+				<thingSetMaker Class="ThingSetMaker_StackCount">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li>VFEC_Jerky</li>
+							</thingDefs>
+						</filter>
+						<countRange>40~70</countRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[defName="AM_MedicalSupplies"]/root/options</xpath>
+		<value>
+			<li>
+				<weight>0.1</weight>
+				<thingSetMaker Class="ThingSetMaker_StackCount">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li>VFEC_Opium</li>
+							</thingDefs>
+						</filter>
+						<countRange>6~14</countRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

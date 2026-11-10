@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/CherryPicks.xml: the operations that also need Alpha Genes and Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/AG_LargerBodySize</li>
+			<li>GeneDef/AG_LargerBodySize_Astrogene</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="AG_HeatImmunity"]]/genes/li[text()="MaxTemp_HugeIncrease"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="AG_HeatImmunity"]]/genes/li[text()="MaxTemp_HugeIncrease"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="MaxTemp_HugeIncrease"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="MaxTemp_HugeIncrease"]</xpath>
+			<value>
+				<li>AG_HeatImmunity</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="AG_ColdImmunity"]]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="AG_ColdImmunity"]]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+			<value>
+				<li>AG_ColdImmunity</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="AG_HeatImmunity"]]/genes/li[text()="FireImmunity"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="AG_HeatImmunity"]]/genes/li[text()="FireImmunity"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="FireImmunity"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="FireImmunity"]</xpath>
+			<value>
+				<li>AG_HeatImmunity</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="AG_ArmourMajor"]]/genes/li[text()="BS_NaturalArmor"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="AG_ArmourMajor"]]/genes/li[text()="BS_NaturalArmor"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="BS_NaturalArmor"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="BS_NaturalArmor"]</xpath>
+			<value>
+				<li>AG_ArmourMajor</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/MaxTemp_HugeIncrease</li>
+			<li>GeneDef/MaxTemp_HugeIncrease_Astrogene</li>
+			<li>GeneDef/MinTemp_HugeDecrease</li>
+			<li>GeneDef/MinTemp_HugeDecrease_Astrogene</li>
+			<li>GeneDef/FireImmunity</li>
+			<li>GeneDef/FireImmunity_Astrogene</li>
+			<li>GeneDef/AG_Painless</li>
+			<li>GeneDef/AG_Painless_Astrogene</li>
+			<li>GeneDef/BS_NaturalArmor</li>
+			<li>GeneDef/BS_NaturalArmor_Astrogene</li>
+			<li>GeneDef/AG_Male</li>
+		</value>
+	</Operation>
+
+</Patch>

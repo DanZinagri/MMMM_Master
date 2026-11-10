@@ -3,41 +3,111 @@
 <loadFolders>
 	<v1.6>
 		<!-- 1.6/Mods/<Name> loads when that mod is active; 1.6/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VanillaExpanded.VFESpacer">1.6/OtherRebalance/VPE_VFurnESpacerModule</li>
+		<li IfModActive="OskarPotocki.VFE.Insectoid2">1.6/OtherRebalance/VFEInsectoids2</li>
+		<li IfModActiveAll="Erin.JapaneseFurniture,VanillaExpanded.VFECore">1.6/OtherRebalance/ErinsJapaneseFurniture_VFurnE</li>
+		<li IfModActive="vanillaquestsexpanded.generator">1.6/OtherRebalance/VQETheGenerator</li>
+		<li IfModActiveAll="sarg.alphabiomes,Ludeon.RimWorld.Odyssey">1.6/OtherRebalance/AlphaBiomes_Odyssey</li>
+		<li IfModActive="vanillaexpanded.skills">1.6/OtherRebalance/VSkillsE</li>
+		<li IfModActiveAll="sarg.alphaimplants,Rimsenal.Spacer">1.6/OtherRebalance/AlphaImplants_Spacer</li>
+		<li IfModActive="sarg.alphaimplants">1.6/OtherRebalance/AlphaImplants</li>
+		<li IfModActive="22.anomalyportal">1.6/OtherRebalance/Anomalyportal</li>
+		<li IfModActive="VanillaExpanded.VFEArt">1.6/OtherRebalance/VFurnEArt</li>
+		<li IfModActive="OskarPotocki.VFE.Deserters">1.6/OtherRebalance/VFEDeserters</li>
+		<li IfModActive="Ludeon.RimWorld.Anomaly">1.6/OtherRebalance/Anomaly</li>
+		<li IfModActive="OskarPotocki.VFE.Empire">1.6/OtherRebalance/VFEEmpire</li>
+		<li IfModActive="sarg.alphaanimals">1.6/OtherRebalance/AlphaAnimals</li>
+		<li IfModActiveAll="zal.eltexweaponry,OskarPotocki.VFE.Empire">1.6/OtherRebalance/EltexWeaponryContinued_VFEEmpire</li>
+		<li IfModActiveAll="zal.eltexweaponry,VanillaExpanded.VPsycastsE">1.6/OtherRebalance/EltexWeaponryContinued_VPE</li>
+		<li IfModActiveAll="zal.eltexweaponry,Ludeon.RimWorld.Royalty">1.6/OtherRebalance/EltexWeaponryContinued_Royalty</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,ReBuild.COTR.DoorsAndCorners">1.6/OtherRebalance/VPE_ReBuildDoorsAndCorners</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE">1.6/OtherRebalance/VPE</li>
+		<li IfModActive="sarg.alphagenes">1.6/OtherRebalance/AlphaGenes</li>
+		<li IfModActive="Mlie.ReinforcedMechanoid2">1.6/OtherRebalance/ReinforcedMechanoid2</li>
+		<li IfModActiveAll="Mlie.ReinforcedMechanoid2,Ludeon.RimWorld.Royalty">1.6/OtherRebalance/ReinforcedMechanoid2_Royalty</li>
+		<li IfModActive="VanillaExpanded.VFEArchitect">1.6/OtherRebalance/VFurnEArchitect</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.6/OtherRebalance/VFEMedieval2</li>
+		<li IfModActive="veterano.mythicages.megafaunabestiary">1.6/MoodRebalance/MythicAgesMegafaunaBestiary</li>
+		<li IfModActive="Ludeon.RimWorld.Royalty">1.6/MoodRebalance/Royalty</li>
+		<li IfModActive="Ludeon.RimWorld.Anomaly">1.6/MoodRebalance/Anomaly</li>
+		<li IfModActive="sarg.alphabiomes">1.6/MoodRebalance/AlphaBiomes</li>
 		<li>1.6</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,sarg.alphacrafts" IfModNotActive="Trickity.Samurai.Faction">1.6/Mods/BigAndSmallSimplyRobots_WithoutTsSamuraiFaction/AlphaCrafts</li>
 		<li IfModActive="RedMattis.BigSmall.SimpleAndroids" IfModNotActive="Trickity.Samurai.Faction">1.6/Mods/BigAndSmallSimplyRobots_WithoutTsSamuraiFaction</li>
 		<li IfModActive="det.aprilfools.archocubes">1.6/Mods/MarchOfTheArchocubes</li>
+		<li IfModActiveAll="VanillaExpanded.VMemesE,VanillaExpanded.VCookE">1.6/Mods/VanillaIdeologyExpandedMemesAndStructures/VCE</li>
 		<li IfModActive="VanillaExpanded.VMemesE">1.6/Mods/VanillaIdeologyExpandedMemesAndStructures</li>
 		<li IfModActive="VanillaExpanded.VFECore">1.6/Mods/VanillaFurnitureExpanded</li>
 		<li IfModActive="VanillaExpanded.VFEArt">1.6/Mods/VanillaFurnitureExpandedArt</li>
 		<li IfModActive="VanillaExpanded.VFEPower">1.6/Mods/VanillaFurnitureExpandedPower</li>
+		<li IfModActiveAll="VanillaExpanded.VFESecurity,VanillaExpanded.BaseGeneration,Smxrez.securityreexamined">1.6/Mods/VanillaFurnitureExpandedSecurity/SecurityReExamined</li>
 		<li IfModActiveAll="VanillaExpanded.VFESecurity,VanillaExpanded.BaseGeneration">1.6/Mods/VanillaFurnitureExpandedSecurity</li>
 		<li IfModActiveAll="vanillaquestsexpanded.cryptoforge,Ludeon.RimWorld.Odyssey">1.6/Mods/VanillaQuestsExpandedCryptoforge</li>
+		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,RedMattis.BigSmall.Core">1.6/Mods/RimGnoblins/BSGenesAndMore</li>
 		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.6/Mods/RimGnoblins</li>
 		<li IfModActive="VanillaExpanded.VBrewE">1.6/Mods/VanillaBrewingExpanded</li>
+		<li IfModActiveAll="sarg.alphabiomes,Ludeon.RimWorld.Odyssey">1.6/Mods/AlphaBiomes/Odyssey</li>
 		<li IfModActive="sarg.alphabiomes">1.6/Mods/AlphaBiomes</li>
 		<li IfModActive="sarg.alphacrafts">1.6/Mods/AlphaCrafts</li>
 		<li IfModActive="RedMattis.BigSmall.SimpleAndroids">1.6/Mods/BigAndSmallSimplyRobots</li>
+		<li IfModActiveAll="ReBuild.COTR.DoorsAndCorners,VanillaExpanded.VFECore">1.6/Mods/ReBuildDoorsAndCorners/VFurnE</li>
 		<li IfModActive="ReBuild.COTR.DoorsAndCorners">1.6/Mods/ReBuildDoorsAndCorners</li>
 		<li IfModActive="vanillaquestsexpanded.deadlife">1.6/Mods/VanillaQuestsExpandedDeadlife</li>
 	</v1.6>
 	<v1.7>
 		<!-- 1.7/Mods/<Name> loads when that mod is active; 1.7/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VanillaExpanded.VFESpacer">1.7/OtherRebalance/VPE_VFurnESpacerModule</li>
+		<li IfModActive="OskarPotocki.VFE.Insectoid2">1.7/OtherRebalance/VFEInsectoids2</li>
+		<li IfModActiveAll="Erin.JapaneseFurniture,VanillaExpanded.VFECore">1.7/OtherRebalance/ErinsJapaneseFurniture_VFurnE</li>
+		<li IfModActive="vanillaquestsexpanded.generator">1.7/OtherRebalance/VQETheGenerator</li>
+		<li IfModActiveAll="sarg.alphabiomes,Ludeon.RimWorld.Odyssey">1.7/OtherRebalance/AlphaBiomes_Odyssey</li>
+		<li IfModActive="vanillaexpanded.skills">1.7/OtherRebalance/VSkillsE</li>
+		<li IfModActiveAll="sarg.alphaimplants,Rimsenal.Spacer">1.7/OtherRebalance/AlphaImplants_Spacer</li>
+		<li IfModActive="sarg.alphaimplants">1.7/OtherRebalance/AlphaImplants</li>
+		<li IfModActive="22.anomalyportal">1.7/OtherRebalance/Anomalyportal</li>
+		<li IfModActive="VanillaExpanded.VFEArt">1.7/OtherRebalance/VFurnEArt</li>
+		<li IfModActive="OskarPotocki.VFE.Deserters">1.7/OtherRebalance/VFEDeserters</li>
+		<li IfModActive="Ludeon.RimWorld.Anomaly">1.7/OtherRebalance/Anomaly</li>
+		<li IfModActive="OskarPotocki.VFE.Empire">1.7/OtherRebalance/VFEEmpire</li>
+		<li IfModActive="sarg.alphaanimals">1.7/OtherRebalance/AlphaAnimals</li>
+		<li IfModActiveAll="zal.eltexweaponry,OskarPotocki.VFE.Empire">1.7/OtherRebalance/EltexWeaponryContinued_VFEEmpire</li>
+		<li IfModActiveAll="zal.eltexweaponry,VanillaExpanded.VPsycastsE">1.7/OtherRebalance/EltexWeaponryContinued_VPE</li>
+		<li IfModActiveAll="zal.eltexweaponry,Ludeon.RimWorld.Royalty">1.7/OtherRebalance/EltexWeaponryContinued_Royalty</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,ReBuild.COTR.DoorsAndCorners">1.7/OtherRebalance/VPE_ReBuildDoorsAndCorners</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE">1.7/OtherRebalance/VPE</li>
+		<li IfModActive="sarg.alphagenes">1.7/OtherRebalance/AlphaGenes</li>
+		<li IfModActive="Mlie.ReinforcedMechanoid2">1.7/OtherRebalance/ReinforcedMechanoid2</li>
+		<li IfModActiveAll="Mlie.ReinforcedMechanoid2,Ludeon.RimWorld.Royalty">1.7/OtherRebalance/ReinforcedMechanoid2_Royalty</li>
+		<li IfModActive="VanillaExpanded.VFEArchitect">1.7/OtherRebalance/VFurnEArchitect</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.7/OtherRebalance/VFEMedieval2</li>
+		<li IfModActive="veterano.mythicages.megafaunabestiary">1.7/MoodRebalance/MythicAgesMegafaunaBestiary</li>
+		<li IfModActive="Ludeon.RimWorld.Royalty">1.7/MoodRebalance/Royalty</li>
+		<li IfModActive="Ludeon.RimWorld.Anomaly">1.7/MoodRebalance/Anomaly</li>
+		<li IfModActive="sarg.alphabiomes">1.7/MoodRebalance/AlphaBiomes</li>
 		<li>1.7</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,sarg.alphacrafts" IfModNotActive="Trickity.Samurai.Faction">1.7/Mods/BigAndSmallSimplyRobots_WithoutTsSamuraiFaction/AlphaCrafts</li>
 		<li IfModActive="RedMattis.BigSmall.SimpleAndroids" IfModNotActive="Trickity.Samurai.Faction">1.7/Mods/BigAndSmallSimplyRobots_WithoutTsSamuraiFaction</li>
 		<li IfModActive="det.aprilfools.archocubes">1.7/Mods/MarchOfTheArchocubes</li>
+		<li IfModActiveAll="VanillaExpanded.VMemesE,VanillaExpanded.VCookE">1.7/Mods/VanillaIdeologyExpandedMemesAndStructures/VCE</li>
 		<li IfModActive="VanillaExpanded.VMemesE">1.7/Mods/VanillaIdeologyExpandedMemesAndStructures</li>
 		<li IfModActive="VanillaExpanded.VFECore">1.7/Mods/VanillaFurnitureExpanded</li>
 		<li IfModActive="VanillaExpanded.VFEArt">1.7/Mods/VanillaFurnitureExpandedArt</li>
 		<li IfModActive="VanillaExpanded.VFEPower">1.7/Mods/VanillaFurnitureExpandedPower</li>
+		<li IfModActiveAll="VanillaExpanded.VFESecurity,VanillaExpanded.BaseGeneration,Smxrez.securityreexamined">1.7/Mods/VanillaFurnitureExpandedSecurity/SecurityReExamined</li>
 		<li IfModActiveAll="VanillaExpanded.VFESecurity,VanillaExpanded.BaseGeneration">1.7/Mods/VanillaFurnitureExpandedSecurity</li>
 		<li IfModActiveAll="vanillaquestsexpanded.cryptoforge,Ludeon.RimWorld.Odyssey">1.7/Mods/VanillaQuestsExpandedCryptoforge</li>
+		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,RedMattis.BigSmall.Core">1.7/Mods/RimGnoblins/BSGenesAndMore</li>
 		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.7/Mods/RimGnoblins</li>
 		<li IfModActive="VanillaExpanded.VBrewE">1.7/Mods/VanillaBrewingExpanded</li>
+		<li IfModActiveAll="sarg.alphabiomes,Ludeon.RimWorld.Odyssey">1.7/Mods/AlphaBiomes/Odyssey</li>
 		<li IfModActive="sarg.alphabiomes">1.7/Mods/AlphaBiomes</li>
 		<li IfModActive="sarg.alphacrafts">1.7/Mods/AlphaCrafts</li>
 		<li IfModActive="RedMattis.BigSmall.SimpleAndroids">1.7/Mods/BigAndSmallSimplyRobots</li>
+		<li IfModActiveAll="ReBuild.COTR.DoorsAndCorners,VanillaExpanded.VFECore">1.7/Mods/ReBuildDoorsAndCorners/VFurnE</li>
 		<li IfModActive="ReBuild.COTR.DoorsAndCorners">1.7/Mods/ReBuildDoorsAndCorners</li>
 		<li IfModActive="vanillaquestsexpanded.deadlife">1.7/Mods/VanillaQuestsExpandedDeadlife</li>
 	</v1.7>

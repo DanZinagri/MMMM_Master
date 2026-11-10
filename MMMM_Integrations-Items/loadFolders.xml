@@ -3,22 +3,77 @@
 <loadFolders>
 	<v1.6>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Empire,OskarPotocki.VFE.Deserters">1.6/TradeTags/VFEEmpire_VFEDeserters</li>
+		<li IfModActive="OskarPotocki.VFE.Empire">1.6/TradeTags/VFEEmpire</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphamechs,Ludeon.RimWorld.Royalty">1.6/TradeTags/Biotech_AlphaMechs_Royalty</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphamechs">1.6/TradeTags/Biotech_AlphaMechs</li>
+		<li IfModActive="Ludeon.RimWorld.Biotech">1.6/TradeTags/Biotech</li>
 		<li>1.6</li>
 		<!-- Rare fishing catches: the pool is Odyssey's; RareCatches_TreasureAddOn.xml additionally needs the Treasure AddOn, which is checked inside the folder. -->
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE,VanillaExpanded.VWETB">1.6/Mods/FishingRareCatches/VWeaponsE_VWeaponsETribal</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE,VanillaExpanded.VWEC">1.6/Mods/FishingRareCatches/VWeaponsE_VWeaponsECoilguns</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE,det.spacerarsenal">1.6/Mods/FishingRareCatches/VWeaponsE_SpacerArsenal</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE,zal.ionweaponry">1.6/Mods/FishingRareCatches/VWeaponsE_IonWeaponryContinued</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE,detvisor.impactweaponryreloaded">1.6/Mods/FishingRareCatches/VWeaponsE_ImpactWeaponryReloaded</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE,detvisor.pulseweaponry">1.6/Mods/FishingRareCatches/VWeaponsE_PulseWeaponry</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE,det.phaseweaponry">1.6/Mods/FishingRareCatches/VWeaponsE_PhaseWeaponry</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE">1.6/Mods/FishingRareCatches/VWeaponsE</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,veterano.mythicages.megafaunabestiary">1.6/Mods/FishingRareCatches/MythicAgesMegafaunaBestiary</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,Spino.Megafauna">1.6/Mods/FishingRareCatches/Megafauna</li>
+		<li IfModActive="RedMattis.BigSmall,RedMattis.MoreXenos,RedMattis.Yokai,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.Undead" IfModActiveAll="Ludeon.RimWorld.Odyssey,RedMattis.BigSmall.Core">1.6/Mods/FishingRareCatches/BSGenesAndMore_BSContent</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,OskarPotocki.VanillaVehiclesExpanded">1.6/Mods/FishingRareCatches/VVehiclesE</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,lts.I">1.6/Mods/FishingRareCatches/IntegratedImplants</li>
 		<li IfModActive="Ludeon.RimWorld.Odyssey">1.6/Mods/FishingRareCatches</li>
+		<li IfModActiveAll="det.avaloi,ReBuild.COTR.DoorsAndCorners">1.6/Mods/DetsXenotypeAvaloi/ReBuildDoorsAndCorners</li>
 		<li IfModActive="det.avaloi">1.6/Mods/DetsXenotypeAvaloi</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core,sarg.alphagenes">1.6/Mods/BigAndSmallGenesAndMore/AlphaGenes</li>
 		<li IfModActive="RedMattis.BigSmall.Core">1.6/Mods/BigAndSmallGenesAndMore</li>
 		<!-- mirrors Big and Small - Genes &amp; More, which only loads the giant weapons when at least one Big and Small content mod is active -->
 		<li IfModActiveAll="RedMattis.BigSmall.Core" IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025">1.6/Mods/BigAndSmallGiantWeapons</li>
+		<li IfModActiveAll="tug.Minotaur,tug.minotaur.expanded">1.6/Mods/RoosMinotaur/RoosMinotaurExpanded</li>
+		<li IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025" IfModActiveAll="tug.Minotaur,RedMattis.BigSmall.Core">1.6/Mods/RoosMinotaur/BSGenesAndMore_OptionalEtc</li>
 		<li IfModActive="tug.Minotaur">1.6/Mods/RoosMinotaur</li>
+		<li IfModActiveAll="VanillaExpanded.VBrewE,Rimsenal.Harana">1.6/Mods/VanillaBrewingExpanded/Harana</li>
+		<li IfModActiveAll="VanillaExpanded.VBrewE,det.keshig">1.6/Mods/VanillaBrewingExpanded/DetsKeshig</li>
+		<li IfModActiveAll="VanillaExpanded.VBrewE,Sarg.AlphaMemes">1.6/Mods/VanillaBrewingExpanded/AlphaMemes</li>
+		<li IfModActiveAll="VanillaExpanded.VBrewE,VanillaExpanded.VCookE">1.6/Mods/VanillaBrewingExpanded/VCE</li>
 		<li IfModActive="VanillaExpanded.VBrewE">1.6/Mods/VanillaBrewingExpanded</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,vanillaracesexpanded.genie">1.6/Mods/AncientUrbanRuins/VREGenie</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,OskarPotocki.VanillaFactionsExpanded.SettlersModule">1.6/Mods/AncientUrbanRuins/VFESettlers</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,OskarPotocki.VFE.Pirates">1.6/Mods/AncientUrbanRuins/VFEPirates</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,OskarPotocki.VFE.Medieval2">1.6/Mods/AncientUrbanRuins/VFEMedieval2</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,OskarPotocki.VFE.Classical">1.6/Mods/AncientUrbanRuins/VFEClassical</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,VanillaExpanded.VCookE">1.6/Mods/AncientUrbanRuins/VCE</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,VanillaExpanded.VAEAccessories">1.6/Mods/AncientUrbanRuins/VAEAccessories</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,lambda.Kumis">1.6/Mods/AncientUrbanRuins/Kumis</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,det.keshig">1.6/Mods/AncientUrbanRuins/DetsKeshig</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,det.buzzers">1.6/Mods/AncientUrbanRuins/Buzzers</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,VanillaExpanded.VBrewE">1.6/Mods/AncientUrbanRuins/VBE</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,sarg.alphacrafts,VanillaExpanded.VCookE,VanillaExpanded.VPlantsEMore">1.6/Mods/AncientUrbanRuins/AlphaCrafts_VCE_VPlantsEMorePlants</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,sarg.alphacrafts,VanillaExpanded.VCookE">1.6/Mods/AncientUrbanRuins/AlphaCrafts_VCE</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,sarg.alphacrafts,OskarPotocki.VFE.Insectoid2">1.6/Mods/AncientUrbanRuins/AlphaCrafts_VFEInsectoids2</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,sarg.alphacrafts">1.6/Mods/AncientUrbanRuins/AlphaCrafts</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,CatLover366.BootsAndGloves">1.6/Mods/AncientUrbanRuins/CatsBootsAndGloves</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,bb.generic.loot.exp.anc.urban.ruins,VanillaExpanded.VARME">1.6/Mods/AncientUrbanRuins/Ruins_VArmourE</li>
 		<li IfModActive="XMB.AncientUrbanrUins.MO">1.6/Mods/AncientUrbanRuins</li>
+		<li IfModActiveAll="sarg.alphacrafts,veterano.mythicages.megafaunabestiary">1.6/Mods/AlphaCrafts/MythicAgesMegafaunaBestiary</li>
+		<li IfModActiveAll="sarg.alphacrafts,onyxae.dragonsdescent">1.6/Mods/AlphaCrafts/Dragonsdescent</li>
+		<li IfModActiveAll="sarg.alphacrafts,Van.Beasts">1.6/Mods/AlphaCrafts/DarkAgesBeastsAndMonsters</li>
+		<li IfModActiveAll="sarg.alphacrafts,spincrus.dinosauria">1.6/Mods/AlphaCrafts/Dinosauria</li>
+		<li IfModActiveAll="sarg.alphacrafts,Spino.Megafauna">1.6/Mods/AlphaCrafts/Megafauna</li>
 		<li IfModActive="sarg.alphacrafts">1.6/Mods/AlphaCrafts</li>
 		<li IfModActive="OskarPotocki.VFE.Medieval2">1.6/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActiveAll="Spino.Megafauna,RedMattis.BetterPrerequisites">1.6/Mods/Megafauna/BSFramework</li>
 		<li IfModActive="Spino.Megafauna">1.6/Mods/Megafauna</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals,Hol.DragonGenetics">1.6/Mods/VanillaGeneticsExpanded/AlphaAnimals_DragonGenetics</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals,Spino.Megafauna">1.6/Mods/VanillaGeneticsExpanded/AlphaAnimals_Megafauna</li>
+		<li IfModActive="spincrus.dinosauria,BiomesTeam.BiomesPrehistoric" IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals">1.6/Mods/VanillaGeneticsExpanded/AlphaAnimals_DOBP</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
+		<li IfModActiveAll="VanillaExpanded.VAPPE,ReBuild.COTR.DoorsAndCorners">1.6/Mods/VanillaApparelExpanded/ReBuildDoorsAndCorners</li>
 		<li IfModActive="VanillaExpanded.VAPPE">1.6/Mods/VanillaApparelExpanded</li>
+		<li IfModActiveAll="ponpeco.PonpecoPajamas,ferny.progressionkitchen,OskarPotocki.VFE.Tribals">1.6/Mods/PonpecoPajamas/ProgressionKitchen_VFETribals</li>
 		<li IfModActive="ponpeco.PonpecoPajamas">1.6/Mods/PonpecoPajamas</li>
 		<li IfModActiveAll="DankPyon.Medieval.Overhaul,cruesoe.vanillacombatoverhaul">1.6/Mods/MedievalOverhaulVCO</li>
 		<!-- Fortified heavy-weapon whitelists. The two copied from standalone compat mods are skipped when that mod is active. -->
@@ -29,22 +84,77 @@
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Empire,OskarPotocki.VFE.Deserters">1.7/TradeTags/VFEEmpire_VFEDeserters</li>
+		<li IfModActive="OskarPotocki.VFE.Empire">1.7/TradeTags/VFEEmpire</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphamechs,Ludeon.RimWorld.Royalty">1.7/TradeTags/Biotech_AlphaMechs_Royalty</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphamechs">1.7/TradeTags/Biotech_AlphaMechs</li>
+		<li IfModActive="Ludeon.RimWorld.Biotech">1.7/TradeTags/Biotech</li>
 		<li>1.7</li>
 		<!-- Rare fishing catches: the pool is Odyssey's; RareCatches_TreasureAddOn.xml additionally needs the Treasure AddOn, which is checked inside the folder. -->
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE,VanillaExpanded.VWETB">1.7/Mods/FishingRareCatches/VWeaponsE_VWeaponsETribal</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE,VanillaExpanded.VWEC">1.7/Mods/FishingRareCatches/VWeaponsE_VWeaponsECoilguns</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE,det.spacerarsenal">1.7/Mods/FishingRareCatches/VWeaponsE_SpacerArsenal</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE,zal.ionweaponry">1.7/Mods/FishingRareCatches/VWeaponsE_IonWeaponryContinued</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE,detvisor.impactweaponryreloaded">1.7/Mods/FishingRareCatches/VWeaponsE_ImpactWeaponryReloaded</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE,detvisor.pulseweaponry">1.7/Mods/FishingRareCatches/VWeaponsE_PulseWeaponry</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE,det.phaseweaponry">1.7/Mods/FishingRareCatches/VWeaponsE_PhaseWeaponry</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,VanillaExpanded.VWE">1.7/Mods/FishingRareCatches/VWeaponsE</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,veterano.mythicages.megafaunabestiary">1.7/Mods/FishingRareCatches/MythicAgesMegafaunaBestiary</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,Spino.Megafauna">1.7/Mods/FishingRareCatches/Megafauna</li>
+		<li IfModActive="RedMattis.BigSmall,RedMattis.MoreXenos,RedMattis.Yokai,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.Undead" IfModActiveAll="Ludeon.RimWorld.Odyssey,RedMattis.BigSmall.Core">1.7/Mods/FishingRareCatches/BSGenesAndMore_BSContent</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,OskarPotocki.VanillaVehiclesExpanded">1.7/Mods/FishingRareCatches/VVehiclesE</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Odyssey,lts.I">1.7/Mods/FishingRareCatches/IntegratedImplants</li>
 		<li IfModActive="Ludeon.RimWorld.Odyssey">1.7/Mods/FishingRareCatches</li>
+		<li IfModActiveAll="det.avaloi,ReBuild.COTR.DoorsAndCorners">1.7/Mods/DetsXenotypeAvaloi/ReBuildDoorsAndCorners</li>
 		<li IfModActive="det.avaloi">1.7/Mods/DetsXenotypeAvaloi</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core,sarg.alphagenes">1.7/Mods/BigAndSmallGenesAndMore/AlphaGenes</li>
 		<li IfModActive="RedMattis.BigSmall.Core">1.7/Mods/BigAndSmallGenesAndMore</li>
 		<!-- mirrors Big and Small - Genes &amp; More, which only loads the giant weapons when at least one Big and Small content mod is active -->
 		<li IfModActiveAll="RedMattis.BigSmall.Core" IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025">1.7/Mods/BigAndSmallGiantWeapons</li>
+		<li IfModActiveAll="tug.Minotaur,tug.minotaur.expanded">1.7/Mods/RoosMinotaur/RoosMinotaurExpanded</li>
+		<li IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025" IfModActiveAll="tug.Minotaur,RedMattis.BigSmall.Core">1.7/Mods/RoosMinotaur/BSGenesAndMore_OptionalEtc</li>
 		<li IfModActive="tug.Minotaur">1.7/Mods/RoosMinotaur</li>
+		<li IfModActiveAll="VanillaExpanded.VBrewE,Rimsenal.Harana">1.7/Mods/VanillaBrewingExpanded/Harana</li>
+		<li IfModActiveAll="VanillaExpanded.VBrewE,det.keshig">1.7/Mods/VanillaBrewingExpanded/DetsKeshig</li>
+		<li IfModActiveAll="VanillaExpanded.VBrewE,Sarg.AlphaMemes">1.7/Mods/VanillaBrewingExpanded/AlphaMemes</li>
+		<li IfModActiveAll="VanillaExpanded.VBrewE,VanillaExpanded.VCookE">1.7/Mods/VanillaBrewingExpanded/VCE</li>
 		<li IfModActive="VanillaExpanded.VBrewE">1.7/Mods/VanillaBrewingExpanded</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,vanillaracesexpanded.genie">1.7/Mods/AncientUrbanRuins/VREGenie</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,OskarPotocki.VanillaFactionsExpanded.SettlersModule">1.7/Mods/AncientUrbanRuins/VFESettlers</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,OskarPotocki.VFE.Pirates">1.7/Mods/AncientUrbanRuins/VFEPirates</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,OskarPotocki.VFE.Medieval2">1.7/Mods/AncientUrbanRuins/VFEMedieval2</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,OskarPotocki.VFE.Classical">1.7/Mods/AncientUrbanRuins/VFEClassical</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,VanillaExpanded.VCookE">1.7/Mods/AncientUrbanRuins/VCE</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,VanillaExpanded.VAEAccessories">1.7/Mods/AncientUrbanRuins/VAEAccessories</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,lambda.Kumis">1.7/Mods/AncientUrbanRuins/Kumis</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,det.keshig">1.7/Mods/AncientUrbanRuins/DetsKeshig</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,det.buzzers">1.7/Mods/AncientUrbanRuins/Buzzers</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,VanillaExpanded.VBrewE">1.7/Mods/AncientUrbanRuins/VBE</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,sarg.alphacrafts,VanillaExpanded.VCookE,VanillaExpanded.VPlantsEMore">1.7/Mods/AncientUrbanRuins/AlphaCrafts_VCE_VPlantsEMorePlants</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,sarg.alphacrafts,VanillaExpanded.VCookE">1.7/Mods/AncientUrbanRuins/AlphaCrafts_VCE</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,sarg.alphacrafts,OskarPotocki.VFE.Insectoid2">1.7/Mods/AncientUrbanRuins/AlphaCrafts_VFEInsectoids2</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,sarg.alphacrafts">1.7/Mods/AncientUrbanRuins/AlphaCrafts</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,CatLover366.BootsAndGloves">1.7/Mods/AncientUrbanRuins/CatsBootsAndGloves</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,bb.generic.loot.exp.anc.urban.ruins,VanillaExpanded.VARME">1.7/Mods/AncientUrbanRuins/Ruins_VArmourE</li>
 		<li IfModActive="XMB.AncientUrbanrUins.MO">1.7/Mods/AncientUrbanRuins</li>
+		<li IfModActiveAll="sarg.alphacrafts,veterano.mythicages.megafaunabestiary">1.7/Mods/AlphaCrafts/MythicAgesMegafaunaBestiary</li>
+		<li IfModActiveAll="sarg.alphacrafts,onyxae.dragonsdescent">1.7/Mods/AlphaCrafts/Dragonsdescent</li>
+		<li IfModActiveAll="sarg.alphacrafts,Van.Beasts">1.7/Mods/AlphaCrafts/DarkAgesBeastsAndMonsters</li>
+		<li IfModActiveAll="sarg.alphacrafts,spincrus.dinosauria">1.7/Mods/AlphaCrafts/Dinosauria</li>
+		<li IfModActiveAll="sarg.alphacrafts,Spino.Megafauna">1.7/Mods/AlphaCrafts/Megafauna</li>
 		<li IfModActive="sarg.alphacrafts">1.7/Mods/AlphaCrafts</li>
 		<li IfModActive="OskarPotocki.VFE.Medieval2">1.7/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActiveAll="Spino.Megafauna,RedMattis.BetterPrerequisites">1.7/Mods/Megafauna/BSFramework</li>
 		<li IfModActive="Spino.Megafauna">1.7/Mods/Megafauna</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals,Hol.DragonGenetics">1.7/Mods/VanillaGeneticsExpanded/AlphaAnimals_DragonGenetics</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals,Spino.Megafauna">1.7/Mods/VanillaGeneticsExpanded/AlphaAnimals_Megafauna</li>
+		<li IfModActive="spincrus.dinosauria,BiomesTeam.BiomesPrehistoric" IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals">1.7/Mods/VanillaGeneticsExpanded/AlphaAnimals_DOBP</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>
+		<li IfModActiveAll="VanillaExpanded.VAPPE,ReBuild.COTR.DoorsAndCorners">1.7/Mods/VanillaApparelExpanded/ReBuildDoorsAndCorners</li>
 		<li IfModActive="VanillaExpanded.VAPPE">1.7/Mods/VanillaApparelExpanded</li>
+		<li IfModActiveAll="ponpeco.PonpecoPajamas,ferny.progressionkitchen,OskarPotocki.VFE.Tribals">1.7/Mods/PonpecoPajamas/ProgressionKitchen_VFETribals</li>
 		<li IfModActive="ponpeco.PonpecoPajamas">1.7/Mods/PonpecoPajamas</li>
 		<li IfModActiveAll="DankPyon.Medieval.Overhaul,cruesoe.vanillacombatoverhaul">1.7/Mods/MedievalOverhaulVCO</li>
 		<!-- Fortified heavy-weapon whitelists. The two copied from standalone compat mods are skipped when that mod is active. -->

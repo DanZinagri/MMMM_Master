@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Without/MedievalOverhaulRoyalty/Patches/MedievalOverhaulRoyalty_StrongerEnemies.xml: the operations that also need Vanilla Psycasts Expanded and VPE - Hydromancer. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[position()=2 or position()=3 or position()=4]/options</xpath>
+		<value>
+			<TMM_Empire_Caster_Hydromancer>0.02</TMM_Empire_Caster_Hydromancer>
+		</value>
+	</Operation>
+
+</Patch>

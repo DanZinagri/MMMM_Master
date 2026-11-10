@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/RimsenalMurderDiversified/Patches/RimsenalMurderDiversified_EquipmentRebalance.xml: the operations that also need Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="Apparel_HazardCarapace"]</xpath>
+		<value>
+			<li Class="VEF.Apparels.ApparelExtension">
+				<equippedStatFactors>
+					<SM_AcidDmgMult>0.4</SM_AcidDmgMult>
+				</equippedStatFactors>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need hlx.UltratechAlteredCarbon. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="AC_Apparel_ChrysalisHelmet"]/statBases/VEF_RangedCooldownFactor</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="AC_Apparel_ChrysalisHelmet"]/equippedStatOffsets/AimingDelayFactor</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="AC_Apparel_FusilierHelmet"]/statBases/VEF_RangedCooldownFactor</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="AC_Apparel_FusilierHelmet"]/equippedStatOffsets/ShootingAccuracyPawn</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="AC_Apparel_FusilierHelmet"]/equippedStatOffsets/AimingDelayFactor</xpath>
+		<value>
+			<AimingDelayFactor>-0.15</AimingDelayFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="AC_Apparel_FusilierHelmet"]/description</xpath>
+		<value>
+			<description>A variant of the chrysalis armor helmet with a heavy layer of plasteel-weave plates, next-gen solid ablative coatings and a package of several multi-spectrum sensors, including a classifier AI, allowing the user to see in darkness and smokey conditions. The integrated ballistic rangefinder provides optimal firing solutions, decreasing the user’s effective aiming delay by 15%.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="AC_Apparel_DragoonHelmet"]/equippedStatOffsets/AimingDelayFactor</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="AC_Apparel_DragoonHelmet"]/equippedStatOffsets/ShootingAccuracyPawn</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="AC_Apparel_LancierHelmet"]/statBases/VEF_RangedCooldownFactor</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="AC_Apparel_LancierHelmet"]/equippedStatOffsets/AimingDelayFactor</xpath>
+		<value>
+			<AimingDelayFactor>-0.15</AimingDelayFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/comps/li[@Class="VEF.Apparels.CompProperties_ShieldBubble"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/statBases/EnergyShieldRechargeRate</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/statBases/EnergyShieldRechargeRate</xpath>
+			<value>
+				<EnergyShieldRechargeRate>0.13</EnergyShieldRechargeRate>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/statBases</xpath>
+			<value>
+				<EnergyShieldRechargeRate>0.13</EnergyShieldRechargeRate>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/statBases/EnergyShieldEnergyMax</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/statBases/EnergyShieldEnergyMax</xpath>
+			<value>
+				<EnergyShieldEnergyMax>1.2</EnergyShieldEnergyMax>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/statBases</xpath>
+			<value>
+				<EnergyShieldEnergyMax>1.2</EnergyShieldEnergyMax>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="AC_CuirassierBelt"]/comps</xpath>
+		<value>
+			<li Class="CompProperties_Shield">
+				<blocksRangedWeapons>false</blocksRangedWeapons>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

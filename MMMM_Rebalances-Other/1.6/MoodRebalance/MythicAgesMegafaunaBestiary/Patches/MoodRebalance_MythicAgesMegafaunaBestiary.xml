@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/MoodRebalance.xml: the operations that also need Mythic Ages: Megafauna Bestiary. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThoughtDef[defName="MA_AteCookedPlastemmothMeat"]/stages/li/baseMoodEffect</xpath>
+		<value>
+			<baseMoodEffect>5</baseMoodEffect>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThoughtDef[defName="MA_AteCookedScarodonMeat" or defName="MA_AteCookedDunbearMeat"]/stages/li/baseMoodEffect</xpath>
+		<value>
+			<baseMoodEffect>4</baseMoodEffect>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThoughtDef[defName="MA_AteHippoMeatCooked" or defName="MA_AteRaptorkhanMeatCooked" or defName="MA_AteCookedWorhinMeat"]/stages/li/baseMoodEffect</xpath>
+		<value>
+			<baseMoodEffect>3</baseMoodEffect>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThoughtDef[defName="MA_AteCookedSivatheriumMeat"]/stages/li/baseMoodEffect</xpath>
+		<value>
+			<baseMoodEffect>2</baseMoodEffect>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThoughtDef[defName="MA_AteCookedGnautBeef" or defName="MA_AteCookedHorseBeef" or defName="MA_AteHarpeagleLegsCooked" or defName="MA_AteCookedDuskhornMeat" or defName="MA_AteCookedBirdMeat"]/stages/li/baseMoodEffect</xpath>
+		<value>
+			<baseMoodEffect>1</baseMoodEffect>
+		</value>
+	</Operation>
+
+</Patch>

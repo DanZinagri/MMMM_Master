@@ -19,27 +19,23 @@
 		class in EBSG Framework, so the replacement value loads. Only the thought-side class was renamed, which is a
 		separate fix made in the Beliar folder.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/GeneDef[defName="GS_Melee_Affinity"]/modExtensions</xpath>
-				<value>
-					<modExtensions>
-						<li Class="EBSGFramework.EBSGExtension">
-							<skillChanges>
-								<li>
-									<skill>Melee</skill>
-									<passionChange>2</passionChange>
-								</li>
-							</skillChanges>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="GS_Melee_Affinity"]/modExtensions</xpath>
+		<value>
+			<modExtensions>
+				<li Class="EBSGFramework.EBSGExtension">
+					<skillChanges>
+						<li>
+							<skill>Melee</skill>
+							<passionChange>2</passionChange>
 						</li>
-						<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core" Class="VEF.Genes.GeneExtension">
-							<backgroundPathXenogenes>UI/EXBlank</backgroundPathXenogenes>
-						</li>
-					</modExtensions>
-				</value>
-			</li>
-		</operations>
+					</skillChanges>
+				</li>
+				<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core" Class="VEF.Genes.GeneExtension">
+					<backgroundPathXenogenes>UI/EXBlank</backgroundPathXenogenes>
+				</li>
+			</modExtensions>
+		</value>
 	</Operation>
 
 </Patch>

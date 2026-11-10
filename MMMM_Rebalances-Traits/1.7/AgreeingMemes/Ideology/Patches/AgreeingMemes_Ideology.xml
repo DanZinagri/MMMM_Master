@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Ideology memes gain agreeable / disagreeable traits (and trait-driven opinion values) from Vanilla Traits Expanded, Big
+		and Small, Alpha Memes, VIE Memes and Structures, VQE The Generator, Vanilla Cooking / Books / Genetics / Vehicles
+		Expanded, ReSplice Charmweavers and Lost Factory Mechanoids content. Moved from the core root file ZZ1A_AgreeingMemes.xml
+		(no setting). Removed 32 entries for Bundle of Traits (dani.moreTraits) and [LC] Consolidated Traits, both unsupported.
+		Each block is gated on its mods; Vanilla Books Expanded is gated by packageId.
+		Checked with analysis/patch_sim.py: all installed-mod ops apply.
+	-->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="AnimalPersonhood"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="AnimalPersonhood"]/agreeableTraits</xpath>
+			<value>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalLover</li>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Menagerist</li>
+				<li MayRequire="RedMattis.BigSmall">BS_AnimalFriend</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="AnimalPersonhood"]</xpath>
+			<value>
+				<agreeableTraits>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalLover</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Menagerist</li>
+					<li MayRequire="RedMattis.BigSmall">BS_AnimalFriend</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="AnimalPersonhood"]/disagreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="AnimalPersonhood"]/disagreeableTraits</xpath>
+			<value>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="AnimalPersonhood"]</xpath>
+			<value>
+				<disagreeableTraits>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+				</disagreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="Darkness"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="Darkness"]/agreeableTraits</xpath>
+			<value>
+				<li>NightOwl</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="Darkness"]</xpath>
+			<value>
+				<agreeableTraits>
+					<li>NightOwl</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="FemaleSupremacy"]/disagreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="FemaleSupremacy"]/disagreeableTraits</xpath>
+			<value>
+				<li>DislikesWomen</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="FemaleSupremacy"]</xpath>
+			<value>
+				<disagreeableTraits>
+					<li>DislikesWomen</li>
+				</disagreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="MaleSupremacy"]/disagreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="MaleSupremacy"]/disagreeableTraits</xpath>
+			<value>
+				<li>DislikesMen</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="MaleSupremacy"]</xpath>
+			<value>
+				<disagreeableTraits>
+					<li>DislikesMen</li>
+				</disagreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="HumanPrimacy"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="HumanPrimacy"]/agreeableTraits</xpath>
+			<value>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="HumanPrimacy"]</xpath>
+			<value>
+				<agreeableTraits>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="HighLife"]/disagreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="HighLife"]/disagreeableTraits</xpath>
+			<value>
+				<DrugDesire>-1</DrugDesire>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="HighLife"]</xpath>
+			<value>
+				<disagreeableTraits>
+					<DrugDesire>-1</DrugDesire>
+				</disagreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/MemeDef[defName="Transhumanist"]/disagreeableTraits</xpath>
+		<value>
+			<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Technophobe</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="TreeConnection"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="TreeConnection"]/agreeableTraits</xpath>
+			<value>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Ecologist</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="TreeConnection"]</xpath>
+			<value>
+				<agreeableTraits>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Ecologist</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="Raider"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="Raider"]/agreeableTraits</xpath>
+			<value>
+				<li>Bloodlust</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="Raider"]</xpath>
+			<value>
+				<agreeableTraits>
+					<li>Bloodlust</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="Raider"]/disagreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="Raider"]/disagreeableTraits</xpath>
+			<value>
+				<li>Kind</li>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Coward</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="Raider"]</xpath>
+			<value>
+				<disagreeableTraits>
+					<li>Kind</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Coward</li>
+				</disagreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

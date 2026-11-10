@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/RimsenalXenotypes/Patches/RimsenalXenotype_Harana.xml: the operations that also need Rimsenal.Harana and vanillaracesexpanded.archon. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="Harana"]/genes</xpath>
+		<value>
+			<li>VRE_FastMeleeHitter</li>
+		</value>
+	</Operation>
+
+</Patch>

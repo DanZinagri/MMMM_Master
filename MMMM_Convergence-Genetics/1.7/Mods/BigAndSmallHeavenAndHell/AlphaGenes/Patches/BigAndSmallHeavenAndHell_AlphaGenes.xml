@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small - Heaven and Hell: angel and demon genes swapped for the equivalents from Alpha Genes, VRE -
+		Sanguophage and VRE - Highmate, so the same effect is not provided twice under two names.
+		  - Satan's natural armour and the nephilim and gluttons' tough skin become the Alpha Genes armour genes.
+		  - Heat and cold tolerance genes become the Alpha Genes immunities, with the originals removed.
+		  - Satan and the lilim use the Sanguophage talons, the grigori and lilim the Highmate flirty gene, and the
+		    lilim the Highmate very high libido in place of the Big and Small succubus libido.
+		This folder only loads when Heaven and Hell is active (see loadFolders.xml); each swap sits in a subfolder gated on the mod that supplies the replacement.
+		Operations that also need another mod sit in a subfolder gated on it in loadFolders.xml.
+
+		Verified against Heaven and Hell 1.6: every gene being replaced or removed is present in its xenotype, so all
+		fourteen operations land.
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Satan"]/genes/li[text()="BS_NaturalArmor"]</xpath>
+		<value>
+			<li>AG_ArmourMajor</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Nephilim" or defName="BS_Glutton" or defName="BS_LilGlutton"]/genes/li[text()="BS_ToughSkin"]</xpath>
+		<value>
+			<li>AG_ArmourMedium</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_Authority"]/genes</xpath>
+		<value>
+			<li>AG_HeatImmunity</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>
+							Defs/XenotypeDef[defName="BS_Authority"]/genes/li[text()="MaxTemp_HugeIncrease"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>
+							Defs/XenotypeDef[defName="BS_Authority"]/genes/li[text()="FireImmunity"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_Malakim"]/genes</xpath>
+		<value>
+			<li>AG_ColdImmunity</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>
+							Defs/XenotypeDef[defName="BS_Malakim"]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_Satan"]/genes</xpath>
+		<value>
+			<li>AG_ColdImmunity</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>
+							Defs/XenotypeDef[defName="BS_Satan"]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_Grigori"]/genes</xpath>
+		<value>
+			<li>AG_ColdImmunity</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>
+							Defs/XenotypeDef[defName="BS_Grigori"]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+	</Operation>
+
+</Patch>

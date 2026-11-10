@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/FishingRareCatches/Patches/RareCatches_TreasureAddOn.xml: the operations that also need Vanilla Weapons Expanded. -->
+
+	<!-- VWE Weapons x8: 0.5 -->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Fishing Expanded - Treasure AddOn</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+			<value>
+				<li>
+					<weight>0.1</weight>
+					<thingSetMaker Class="ThingSetMaker_Count">
+						<fixedParams>
+							<qualityGenerator>Reward</qualityGenerator>
+							<filter>
+								<thingDefs>
+									<li>Gun_Revolver</li>
+									<li>Gun_Autopistol</li>
+									<li>Gun_MachinePistol</li>
+									<li>Gun_BoltActionRifle</li>
+									<li>Gun_PumpShotgun</li>
+									<li>Gun_ChainShotgun</li>
+									<li>Gun_HeavySMG</li>
+									<li>Gun_LMG</li>
+									<li>Gun_AssaultRifle</li>
+									<li>Gun_SniperRifle</li>
+									<li>Gun_Minigun</li>
+								</thingDefs>
+							</filter>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+				<li>
+					<weight>0.05</weight>
+					<thingSetMaker Class="ThingSetMaker_Count">
+						<fixedParams>
+							<qualityGenerator>Reward</qualityGenerator>
+							<filter>
+								<thingDefs>
+									<li MayRequire="OskarPotocki.VFE.Empire">VFEE_Gun_ChargeThumper</li>
+									<li MayRequire="OskarPotocki.VFE.Deserters">VFED_Gun_ChargeCycler</li>
+									<!-- not included in VFETA -->
+									<li>VWE_SawedOffShotgun</li>
+									<li>VWE_CombatHandgun</li>
+									<li>VWE_Gun_LeverActionRifle</li>
+									<li>VWE_Gun_HMG</li>
+									<li>VWE_Gun_ServiceRifle</li>
+									<li>VWE_Gun_Carbine</li>
+									<li>VWE_Gun_MarksmanRifle</li>
+									<li>VWE_Gun_ChargeLMG</li>
+									<li>VWE_Gun_ChargeMinigun</li>
+									<li>VWE_Gun_ChargeShotgun</li>
+								</thingDefs>
+							</filter>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Rimsenal - Augmented Vanilla Pack</li>
+		</mods>
+		<match Class="PatchOperationFindMod">
+			<mods>
+				<li>Vanilla Fishing Expanded - Treasure AddOn</li>
+			</mods>
+			<match Class="PatchOperationAdd">
+				<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+				<value>
+					<li>
+						<weight>0.15</weight>
+						<thingSetMaker Class="ThingSetMaker_Count">
+							<fixedParams>
+								<qualityGenerator>Reward</qualityGenerator>
+								<filter>
+									<thingDefs>
+										<li>Gun_ChargeSidearm</li>
+										<li>Gun_ScatterCharger</li>
+										<li>Gun_EMPRifle</li>
+										<li>Gun_AssaultCharger</li>
+										<li>Gun_CFR</li>
+										<li MayRequire="Ludeon.RimWorld.Odyssey">Gun_RSBeamCarbine</li>
+										<li MayRequire="Ludeon.RimWorld.Odyssey">Gun_RSBeamPistol</li>
+										<li MayRequire="Ludeon.RimWorld.Odyssey">Gun_RSBeamSniper</li>
+										<li MayRequire="Ludeon.RimWorld.Odyssey">Gun_RSBeamShotgun</li>
+										<li>Gun_RSBattleRifle</li>
+										<li>Gun_RSCarbine</li>
+										<li>Gun_PistolHeavyRevolver</li>
+										<li>Gun_RSAMRifle</li>
+										<li>Gun_Repeater</li>
+										<li>Gun_AutomaticRifle</li>
+										<li>Gun_MarksmanRifle</li>
+										<li>Gun_MilitiaRifle</li>
+										<li>Gun_RSThumper</li>
+									</thingDefs>
+								</filter>
+							</fixedParams>
+						</thingSetMaker>
+					</li>
+				</value>
+			</match>
+		</match>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/AncientUrbanRuins/Patches/AncientUrbanRuins.xml: the operations that also need Alpha Crafts. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="AM_DoubleDeckRacks" or defName="AM_ThreeLayerRacks"]/modExtensions/li[@Class="AncientMarket_Libraray.ModExtension_Lootbox"]/loots</xpath>
+		<value>
+			<loots>
+				<li>TMM_ArtisanGoods_Large</li>
+			</loots>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="AM_Snack_StorageRacks"]/modExtensions/li[@Class="AncientMarket_Libraray.ModExtension_Lootbox"]/loots</xpath>
+		<value>
+			<loots>
+				<li>AM_PotatoChips</li>
+			</loots>
+		</value>
+	</Operation>
+
+</Patch>

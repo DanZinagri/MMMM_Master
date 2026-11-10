@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Rim-Elves. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="RE_MentalFanaticism"]/statFactors</xpath>
+		<value>
+			<statFactors>
+				<SocialImpact>0.50</SocialImpact>
+				<CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</CertaintyLossFactor>
+				<SuppressionPower MayRequire="Ludeon.RimWorld.Ideology">1.25</SuppressionPower>
+				<NegotiationAbility>0.25</NegotiationAbility>
+				<TradePriceImprovement>0.25</TradePriceImprovement>
+			</statFactors>
+		</value>
+	</Operation>
+
+</Patch>

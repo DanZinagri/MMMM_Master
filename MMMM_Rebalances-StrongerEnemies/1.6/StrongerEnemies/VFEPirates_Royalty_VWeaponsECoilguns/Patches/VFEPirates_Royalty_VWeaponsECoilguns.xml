@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/StrongerEnemies.xml: the operations that also need Vanilla Factions Expanded - Pirates and Royalty and Vanilla Weapons Expanded - Coilguns. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_Railgun"]/weaponTags</xpath>
+		<value>
+			<li>WarcasketEmpireRanged</li>
+		</value>
+	</Operation>
+
+</Patch>

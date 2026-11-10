@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/GeistXenotype/Patches/GeistXenotype.xml: the operations that also need Vanilla Quests Expanded - Ancients. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="VQEA_Electromagnetized"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>EMPWeakness</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+
+</Patch>

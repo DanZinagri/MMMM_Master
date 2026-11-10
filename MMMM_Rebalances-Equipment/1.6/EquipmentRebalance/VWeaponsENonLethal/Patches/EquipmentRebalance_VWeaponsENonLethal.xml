@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need Vanilla Weapons Expanded - Non-Lethal. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/HediffDef[defName="VWE_TearGas"]/stages/li/painFactor</xpath>
+	</Operation>
+
+</Patch>

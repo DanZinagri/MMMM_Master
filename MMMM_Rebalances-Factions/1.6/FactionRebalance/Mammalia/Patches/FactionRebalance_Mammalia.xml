@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Faction tweaks, moved from the core root file AA6A_FactionPatches.xml (setting TMM_FactionTweaks, default on; installing
+		this mod is the opt-in now):
+		  - Biotech Expansion Mammalia / Mythic: one of each tribe at world creation; the Mythic house-fire tribe is hidden.
+		  - Settlement weight 0.25 for VFE Settlers factions, rough Saurid outlanders, Rim-Gnoblin pirates, rough Rim-Elf
+		    isolationists, Keshig pirates, rough Stoneborn outlanders (with B&S Races) and rough Buzzer outlanders; 0.5 for
+		    DragonBond's two factions (which must also exist once at game start) and T's Samurai factions.
+		Each block sits in a subfolder gated on its mods; DragonBond's part is in 1.6/Mods/DragonBond
+		(Biotech Expansion's ids come from TMM's shambler patch). Fix: the T's Samurai base already sets settlementGenerationWeight (1), so the Add made a duplicate node; it is a
+		Replace now. The shinobi clan xenotype set went to MMMM_Integrations-Factions (merged with the Geist one there).
+		Checked with analysis/patch_sim.py: every installed-mod op applies, no duplicate nodes.
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/FactionDef[defName="TribeCivilMammals"]/startingCountAtWorldCreation</xpath>
+		<value>
+			<startingCountAtWorldCreation>1</startingCountAtWorldCreation>
+		</value>
+	</Operation>
+
+</Patch>

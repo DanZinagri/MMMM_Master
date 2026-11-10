@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Rimsenal.Harana. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/AbilityDef[defName="Cast_Short_Jump"]/verbProperties/range</xpath>
+		<value>
+			<range>19.9</range>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/AbilityDef[defName="Cast_Short_Jump"]/cooldownTicksRange</xpath>
+		<value>
+			<cooldownTicksRange>1200</cooldownTicksRange>
+		</value>
+	</Operation>
+
+</Patch>

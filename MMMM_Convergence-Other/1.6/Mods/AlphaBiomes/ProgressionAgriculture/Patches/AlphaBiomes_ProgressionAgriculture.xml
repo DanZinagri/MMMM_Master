@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/AlphaBiomes/Patches/AlphaBiomes.xml: the operations that also need Progression: Agriculture. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceOther_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>ThingDef/AB_Glowstool_SeedBundle</li>
+			<li>RecipeDef/MakeAB_GlowstoolSeedBundle</li>
+			<li>RecipeDef/MakeAB_GlowstoolSeedBundleDoubleCost</li>
+		</value>
+	</Operation>
+
+</Patch>

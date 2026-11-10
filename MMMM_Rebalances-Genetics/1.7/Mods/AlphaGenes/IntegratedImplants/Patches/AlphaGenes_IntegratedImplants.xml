@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/AlphaGenes/Patches/AlphaGenes.xml: the operations that also need Integrated Implants. -->
+
+	<!--
+		With Integrated Implants, Alpha Genes' increased command range gene gives +15 to Integrated Implants' mech remote
+		control distance stat (TMM_AG_IncreasedCommandRange, Defs/HediffDefs.xml) instead of Alpha Genes' own hediff, which
+		sets command range to 35 tiles; the description is updated to match. Its opposite gene is cherry-picked in
+		MMMM_Convergence-Genetics. Verified: the gene's hediff and descriptions are as described, and the stat exists in Integrated
+		Implants.
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_IncreasedCommandRange"]/modExtensions/li[@Class="VEF.Genes.GeneExtension"]/hediffToWholeBody</xpath>
+		<value>
+			<hediffToWholeBody>TMM_AG_IncreasedCommandRange</hediffToWholeBody>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_IncreasedCommandRange"]/customEffectDescriptions</xpath>
+		<value>
+			<customEffectDescriptions>
+				<li>Mech command range +15</li>
+				<li>This gene is only active if the carrier is a mechanitor.</li>
+			</customEffectDescriptions>
+		</value>
+	</Operation>
+
+</Patch>

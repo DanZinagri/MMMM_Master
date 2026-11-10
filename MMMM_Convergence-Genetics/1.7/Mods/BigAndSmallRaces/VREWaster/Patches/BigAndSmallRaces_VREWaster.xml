@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/BigAndSmallRaces/Patches/BigAndSmallRaces.xml: the operations that also need Vanilla Races Expanded - Waster. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_GreatOgre"]/genes/li[text()="Instability_Major"]</xpath>
+		<value>
+			<li>VRE_Instability_Extreme</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_BrokenTitan" or defName="BS_Corrupterd_Titan"]/genes/li[text()="BS_Instability_Catastrophic"]</xpath>
+		<value>
+			<li>VRE_Instability_Extreme</li>
+		</value>
+	</Operation>
+
+</Patch>

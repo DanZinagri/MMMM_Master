@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaFurnitureExpandedArchitect/Patches/VanillaFurnitureExpandedArchitect.xml: the operations that also need Alpha Memes. -->
+
+	<!-- Alpha Memes -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs</xpath>
+		<value>
+			<TerrainDef ParentName="PolishedStoneFloorBase">
+				<defName>TMM_VFEArch_PolishedStoneFloorPristineLimestone</defName>
+				<label>pristine limestone polished stone floor</label>
+				<color>(170,157,125)</color>
+				<costList>
+					<AM_BlocksPristineLimestone>12</AM_BlocksPristineLimestone>
+				</costList>
+			</TerrainDef>
+			<TerrainDef ParentName="CobblestoneBase">
+				<defName>TMM_VFEArch_CobblestoneFloorPristineLimestone</defName>
+				<label>pristine limestone cobblestone floor</label>
+				<color>(170,157,125)</color>
+				<costList>
+					<AM_BlocksPristineLimestone>4</AM_BlocksPristineLimestone>
+				</costList>
+			</TerrainDef>
+		</value>
+	</Operation>
+
+</Patch>

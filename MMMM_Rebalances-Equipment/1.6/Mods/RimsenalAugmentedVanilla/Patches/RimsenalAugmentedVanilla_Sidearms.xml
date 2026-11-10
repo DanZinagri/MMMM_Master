@@ -7,39 +7,27 @@
 		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
 	-->
 
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationSequence">
-				<operations>
-					<li Class="PatchOperationSequence">
-						<operations>
-							<li Class="PatchOperationConditional">
-								<xpath>Defs/ThingDef[defName="Gun_DumbfirePistol"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
-								<nomatch Class="PatchOperationAddModExtension">
-									<xpath>Defs/ThingDef[defName="Gun_DumbfirePistol"]</xpath>
-									<value>
-										<li Class="VEF.Things.ThingDefExtension">
-											<usableWithShields>true</usableWithShields>
-										</li>
-									</value>
-								</nomatch>
-							</li>
-							<li Class="PatchOperationConditional">
-								<xpath>Defs/ThingDef[defName="Gun_PistolHeavyRevolver"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
-								<nomatch Class="PatchOperationAddModExtension">
-									<xpath>Defs/ThingDef[defName="Gun_PistolHeavyRevolver"]</xpath>
-									<value>
-										<li Class="VEF.Things.ThingDefExtension">
-											<usableWithShields>true</usableWithShields>
-										</li>
-									</value>
-								</nomatch>
-							</li>
-						</operations>
-					</li>
-				</operations>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="Gun_DumbfirePistol"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+		<nomatch Class="PatchOperationAddModExtension">
+			<xpath>Defs/ThingDef[defName="Gun_DumbfirePistol"]</xpath>
+			<value>
+				<li Class="VEF.Things.ThingDefExtension">
+					<usableWithShields>true</usableWithShields>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="Gun_PistolHeavyRevolver"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+		<nomatch Class="PatchOperationAddModExtension">
+			<xpath>Defs/ThingDef[defName="Gun_PistolHeavyRevolver"]</xpath>
+			<value>
+				<li Class="VEF.Things.ThingDefExtension">
+					<usableWithShields>true</usableWithShields>
+				</li>
+			</value>
+		</nomatch>
 	</Operation>
 
 </Patch>

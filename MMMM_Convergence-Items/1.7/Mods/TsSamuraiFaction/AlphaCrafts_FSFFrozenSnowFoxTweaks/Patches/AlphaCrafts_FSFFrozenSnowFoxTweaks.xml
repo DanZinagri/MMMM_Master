@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/TsSamuraiFaction/Patches/TsSamuraiFaction.xml: the operations that also need Alpha Crafts and [FSF] FrozenSnowFox Tweaks. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingSetMakerDef[defName="PirateRaidLootMaker"]/root/fixedParams/filter/thingDefs/li[text()="AC_Sake"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingSetMakerDef[defName="PirateRaidLootMaker"]/root/fixedParams/filter/thingDefs/li[text()="AC_Sake"]</xpath>
+			<value>
+				<li>TSF_Sake</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/FishingRareCatches/Patches/RareCatches_TreasureAddOn.xml: the operations that also need Vanilla Weapons Expanded and Spacer Arsenal. -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Fishing Expanded - Treasure AddOn</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+			<value>
+				<li>
+					<weight>0.1</weight>
+					<thingSetMaker Class="ThingSetMaker_Count">
+						<fixedParams>
+							<qualityGenerator>Reward</qualityGenerator>
+							<filter>
+								<thingDefs>
+									<li>DV_Weapon_GrenadeThump</li>
+									<li>DV_Weapon_GrenadePlasma</li>
+									<li>DV_Weapon_GrenadeContact</li>
+									<li>DV_Gun_NeutronStreamer</li>
+									<li>DV_Gun_ClashHMG</li>
+									<li>DV_Gun_ClashRifle</li>
+									<li>DV_Gun_SonicStunner</li>
+									<li>DV_Gun_BruteRifle</li>
+									<li>DV_Gun_PhotonSMG</li>
+									<li>DV_Gun_PlasmaBlaster</li>
+									<li>DV_Gun_CoilgunLance</li>
+								</thingDefs>
+							</filter>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

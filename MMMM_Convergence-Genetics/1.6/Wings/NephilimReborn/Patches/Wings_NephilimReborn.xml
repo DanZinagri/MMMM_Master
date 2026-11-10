@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/Wings.xml: the operations that also need Nephilim Xenotype Reborn. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/GeneDef[defName="GS_WingsB"]/waterCellCost</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[defName="GS_WingsB"]</xpath>
+			<value>
+				<waterCellCost>1</waterCellCost>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

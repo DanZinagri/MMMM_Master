@@ -17,26 +17,22 @@
 		Mods' loadAfter and is unverified.
 		Split by category into the MMMM Integrations sub-mods: this copy holds only the Factions ops (factions, pawn kinds, traders and royal titles).
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationAdd">
-				<xpath>/Defs/TraderKindDef[defName="GR_Outlander_CaravanTrader"]/stockGenerators</xpath>
-				<value>
-					<li Class="StockGenerator_SingleDef">
-						<thingDef>Genepack</thingDef>
-						<countRange>3~4</countRange>
-					</li>
-					<li Class="StockGenerator_SingleDef">
-						<thingDef>ArchiteCapsule</thingDef>
-						<countRange>0~2</countRange>
-					</li>
-					<li Class="StockGenerator_SingleDef">
-						<thingDef>DeathrestCapacitySerum</thingDef>
-						<countRange>1~2</countRange>
-					</li>
-				</value>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TraderKindDef[defName="GR_Outlander_CaravanTrader"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Genepack</thingDef>
+				<countRange>3~4</countRange>
 			</li>
-		</operations>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>ArchiteCapsule</thingDef>
+				<countRange>0~2</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>DeathrestCapacitySerum</thingDef>
+				<countRange>1~2</countRange>
+			</li>
+		</value>
 	</Operation>
 
 </Patch>

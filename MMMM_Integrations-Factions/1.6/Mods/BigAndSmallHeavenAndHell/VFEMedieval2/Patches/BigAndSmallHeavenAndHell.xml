@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The Heaven faction builds VFE - Medieval 2 settlements instead of generic ones, and its tiles are marked
+		unbridgeable.
+		This folder only loads when Heaven and Hell is active (see loadFolders.xml); Medieval 2 is gated by subfolder, because
+		the folder now also holds the Nephilim and Beliar joins, which do not need it.
+		Operations that also need another mod sit in a subfolder gated on it in loadFolders.xml.
+
+		Verified against Heaven and Hell 1.6: the BS_Heaven faction def exists.
+	-->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/FactionDef[defName="BS_Heaven"]</xpath>
+		<value>
+			<li Class="KCSG.CustomGenOption">
+				<chooseFromSettlements>
+					<li>VFEM2_MedievalFactionBase</li>
+				</chooseFromSettlements>
+				<preventBridgeable>true</preventBridgeable>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

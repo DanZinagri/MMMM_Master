@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaPsycastsExpanded/Patches/VanillaPsycastsExpanded.xml: the operations that also need Ideology. -->
+
+	<!-- Ideology archotech structures -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="ArchotechTower" or defName="MajorArchotechStructure" or defName="GrandArchotechStructure" or defName="ArchonexusCore"]</xpath>
+		<value>
+			<statBases>
+				<MeditationFocusStrength>0.90</MeditationFocusStrength>
+			</statBases>
+		</value>
+	</Operation>
+
+</Patch>

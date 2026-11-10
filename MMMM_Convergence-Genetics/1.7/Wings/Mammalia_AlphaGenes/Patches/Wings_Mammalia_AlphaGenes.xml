@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/Wings.xml: the operations that also need biotexpans.mammalia and Alpha Genes. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="BTEMa_HideboundWings"]</xpath>
+		<value>
+			<customEffectDescriptions>
+				<li>Colonist will ignore terrain movement costs</li>
+			</customEffectDescriptions>
+		</value>
+	</Operation>
+
+</Patch>

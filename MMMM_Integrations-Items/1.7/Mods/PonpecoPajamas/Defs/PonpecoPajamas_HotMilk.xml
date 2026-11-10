@@ -49,9 +49,9 @@
 				<li MayRequire="VanillaExpanded.VGeneticsE">GR_MuffalobearMilk</li>
 				<li MayRequire="VanillaExpanded.VGeneticsE">GR_WolffaloMilk</li>
 				<li MayRequire="VanillaExpanded.VGeneticsE">GR_RatMilk</li>
-				<li MayRequire="VanillaExpanded.VGeneticsE">GR_DinoMilk</li>
-				<li MayRequire="VanillaExpanded.VGeneticsE">GR_ParaMilk</li>
-				<li MayRequire="VanillaExpanded.VGeneticsE">GR_GreenMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE" MayRequireAnyOf="spincrus.dinosauria,BiomesTeam.BiomesPrehistoric">GR_DinoMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE,Spino.Megafauna">GR_ParaMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE,Spino.Megafauna">GR_GreenMilk</li>
 				<li MayRequire="Mlie.RoyalThrumbos">RoyalThrumbo_Milk</li>
 				<li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_GoatMilk</li>
 				<li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_SheepMilk</li>
@@ -67,7 +67,7 @@
 			</thingDefs>
 			<disallowedThingDefs>
 				<li MayRequire="VanillaExpanded.VGeneticsE">GR_MechaMilk</li>
-				<li MayRequire="VanillaExpanded.VGeneticsE">GR_EldritchMilk</li>
+				<li MayRequire="VanillaExpanded.VGeneticsE,Ludeon.RimWorld.Anomaly">GR_EldritchMilk</li>
 			</disallowedThingDefs>
 		</fixedIngredientFilter>
 	</RecipeDef>
@@ -98,9 +98,9 @@
 						<li MayRequire="VanillaExpanded.VGeneticsE">GR_MuffalobearMilk</li>
 						<li MayRequire="VanillaExpanded.VGeneticsE">GR_WolffaloMilk</li>
 						<li MayRequire="VanillaExpanded.VGeneticsE">GR_RatMilk</li>
-						<li MayRequire="VanillaExpanded.VGeneticsE">GR_DinoMilk</li>
-						<li MayRequire="VanillaExpanded.VGeneticsE">GR_ParaMilk</li>
-						<li MayRequire="VanillaExpanded.VGeneticsE">GR_GreenMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE" MayRequireAnyOf="spincrus.dinosauria,BiomesTeam.BiomesPrehistoric">GR_DinoMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE,Spino.Megafauna">GR_ParaMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE,Spino.Megafauna">GR_GreenMilk</li>
 						<li MayRequire="Mlie.RoyalThrumbos">RoyalThrumbo_Milk</li>
 						<li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_GoatMilk</li>
 						<li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_SheepMilk</li>
@@ -116,7 +116,7 @@
 					</thingDefs>
 					<disallowedThingDefs>
 						<li MayRequire="VanillaExpanded.VGeneticsE">GR_MechaMilk</li>
-						<li MayRequire="VanillaExpanded.VGeneticsE">GR_EldritchMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE,Ludeon.RimWorld.Anomaly">GR_EldritchMilk</li>
 					</disallowedThingDefs>
 				</filter>
 				<count>5</count>
@@ -155,9 +155,9 @@
 						<li MayRequire="VanillaExpanded.VGeneticsE">GR_MuffalobearMilk</li>
 						<li MayRequire="VanillaExpanded.VGeneticsE">GR_WolffaloMilk</li>
 						<li MayRequire="VanillaExpanded.VGeneticsE">GR_RatMilk</li>
-						<li MayRequire="VanillaExpanded.VGeneticsE">GR_DinoMilk</li>
-						<li MayRequire="VanillaExpanded.VGeneticsE">GR_ParaMilk</li>
-						<li MayRequire="VanillaExpanded.VGeneticsE">GR_GreenMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE" MayRequireAnyOf="spincrus.dinosauria,BiomesTeam.BiomesPrehistoric">GR_DinoMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE,Spino.Megafauna">GR_ParaMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE,Spino.Megafauna">GR_GreenMilk</li>
 						<li MayRequire="Mlie.RoyalThrumbos">RoyalThrumbo_Milk</li>
 						<li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_GoatMilk</li>
 						<li MayRequire="DankPyon.Medieval.Overhaul">DankPyon_SheepMilk</li>
@@ -173,7 +173,7 @@
 					</thingDefs>
 					<disallowedThingDefs>
 						<li MayRequire="VanillaExpanded.VGeneticsE">GR_MechaMilk</li>
-						<li MayRequire="VanillaExpanded.VGeneticsE">GR_EldritchMilk</li>
+						<li MayRequire="VanillaExpanded.VGeneticsE,Ludeon.RimWorld.Anomaly">GR_EldritchMilk</li>
 					</disallowedThingDefs>
 				</filter>
 				<count>20</count>

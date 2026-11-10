@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Vanilla Races Expanded - Waster. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VRE_Instability_Progressive"]/biostatMet</xpath>
+		<value>
+			<biostatMet>0</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VRE_Instability_Extreme"]/biostatMet</xpath>
+		<value>
+			<biostatMet>5</biostatMet>
+		</value>
+	</Operation>
+
+</Patch>

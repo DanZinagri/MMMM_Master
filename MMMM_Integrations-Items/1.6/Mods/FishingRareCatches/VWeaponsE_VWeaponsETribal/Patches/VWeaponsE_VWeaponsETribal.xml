@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/FishingRareCatches/Patches/RareCatches_TreasureAddOn.xml: the operations that also need Vanilla Weapons Expanded and Vanilla Weapons Expanded - Tribal. -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Fishing Expanded - Treasure AddOn</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+			<value>
+				<li>
+					<weight>0.1</weight>
+					<thingSetMaker Class="ThingSetMaker_Count">
+						<fixedParams>
+							<qualityGenerator>Reward</qualityGenerator>
+							<filter>
+								<thingDefs>
+									<li>VWE_Throwing_Shards</li>
+									<li>VWE_MeleeWeapon_HeavyClub</li>
+									<li>VWE_MeleeWeapon_LightClub</li>
+									<li>VWE_MeleeWeapon_TribalAxe</li>
+									<li>VWE_MeleeWeapon_Shiv</li>
+								</thingDefs>
+							</filter>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

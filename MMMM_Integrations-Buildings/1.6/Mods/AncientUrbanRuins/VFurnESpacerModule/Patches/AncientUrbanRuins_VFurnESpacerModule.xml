@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/AncientUrbanRuins/Patches/AncientUrbanRuins.xml: the operations that also need Vanilla Furniture Expanded - Spacer Module. -->
+
+	<!-- VFE Spacer Module: AUR's large-screen television links to the television speaker facility (+10% joy gain within 6
+	cells), like VFE Spacer's own televisions. The TV ships with no facility comp, so the nomatch branch adds one. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="AM_LargeScreenTelevision"]/comps/li[@Class = "CompProperties_AffectedByFacilities"]</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_LargeScreenTelevision"]/comps/li[@Class = "CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+			<value>
+				<li>VFES_TelevisionSpeaker</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_LargeScreenTelevision"]/comps</xpath>
+			<value>
+				<li Class="CompProperties_AffectedByFacilities">
+					<linkableFacilities>
+						<li>VFES_TelevisionSpeaker</li>
+					</linkableFacilities>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

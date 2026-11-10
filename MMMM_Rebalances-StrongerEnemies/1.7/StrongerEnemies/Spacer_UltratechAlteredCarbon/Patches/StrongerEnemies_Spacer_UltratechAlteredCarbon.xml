@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/StrongerEnemies.xml: the operations that also need Rimsenal.Spacer and hlx.UltratechAlteredCarbon. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[@Name="SpacerRangerBase" or @Name="CorporateContractorBase"]/apparelTags</xpath>
+		<value>
+			<apparelTags>
+				<li>UltraMilitary</li>
+			</apparelTags>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[@Name="SpacerRangerBase" or @Name="CorporateContractorBase"]/apparelRequired</xpath>
+		<value>
+			<apparelRequired>
+				<li>AC_Apparel_ChrysalisArmor</li>
+				<li>AC_Apparel_ChrysalisHelmet</li>
+			</apparelRequired>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="Spacer_Fighter_Vanguard"]/apparelRequired</xpath>
+		<value>
+			<apparelRequired>
+				<li>AC_Apparel_FusilierArmor</li>
+				<li>AC_Apparel_DragoonHelmet</li>
+			</apparelRequired>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="Corporate_Fighter_Stockguard" or defName="Corporate_Fighter_CSO"]/apparelRequired</xpath>
+		<value>
+			<apparelRequired>
+				<li>AC_Apparel_DragoonArmor</li>
+				<li>AC_Apparel_FusilierHelmet</li>
+			</apparelRequired>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="Spacer_Fighter_mechanist" or defName="Corporate_Fighter_mechanist"]/apparelRequired</xpath>
+		<value>
+			<apparelRequired Inherit="False">
+				<li>Apparel_ArmorHelmetMechCommander</li>
+				<li>AC_Apparel_ChrysalisArmor</li>
+				<li>Apparel_PackBandwidth</li>
+				<li>Apparel_Unisuit</li>
+			</apparelRequired>
+		</value>
+	</Operation>
+
+</Patch>

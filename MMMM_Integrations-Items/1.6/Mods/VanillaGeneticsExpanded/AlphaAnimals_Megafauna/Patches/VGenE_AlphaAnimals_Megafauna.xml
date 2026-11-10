@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaGeneticsExpanded/Patches/VanillaGeneticsExpanded.xml: the operations that also need Alpha Animals and Megafauna. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="GR_AlphaGenomeExcavator"]/comps/li[@Class="GeneticRim.CompProperties_TargetEffect_Extract"]/tier</xpath>
+		<value>
+			<li>megafauna</li>
+		</value>
+	</Operation>
+
+</Patch>

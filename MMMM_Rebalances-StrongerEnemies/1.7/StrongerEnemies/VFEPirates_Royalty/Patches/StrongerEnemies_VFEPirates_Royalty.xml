@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/StrongerEnemies.xml: the operations that also need Vanilla Factions Expanded - Pirates and Royalty. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_GravityHammer" or defName="VFEP_WarcasketMeleeWeapon_PlasmaSword"]/weaponTags</xpath>
+		<value>
+			<li>WarcasketEmpireMelee</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_ChargeLance" or defName="VFEP_WarcasketGun_ChargeBlaster"]/weaponTags</xpath>
+		<value>
+			<li>WarcasketEmpireRanged</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[position()=2 or position()=3 or position()=4]/options</xpath>
+		<value>
+			<TMM_Hoplite_Brute>0.2</TMM_Hoplite_Brute>
+			<TMM_Hoplite_Sarcophagus>0.2</TMM_Hoplite_Sarcophagus>
+			<TMM_Hoplite_Siegebreaker>0.2</TMM_Hoplite_Siegebreaker>
+		</value>
+	</Operation>
+
+</Patch>

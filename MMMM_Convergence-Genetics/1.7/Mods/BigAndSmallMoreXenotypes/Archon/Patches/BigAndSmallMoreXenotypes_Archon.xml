@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/BigAndSmallMoreXenotypes/Patches/BigAndSmallMoreXenotypes.xml: the operations that also need vanillaracesexpanded.archon. -->
+
+	<!-- Abomination and broodmother use VRE Archon's short pregnancy -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Abomination" or defName="BS_Broodmother"]/genes/li[text()="BS_ShortPregnancy"]</xpath>
+		<value>
+			<li>VRE_ShortPregnancy</li>
+		</value>
+	</Operation>
+
+</Patch>

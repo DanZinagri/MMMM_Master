@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/AlphaBiomes/Patches/AlphaBiomes.xml: the operations that also need Odyssey. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="AB_DerelictArchotechTower"]/techLevel</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AB_DerelictArchotechTower"]</xpath>
+			<value>
+				<techLevel>Archotech</techLevel>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="AB_DerelictMajorArchotechStructure"]/techLevel</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AB_DerelictMajorArchotechStructure"]</xpath>
+			<value>
+				<techLevel>Archotech</techLevel>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="AB_DerelictArchonexusCore"]/techLevel</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AB_DerelictArchonexusCore"]</xpath>
+			<value>
+				<techLevel>Archotech</techLevel>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

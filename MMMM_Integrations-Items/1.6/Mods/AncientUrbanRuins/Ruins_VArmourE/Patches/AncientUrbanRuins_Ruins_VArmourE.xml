@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Ancient Urban Ruins loot: other mods' items join AUR's container loot tables (beverages, food, collectibles, medical
+		supplies, tools, injectors, flak apparel), each block gated on the mod that supplies the items. Alpha Crafts also
+		restocks the snack racks and double/three-layer racks (the TMM_ArtisanGoods_Large set is in Defs/). With the AUR
+		Vanilla-plus-loot add-on and Vanilla Armour Expanded but neither gloves mod, the add-on's boots-and-gloves flak
+		option is removed; that check stays a FindMod because it fires on the mods being absent.
+		This folder only loads when Ancient Urban Ruins is active (see loadFolders.xml).
+		Split by category into the MMMM Integrations sub-mods: this copy holds only the Items ops (items: apparel, weapons, food, drugs and loot).
+	-->
+
+	<!-- remove boots and gloves -->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>VAE - More Gloves and Boots</li>
+			<li>Cat's Boots and Gloves</li>
+		</mods>
+		<nomatch Class="PatchOperationRemove">
+			<xpath>Defs/ThingSetMakerDef[defName="AM_FlakApparel"]/root/options/li[weight=0.1]</xpath>
+		</nomatch>
+	</Operation>
+
+</Patch>

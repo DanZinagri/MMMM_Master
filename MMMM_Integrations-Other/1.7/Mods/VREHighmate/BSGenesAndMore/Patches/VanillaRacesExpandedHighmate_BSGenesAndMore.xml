@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VREHighmate/Patches/VanillaRacesExpandedHighmate.xml: the operations that also need Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VanillaRacesExpandedHighmate.HighmateBondEffectDef/bondHediffTraits/li[hediff="VRE_PsychicBondFastLearner"]/traitRequirements</xpath>
+		<value>
+			<li>
+				<def>Passioned_Learning</def>
+			</li>
+			<li>
+				<def>Very_Passioned_Learning</def>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

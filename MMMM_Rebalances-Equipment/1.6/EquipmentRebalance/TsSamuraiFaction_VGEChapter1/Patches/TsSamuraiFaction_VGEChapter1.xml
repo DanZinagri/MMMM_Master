@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need T's Samurai Faction and Vanilla Gravship Expanded - Chapter 1. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="TSFApparel_OniHelmet"]/equippedStatOffsets/VacuumResistance</xpath>
+		<value>
+			<VacuumResistance>0.55</VacuumResistance>
+		</value>
+	</Operation>
+
+</Patch>

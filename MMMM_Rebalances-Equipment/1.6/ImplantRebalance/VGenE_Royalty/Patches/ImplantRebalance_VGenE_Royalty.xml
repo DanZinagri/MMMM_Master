@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/ImplantRebalance.xml: the operations that also need Vanilla Genetics Expanded and Royalty. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="ToughskinGland"]/stages/li/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+				<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+				<ArmorRating_Heat>0.2</ArmorRating_Heat>
+			</statOffsets>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="ArmorskinGland"]/stages/li/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+				<ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+				<ArmorRating_Heat>0.3</ArmorRating_Heat>
+				<PawnBeauty>-1</PawnBeauty>
+			</statOffsets>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="StoneskinGland"]/stages/li/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+				<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+				<ArmorRating_Heat>0.4</ArmorRating_Heat>
+				<PawnBeauty>-2</PawnBeauty>
+			</statOffsets>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Traits from other mods join VRE - Highmate's existing bond effects. traitRequirements is an any-of trigger list,
+		so each added trait is another way for a bonded pair to earn that bond hediff.
+		This folder only loads when VRE - Highmate is active (see loadFolders.xml); the contributing mods are gated by subfolder (see loadFolders.xml).
+		Dropped from the original: a second <def>TooSmart</def> on the fast-learner effect (upstream already lists it),
+		and the [LC] Consolidated Traits block (not supported).
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VanillaRacesExpandedHighmate.HighmateBondEffectDef/bondHediffTraits/li[hediff="VRE_PsychicBondFastLearner"]/traitRequirements</xpath>
+		<value>
+			<li>
+				<def>VTE_Academian</def>
+			</li>
+			<li>
+				<def>VTE_Prodigy</def>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VanillaRacesExpandedHighmate.HighmateBondEffectDef/bondHediffTraits/li[hediff="VRE_PsychicBondSanguine"]/traitRequirements</xpath>
+		<value>
+			<li>
+				<def>VTE_Dunce</def>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

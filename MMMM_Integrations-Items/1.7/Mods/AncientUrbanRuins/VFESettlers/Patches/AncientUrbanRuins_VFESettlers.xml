@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/AncientUrbanRuins/Patches/AncientUrbanRuins.xml: the operations that also need Vanilla Factions Expanded - Settlers. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[defName="AM_Beverages"]/root/options</xpath>
+		<value>
+			<li>
+				<weight>0.2</weight>
+				<thingSetMaker Class="ThingSetMaker_StackCount">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li>Chemshine</li>
+							</thingDefs>
+						</filter>
+						<countRange>6~12</countRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Rim-Elves genes swapped for the equivalents other mods ship, with each retired gene going on this mod's
+		Cherry Picker list.
+		  - Alpha Genes: the elf's chemical susceptibility loses its toxic resistance factor (and drops from 5 to 3
+		    metabolism to match), and the elf gains Alpha Genes' toxic vulnerability gene for that part instead.
+		  - Big and Small: the elf's gigantism becomes Big and Small's large frame.
+		  - Det's Stoneborn + VRE Pigskin: the elf's slow development becomes Pigskin's slow aging plus Stoneborn's
+		    long lifespan; both mods are needed, as in the original.
+		This folder only loads when Rim-Elves is active (see loadFolders.xml); each swap sits in a subfolder gated on the mod that supplies the replacement.
+		Operations that also need another mod sit in a subfolder gated on it in loadFolders.xml.
+
+		Verified against the current 1.6 releases: RE_Elve lists Size_Gigantism and Age_SlowDevelopment, both genes
+		are Rim-Elves' own, RE_ChemicalSusceptibility ships biostatMet 5 with a ToxicResistance factor, and
+		AG_ToxResist_Vulnerability, BS_LargeFrame, VRE_SlowAging and DV_LifespanLong all exist. The astrogene
+		Cherry Picker entries name defs built at runtime, not in any XML: both Alpha Genes and VRE Starjack generate
+		_Astrogene copies of other mods' genes.
+		Fix 2026-10-03: a retired gene is now swapped in every xenotype that carries it (not just this mod's), and only
+		retired under the same mods as its replacement. Before, other mods' xenotypes sharing the gene (and this one, when
+		the replacement mod was absent) lost it to Cherry Picker with nothing in its place.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="RE_Elve"]/genes</xpath>
+		<value>
+			<li>AG_ToxResist_Vulnerability</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="RE_ChemicalSusceptibility"]/biostatMet</xpath>
+		<value>
+			<biostatMet>3</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="RE_ChemicalSusceptibility"]/statFactors/ToxicResistance</xpath>
+	</Operation>
+
+</Patch>

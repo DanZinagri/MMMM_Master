@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaGeneticsExpanded/Patches/VanillaGeneticsExpanded.xml: the operations that also need Alpha Animals and Megafauna. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceItems_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>ThingDef/GR_MegafaunaGenomeExcavator</li>
+			<li>RecipeDef/GR_CraftMegafaunaGenomeExcavator</li>
+		</value>
+	</Operation>
+
+</Patch>

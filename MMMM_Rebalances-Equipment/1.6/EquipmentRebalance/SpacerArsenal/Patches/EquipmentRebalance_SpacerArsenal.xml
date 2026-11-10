@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need Spacer Arsenal. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DV_BruteProjectile"]/projectile/damageAmountBase</xpath>
+		<value>
+			<damageAmountBase>16</damageAmountBase>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DV_Gun_ClashRifle"]/statBases/RangedWeapon_Cooldown</xpath>
+		<value>
+			<RangedWeapon_Cooldown>3.0</RangedWeapon_Cooldown>
+		</value>
+	</Operation>
+
+</Patch>

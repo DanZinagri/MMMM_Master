@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaPsycastsExpanded/Patches/VanillaPsycastsExpanded.xml: the operations that also need The Sims Traits. -->
+
+	<!-- The Sims Traits: Manipulative (its focus types replaced), Proper, Materialistic -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/TraitDef[defName="ST_Manipulative"]/degreeDatas/li/allowedMeditationFocusTypes</xpath>
+		<value>
+			<allowedMeditationFocusTypes>
+				<li>VPE_Group</li>
+			</allowedMeditationFocusTypes>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraitDef[defName="ST_Proper"]/degreeDatas/li</xpath>
+		<value>
+			<allowedMeditationFocusTypes>
+				<li>VPE_Group</li>
+			</allowedMeditationFocusTypes>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraitDef[defName="ST_Materialistic"]/degreeDatas/li</xpath>
+		<value>
+			<allowedMeditationFocusTypes>
+				<li>VPE_Wealth</li>
+			</allowedMeditationFocusTypes>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/OtherRebalance.xml: the operations that also need Vanilla Skills Expanded. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/VSE.Expertise.ExpertiseDef[defName="CloseQuarters"]/statOffsets/AimingDelayFactor</xpath>
+		<value>
+			<AimingDelayFactor>-0.03</AimingDelayFactor>
+		</value>
+	</Operation>
+
+</Patch>

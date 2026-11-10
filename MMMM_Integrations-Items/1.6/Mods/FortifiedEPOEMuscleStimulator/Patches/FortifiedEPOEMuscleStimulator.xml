@@ -15,24 +15,20 @@
 		Kept apart from FortifiedEPOE so it still loads when DMS-EPOE Compatibility Patch 1.6 is active.
 		Verified 2026-10-21: MuscleStimulatorArms exists in EPOE-Forked 1.6.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
-				<match Class="PatchOperationAdd">
-					<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
-					<value>
-						<EquippableWithHediff />
-					</value>
-				</match>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid"]/EquippableWithHediff</xpath>
-				<value>
-					<li>MuscleStimulatorArms</li>
-				</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
+			<value>
+				<EquippableWithHediff />
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid"]/EquippableWithHediff</xpath>
+		<value>
+			<li>MuscleStimulatorArms</li>
+		</value>
 	</Operation>
 
 </Patch>

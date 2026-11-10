@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Cherry Picker entries for genes that MMMM Convergence swaps out of xenotypes (each gated on the same mods as the swap),
+		added to this mod's MMMM_ConvergenceGenetics_CherryPicker_Basics list; revive entries are in 1.6/Defs/CherryPicker.xml.
+		Kept from Too Many Mods' core ZZ9_AutoCherryPicker.xml: only entries whose def a Convergence patch replaces or removes
+		(li[text()="..."] ops), plus their _Astrogene twins. Everything else in that file was dropped.
+		Fix 2026-10-03: genes retired to Cherry Picker are now swapped in every xenotype that carries them (removed where the
+		xenotype already has the replacement), so no xenotype from any mod loses one. Genes without a clean one-for-one
+		replacement are no longer retired.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/VRE_RecessiveGenome</li>
+		</value>
+	</Operation>
+
+</Patch>

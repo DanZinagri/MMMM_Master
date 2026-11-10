@@ -9,14 +9,10 @@
 		- The Tiamat scenario xenotype loses Alpha Genes' exotic organism gene.
 		This folder only loads when Lamias is active (see loadFolders.xml).
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationAttributeSet">
-				<xpath>Defs/FactionDef[defName="LoS_SnekFaction"]/xenotypeSet</xpath>
-				<attribute>Inherit</attribute>
-				<value>False</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationAttributeSet">
+		<xpath>Defs/FactionDef[defName="LoS_SnekFaction"]/xenotypeSet</xpath>
+		<attribute>Inherit</attribute>
+		<value>False</value>
 	</Operation>
 
 </Patch>

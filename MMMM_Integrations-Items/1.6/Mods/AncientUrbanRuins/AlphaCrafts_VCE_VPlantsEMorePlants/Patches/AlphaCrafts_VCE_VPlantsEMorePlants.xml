@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/AncientUrbanRuins/Patches/AncientUrbanRuins.xml: the operations that also need Alpha Crafts and Vanilla Cooking Expanded and Vanilla Plants Expanded - More Plants. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[defName="AM_Beverages"]/root/options</xpath>
+		<value>
+			<li>
+				<weight>0.5</weight>
+				<thingSetMaker Class="ThingSetMaker_StackCount">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li>AC_ChichaMorada</li>
+							</thingDefs>
+						</filter>
+						<countRange>3~5</countRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

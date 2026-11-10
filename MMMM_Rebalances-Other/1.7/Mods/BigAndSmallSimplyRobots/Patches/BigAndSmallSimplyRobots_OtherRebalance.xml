@@ -7,76 +7,64 @@
 		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
 	-->
 
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationSequence">
-				<operations>
-					<li Class="PatchOperationSequence">
-						<operations>
-							<li Class="PatchOperationReplace">
-								<xpath>Defs/ThingDef[@Name="BS_TVAndroidThingBase"]/butcherProducts</xpath>
-								<value>
-									<butcherProducts Inherit="False">
-										<Steel>20</Steel>
-									</butcherProducts>
-								</value>
-							</li>
-							<li Class="PatchOperationReplace">
-								<xpath>Defs/ThingDef[@Name="BS_CommandoBotThingBase"]/butcherProducts</xpath>
-								<value>
-									<butcherProducts Inherit="False">
-										<Plasteel>8</Plasteel>
-									</butcherProducts>
-								</value>
-							</li>
-							<li Class="PatchOperationReplace">
-								<xpath>Defs/RecipeDef[defName="BS_MakePersonaAndroid"]/workAmount</xpath>
-								<value>
-									<workAmount>360000</workAmount>
-								</value>
-							</li>
-							<li Class="PatchOperationReplace">
-								<xpath>Defs/RecipeDef[defName="BS_MakeAdBot"]/workAmount</xpath>
-								<value>
-									<workAmount>360000</workAmount>
-								</value>
-							</li>
-							<li Class="PatchOperationReplace">
-								<xpath>Defs/RecipeDef[defName="BS_MakeAdBot"]/ingredients</xpath>
-								<value>
-									<ingredients>
-										<li>
-											<filter>
-												<thingDefs>
-													<li>Steel</li>
-												</thingDefs>
-											</filter>
-											<count>70</count>
-										</li>
-										<li>
-											<filter>
-												<thingDefs>
-													<li>ComponentSpacer</li>
-												</thingDefs>
-											</filter>
-											<count>12</count>
-										</li>
-										<li>
-											<filter>
-												<thingDefs>
-													<li>ComponentIndustrial</li>
-												</thingDefs>
-											</filter>
-											<count>24</count>
-										</li>
-									</ingredients>
-								</value>
-							</li>
-						</operations>
-					</li>
-				</operations>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[@Name="BS_TVAndroidThingBase"]/butcherProducts</xpath>
+		<value>
+			<butcherProducts Inherit="False">
+				<Steel>20</Steel>
+			</butcherProducts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[@Name="BS_CommandoBotThingBase"]/butcherProducts</xpath>
+		<value>
+			<butcherProducts Inherit="False">
+				<Plasteel>8</Plasteel>
+			</butcherProducts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="BS_MakePersonaAndroid"]/workAmount</xpath>
+		<value>
+			<workAmount>360000</workAmount>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="BS_MakeAdBot"]/workAmount</xpath>
+		<value>
+			<workAmount>360000</workAmount>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="BS_MakeAdBot"]/ingredients</xpath>
+		<value>
+			<ingredients>
+				<li>
+					<filter>
+						<thingDefs>
+							<li>Steel</li>
+						</thingDefs>
+					</filter>
+					<count>70</count>
+				</li>
+				<li>
+					<filter>
+						<thingDefs>
+							<li>ComponentSpacer</li>
+						</thingDefs>
+					</filter>
+					<count>12</count>
+				</li>
+				<li>
+					<filter>
+						<thingDefs>
+							<li>ComponentIndustrial</li>
+						</thingDefs>
+					</filter>
+					<count>24</count>
+				</li>
+			</ingredients>
+		</value>
 	</Operation>
 
 </Patch>

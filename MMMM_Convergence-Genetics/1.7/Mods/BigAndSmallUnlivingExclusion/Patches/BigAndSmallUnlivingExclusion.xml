@@ -15,37 +15,33 @@
 		Verified against the current releases: VU_Unliving has customEffectDescriptions and no exclusionTags, and
 		vanilla DiseaseFree has no exclusionTags either, which is why the second gene is handled conditionally.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationRemove">
-				<xpath>Defs/GeneDef[defName="VU_Unliving"]/customEffectDescriptions</xpath>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/GeneDef[defName="VU_Unliving"]</xpath>
-				<value>
-					<exclusionTags>
-						<li>Nonsenescent</li>
-					</exclusionTags>
-				</value>
-			</li>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/GeneDef[defName="DiseaseFree"]/exclusionTags</xpath>
-				<nomatch Class="PatchOperationAdd">
-					<xpath>Defs/GeneDef[defName="DiseaseFree"]</xpath>
-					<value>
-						<exclusionTags>
-							<li>Nonsenescent</li>
-						</exclusionTags>
-					</value>
-				</nomatch>
-				<match Class="PatchOperationAdd">
-					<xpath>Defs/GeneDef[defName="DiseaseFree"]/exclusionTags</xpath>
-					<value>
-						<li>Nonsenescent</li>
-					</value>
-				</match>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="VU_Unliving"]/customEffectDescriptions</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="VU_Unliving"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>Nonsenescent</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/GeneDef[defName="DiseaseFree"]/exclusionTags</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[defName="DiseaseFree"]/exclusionTags</xpath>
+			<value>
+				<li>Nonsenescent</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[defName="DiseaseFree"]</xpath>
+			<value>
+				<exclusionTags>
+					<li>Nonsenescent</li>
+				</exclusionTags>
+			</value>
+		</nomatch>
 	</Operation>
 
 </Patch>

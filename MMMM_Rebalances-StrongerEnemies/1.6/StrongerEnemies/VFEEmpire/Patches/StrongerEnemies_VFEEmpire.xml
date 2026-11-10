@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/StrongerEnemies.xml: the operations that also need Vanilla Factions Expanded - Empire. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[@Name="VFEE_DeserterBase"]/itemQuality</xpath>
+		<value>
+			<itemQuality>Excellent</itemQuality>
+		</value>
+	</Operation>
+
+</Patch>

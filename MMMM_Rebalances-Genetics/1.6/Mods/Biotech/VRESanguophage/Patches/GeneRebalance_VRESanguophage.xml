@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Vanilla Races Expanded - Sanguophage. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VRE_Hemosmosis"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-1</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VRE_LowHemogenDrain"]/biostatMet</xpath>
+		<value>
+			<biostatMet>1</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="HemogenDrain"]/biostatMet</xpath>
+		<value>
+			<biostatMet>3</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VRE_ExtremeHemogenDrain"]/biostatMet</xpath>
+		<value>
+			<biostatMet>4</biostatMet>
+		</value>
+	</Operation>
+
+</Patch>

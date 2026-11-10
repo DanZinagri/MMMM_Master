@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/OtherRebalance.xml: the operations that also need Alpha Implants and Rimsenal.Spacer. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/TraderKindDef[defName="Base_Spacer_Standard"]/stockGenerators/li[tradeTag="TechHediff"]/thingDefCountRange</xpath>
+		<value>
+			<thingDefCountRange>6~8</thingDefCountRange>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Spacer_Exotic"]/stockGenerators/li[tradeTag="TechHediff"]/thingDefCountRange</xpath>
+		<value>
+			<thingDefCountRange>6</thingDefCountRange>
+		</value>
+	</Operation>
+
+</Patch>

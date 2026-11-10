@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/StrongerEnemies.xml: the operations that also need Alpha Mechs. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="AM_Siegebreaker" or defName="AM_Siegemelter" or defName="AM_Starfire"]/statBases/MoveSpeed</xpath>
+		<value>
+			<MoveSpeed>1.6</MoveSpeed>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=1]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Munifex>6</AM_Mech_Munifex>
+				<AM_Goliath>2</AM_Goliath>
+				<RM_Mech_Vulture MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Vulture>
+				<Mech_Tagmaton MayRequire="Rimsenal.Spacer">2</Mech_Tagmaton>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=2]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Munifex>4</AM_Mech_Munifex>
+				<AM_Mech_Polychoron>4</AM_Mech_Polychoron>
+				<AM_Mech_Lux>4</AM_Mech_Lux>
+				<RM_Mech_Falcon MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Falcon>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=3]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Munifex>7</AM_Mech_Munifex>
+				<AM_Mech_Lux>4</AM_Mech_Lux>
+				<AM_Mech_Sagittarius>3</AM_Mech_Sagittarius>
+				<AM_Siegemelter>3</AM_Siegemelter>
+				<Mech_Skutaton MayRequire="Rimsenal.Spacer">2</Mech_Skutaton>
+				<RM_Mech_Gremlin MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Gremlin>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=4]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Lux>10</AM_Mech_Lux>
+				<AM_Mech_Sagittarius>3</AM_Mech_Sagittarius>
+				<AM_Siegemelter>4</AM_Siegemelter>
+				<AM_Mech_Legate>4</AM_Mech_Legate>
+				<RM_Mech_Harpy MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Harpy>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=5]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Bellicor>18</AM_Mech_Bellicor>
+				<AM_Aura>10</AM_Aura>
+				<AM_Goliath>6</AM_Goliath>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=6]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Munifex>5</AM_Mech_Munifex>
+				<AM_Mech_Polychoron>6</AM_Mech_Polychoron>
+				<AM_Goliath>8</AM_Goliath>
+				<AM_Mech_Lux>8</AM_Mech_Lux>
+				<AM_Mech_Legate>4</AM_Mech_Legate>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=7]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Lux>10</AM_Mech_Lux>
+				<AM_Mech_Munifex>10</AM_Mech_Munifex>
+				<Mech_Lancer>12</Mech_Lancer>
+				<AM_Goliath>8</AM_Goliath>
+				<LFM_Mech_Slinger MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Slinger>
+				<LFM_Mech_RocketSlinger MayRequire="GoGaTio.LostFactoryMechanoids,Ludeon.RimWorld.Royalty">1</LFM_Mech_RocketSlinger>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=8]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Munifex>8</AM_Mech_Munifex>
+				<AM_Mech_Polychoron>10</AM_Mech_Polychoron>
+				<Mech_CentipedeGunner>9</Mech_CentipedeGunner>
+				<AM_Mech_Legate>6</AM_Mech_Legate>
+				<AM_Starfire>3</AM_Starfire>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=1]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Aura>20</AM_Aura>
+				<AM_Mech_Munifex>4</AM_Mech_Munifex>
+				<LFM_Mech_Scutum MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Scutum>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=2]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Bellicor>4</AM_Mech_Bellicor>
+				<AM_Mech_Polychoron>3</AM_Mech_Polychoron>
+				<AM_Mech_Lux>4</AM_Mech_Lux>
+				<AM_Siegemelter>6</AM_Siegemelter>
+				<AM_Fireworm>4</AM_Fireworm>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=3]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Phalanx>6</AM_Phalanx>
+				<AM_Fireworm>4</AM_Fireworm>
+				<AM_Mech_Lux>4</AM_Mech_Lux>
+				<Mech_CentipedeBurner>6</Mech_CentipedeBurner>
+				<LFM_Mech_Arbiter MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Arbiter>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=4]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Munifex>12</AM_Mech_Munifex>
+				<Mech_Lancer>4</Mech_Lancer>
+				<AM_Mech_Optio>4</AM_Mech_Optio>
+				<AM_Goliath>4</AM_Goliath>
+				<AM_Siegebreaker>1</AM_Siegebreaker>
+				<LFM_Mech_Taintor MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Taintor>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=5]/escorts</xpath>
+		<value>
+			<escorts>
+				<Mech_Pikeman>10</Mech_Pikeman>
+				<AM_Mech_Munifex>10</AM_Mech_Munifex>
+				<AM_Mech_Optio>6</AM_Mech_Optio>
+				<AM_Mech_Polychoron>3</AM_Mech_Polychoron>
+				<AM_Siegebreaker>4</AM_Siegebreaker>
+				<LFM_Mech_RocketSlinger MayRequire="GoGaTio.LostFactoryMechanoids,Ludeon.RimWorld.Royalty">1</LFM_Mech_RocketSlinger>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=6]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Aura>16</AM_Aura>
+				<AM_Daggersnout>16</AM_Daggersnout>
+				<AM_Siegebreaker>8</AM_Siegebreaker>
+				<Mech_Centurion>2</Mech_Centurion>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=7]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Starfire>4</AM_Starfire>
+				<Mech_Scorcher>10</Mech_Scorcher>
+				<AM_Mech_Optio>8</AM_Mech_Optio>
+				<AM_Mech_Legate>2</AM_Mech_Legate>
+				<Mech_Skutaton MayRequire="Rimsenal.Spacer">4</Mech_Skutaton>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=8]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Aura>12</AM_Aura>
+				<Mech_Lancer>12</Mech_Lancer>
+				<AM_Mech_Optio>6</AM_Mech_Optio>
+				<AM_Fireworm>9</AM_Fireworm>
+				<Mech_Centurion>2</Mech_Centurion>
+				<AM_Mech_Legate>4</AM_Mech_Legate>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=1]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Bellicor>10</AM_Mech_Bellicor>
+				<AM_Aura>8</AM_Aura>
+				<Mech_Scyther>4</Mech_Scyther>
+				<AM_Mech_Lux>2</AM_Mech_Lux>
+				<Mech_Tagmaton MayRequire="Rimsenal.Spacer">1</Mech_Tagmaton>
+				<Mech_Skutaton MayRequire="Rimsenal.Spacer">1</Mech_Skutaton>
+				<LFM_Mech_Taintor MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Taintor>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=2]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Aura>3</AM_Aura>
+				<AM_Starfire>4</AM_Starfire>
+				<Mech_Scyther>6</Mech_Scyther>
+				<AM_Mech_Optio>4</AM_Mech_Optio>
+				<AM_Mech_Polychoron>8</AM_Mech_Polychoron>
+				<AM_Fireworm>6</AM_Fireworm>
+				<AM_Goliath>2</AM_Goliath>
+				<LFM_Mech_Slinger MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Slinger>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=3]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Bellicor>10</AM_Mech_Bellicor>
+				<Mech_Scyther>3</Mech_Scyther>
+				<AM_Mech_Lux>3</AM_Mech_Lux>
+				<AM_Aura>9</AM_Aura>
+				<AM_Infernus>1</AM_Infernus>
+				<Mech_Pikeman>2</Mech_Pikeman>
+				<Mech_CentipedeBlaster>3</Mech_CentipedeBlaster>
+				<AM_Siegemelter>2</AM_Siegemelter>
+				<AM_Starfire>2</AM_Starfire>
+				<LFM_Mech_RocketSlinger MayRequire="GoGaTio.LostFactoryMechanoids,Ludeon.RimWorld.Royalty">1</LFM_Mech_RocketSlinger>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=4]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Bellicor>10</AM_Mech_Bellicor>
+				<Mech_Tunneler>2</Mech_Tunneler>
+				<AM_Aura>4</AM_Aura>
+				<Mech_Scyther>3</Mech_Scyther>
+				<AM_Infernus>2</AM_Infernus>
+				<AM_Fireworm>6</AM_Fireworm>
+				<AM_Siegemelter>2</AM_Siegemelter>
+				<AM_Mech_Optio>4</AM_Mech_Optio>
+				<AM_Goliath>2</AM_Goliath>
+				<LFM_Mech_Taintor MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Taintor>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=5]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Bellicor>12</AM_Mech_Bellicor>
+				<AM_Aura>2</AM_Aura>
+				<AM_Mech_Munifex>4</AM_Mech_Munifex>
+				<AM_Phalanx>8</AM_Phalanx>
+				<AM_Infernus>1</AM_Infernus>
+				<Mech_Centurion>4</Mech_Centurion>
+				<AM_Siegemelter>2</AM_Siegemelter>
+				<AM_Starfire>2</AM_Starfire>
+				<LFM_Mech_Taintor MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Taintor>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=6]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Bellicor>16</AM_Mech_Bellicor>
+				<Mech_Scyther>6</Mech_Scyther>
+				<AM_Mech_Optio>6</AM_Mech_Optio>
+				<AM_Goliath>4</AM_Goliath>
+				<Mech_Diabolus>2</Mech_Diabolus>
+				<AM_Infernus>1</AM_Infernus>
+				<AM_Mech_Legate>2</AM_Mech_Legate>
+				<Mech_Skutaton MayRequire="Rimsenal.Spacer">2</Mech_Skutaton>
+				<Mech_Tagmaton MayRequire="Rimsenal.Spacer">2</Mech_Tagmaton>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=7]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Bellicor>12</AM_Mech_Bellicor>
+				<Mech_Lancer>4</Mech_Lancer>
+				<AM_Mech_Lux>2</AM_Mech_Lux>
+				<AM_Mech_Optio>2</AM_Mech_Optio>
+				<AM_Mech_Polychoron>10</AM_Mech_Polychoron>
+				<Mech_Tunneler>6</Mech_Tunneler>
+				<Mech_CentipedeBlaster>8</Mech_CentipedeBlaster>
+				<AM_WarEmpress>1</AM_WarEmpress>
+				<AM_Siegemelter>2</AM_Siegemelter>
+				<AM_Starfire>2</AM_Starfire>
+				<AM_Fireworm>2</AM_Fireworm>
+				<Mech_Centurion>2</Mech_Centurion>
+				<AM_Mech_Legate>2</AM_Mech_Legate>
+				<LFM_Mech_RocketSlinger MayRequire="GoGaTio.LostFactoryMechanoids,Ludeon.RimWorld.Royalty">2</LFM_Mech_RocketSlinger>
+			</escorts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts</xpath>
+		<value>
+			<escorts>
+				<AM_Mech_Bellicor>6</AM_Mech_Bellicor>
+				<AM_Daggersnout>4</AM_Daggersnout>
+				<Mech_Centurion>2</Mech_Centurion>
+				<AM_Mech_Sagittarius>3</AM_Mech_Sagittarius>
+				<Mech_Scyther>2</Mech_Scyther>
+				<Mech_Lancer>2</Mech_Lancer>
+				<Mech_Pikeman>2</Mech_Pikeman>
+				<AM_Mech_Lux>2</AM_Mech_Lux>
+				<AM_Mech_Munifex>2</AM_Mech_Munifex>
+				<Mech_Tagmaton MayRequire="Rimsenal.Spacer">1</Mech_Tagmaton>
+				<Mech_Skutaton MayRequire="Rimsenal.Spacer">1</Mech_Skutaton>
+				<Mech_Bombito MayRequire="Rimsenal.Spacer">1</Mech_Bombito>
+				<Mech_CentipedeBlaster>4</Mech_CentipedeBlaster>
+				<Mech_CentipedeBurner>4</Mech_CentipedeBurner>
+				<Mech_CentipedeGunner>1</Mech_CentipedeGunner>
+				<AM_Blitzkrieg>1</AM_Blitzkrieg>
+				<AM_Mech_Artilleron>1</AM_Mech_Artilleron>
+				<Mech_Militor>1</Mech_Militor>
+				<Mech_Termite_Breach>1</Mech_Termite_Breach>
+				<AM_Infernus>1</AM_Infernus>
+				<AM_WarEmpress>1</AM_WarEmpress>
+				<AM_Siegemelter>2</AM_Siegemelter>
+				<AM_Starfire>2</AM_Starfire>
+				<AM_Fireworm>2</AM_Fireworm>
+				<AM_Mech_Polychoron>4</AM_Mech_Polychoron>
+				<AM_Mech_Optio>2</AM_Mech_Optio>
+				<AM_Mech_Legate>2</AM_Mech_Legate>
+				<AM_Goliath>2</AM_Goliath>
+				<Mech_Tunneler>3</Mech_Tunneler>
+				<Mech_Diabolus>1</Mech_Diabolus>
+				<AM_Aura>4</AM_Aura>
+				<LFM_Mech_RocketSlinger MayRequire="GoGaTio.LostFactoryMechanoids,Ludeon.RimWorld.Royalty">2</LFM_Mech_RocketSlinger>
+				<LFM_Mech_Taintor MayRequire="GoGaTio.LostFactoryMechanoids">2</LFM_Mech_Taintor>
+				<LFM_Mech_Arbiter MayRequire="GoGaTio.LostFactoryMechanoids">1</LFM_Mech_Arbiter>
+				<LFM_Mech_Scutum MayRequire="GoGaTio.LostFactoryMechanoids">1</LFM_Mech_Scutum>
+			</escorts>
+		</value>
+	</Operation>
+
+</Patch>

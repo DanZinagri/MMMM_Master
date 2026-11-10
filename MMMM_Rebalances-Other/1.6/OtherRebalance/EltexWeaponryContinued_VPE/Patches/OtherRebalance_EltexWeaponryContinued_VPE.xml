@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/OtherRebalance.xml: the operations that also need Eltex Weaponry (Continued) and Vanilla Psycasts Expanded. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="Empire_Caster_Conflagrator" or defName="Empire_Caster_Archotechist" or defName="Empire_Caster_Warlord_Ranged" or defName="Empire_Caster_Protector"]/weaponTags</xpath>
+		<value>
+			<li>PsychicGun</li>
+		</value>
+	</Operation>
+
+</Patch>

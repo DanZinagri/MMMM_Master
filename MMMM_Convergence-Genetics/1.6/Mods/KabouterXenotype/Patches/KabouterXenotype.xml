@@ -12,31 +12,27 @@
 		Verified 2026-10-31 against Kabouter (3792986331, Defs/Genes.xml + Defs/Xenotype.xml: only GS_Kabouter lists the
 		gene, no Kabouter patch touches it) and Alpha Genes 1.6 + 1.7 (GeneDefs_Aptitude.xml).
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/XenotypeDef[genes/li[text()="AG_MiningYield_High"]]/genes/li[text()="GS_MiningYield"]</xpath>
-				<match Class="PatchOperationRemove">
-					<xpath>Defs/XenotypeDef[genes/li[text()="AG_MiningYield_High"]]/genes/li[text()="GS_MiningYield"]</xpath>
-				</match>
-			</li>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/XenotypeDef/genes/li[text()="GS_MiningYield"]</xpath>
-				<match Class="PatchOperationReplace">
-					<xpath>Defs/XenotypeDef/genes/li[text()="GS_MiningYield"]</xpath>
-					<value>
-						<li>AG_MiningYield_High</li>
-					</value>
-				</match>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
-				<value>
-					<li>GeneDef/GS_MiningYield</li>
-					<li>GeneDef/GS_MiningYield_Astrogene</li>
-				</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="AG_MiningYield_High"]]/genes/li[text()="GS_MiningYield"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="AG_MiningYield_High"]]/genes/li[text()="GS_MiningYield"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="GS_MiningYield"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="GS_MiningYield"]</xpath>
+			<value>
+				<li>AG_MiningYield_High</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/GS_MiningYield</li>
+			<li>GeneDef/GS_MiningYield_Astrogene</li>
+		</value>
 	</Operation>
 
 </Patch>

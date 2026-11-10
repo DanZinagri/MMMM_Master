@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/DetsXenotypeBrawnum/Patches/DetsXenotypeBrawnum.xml: the operations that also need Alpha Genes. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="DV_Brawnum"]/genes/li[text()="DV_StrongBack"]</xpath>
+		<value>
+			<li>AG_PackMule</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/DV_StrongBack</li>
+			<li>GeneDef/DV_StrongBack_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

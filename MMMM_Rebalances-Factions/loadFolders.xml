@@ -3,8 +3,20 @@
 <loadFolders>
 	<v1.6>
 		<!-- 1.6/Mods/<Name> loads when that mod is active; 1.6/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActive="Trickity.Samurai.Faction">1.6/FactionRebalance/TsSamuraiFaction</li>
+		<li IfModActive="det.buzzers">1.6/FactionRebalance/Buzzers</li>
+		<li IfModActiveAll="RedMattis.BigSmall,det.stoneborn">1.6/FactionRebalance/BSRaces_DetsStoneborn</li>
+		<li IfModActive="det.keshig">1.6/FactionRebalance/DetsKeshig</li>
+		<li IfModActive="VexedTrees980.RimElvesBiotech">1.6/FactionRebalance/RimElves</li>
+		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.6/FactionRebalance/RimGnoblins</li>
+		<li IfModActive="vanillaracesexpanded.saurid">1.6/FactionRebalance/VRESaurid</li>
+		<li IfModActive="OskarPotocki.VanillaFactionsExpanded.SettlersModule">1.6/FactionRebalance/VFESettlers</li>
+		<li IfModActive="biotexpans.mythic">1.6/FactionRebalance/Mythic</li>
+		<li IfModActive="biotexpans.mammalia">1.6/FactionRebalance/Mammalia</li>
 		<li>1.6</li>
+		<li IfModActiveAll="sarg.alphagenes,vanillaracesexpanded.phytokin,Ludeon.RimWorld.Anomaly" IfModNotActive="mytigio.harbingerkin">1.6/Mods/AlphaGenes_WithoutHarbingerKin/VREPhytokin_Anomaly</li>
 		<li IfModActive="sarg.alphagenes" IfModNotActive="mytigio.harbingerkin">1.6/Mods/AlphaGenes_WithoutHarbingerKin</li>
 		<li IfModActive="Crows.DragonBond">1.6/Mods/DragonBond</li>
 		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.6/Mods/BigAndSmallLamias</li>
@@ -13,8 +25,20 @@
 	</v1.6>
 	<v1.7>
 		<!-- 1.7/Mods/<Name> loads when that mod is active; 1.7/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActive="Trickity.Samurai.Faction">1.7/FactionRebalance/TsSamuraiFaction</li>
+		<li IfModActive="det.buzzers">1.7/FactionRebalance/Buzzers</li>
+		<li IfModActiveAll="RedMattis.BigSmall,det.stoneborn">1.7/FactionRebalance/BSRaces_DetsStoneborn</li>
+		<li IfModActive="det.keshig">1.7/FactionRebalance/DetsKeshig</li>
+		<li IfModActive="VexedTrees980.RimElvesBiotech">1.7/FactionRebalance/RimElves</li>
+		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.7/FactionRebalance/RimGnoblins</li>
+		<li IfModActive="vanillaracesexpanded.saurid">1.7/FactionRebalance/VRESaurid</li>
+		<li IfModActive="OskarPotocki.VanillaFactionsExpanded.SettlersModule">1.7/FactionRebalance/VFESettlers</li>
+		<li IfModActive="biotexpans.mythic">1.7/FactionRebalance/Mythic</li>
+		<li IfModActive="biotexpans.mammalia">1.7/FactionRebalance/Mammalia</li>
 		<li>1.7</li>
+		<li IfModActiveAll="sarg.alphagenes,vanillaracesexpanded.phytokin,Ludeon.RimWorld.Anomaly" IfModNotActive="mytigio.harbingerkin">1.7/Mods/AlphaGenes_WithoutHarbingerKin/VREPhytokin_Anomaly</li>
 		<li IfModActive="sarg.alphagenes" IfModNotActive="mytigio.harbingerkin">1.7/Mods/AlphaGenes_WithoutHarbingerKin</li>
 		<li IfModActive="Crows.DragonBond">1.7/Mods/DragonBond</li>
 		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.7/Mods/BigAndSmallLamias</li>

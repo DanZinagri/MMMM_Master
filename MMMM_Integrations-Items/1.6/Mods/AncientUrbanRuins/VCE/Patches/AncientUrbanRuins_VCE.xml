@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/AncientUrbanRuins/Patches/AncientUrbanRuins.xml: the operations that also need Vanilla Cooking Expanded. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[defName="AM_Collectible"]/root/options</xpath>
+		<value>
+			<li>
+				<weight>0.1</weight>
+				<thingSetMaker Class="ThingSetMaker_StackCount">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li>VCE_AgaveNectar</li>
+								<li>VCE_ChocolateSyrup</li>
+								<li>VCE_InsectJellyPreserves</li>
+							</thingDefs>
+						</filter>
+						<countRange>6~9</countRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

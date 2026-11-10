@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Alpha Genes and Anomaly. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_HeatImmunity"]/damageFactors</xpath>
+		<value>
+			<statFactors>
+				<Flammability>0.0</Flammability>
+			</statFactors>
+			<damageFactors>
+				<Flame>0.1</Flame>
+			</damageFactors>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_TwistedFlesh"]/biostatMet</xpath>
+		<value>
+			<biostatMet>0</biostatMet>
+		</value>
+	</Operation>
+
+</Patch>

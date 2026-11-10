@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/AncientUrbanRuins/Patches/AncientUrbanRuins.xml: the operations that also need Alpha Crafts. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[defName="AM_Collectible"]/root/options</xpath>
+		<value>
+			<li>
+				<weight>1.5</weight>
+				<thingSetMaker Class="ThingSetMaker_StackCount">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li>AC_Essence</li>
+								<li>AC_Flour</li>
+								<li>AC_Perfume</li>
+								<li>AC_ScentedCandle</li>
+								<li>AC_Soap</li>
+								<li>AC_AloeVeraSalve</li>
+								<li MayRequire="VanillaExpanded.VBrewE">AC_PipeTobacco</li>
+								<li MayRequire="VanillaExpanded.VBrewE">AC_TeaSachets</li>
+							</thingDefs>
+						</filter>
+						<countRange>5~9</countRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingSetMakerDef[defName="AM_PotatoChips"]/root/options</xpath>
+		<value>
+			<options>
+				<li>
+					<weight>0.5</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>AC_Chips</li>
+								</thingDefs>
+							</filter>
+							<countRange>8~10</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+			</options>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[defName="AM_Food"]/root/options</xpath>
+		<value>
+			<li>
+				<weight>2.0</weight>
+				<thingSetMaker Class="ThingSetMaker_StackCount">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li>AC_Pickles</li>
+								<li>AC_PickledEggs</li>
+								<li>AC_Vinegar</li>
+								<li>AC_BalsamicVinegar</li>
+								<li>AC_CuredHiveConfections</li>
+							</thingDefs>
+						</filter>
+						<countRange>5~8</countRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+			<li>
+				<weight>0.3</weight>
+				<thingSetMaker Class="ThingSetMaker_StackCount">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li>AC_TruffleOil</li>
+								<li>AC_InfusedOil</li>
+							</thingDefs>
+						</filter>
+						<countRange>2~4</countRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[defName="AM_Beverages"]/root/options</xpath>
+		<value>
+			<li>
+				<weight>1.0</weight>
+				<thingSetMaker Class="ThingSetMaker_StackCount">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li MayRequire="VanillaExpanded.VBrewE">AC_CoffeeLiquor</li>
+								<li MayRequire="VanillaExpanded.VPlantsEMore">AC_BeetKvass</li>
+							</thingDefs>
+						</filter>
+						<countRange>3~5</countRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

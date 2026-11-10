@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/Wings.xml: the operations that also need ReSplice: Charmweavers and Alpha Genes. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="RS_Wing_Batlike"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-2</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="RS_Wing_Batlike"]/statOffsets</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="RS_Wing_Batlike"]</xpath>
+		<value>
+			<customEffectDescriptions>
+				<li>Colonist will ignore terrain movement costs</li>
+			</customEffectDescriptions>
+		</value>
+	</Operation>
+
+</Patch>

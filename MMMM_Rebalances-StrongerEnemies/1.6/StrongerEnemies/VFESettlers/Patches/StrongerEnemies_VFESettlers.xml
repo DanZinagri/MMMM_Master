@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/StrongerEnemies.xml: the operations that also need Vanilla Factions Expanded - Settlers. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="Bandit"]/itemQuality</xpath>
+		<value>
+			<itemQuality>Normal</itemQuality>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="Militia"]</xpath>
+		<value>
+			<itemQuality>Excellent</itemQuality>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="Gunslinger"]/itemQuality</xpath>
+		<value>
+			<itemQuality>Excellent</itemQuality>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="Sheriff" or defName="Mayor" or defName="BanditLeader"]/itemQuality</xpath>
+		<value>
+			<itemQuality>Masterwork</itemQuality>
+			<maxApparelQuality>Masterwork</maxApparelQuality>
+		</value>
+	</Operation>
+
+</Patch>

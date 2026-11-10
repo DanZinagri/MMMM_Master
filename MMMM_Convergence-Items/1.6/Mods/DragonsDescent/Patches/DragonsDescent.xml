@@ -11,14 +11,10 @@
 		VTE_AnimalHater and RitualSustainer_Theist exist.
 		Split by category into the MMMM Convergence sub-mods: this copy holds only the Items ops (items: apparel, weapons, food, drugs and loot).
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationAttributeSet">
-				<xpath>Defs/ThingDef[defName="DD_Apparel_DragonCrown" or defName="DD_Apparel_ScaleHelm"]/recipeMaker/recipeUsers</xpath>
-				<attribute>Inherit</attribute>
-				<value>False</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationAttributeSet">
+		<xpath>Defs/ThingDef[defName="DD_Apparel_DragonCrown" or defName="DD_Apparel_ScaleHelm"]/recipeMaker/recipeUsers</xpath>
+		<attribute>Inherit</attribute>
+		<value>False</value>
 	</Operation>
 
 </Patch>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Vanilla Races Expanded - Saurid. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VRESaurids_ColdBlooded"]/biostatMet</xpath>
+		<value>
+			<biostatMet>3</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="VRESaurids_Saurid"]/genes</xpath>
+		<value>
+			<li>AptitudeTerrible_Medicine</li>
+			<li>AptitudeTerrible_Social</li>
+		</value>
+	</Operation>
+
+</Patch>

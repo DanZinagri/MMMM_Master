@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need Rimsenal.Spacer and Integrated Implants. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Apparel_SmartVisor"]/equippedStatOffsets</xpath>
+		<value>
+			<LTS_DarkVision>1</LTS_DarkVision>
+		</value>
+	</Operation>
+
+</Patch>

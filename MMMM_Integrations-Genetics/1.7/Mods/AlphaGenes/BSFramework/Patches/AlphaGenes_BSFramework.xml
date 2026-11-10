@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/AlphaGenes/Patches/AlphaGenes.xml: the operations that also need Big and Small - Framework. -->
+
+	<!--
+		Alpha Genes + Big and Small Framework: insect jelly production runs on B&S's production gene (a progress bar and
+		a B&S ProductionGeneSettings: 6 insect jelly per day) instead of Alpha Genes' hediff, which states 12 per day.
+		Verified against Alpha Genes 1.6: the gene has no geneClass and no ProductionGeneSettings of its own.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="AG_InsectJellyProduction"]</xpath>
+		<value>
+			<geneClass>BigAndSmall.ProductionGene</geneClass>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="AG_InsectJellyProduction"]/modExtensions/li[@Class="VEF.Genes.GeneExtension"]/hediffToWholeBody</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/GeneDef[defName="AG_InsectJellyProduction"]</xpath>
+		<value>
+			<li Class="BigAndSmall.ProductionGeneSettings">
+				<product>InsectJelly</product>
+				<frequencyInDays>1</frequencyInDays>
+				<baseAmount>6</baseAmount>
+				<progressName>Producing Jelly</progressName>
+				<saveKey>BSAG_JellyProduction</saveKey>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="AG_InsectJellyProduction"]/customEffectDescriptions</xpath>
+	</Operation>
+
+</Patch>

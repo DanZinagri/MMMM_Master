@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/StrongerEnemies.xml: the operations that also need Vanilla Psycasts Expanded and Alpha Animals and Anomaly. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="HoraxCult"]/pawnGroupMakers/li[position()=1 or position()=2]/options</xpath>
+		<value>
+			<TMM_Horaxian_Caster_Herald>0.1</TMM_Horaxian_Caster_Herald>
+		</value>
+	</Operation>
+
+</Patch>

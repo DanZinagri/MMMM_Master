@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/AlphaGenes/Patches/AlphaGenes.xml: the operations that also need Integrated Implants. -->
+
+	<!--
+		With Integrated Implants, Alpha Genes' decreased command range gene is retired: the increased command range gene
+		is reworked onto Integrated Implants' command-range stat in MMMM_Rebalances, and its opposite is dropped. The revive
+		entry is in 1.6/Defs/CherryPicker.xml.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/AG_DecreasedCommandRange</li>
+		</value>
+	</Operation>
+
+</Patch>

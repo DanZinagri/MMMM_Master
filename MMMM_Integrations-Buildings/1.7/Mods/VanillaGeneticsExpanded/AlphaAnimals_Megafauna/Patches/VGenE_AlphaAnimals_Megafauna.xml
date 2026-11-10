@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaGeneticsExpanded/Patches/VanillaGeneticsExpanded.xml: the operations that also need Alpha Animals and Megafauna. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName= "GR_RandomExcavator"]/comps/li[@Name="GR_RandomExcavatorComp"]/items/li[text()="GR_MegafaunaGenomeExcavator"]</xpath>
+	</Operation>
+
+</Patch>

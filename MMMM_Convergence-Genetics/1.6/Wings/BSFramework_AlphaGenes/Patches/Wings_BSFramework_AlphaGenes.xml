@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/Wings.xml: the operations that also need Big and Small - Framework and Alpha Genes. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="AG_RainbowWings" or defName="AG_BatWings" or defName="AG_PegasusWings" or defName="AG_MothWings" or defName="AG_BumbledroneWings" or defName="AG_WaspWings" or defName="AG_DrainerWings" or defName="AG_FeatheredWings" or defName="AG_DemonWings" or defName="AG_DrakonoriWings"]/modExtensions/li[@Class="VEF.Genes.GeneExtension"]/hediffToWholeBody</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/GeneDef[defName="AG_RainbowWings" or defName="AG_BatWings" or defName="AG_PegasusWings" or defName="AG_MothWings" or defName="AG_BumbledroneWings" or defName="AG_WaspWings" or defName="AG_DrainerWings" or defName="AG_FeatheredWings" or defName="AG_DemonWings" or defName="AG_DrakonoriWings"]</xpath>
+		<value>
+			<li Class="BigAndSmall.PawnExtension">
+				<thingDefSwap>BS_HumanoidWithWings</thingDefSwap>
+				<renderCacheOff>true</renderCacheOff>
+				<applyBodyHediff>
+					<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+						<hediff>BS_Floating</hediff>
+					</li>
+				</applyBodyHediff>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

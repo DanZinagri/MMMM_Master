@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need Spacer Arsenal and Vanilla Gravship Expanded - Chapter 1. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DV_Apparel_EnsignHelmet"]/equippedStatOffsets/VacuumResistance</xpath>
+		<value>
+			<VacuumResistance>0.65</VacuumResistance>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DV_Apparel_EnsignHelmet"]/statBases/ArmorRating_Sharp</xpath>
+		<value>
+			<ArmorRating_Sharp>0.80</ArmorRating_Sharp>
+		</value>
+	</Operation>
+
+</Patch>

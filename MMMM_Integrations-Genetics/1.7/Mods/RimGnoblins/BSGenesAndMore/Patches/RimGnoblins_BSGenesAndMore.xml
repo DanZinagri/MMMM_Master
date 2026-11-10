@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Rim-Gnoblins integrations. This folder only loads when Rim-Gnoblins is active (see loadFolders.xml); each block sits in a subfolder gated on its partner mod. Gene adds skip a xenotype that already has the gene.
+		  - With Big and Small - Genes &amp; More: universal digestion.
+		  - With VRE - Pigskin: gluttonous.
+		Verified 2026-11-07 against Rim-Gnoblins (3018569666, 1.6/Defs/GeneDefs/XenotypeDefs.xml), Genes &amp; More 1.6 and
+		VRE - Pigskin 1.6: both genes exist, neither is on the gnoblin already, and the gnoblin has no other diet or hunger
+		gene for them to clash with (VRE_Gluttonous has no exclusion tags).
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="Gnoblin"][not(genes/li[text()="BS_Diet_Universal"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="Gnoblin"][not(genes/li[text()="BS_Diet_Universal"])]/genes</xpath>
+			<value>
+				<li>BS_Diet_Universal</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

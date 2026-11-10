@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/Heads.xml: the operations that also need Rimsenal.Harana and Alpha Genes. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/GeneDef[defName="Narrow_Pointy_Head" or defName="Narrow_Normal_Head"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>AG_Heads</li>
+				<li>Heads</li>
+				<li>Head</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+
+</Patch>

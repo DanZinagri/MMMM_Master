@@ -3,34 +3,58 @@
 <loadFolders>
 	<v1.6>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Empire,OskarPotocki.VFE.Medieval2">1.6/TradeTags/VFEEmpire_VFEMedieval2</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Empire,Bonible.rimsenalfactions">1.6/TradeTags/VFEEmpire_Rimsenalfactions</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,Rimsenal.Spacer">1.6/TradeTags/Biotech_Spacer</li>
 		<li>1.6</li>
 		<li IfModActiveAll="vanillaracesexpanded.archon,VanillaExpanded.VMemesE">1.6/Mods/VanillaRacesExpandedArchon</li>
 		<li IfModActiveAll="det.stoneborn,VanillaExpanded.VMemesE">1.6/Mods/DetsXenotypeStoneborn</li>
+		<li IfModActiveAll="RedMattis.Heaven,sov.nephilim,ebsg.framework,Ludeon.RimWorld.Ideology">1.6/Mods/BigAndSmallHeavenAndHell/NR_EBSGFramework_Ideology</li>
+		<li IfModActiveAll="RedMattis.Heaven,sov.nephilim">1.6/Mods/BigAndSmallHeavenAndHell/NephilimReborn</li>
+		<li IfModActiveAll="RedMattis.Heaven,OskarPotocki.VFE.Medieval2">1.6/Mods/BigAndSmallHeavenAndHell/VFEMedieval2</li>
 		<li IfModActive="RedMattis.Heaven">1.6/Mods/BigAndSmallHeavenAndHell</li>
+		<li IfModActiveAll="RedMattis.BigSmall,OskarPotocki.VFE.Medieval2">1.6/Mods/BigAndSmallRaces/VFEMedieval2</li>
+		<li IfModActiveAll="RedMattis.BigSmall,det.stoneborn">1.6/Mods/BigAndSmallRaces/DetsStoneborn</li>
 		<li IfModActive="RedMattis.BigSmall">1.6/Mods/BigAndSmallRaces</li>
+		<li IfModActiveAll="Sov.Tenmo,RedMattis.Yokai">1.6/Mods/GeistXenotype/BSYokai</li>
 		<li IfModActive="Sov.Tenmo">1.6/Mods/GeistXenotype</li>
 		<li IfModActive="Ludeon.RimWorld.Royalty">1.6/Mods/Royalty</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Pirates,Ludeon.RimWorld.Royalty">1.6/Mods/VanillaFactionsExpandedPirates/Royalty</li>
 		<li IfModActive="OskarPotocki.VFE.Pirates">1.6/Mods/VanillaFactionsExpandedPirates</li>
 		<li IfModActive="mytigio.HarbingerKin">1.6/Mods/HarbingerKin</li>
 		<li IfModActive="OskarPotocki.VFE.Medieval2">1.6/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,VanillaExpanded.VMemesE">1.6/Mods/TsSamuraiFaction/VIEMemesAndStructures</li>
 		<li IfModActive="Trickity.Samurai.Faction">1.6/Mods/TsSamuraiFaction</li>
 		<li IfModActive="OskarPotocki.VFE.Empire">1.6/Mods/VanillaFactionsExpandedEmpire</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Empire,OskarPotocki.VFE.Medieval2">1.7/TradeTags/VFEEmpire_VFEMedieval2</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Empire,Bonible.rimsenalfactions">1.7/TradeTags/VFEEmpire_Rimsenalfactions</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,Rimsenal.Spacer">1.7/TradeTags/Biotech_Spacer</li>
 		<li>1.7</li>
 		<li IfModActiveAll="vanillaracesexpanded.archon,VanillaExpanded.VMemesE">1.7/Mods/VanillaRacesExpandedArchon</li>
 		<li IfModActiveAll="det.stoneborn,VanillaExpanded.VMemesE">1.7/Mods/DetsXenotypeStoneborn</li>
+		<li IfModActiveAll="RedMattis.Heaven,sov.nephilim,ebsg.framework,Ludeon.RimWorld.Ideology">1.7/Mods/BigAndSmallHeavenAndHell/NR_EBSGFramework_Ideology</li>
+		<li IfModActiveAll="RedMattis.Heaven,sov.nephilim">1.7/Mods/BigAndSmallHeavenAndHell/NephilimReborn</li>
+		<li IfModActiveAll="RedMattis.Heaven,OskarPotocki.VFE.Medieval2">1.7/Mods/BigAndSmallHeavenAndHell/VFEMedieval2</li>
 		<li IfModActive="RedMattis.Heaven">1.7/Mods/BigAndSmallHeavenAndHell</li>
+		<li IfModActiveAll="RedMattis.BigSmall,OskarPotocki.VFE.Medieval2">1.7/Mods/BigAndSmallRaces/VFEMedieval2</li>
+		<li IfModActiveAll="RedMattis.BigSmall,det.stoneborn">1.7/Mods/BigAndSmallRaces/DetsStoneborn</li>
 		<li IfModActive="RedMattis.BigSmall">1.7/Mods/BigAndSmallRaces</li>
+		<li IfModActiveAll="Sov.Tenmo,RedMattis.Yokai">1.7/Mods/GeistXenotype/BSYokai</li>
 		<li IfModActive="Sov.Tenmo">1.7/Mods/GeistXenotype</li>
 		<li IfModActive="Ludeon.RimWorld.Royalty">1.7/Mods/Royalty</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Pirates,Ludeon.RimWorld.Royalty">1.7/Mods/VanillaFactionsExpandedPirates/Royalty</li>
 		<li IfModActive="OskarPotocki.VFE.Pirates">1.7/Mods/VanillaFactionsExpandedPirates</li>
 		<li IfModActive="mytigio.HarbingerKin">1.7/Mods/HarbingerKin</li>
 		<li IfModActive="OskarPotocki.VFE.Medieval2">1.7/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,VanillaExpanded.VMemesE">1.7/Mods/TsSamuraiFaction/VIEMemesAndStructures</li>
 		<li IfModActive="Trickity.Samurai.Faction">1.7/Mods/TsSamuraiFaction</li>
 		<li IfModActive="OskarPotocki.VFE.Empire">1.7/Mods/VanillaFactionsExpandedEmpire</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>

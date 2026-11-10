@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/OtherRebalance.xml: the operations that also need Alpha Biomes and Odyssey. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="AB_GoldenCubeTree"]/modExtensions/li[@Class="VEF.Plants.DualCropExtension"]/outPutAmount</xpath>
+		<value>
+			<outPutAmount>5</outPutAmount>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/Heads.xml: the operations that also need biotexpans.mammalia and Alpha Genes. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/GeneDef[defName="BTEMa_LupineHead" or defName="BTEMa_CervineHead" or defName="BTEMa_RodentHead" or defName="BTEMa_BatHead" or defName="BTEMa_ElephantHead" or defName="BTEMa_SheepHead" or defName="BTEMa_BovineHead"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>AG_Heads</li>
+				<li>Heads</li>
+				<li>Head</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+
+</Patch>

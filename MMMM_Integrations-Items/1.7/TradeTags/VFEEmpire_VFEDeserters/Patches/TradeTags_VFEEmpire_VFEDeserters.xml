@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/TradeTags.xml: the operations that also need Vanilla Factions Expanded - Empire and Vanilla Factions Expanded - Deserters. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="VFED_Gun_Fletchling"]</xpath>
+		<value>
+			<tradeTags>
+				<li>BlackMarket</li>
+			</tradeTags>
+		</value>
+	</Operation>
+
+</Patch>

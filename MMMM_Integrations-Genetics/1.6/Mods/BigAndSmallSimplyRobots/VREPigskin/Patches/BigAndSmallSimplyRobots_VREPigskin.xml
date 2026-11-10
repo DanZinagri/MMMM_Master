@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/BigAndSmallSimplyRobots/Patches/BigAndSmallSimplyRobots.xml: the operations that also need Vanilla Races Expanded - Pigskin. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="VRE_OrganRegeneration"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+			<value>
+				<li>
+					<def>VRE_OrganRegeneration</def>
+					<labelMechanoid>internal self-reconstruction</labelMechanoid>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

@@ -10,47 +10,35 @@
 		failed (it already did in Too Many Mods). It now sets the VEF stat to x0.8, the same -20% the original aimed for.
 	-->
 
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationSequence">
-				<operations>
-					<li Class="PatchOperationSequence">
-						<operations>
-							<li Class="PatchOperationReplace">
-								<xpath>Defs/ThingDef[defName="VAEA_Apparel_MiniTurretPack"]/apparel/bodyPartGroups</xpath>
-								<value>
-									<bodyPartGroups>
-										<li>Torso</li>
-										<li>Waist</li>
-									</bodyPartGroups>
-								</value>
-							</li>
-							<li Class="PatchOperationReplace">
-								<xpath>Defs/ThingDef[defName="VAEA_Apparel_Quiver"]/apparel/bodyPartGroups</xpath>
-								<value>
-									<bodyPartGroups>
-										<li>Torso</li>
-										<li>Waist</li>
-									</bodyPartGroups>
-								</value>
-							</li>
-							<li Class="PatchOperationAdd">
-								<xpath>Defs/ThingDef[defName="VAEA_Apparel_Backpack"]/equippedStatOffsets</xpath>
-								<value>
-									<CarryingCapacity>50</CarryingCapacity>
-								</value>
-							</li>
-							<li Class="PatchOperationReplace">
-								<xpath>Defs/ThingDef[defName="VAEA_Apparel_AmmoPack"]/statBases/VEF_RangedCooldownFactor</xpath>
-								<value>
-									<VEF_RangedCooldownFactor>0.8</VEF_RangedCooldownFactor>
-								</value>
-							</li>
-						</operations>
-					</li>
-				</operations>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VAEA_Apparel_MiniTurretPack"]/apparel/bodyPartGroups</xpath>
+		<value>
+			<bodyPartGroups>
+				<li>Torso</li>
+				<li>Waist</li>
+			</bodyPartGroups>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VAEA_Apparel_Quiver"]/apparel/bodyPartGroups</xpath>
+		<value>
+			<bodyPartGroups>
+				<li>Torso</li>
+				<li>Waist</li>
+			</bodyPartGroups>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="VAEA_Apparel_Backpack"]/equippedStatOffsets</xpath>
+		<value>
+			<CarryingCapacity>50</CarryingCapacity>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VAEA_Apparel_AmmoPack"]/statBases/VEF_RangedCooldownFactor</xpath>
+		<value>
+			<VEF_RangedCooldownFactor>0.8</VEF_RangedCooldownFactor>
+		</value>
 	</Operation>
 
 </Patch>

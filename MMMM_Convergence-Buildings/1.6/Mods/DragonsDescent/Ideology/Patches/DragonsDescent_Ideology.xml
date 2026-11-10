@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/DragonsDescent/Patches/DragonsDescent.xml: the operations that also need Ideology. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="Ritual_Weak" or defName="Ritual_Moderate" or defName="Ritual_Large" or defName="Ritual_Major"]/soundWorking</xpath>
+		<value>
+			<soundWorking>RitualSustainer_Theist</soundWorking>
+		</value>
+	</Operation>
+
+</Patch>

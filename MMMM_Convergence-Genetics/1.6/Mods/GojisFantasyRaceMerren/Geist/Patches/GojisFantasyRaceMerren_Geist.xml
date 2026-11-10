@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/GojisFantasyRaceMerren/Patches/GojisFantasyRaceMerren.xml: the operations that also need Geist Xenotype. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="GS_Geist"]/genes/li[text()="GS_Nimble"]</xpath>
+		<value>
+			<li>Stagz_Nimbleness</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/GS_Nimble</li>
+			<li>GeneDef/GS_Nimble_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

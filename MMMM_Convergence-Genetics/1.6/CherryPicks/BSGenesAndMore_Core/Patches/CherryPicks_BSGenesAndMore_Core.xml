@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/CherryPicks.xml: the operations that also need Big and Small - Genes & More and biotexpans.core. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/BS_Unarmed_Strong</li>
+			<li>GeneDef/BS_Unarmed_Strong_Astrogene</li>
+			<li>GeneDef/BS_Unarmed_VeryStrong</li>
+			<li>GeneDef/BS_Unarmed_VeryStrong_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaFurnitureExpandedArchitect/Patches/VanillaFurnitureExpandedArchitect.xml: the operations that also need Odyssey. -->
+
+	<!-- Odyssey -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs</xpath>
+		<value>
+			<TerrainDef ParentName="PolishedStoneFloorBase">
+				<defName>TMM_VFEArch_PolishedStoneFloorVacstone</defName>
+				<label>vacstone polished stone floor</label>
+				<color>(115,106,98)</color>
+				<costList>
+					<BlocksVacstone>12</BlocksVacstone>
+				</costList>
+			</TerrainDef>
+			<TerrainDef ParentName="CobblestoneBase">
+				<defName>TMM_VFEArch_CobblestoneFloorVacstone</defName>
+				<label>vacstone cobblestone floor</label>
+				<color>(115,106,98)</color>
+				<costList>
+					<BlocksVacstone>4</BlocksVacstone>
+				</costList>
+			</TerrainDef>
+		</value>
+	</Operation>
+
+</Patch>

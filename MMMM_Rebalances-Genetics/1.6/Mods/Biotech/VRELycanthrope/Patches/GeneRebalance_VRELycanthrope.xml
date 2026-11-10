@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Vanilla Races Expanded - Lycanthrope. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VRE_MoveSpeed_ExtremelyQuick"]/statOffsets/MoveSpeed</xpath>
+		<value>
+			<MoveSpeed>1.0</MoveSpeed>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VRE_MoveSpeed_ExtremelyQuick"]/biostatArc</xpath>
+		<value>
+			<biostatArc>2</biostatArc>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="VRE_MoveSpeed_ExtremelyQuick"]/modExtensions/li[@Class="VEF.Genes.GeneExtension"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="VRE_MoveSpeed_ExtremelyQuick"]/customEffectDescriptions</xpath>
+	</Operation>
+
+</Patch>

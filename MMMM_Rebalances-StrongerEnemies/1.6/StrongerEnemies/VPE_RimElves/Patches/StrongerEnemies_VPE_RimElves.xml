@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/StrongerEnemies.xml: the operations that also need Vanilla Psycasts Expanded and Rim-Elves. -->
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/PawnKindDef[defName="Elven_Soldier_BladeGuard"]</xpath>
+		<value>
+			<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+				<implantDef>VPE_PsycastAbilityImplant</implantDef>
+				<initialLevel>1</initialLevel>
+				<statUpgradePoints>0~0</statUpgradePoints>
+				<unlockedPaths>
+					<VPE_Warlord>1~4|2~12</VPE_Warlord>
+				</unlockedPaths>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="Elven_Soldier_BladeGuard"]</xpath>
+		<value>
+			<startingHediffs>
+				<li>
+					<def>VPE_SpeedBoost</def>
+					<durationTicksRange>8000~9000</durationTicksRange>
+				</li>
+				<li>
+					<def>VPE_BladeFocus</def>
+					<durationTicksRange>16000~18000</durationTicksRange>
+				</li>
+			</startingHediffs>
+		</value>
+	</Operation>
+
+</Patch>

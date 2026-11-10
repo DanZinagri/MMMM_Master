@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaAnomalyExpandedInsanity/Patches/VanillaAnomalyExpandedInsanity.xml: the operations that also need VPE - Fleshshaper. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VAEInsanity.SanityEffectsDef[defName="VAEI_SanityEffects"]/hediffEffects</xpath>
+		<value>
+			<li>
+				<hediff>FleshregenerationSTNL</hediff>
+				<effect>-0.01</effect>
+			</li>
+			<li>
+				<hediff>TempregenerationSTNL</hediff>
+				<effect>-0.04</effect>
+			</li>
+			<li>
+				<hediff>SustenanceSTNL</hediff>
+				<effect>-0.01</effect>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

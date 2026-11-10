@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/BigAndSmallHeavenAndHell/Patches/BigAndSmallHeavenAndHell_Nephilim.xml: the operations that also need Nephilim Xenotype Reborn and EBSG Framework and Ideology. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="BS_Heaven"]/requiredMemes</xpath>
+		<value>
+			<li>GS_Gracetouched</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/TradeTags.xml: the operations that also need Vanilla Factions Expanded - Empire and Bonible.rimsenalfactions. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraderKindDef[defName="Orbital_BlackCorp"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>BlackMarket</tag>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/BigAndSmallRaces/Patches/BigAndSmallRaces.xml: the operations that also need Vanilla Races Expanded - Starjack. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_BrokenTitan" or defName="BS_Surtr" or defName="BS_Ymir"]/genes/li[text()="BS_EVA_Gene"]</xpath>
+		<value>
+			<li>VREStarjack_VacuumResistance_Total</li>
+		</value>
+	</Operation>
+
+	<!--
+		Cherry Picker note: the astrogene entry is not dead weight. Alpha Genes defines no _Astrogene defs in XML at
+		all, one per gene is built at runtime by AlphaGenes.dll, so the def exists in game even though grepping the
+		mod's files finds nothing. An earlier comment in this project claimed otherwise; it was wrong.
+		The list itself, MMMM_ConvergenceGenetics_CherryPicker_Basics, belongs to this mod, and the matching revive entries are
+		in 1.6/Defs/CherryPicker.xml.
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="VREStarjack_VacuumResistance_Total"]]/genes/li[text()="BS_EVA_Gene"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="VREStarjack_VacuumResistance_Total"]]/genes/li[text()="BS_EVA_Gene"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="BS_EVA_Gene"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="BS_EVA_Gene"]</xpath>
+			<value>
+				<li>VREStarjack_VacuumResistance_Total</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/BS_EVA_Gene</li>
+			<li>GeneDef/BS_EVA_Gene_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

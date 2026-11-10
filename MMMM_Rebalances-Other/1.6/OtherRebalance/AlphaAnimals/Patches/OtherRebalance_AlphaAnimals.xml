@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/OtherRebalance.xml: the operations that also need Alpha Animals. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="AA_BlueGelBattery"]/comps/li[@Class="CompProperties_Battery"]/storedEnergyMax</xpath>
+		<value>
+			<storedEnergyMax>2000</storedEnergyMax>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="AA_HexaGelBattery"]/comps/li[@Class="CompProperties_Battery"]/storedEnergyMax</xpath>
+		<value>
+			<storedEnergyMax>6000</storedEnergyMax>
+		</value>
+	</Operation>
+
+</Patch>

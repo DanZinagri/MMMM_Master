@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/BigAndSmallSlimes/Patches/BigAndSmallSlimes.xml: the operations that also need Alpha Genes and Big and Small - Races. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_BananaSplitSlimeGiant"]/genes</xpath>
+		<value>
+			<li>AG_ChocolateFlesh</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_FrostSlimeGiant"]/genes</xpath>
+		<value>
+			<li>AG_CryoBlood</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_FrostSlimeGiant"]/genes</xpath>
+		<value>
+			<li>AG_PukeCryo</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_LavaSlimeGiant"]/genes</xpath>
+		<value>
+			<li>AG_TarBlood</li>
+		</value>
+	</Operation>
+
+</Patch>

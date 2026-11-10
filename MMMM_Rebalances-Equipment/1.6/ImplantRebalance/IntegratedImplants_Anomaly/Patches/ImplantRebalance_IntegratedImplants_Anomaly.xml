@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/ImplantRebalance.xml: the operations that also need Integrated Implants and Anomaly. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="SlayersCollar"]/costList/Shard</xpath>
+		<value>
+			<Shard>4</Shard>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="MetalhorrorSymbiont"]/stages</xpath>
+		<value>
+			<stages>
+				<li>
+					<statFactors>
+						<MeleeDamageFactor>1.1</MeleeDamageFactor>
+						<IncomingDamageFactor>0.9</IncomingDamageFactor>
+					</statFactors>
+					<damageFactors>
+						<Flame>2</Flame>
+						<Burn>2</Burn>
+					</damageFactors>
+				</li>
+			</stages>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="Blacksight"]/stages</xpath>
+		<value>
+			<stages>
+				<li>
+					<label>extreme light</label>
+					<statOffsets>
+						<LTS_DarkVision>1</LTS_DarkVision>
+					</statOffsets>
+					<statFactors>
+						<MeleeCooldownFactor>2.1</MeleeCooldownFactor>
+						<MoveSpeed>0.7</MoveSpeed>
+					</statFactors>
+					<painOffset>0.15</painOffset>
+				</li>
+				<li>
+					<label>serious light</label>
+					<minSeverity>0.2</minSeverity>
+					<statOffsets>
+						<LTS_DarkVision>1</LTS_DarkVision>
+					</statOffsets>
+					<statFactors>
+						<MeleeCooldownFactor>1.7</MeleeCooldownFactor>
+						<MoveSpeed>0.8</MoveSpeed>
+					</statFactors>
+					<painOffset>0.1</painOffset>
+				</li>
+				<li>
+					<label>moderate light</label>
+					<minSeverity>0.6</minSeverity>
+					<statOffsets>
+						<LTS_DarkVision>1</LTS_DarkVision>
+					</statOffsets>
+					<statFactors>
+						<MeleeCooldownFactor>1.3</MeleeCooldownFactor>
+						<MoveSpeed>0.9</MoveSpeed>
+					</statFactors>
+					<painOffset>0.05</painOffset>
+				</li>
+				<li>
+					<label>initial</label>
+					<minSeverity>0.9</minSeverity>
+					<statOffsets>
+						<LTS_DarkVision>1</LTS_DarkVision>
+					</statOffsets>
+				</li>
+				<li>
+					<label>moderate dark</label>
+					<minSeverity>1.1</minSeverity>
+					<statOffsets>
+						<LTS_DarkVision>1</LTS_DarkVision>
+					</statOffsets>
+					<statFactors>
+						<MoveSpeed>1.1</MoveSpeed>
+						<MeleeCooldownFactor>0.9</MeleeCooldownFactor>
+					</statFactors>
+				</li>
+				<li>
+					<label>serious dark</label>
+					<minSeverity>1.4</minSeverity>
+					<statOffsets>
+						<LTS_DarkVision>1</LTS_DarkVision>
+					</statOffsets>
+					<statFactors>
+						<MoveSpeed>1.25</MoveSpeed>
+						<MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+					</statFactors>
+				</li>
+				<li>
+					<label>extreme dark</label>
+					<minSeverity>1.8</minSeverity>
+					<statOffsets>
+						<LTS_DarkVision>1</LTS_DarkVision>
+					</statOffsets>
+					<statFactors>
+						<MoveSpeed>1.4</MoveSpeed>
+						<MeleeCooldownFactor>0.7</MeleeCooldownFactor>
+					</statFactors>
+				</li>
+			</stages>
+		</value>
+	</Operation>
+
+</Patch>

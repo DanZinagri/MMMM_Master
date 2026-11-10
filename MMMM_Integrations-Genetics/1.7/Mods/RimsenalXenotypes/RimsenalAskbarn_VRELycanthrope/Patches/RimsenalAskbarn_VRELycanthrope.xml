@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Rimsenal Xenotype Pack - Askbarn gets a dodge gene: VRE Lycanthrope's improved dodge when Lycanthrope is loaded,
+		otherwise Askbarn's own born warrior (reworked into a dodge gene in MMMM_Rebalances). The absence check is an IfModNotActive folder.
+		This folder loads when a Rimsenal xenotype pack is active (see loadFolders.xml); each block sits in a subfolder gated on its mods.
+		Verified against Askbarn and Lycanthrope 1.6.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="Askbarn"]/genes</xpath>
+		<value>
+			<li>VRE_ImprovedDodge</li>
+		</value>
+	</Operation>
+
+</Patch>

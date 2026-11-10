@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/StrongerEnemies.xml: the operations that also need Vanilla Psycasts Expanded and Vehicle Framework. -->
+
+	<!--
+		Tribal psycasters join the tribe raid groups (weights differ with Vehicle Framework).
+		Fix 2026-10-13: this and the next operation used to sit inside the "Medieval Overhaul: Royalty absent" check of the
+		Empire caster block above, so MO: Royalty users lost them although nothing here touches Royalty.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3 or position()=4]/options</xpath>
+		<value>
+			<Tribal_Caster_Conflagrator>1.3</Tribal_Caster_Conflagrator>
+			<Tribal_Caster_Frostshaper>1.3</Tribal_Caster_Frostshaper>
+			<Tribal_Caster_Staticlord>1.3</Tribal_Caster_Staticlord>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The siren xenotype gains Goji's Merren siren song gene.
+		This folder only loads when Lamias is active (see loadFolders.xml). The Merren part is a subfolder gated on its packageId, Arquebus.StagzMerfolk (the id MMMM Convergence - Genetics confirmed against Merren's About.xml).
+		Verified against Lamias 1.6: the siren does not already list the gene.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="LoS_Siren"]/genes</xpath>
+		<value>
+			<li>Stagz_SirenSong</li>
+		</value>
+	</Operation>
+
+</Patch>

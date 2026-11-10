@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Items from other mods join the rare fishing catch pool (vanilla Odyssey's RareFishingCatchesBase).
+		This file only loads when Vanilla Fishing Expanded - Treasure AddOn is active (see loadFolders.xml).
+		That gate is the original author's design choice, not a technical requirement: the pool itself comes from
+		Odyssey, and the add-on is a big set of patches that fills it with modded loot. These entries extend that
+		same loot philosophy with weights chosen to match it, so they only apply to players who run the add-on.
+		Mods with a known packageId are gated by subfolder; the rest keep a name FindMod per operation, because a wrong id in a load-folder gate would fail silently.
+	-->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Fishing Expanded - Treasure AddOn</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+			<value>
+				<!-- Gene tools x10 from Alpha Genes: 0.1 -->
+				<li>
+					<weight>0.06</weight>
+					<thingSetMaker Class="ThingSetMaker_Count">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>BS_Giant_Serum</li>
+									<li>BS_Shrink_Serum</li>
+									<li>BS_GeneDicombobulator</li>
+									<li>BS_GeneGeneIntegrator</li>
+									<li>BS_CreateXenogerm</li>
+									<li>BS_CreateXenogerm_Endo</li>
+								</thingDefs>
+							</filter>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+				<!-- Archotech gene tools x3 from Alpha Genes: 0.05 -->
+				<li>
+					<weight>0.03</weight>
+					<thingSetMaker Class="ThingSetMaker_Count">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>BS_CreateArchiteXenogerm</li>
+									<li>BS_CreateArchiteXenogerm_Endo</li>
+								</thingDefs>
+							</filter>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+				<li MayRequire="ludeon.rimworld.anomaly">
+					<weight>0.05</weight>
+					<thingSetMaker Class="ThingSetMaker_Count">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>BS_DarkSoulshard</li>
+								</thingDefs>
+							</filter>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

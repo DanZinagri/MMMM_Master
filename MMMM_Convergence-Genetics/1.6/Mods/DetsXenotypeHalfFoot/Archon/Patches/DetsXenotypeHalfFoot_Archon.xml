@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/DetsXenotypeHalfFoot/Patches/DetsXenotypeHalfFoot.xml: the operations that also need vanillaracesexpanded.archon. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="DV_Melee_Fast"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="DV_Melee_Fast"]</xpath>
+			<value>
+				<li>VRE_FastMeleeHitter</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/DV_Melee_Fast</li>
+			<li>GeneDef/DV_Melee_Fast_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

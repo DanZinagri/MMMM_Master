@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/RimsenalXenotypes/Patches/RimsenalXenotype_Askbarn.xml: the operations that also need Rimsenal Xenotype Pack - Askbarn and Det's Xenotypes - Venators. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/XenotypeDef[defName="Askbarn"]/genes/li[text()="RSLongshot"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="Askbarn"]/genes</xpath>
+		<value>
+			<li>DV_Farsighted</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/RSLongshot</li>
+			<li>GeneDef/RSLongshot_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

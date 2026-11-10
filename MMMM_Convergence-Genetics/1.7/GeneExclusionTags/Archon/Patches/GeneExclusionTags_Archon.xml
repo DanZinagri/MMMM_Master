@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/GeneExclusionTags.xml: the operations that also need vanillaracesexpanded.archon. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/GeneDef[defName="VRE_Transcendent"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>TMM_Deathless</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+
+</Patch>

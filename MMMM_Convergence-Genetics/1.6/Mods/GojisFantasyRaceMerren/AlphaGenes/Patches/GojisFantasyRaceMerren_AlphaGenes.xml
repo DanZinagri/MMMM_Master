@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/GojisFantasyRaceMerren/Patches/GojisFantasyRaceMerren.xml: the operations that also need Alpha Genes. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="Stagz_Merfolk_Coastal"]/genes/li[text()="Stagz_SwiftSwim"]</xpath>
+		<value>
+			<li>AG_WaterStriding</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="AG_WaterStriding"]</xpath>
+		<value>
+			<prerequisite>Stagz_Aquatic</prerequisite>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="AG_Nereid"]/genes</xpath>
+		<value>
+			<li>Stagz_Aquatic</li>
+		</value>
+	</Operation>
+
+</Patch>

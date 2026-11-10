@@ -3,22 +3,36 @@
 <loadFolders>
 	<v1.6>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
 		<li IfModActiveAll="OskarPotocki.VanillaVehiclesExpanded,Sarg.AlphaMemes,Ludeon.RimWorld.Ideology">1.6/Mods/VanillaVehiclesExpanded</li>
 		<li IfModActive="VanillaExpanded.VMemesE">1.6/Mods/VanillaIdeologyExpandedMemesAndStructures</li>
+		<li IfModActiveAll="VanillaExpanded.VCEF,VanillaExpanded.VMemesE">1.6/Mods/VanillaFishingExpanded/VIEMemesAndStructures</li>
 		<li IfModActive="VanillaExpanded.VCEF">1.6/Mods/VanillaFishingExpanded</li>
+		<li IfModActiveAll="det.dwarvenstyle,RedMattis.BigSmall">1.6/Mods/DetsXenotypeStoneborn/StonebornDwarvenStylePack_BSRaces</li>
+		<li IfModActiveAll="det.dwarvenstyle,det.stoneborn">1.6/Mods/DetsXenotypeStoneborn/SDSP_DetsStoneborn</li>
+		<li IfModActive="det.stoneborn,RedMattis.BigSmall" IfModActiveAll="det.dwarvenstyle">1.6/Mods/DetsXenotypeStoneborn/StonebornDwarvenStylePack</li>
 		<li IfModActive="det.stoneborn,RedMattis.BigSmall">1.6/Mods/DetsXenotypeStoneborn</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Medieval2,anthitei.athsstylenorse.style">1.6/Mods/VanillaFactionsExpandedMedieval2/ATHsStylesNorse</li>
 		<li IfModActive="OskarPotocki.VFE.Medieval2">1.6/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActiveAll="anthitei.athsstylegothic.style,Ludeon.RimWorld.Biotech">1.6/Mods/ATHsStyleGothicAndBloodyGothic/Biotech</li>
 		<li IfModActive="anthitei.athsstylegothic.style">1.6/Mods/ATHsStyleGothicAndBloodyGothic</li>
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
 		<li IfModActiveAll="OskarPotocki.VanillaVehiclesExpanded,Sarg.AlphaMemes,Ludeon.RimWorld.Ideology">1.7/Mods/VanillaVehiclesExpanded</li>
 		<li IfModActive="VanillaExpanded.VMemesE">1.7/Mods/VanillaIdeologyExpandedMemesAndStructures</li>
+		<li IfModActiveAll="VanillaExpanded.VCEF,VanillaExpanded.VMemesE">1.7/Mods/VanillaFishingExpanded/VIEMemesAndStructures</li>
 		<li IfModActive="VanillaExpanded.VCEF">1.7/Mods/VanillaFishingExpanded</li>
+		<li IfModActiveAll="det.dwarvenstyle,RedMattis.BigSmall">1.7/Mods/DetsXenotypeStoneborn/StonebornDwarvenStylePack_BSRaces</li>
+		<li IfModActiveAll="det.dwarvenstyle,det.stoneborn">1.7/Mods/DetsXenotypeStoneborn/SDSP_DetsStoneborn</li>
+		<li IfModActive="det.stoneborn,RedMattis.BigSmall" IfModActiveAll="det.dwarvenstyle">1.7/Mods/DetsXenotypeStoneborn/StonebornDwarvenStylePack</li>
 		<li IfModActive="det.stoneborn,RedMattis.BigSmall">1.7/Mods/DetsXenotypeStoneborn</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Medieval2,anthitei.athsstylenorse.style">1.7/Mods/VanillaFactionsExpandedMedieval2/ATHsStylesNorse</li>
 		<li IfModActive="OskarPotocki.VFE.Medieval2">1.7/Mods/VanillaFactionsExpandedMedieval2</li>
+		<li IfModActiveAll="anthitei.athsstylegothic.style,Ludeon.RimWorld.Biotech">1.7/Mods/ATHsStyleGothicAndBloodyGothic/Biotech</li>
 		<li IfModActive="anthitei.athsstylegothic.style">1.7/Mods/ATHsStyleGothicAndBloodyGothic</li>
 	</v1.7>
 </loadFolders>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/Heads.xml: the operations that also need Big and Small - Genes & More and Alpha Genes. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/GeneDef[defName="BS_BrokenTitanHead" or defName="BS_OgreHead" or defName="BS_DevourerHead" or defName="BS_DragonHead" or defName="BS_SatanHead" or defName="BS_GhoulHead"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>AG_Heads</li>
+				<li>Heads</li>
+				<li>Head</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+
+</Patch>

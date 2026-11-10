@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Alpha Genes. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="AG_FungalSkin"]/stages/li/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+				<ArmorRating_Sharp>0.4</ArmorRating_Sharp>
+				<InjuryHealingFactor>0.25</InjuryHealingFactor>
+			</statOffsets>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="AG_ArmourMinor"]/stages/li/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+				<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+			</statOffsets>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="AG_ArmourMedium"]/stages/li/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+				<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+			</statOffsets>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="AG_ArmourMajor"]/stages/li/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+				<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+			</statOffsets>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_FungalSkin"]/customEffectDescriptions</xpath>
+		<value>
+			<customEffectDescriptions>
+				<li>+40% blunt and sharp natural armor. +25% injury healing factor.</li>
+				<li>Fires will cause permanent wounds.</li>
+			</customEffectDescriptions>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_ArmourMinor"]/customEffectDescriptions</xpath>
+		<value>
+			<customEffectDescriptions>
+				<li>+10% blunt and sharp natural armor.</li>
+			</customEffectDescriptions>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_ArmourMedium"]/customEffectDescriptions/li[contains(text(), "natural armo")]</xpath>
+		<value>
+			<li>+20% blunt and sharp natural armor.</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_ArmourMajor"]/customEffectDescriptions/li[contains(text(), "natural armo")]</xpath>
+		<value>
+			<li>+30% blunt and sharp natural armor.</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/AbilityDef[defName="AG_AdaptiveBiology"]/cooldownTicksRange</xpath>
+		<value>
+			<cooldownTicksRange>900000</cooldownTicksRange>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_UnstableMutation"]/biostatMet</xpath>
+		<value>
+			<biostatMet>0</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_UnstableMutationMajor"]/biostatMet</xpath>
+		<value>
+			<biostatMet>1</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_UnstableMutationCatastrophic"]/biostatMet</xpath>
+		<value>
+			<biostatMet>2</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_InsectStinger" or defName="AG_ParasiticStinger" or defName="AG_InsectStingerEndogenes" or defName="AG_ParasiticStingerEndogenes"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-1</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="AG_ForsakenBodyEmblem"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>MeleeDamage</li>
+				<li>MoveSpeed</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="AG_ForsakenBodyEmblem"]/statFactors/MeleeDamageFactor</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="AG_ForsakenBodyEmblem"]</xpath>
+		<value>
+			<statOffsets>
+				<MeleeDamageFactor>0.25</MeleeDamageFactor>
+			</statOffsets>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_Clean"]/statFactors/FilthRate</xpath>
+		<value>
+			<FilthRate>0.1</FilthRate>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_Filthy"]/statFactors/FilthRate</xpath>
+		<value>
+			<FilthRate>3</FilthRate>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_Digitigrade"]/statFactors/MoveSpeed</xpath>
+		<value>
+			<MoveSpeed>1.1</MoveSpeed>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_ColdImmunity"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-2</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_ArmouredSpeed"]/conditionalStatAffecters/li[@Class="VEF.Genes.ConditionalStatAffecter_Armor"]/statOffsets/MoveSpeed</xpath>
+		<value>
+			<MoveSpeed>0.3</MoveSpeed>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/AlphaGenes.AnimalGeneTemplateDef[defName="AlphaGenes_AnimalSumMinor"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-3</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/AlphaGenes.AnimalGeneTemplateDef[defName="AlphaGenes_AnimalSummon"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-5</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/AlphaGenes.AnimalGeneTemplateDef[defName="AlphaGenes_AnimalSumMajor"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-7</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_MinorAnimalSummon_Randomizer" or defName="AlphaGenes_Animal_SummonMilitor"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-3</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_AnimalSummon_Randomizer" or defName="AlphaGenes_Animal_SummonTesseron"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-5</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_MajorAnimalSummon_Randomizer" or defName="AlphaGenes_Animal_SummonCentipede"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-7</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_ClawedHands"]/biostatMet</xpath>
+		<value>
+			<biostatMet>0</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_UVPowered_Major"]/biostatMet</xpath>
+		<value>
+			<biostatMet>0</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_UVPowered_Major"]/conditionalStatAffecters/li[@Class="VEF.Genes.ConditionalStatAffecter_NoSunlight"]/statFactors/MoveSpeed</xpath>
+		<value>
+			<MoveSpeed>0.7</MoveSpeed>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_UVPowered_Major"]/conditionalStatAffecters/li[@Class="ConditionalStatAffecter_InSunlight"]/statFactors/WorkSpeedGlobal</xpath>
+		<value>
+			<WorkSpeedGlobal>1.2</WorkSpeedGlobal>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_UVPowered_Mild"]/biostatMet</xpath>
+		<value>
+			<biostatMet>0</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/AbilityDef[defName="AG_GreaterFireSpew"]/cooldownTicksRange</xpath>
+		<value>
+			<cooldownTicksRange>30000</cooldownTicksRange>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/AbilityDef[defName="AG_GreaterAcidicVomit"]/cooldownTicksRange</xpath>
+		<value>
+			<cooldownTicksRange>30000</cooldownTicksRange>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/VEF.Weapons.ExpandableProjectileDef[defName="AG_AcidicVomit"]/projectile/damageAmountBase</xpath>
+		<value>
+			<damageAmountBase>30</damageAmountBase>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/AbilityDef[defName="AG_PetrifyingGaze"]/cooldownTicksRange</xpath>
+		<value>
+			<cooldownTicksRange>30000</cooldownTicksRange>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_MiningYield_Low"]/biostatMet</xpath>
+		<value>
+			<biostatMet>1</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_PetrifyingGaze"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-2</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_HeatRadiating"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-1</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_ColdRadiating"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-1</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_PukeCryo"]/biostatMet</xpath>
+		<value>
+			<biostatMet>0</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_CryoBlood"]/biostatMet</xpath>
+		<value>
+			<biostatMet>0</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_EfficientMandibles"]/statFactors/EatingSpeed</xpath>
+		<value>
+			<EatingSpeed>4</EatingSpeed>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_SurvivalInstinct_High"]/statFactors/ForagedNutritionPerDay</xpath>
+		<value>
+			<ForagedNutritionPerDay>3</ForagedNutritionPerDay>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_SurvivalInstinct_Low"]/statFactors/ForagedNutritionPerDay</xpath>
+		<value>
+			<ForagedNutritionPerDay>0.1</ForagedNutritionPerDay>
+		</value>
+	</Operation>
+
+</Patch>

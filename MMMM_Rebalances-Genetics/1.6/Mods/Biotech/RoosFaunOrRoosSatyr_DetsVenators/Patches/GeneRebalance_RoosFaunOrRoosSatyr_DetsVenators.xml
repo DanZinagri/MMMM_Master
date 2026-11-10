@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Roo's Faun Xenotype or Roo's Satyr Xenotype and Det's Xenotypes - Venators. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="RBSF_HorizontalPupils"]/statFactors</xpath>
+	</Operation>
+
+</Patch>

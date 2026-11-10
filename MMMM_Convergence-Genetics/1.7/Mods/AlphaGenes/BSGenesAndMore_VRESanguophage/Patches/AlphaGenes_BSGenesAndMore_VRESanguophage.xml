@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/AlphaGenes/Patches/AlphaGenes.xml: the operations that also need Big and Small - Genes & More and Vanilla Races Expanded - Sanguophage. -->
+
+	<!--
+		B&S Genes & More + VRE Sanguophage: the Malachai (Alpha Genes' sanguophage xenotype) takes B&S's large frame
+		instead of Alpha Genes' larger body size, and B&S's no-pain instead of AG_Painless.
+		Verified against Alpha Genes, B&S and VRE Sanguophage 1.6: the Malachai carries both genes being replaced.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="AG_Malachai"]/genes</xpath>
+		<value>
+			<li>BS_LargeFrame</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/XenotypeDef[defName="AG_Malachai"]/genes/li[text()="AG_LargerBodySize"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="AG_Malachai"]/genes/li[text()="AG_Painless"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef[defName="AG_Malachai"]/genes/li[text()="AG_Painless"]</xpath>
+			<value>
+				<li>BS_Pain_None</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/StrongerEnemies.xml: the operations that also need Vanilla Races Expanded - Hussar and Vanilla Factions Expanded - Empire. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="VFEE_Deserters"]/pawnGroupMakers/li[position()=1 or position()=2]/options</xpath>
+		<value>
+			<TMM_Deserter_Uhlan>1.2</TMM_Deserter_Uhlan>
+		</value>
+	</Operation>
+
+</Patch>

@@ -8,36 +8,32 @@
 		Side effect worth knowing: with Vanilla Psycasts Expanded, archotech-tech-level buildings can serve as an
 		Archotechnology meditation focus, which is why the original author set these.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/ThingDef[defName="VPE_ArchotechViolenceGenerator"]/techLevel</xpath>
-				<nomatch Class="PatchOperationAdd">
-					<xpath>Defs/ThingDef[defName="VPE_ArchotechViolenceGenerator"]</xpath>
-					<value>
-						<techLevel>Archotech</techLevel>
-					</value>
-				</nomatch>
-			</li>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/ThingDef[defName="VFE_SmallVanometricPowerCell"]/techLevel</xpath>
-				<nomatch Class="PatchOperationAdd">
-					<xpath>Defs/ThingDef[defName="VFE_SmallVanometricPowerCell"]</xpath>
-					<value>
-						<techLevel>Archotech</techLevel>
-					</value>
-				</nomatch>
-			</li>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/ThingDef[defName="VFE_LargeVanometricPowerCell"]/techLevel</xpath>
-				<nomatch Class="PatchOperationAdd">
-					<xpath>Defs/ThingDef[defName="VFE_LargeVanometricPowerCell"]</xpath>
-					<value>
-						<techLevel>Archotech</techLevel>
-					</value>
-				</nomatch>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="VPE_ArchotechViolenceGenerator"]/techLevel</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="VPE_ArchotechViolenceGenerator"]</xpath>
+			<value>
+				<techLevel>Archotech</techLevel>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="VFE_SmallVanometricPowerCell"]/techLevel</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="VFE_SmallVanometricPowerCell"]</xpath>
+			<value>
+				<techLevel>Archotech</techLevel>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="VFE_LargeVanometricPowerCell"]/techLevel</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="VFE_LargeVanometricPowerCell"]</xpath>
+			<value>
+				<techLevel>Archotech</techLevel>
+			</value>
+		</nomatch>
 	</Operation>
 
 </Patch>

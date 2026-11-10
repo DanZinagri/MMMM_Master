@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need Rimsenal.Spacer. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Apparel_SmartVisor"]/description</xpath>
+		<value>
+			<description>A target acquisition computer that assists the user. It categorizes and analyzes the targets and presents the user with which ones to neutralize first. An onboard targeting computer displays firing solutions on a retinal projection. It offers little protection.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Apparel_SmartVisor"]/statBases</xpath>
+		<value>
+			<statBases>
+				<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+				<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+				<ArmorRating_Heat>0.1</ArmorRating_Heat>
+				<Insulation_Cold>0</Insulation_Cold>
+				<Insulation_Heat>0</Insulation_Heat>
+			</statBases>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Apparel_SmartVisor"]/equippedStatOffsets</xpath>
+		<value>
+			<MeleeHitChance>3</MeleeHitChance>
+		</value>
+	</Operation>
+
+</Patch>

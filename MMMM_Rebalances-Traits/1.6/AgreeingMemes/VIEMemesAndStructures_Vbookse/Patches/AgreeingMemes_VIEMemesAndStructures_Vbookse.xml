@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/AgreeingMemes.xml: the operations that also need Vanilla Ideology Expanded - Memes and Structures and vanillaexpanded.vbookse. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="VME_Cultured"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VME_Cultured"]/agreeableTraits</xpath>
+			<value>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Academian</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VME_Cultured"]</xpath>
+			<value>
+				<agreeableTraits>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Academian</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

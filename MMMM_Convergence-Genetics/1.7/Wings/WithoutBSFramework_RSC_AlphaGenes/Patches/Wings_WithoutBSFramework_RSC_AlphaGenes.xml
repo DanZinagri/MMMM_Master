@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/Wings.xml: the operations that also need not Big and Small - Framework and ReSplice: Charmweavers and Alpha Genes. -->
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/GeneDef[defName="RS_Wing_Batlike"]</xpath>
+		<value>
+			<li Class="VEF.Genes.GeneExtension">
+				<hediffToWholeBody>AG_Hover</hediffToWholeBody>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

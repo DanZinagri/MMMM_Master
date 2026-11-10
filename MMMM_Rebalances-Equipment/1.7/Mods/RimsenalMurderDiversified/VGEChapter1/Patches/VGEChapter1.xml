@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/RimsenalMurderDiversified/Patches/RimsenalMurderDiversified_EquipmentRebalance.xml: the operations that also need Vanilla Gravship Expanded - Chapter 1. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Apparel_StrikesuitH" or defName="Apparel_AssaultArmorH" or defName="Apparel_FSArmorH" or defName="Apparel_CloseCombatHelmet" or defName="Apparel_DropsuitH"]/equippedStatOffsets/VacuumResistance</xpath>
+		<value>
+			<VacuumResistance>0.61</VacuumResistance>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Apparel_Strikesuit" or defName="Apparel_Dropsuit" or defName="Apparel_Shocksuit"]/equippedStatOffsets/VacuumResistance</xpath>
+		<value>
+			<VacuumResistance>0.31</VacuumResistance>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Apparel_DropsuitH"]/description</xpath>
+		<value>
+			<description>A cutting-edge helmet loaded with flashy gadgets — most of which are completely useless planetside. Fortunately, the targeting-assist pseudo-AI still works.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Apparel_ReflactorArmorH"]/equippedStatOffsets/VacuumResistance</xpath>
+		<value>
+			<VacuumResistance>0.65</VacuumResistance>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Apparel_HazardCarapaceH"]/description</xpath>
+		<value>
+			<description>Part of the Alecto Hazard Carapace set, this helmet offers superior protection against extreme heat, cold, vacuum and radiation.</description>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Big and Small - Vampires and the Undead. -->
+
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/XenotypeDef[defName="VU_Ghoul"]/genes/li[text()="AptitudePoor_Artistic" or text()="AptitudePoor_Plants" or text()="MinTemp_SmallDecrease" or text()="MaxTemp_SmallIncrease" or text()="MoveSpeed_Slow"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="VU_Ghoul" or defName="VU_Dracul_Feral" or defName="VU_Dracul_Spawn"]/genes/li[text()="AptitudeStrong_Melee"]</xpath>
+		<value>
+			<li>AptitudeRemarkable_Melee</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="VU_Nosferatu"]/genes/li[text()="PsychicAbility_Enhanced"]</xpath>
+		<value>
+			<li>PsychicAbility_Extreme</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[@Name="VU_VampireBase"]/genes/li[text()="VU_Lesser_Unliving_Resilience"]</xpath>
+		<value>
+			<li>VU_Unliving_Resilience</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="VU_Nosferatu"]/genes/li[text()="Mood_Depressive"]</xpath>
+		<value>
+			<li>Mood_Pessimist</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="VU_Dracul_Feral" or defName="VU_Dracul_Spawn" or defName="VU_Dracul"]/genes/li[text()="MinTemp_SmallDecrease"]</xpath>
+		<value>
+			<li>MinTemp_LargeDecrease</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="VU_Dracul_Feral" or defName="VU_Dracul_Spawn" or defName="VU_Dracul" or defName="VU_Dracul_Mature"]/genes/li[text()="MaxTemp_SmallIncrease"]</xpath>
+		<value>
+			<li>MaxTemp_LargeIncrease</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/XenotypeDef[defName="VU_Dracul_Feral"]/genes/li[text()="AptitudeTerrible_Shooting"]</xpath>
+	</Operation>
+
+</Patch>

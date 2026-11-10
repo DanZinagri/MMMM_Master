@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaPsycastsExpanded/Patches/VanillaPsycastsExpanded.xml: the operations that also need Vanilla Genetics Expanded. -->
+
+	<!-- VGE archowomb and archocentipede former -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="GR_ArchoWomb"]/statBases</xpath>
+		<value>
+			<MeditationFocusStrength>0.18</MeditationFocusStrength>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="GR_ArchocentipedeFormer"]/statBases</xpath>
+		<value>
+			<MeditationFocusStrength>0.18</MeditationFocusStrength>
+		</value>
+	</Operation>
+
+</Patch>

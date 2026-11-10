@@ -6,15 +6,11 @@
 		This folder only loads when Rim-Elves is active (see loadFolders.xml).
 		Verified against Rim-Elves 1.6: RE_Elven_Archer ships weaponMoney 105~180.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/PawnKindDef[defName="RE_Elven_Archer"]/weaponMoney</xpath>
-				<value>
-					<weaponMoney>300~1000</weaponMoney>
-				</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="RE_Elven_Archer"]/weaponMoney</xpath>
+		<value>
+			<weaponMoney>300~1000</weaponMoney>
+		</value>
 	</Operation>
 
 </Patch>

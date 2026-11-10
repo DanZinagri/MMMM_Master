@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaRacesExpandedPigskin/Patches/VanillaRacesExpandedPigskin.xml: the operations that also need Big and Small - Slimes and Big and Small - Races. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_FrostSlimeGiant"]/genes/li[text()="BS_VerySlowAging"]</xpath>
+		<value>
+			<li>VRE_SlowAging</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_LavaSlimeGiant"]/genes/li[text()="BS_SlowAging"]</xpath>
+		<value>
+			<li>VRE_SlowAging</li>
+		</value>
+	</Operation>
+
+</Patch>

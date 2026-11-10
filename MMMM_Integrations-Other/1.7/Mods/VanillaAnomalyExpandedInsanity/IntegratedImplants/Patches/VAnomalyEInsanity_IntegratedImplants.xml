@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaAnomalyExpandedInsanity/Patches/VanillaAnomalyExpandedInsanity.xml: the operations that also need Integrated Implants. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VAEInsanity.SanityEffectsDef[defName="VAEI_SanityEffects"]/hediffEffects</xpath>
+		<value>
+			<li>
+				<hediff>MetalhorrorSymbiont</hediff>
+				<effect>-0.004</effect>
+			</li>
+			<li>
+				<hediff>Blacksight</hediff>
+				<effect>-0.04</effect>
+			</li>
+			<li>
+				<hediff>DreadheartRegeneration</hediff>
+				<effect>-0.20</effect>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="LTS_Voidlink"]/stages/li[label="humming"]/statOffsets/MentalBreakThreshold</xpath>
+		<value>
+			<VAEI_SanityMultiplier>0.20</VAEI_SanityMultiplier>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="LTS_Voidlink"]/stages/li[label="pulsing"]/statOffsets/MentalBreakThreshold</xpath>
+		<value>
+			<VAEI_SanityMultiplier>0.40</VAEI_SanityMultiplier>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="LTS_Voidlink"]/stages/li[label="roaring"]/statOffsets/MentalBreakThreshold</xpath>
+		<value>
+			<VAEI_SanityMultiplier>0.60</VAEI_SanityMultiplier>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="LTS_Voidlink"]/stages/li[label="screaming"]/statOffsets/MentalBreakThreshold</xpath>
+		<value>
+			<VAEI_SanityMultiplier>0.80</VAEI_SanityMultiplier>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="LTS_Voidlink"]/stages/li[label="cacophonous"]/statOffsets/MentalBreakThreshold</xpath>
+		<value>
+			<VAEI_SanityMultiplier>1.00</VAEI_SanityMultiplier>
+		</value>
+	</Operation>
+
+</Patch>

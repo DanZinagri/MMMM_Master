@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The Avaloi xenotype uses Alpha Genes' toxic vulnerability instead of Det's own terrible tox resistance.
+		This folder only loads when Det's Xenotypes - Avaloi is active (see loadFolders.xml).
+		Verified against Avaloi 1.6: the xenotype lists DV_ToxResist_Terrible and not AG_ToxResist_Vulnerability.
+		Kept as the original's add-then-remove rather than a single replace, because the two genes are not a
+		one-for-one swap in the list order the author chose.
+	-->
+	<!--
+		Operations that also need another mod sit in a subfolder gated on it in loadFolders.xml. Do not flatten this wrapper away.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="DV_Avaloi"]/genes</xpath>
+		<value>
+			<li>AG_ToxResist_Vulnerability</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/XenotypeDef[defName="DV_Avaloi"]/genes/li[text()="DV_ToxResist_Terrible"]</xpath>
+	</Operation>
+
+</Patch>

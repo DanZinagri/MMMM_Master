@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/AlphaCrafts/Patches/AlphaCrafts.xml: the operations that also need Vanilla Cooking Expanded and Vanilla Plants Expanded - More Plants. -->
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="AC_BlackMayonnaise"]</xpath>
+		<value>
+			<li Class="VEF.AnimalBehaviours.AnimalStatExtension">
+				<statToAdd>
+					<li>VCE_CondimentEffects</li>
+				</statToAdd>
+				<statValues>
+					<li>VCE_CondimentEffectsTitle</li>
+				</statValues>
+				<statDescriptions>
+					<li>VCE_CondimentEffectsBlackMayo</li>
+				</statDescriptions>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="AC_BlackMayonnaise"]/ingestible</xpath>
+		<value>
+			<specialThoughtAsIngredient>TMM_ConsumedBlackMayo</specialThoughtAsIngredient>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="AC_BlackMayonnaise"]/thingCategories</xpath>
+		<value>
+			<li>VCE_Condiments</li>
+		</value>
+	</Operation>
+
+</Patch>

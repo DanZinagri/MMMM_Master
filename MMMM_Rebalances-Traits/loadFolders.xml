@@ -3,18 +3,56 @@
 <loadFolders>
 	<v1.6>
 		<!-- 1.6/Mods/<Name> loads when that mod is active; 1.6/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActive="hlx.UltratechAlteredCarbon">1.6/TraitRebalance/AlteredCarbon</li>
+		<li IfModActive="RedMattis.BigSmall.Core">1.6/TraitRebalance/BSGenesAndMore</li>
+		<li IfModActive="ReSplice.XOTR.Charmweavers">1.6/AgreeingMemes/ReSpliceCharmweavers</li>
+		<li IfModActiveAll="OskarPotocki.VanillaVehiclesExpanded,Ludeon.RimWorld.Ideology">1.6/AgreeingMemes/VVehiclesE_Ideology</li>
+		<li IfModActiveAll="GoGaTio.LostFactoryMechanoids,Ludeon.RimWorld.Ideology">1.6/AgreeingMemes/LostFactoryMechanoids_Ideology</li>
+		<li IfModActiveAll="vanillaquestsexpanded.generator,Ludeon.RimWorld.Ideology">1.6/AgreeingMemes/VQETheGenerator_Ideology</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,Ludeon.RimWorld.Ideology">1.6/AgreeingMemes/VGenE_Ideology</li>
+		<li IfModActiveAll="Sarg.AlphaMemes,VanillaExpanded.VMemesE">1.6/AgreeingMemes/AlphaMemes_VIEMemesAndStructures</li>
+		<li IfModActiveAll="Sarg.AlphaMemes,VanillaExpanded.VCookE">1.6/AgreeingMemes/AlphaMemes_VCE</li>
+		<li IfModActive="Sarg.AlphaMemes">1.6/AgreeingMemes/AlphaMemes</li>
+		<li IfModActiveAll="VanillaExpanded.VMemesE,vanillaexpanded.vbookse">1.6/AgreeingMemes/VIEMemesAndStructures_Vbookse</li>
+		<li IfModActiveAll="VanillaExpanded.VMemesE,VanillaExpanded.VCookE">1.6/AgreeingMemes/VIEMemesAndStructures_VCE</li>
+		<li IfModActiveAll="VanillaExpanded.VMemesE,Ludeon.RimWorld.Royalty">1.6/AgreeingMemes/VIEMemesAndStructures_Royalty</li>
+		<li IfModActive="VanillaExpanded.VMemesE">1.6/AgreeingMemes/VIEMemesAndStructures</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Ideology,Ludeon.RimWorld.Anomaly">1.6/AgreeingMemes/Ideology_Anomaly</li>
+		<li IfModActive="Ludeon.RimWorld.Ideology">1.6/AgreeingMemes/Ideology</li>
 		<li>1.6</li>
 		<li IfModNotActive="Maux36.Rimpsyche.Disposition">1.6/Without/RimpsycheDisposition</li>
+		<li IfModActiveAll="VanillaExpanded.VMemesE,RedMattis.BigSmall.Core,Ludeon.RimWorld.Ideology">1.6/Mods/VanillaIdeologyExpandedMemesAndStructures/BSGenesAndMore_Ideology</li>
+		<li IfModActiveAll="VanillaExpanded.VMemesE,RedMattis.BigSmall.Core,Ludeon.RimWorld.Ideology,Ludeon.RimWorld.Royalty">1.6/Mods/VanillaIdeologyExpandedMemesAndStructures/BSGenesAndMore_Ideology_Royalty</li>
 		<li IfModActive="VanillaExpanded.VMemesE">1.6/Mods/VanillaIdeologyExpandedMemesAndStructures</li>
 		<li IfModActive="RedMattis.BigSmall.Core">1.6/Mods/BigAndSmallGenesAndMore</li>
 		<li IfModActive="hlx.UltratechAlteredCarbon">1.6/Mods/AlteredCarbon</li>
 	</v1.6>
 	<v1.7>
 		<!-- 1.7/Mods/<Name> loads when that mod is active; 1.7/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActive="hlx.UltratechAlteredCarbon">1.7/TraitRebalance/AlteredCarbon</li>
+		<li IfModActive="RedMattis.BigSmall.Core">1.7/TraitRebalance/BSGenesAndMore</li>
+		<li IfModActive="ReSplice.XOTR.Charmweavers">1.7/AgreeingMemes/ReSpliceCharmweavers</li>
+		<li IfModActiveAll="OskarPotocki.VanillaVehiclesExpanded,Ludeon.RimWorld.Ideology">1.7/AgreeingMemes/VVehiclesE_Ideology</li>
+		<li IfModActiveAll="GoGaTio.LostFactoryMechanoids,Ludeon.RimWorld.Ideology">1.7/AgreeingMemes/LostFactoryMechanoids_Ideology</li>
+		<li IfModActiveAll="vanillaquestsexpanded.generator,Ludeon.RimWorld.Ideology">1.7/AgreeingMemes/VQETheGenerator_Ideology</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,Ludeon.RimWorld.Ideology">1.7/AgreeingMemes/VGenE_Ideology</li>
+		<li IfModActiveAll="Sarg.AlphaMemes,VanillaExpanded.VMemesE">1.7/AgreeingMemes/AlphaMemes_VIEMemesAndStructures</li>
+		<li IfModActiveAll="Sarg.AlphaMemes,VanillaExpanded.VCookE">1.7/AgreeingMemes/AlphaMemes_VCE</li>
+		<li IfModActive="Sarg.AlphaMemes">1.7/AgreeingMemes/AlphaMemes</li>
+		<li IfModActiveAll="VanillaExpanded.VMemesE,vanillaexpanded.vbookse">1.7/AgreeingMemes/VIEMemesAndStructures_Vbookse</li>
+		<li IfModActiveAll="VanillaExpanded.VMemesE,VanillaExpanded.VCookE">1.7/AgreeingMemes/VIEMemesAndStructures_VCE</li>
+		<li IfModActiveAll="VanillaExpanded.VMemesE,Ludeon.RimWorld.Royalty">1.7/AgreeingMemes/VIEMemesAndStructures_Royalty</li>
+		<li IfModActive="VanillaExpanded.VMemesE">1.7/AgreeingMemes/VIEMemesAndStructures</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Ideology,Ludeon.RimWorld.Anomaly">1.7/AgreeingMemes/Ideology_Anomaly</li>
+		<li IfModActive="Ludeon.RimWorld.Ideology">1.7/AgreeingMemes/Ideology</li>
 		<li>1.7</li>
 		<li IfModNotActive="Maux36.Rimpsyche.Disposition">1.7/Without/RimpsycheDisposition</li>
+		<li IfModActiveAll="VanillaExpanded.VMemesE,RedMattis.BigSmall.Core,Ludeon.RimWorld.Ideology">1.7/Mods/VanillaIdeologyExpandedMemesAndStructures/BSGenesAndMore_Ideology</li>
+		<li IfModActiveAll="VanillaExpanded.VMemesE,RedMattis.BigSmall.Core,Ludeon.RimWorld.Ideology,Ludeon.RimWorld.Royalty">1.7/Mods/VanillaIdeologyExpandedMemesAndStructures/BSGenesAndMore_Ideology_Royalty</li>
 		<li IfModActive="VanillaExpanded.VMemesE">1.7/Mods/VanillaIdeologyExpandedMemesAndStructures</li>
 		<li IfModActive="RedMattis.BigSmall.Core">1.7/Mods/BigAndSmallGenesAndMore</li>
 		<li IfModActive="hlx.UltratechAlteredCarbon">1.7/Mods/AlteredCarbon</li>

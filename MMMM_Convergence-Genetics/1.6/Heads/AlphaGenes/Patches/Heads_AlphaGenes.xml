@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Head genes: special head shapes from vanilla, Beliar, Big and Small, Biotech Expansion, Det's Avaloi, Rimsenal Askbarn /
+		Harana and VRE Genie join a shared head exclusion group so only one applies. Moved from the core root file AA5C_Heads.xml
+		(no setting). Dropped the displayCategory moves into Alpha Genes' cosmetic heads category (gene recategorisation rule);
+		the ops that replaced displayCategory to slip exclusionTags in are now plain adds of the tags. Checked with
+		analysis/patch_sim.py: all installed-mod ops apply, no duplicate nodes.
+	-->
+
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/GeneDef[defName="Head_Gaunt"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>AG_Heads</li>
+				<li>Heads</li>
+				<li>Head</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+
+</Patch>

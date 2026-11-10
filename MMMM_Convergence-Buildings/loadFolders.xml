@@ -3,18 +3,30 @@
 <loadFolders>
 	<v1.6>
 		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="sarg.alphacrafts,VanillaExpanded.VCookE">1.6/Mods/AlphaCrafts/VCE</li>
 		<li IfModActive="sarg.alphacrafts">1.6/Mods/AlphaCrafts</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,sarg.alphacrafts,VanillaExpanded.VFEFactory">1.6/Mods/TsSamuraiFaction/AlphaCrafts_VFurnEFactory</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,sarg.alphacrafts">1.6/Mods/TsSamuraiFaction/AlphaCrafts</li>
 		<li IfModActive="Trickity.Samurai.Faction">1.6/Mods/TsSamuraiFaction</li>
+		<li IfModActiveAll="onyxae.dragonsdescent,Ludeon.RimWorld.Ideology">1.6/Mods/DragonsDescent/Ideology</li>
 		<li IfModActive="onyxae.dragonsdescent">1.6/Mods/DragonsDescent</li>
+		<li IfModActiveAll="pphhyy.guldennew,VanillaExpanded.VBrewE">1.6/Mods/GuldenBiome/VBE</li>
 		<li IfModActive="pphhyy.guldennew">1.6/Mods/GuldenBiome</li>
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="sarg.alphacrafts,VanillaExpanded.VCookE">1.7/Mods/AlphaCrafts/VCE</li>
 		<li IfModActive="sarg.alphacrafts">1.7/Mods/AlphaCrafts</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,sarg.alphacrafts,VanillaExpanded.VFEFactory">1.7/Mods/TsSamuraiFaction/AlphaCrafts_VFurnEFactory</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,sarg.alphacrafts">1.7/Mods/TsSamuraiFaction/AlphaCrafts</li>
 		<li IfModActive="Trickity.Samurai.Faction">1.7/Mods/TsSamuraiFaction</li>
+		<li IfModActiveAll="onyxae.dragonsdescent,Ludeon.RimWorld.Ideology">1.7/Mods/DragonsDescent/Ideology</li>
 		<li IfModActive="onyxae.dragonsdescent">1.7/Mods/DragonsDescent</li>
+		<li IfModActiveAll="pphhyy.guldennew,VanillaExpanded.VBrewE">1.7/Mods/GuldenBiome/VBE</li>
 		<li IfModActive="pphhyy.guldennew">1.7/Mods/GuldenBiome</li>
 	</v1.7>
 </loadFolders>

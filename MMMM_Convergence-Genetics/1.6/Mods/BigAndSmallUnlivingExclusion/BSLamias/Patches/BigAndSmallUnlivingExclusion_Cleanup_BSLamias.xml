@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/BigAndSmallUnlivingExclusion/Patches/BigAndSmallUnlivingExclusion_Cleanup.xml: the operations that also need Big and Small - Lamias and other Snake-People. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/XenotypeDef[defName="BS_ViperPrototypeBiomecha"]/genes/li[text()="DiseaseFree"]</xpath>
+	</Operation>
+
+</Patch>

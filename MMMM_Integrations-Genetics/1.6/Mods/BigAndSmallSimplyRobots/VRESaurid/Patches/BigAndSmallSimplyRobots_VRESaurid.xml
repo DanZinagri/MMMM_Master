@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/BigAndSmallSimplyRobots/Patches/BigAndSmallSimplyRobots.xml: the operations that also need Vanilla Races Expanded - Saurid. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="VRESaurids_ColdBlooded"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+			<value>
+				<li>
+					<def>VRESaurids_ColdBlooded</def>
+					<labelMechanoid>temperature-sensitive core</labelMechanoid>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

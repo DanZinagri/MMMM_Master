@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/ImplantRebalance.xml: the operations that also need GoGaTio.LostFactoryMechanoids and Integrated Implants. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/HediffDef[defName="WarprogrammerInterfaceImplant"]/stages/li/statOffsets/ShootingAccuracyPawnOffsetMech</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/HediffDef[defName="WarprogrammerInterfaceImplant"]/stages/li/statOffsets/MeleeHitChanceOffsetMech</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="LFM_CombatSublinkImplant"]/stages</xpath>
+		<value>
+			<stages>
+				<li>
+					<minSeverity>1</minSeverity>
+					<statOffsets>
+						<ShootingAccuracyPawnOffsetMech>1</ShootingAccuracyPawnOffsetMech>
+						<MeleeHitChanceOffsetMech>1</MeleeHitChanceOffsetMech>
+					</statOffsets>
+				</li>
+				<li>
+					<minSeverity>2</minSeverity>
+					<statOffsets>
+						<ShootingAccuracyPawnOffsetMech>2</ShootingAccuracyPawnOffsetMech>
+						<MeleeHitChanceOffsetMech>2</MeleeHitChanceOffsetMech>
+					</statOffsets>
+				</li>
+				<li>
+					<minSeverity>3</minSeverity>
+					<statOffsets>
+						<ShootingAccuracyPawnOffsetMech>3</ShootingAccuracyPawnOffsetMech>
+						<MeleeHitChanceOffsetMech>3</MeleeHitChanceOffsetMech>
+					</statOffsets>
+				</li>
+				<li>
+					<minSeverity>4</minSeverity>
+					<statOffsets>
+						<ShootingAccuracyPawnOffsetMech>4</ShootingAccuracyPawnOffsetMech>
+						<MeleeHitChanceOffsetMech>4</MeleeHitChanceOffsetMech>
+					</statOffsets>
+				</li>
+				<li>
+					<minSeverity>5</minSeverity>
+					<statOffsets>
+						<ShootingAccuracyPawnOffsetMech>5</ShootingAccuracyPawnOffsetMech>
+						<MeleeHitChanceOffsetMech>5</MeleeHitChanceOffsetMech>
+					</statOffsets>
+				</li>
+				<li>
+					<minSeverity>6</minSeverity>
+					<statOffsets>
+						<ShootingAccuracyPawnOffsetMech>6</ShootingAccuracyPawnOffsetMech>
+						<MeleeHitChanceOffsetMech>6</MeleeHitChanceOffsetMech>
+					</statOffsets>
+				</li>
+			</stages>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="LFM_CombatSublinkImplant"]/description</xpath>
+		<value>
+			<description>A neural implant which increases the shooting accuracy and melee hit chance of any mechanoids controlled by the mechanitor, further scaling with the mechanitor's own intellectual skill.\n\nThis implant can be installed up to 6 times to increase its effect.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="LFM_CombatSublinkHigh"]/description</xpath>
+		<value>
+			<description>A neural implant which increases the shooting accuracy and melee hit chance of any mechanoids controlled by the mechanitor, further scaling with the mechanitor's own intellectual skill.\n\nThis high-tier implant can increase it from 3 to 6 level.\n\nIt can be self-installed without surgery.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="LFM_CombatSublink"]/description</xpath>
+		<value>
+			<description>A neural implant which increases the shooting accuracy and melee hit chance of any mechanoids controlled by the mechanitor, further scaling with the mechanitor's own intellectual skill.\n\nThis standard-tier sublink can only increase it up to 3 level. To go higher, a higher-tier sublink implant must be used.\n\nIt can be self-installed without surgery.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/StatDef[defName="ShootingAccuracyPawn"]/parts/li[stat="LFM_ShootingAccuracyOffsetMech"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/StatDef[defName="LFM_ShootingAccuracyOffsetMech"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/StatDef[defName="MeleeHitChance"]/parts/li[stat="LFM_MeleeHitChanceOffsetMech"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/StatDef[defName="LFM_MeleeHitChanceOffsetMech"]</xpath>
+	</Operation>
+
+</Patch>

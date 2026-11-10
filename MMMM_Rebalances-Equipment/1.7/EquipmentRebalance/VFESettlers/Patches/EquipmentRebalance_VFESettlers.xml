@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/EquipmentRebalance.xml: the operations that also need Vanilla Factions Expanded - Settlers. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VFES_Gun_DoubleActionRevolver"]/verbs/li/burstShotCount</xpath>
+		<value>
+			<burstShotCount>2</burstShotCount>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VFES_Gun_DoubleBarreledShotgun"]/statBases/RangedWeapon_Cooldown</xpath>
+		<value>
+			<RangedWeapon_Cooldown>2.4</RangedWeapon_Cooldown>
+		</value>
+	</Operation>
+
+</Patch>

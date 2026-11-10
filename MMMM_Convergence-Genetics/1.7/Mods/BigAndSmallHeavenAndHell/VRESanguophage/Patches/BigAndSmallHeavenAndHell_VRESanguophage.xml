@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/BigAndSmallHeavenAndHell/Patches/BigAndSmallHeavenAndHell.xml: the operations that also need Vanilla Races Expanded - Sanguophage. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Satan" or defName="BS_Lilim"]/genes/li[text()="BS_Talons"]</xpath>
+		<value>
+			<li>VRE_Talons</li>
+		</value>
+	</Operation>
+
+</Patch>

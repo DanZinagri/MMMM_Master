@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Without/VehicleFramework/Patches/VehicleFramework_StrongerEnemies.xml: the operations that also need Vanilla Psycasts Expanded and Biotech. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="TribeRoughNeanderthal"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3 or position()=4]/options</xpath>
+		<value>
+			<Tribal_Caster_Frostshaper>2.5</Tribal_Caster_Frostshaper>
+			<Tribal_Caster_Staticlord>1</Tribal_Caster_Staticlord>
+			<Tribal_Caster_Wildspeaker>1.5</Tribal_Caster_Wildspeaker>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="TribeSavageImpid"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3 or position()=4 or position()=5]/options</xpath>
+		<value>
+			<Tribal_Caster_Conflagrator>5</Tribal_Caster_Conflagrator>
+			<Tribal_Caster_Staticlord>0.2</Tribal_Caster_Staticlord>
+			<Tribal_Caster_Wildspeaker>3</Tribal_Caster_Wildspeaker>
+		</value>
+	</Operation>
+
+</Patch>

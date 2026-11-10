@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/Wings.xml: the operations that also need Vanilla Races Expanded - Insector and Alpha Genes. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_InsectWings"]</xpath>
+		<value>
+			<customEffectDescriptions>
+				<li>Colonist will ignore terrain movement costs</li>
+			</customEffectDescriptions>
+		</value>
+	</Operation>
+
+</Patch>

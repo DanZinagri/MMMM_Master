@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/ReGrowthAspen/Patches/ReGrowthAspen.xml: the operations that also need spincrus.dinosauria. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BiomeDef[defName="RG_AspenForest"]/wildAnimals</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/BiomeDef[defName="RG_AspenForest"]/wildAnimals</xpath>
+			<value>
+				<Dakotaraptor>0.05</Dakotaraptor>
+				<Carnotaurus>0.002</Carnotaurus>
+				<Triceratops>0.01</Triceratops>
+				<TyrannosaurusRex>0.008</TyrannosaurusRex>
+				<Yutyrannus>0.02</Yutyrannus>
+				<Allosaurus>0.005</Allosaurus>
+				<Spinosaurus>0.008</Spinosaurus>
+				<Minmi>0.04</Minmi>
+				<Baryonyx>0.005</Baryonyx>
+				<Stygimoloch>0.005</Stygimoloch>
+				<Pachycephalosaurus>0.005</Pachycephalosaurus>
+				<Quetzalcoatlus>0.004</Quetzalcoatlus>
+				<Pteranodon>0.008</Pteranodon>
+				<Utahraptor>0.005</Utahraptor>
+				<Therizinosaurus>0.005</Therizinosaurus>
+				<Iguanodon>0.01</Iguanodon>
+				<Parasaur>0.01</Parasaur>
+				<Ankylosaurus>0.04</Ankylosaurus>
+				<Brachiosaurus>0.004</Brachiosaurus>
+				<Brontosaurus>0.02</Brontosaurus>
+				<Diplodocus>0.025</Diplodocus>
+				<Magyarosaurus>0.035</Magyarosaurus>
+				<Dilophosaurus>0.03</Dilophosaurus>
+				<Velociraptor>0.03</Velociraptor>
+				<Compsognathus>0.03</Compsognathus>
+				<Gallimimus>0.05</Gallimimus>
+				<Gigantoraptor>0.005</Gigantoraptor>
+				<Corythosaurus>0.01</Corythosaurus>
+				<Deinocheirus>0.005</Deinocheirus>
+				<Dryosaurus>0.005</Dryosaurus>
+				<Stegosaurus>0.04</Stegosaurus>
+				<Protoceratops>0.02</Protoceratops>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

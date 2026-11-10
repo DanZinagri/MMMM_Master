@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/MoodRebalance.xml: the operations that also need Anomaly. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/HediffDef[defName="MindNumbSerum"]/stages/li/capMods</xpath>
+		<value>
+			<capMods>
+				<li>
+					<capacity>Consciousness</capacity>
+					<setMax>0.9</setMax>
+				</li>
+			</capMods>
+		</value>
+	</Operation>
+
+</Patch>

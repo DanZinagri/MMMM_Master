@@ -3,64 +3,158 @@
 <loadFolders>
 	<v1.6>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="vanillaracesexpanded.phytokin,sarg.alphagenes,Ludeon.RimWorld.Ideology">1.6/Mods/VanillaRacesExpandedPhytokin/Ideology</li>
+		<li IfModActiveAll="vanillaracesexpanded.phytokin,sarg.alphagenes,Ludeon.RimWorld.Royalty">1.6/Mods/VanillaRacesExpandedPhytokin/Royalty</li>
 		<li IfModActiveAll="vanillaracesexpanded.phytokin,sarg.alphagenes">1.6/Mods/VanillaRacesExpandedPhytokin</li>
 		<li IfModActiveAll="vanillaracesexpanded.insector,sarg.alphagenes">1.6/Mods/VanillaRacesExpandedInsector</li>
 		<li IfModActiveAll="vanillaracesexpanded.lycanthrope,VanillaExpanded.VanillaTraitsExpanded">1.6/Mods/VanillaRacesExpandedLycanthrope</li>
+		<li IfModActiveAll="det.brawnum,RedMattis.BigSmall.Core">1.6/Mods/DetsXenotypeBrawnum/BSGenesAndMore</li>
 		<li IfModActive="det.brawnum">1.6/Mods/DetsXenotypeBrawnum</li>
+		<li IfModActiveAll="RedMattis.MoreXenos,sarg.alphagenes">1.6/Mods/BigAndSmallMoreXenotypes/AlphaGenes</li>
 		<li IfModActive="RedMattis.MoreXenos">1.6/Mods/BigAndSmallMoreXenotypes</li>
+		<li IfModActiveAll="RedMattis.Yokai,det.avaloi">1.6/Mods/BigAndSmallYokai/Avaloi</li>
 		<li IfModActive="RedMattis.Yokai">1.6/Mods/BigAndSmallYokai</li>
 		<!-- mirrors Big and Small - Genes &amp; More, which only loads its undead defs under these same three mods -->
+		<li IfModActive="RedMattis.Undead,RedMattis.Yokai,RedMattis.Undead.ZombieApoc" IfModActiveAll="sarg.alphagenes">1.6/Mods/BigAndSmallUndeadSkeletal/AlphaGenes</li>
 		<li IfModActive="RedMattis.Undead,RedMattis.Yokai,RedMattis.Undead.ZombieApoc">1.6/Mods/BigAndSmallUndeadSkeletal</li>
+		<li IfModActiveAll="RedMattis.LamiasAndOtherSnakes,Arquebus.StagzMerfolk">1.6/Mods/BigAndSmallLamias/GojisFantasyRaceMerren</li>
 		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.6/Mods/BigAndSmallLamias</li>
+		<li IfModActiveAll="RedMattis.BSSlimes,sarg.alphagenes,RedMattis.BigSmall">1.6/Mods/BigAndSmallSlimes/AlphaGenes_BSRaces</li>
+		<li IfModActiveAll="RedMattis.BSSlimes,sarg.alphagenes">1.6/Mods/BigAndSmallSlimes/AlphaGenes</li>
 		<li IfModActive="RedMattis.BSSlimes">1.6/Mods/BigAndSmallSlimes</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core,sarg.alphagenes">1.6/Mods/BigAndSmallGenesAndMore/AlphaGenes</li>
 		<li IfModActive="RedMattis.BigSmall.Core">1.6/Mods/BigAndSmallGenesAndMore</li>
+		<li IfModActiveAll="RedMattis.Heaven,sov.nephilim">1.6/Mods/BigAndSmallHeavenAndHell/NephilimReborn</li>
 		<li IfModActive="RedMattis.Heaven">1.6/Mods/BigAndSmallHeavenAndHell</li>
 		<!-- mirrors Big and Small - Genes &amp; More, which only loads its demon xenotypes under these two mods -->
+		<li IfModActive="RedMattis.Undead,RedMattis.Heaven" IfModActiveAll="sov.nephilim">1.6/Mods/BigAndSmallDemons/NephilimReborn</li>
 		<li IfModActive="RedMattis.Undead,RedMattis.Heaven">1.6/Mods/BigAndSmallDemons</li>
+		<li IfModActiveAll="RedMattis.BigSmall,sarg.alphagenes">1.6/Mods/BigAndSmallRaces/AlphaGenes</li>
 		<li IfModActive="RedMattis.BigSmall">1.6/Mods/BigAndSmallRaces</li>
+		<li IfModActiveAll="ElSov.Beliar,sarg.alphagenes">1.6/Mods/BeliarXenotype/AlphaGenes</li>
 		<li IfModActive="ElSov.Beliar">1.6/Mods/BeliarXenotype</li>
+		<li IfModActiveAll="vanillaquestsexpanded.ancients,RedMattis.BetterPrerequisites">1.6/Mods/VanillaQuestsExpandedAncients/BSFramework</li>
 		<li IfModActive="vanillaquestsexpanded.ancients">1.6/Mods/VanillaQuestsExpandedAncients</li>
+		<li IfModActiveAll="sarg.alphagenes,RedMattis.BetterPrerequisites">1.6/Mods/AlphaGenes/BSFramework</li>
+		<li IfModActiveAll="sarg.alphagenes,ReGrowth.BOTR.Core">1.6/Mods/AlphaGenes/ReGrowth2</li>
 		<li IfModActive="sarg.alphagenes">1.6/Mods/AlphaGenes</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,vanillaracesexpanded.saurid">1.6/Mods/BigAndSmallSimplyRobots/VRESaurid</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,vanillaracesexpanded.pigskin">1.6/Mods/BigAndSmallSimplyRobots/VREPigskin</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,vanillaracesexpanded.hussar">1.6/Mods/BigAndSmallSimplyRobots/VREHussar</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,vanillaracesexpanded.archon">1.6/Mods/BigAndSmallSimplyRobots/Archon</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,Rimsenal.Harana">1.6/Mods/BigAndSmallSimplyRobots/Harana</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,Rimsenal.Askbarn">1.6/Mods/BigAndSmallSimplyRobots/RimsenalAskbarn</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,ElSov.Highborn">1.6/Mods/BigAndSmallSimplyRobots/Highborn</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,Sov.Tenmo">1.6/Mods/BigAndSmallSimplyRobots/Geist</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,det.venators">1.6/Mods/BigAndSmallSimplyRobots/DetsVenators</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,det.brawnum">1.6/Mods/BigAndSmallSimplyRobots/DetsBrawnum</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,det.keshig">1.6/Mods/BigAndSmallSimplyRobots/DetsKeshig</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,biotexpans.core">1.6/Mods/BigAndSmallSimplyRobots/Core</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,sarg.alphagenes">1.6/Mods/BigAndSmallSimplyRobots/AlphaGenes</li>
 		<li IfModActive="RedMattis.BigSmall.SimpleAndroids">1.6/Mods/BigAndSmallSimplyRobots</li>
+		<li IfModActiveAll="det.buzzers,sarg.alphagenes">1.6/Mods/DetsXenotypeBuzzers/AlphaGenes</li>
 		<li IfModActive="det.buzzers">1.6/Mods/DetsXenotypeBuzzers</li>
+		<li IfModActiveAll="Arquebus.StagzMerfolk,ReGrowth.BOTR.Core">1.6/Mods/GojisFantasyRaceMerren/ReGrowth2</li>
 		<li IfModActive="Arquebus.StagzMerfolk">1.6/Mods/GojisFantasyRaceMerren</li>
+		<li IfModActiveAll="Rimsenal.Harana,Rimsenal.Askbarn" IfModNotActive="vanillaracesexpanded.lycanthrope,det.keshig">1.6/Mods/RimsenalXenotypes/Harana_RA_WithoutVREL_WithoutDK</li>
+		<li IfModActiveAll="Rimsenal.Harana,Rimsenal.Askbarn,det.keshig" IfModNotActive="vanillaracesexpanded.lycanthrope">1.6/Mods/RimsenalXenotypes/Harana_RA_WithoutVREL_DetsKeshig</li>
+		<li IfModActiveAll="Rimsenal.Harana,vanillaracesexpanded.lycanthrope">1.6/Mods/RimsenalXenotypes/Harana_VRELycanthrope</li>
+		<li IfModActiveAll="Rimsenal.Askbarn" IfModNotActive="vanillaracesexpanded.lycanthrope">1.6/Mods/RimsenalXenotypes/RimsenalAskbarn_WithoutVREL</li>
+		<li IfModActiveAll="Rimsenal.Askbarn,vanillaracesexpanded.lycanthrope">1.6/Mods/RimsenalXenotypes/RimsenalAskbarn_VRELycanthrope</li>
 		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana">1.6/Mods/RimsenalXenotypes</li>
+		<li IfModActiveAll="VanillaExpanded.VAnomalyEInsanity,sarg.alphagenes">1.6/Mods/VanillaAnomalyExpandedInsanity/AlphaGenes</li>
 		<li IfModActive="VanillaExpanded.VAnomalyEInsanity">1.6/Mods/VanillaAnomalyExpandedInsanity</li>
 		<li IfModActiveAll="RedMattis.BigSmall.Core,AOBA.Framework">1.6/Mods/FortifiedFeaturesFramework</li>
+		<li IfModActiveAll="ICC.FOV.ELVES,RedMattis.BigSmall.Core,vanillaracesexpanded.lycanthrope">1.6/Mods/FactionElves/BSGenesAndMore_VRELycanthrope</li>
+		<li IfModActiveAll="ICC.FOV.ELVES,RedMattis.BigSmall.Core">1.6/Mods/FactionElves/BSGenesAndMore</li>
+		<li IfModActiveAll="ICC.FOV.ELVES,sarg.alphagenes">1.6/Mods/FactionElves/AlphaGenes</li>
+		<li IfModActiveAll="ICC.FOV.ELVES,RedMattis.BetterPrerequisites">1.6/Mods/FactionElves/BSFramework</li>
 		<li IfModActive="ICC.FOV.ELVES">1.6/Mods/FactionElves</li>
+		<li IfModActiveAll="Sovereign.Kork,sarg.alphagenes">1.6/Mods/KorgXenotype/AlphaGenes</li>
+		<li IfModActiveAll="Sovereign.Kork,RedMattis.BigSmall.Core">1.6/Mods/KorgXenotype/BSGenesAndMore</li>
 		<li IfModActive="Sovereign.Kork">1.6/Mods/KorgXenotype</li>
+		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,vanillaracesexpanded.pigskin">1.6/Mods/RimGnoblins/VREPigskin</li>
+		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,RedMattis.BigSmall.Core">1.6/Mods/RimGnoblins/BSGenesAndMore</li>
 		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.6/Mods/RimGnoblins</li>
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="vanillaracesexpanded.phytokin,sarg.alphagenes,Ludeon.RimWorld.Ideology">1.7/Mods/VanillaRacesExpandedPhytokin/Ideology</li>
+		<li IfModActiveAll="vanillaracesexpanded.phytokin,sarg.alphagenes,Ludeon.RimWorld.Royalty">1.7/Mods/VanillaRacesExpandedPhytokin/Royalty</li>
 		<li IfModActiveAll="vanillaracesexpanded.phytokin,sarg.alphagenes">1.7/Mods/VanillaRacesExpandedPhytokin</li>
 		<li IfModActiveAll="vanillaracesexpanded.insector,sarg.alphagenes">1.7/Mods/VanillaRacesExpandedInsector</li>
 		<li IfModActiveAll="vanillaracesexpanded.lycanthrope,VanillaExpanded.VanillaTraitsExpanded">1.7/Mods/VanillaRacesExpandedLycanthrope</li>
+		<li IfModActiveAll="det.brawnum,RedMattis.BigSmall.Core">1.7/Mods/DetsXenotypeBrawnum/BSGenesAndMore</li>
 		<li IfModActive="det.brawnum">1.7/Mods/DetsXenotypeBrawnum</li>
+		<li IfModActiveAll="RedMattis.MoreXenos,sarg.alphagenes">1.7/Mods/BigAndSmallMoreXenotypes/AlphaGenes</li>
 		<li IfModActive="RedMattis.MoreXenos">1.7/Mods/BigAndSmallMoreXenotypes</li>
+		<li IfModActiveAll="RedMattis.Yokai,det.avaloi">1.7/Mods/BigAndSmallYokai/Avaloi</li>
 		<li IfModActive="RedMattis.Yokai">1.7/Mods/BigAndSmallYokai</li>
 		<!-- mirrors Big and Small - Genes &amp; More, which only loads its undead defs under these same three mods -->
+		<li IfModActive="RedMattis.Undead,RedMattis.Yokai,RedMattis.Undead.ZombieApoc" IfModActiveAll="sarg.alphagenes">1.7/Mods/BigAndSmallUndeadSkeletal/AlphaGenes</li>
 		<li IfModActive="RedMattis.Undead,RedMattis.Yokai,RedMattis.Undead.ZombieApoc">1.7/Mods/BigAndSmallUndeadSkeletal</li>
+		<li IfModActiveAll="RedMattis.LamiasAndOtherSnakes,Arquebus.StagzMerfolk">1.7/Mods/BigAndSmallLamias/GojisFantasyRaceMerren</li>
 		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.7/Mods/BigAndSmallLamias</li>
+		<li IfModActiveAll="RedMattis.BSSlimes,sarg.alphagenes,RedMattis.BigSmall">1.7/Mods/BigAndSmallSlimes/AlphaGenes_BSRaces</li>
+		<li IfModActiveAll="RedMattis.BSSlimes,sarg.alphagenes">1.7/Mods/BigAndSmallSlimes/AlphaGenes</li>
 		<li IfModActive="RedMattis.BSSlimes">1.7/Mods/BigAndSmallSlimes</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core,sarg.alphagenes">1.7/Mods/BigAndSmallGenesAndMore/AlphaGenes</li>
 		<li IfModActive="RedMattis.BigSmall.Core">1.7/Mods/BigAndSmallGenesAndMore</li>
+		<li IfModActiveAll="RedMattis.Heaven,sov.nephilim">1.7/Mods/BigAndSmallHeavenAndHell/NephilimReborn</li>
 		<li IfModActive="RedMattis.Heaven">1.7/Mods/BigAndSmallHeavenAndHell</li>
 		<!-- mirrors Big and Small - Genes &amp; More, which only loads its demon xenotypes under these two mods -->
+		<li IfModActive="RedMattis.Undead,RedMattis.Heaven" IfModActiveAll="sov.nephilim">1.7/Mods/BigAndSmallDemons/NephilimReborn</li>
 		<li IfModActive="RedMattis.Undead,RedMattis.Heaven">1.7/Mods/BigAndSmallDemons</li>
+		<li IfModActiveAll="RedMattis.BigSmall,sarg.alphagenes">1.7/Mods/BigAndSmallRaces/AlphaGenes</li>
 		<li IfModActive="RedMattis.BigSmall">1.7/Mods/BigAndSmallRaces</li>
+		<li IfModActiveAll="ElSov.Beliar,sarg.alphagenes">1.7/Mods/BeliarXenotype/AlphaGenes</li>
 		<li IfModActive="ElSov.Beliar">1.7/Mods/BeliarXenotype</li>
+		<li IfModActiveAll="vanillaquestsexpanded.ancients,RedMattis.BetterPrerequisites">1.7/Mods/VanillaQuestsExpandedAncients/BSFramework</li>
 		<li IfModActive="vanillaquestsexpanded.ancients">1.7/Mods/VanillaQuestsExpandedAncients</li>
+		<li IfModActiveAll="sarg.alphagenes,RedMattis.BetterPrerequisites">1.7/Mods/AlphaGenes/BSFramework</li>
+		<li IfModActiveAll="sarg.alphagenes,ReGrowth.BOTR.Core">1.7/Mods/AlphaGenes/ReGrowth2</li>
 		<li IfModActive="sarg.alphagenes">1.7/Mods/AlphaGenes</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,vanillaracesexpanded.saurid">1.7/Mods/BigAndSmallSimplyRobots/VRESaurid</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,vanillaracesexpanded.pigskin">1.7/Mods/BigAndSmallSimplyRobots/VREPigskin</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,vanillaracesexpanded.hussar">1.7/Mods/BigAndSmallSimplyRobots/VREHussar</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,vanillaracesexpanded.archon">1.7/Mods/BigAndSmallSimplyRobots/Archon</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,Rimsenal.Harana">1.7/Mods/BigAndSmallSimplyRobots/Harana</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,Rimsenal.Askbarn">1.7/Mods/BigAndSmallSimplyRobots/RimsenalAskbarn</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,ElSov.Highborn">1.7/Mods/BigAndSmallSimplyRobots/Highborn</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,Sov.Tenmo">1.7/Mods/BigAndSmallSimplyRobots/Geist</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,det.venators">1.7/Mods/BigAndSmallSimplyRobots/DetsVenators</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,det.brawnum">1.7/Mods/BigAndSmallSimplyRobots/DetsBrawnum</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,det.keshig">1.7/Mods/BigAndSmallSimplyRobots/DetsKeshig</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,biotexpans.core">1.7/Mods/BigAndSmallSimplyRobots/Core</li>
+		<li IfModActiveAll="RedMattis.BigSmall.SimpleAndroids,sarg.alphagenes">1.7/Mods/BigAndSmallSimplyRobots/AlphaGenes</li>
 		<li IfModActive="RedMattis.BigSmall.SimpleAndroids">1.7/Mods/BigAndSmallSimplyRobots</li>
+		<li IfModActiveAll="det.buzzers,sarg.alphagenes">1.7/Mods/DetsXenotypeBuzzers/AlphaGenes</li>
 		<li IfModActive="det.buzzers">1.7/Mods/DetsXenotypeBuzzers</li>
+		<li IfModActiveAll="Arquebus.StagzMerfolk,ReGrowth.BOTR.Core">1.7/Mods/GojisFantasyRaceMerren/ReGrowth2</li>
 		<li IfModActive="Arquebus.StagzMerfolk">1.7/Mods/GojisFantasyRaceMerren</li>
+		<li IfModActiveAll="Rimsenal.Harana,Rimsenal.Askbarn" IfModNotActive="vanillaracesexpanded.lycanthrope,det.keshig">1.7/Mods/RimsenalXenotypes/Harana_RA_WithoutVREL_WithoutDK</li>
+		<li IfModActiveAll="Rimsenal.Harana,Rimsenal.Askbarn,det.keshig" IfModNotActive="vanillaracesexpanded.lycanthrope">1.7/Mods/RimsenalXenotypes/Harana_RA_WithoutVREL_DetsKeshig</li>
+		<li IfModActiveAll="Rimsenal.Harana,vanillaracesexpanded.lycanthrope">1.7/Mods/RimsenalXenotypes/Harana_VRELycanthrope</li>
+		<li IfModActiveAll="Rimsenal.Askbarn" IfModNotActive="vanillaracesexpanded.lycanthrope">1.7/Mods/RimsenalXenotypes/RimsenalAskbarn_WithoutVREL</li>
+		<li IfModActiveAll="Rimsenal.Askbarn,vanillaracesexpanded.lycanthrope">1.7/Mods/RimsenalXenotypes/RimsenalAskbarn_VRELycanthrope</li>
 		<li IfModActive="Rimsenal.Askbarn,Rimsenal.Harana">1.7/Mods/RimsenalXenotypes</li>
+		<li IfModActiveAll="VanillaExpanded.VAnomalyEInsanity,sarg.alphagenes">1.7/Mods/VanillaAnomalyExpandedInsanity/AlphaGenes</li>
 		<li IfModActive="VanillaExpanded.VAnomalyEInsanity">1.7/Mods/VanillaAnomalyExpandedInsanity</li>
 		<li IfModActiveAll="RedMattis.BigSmall.Core,AOBA.Framework">1.7/Mods/FortifiedFeaturesFramework</li>
+		<li IfModActiveAll="ICC.FOV.ELVES,RedMattis.BigSmall.Core,vanillaracesexpanded.lycanthrope">1.7/Mods/FactionElves/BSGenesAndMore_VRELycanthrope</li>
+		<li IfModActiveAll="ICC.FOV.ELVES,RedMattis.BigSmall.Core">1.7/Mods/FactionElves/BSGenesAndMore</li>
+		<li IfModActiveAll="ICC.FOV.ELVES,sarg.alphagenes">1.7/Mods/FactionElves/AlphaGenes</li>
+		<li IfModActiveAll="ICC.FOV.ELVES,RedMattis.BetterPrerequisites">1.7/Mods/FactionElves/BSFramework</li>
 		<li IfModActive="ICC.FOV.ELVES">1.7/Mods/FactionElves</li>
+		<li IfModActiveAll="Sovereign.Kork,sarg.alphagenes">1.7/Mods/KorgXenotype/AlphaGenes</li>
+		<li IfModActiveAll="Sovereign.Kork,RedMattis.BigSmall.Core">1.7/Mods/KorgXenotype/BSGenesAndMore</li>
 		<li IfModActive="Sovereign.Kork">1.7/Mods/KorgXenotype</li>
+		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,vanillaracesexpanded.pigskin">1.7/Mods/RimGnoblins/VREPigskin</li>
+		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,RedMattis.BigSmall.Core">1.7/Mods/RimGnoblins/BSGenesAndMore</li>
 		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.7/Mods/RimGnoblins</li>
 	</v1.7>
 </loadFolders>

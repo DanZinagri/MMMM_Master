@@ -14,39 +14,13 @@
 		striding swap (and the water striding prerequisite and Nereid aquatic gene that only existed to support it), keen
 		reflexes in the exclusion group, and the swift swim Cherry Picker entries. The 1.6 copy is unchanged.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/GeneDef[defName="Stagz_Nimbleness"]</xpath>
-				<value>
-					<exclusionTags>
-						<li>MeleeDodge</li>
-					</exclusionTags>
-				</value>
-			</li>
-		</operations>
-	</Operation>
-
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationSequence" MayRequire="Sov.Tenmo">
-				<operations>
-					<li Class="PatchOperationReplace">
-						<xpath>Defs/XenotypeDef[defName="GS_Geist"]/genes/li[text()="GS_Nimble"]</xpath>
-						<value>
-							<li>Stagz_Nimbleness</li>
-						</value>
-					</li>
-					<li Class="PatchOperationAdd">
-						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
-						<value>
-							<li>GeneDef/GS_Nimble</li>
-							<li>GeneDef/GS_Nimble_Astrogene</li>
-						</value>
-					</li>
-				</operations>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="Stagz_Nimbleness"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>MeleeDodge</li>
+			</exclusionTags>
+		</value>
 	</Operation>
 
 </Patch>

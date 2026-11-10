@@ -10,25 +10,21 @@
 		those mods installed here to verify against. This folder does not load when that mod is active (see loadFolders.xml).
 		Verified 2026-10-21: both hediffs exist in Integrated Implants 1.6.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
-				<match Class="PatchOperationAdd">
-					<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
-					<value>
-						<EquippableWithHediff />
-					</value>
-				</match>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid"]/EquippableWithHediff</xpath>
-				<value>
-					<li>StrengthEnhancer</li>
-					<li>SkeletalBracing</li>
-				</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
+			<value>
+				<EquippableWithHediff />
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid"]/EquippableWithHediff</xpath>
+		<value>
+			<li>StrengthEnhancer</li>
+			<li>SkeletalBracing</li>
+		</value>
 	</Operation>
 
 </Patch>

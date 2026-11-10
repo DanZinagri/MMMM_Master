@@ -3,52 +3,122 @@
 <loadFolders>
 	<v1.6>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActive="VanillaExpanded.VAEWaste">1.6/DefaultStorage/VAnimalsEWasteAnimals</li>
+		<li IfModActive="VanillaExpanded.VCookESushi">1.6/DefaultStorage/VCESushi</li>
 		<li>1.6</li>
+		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,vanillaexpanded.gravship">1.6/Mods/VanillaPlantsExpandedMushrooms/VGEChapter1</li>
+		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,sarg.alphagenes">1.6/Mods/VanillaPlantsExpandedMushrooms/AlphaGenes</li>
+		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,Sarg.AlphaMemes">1.6/Mods/VanillaPlantsExpandedMushrooms/AlphaMemes</li>
+		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,VanillaExpanded.VFESpacer">1.6/Mods/VanillaPlantsExpandedMushrooms/VFurnESpacerModule</li>
+		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,OskarPotocki.VFE.Medieval2">1.6/Mods/VanillaPlantsExpandedMushrooms/VFEMedieval2</li>
+		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,VanillaExpanded.VFEMedical">1.6/Mods/VanillaPlantsExpandedMushrooms/VFurnEMedicalModule</li>
+		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,VanillaExpanded.VFECore">1.6/Mods/VanillaPlantsExpandedMushrooms/VFurnE</li>
 		<li IfModActive="VanillaExpanded.VPlantsEMushrooms">1.6/Mods/VanillaPlantsExpandedMushrooms</li>
 		<li IfModActiveAll="vanillaexpanded.gravship,OskarPotocki.VFE.Medieval2">1.6/Mods/VanillaGravshipExpanded</li>
+		<li IfModActiveAll="VanillaExpanded.VFEArchitect,Sarg.AlphaMemes">1.6/Mods/VanillaFurnitureExpandedArchitect/AlphaMemes</li>
+		<li IfModActiveAll="VanillaExpanded.VFEArchitect,Ludeon.RimWorld.Odyssey">1.6/Mods/VanillaFurnitureExpandedArchitect/Odyssey</li>
+		<li IfModActiveAll="VanillaExpanded.VFEArchitect,sarg.alphabiomes">1.6/Mods/VanillaFurnitureExpandedArchitect/AlphaBiomes</li>
 		<li IfModActive="VanillaExpanded.VFEArchitect">1.6/Mods/VanillaFurnitureExpandedArchitect</li>
 		<li IfModActive="RedMattis.BetterPrerequisites">1.6/Mods/BigAndSmallFramework</li>
 		<!-- Butcher First itself has no verified packageId, so it is checked by name inside the patch -->
+		<li IfModActiveAll="VanillaExpanded.VCookEHaute">1.6/Mods/ButcherFirst/VCEHaute</li>
+		<li IfModActiveAll="VanillaExpanded.VCookESushi">1.6/Mods/ButcherFirst/VCESushi</li>
+		<li IfModActiveAll="VanillaExpanded.VCookE">1.6/Mods/ButcherFirst/VCE</li>
 		<li IfModActive="VanillaExpanded.VCookE,VanillaExpanded.VCookESushi,VanillaExpanded.VCookEHaute">1.6/Mods/ButcherFirst</li>
 		<li IfModActive="OskarPotocki.VFE.Classical">1.6/Mods/VanillaFactionsExpandedClassical</li>
 		<li IfModActive="VanillaExpanded.VBrewE">1.6/Mods/VanillaBrewingExpanded</li>
 		<li IfModActive="OskarPotocki.VanillaFactionsExpanded.SettlersModule">1.6/Mods/VanillaFactionsExpandedSettlers</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,OskarPotocki.VFE.Empire">1.6/Mods/VanillaPsycastsExpanded/VFEEmpire</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VanillaExpanded.VFECore">1.6/Mods/VanillaPsycastsExpanded/VFurnE</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,sarg.alphabiomes,Ludeon.RimWorld.Odyssey">1.6/Mods/VanillaPsycastsExpanded/AlphaBiomes_Odyssey</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VanillaExpanded.VGeneticsE">1.6/Mods/VanillaPsycastsExpanded/VGenE</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VanillaExpanded.VFEArt">1.6/Mods/VanillaPsycastsExpanded/VFurnEArt</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VanillaExpanded.VFEPower">1.6/Mods/VanillaPsycastsExpanded/VFurnEPower</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,Ludeon.RimWorld.Ideology">1.6/Mods/VanillaPsycastsExpanded/Ideology</li>
 		<li IfModActive="VanillaExpanded.VPsycastsE">1.6/Mods/VanillaPsycastsExpanded</li>
 		<li IfModActive="vanillaquestsexpanded.ancients">1.6/Mods/VanillaQuestsExpandedAncients</li>
 		<li IfModActive="erin.japanesefurniture">1.6/Mods/ErinsJapaneseFurniture</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,VanillaExpanded.VFESpacer">1.6/Mods/AncientUrbanRuins/VFurnESpacerModule</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,sarg.alphacrafts">1.6/Mods/AncientUrbanRuins/AlphaCrafts</li>
 		<li IfModActive="XMB.AncientUrbanrUins.MO">1.6/Mods/AncientUrbanRuins</li>
 		<li IfModActive="sarg.alphaanimals">1.6/Mods/AlphaAnimals</li>
+		<li IfModActiveAll="sarg.alphacrafts,veterano.mythicages.megafaunabestiary">1.6/Mods/AlphaCrafts/MythicAgesMegafaunaBestiary</li>
+		<li IfModActiveAll="sarg.alphacrafts,onyxae.dragonsdescent">1.6/Mods/AlphaCrafts/Dragonsdescent</li>
+		<li IfModActiveAll="sarg.alphacrafts,Van.Beasts">1.6/Mods/AlphaCrafts/DarkAgesBeastsAndMonsters</li>
+		<li IfModActiveAll="sarg.alphacrafts,spincrus.dinosauria">1.6/Mods/AlphaCrafts/Dinosauria</li>
+		<li IfModActiveAll="sarg.alphacrafts,Spino.Megafauna">1.6/Mods/AlphaCrafts/Megafauna</li>
 		<li IfModActive="sarg.alphacrafts">1.6/Mods/AlphaCrafts</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Medieval2,VanillaExpanded.VFECore">1.6/Mods/VanillaFactionsExpandedMedieval2/VFurnE</li>
 		<li IfModActive="OskarPotocki.VFE.Medieval2">1.6/Mods/VanillaFactionsExpandedMedieval2</li>
 		<li IfModActive="OskarPotocki.VFE.Deserters">1.6/Mods/VanillaFactionsExpandedDeserters</li>
 		<li IfModActive="Sarg.AlphaMemes">1.6/Mods/AlphaMemes</li>
 		<li IfModActive="OskarPotocki.VFE.Empire">1.6/Mods/VanillaFactionsExpandedEmpire</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals,Hol.DragonGenetics">1.6/Mods/VanillaGeneticsExpanded/AlphaAnimals_DragonGenetics</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals,Spino.Megafauna">1.6/Mods/VanillaGeneticsExpanded/AlphaAnimals_Megafauna</li>
+		<li IfModActive="spincrus.dinosauria,BiomesTeam.BiomesPrehistoric" IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals">1.6/Mods/VanillaGeneticsExpanded/AlphaAnimals_DOBP</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,ReBuild.COTR.DoorsAndCorners">1.6/Mods/VanillaGeneticsExpanded/ReBuildDoorsAndCorners</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActive="VanillaExpanded.VAEWaste">1.7/DefaultStorage/VAnimalsEWasteAnimals</li>
+		<li IfModActive="VanillaExpanded.VCookESushi">1.7/DefaultStorage/VCESushi</li>
 		<li>1.7</li>
+		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,vanillaexpanded.gravship">1.7/Mods/VanillaPlantsExpandedMushrooms/VGEChapter1</li>
+		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,sarg.alphagenes">1.7/Mods/VanillaPlantsExpandedMushrooms/AlphaGenes</li>
+		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,Sarg.AlphaMemes">1.7/Mods/VanillaPlantsExpandedMushrooms/AlphaMemes</li>
+		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,VanillaExpanded.VFESpacer">1.7/Mods/VanillaPlantsExpandedMushrooms/VFurnESpacerModule</li>
+		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,OskarPotocki.VFE.Medieval2">1.7/Mods/VanillaPlantsExpandedMushrooms/VFEMedieval2</li>
+		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,VanillaExpanded.VFEMedical">1.7/Mods/VanillaPlantsExpandedMushrooms/VFurnEMedicalModule</li>
+		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,VanillaExpanded.VFECore">1.7/Mods/VanillaPlantsExpandedMushrooms/VFurnE</li>
 		<li IfModActive="VanillaExpanded.VPlantsEMushrooms">1.7/Mods/VanillaPlantsExpandedMushrooms</li>
 		<li IfModActiveAll="vanillaexpanded.gravship,OskarPotocki.VFE.Medieval2">1.7/Mods/VanillaGravshipExpanded</li>
+		<li IfModActiveAll="VanillaExpanded.VFEArchitect,Sarg.AlphaMemes">1.7/Mods/VanillaFurnitureExpandedArchitect/AlphaMemes</li>
+		<li IfModActiveAll="VanillaExpanded.VFEArchitect,Ludeon.RimWorld.Odyssey">1.7/Mods/VanillaFurnitureExpandedArchitect/Odyssey</li>
+		<li IfModActiveAll="VanillaExpanded.VFEArchitect,sarg.alphabiomes">1.7/Mods/VanillaFurnitureExpandedArchitect/AlphaBiomes</li>
 		<li IfModActive="VanillaExpanded.VFEArchitect">1.7/Mods/VanillaFurnitureExpandedArchitect</li>
 		<li IfModActive="RedMattis.BetterPrerequisites">1.7/Mods/BigAndSmallFramework</li>
 		<!-- Butcher First itself has no verified packageId, so it is checked by name inside the patch -->
+		<li IfModActiveAll="VanillaExpanded.VCookEHaute">1.7/Mods/ButcherFirst/VCEHaute</li>
+		<li IfModActiveAll="VanillaExpanded.VCookESushi">1.7/Mods/ButcherFirst/VCESushi</li>
+		<li IfModActiveAll="VanillaExpanded.VCookE">1.7/Mods/ButcherFirst/VCE</li>
 		<li IfModActive="VanillaExpanded.VCookE,VanillaExpanded.VCookESushi,VanillaExpanded.VCookEHaute">1.7/Mods/ButcherFirst</li>
 		<li IfModActive="OskarPotocki.VFE.Classical">1.7/Mods/VanillaFactionsExpandedClassical</li>
 		<li IfModActive="VanillaExpanded.VBrewE">1.7/Mods/VanillaBrewingExpanded</li>
 		<li IfModActive="OskarPotocki.VanillaFactionsExpanded.SettlersModule">1.7/Mods/VanillaFactionsExpandedSettlers</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,OskarPotocki.VFE.Empire">1.7/Mods/VanillaPsycastsExpanded/VFEEmpire</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VanillaExpanded.VFECore">1.7/Mods/VanillaPsycastsExpanded/VFurnE</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,sarg.alphabiomes,Ludeon.RimWorld.Odyssey">1.7/Mods/VanillaPsycastsExpanded/AlphaBiomes_Odyssey</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VanillaExpanded.VGeneticsE">1.7/Mods/VanillaPsycastsExpanded/VGenE</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VanillaExpanded.VFEArt">1.7/Mods/VanillaPsycastsExpanded/VFurnEArt</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VanillaExpanded.VFEPower">1.7/Mods/VanillaPsycastsExpanded/VFurnEPower</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,Ludeon.RimWorld.Ideology">1.7/Mods/VanillaPsycastsExpanded/Ideology</li>
 		<li IfModActive="VanillaExpanded.VPsycastsE">1.7/Mods/VanillaPsycastsExpanded</li>
 		<li IfModActive="vanillaquestsexpanded.ancients">1.7/Mods/VanillaQuestsExpandedAncients</li>
 		<li IfModActive="erin.japanesefurniture">1.7/Mods/ErinsJapaneseFurniture</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,VanillaExpanded.VFESpacer">1.7/Mods/AncientUrbanRuins/VFurnESpacerModule</li>
+		<li IfModActiveAll="XMB.AncientUrbanrUins.MO,sarg.alphacrafts">1.7/Mods/AncientUrbanRuins/AlphaCrafts</li>
 		<li IfModActive="XMB.AncientUrbanrUins.MO">1.7/Mods/AncientUrbanRuins</li>
 		<li IfModActive="sarg.alphaanimals">1.7/Mods/AlphaAnimals</li>
+		<li IfModActiveAll="sarg.alphacrafts,veterano.mythicages.megafaunabestiary">1.7/Mods/AlphaCrafts/MythicAgesMegafaunaBestiary</li>
+		<li IfModActiveAll="sarg.alphacrafts,onyxae.dragonsdescent">1.7/Mods/AlphaCrafts/Dragonsdescent</li>
+		<li IfModActiveAll="sarg.alphacrafts,Van.Beasts">1.7/Mods/AlphaCrafts/DarkAgesBeastsAndMonsters</li>
+		<li IfModActiveAll="sarg.alphacrafts,spincrus.dinosauria">1.7/Mods/AlphaCrafts/Dinosauria</li>
+		<li IfModActiveAll="sarg.alphacrafts,Spino.Megafauna">1.7/Mods/AlphaCrafts/Megafauna</li>
 		<li IfModActive="sarg.alphacrafts">1.7/Mods/AlphaCrafts</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Medieval2,VanillaExpanded.VFECore">1.7/Mods/VanillaFactionsExpandedMedieval2/VFurnE</li>
 		<li IfModActive="OskarPotocki.VFE.Medieval2">1.7/Mods/VanillaFactionsExpandedMedieval2</li>
 		<li IfModActive="OskarPotocki.VFE.Deserters">1.7/Mods/VanillaFactionsExpandedDeserters</li>
 		<li IfModActive="Sarg.AlphaMemes">1.7/Mods/AlphaMemes</li>
 		<li IfModActive="OskarPotocki.VFE.Empire">1.7/Mods/VanillaFactionsExpandedEmpire</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals,Hol.DragonGenetics">1.7/Mods/VanillaGeneticsExpanded/AlphaAnimals_DragonGenetics</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals,Spino.Megafauna">1.7/Mods/VanillaGeneticsExpanded/AlphaAnimals_Megafauna</li>
+		<li IfModActive="spincrus.dinosauria,BiomesTeam.BiomesPrehistoric" IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals">1.7/Mods/VanillaGeneticsExpanded/AlphaAnimals_DOBP</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,ReBuild.COTR.DoorsAndCorners">1.7/Mods/VanillaGeneticsExpanded/ReBuildDoorsAndCorners</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>
 	</v1.7>
 </loadFolders>

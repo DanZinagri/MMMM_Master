@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/Wings.xml: the operations that also need Alpha Genes. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_RainbowWings" or defName="AG_BatWings" or defName="AG_PegasusWings" or defName="AG_MothWings" or defName="AG_BumbledroneWings" or defName="AG_WaspWings" or defName="AG_DrainerWings" or defName="AG_FeatheredWings" or defName="AG_DemonWings" or defName="AG_DrakonoriWings"]/biostatCpx</xpath>
+		<value>
+			<biostatCpx>2</biostatCpx>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_RainbowWings" or defName="AG_BatWings" or defName="AG_PegasusWings" or defName="AG_MothWings" or defName="AG_BumbledroneWings" or defName="AG_WaspWings" or defName="AG_DrainerWings" or defName="AG_FeatheredWings" or defName="AG_DemonWings" or defName="AG_DrakonoriWings"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-2</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="AG_RainbowWings" or defName="AG_BatWings" or defName="AG_PegasusWings" or defName="AG_MothWings" or defName="AG_BumbledroneWings" or defName="AG_WaspWings" or defName="AG_DrainerWings" or defName="AG_FeatheredWings" or defName="AG_DemonWings" or defName="AG_DrakonoriWings"]</xpath>
+		<value>
+			<waterCellCost>1</waterCellCost>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Seraphim Xenotype</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[defName="GS_WingsB"]</xpath>
+			<value>
+				<customEffectDescriptions>
+					<li>Colonist will ignore terrain movement costs</li>
+				</customEffectDescriptions>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

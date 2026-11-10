@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaRacesExpandedPigskin/Patches/VanillaRacesExpandedPigskin.xml: the operations that also need Big and Small - Xeno Insectoid Hive. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_XenoConsort" or defName="BS_XenoAlate" or defName="BS_XenoNymph" or defName="BS_XenoNymphMutant"]/genes/li[text()="BS_VeryFastAging"]</xpath>
+		<value>
+			<li>VRE_RapidAging</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_XenoQueen" or defName="BS_XenoPrincess" or defName="BS_XenoEmissary" or defName="BS_XenoAbomination"]/genes/li[text()="BS_FastAging"]</xpath>
+		<value>
+			<li>VRE_FastAging</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="BS_EndlessGrowth"]/modExtensions/li[@Class="BigAndSmall.GenePrerequisites"]</xpath>
+	</Operation>
+
+</Patch>

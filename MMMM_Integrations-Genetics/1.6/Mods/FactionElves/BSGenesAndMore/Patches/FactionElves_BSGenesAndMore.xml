@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/FactionElves/Patches/FactionElves.xml: the operations that also need Big and Small - Genes & More. -->
+
+	<!-- Big and Small - Genes & More: high, celestia, wild and dark elf additions. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="TOV_HighElf"][not(genes/li[text()="BS_InsultProof"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="TOV_HighElf"][not(genes/li[text()="BS_InsultProof"])]/genes</xpath>
+			<value>
+				<li>BS_InsultProof</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="BS_InsultProof"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="BS_InsultProof"])]/genes</xpath>
+			<value>
+				<li>BS_InsultProof</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="BS_Skin_Marble_White"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="BS_Skin_Marble_White"])]/genes</xpath>
+			<value>
+				<li>BS_Skin_Marble_White</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="BS_Hair_TrueWhite"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="TOV_CelestiaElf"][not(genes/li[text()="BS_Hair_TrueWhite"])]/genes</xpath>
+			<value>
+				<li>BS_Hair_TrueWhite</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="TOV_WildElf"][not(genes/li[text()="BS_AnimalFriend"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="TOV_WildElf"][not(genes/li[text()="BS_AnimalFriend"])]/genes</xpath>
+			<value>
+				<li>BS_AnimalFriend</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="BS_Hair_DarkGray"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="BS_Hair_DarkGray"])]/genes</xpath>
+			<value>
+				<li>BS_Hair_DarkGray</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="BS_Hair_TrueWhite"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="BS_Hair_TrueWhite"])]/genes</xpath>
+			<value>
+				<li>BS_Hair_TrueWhite</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="VU_DarknessWoundHealing_Fast"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="VU_DarknessWoundHealing_Fast"])]/genes</xpath>
+			<value>
+				<li>VU_DarknessWoundHealing_Fast</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="BS_NightOwl"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][not(genes/li[text()="BS_NightOwl"])]/genes</xpath>
+			<value>
+				<li>BS_NightOwl</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

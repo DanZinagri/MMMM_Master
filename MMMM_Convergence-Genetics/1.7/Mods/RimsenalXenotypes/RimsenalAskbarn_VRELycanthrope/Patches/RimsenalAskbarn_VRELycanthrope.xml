@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/RimsenalXenotypes/Patches/RimsenalXenotype_Askbarn.xml: the operations that also need Rimsenal Xenotype Pack - Askbarn and Vanilla Races Expanded - Lycanthrope. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/XenotypeDef[defName="Uredd"]/genes/li[text()="RSBornWarrior"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="Uredd"]/genes</xpath>
+		<value>
+			<li>VRE_SuperiorDodge</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/RSBornWarrior</li>
+			<li>GeneDef/RSBornWarrior_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

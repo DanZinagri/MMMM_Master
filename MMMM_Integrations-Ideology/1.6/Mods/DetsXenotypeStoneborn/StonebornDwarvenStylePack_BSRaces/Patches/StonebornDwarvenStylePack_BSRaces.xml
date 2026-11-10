@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/DetsXenotypeStoneborn/Patches/DetsXenotypeStoneborn.xml: the operations that also need Stoneborn - Dwarven Style Pack and Big and Small - Races. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="BS_LittlePeople"]</xpath>
+		<value>
+			<allowedCultures Inherit="False">
+				<li>TMM_Dwarven</li>
+			</allowedCultures>
+		</value>
+	</Operation>
+	<!-- The medieval Dvergr Trade Union inherits Big and Small's medieval culture from its base faction; the
+	Conditional replaces the node if it ever gets its own, and adds it otherwise. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/FactionDef[defName="BS_Dvergr_Medieval_Union"]/allowedCultures</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/FactionDef[defName="BS_Dvergr_Medieval_Union"]/allowedCultures</xpath>
+			<value>
+				<allowedCultures Inherit="False">
+					<li>TMM_Dwarven</li>
+				</allowedCultures>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/FactionDef[defName="BS_Dvergr_Medieval_Union"]</xpath>
+			<value>
+				<allowedCultures Inherit="False">
+					<li>TMM_Dwarven</li>
+				</allowedCultures>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

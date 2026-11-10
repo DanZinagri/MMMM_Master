@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/AgreeingMemes.xml: the operations that also need Vanilla Quests Expanded - The Generator and Ideology. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/MemeDef[defName="VQE_Technophobia"]</xpath>
+		<value>
+			<agreeableTraits>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Technophobe</li>
+			</agreeableTraits>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Moved here from the root file 1.7/Patches/StrongerEnemies.xml.
+		This folder loads only when accurex.medievalempireoverhaul is NOT active (see loadFolders.xml). The same condition used to be a
+		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
+	-->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="Empire_Caster_Protector"]/specificApparelRequirements</xpath>
+		<value>
+			<apparelRequired>
+				<li>Apparel_ArmorHelmetCataphractPrestige</li>
+				<li>Apparel_ArmorCataphractPrestige</li>
+			</apparelRequired>
+			<specificApparelRequirements Inherit="False">
+				<li>
+					<bodyPartGroup>FullHead</bodyPartGroup>
+					<color>(68,68,68)</color>
+				</li>
+				<li>
+					<bodyPartGroup>Torso</bodyPartGroup>
+					<apparelLayer>OnSkin</apparelLayer>
+					<stuff>Cloth</stuff>
+				</li>
+				<li>
+					<bodyPartGroup>Legs</bodyPartGroup>
+					<apparelLayer>OnSkin</apparelLayer>
+					<stuff>Cloth</stuff>
+				</li>
+			</specificApparelRequirements>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="Empire_Caster_Conflagrator" or defName="Empire_Caster_Archotechist" or defName="Empire_Caster_Warlord_Ranged" or defName="Empire_Caster_Warlord_Melee" or defName="Empire_Caster_Protector"]/combatPower</xpath>
+		<value>
+			<combatPower>120</combatPower>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/PawnKindDef[defName="Empire_Caster_Archotechist"]/xenotypeSet</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/PawnKindDef[defName="Empire_Caster_Archotechist"]</xpath>
+			<value>
+				<xenotypeSet Inherit="False">
+					<xenotypeChances Inherit="False">
+						<Baseliner>100</Baseliner>
+						<GS_Nephilim MayRequire="Sov.Nephilim">75</GS_Nephilim>
+						<DV_Avaloi MayRequire="det.avaloi">50</DV_Avaloi>
+						<HBX_Highborn MayRequire="ElSov.Highborn">75</HBX_Highborn>
+					</xenotypeChances>
+				</xenotypeSet>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/PawnKindDef[defName="Empire_Caster_Protector"]/xenotypeSet</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/PawnKindDef[defName="Empire_Caster_Protector"]</xpath>
+			<value>
+				<xenotypeSet Inherit="False">
+					<xenotypeChances Inherit="False">
+						<Baseliner>100</Baseliner>
+						<GS_Nephilim MayRequire="Sov.Nephilim">100</GS_Nephilim>
+						<DV_Avaloi MayRequire="det.avaloi">100</DV_Avaloi>
+					</xenotypeChances>
+				</xenotypeSet>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/PawnKindDef[defName="Empire_Caster_Conflagrator"]/xenotypeSet</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/PawnKindDef[defName="Empire_Caster_Conflagrator"]</xpath>
+			<value>
+				<xenotypeSet Inherit="False">
+					<xenotypeChances Inherit="False">
+						<Baseliner>100</Baseliner>
+						<GS_Nephilim MayRequire="Sov.Nephilim">100</GS_Nephilim>
+						<DV_Avaloi MayRequire="det.avaloi">100</DV_Avaloi>
+					</xenotypeChances>
+				</xenotypeSet>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="Empire_Caster_Warlord_Melee"]</xpath>
+		<value>
+			<xenotypeSet Inherit="False">
+				<xenotypeChances Inherit="False">
+					<Baseliner>1</Baseliner>
+					<GS_Nephilim MayRequire="Sov.Nephilim">1</GS_Nephilim>
+					<Harana MayRequire="Rimsenal.Harana">1</Harana>
+				</xenotypeChances>
+			</xenotypeSet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/PawnKindDef[defName="Empire_Caster_Warlord_Ranged"]</xpath>
+		<value>
+			<xenotypeSet Inherit="False">
+				<xenotypeChances Inherit="False">
+					<Baseliner>1</Baseliner>
+					<Harana MayRequire="Rimsenal.Harana">1</Harana>
+				</xenotypeChances>
+			</xenotypeSet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[position()=2 or position()=3 or position()=4]/options</xpath>
+		<value>
+			<TMM_Empire_Caster_Staticlord>0.2</TMM_Empire_Caster_Staticlord>
+			<TMM_Empire_Caster_Frostshaper>0.2</TMM_Empire_Caster_Frostshaper>
+			<Empire_Caster_Conflagrator>0.002</Empire_Caster_Conflagrator>
+			<Empire_Caster_Archotechist>0.003</Empire_Caster_Archotechist>
+			<Empire_Caster_Warlord_Ranged>0.2</Empire_Caster_Warlord_Ranged>
+			<Empire_Caster_Warlord_Melee>0.2</Empire_Caster_Warlord_Melee>
+			<Empire_Caster_Protector>0.001</Empire_Caster_Protector>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Empire_Fighter_Trooper</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Empire_Fighter_Janissary</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Empire_Fighter_Champion</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Empire_Fighter_Cataphract</xpath>
+	</Operation>
+
+</Patch>

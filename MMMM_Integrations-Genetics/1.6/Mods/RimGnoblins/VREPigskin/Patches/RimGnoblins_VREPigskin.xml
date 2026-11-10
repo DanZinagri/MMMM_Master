@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/RimGnoblins/Patches/RimGnoblins.xml: the operations that also need Vanilla Races Expanded - Pigskin. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="Gnoblin"][not(genes/li[text()="VRE_Gluttonous"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="Gnoblin"][not(genes/li[text()="VRE_Gluttonous"])]/genes</xpath>
+			<value>
+				<li>VRE_Gluttonous</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

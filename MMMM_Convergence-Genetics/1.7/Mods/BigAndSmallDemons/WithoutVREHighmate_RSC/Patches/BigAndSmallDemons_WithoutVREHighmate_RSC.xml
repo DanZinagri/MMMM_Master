@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/BigAndSmallDemons/Patches/BigAndSmallDemons.xml: the operations that also need not Vanilla Races Expanded - Highmate and ReSplice: Charmweavers. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="VU_Succubus"]/genes/li[text()="VU_Libido_Succubus"]</xpath>
+		<value>
+			<li>RS_Libido_Extreme</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/StrongerEnemies.xml: the operations that also need Vanilla Factions Expanded - Deserters. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VFEI_ArmoredShuttle"]/statBases/MaxHitPoints</xpath>
+		<value>
+			<MaxHitPoints>16000</MaxHitPoints>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Shuttle"]/statBases/MaxHitPoints</xpath>
+		<value>
+			<MaxHitPoints>8000</MaxHitPoints>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VFED_DeserterShuttle"]/statBases/MaxHitPoints</xpath>
+		<value>
+			<MaxHitPoints>8000</MaxHitPoints>
+		</value>
+	</Operation>
+
+</Patch>

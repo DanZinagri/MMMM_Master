@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/StrongerEnemies.xml: the operations that also need Vanilla Psycasts Expanded and Big and Small - Heaven and Hell. -->
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/PawnKindDef[defName="BS_Satan"]</xpath>
+		<value>
+			<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+				<implantDef>VPE_PsycastAbilityImplant</implantDef>
+				<initialLevel>1</initialLevel>
+				<statUpgradePoints>0~0</statUpgradePoints>
+				<unlockedPaths>
+					<VPE_Necropath>1~4|1~10</VPE_Necropath>
+				</unlockedPaths>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="BS_Satan"]/startingHediffs</xpath>
+		<value>
+			<li>
+				<def>VPE_GainedVitality</def>
+				<chance>0.5</chance>
+				<durationTicksRange>40000~55000</durationTicksRange>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/PawnKindDef[defName="BS_AuthorityWarrior"]</xpath>
+		<value>
+			<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+				<implantDef>VPE_PsycastAbilityImplant</implantDef>
+				<initialLevel>1</initialLevel>
+				<statUpgradePoints>0~0</statUpgradePoints>
+				<unlockedPaths>
+					<VPE_Harmonist>1~2|3~5</VPE_Harmonist>
+				</unlockedPaths>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/PawnKindDef[defName="VU_DemonWarrior"]</xpath>
+		<value>
+			<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+				<implantDef>VPE_PsycastAbilityImplant</implantDef>
+				<initialLevel>1</initialLevel>
+				<statUpgradePoints>0~0</statUpgradePoints>
+				<unlockedPaths>
+					<VPE_Conflagrator>1~4|1~10</VPE_Conflagrator>
+				</unlockedPaths>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="BS_Satan"]/xenotypeSet</xpath>
+		<value>
+			<xenotypeSet Inherit="False">
+				<xenotypeChances>
+					<BS_Satan>999999</BS_Satan>
+				</xenotypeChances>
+			</xenotypeSet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="BS_AuthorityWarrior"]/xenotypeSet</xpath>
+		<value>
+			<xenotypeSet Inherit="False">
+				<xenotypeChances>
+					<BS_Authority>999999</BS_Authority>
+				</xenotypeChances>
+			</xenotypeSet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="BS_ServitorBasic"]/xenotypeSet</xpath>
+		<value>
+			<xenotypeSet Inherit="False">
+				<xenotypeChances>
+					<BS_Malakim>99999</BS_Malakim>
+				</xenotypeChances>
+			</xenotypeSet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="BS_ServitorMelee"]/xenotypeSet</xpath>
+		<value>
+			<xenotypeSet Inherit="False">
+				<xenotypeChances>
+					<BS_Malakim>99999</BS_Malakim>
+				</xenotypeChances>
+			</xenotypeSet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="BS_ServitorRanged"]/xenotypeSet</xpath>
+		<value>
+			<xenotypeSet Inherit="False">
+				<xenotypeChances>
+					<BS_Malakim>99999</BS_Malakim>
+				</xenotypeChances>
+			</xenotypeSet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="BS_AuthorityLord"]/xenotypeSet</xpath>
+		<value>
+			<xenotypeSet Inherit="False">
+				<xenotypeChances>
+					<BS_Authority>99999</BS_Authority>
+				</xenotypeChances>
+			</xenotypeSet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="VU_LilimWarrior"]/xenotypeSet</xpath>
+		<value>
+			<xenotypeSet Inherit="False">
+				<xenotypeChances>
+					<BS_Lilim>99999</BS_Lilim>
+				</xenotypeChances>
+			</xenotypeSet>
+		</value>
+	</Operation>
+
+</Patch>

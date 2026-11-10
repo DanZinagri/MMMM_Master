@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/GeneExclusionTags.xml: the operations that also need Alpha Genes. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="AG_ForsakenHeadEmblem"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>MeleeDodge</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+
+</Patch>

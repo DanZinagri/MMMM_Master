@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/BigAndSmallMoreXenotypes/Patches/BigAndSmallMoreXenotypes.xml: the operations that also need Alpha Genes. -->
+
+	<!-- Hive queen and weaver use Alpha Genes' major armour instead of B&S natural armor -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_HiveQueen"]/genes/li[text()="BS_NaturalArmor"]</xpath>
+		<value>
+			<li>AG_ArmourMajor</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Weaver"]/genes/li[text()="BS_NaturalArmor"]</xpath>
+		<value>
+			<li>AG_ArmourMajor</li>
+		</value>
+	</Operation>
+	<!-- Parasite uses Alpha Genes' medium armour instead of B&S tough skin -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Parasite"]/genes/li[text()="BS_ToughSkin"]</xpath>
+		<value>
+			<li>AG_ArmourMedium</li>
+		</value>
+	</Operation>
+	<!-- Devilspider swaps B&S heat tolerance and fire immunity for the Alpha Genes equivalent -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_Devilspider"]/genes</xpath>
+		<value>
+			<li>AG_HeatImmunity</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>
+							Defs/XenotypeDef[defName="BS_Devilspider"]/genes/li[text()="MaxTemp_LargeIncrease"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>
+							Defs/XenotypeDef[defName="BS_Devilspider"]/genes/li[text()="FireImmunity"]</xpath>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need RedMattis.BigSmall.SimpleAndroids and Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="BS_NanomachineVampire"]/genes/li[text()="VU_GreaterHemogenDrain"]</xpath>
+		<match Class="PatchOperationConditional">
+			<xpath>Defs/XenotypeDef[defName="BS_NanomachineVampire"]/genes/li[text()="HemogenDrain"]</xpath>
+			<match Class="PatchOperationRemove">
+				<xpath>Defs/XenotypeDef[defName="BS_NanomachineVampire"]/genes/li[text()="HemogenDrain"]</xpath>
+			</match>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/XenotypeDef[defName="BS_ActualGiantFreakinRobot"]/genes/li[text()="ArchiteMetabolism"]</xpath>
+	</Operation>
+
+</Patch>

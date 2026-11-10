@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/TsSamuraiFaction/Patches/TsSamuraiFaction.xml: the operations that also need Vanilla Ideology Expanded - Memes and Structures. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="TSF_SamuraiClan"]</xpath>
+		<value>
+			<requiredMemes>
+				<li MayRequire="Ludeon.RimWorld.Ideology">VME_Bushido</li>
+			</requiredMemes>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaRacesExpandedPhytokin/Patches/VanillaRacesExpandedPhytokin.xml: the operations that also need Royalty. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/XenotypeDef[defName="VRE_Animakin"]/genes</xpath>
+		<value>
+			<li MayRequire="sarg.alphagenes">AG_UVPowered_Mild</li>
+		</value>
+	</Operation>
+
+</Patch>

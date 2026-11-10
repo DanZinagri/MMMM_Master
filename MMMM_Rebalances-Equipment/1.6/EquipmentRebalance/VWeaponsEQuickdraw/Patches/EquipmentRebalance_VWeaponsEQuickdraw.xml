@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need Vanilla Weapons Expanded - Quickdraw. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="VWE_Gun_AutomaticPistol"]/statBases/RangedWeapon_Cooldown</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="VWE_Gun_AutomaticPistol"]/statBases/RangedWeapon_Cooldown</xpath>
+			<value>
+				<RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

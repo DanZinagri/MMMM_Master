@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/AgreeingMemes.xml: the operations that also need Alpha Memes and Vanilla Cooking Expanded. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/MemeDef[defName="AM_Epicurean"]</xpath>
+		<value>
+			<agreeableTraits>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Gastronomist</li>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">Gourmand</li>
+			</agreeableTraits>
+			<disagreeableTraits/>
+		</value>
+	</Operation>
+
+</Patch>

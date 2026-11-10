@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Without/MedievalOverhaulRoyalty/Patches/MedievalOverhaulRoyalty_StrongerEnemies.xml: the operations that also need Vanilla Psycasts Expanded and Vanilla Prestige Specialist Armours Reworked. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="Empire_Caster_Conflagrator"]/specificApparelRequirements</xpath>
+		<value>
+			<apparelRequired>
+				<li>Apparel_ArmorHelmetCataphractPrestige</li>
+				<li>Apparel_ArmorPhoenixPrestige</li>
+			</apparelRequired>
+			<specificApparelRequirements Inherit="False">
+				<li>
+					<bodyPartGroup>FullHead</bodyPartGroup>
+					<color>(68,68,68)</color>
+				</li>
+				<li>
+					<bodyPartGroup>Torso</bodyPartGroup>
+					<apparelLayer>OnSkin</apparelLayer>
+					<stuff>Cloth</stuff>
+				</li>
+				<li>
+					<bodyPartGroup>Legs</bodyPartGroup>
+					<apparelLayer>OnSkin</apparelLayer>
+					<stuff>Cloth</stuff>
+				</li>
+			</specificApparelRequirements>
+		</value>
+	</Operation>
+
+</Patch>

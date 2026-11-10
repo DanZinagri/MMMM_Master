@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/AgreeingMemes.xml: the operations that also need Ideology and Anomaly. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="Inhuman"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="Inhuman"]/agreeableTraits</xpath>
+			<value>
+				<li>Occultist</li>
+				<li>VoidFascination</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="Inhuman"]</xpath>
+			<value>
+				<agreeableTraits>
+					<li>Occultist</li>
+					<li>VoidFascination</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="Ritualist"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="Ritualist"]/agreeableTraits</xpath>
+			<value>
+				<li>Occultist</li>
+				<li>VoidFascination</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="Ritualist"]</xpath>
+			<value>
+				<agreeableTraits>
+					<li>Occultist</li>
+					<li>VoidFascination</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

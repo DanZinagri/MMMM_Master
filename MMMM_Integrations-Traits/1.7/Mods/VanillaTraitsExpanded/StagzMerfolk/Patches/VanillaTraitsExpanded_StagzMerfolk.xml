@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaTraitsExpanded/Patches/VanillaTraitsExpanded.xml: the operations that also need Arquebus.StagzMerfolk. -->
+
+	<!--
+		Child of the sea can meditate on water. Gated on Goji's Fantasy Race: Merren by its packageId, Arquebus.StagzMerfolk (the id MMMM Convergence - Genetics confirmed against Merren's About.xml).
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraitDef[defName="VTE_ChildOfSea"]/degreeDatas/li</xpath>
+		<value>
+			<allowedMeditationFocusTypes>
+				<li>Stagz_Water</li>
+			</allowedMeditationFocusTypes>
+		</value>
+	</Operation>
+
+</Patch>

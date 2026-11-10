@@ -7,15 +7,11 @@
 		Verified against Alpha Crafts 1.6: AC_Chips ships daysToRotStart 10; no other installed mod changes it.
 	-->
 
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/ThingDef[defName="AC_Chips"]/comps/li[@Class="CompProperties_Rottable"]/daysToRotStart</xpath>
-				<value>
-					<daysToRotStart>90</daysToRotStart>
-				</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="AC_Chips"]/comps/li[@Class="CompProperties_Rottable"]/daysToRotStart</xpath>
+		<value>
+			<daysToRotStart>90</daysToRotStart>
+		</value>
 	</Operation>
 
 </Patch>

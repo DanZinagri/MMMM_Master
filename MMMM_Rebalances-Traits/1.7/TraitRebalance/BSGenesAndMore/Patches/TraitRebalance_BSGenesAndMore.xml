@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/TraitRebalance.xml: the operations that also need Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/TraitDef[defName="Small" or defName="Dwarfism"]/degreeDatas/li/statFactors/MoveSpeed</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/TraitDef[defName="Large"]/degreeDatas/li/statFactors/MoveSpeed</xpath>
+		<success>Always</success>
+		<value>
+			<MoveSpeed>0.95</MoveSpeed>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Karmi's Patches - Big and Small</li>
+		</mods>
+		<nomatch Class="PatchOperationReplace">
+			<xpath>Defs/TraitDef[defName="Gigantism"]/commonality</xpath>
+			<value>
+				<commonality>0.2</commonality>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Karmi's Patches - Big and Small</li>
+		</mods>
+		<nomatch Class="PatchOperationReplace">
+			<xpath>Defs/TraitDef[defName="Large"]/commonality</xpath>
+			<value>
+				<commonality>0.5</commonality>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Karmi's Patches - Big and Small</li>
+		</mods>
+		<nomatch Class="PatchOperationReplace">
+			<xpath>Defs/TraitDef[defName="Small"]/commonality</xpath>
+			<value>
+				<commonality>0.5</commonality>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Karmi's Patches - Big and Small</li>
+		</mods>
+		<nomatch Class="PatchOperationReplace">
+			<xpath>Defs/TraitDef[defName="Dwarfism"]/commonality</xpath>
+			<value>
+				<commonality>0.25</commonality>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

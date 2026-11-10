@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need Highborn Xenotype. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="HBX_Rapier"]/tools/li[label="point"]/power</xpath>
+		<value>
+			<power>16</power>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="HBX_Rapier"]/tools/li[label="edge"]/power</xpath>
+		<value>
+			<power>20</power>
+		</value>
+	</Operation>
+
+</Patch>

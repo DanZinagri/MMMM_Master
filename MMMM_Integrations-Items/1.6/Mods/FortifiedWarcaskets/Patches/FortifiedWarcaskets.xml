@@ -22,52 +22,48 @@
 		EquippableWithApparel list in Fortified 1.6 (its 1.7 load reuses the 1.6 Defs); it is still created first if
 		missing.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid" or defName="BulkyAutomatroid" or defName="TransHeavyAutomatroid") and not(EquippableWithApparel)]</xpath>
-				<match Class="PatchOperationAdd">
-					<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid" or defName="BulkyAutomatroid" or defName="TransHeavyAutomatroid") and not(EquippableWithApparel)]</xpath>
-					<value>
-						<EquippableWithApparel />
-					</value>
-				</match>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid" or defName="BulkyAutomatroid" or defName="TransHeavyAutomatroid"]/EquippableWithApparel</xpath>
-				<value>
-					<li>VFEP_Warcasket_Warcasket</li>
-					<li>VFEP_Warcasket_Marine</li>
-					<li>VFEP_Warcasket_Recon</li>
-					<li>VFEP_Warcasket_Cataphract</li>
-					<li>VFEP_Warcasket_Aerial</li>
-					<li>VFEP_Warcasket_Barrage</li>
-					<li>VFEP_Warcasket_Hazard</li>
-					<li>VFEP_Warcasket_Shock</li>
-					<li>VFEP_Warcasket_Siegebreaker</li>
-					<li>VFEP_Warcasket_Guardian</li>
-					<li>VFEP_Warcasket_Controller</li>
-					<li>VFEP_Warcasket_Sarcophagus</li>
-					<li>VFEP_Warcasket_Brute</li>
-					<li MayRequire="Aoba.WarCasket">Warcasket_Sentinel</li>
-					<li MayRequire="Aoba.WarCasket">Warcasket_GuardianX</li>
-					<li MayRequire="Aoba.WarCasket">Warcasket_Tyrant</li>
-					<li MayRequire="Aoba.WarCasket,Ludeon.RimWorld.Biotech">Warcasket_Centurion</li>
-					<li MayRequire="oracle.miscellania">VFEP_Warcasket_EarthEmpire</li>
-					<li MayRequire="notdvd.eventide">dvd_Warcasket_Eventide</li>
-					<li MayRequire="notdvd.eventide">dvd_Warcasket_Sovereign</li>
-					<li MayRequire="shunter.shipcrackerwarcasket">SCWC_Warcasket_Shipcracker</li>
-					<li MayRequire="shunter.toxinwarcasket">TXWC_Warcasket_Toxin</li>
-					<li MayRequire="sarg.alphamechs">VFEP_Warcasket_MechController</li>
-					<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine</li>
-					<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine_Vet</li>
-					<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine_Cpt</li>
-					<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine_MkII</li>
-					<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine_MKVI</li>
-					<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine_Terminator</li>
-				</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid" or defName="BulkyAutomatroid" or defName="TransHeavyAutomatroid") and not(EquippableWithApparel)]</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid" or defName="BulkyAutomatroid" or defName="TransHeavyAutomatroid") and not(EquippableWithApparel)]</xpath>
+			<value>
+				<EquippableWithApparel />
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid" or defName="BulkyAutomatroid" or defName="TransHeavyAutomatroid"]/EquippableWithApparel</xpath>
+		<value>
+			<li>VFEP_Warcasket_Warcasket</li>
+			<li>VFEP_Warcasket_Marine</li>
+			<li>VFEP_Warcasket_Recon</li>
+			<li>VFEP_Warcasket_Cataphract</li>
+			<li>VFEP_Warcasket_Aerial</li>
+			<li>VFEP_Warcasket_Barrage</li>
+			<li>VFEP_Warcasket_Hazard</li>
+			<li>VFEP_Warcasket_Shock</li>
+			<li>VFEP_Warcasket_Siegebreaker</li>
+			<li>VFEP_Warcasket_Guardian</li>
+			<li>VFEP_Warcasket_Controller</li>
+			<li>VFEP_Warcasket_Sarcophagus</li>
+			<li>VFEP_Warcasket_Brute</li>
+			<li MayRequire="Aoba.WarCasket">Warcasket_Sentinel</li>
+			<li MayRequire="Aoba.WarCasket">Warcasket_GuardianX</li>
+			<li MayRequire="Aoba.WarCasket">Warcasket_Tyrant</li>
+			<li MayRequire="Aoba.WarCasket,Ludeon.RimWorld.Biotech">Warcasket_Centurion</li>
+			<li MayRequire="oracle.miscellania">VFEP_Warcasket_EarthEmpire</li>
+			<li MayRequire="notdvd.eventide">dvd_Warcasket_Eventide</li>
+			<li MayRequire="notdvd.eventide">dvd_Warcasket_Sovereign</li>
+			<li MayRequire="shunter.shipcrackerwarcasket">SCWC_Warcasket_Shipcracker</li>
+			<li MayRequire="shunter.toxinwarcasket">TXWC_Warcasket_Toxin</li>
+			<li MayRequire="sarg.alphamechs">VFEP_Warcasket_MechController</li>
+			<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine</li>
+			<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine_Vet</li>
+			<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine_Cpt</li>
+			<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine_MkII</li>
+			<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine_MKVI</li>
+			<li MayRequire="Buffsboy474.SMWarcaskets.Ideology.Testing">HP_Warcasket_SpaceMarine_Terminator</li>
+		</value>
 	</Operation>
 
 </Patch>

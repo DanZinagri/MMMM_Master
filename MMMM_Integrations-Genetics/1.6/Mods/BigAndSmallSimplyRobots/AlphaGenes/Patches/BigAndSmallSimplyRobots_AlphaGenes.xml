@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/BigAndSmallSimplyRobots/Patches/BigAndSmallSimplyRobots.xml: the operations that also need Alpha Genes. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="AG_HardBones"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+			<value>
+				<li>
+					<def>AG_HardBones</def>
+					<labelMechanoid>cushioning shell</labelMechanoid>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="AG_FungalSkin"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+			<value>
+				<li>
+					<def>AG_FungalSkin</def>
+					<labelMechanoid>fungal exterior</labelMechanoid>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="AG_FrailSkin"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+			<value>
+				<li>
+					<def>AG_FrailSkin</def>
+					<labelMechanoid>frail exterior</labelMechanoid>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="AG_ArmourMajor"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+			<value>
+				<li>
+					<def>AG_ArmourMajor</def>
+					<labelMechanoid>integrated armor</labelMechanoid>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="AG_ArmourMedium"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+			<value>
+				<li>
+					<def>AG_ArmourMedium</def>
+					<labelMechanoid>reinforced exterior</labelMechanoid>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="AG_LimbRegeneration"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+			<value>
+				<li>
+					<def>AG_LimbRegeneration</def>
+					<labelMechanoid>external self-reconstruction</labelMechanoid>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="AG_Digitigrade"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+			<value>
+				<li>
+					<def>AG_Digitigrade</def>
+					<labelMechanoid>biomimetic digitigrade legs</labelMechanoid>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

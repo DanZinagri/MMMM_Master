@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small - Races: genes swapped for the equivalents other mods ship, so the same effect is not provided
+		twice under two names.
+		  - Natural armour and tough skin become the Alpha Genes armour genes across ten xenotypes.
+		  - Cold and heat tolerance become the Alpha Genes immunities, with the fire immunity gene dropped alongside.
+		  - The great ogre and the two titans use VRE - Waster's extreme instability.
+		  - Three xenotypes use VRE - Archon's short pregnancy.
+		  - The titans and fire giants use VRE - Starjack's total vacuum resistance in place of the B&amp;S EVA gene.
+		This folder only loads when Big and Small - Races is active (see loadFolders.xml); each swap sits in a subfolder gated on the mod that supplies the replacement.
+		Operations that also need another mod sit in a subfolder gated on it in loadFolders.xml.
+
+		Verified against the current 1.6 releases: every gene being replaced is present in its xenotype, so all nine
+		operations land.
+		Fix 2026-10-03: genes retired to Cherry Picker are now swapped in every xenotype that carries them (removed where the
+		xenotype already has the replacement), so no xenotype from any mod loses one. Genes without a clean one-for-one
+		replacement are no longer retired.
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_TrollAdult" or defName="BS_Surtr" or defName="BS_Ymir" or defName="BS_Svartalf" or defName="BS_Hearthdoll"]/genes/li[text()="BS_NaturalArmor"]</xpath>
+		<value>
+			<li>AG_ArmourMajor</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Troll" or defName="BS_Redcap" or defName="BS_Jotun" or defName="BS_PilotableFleshGolem" or defName="BS_FleshGolemServant"]/genes/li[text()="BS_ToughSkin"]</xpath>
+		<value>
+			<li>AG_ArmourMedium</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_FrostJotun" or defName="BS_Ymir" or defName="BS_BrokenTitan"]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+		<value>
+			<li>AG_ColdImmunity</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_FireJotun" or defName="BS_Surtr"]/genes/li[text()="MaxTemp_HugeIncrease"]</xpath>
+		<value>
+			<li>AG_HeatImmunity</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>
+							Defs/XenotypeDef[defName="BS_FireJotun" or defName="BS_Surtr"]/genes/li[text()="FireImmunity"]</xpath>
+	</Operation>
+
+</Patch>

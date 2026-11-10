@@ -6,21 +6,17 @@
 		and the duplicate VRESaurids_Pheromones is handed to Cherry Picker.
 		This folder only loads when both VRE - Saurid and Det's Buzzers are active (see loadFolders.xml), so no FindMod checks are needed.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/XenotypeDef[defName="VRESaurids_Saurid"]/genes/li[text()="VRESaurids_Pheromones"]</xpath>
-				<value>
-					<li MayRequire="det.buzzers">DV_Pheromones</li>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
-				<value>
-					<li>GeneDef/VRESaurids_Pheromones</li>
-				</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="VRESaurids_Saurid"]/genes/li[text()="VRESaurids_Pheromones"]</xpath>
+		<value>
+			<li MayRequire="det.buzzers">DV_Pheromones</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/VRESaurids_Pheromones</li>
+		</value>
 	</Operation>
 
 </Patch>

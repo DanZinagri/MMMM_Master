@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/OtherRebalance.xml: the operations that also need Vanilla Furniture Expanded - Architect. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VFEArch_ArmoredDoor"]/statBases/MaxHitPoints</xpath>
+		<value>
+			<!-- original: 450 -->
+			<MaxHitPoints>225</MaxHitPoints>
+		</value>
+	</Operation>
+
+</Patch>

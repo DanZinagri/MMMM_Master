@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaRacesExpandedPigskin/Patches/VanillaRacesExpandedPigskin.xml: the operations that also need Big and Small - More Xenotypes. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Broodmother"]/genes/li[text()="BS_FastAging"]</xpath>
+		<value>
+			<li>VRE_FastAging</li>
+		</value>
+	</Operation>
+
+</Patch>

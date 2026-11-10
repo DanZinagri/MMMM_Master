@@ -8,21 +8,17 @@
 		The original wrapped this in a 'Combat Extended absent' check. That check was dropped: this project does not
 		support Combat Extended, so the guard could never do anything useful here.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/ThingDef[defName="VWE_Sling"]/verbs/li/soundCast</xpath>
-				<value>
-					<soundCast>ThrowGrenade</soundCast>
-				</value>
-			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/ThingDef[defName="VWE_Sling"]/soundInteract</xpath>
-				<value>
-					<soundInteract>ThrowGrenade</soundInteract>
-				</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VWE_Sling"]/verbs/li/soundCast</xpath>
+		<value>
+			<soundCast>ThrowGrenade</soundCast>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VWE_Sling"]/soundInteract</xpath>
+		<value>
+			<soundInteract>ThrowGrenade</soundInteract>
+		</value>
 	</Operation>
 
 </Patch>

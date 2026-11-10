@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/OtherRebalance.xml: the operations that also need Vanilla Psycasts Expanded. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_Ghostwalk"]/modExtensions/li[@Class="VanillaPsycastsExpanded.AbilityExtension_Psycast"]/psyfocusCost</xpath>
+		<value>
+			<psyfocusCost>0.05</psyfocusCost>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef[defName="Empire_Caster_Conflagrator" or defName="Empire_Caster_Archotechist" or defName="Empire_Caster_Warlord_Ranged" or defName="Empire_Caster_Protector" or defName="Empire_Caster_Warlord_Melee"or defName="Tribal_Caster_Conflagrator" or defName="Tribal_Caster_Frostshaper" or defName="Tribal_Caster_Staticlord" or defName="Tribal_Caster_Wildspeaker"]/modExtensions/li[@Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts"]/statUpgradePoints</xpath>
+		<value>
+			<statUpgradePoints>0~0</statUpgradePoints>
+		</value>
+	</Operation>
+
+</Patch>

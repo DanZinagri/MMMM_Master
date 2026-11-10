@@ -11,26 +11,22 @@
 		VTE_AnimalHater and RitualSustainer_Theist exist.
 		Split by category into the MMMM Convergence sub-mods: this copy holds only the Other ops (everything else (thoughts, sanity, meditation focus, hediffs, animals, plants)).
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/ThoughtDef[defName="DD_DragonNuzzled"]/nullifyingTraits</xpath>
-				<nomatch Class="PatchOperationAdd">
-					<xpath>Defs/ThoughtDef[defName="DD_DragonNuzzled"]</xpath>
-					<value>
-						<nullifyingTraits>
-							<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
-						</nullifyingTraits>
-					</value>
-				</nomatch>
-				<match Class="PatchOperationAdd">
-					<xpath>Defs/ThoughtDef[defName="DD_DragonNuzzled"]/nullifyingTraits</xpath>
-					<value>
-						<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
-					</value>
-				</match>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThoughtDef[defName="DD_DragonNuzzled"]/nullifyingTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThoughtDef[defName="DD_DragonNuzzled"]/nullifyingTraits</xpath>
+			<value>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThoughtDef[defName="DD_DragonNuzzled"]</xpath>
+			<value>
+				<nullifyingTraits>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+				</nullifyingTraits>
+			</value>
+		</nomatch>
 	</Operation>
 
 </Patch>

@@ -13,52 +13,48 @@
 		The named-node trait entries (for example Industriousness 2) are the vanilla shorthand for a TraitRequirement:
 		the node name is the trait and its text is the degree.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/MemeDef[defName="VME_Pacifist"]</xpath>
-				<value>
-					<agreeableTraits>
-						<li>Kind</li>
-					</agreeableTraits>
-					<disagreeableTraits>
-						<li>Bloodlust</li>
-					</disagreeableTraits>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/MemeDef[defName="VME_Egalitarian" or defName="VME_Emancipation"]</xpath>
-				<value>
-					<agreeableTraits>
-						<li>Kind</li>
-					</agreeableTraits>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/MemeDef[defName="VME_BloodCourt"]</xpath>
-				<value>
-					<agreeableTraits>
-						<li>Bloodlust</li>
-					</agreeableTraits>
-					<disagreeableTraits>
-						<li>Kind</li>
-					</disagreeableTraits>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/MemeDef[defName="VME_HardcoreIndustrialism"]</xpath>
-				<value>
-					<agreeableTraits>
-						<Industriousness>2</Industriousness>
-						<Industriousness>1</Industriousness>
-					</agreeableTraits>
-					<disagreeableTraits>
-						<Industriousness>-1</Industriousness>
-						<Industriousness>-2</Industriousness>
-					</disagreeableTraits>
-				</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/MemeDef[defName="VME_Pacifist"]</xpath>
+		<value>
+			<agreeableTraits>
+				<li>Kind</li>
+			</agreeableTraits>
+			<disagreeableTraits>
+				<li>Bloodlust</li>
+			</disagreeableTraits>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/MemeDef[defName="VME_Egalitarian" or defName="VME_Emancipation"]</xpath>
+		<value>
+			<agreeableTraits>
+				<li>Kind</li>
+			</agreeableTraits>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/MemeDef[defName="VME_BloodCourt"]</xpath>
+		<value>
+			<agreeableTraits>
+				<li>Bloodlust</li>
+			</agreeableTraits>
+			<disagreeableTraits>
+				<li>Kind</li>
+			</disagreeableTraits>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/MemeDef[defName="VME_HardcoreIndustrialism"]</xpath>
+		<value>
+			<agreeableTraits>
+				<Industriousness>2</Industriousness>
+				<Industriousness>1</Industriousness>
+			</agreeableTraits>
+			<disagreeableTraits>
+				<Industriousness>-1</Industriousness>
+				<Industriousness>-2</Industriousness>
+			</disagreeableTraits>
+		</value>
 	</Operation>
 
 </Patch>

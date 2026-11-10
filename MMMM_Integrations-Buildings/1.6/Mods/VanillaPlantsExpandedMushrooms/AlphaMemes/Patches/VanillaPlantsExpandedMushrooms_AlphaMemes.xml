@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaPlantsExpandedMushrooms/Patches/VanillaPlantsExpandedMushrooms.xml: the operations that also need Alpha Memes. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="AM_AncientBed" or defName="AM_AncientDoubleBed" or defName="AM_AncientOperatingTable"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+		<value>
+			<li>VPE_Plant_Lullabloom</li>
+		</value>
+	</Operation>
+
+</Patch>

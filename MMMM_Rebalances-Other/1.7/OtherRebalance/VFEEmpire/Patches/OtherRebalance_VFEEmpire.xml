@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/OtherRebalance.xml: the operations that also need Vanilla Factions Expanded - Empire. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VFEE_StellicThrone"]/statBases/Beauty</xpath>
+		<value>
+			<Beauty>120</Beauty>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VFEE_GrandTable"]/costList/Gold</xpath>
+		<value>
+			<Gold>120</Gold>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/Wings.xml: the operations that also need Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/GeneDef[@Name="BS_FunctionalWingBase"]/waterCellCost</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[@Name="BS_FunctionalWingBase"]</xpath>
+			<value>
+				<waterCellCost>1</waterCellCost>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/GeneDef[@Name="BS_Spiderbase"]/waterCellCost</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[@Name="BS_Spiderbase"]</xpath>
+			<value>
+				<waterCellCost>1</waterCellCost>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/GeneDef[@Name="LoS_SnakeTailBase"]/waterCellCost</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[@Name="LoS_SnakeTailBase"]</xpath>
+			<value>
+				<waterCellCost>1</waterCellCost>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

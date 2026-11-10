@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/RimGnoblins/Patches/RimGnoblins.xml: the operations that also need Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="ShardMethamphetamine"]/comps/li[@Class="CompProperties_Drug"]/overdoseSeverityOffset</xpath>
+		<value>
+			<overdoseSeverityOffset>0.28~0.30</overdoseSeverityOffset>
+		</value>
+	</Operation>
+
+</Patch>

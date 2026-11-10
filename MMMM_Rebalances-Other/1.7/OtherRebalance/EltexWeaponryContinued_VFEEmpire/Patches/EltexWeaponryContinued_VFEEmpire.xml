@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/OtherRebalance.xml: the operations that also need Eltex Weaponry (Continued) and Vanilla Factions Expanded - Empire. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="VFEE_Deserter"]/weaponTags</xpath>
+		<value>
+			<li>PsychicGun</li>
+		</value>
+	</Operation>
+
+</Patch>

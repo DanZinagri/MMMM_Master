@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/ReGrowthBoiling/Patches/ReGrowthBoiling.xml: the operations that also need Alpha Animals. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/BiomeDef[defName="RG_BoilingForest"]/wildAnimals</xpath>
+		<value>
+			<AA_Aerofleet>1</AA_Aerofleet>
+			<AA_AnimusVox>0.01</AA_AnimusVox>
+			<AA_BoulderMit>0.02</AA_BoulderMit>
+			<AA_Cinderlisk>0.5</AA_Cinderlisk>
+			<AA_CrescendoAnole>0.01</AA_CrescendoAnole>
+			<AA_CrystallineCaracal>0.01</AA_CrystallineCaracal>
+			<AA_FissionMouse>0.01</AA_FissionMouse>
+			<AA_GreatDevourer>0.02</AA_GreatDevourer>
+			<AA_Helixien>0.05</AA_Helixien>
+			<AA_LarvalAtispec>0.03</AA_LarvalAtispec>
+			<AA_MammothWorm>0.03</AA_MammothWorm>
+			<AA_Nightling>0.05</AA_Nightling>
+			<AA_Razorjack>0.03</AA_Razorjack>
+			<AA_RipperHound>0.03</AA_RipperHound>
+			<AA_Swarmling>0.05</AA_Swarmling>
+			<AA_TetraSlug>0.001</AA_TetraSlug>
+			<AA_Thermadon>0.15</AA_Thermadon>
+			<AA_ChemfuelMyrmidon>0.3</AA_ChemfuelMyrmidon>
+			<AA_FireWasp>1.5</AA_FireWasp>
+			<AA_Metallovore>0.01</AA_Metallovore>
+			<AA_SpinedGow>1.5</AA_SpinedGow>
+			<AA_Drainer>0.01</AA_Drainer>
+			<AA_DrainerLarva>0.01</AA_DrainerLarva>
+			<AA_PhoenixOwlcat>0.01</AA_PhoenixOwlcat>
+			<AA_WindBeast>0.001</AA_WindBeast>
+			<AA_Terramorph>0.01</AA_Terramorph>
+			<AA_LuciferBug>0.05</AA_LuciferBug>
+			<AA_DecayDrake>0.01</AA_DecayDrake>
+			<AA_Erin>0.01</AA_Erin>
+			<AA_RaptorShrimp>0.01</AA_RaptorShrimp>
+			<AA_RoughPlatedMonitor>0.01</AA_RoughPlatedMonitor>
+			<AA_Skiphound>0.005</AA_Skiphound>
+			<AA_TeratogenicOriginator>0.005</AA_TeratogenicOriginator>
+			<AA_Feralisk>0.02</AA_Feralisk>
+		</value>
+	</Operation>
+
+	<!--
+		With Alpha Animals: the spined gow joins the biome's allowed pack animals. Conditional on the list existing, so a
+		ReGrowth update that drops it cannot raise an error.
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BiomeDef[defName="RG_BoilingForest"]/allowedPackAnimals</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/BiomeDef[defName="RG_BoilingForest"]/allowedPackAnimals</xpath>
+			<value>
+				<li>AA_SpinedGow</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

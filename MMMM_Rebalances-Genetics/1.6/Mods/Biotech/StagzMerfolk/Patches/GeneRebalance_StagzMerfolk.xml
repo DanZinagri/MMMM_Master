@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Arquebus.StagzMerfolk. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="Stagz_KeenReflexes"]/modExtensions/li[@Class="StagzMerfolk.KeenReflexModExtension"]/MeleeToRangeCoefficient</xpath>
+		<value>
+			<MeleeToRangeCoefficient>0.5</MeleeToRangeCoefficient>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="Stagz_KeenReflexes"]/customEffectDescriptions</xpath>
+		<value>
+			<customEffectDescriptions>
+				<li>50% of melee dodge chance is applied to ranged dodge chance.</li>
+			</customEffectDescriptions>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="Stagz_KeenReflexes"]/description</xpath>
+		<value>
+			<description>Carriers of this gene have extremely fast reflexes. They can dodge incoming hits even from a distance.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="Stagz_FinEars"]/conditionalStatAffecters</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="Stagz_BodyFin"]/conditionalStatAffecters</xpath>
+	</Operation>
+
+</Patch>

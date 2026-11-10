@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaFactionsExpandedMedieval2/Patches/VanillaFactionsExpandedMedieval2.xml: the operations that also need Vanilla Furniture Expanded. -->
+
+	<!--
+		With VFE Furniture: VFE Medieval 2's training dummy counts as VFE's "strength play" recreation instead of vanilla
+		dexterity gaming, in the building, its play job and its joy giver. Verified all three upstream values are
+		Gaming_Dexterity and VFE_StrengthPlay exists. Rimbody's melee-exercise tag on the same job is unaffected.
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VFEM2_TrainingDummy"]/building/joyKind</xpath>
+		<value>
+			<joyKind>VFE_StrengthPlay</joyKind>
+		</value>
+	</Operation>
+
+</Patch>

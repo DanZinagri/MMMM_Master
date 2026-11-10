@@ -11,28 +11,6 @@
 		Verified against ReSplice: Charmweavers and Alpha Genes 1.6: the Charmweaver carries RS_Beauty_Angelic, AG_Beauty_Angelic
 		exists, and RS_TemperatureInsensitive's exclusionTags hold only MinTemperature. No other installed mod patches either gene.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationSequence" MayRequire="sarg.alphagenes">
-				<operations>
-					<li Class="PatchOperationReplace">
-						<xpath>Defs/XenotypeDef[defName="RS_Charmweaver"]/genes/li[text()="RS_Beauty_Angelic"]</xpath>
-						<value>
-							<li>AG_Beauty_Angelic</li>
-						</value>
-					</li>
-					<li Class="PatchOperationAdd">
-						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
-						<value>
-							<li>GeneDef/RS_Beauty_Angelic</li>
-							<li>GeneDef/RS_Beauty_Angelic_Astrogene</li>
-						</value>
-					</li>
-				</operations>
-			</li>
-		</operations>
-	</Operation>
-
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/GeneDef[defName="RS_TemperatureInsensitive"]/exclusionTags</xpath>
 		<value>

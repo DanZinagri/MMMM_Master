@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need Crypto Arsenal and Vanilla Quests Expanded - Cryptoforge. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="CAT_CryptoHarpoonProj"]/projectile/damageAmountBase</xpath>
+		<value>
+			<damageAmountBase>15</damageAmountBase>
+		</value>
+	</Operation>
+
+</Patch>

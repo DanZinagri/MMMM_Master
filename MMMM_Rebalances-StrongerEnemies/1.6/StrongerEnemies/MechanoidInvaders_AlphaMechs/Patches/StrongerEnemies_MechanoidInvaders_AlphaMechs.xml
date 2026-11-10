@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/StrongerEnemies.xml: the operations that also need Mechanoid Invaders and Alpha Mechs. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=1]/escorts/AM_Mech_Munifex</xpath>
+		<value>
+			<IM_Mech_Berserker MayRequire="EL.InvMech">3</IM_Mech_Berserker>
+			<AM_Mech_Munifex>3</AM_Mech_Munifex>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=4]/escorts/AM_Mech_Sagittarius</xpath>
+		<value>
+			<IM_Mech_Templar MayRequire="EL.InvMech">3</IM_Mech_Templar>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=2]/escorts/AM_Fireworm</xpath>
+		<value>
+			<IM_Mech_Bombardier MayRequire="EL.InvMech">3</IM_Mech_Bombardier>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=5]/escorts/AM_Mech_Optio</xpath>
+		<value>
+			<IM_Mech_Skirmisher MayRequire="EL.InvMech">7</IM_Mech_Skirmisher>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=8]/escorts/AM_Aura</xpath>
+		<value>
+			<IM_Mech_Aide MayRequire="EL.InvMech">8</IM_Mech_Aide>
+			<IM_Mech_Ripper MayRequire="EL.InvMech">1</IM_Mech_Ripper>
+			<IM_Mech_Templar MayRequire="EL.InvMech">3</IM_Mech_Templar>
+			<AM_Aura>6</AM_Aura>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=1]/escorts/Mech_Scyther</xpath>
+		<value>
+			<IM_Mech_Berserker MayRequire="EL.InvMech">3</IM_Mech_Berserker>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/Mech_CentipedeBurner</xpath>
+		<value>
+			<Mech_CentipedeBurner>1</Mech_CentipedeBurner>
+			<IM_Mech_Berserker MayRequire="EL.InvMech">2</IM_Mech_Berserker>
+			<IM_Mech_Templar MayRequire="EL.InvMech">2</IM_Mech_Templar>
+			<IM_Mech_Bombardier MayRequire="EL.InvMech">1</IM_Mech_Bombardier>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/AM_Mech_Legate</xpath>
+		<value>
+			<AM_Mech_Legate>1</AM_Mech_Legate>
+			<IM_Mech_Skirmisher MayRequire="EL.InvMech">1</IM_Mech_Skirmisher>
+			<IM_Mech_Ripper MayRequire="EL.InvMech">1</IM_Mech_Ripper>
+			<IM_Mech_Aide MayRequire="EL.InvMech">2</IM_Mech_Aide>
+		</value>
+	</Operation>
+
+</Patch>

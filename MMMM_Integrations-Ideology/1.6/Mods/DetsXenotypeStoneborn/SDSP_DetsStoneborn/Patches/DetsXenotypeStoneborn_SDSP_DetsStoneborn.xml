@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/DetsXenotypeStoneborn/Patches/DetsXenotypeStoneborn.xml: the operations that also need Stoneborn - Dwarven Style Pack and Det's Xenotypes - Stoneborn. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/FactionDef[defName="OutlanderRoughStoneborn"]/allowedCultures</xpath>
+		<value>
+			<allowedCultures Inherit="False">
+				<li>TMM_Dwarven</li>
+			</allowedCultures>
+		</value>
+	</Operation>
+
+</Patch>

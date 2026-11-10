@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/Wings.xml: the operations that also need not Big and Small - Framework and biotexpans.mythic and Alpha Genes. -->
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/GeneDef[defName="BTEMy_DraconicWings" or defName="BTEMy_DraconicWingsNoAurum" or defName="BTEMy_PhoenixWings" or defName="BTEMy_PhoenixWingsNoAurum"]</xpath>
+		<value>
+			<li Class="VEF.Genes.GeneExtension">
+				<hediffToWholeBody>AG_Hover</hediffToWholeBody>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

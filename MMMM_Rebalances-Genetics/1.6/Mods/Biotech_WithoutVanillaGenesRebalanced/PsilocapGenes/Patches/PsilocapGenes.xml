@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech_WithoutVanillaGenesRebalanced/Patches/Biotech_WithoutVanillaGenesRebalanced_GeneRebalance.xml: the operations that also need Psilocap Genes. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="PCG_PsilocapImmune"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-2</biostatMet>
+		</value>
+	</Operation>
+
+</Patch>

@@ -16,37 +16,21 @@
 		Verified against Geist 1.6 and VQEA 1.6: none of the three genes has an exclusionTags list of its own, so each
 		add creates one.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/GeneDef[defName="GS_Nimble"]</xpath>
-				<value>
-					<exclusionTags>
-						<li>MeleeDodge</li>
-					</exclusionTags>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/GeneDef[defName="GS_EMP_Weakness"]</xpath>
-				<value>
-					<exclusionTags>
-						<li>EMPWeakness</li>
-					</exclusionTags>
-				</value>
-			</li>
-			<li Class="PatchOperationSequence" MayRequire="vanillaquestsexpanded.ancients">
-				<operations>
-					<li Class="PatchOperationAdd">
-						<xpath>Defs/GeneDef[defName="VQEA_Electromagnetized"]</xpath>
-						<value>
-							<exclusionTags>
-								<li>EMPWeakness</li>
-							</exclusionTags>
-						</value>
-					</li>
-				</operations>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="GS_Nimble"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>MeleeDodge</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="GS_EMP_Weakness"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>EMPWeakness</li>
+			</exclusionTags>
+		</value>
 	</Operation>
 
 </Patch>

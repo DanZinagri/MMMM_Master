@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Roo's Minotaur Xenotype or Roo's Faun Xenotype or Roo's Satyr Xenotype and Alpha Genes and Arquebus.StagzMerfolk. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="RBM_UnguligradeLegs"]/statOffsets</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="RBM_UnguligradeLegs"]/biostatMet</xpath>
+		<value>
+			<biostatMet>0</biostatMet>
+		</value>
+	</Operation>
+
+</Patch>

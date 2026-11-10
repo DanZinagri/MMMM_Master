@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/AlphaCrafts/Patches/AlphaCrafts.xml: the operations that also need onyxae.dragonsdescent. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="AC_PowderedHorn"]/comps/li[@Class="AlphaCrafts.CompProperties_LabelByIngredients"]/overrides</xpath>
+		<value>
+			<li>
+				<key>DragonHorn</key>
+				<value>powdered dragon horn</value>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

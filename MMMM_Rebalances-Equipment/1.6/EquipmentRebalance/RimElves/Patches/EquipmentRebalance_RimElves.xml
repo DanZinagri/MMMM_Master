@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need Rim-Elves. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="MeleeWeapon_BaneBrand"]/tools/li[label="point"]/armorPenetration</xpath>
+		<value>
+			<armorPenetration>0.25</armorPenetration>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="MeleeWeapon_BaneBrand"]/tools/li[label="edge"]/armorPenetration</xpath>
+		<value>
+			<armorPenetration>0.25</armorPenetration>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Bow_ElvenCharge"]/verbs/li[verbClass="Verb_Shoot"]/warmupTime</xpath>
+		<value>
+			<warmupTime>2.0</warmupTime>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Arrow_ElvenChargeBow"]/projectile/damageAmountBase</xpath>
+		<value>
+			<damageAmountBase>30</damageAmountBase>
+		</value>
+	</Operation>
+
+</Patch>

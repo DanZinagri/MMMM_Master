@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaRacesExpandedPigskin/Patches/VanillaRacesExpandedPigskin.xml: the operations that also need Big and Small - Yokai. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_RedOni" or defName="BS_BlueOni"]/genes/li[text()="BS_SlowAging"]</xpath>
+		<value>
+			<li>VRE_SlowAging</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_GreatRedOni" or defName="BS_GreatBlueOni"]/genes/li[text()="BS_VerySlowAging"]</xpath>
+		<value>
+			<li>VRE_SlowAging</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="VRE_SlowAging"]]/genes/li[text()="BS_VerySlowAging"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="VRE_SlowAging"]]/genes/li[text()="BS_VerySlowAging"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="BS_VerySlowAging"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="BS_VerySlowAging"]</xpath>
+			<value>
+				<li>VRE_SlowAging</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="VRE_SlowAging"]]/genes/li[text()="BS_SlowAging"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="VRE_SlowAging"]]/genes/li[text()="BS_SlowAging"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="BS_SlowAging"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="BS_SlowAging"]</xpath>
+			<value>
+				<li>VRE_SlowAging</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="VRE_FastAging"]]/genes/li[text()="BS_FastAging"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="VRE_FastAging"]]/genes/li[text()="BS_FastAging"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="BS_FastAging"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="BS_FastAging"]</xpath>
+			<value>
+				<li>VRE_FastAging</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="VRE_RapidAging"]]/genes/li[text()="BS_VeryFastAging"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="VRE_RapidAging"]]/genes/li[text()="BS_VeryFastAging"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="BS_VeryFastAging"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="BS_VeryFastAging"]</xpath>
+			<value>
+				<li>VRE_RapidAging</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_LesserOni"]/genes</xpath>
+		<value>
+			<li>VRE_SlowAging</li>
+		</value>
+	</Operation>
+
+</Patch>

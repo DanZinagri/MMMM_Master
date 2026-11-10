@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Big and Small - Genes & More and Alpha Genes. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BS_ChocolateProduction"]/modExtensions/li[@Class="BigAndSmall.ProductionGeneSettings"]/baseAmount</xpath>
+		<value>
+			<baseAmount>30</baseAmount>
+		</value>
+	</Operation>
+
+</Patch>

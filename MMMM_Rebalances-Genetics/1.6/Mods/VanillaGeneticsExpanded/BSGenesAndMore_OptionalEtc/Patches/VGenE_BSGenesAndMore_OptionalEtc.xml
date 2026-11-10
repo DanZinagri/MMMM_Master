@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaGeneticsExpanded/Patches/VanillaGeneticsExpanded.xml: the operations that also need Big and Small - Genes & More and RedMattis.Optional or Big and Small - Races or Big and Small - Slimes or Big and Small - Heaven and Hell or Big and Small - Xeno Insectoid Hive or Big and Small - Vampires and the Undead or Big and Small - Lamias and other Snake-People or Big and Small - More Xenotypes or Big and Small - Weapons or Big and Small - Sapient Animals or Big and Small - Yokai or RedMattis.MadApril2025. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[@Name="BS_SerumSizeSerumBase"]/costList</xpath>
+		<value>
+			<costList>
+				<MedicineUltratech>4</MedicineUltratech>
+				<Neutroamine>100</Neutroamine>
+			</costList>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="BS_GeneGeneIntegrator"]/costList</xpath>
+		<value>
+			<costList Inherit="False">
+				<MedicineUltratech>4</MedicineUltratech>
+				<ComponentSpacer>2</ComponentSpacer>
+				<Neutroamine>20</Neutroamine>
+			</costList>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="BS_GeneDicombobulator"]/costList</xpath>
+		<value>
+			<costList Inherit="False">
+				<MedicineUltratech>2</MedicineUltratech>
+				<ComponentSpacer>1</ComponentSpacer>
+				<Neutroamine>20</Neutroamine>
+			</costList>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[@Name="BS_SerumBase"]/tradeability</xpath>
+		<value>
+			<tradeability>All</tradeability>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingDef[@Name="BS_SerumBase"]</xpath>
+		<value>
+			<tradeTags>
+				<li>BS_GeneTools</li>
+			</tradeTags>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TraderKindDef[defName="GR_OrbitalTrader"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_Tag">
+				<tradeTag>BS_GeneTools</tradeTag>
+				<thingDefCountRange>1~4</thingDefCountRange>
+				<countRange>0~2</countRange>
+			</li>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>BS_GeneTools</tag>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TraderKindDef[defName="GR_Outlander_CaravanTrader"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_Tag">
+				<tradeTag>BS_GeneTools</tradeTag>
+				<thingDefCountRange>1~2</thingDefCountRange>
+				<countRange>0~1</countRange>
+			</li>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>BS_GeneTools</tag>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

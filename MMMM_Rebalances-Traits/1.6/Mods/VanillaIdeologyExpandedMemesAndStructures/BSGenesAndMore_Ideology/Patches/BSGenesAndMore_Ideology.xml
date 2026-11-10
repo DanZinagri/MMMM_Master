@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaIdeologyExpandedMemesAndStructures/Patches/VIEMemes_BigAndSmallTraits.xml: the operations that also need Big and Small - Genes & More and Ideology. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/MemeDef[defName="VME_Aristocratic"]</xpath>
+		<value>
+			<disagreeableTraits>
+				<li>BS_Unpretentious</li>
+			</disagreeableTraits>
+		</value>
+	</Operation>
+
+</Patch>

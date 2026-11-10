@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaRacesExpandedHussar/Patches/VanillaRacesExpandedHussar.xml: the operations that also need Big and Small - Races. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_GreatOgre"]/genes/li[text()="Robust"]</xpath>
+		<value>
+			<li>VREH_Toughness</li>
+		</value>
+	</Operation>
+
+</Patch>

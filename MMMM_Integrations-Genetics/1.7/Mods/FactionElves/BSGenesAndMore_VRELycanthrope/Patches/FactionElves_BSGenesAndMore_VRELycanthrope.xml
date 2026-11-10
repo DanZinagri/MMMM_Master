@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/FactionElves/Patches/FactionElves.xml: the operations that also need Big and Small - Genes & More and Vanilla Races Expanded - Lycanthrope. -->
+
+	<!-- Genes & More + VRE - Lycanthrope: night owl follows Convergence's retirement of BS_NightOwl. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][genes/li[text()="VRE_Nocturnal"]]/genes/li[text()="BS_NightOwl"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"][genes/li[text()="VRE_Nocturnal"]]/genes/li[text()="BS_NightOwl"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"]/genes/li[text()="BS_NightOwl"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef[defName="TOV_DarkElf"]/genes/li[text()="BS_NightOwl"]</xpath>
+			<value>
+				<li>VRE_Nocturnal</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

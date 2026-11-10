@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/RimGnoblins/Patches/RimGnoblins.xml: the operations that also need Vanilla Races Expanded - Pigskin. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="Age_RapidDevelopment"]/label</xpath>
+		<value>
+			<label>short lifespan</label>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="Age_RapidDevelopment"]/exclusionTags</xpath>
+		<value>
+			<exclusionTags>
+				<li>Lifespan</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="Age_RapidDevelopment"]/biostatMet</xpath>
+		<value>
+			<biostatMet>2</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="Age_RapidDevelopment"]/statFactors/LifespanFactor</xpath>
+		<value>
+			<LifespanFactor>0.5</LifespanFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="Age_RapidDevelopment"]/biologicalAgeTickFactorFromAgeCurve</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="Gnoblin"]/genes</xpath>
+		<value>
+			<li>VRE_FastAging</li>
+		</value>
+	</Operation>
+
+</Patch>

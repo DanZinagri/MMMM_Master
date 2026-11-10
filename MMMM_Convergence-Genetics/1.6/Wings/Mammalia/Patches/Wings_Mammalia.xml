@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/Wings.xml: the operations that also need biotexpans.mammalia. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="BTEMa_HideboundWings"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>Wing</li>
+				<li>Wings</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/GeneDef[defName="BTEMa_HideboundWings"]/waterCellCost</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[defName="BTEMa_HideboundWings"]</xpath>
+			<value>
+				<waterCellCost>1</waterCellCost>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

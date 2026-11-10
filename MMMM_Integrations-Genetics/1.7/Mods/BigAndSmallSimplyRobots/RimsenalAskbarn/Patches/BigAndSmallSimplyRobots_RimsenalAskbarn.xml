@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/BigAndSmallSimplyRobots/Patches/BigAndSmallSimplyRobots.xml: the operations that also need Rimsenal Xenotype Pack - Askbarn. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="RSBornWarrior"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+			<value>
+				<li>
+					<def>RSBornWarrior</def>
+					<labelMechanoid>pretrained dodging</labelMechanoid>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames/li[def="RSLightningReflexes"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/BigAndSmall.DefAltNamer[defName="BS_GeneRenamer"]/geneRenames</xpath>
+			<value>
+				<li>
+					<def>RSLightningReflexes</def>
+					<labelMechanoid>finetuned aiming</labelMechanoid>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

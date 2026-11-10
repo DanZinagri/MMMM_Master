@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The succubus gains Alpha Genes' medium armour and the hellguard gains its major armour.
+		Both already carry a Big and Small armour gene, so this stacks a second one on top rather than replacing
+		anything, which is why it sits with the rebalances rather than the convergence patches.
+
+		Gating, which is why this is its own folder: the two demon xenotypes are not Heaven and Hell or Vampires and
+		the Undead defs. Big and Small - Genes &amp; More defines them, inside a folder its own LoadFolders only loads
+		when RedMattis.Undead or RedMattis.Heaven is active. This folder mirrors that exact condition, which is also
+		what the original any-of mod check came to.
+		The Alpha Genes side sits in a subfolder gated on it in loadFolders.xml.
+
+		Verified against Genes &amp; More 1.6: the succubus lists BS_ToughSkin and the hellguard lists BS_NaturalArmor,
+		and neither already lists the Alpha Genes gene, so both adds land.
+		Each add skips a xenotype that already has the gene. Fix 2026-10-31 (player report: "Hyperlink to AG_ArmourMajor
+		more than once on VU_Hellguard"): MMMM Convergence - Genetics swaps BS_NaturalArmor for AG_ArmourMajor, so when
+		it loads first the hellguard already had the gene and this plain add gave it a second copy.
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="VU_Succubus"][not(genes/li[text()="AG_ArmourMedium"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="VU_Succubus"][not(genes/li[text()="AG_ArmourMedium"])]/genes</xpath>
+			<value>
+				<li>AG_ArmourMedium</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="VU_Hellguard"][not(genes/li[text()="AG_ArmourMajor"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="VU_Hellguard"][not(genes/li[text()="AG_ArmourMajor"])]/genes</xpath>
+			<value>
+				<li>AG_ArmourMajor</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

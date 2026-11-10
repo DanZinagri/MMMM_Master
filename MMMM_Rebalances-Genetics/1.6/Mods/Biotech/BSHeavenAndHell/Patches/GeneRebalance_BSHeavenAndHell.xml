@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Big and Small - Heaven and Hell. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Authority"]/genes/li[text()="AptitudePoor_Crafting"]</xpath>
+		<value>
+			<li>AptitudeTerrible_Crafting</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Authority"]/genes/li[text()="AptitudePoor_Plants"]</xpath>
+		<value>
+			<li>AptitudeTerrible_Plants</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/XenotypeDef[defName="BS_Authority"]/genes/li[text()="Delicate"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_LilGlutton"]/genes</xpath>
+		<value>
+			<li>MaxTemp_SmallIncrease</li>
+			<li>MinTemp_SmallDecrease</li>
+			<li MayRequire="vanillaracesexpanded.archon">VRE_FastMeleeHitter</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/XenotypeDef[defName="BS_LilGlutton"]/genes/li[text()="DiseaseFree" or text()="PerfectImmunity" or text()="TotalHealing" or text()="MaxTemp_LargeIncrease" or text()="MinTemp_LargeDecrease"]</xpath>
+	</Operation>
+
+</Patch>

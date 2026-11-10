@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/BigAndSmallMoreXenotypes/Patches/BigAndSmallMoreXenotypes.xml: the operations that also need Alpha Genes and Vanilla Races Expanded - Insector. -->
+
+	<!-- Hive queen uses VRE Insector's vat-grown skin instead of the Alpha Genes copy -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_HiveQueen"]/genes/li[text()="AG_VFEI_VatGrownInsectoidSkin"]</xpath>
+		<value>
+			<li>VRE_VatGrownInsectoidSkin</li>
+		</value>
+	</Operation>
+
+</Patch>

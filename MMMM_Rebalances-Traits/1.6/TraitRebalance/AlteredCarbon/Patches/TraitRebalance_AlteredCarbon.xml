@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/TraitRebalance.xml: the operations that also need hlx.UltratechAlteredCarbon. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/AlteredCarbon.StackSavingOptions[defName="AC_StackSavingOptions"]/ignoresTraits</xpath>
+		<value>
+			<li>Brawler</li>
+			<li>QuickSleeper</li>
+			<li>SpeedOffset</li>
+			<li>ShootingAccuracy</li>
+			<li>Nimble</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">Joyous</li>
+			<li MayRequire="Hautarche.HautsTraits">HVT_Hotfoot</li>
+			<li MayRequire="Hautarche.HautsTraits">HVT_Strong</li>
+			<li MayRequire="Goji.TheSimsTraits">ST_HugePower</li>
+		</value>
+	</Operation>
+
+</Patch>

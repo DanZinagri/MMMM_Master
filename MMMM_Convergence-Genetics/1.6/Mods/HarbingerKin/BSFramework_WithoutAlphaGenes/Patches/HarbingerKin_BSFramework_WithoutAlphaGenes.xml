@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/HarbingerKin/Patches/HarbingerKin.xml: the operations that also need Big and Small - Framework and not Alpha Genes. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="mytigio_Harbingerkin"]/genes/li[text()="Myt_Male"]</xpath>
+		<value>
+			<li>Body_MaleOnly</li>
+		</value>
+	</Operation>
+
+</Patch>

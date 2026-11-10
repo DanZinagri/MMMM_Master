@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/CherryPicks.xml: the operations that also need Big and Small - Genes & More and Vanilla Races Expanded - Waster. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/BS_Instability_Catastrophic</li>
+		</value>
+	</Operation>
+
+</Patch>

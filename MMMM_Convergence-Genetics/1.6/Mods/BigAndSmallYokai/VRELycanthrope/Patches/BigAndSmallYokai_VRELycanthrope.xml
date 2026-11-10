@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/BigAndSmallYokai/Patches/BigAndSmallYokai.xml: the operations that also need Vanilla Races Expanded - Lycanthrope. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes/li[text()="BS_NightOwl"]</xpath>
+		<value>
+			<li>VRE_Nocturnal</li>
+		</value>
+	</Operation>
+
+</Patch>

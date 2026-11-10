@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/FactionRebalance.xml: the operations that also need biotexpans.mythic. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/FactionDef[defName="TribeMythicHouseFire"]/startingCountAtWorldCreation</xpath>
+		<value>
+			<startingCountAtWorldCreation>1</startingCountAtWorldCreation>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="TribeMythicHouseFire"]</xpath>
+		<value>
+			<hidden>true</hidden>
+		</value>
+	</Operation>
+
+</Patch>

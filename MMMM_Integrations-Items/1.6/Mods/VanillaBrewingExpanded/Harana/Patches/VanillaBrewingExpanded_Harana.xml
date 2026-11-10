@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaBrewingExpanded/Patches/VanillaBrewingExpanded.xml: the operations that also need Rimsenal.Harana. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Neutroshine"]/ingestible</xpath>
+		<value>
+			<specialThoughtAsIngredient>TMM_VBE_NeutroshineAsIngredient</specialThoughtAsIngredient>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="Neutroshine"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="Neutroshine"]</xpath>
+			<value>
+				<thingCategories>
+					<li>VBE_DrinksSimpleSpirits</li>
+				</thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

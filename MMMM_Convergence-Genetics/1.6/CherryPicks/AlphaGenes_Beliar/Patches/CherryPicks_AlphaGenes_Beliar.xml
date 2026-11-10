@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/CherryPicks.xml: the operations that also need Alpha Genes and Beliar Xenotype. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/BX_BasaltSkin</li>
+			<li>GeneDef/BX_BasaltSkin_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

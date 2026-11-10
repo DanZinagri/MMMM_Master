@@ -8,8 +8,7 @@
 		animal, artistic and intellectual work, and matching description updates. With VPE - Gravcaster, its enhanced
 		gravity hediff also stops slowing movement.
 		This folder only loads when VPE is active (see loadFolders.xml); the Gravcaster change is gated on its packageId.
-		The mod gate sits on an <li> inside a sequence, not on the <Operation> itself: RimWorld reads MayRequire only on
-		list elements.
+		Operations that also need another mod sit in a subfolder gated on it in loadFolders.xml.
 
 		In the original this sat behind a Too Many Mods setting (TMM_VPE_PsycastRebalances, default on). The setting is
 		dropped: this mod is the opt-in now. Tree-order changes that used to share the block were deleted beforehand.
@@ -27,22 +26,18 @@
 		  the ranged warlord a psycast extension, though both spawn in Empire raids at the same weight. Stat upgrade points
 		  are 0~0, matching Too Many Mods' caster rebalance, where upstream's ranged warlord has 2~6.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationAddModExtension">
-				<xpath>Defs/PawnKindDef[defName="Empire_Caster_Warlord_Melee"]</xpath>
-				<value>
-					<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
-						<implantDef>VPE_PsycastAbilityImplant</implantDef>
-						<initialLevel>1</initialLevel>
-						<statUpgradePoints>0~0</statUpgradePoints>
-						<unlockedPaths>
-							<VPE_Warlord>1~4|2~12</VPE_Warlord>
-						</unlockedPaths>
-					</li>
-				</value>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/PawnKindDef[defName="Empire_Caster_Warlord_Melee"]</xpath>
+		<value>
+			<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+				<implantDef>VPE_PsycastAbilityImplant</implantDef>
+				<initialLevel>1</initialLevel>
+				<statUpgradePoints>0~0</statUpgradePoints>
+				<unlockedPaths>
+					<VPE_Warlord>1~4|2~12</VPE_Warlord>
+				</unlockedPaths>
 			</li>
-		</operations>
+		</value>
 	</Operation>
 
 </Patch>

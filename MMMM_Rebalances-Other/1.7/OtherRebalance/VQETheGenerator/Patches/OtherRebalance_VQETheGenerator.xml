@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/OtherRebalance.xml: the operations that also need Vanilla Quests Expanded - The Generator. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VQE_ConstructionPallet_Chemfuel"]/modExtensions/li[@Class="VEF.Buildings.LootableBuildingDetails"]/contents</xpath>
+		<value>
+			<contents>
+				<li>
+					<thing>Chemfuel</thing>
+					<count>450</count>
+				</li>
+			</contents>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VQE_ConstructionPallet_Components"]/modExtensions/li[@Class="VEF.Buildings.LootableBuildingDetails"]/contents</xpath>
+		<value>
+			<contents>
+				<li>
+					<thing>ComponentIndustrial</thing>
+					<count>12</count>
+				</li>
+				<li>
+					<thing>ChunkSlagSteel</thing>
+					<count>4</count>
+				</li>
+			</contents>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VQE_ConstructionPallet_Scrap"]/modExtensions/li[@Class="VEF.Buildings.LootableBuildingDetails"]/contents</xpath>
+		<value>
+			<contents>
+				<li>
+					<thing>Steel</thing>
+					<count>120</count>
+				</li>
+				<li>
+					<thing>ChunkSlagSteel</thing>
+					<count>4</count>
+				</li>
+			</contents>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VQE_ConstructionPallet_Wood"]/modExtensions/li[@Class="VEF.Buildings.LootableBuildingDetails"]/contents</xpath>
+		<value>
+			<contents>
+				<li>
+					<thing>WoodLog</thing>
+					<count>300</count>
+				</li>
+			</contents>
+		</value>
+	</Operation>
+
+</Patch>

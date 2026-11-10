@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/KorgXenotype/Patches/KorgXenotype.xml: the operations that also need Alpha Genes. -->
+
+	<!-- Alpha Genes: Korg additions. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="AG_HardBones"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="AG_HardBones"])]/genes</xpath>
+			<value>
+				<li>AG_HardBones</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="AG_ColdSlowness"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="AG_ColdSlowness"])]/genes</xpath>
+			<value>
+				<li>AG_ColdSlowness</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="AG_TableResistance"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="AG_TableResistance"])]/genes</xpath>
+			<value>
+				<li>AG_TableResistance</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="AG_RegenerationMinor"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="AG_RegenerationMinor"])]/genes</xpath>
+			<value>
+				<li>AG_RegenerationMinor</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="AG_Skin_DeepGreen"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="AG_Skin_DeepGreen"])]/genes</xpath>
+			<value>
+				<li>AG_Skin_DeepGreen</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="AG_Skin_PlantGreen"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="AG_Skin_PlantGreen"])]/genes</xpath>
+			<value>
+				<li>AG_Skin_PlantGreen</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

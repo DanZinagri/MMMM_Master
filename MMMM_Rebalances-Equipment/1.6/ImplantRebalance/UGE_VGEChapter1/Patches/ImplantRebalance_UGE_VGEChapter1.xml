@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/ImplantRebalance.xml: the operations that also need Ushankas Glittertech Expansion and Vanilla Gravship Expanded - Chapter 1. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/HediffDef[defName="USH_InstalledGlitterlink"]/stages/li/statOffsets/VacuumResistance</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/HediffDef[defName="USH_InstalledGlitterlink"]/stages/li/statOffsets/ToxicResistance</xpath>
+	</Operation>
+
+</Patch>

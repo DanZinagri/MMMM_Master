@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/TradeTags.xml: the operations that also need Biotech and Alpha Mechs and Royalty. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="AM_Apparel_ArmorHelmetMechlordHelmet_Prestige"]/tradeTags</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_Apparel_ArmorHelmetMechlordHelmet_Prestige"]/tradeTags</xpath>
+			<value>
+				<li>Mechanitor</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_Apparel_ArmorHelmetMechlordHelmet_Prestige"]</xpath>
+			<value>
+				<tradeTags>
+					<li>Mechanitor</li>
+				</tradeTags>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="AM_MechCommanderHelm_Prestige"]/tradeTags</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_MechCommanderHelm_Prestige"]/tradeTags</xpath>
+			<value>
+				<li>Mechanitor</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_MechCommanderHelm_Prestige"]</xpath>
+			<value>
+				<tradeTags>
+					<li>Mechanitor</li>
+				</tradeTags>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="AM_PrestigeMechBreakerHelm"]/tradeTags</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_PrestigeMechBreakerHelm"]/tradeTags</xpath>
+			<value>
+				<li>Mechanitor</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_PrestigeMechBreakerHelm"]</xpath>
+			<value>
+				<tradeTags>
+					<li>Mechanitor</li>
+				</tradeTags>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="AM_Apparel_MechlordSuit_Prestige" or defName="AM_PrestigeMechCommanderSuit" or defName="AM_PrestigeMechBreakerArmor"]/tradeTags</xpath>
+		<value>
+			<li>Mechanitor</li>
+		</value>
+	</Operation>
+
+</Patch>

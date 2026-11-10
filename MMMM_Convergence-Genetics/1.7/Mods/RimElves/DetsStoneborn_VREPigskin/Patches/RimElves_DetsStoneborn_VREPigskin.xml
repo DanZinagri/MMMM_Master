@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/RimElves/Patches/RimElves.xml: the operations that also need Det's Xenotypes - Stoneborn and Vanilla Races Expanded - Pigskin. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="RE_Elve"]/genes/li[text()="Age_SlowDevelopment"]</xpath>
+		<value>
+			<li>VRE_SlowAging</li>
+			<li>DV_LifespanLong</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/Age_SlowDevelopment</li>
+			<li>GeneDef/Age_SlowDevelopment_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

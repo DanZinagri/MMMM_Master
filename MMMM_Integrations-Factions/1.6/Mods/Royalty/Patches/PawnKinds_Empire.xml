@@ -27,40 +27,56 @@
 		<mods>
 			<li>Medieval Overhaul: Royalty</li>
 		</mods>
-		<nomatch Class="PatchOperationSequence">
-			<operations>
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/PawnKindDef[defName="Empire_Fighter_Cataphract"]/xenotypeSet/xenotypeChances/Hussar</xpath>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[position()=1]/guards/Empire_Fighter_Cataphract</xpath>
-					<value>
-						<Empire_Fighter_Cataphract>1</Empire_Fighter_Cataphract>
-						<Empire_Fighter_Cataphract_Hussar>1</Empire_Fighter_Cataphract_Hussar>
-					</value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[position()=2]/options/Empire_Fighter_Cataphract</xpath>
-					<value>
-						<Empire_Fighter_Cataphract>1</Empire_Fighter_Cataphract>
-						<Empire_Fighter_Cataphract_Hussar>1</Empire_Fighter_Cataphract_Hussar>
-					</value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[position()=3]/options/Empire_Fighter_Cataphract</xpath>
-					<value>
-						<Empire_Fighter_Cataphract>1</Empire_Fighter_Cataphract>
-						<Empire_Fighter_Cataphract_Hussar>1</Empire_Fighter_Cataphract_Hussar>
-					</value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[position()=4]/options/Empire_Fighter_Cataphract</xpath>
-					<value>
-						<Empire_Fighter_Cataphract>1</Empire_Fighter_Cataphract>
-						<Empire_Fighter_Cataphract_Hussar>1</Empire_Fighter_Cataphract_Hussar>
-					</value>
-				</li>
-			</operations>
+		<nomatch Class="PatchOperationRemove">
+			<xpath>/Defs/PawnKindDef[defName="Empire_Fighter_Cataphract"]/xenotypeSet/xenotypeChances/Hussar</xpath>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Medieval Overhaul: Royalty</li>
+		</mods>
+		<nomatch Class="PatchOperationReplace">
+			<xpath>/Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[position()=1]/guards/Empire_Fighter_Cataphract</xpath>
+			<value>
+				<Empire_Fighter_Cataphract>1</Empire_Fighter_Cataphract>
+				<Empire_Fighter_Cataphract_Hussar>1</Empire_Fighter_Cataphract_Hussar>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Medieval Overhaul: Royalty</li>
+		</mods>
+		<nomatch Class="PatchOperationReplace">
+			<xpath>/Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[position()=2]/options/Empire_Fighter_Cataphract</xpath>
+			<value>
+				<Empire_Fighter_Cataphract>1</Empire_Fighter_Cataphract>
+				<Empire_Fighter_Cataphract_Hussar>1</Empire_Fighter_Cataphract_Hussar>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Medieval Overhaul: Royalty</li>
+		</mods>
+		<nomatch Class="PatchOperationReplace">
+			<xpath>/Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[position()=3]/options/Empire_Fighter_Cataphract</xpath>
+			<value>
+				<Empire_Fighter_Cataphract>1</Empire_Fighter_Cataphract>
+				<Empire_Fighter_Cataphract_Hussar>1</Empire_Fighter_Cataphract_Hussar>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Medieval Overhaul: Royalty</li>
+		</mods>
+		<nomatch Class="PatchOperationReplace">
+			<xpath>/Defs/FactionDef[defName="Empire"]/pawnGroupMakers/li[position()=4]/options/Empire_Fighter_Cataphract</xpath>
+			<value>
+				<Empire_Fighter_Cataphract>1</Empire_Fighter_Cataphract>
+				<Empire_Fighter_Cataphract_Hussar>1</Empire_Fighter_Cataphract_Hussar>
+			</value>
 		</nomatch>
 	</Operation>
 

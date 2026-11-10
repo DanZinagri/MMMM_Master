@@ -21,83 +21,56 @@
 		Verified 2026-10-26 against Stoneborn 1.6 and B&S Genes & More 1.6. This mod loads after Stoneborn (About.xml), so
 		Stoneborn's dwarfism patch has already run.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/XenotypeDef[genes/li[text()="Undergrounder"]]/genes/li[text()="DV_Undergrounder"]</xpath>
-				<match Class="PatchOperationRemove">
-					<xpath>Defs/XenotypeDef[genes/li[text()="Undergrounder"]]/genes/li[text()="DV_Undergrounder"]</xpath>
-				</match>
-			</li>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/XenotypeDef/genes/li[text()="DV_Undergrounder"]</xpath>
-				<match Class="PatchOperationReplace">
-					<xpath>Defs/XenotypeDef/genes/li[text()="DV_Undergrounder"]</xpath>
-					<value>
-						<li>Undergrounder</li>
-					</value>
-				</match>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="Undergrounder"]]/genes/li[text()="DV_Undergrounder"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="Undergrounder"]]/genes/li[text()="DV_Undergrounder"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="DV_Undergrounder"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="DV_Undergrounder"]</xpath>
+			<value>
+				<li>Undergrounder</li>
+			</value>
+		</match>
 	</Operation>
 
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/XenotypeDef[genes/li[text()="DwarfFrame"]]/genes/li[text()="DV_SmallBuild"]</xpath>
-				<match Class="PatchOperationRemove">
-					<xpath>Defs/XenotypeDef[genes/li[text()="DwarfFrame"]]/genes/li[text()="DV_SmallBuild"]</xpath>
-				</match>
-			</li>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/XenotypeDef/genes/li[text()="DV_SmallBuild"]</xpath>
-				<match Class="PatchOperationReplace">
-					<xpath>Defs/XenotypeDef/genes/li[text()="DV_SmallBuild"]</xpath>
-					<value>
-						<li>DwarfFrame</li>
-					</value>
-				</match>
-			</li>
-			<li Class="PatchOperationSequence" MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
-				<operations>
-					<li Class="PatchOperationAdd">
-						<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
-						<value>
-							<li>GeneDef/DV_SmallBuild</li>
-							<li>GeneDef/DV_SmallBuild_Astrogene</li>
-						</value>
-					</li>
-				</operations>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="DwarfFrame"]]/genes/li[text()="DV_SmallBuild"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="DwarfFrame"]]/genes/li[text()="DV_SmallBuild"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="DV_SmallBuild"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="DV_SmallBuild"]</xpath>
+			<value>
+				<li>DwarfFrame</li>
+			</value>
+		</match>
 	</Operation>
 
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/XenotypeDef[defName="Stoneborn"][genes/li[text()="DwarfFrame" or text()="GnomeFrame" or text()="BS_SmallFrame" or text()="BS_RabbitFrame"]][not(genes/li[text()="MeleeDamage_Weak" or text()="ViolenceDisabled"])]/genes/li[text()="Robust"]</xpath>
-				<match Class="PatchOperationReplace">
-					<xpath>Defs/XenotypeDef[defName="Stoneborn"][genes/li[text()="DwarfFrame" or text()="GnomeFrame" or text()="BS_SmallFrame" or text()="BS_RabbitFrame"]][not(genes/li[text()="MeleeDamage_Weak" or text()="ViolenceDisabled"])]/genes/li[text()="Robust"]</xpath>
-					<value>
-						<li>BS_DvergrConstitution</li>
-					</value>
-				</match>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="Stoneborn"][genes/li[text()="DwarfFrame" or text()="GnomeFrame" or text()="BS_SmallFrame" or text()="BS_RabbitFrame"]][not(genes/li[text()="MeleeDamage_Weak" or text()="ViolenceDisabled"])]/genes/li[text()="Robust"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef[defName="Stoneborn"][genes/li[text()="DwarfFrame" or text()="GnomeFrame" or text()="BS_SmallFrame" or text()="BS_RabbitFrame"]][not(genes/li[text()="MeleeDamage_Weak" or text()="ViolenceDisabled"])]/genes/li[text()="Robust"]</xpath>
+			<value>
+				<li>BS_DvergrConstitution</li>
+			</value>
+		</match>
 	</Operation>
 
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/XenotypeDef[defName="Stoneborn"]/genes/li[text()="AptitudeStrong_Mining"]</xpath>
-				<match Class="PatchOperationReplace">
-					<xpath>Defs/XenotypeDef[defName="Stoneborn"]/genes/li[text()="AptitudeStrong_Mining"]</xpath>
-					<value>
-						<li>AptitudeRemarkable_Mining</li>
-					</value>
-				</match>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="Stoneborn"]/genes/li[text()="AptitudeStrong_Mining"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef[defName="Stoneborn"]/genes/li[text()="AptitudeStrong_Mining"]</xpath>
+			<value>
+				<li>AptitudeRemarkable_Mining</li>
+			</value>
+		</match>
 	</Operation>
 
 </Patch>

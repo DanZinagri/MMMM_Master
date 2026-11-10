@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Korg Xenotype integrations. This folder only loads when Korg is active (see loadFolders.xml); each block sits in a subfolder gated on its partner mod. Gene adds skip a xenotype that already has the gene.
+		  - With Big and Small - Genes &amp; More: strange appearance, large and no libido, plus vanilla's reduced pain (kept
+		    under this gate on request, as a metabolism offset for the additions).
+		  - With Alpha Genes: hard bones, cold torpor, table resistance, minor regeneration, and deep green and plant green
+		    skin (beside Korg's own Skin_Green; a xenotype with several skin colour genes gets one of them per pawn).
+		Verified 2026-10-31 against Korg (3793104547, Defs/Xenotype.xml + Genes.xml), B&amp;S Genes &amp; More 1.6 and Alpha
+		Genes 1.6 + 1.7: every gene exists, none is on the Korg already, and none shares an exclusion group with a Korg gene
+		(Korg's only tagged genes are its tusks and rapid ageing; it has no pain, libido, bone, regeneration or appearance gene).
+	-->
+	<!-- Big and Small - Genes &amp; More (+ vanilla reduced pain): Korg additions. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="BS_AlienApperanceStandards_Lesser"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="BS_AlienApperanceStandards_Lesser"])]/genes</xpath>
+			<value>
+				<li>BS_AlienApperanceStandards_Lesser</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="Large"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="Large"])]/genes</xpath>
+			<value>
+				<li>Large</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="VU_Libido_None"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="VU_Libido_None"])]/genes</xpath>
+			<value>
+				<li>VU_Libido_None</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="Pain_Reduced"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="Pain_Reduced"])]/genes</xpath>
+			<value>
+				<li>Pain_Reduced</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

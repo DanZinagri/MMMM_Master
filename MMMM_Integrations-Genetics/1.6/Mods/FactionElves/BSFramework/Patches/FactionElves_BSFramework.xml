@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Faction - Elves integrations. This folder only loads when Faction - Elves is active (see loadFolders.xml); each block sits in a subfolder gated on its partner mod. Gene adds skip a xenotype that already has the gene.
+		  - With Big and Small - Framework: extended lifespan (LongLifespan) runs B&S's truly ageless gene class, so a carrier's
+		    biological age is held at 25 at most (B&S checks every 500 ticks). Its own lifespan curve, age-disease immunity
+		    and fertility factor are def fields and keep working. Only set when the gene has no geneClass of its own.
+		    Pawns already in a save keep the gene class they were saved with; new pawns and new carriers get the effect.
+		  - With Alpha Genes: the high elf gains low mining yield, clean, frail back and golden hair; the celestia elf gains
+		    deep black skin, frail back, clean, low mining yield and psy-sensitive (vanilla's PsychicAbility_Enhanced, kept
+		    under this gate on request); the wild elf gains low mining yield and high survival instinct; the dark elf gains
+		    deep black and deep purple skin, low mining yield and night striding.
+		  - With Big and Small - Genes & More: the high elf gains uninsultable; the celestia elf gains uninsultable, marble
+		    white skin and blinding white hair (a B&S gene; Alpha Genes has none); the wild elf gains animal friend; the dark
+		    elf gains dark gray and blinding white hair, fast darkness healing and night owl.
+		  - With Genes & More and VRE - Lycanthrope: MMMM Convergence - Genetics retires BS_NightOwl to Cherry Picker in
+		    favour of VRE_Nocturnal, so the dark elf's night owl becomes VRE_Nocturnal here. It runs right after the add, in
+		    this file, so the result does not depend on the order of the Integrations and Convergence mods.
+		The dark elf's strong melee damage -> darkness improved melee swap is in MMMM Convergence - Genetics.
+		Verified 2026-10-23 (all four elves) against Faction - Elves 1.6, Alpha Genes 1.6, B&S Framework and Genes & More 1.6: every gene
+		exists, none of the added genes is on the elves already, and none shares an exclusion group with an elf gene
+		(fast darkness healing is in the wound-healing group; no elf has a healing gene).
+	-->
+	<!-- Big and Small - Framework: extended lifespan gains the truly ageless effect. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/GeneDef[defName="LongLifespan"][not(geneClass)]</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[defName="LongLifespan"][not(geneClass)]</xpath>
+			<value>
+				<geneClass>BigAndSmall.TrulyAgeless</geneClass>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

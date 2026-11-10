@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/OtherRebalance.xml: the operations that also need Mlie.ReinforcedMechanoid2 and Royalty. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="RM_Apparel_SkimmerPack"]/statBases/MarketValue</xpath>
+		<value>
+			<MarketValue>110</MarketValue>
+		</value>
+	</Operation>
+
+</Patch>

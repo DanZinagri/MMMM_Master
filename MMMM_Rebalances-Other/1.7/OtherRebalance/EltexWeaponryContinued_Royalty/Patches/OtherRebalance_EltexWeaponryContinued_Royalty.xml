@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/OtherRebalance.xml: the operations that also need Eltex Weaponry (Continued) and Royalty. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[@Name="EW_BasePersonaEltexGun"]/weaponTags</xpath>
+		<value>
+			<weaponTags>
+				<li>PsychicGun</li>
+				<li>Bladelink</li>
+			</weaponTags>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[@Name="EW_BaseEltexGun"]/weaponTags</xpath>
+		<value>
+			<weaponTags>
+				<li>PsychicGun</li>
+			</weaponTags>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="EW_Gun_EltexRifle" or defName="EW_Gun_PersonaEltexRifle"]/weaponTags</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="EW_Melee_EltexWarmace"]/weaponTags</xpath>
+		<value>
+			<weaponTags>
+				<li>PsychicMelee</li>
+			</weaponTags>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="Empire_Fighter_Cataphract"]/weaponTags</xpath>
+		<value>
+			<li>PsychicGun</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -5,22 +5,19 @@
 		The Archon faction gains the Psychic focus meme (Vanilla Ideology Expanded - Memes and Structures), as both an
 		allowed and a required meme.
 		This folder only loads when both mods are active (see loadFolders.xml), so no FindMod checks are needed.
+		VIE Memes defines the meme only with Royalty (its Mods/Royalty folder), so both entries also need Royalty.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/FactionDef[defName="VRE_Archons"]/allowedMemes</xpath>
-				<value>
-					<li MayRequire="VanillaExpanded.VMemesE">VME_PsychicFocus</li>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/FactionDef[defName="VRE_Archons"]/requiredMemes</xpath>
-				<value>
-					<li MayRequire="VanillaExpanded.VMemesE">VME_PsychicFocus</li>
-				</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="VRE_Archons"]/allowedMemes</xpath>
+		<value>
+			<li MayRequire="VanillaExpanded.VMemesE,Ludeon.RimWorld.Royalty">VME_PsychicFocus</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="VRE_Archons"]/requiredMemes</xpath>
+		<value>
+			<li MayRequire="VanillaExpanded.VMemesE,Ludeon.RimWorld.Royalty">VME_PsychicFocus</li>
+		</value>
 	</Operation>
 
 </Patch>

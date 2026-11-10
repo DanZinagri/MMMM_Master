@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/AlphaCrafts/Patches/AlphaCrafts.xml: the operations that also need Dark Ages : Beasts and Monsters. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="AC_PowderedHorn"]/comps/li[@Class="AlphaCrafts.CompProperties_LabelByIngredients"]/overrides</xpath>
+		<value>
+			<li>
+				<key>DA_DrogTusk</key>
+				<value>powdered drog tusk</value>
+			</li>
+			<li>
+				<key>DA_GoldiloxHorn</key>
+				<value>powdered goldilox horn</value>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

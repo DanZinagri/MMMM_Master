@@ -3,22 +3,122 @@
 <loadFolders>
 	<v1.6>
 		<!-- 1.6/Mods/<Name> loads when that mod is active; 1.6/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="Rimsenal.Spacer,sarg.alphamechs">1.6/StrongerEnemies/Spacer_AlphaMechs</li>
+		<li IfModActiveAll="Rimsenal.Spacer,hlx.UltratechAlteredCarbon">1.6/StrongerEnemies/Spacer_UltratechAlteredCarbon</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Medieval2,RedMattis.BigSmall">1.6/StrongerEnemies/VFEMedieval2_BSRaces</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.6/StrongerEnemies/VFEMedieval2</li>
+		<li IfModActive="Mlie.ReinforcedMechanoid2">1.6/StrongerEnemies/ReinforcedMechanoid2</li>
+		<li IfModActive="Ludeon.RimWorld.Odyssey">1.6/StrongerEnemies/Odyssey</li>
+		<li IfModActive="OskarPotocki.VanillaFactionsExpanded.SettlersModule">1.6/StrongerEnemies/VFESettlers</li>
+		<li IfModActive="22.anomalyportal">1.6/StrongerEnemies/Anomalyportal</li>
+		<li IfModActive="rimsenal.federation">1.6/StrongerEnemies/Federation</li>
+		<li IfModActive="OskarPotocki.VFE.Empire">1.6/StrongerEnemies/VFEEmpire</li>
+		<li IfModActive="Ludeon.RimWorld.Anomaly">1.6/StrongerEnemies/Anomaly</li>
+		<li IfModActive="Ludeon.RimWorld.Biotech">1.6/StrongerEnemies/Biotech</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,SmashPhil.VehicleFramework,Ludeon.RimWorld.Biotech">1.6/StrongerEnemies/VPE_VehicleFramework_Biotech</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,SmashPhil.VehicleFramework">1.6/StrongerEnemies/VPE_VehicleFramework</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,OskarPotocki.VFE.Empire">1.6/StrongerEnemies/VPE_VFEEmpire</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Pirates,OskarPotocki.VFE.Empire,vanillaracesexpanded.hussar">1.6/StrongerEnemies/VFEPirates_VFEEmpire_VREHussar</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Pirates,OskarPotocki.VFE.Empire">1.6/StrongerEnemies/VFEPirates_VFEEmpire</li>
+		<li IfModActiveAll="vanillaracesexpanded.hussar,OskarPotocki.VFE.Empire">1.6/StrongerEnemies/VREHussar_VFEEmpire</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,biotexpans.mammalia,SmashPhil.VehicleFramework">1.6/StrongerEnemies/VPE_Mammalia_VehicleFramework</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,vanillaracesexpanded.archon">1.6/StrongerEnemies/VPE_Archon</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,biotexpans.mammalia,sarg.alphaanimals">1.6/StrongerEnemies/VPE_Mammalia_AlphaAnimals</li>
+		<li IfModActiveAll="VPE.Hydromancer.Sentinel,Ludeon.RimWorld.Biotech">1.6/StrongerEnemies/VPEHydromancer_Biotech</li>
+		<li IfModActiveAll="VPE.Aeromancer.Sentinel,Ludeon.RimWorld.Biotech">1.6/StrongerEnemies/VPEAeromancer_Biotech</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,sarg.alphaanimals,Ludeon.RimWorld.Biotech">1.6/StrongerEnemies/VPE_AlphaAnimals_Biotech</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,sarg.alphaanimals,Ludeon.RimWorld.Anomaly">1.6/StrongerEnemies/VPE_AlphaAnimals_Anomaly</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,RedMattis.Heaven">1.6/StrongerEnemies/VPE_BSHeavenAndHell</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Pirates,Ludeon.RimWorld.Royalty,VanillaExpanded.VWEC">1.6/StrongerEnemies/VFEPirates_Royalty_VWeaponsECoilguns</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Pirates,Ludeon.RimWorld.Royalty,detvisor.impactweaponryreloaded">1.6/StrongerEnemies/VFEPirates_Royalty_IWR</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Pirates,Ludeon.RimWorld.Royalty">1.6/StrongerEnemies/VFEPirates_Royalty</li>
+		<li IfModActiveAll="vanillaracesexpanded.sanguophage,OskarPotocki.VFE.Empire">1.6/StrongerEnemies/VRESanguophage_VFEEmpire</li>
+		<li IfModActiveAll="Sov.Nephilim,OskarPotocki.VFE.Empire">1.6/StrongerEnemies/NephilimReborn_VFEEmpire</li>
+		<li IfModActiveAll="EL.InvMech,sarg.alphamechs">1.6/StrongerEnemies/MechanoidInvaders_AlphaMechs</li>
+		<li IfModActiveAll="Mlie.ReinforcedMechanoid2,sarg.alphamechs">1.6/StrongerEnemies/ReinforcedMechanoid2_AlphaMechs</li>
+		<li IfModActive="sarg.alphamechs">1.6/StrongerEnemies/AlphaMechs</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VexedTrees980.RimElvesBiotech">1.6/StrongerEnemies/VPE_RimElves</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE">1.6/StrongerEnemies/VPE</li>
+		<li IfModActive="OskarPotocki.VFE.Deserters">1.6/StrongerEnemies/VFEDeserters</li>
 		<li>1.6</li>
+		<li IfModActive="Ludeon.RimWorld.Royalty" IfModNotActive="accurex.medievalempireoverhaul">1.6/Without/MedievalOverhaulRoyalty/Royalty</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VPE.Hydromancer.Sentinel" IfModNotActive="accurex.medievalempireoverhaul">1.6/Without/MedievalOverhaulRoyalty/VPE_VPEHydromancer</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VPE.Aeromancer.Sentinel" IfModNotActive="accurex.medievalempireoverhaul">1.6/Without/MedievalOverhaulRoyalty/VPE_VPEAeromancer</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,OskarPotocki.VFE.Empire" IfModNotActive="accurex.medievalempireoverhaul">1.6/Without/MedievalOverhaulRoyalty/VPE_VFEEmpire</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VanillaExpanded.VARME" IfModNotActive="accurex.medievalempireoverhaul">1.6/Without/MedievalOverhaulRoyalty/VPE_VArmourE</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,PrestigeSpecialistArmours.Final" IfModNotActive="accurex.medievalempireoverhaul">1.6/Without/MedievalOverhaulRoyalty/VPE_VPSAR</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE" IfModNotActive="accurex.medievalempireoverhaul">1.6/Without/MedievalOverhaulRoyalty/VPE</li>
 		<li IfModNotActive="accurex.medievalempireoverhaul">1.6/Without/MedievalOverhaulRoyalty</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE" IfModNotActive="accurex.medievalempireoverhaul,PrestigeSpecialistArmours.Final">1.6/Without/MedievalOverhaulRoyalty_PrestigeSpecialistArmours/VPE</li>
 		<li IfModNotActive="accurex.medievalempireoverhaul,PrestigeSpecialistArmours.Final">1.6/Without/MedievalOverhaulRoyalty_PrestigeSpecialistArmours</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,Ludeon.RimWorld.Biotech" IfModNotActive="SmashPhil.VehicleFramework">1.6/Without/VehicleFramework/VPE_Biotech</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE" IfModNotActive="SmashPhil.VehicleFramework">1.6/Without/VehicleFramework/VPE</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,biotexpans.mammalia" IfModNotActive="SmashPhil.VehicleFramework">1.6/Without/VehicleFramework/VPE_Mammalia</li>
 		<li IfModNotActive="SmashPhil.VehicleFramework">1.6/Without/VehicleFramework</li>
+		<li IfModActiveAll="rimsenal.core,VexedTrees980.RimElvesBiotech">1.6/Mods/RimsenalMurderDiversified/RimElves</li>
 		<li IfModActive="rimsenal.core">1.6/Mods/RimsenalMurderDiversified</li>
 		<li IfModActive="VanillaExpanded.VPsycastsE">1.6/Mods/VanillaPsycastsExpanded</li>
 		<li IfModActive="VexedTrees980.RimElvesBiotech">1.6/Mods/RimElves</li>
 	</v1.6>
 	<v1.7>
 		<!-- 1.7/Mods/<Name> loads when that mod is active; 1.7/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="Rimsenal.Spacer,sarg.alphamechs">1.7/StrongerEnemies/Spacer_AlphaMechs</li>
+		<li IfModActiveAll="Rimsenal.Spacer,hlx.UltratechAlteredCarbon">1.7/StrongerEnemies/Spacer_UltratechAlteredCarbon</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Medieval2,RedMattis.BigSmall">1.7/StrongerEnemies/VFEMedieval2_BSRaces</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.7/StrongerEnemies/VFEMedieval2</li>
+		<li IfModActive="Mlie.ReinforcedMechanoid2">1.7/StrongerEnemies/ReinforcedMechanoid2</li>
+		<li IfModActive="Ludeon.RimWorld.Odyssey">1.7/StrongerEnemies/Odyssey</li>
+		<li IfModActive="OskarPotocki.VanillaFactionsExpanded.SettlersModule">1.7/StrongerEnemies/VFESettlers</li>
+		<li IfModActive="22.anomalyportal">1.7/StrongerEnemies/Anomalyportal</li>
+		<li IfModActive="rimsenal.federation">1.7/StrongerEnemies/Federation</li>
+		<li IfModActive="OskarPotocki.VFE.Empire">1.7/StrongerEnemies/VFEEmpire</li>
+		<li IfModActive="Ludeon.RimWorld.Anomaly">1.7/StrongerEnemies/Anomaly</li>
+		<li IfModActive="Ludeon.RimWorld.Biotech">1.7/StrongerEnemies/Biotech</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,SmashPhil.VehicleFramework,Ludeon.RimWorld.Biotech">1.7/StrongerEnemies/VPE_VehicleFramework_Biotech</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,SmashPhil.VehicleFramework">1.7/StrongerEnemies/VPE_VehicleFramework</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,OskarPotocki.VFE.Empire">1.7/StrongerEnemies/VPE_VFEEmpire</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Pirates,OskarPotocki.VFE.Empire,vanillaracesexpanded.hussar">1.7/StrongerEnemies/VFEPirates_VFEEmpire_VREHussar</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Pirates,OskarPotocki.VFE.Empire">1.7/StrongerEnemies/VFEPirates_VFEEmpire</li>
+		<li IfModActiveAll="vanillaracesexpanded.hussar,OskarPotocki.VFE.Empire">1.7/StrongerEnemies/VREHussar_VFEEmpire</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,biotexpans.mammalia,SmashPhil.VehicleFramework">1.7/StrongerEnemies/VPE_Mammalia_VehicleFramework</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,vanillaracesexpanded.archon">1.7/StrongerEnemies/VPE_Archon</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,biotexpans.mammalia,sarg.alphaanimals">1.7/StrongerEnemies/VPE_Mammalia_AlphaAnimals</li>
+		<li IfModActiveAll="VPE.Hydromancer.Sentinel,Ludeon.RimWorld.Biotech">1.7/StrongerEnemies/VPEHydromancer_Biotech</li>
+		<li IfModActiveAll="VPE.Aeromancer.Sentinel,Ludeon.RimWorld.Biotech">1.7/StrongerEnemies/VPEAeromancer_Biotech</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,sarg.alphaanimals,Ludeon.RimWorld.Biotech">1.7/StrongerEnemies/VPE_AlphaAnimals_Biotech</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,sarg.alphaanimals,Ludeon.RimWorld.Anomaly">1.7/StrongerEnemies/VPE_AlphaAnimals_Anomaly</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,RedMattis.Heaven">1.7/StrongerEnemies/VPE_BSHeavenAndHell</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Pirates,Ludeon.RimWorld.Royalty,VanillaExpanded.VWEC">1.7/StrongerEnemies/VFEPirates_Royalty_VWeaponsECoilguns</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Pirates,Ludeon.RimWorld.Royalty,detvisor.impactweaponryreloaded">1.7/StrongerEnemies/VFEPirates_Royalty_IWR</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Pirates,Ludeon.RimWorld.Royalty">1.7/StrongerEnemies/VFEPirates_Royalty</li>
+		<li IfModActiveAll="vanillaracesexpanded.sanguophage,OskarPotocki.VFE.Empire">1.7/StrongerEnemies/VRESanguophage_VFEEmpire</li>
+		<li IfModActiveAll="Sov.Nephilim,OskarPotocki.VFE.Empire">1.7/StrongerEnemies/NephilimReborn_VFEEmpire</li>
+		<li IfModActiveAll="EL.InvMech,sarg.alphamechs">1.7/StrongerEnemies/MechanoidInvaders_AlphaMechs</li>
+		<li IfModActiveAll="Mlie.ReinforcedMechanoid2,sarg.alphamechs">1.7/StrongerEnemies/ReinforcedMechanoid2_AlphaMechs</li>
+		<li IfModActive="sarg.alphamechs">1.7/StrongerEnemies/AlphaMechs</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VexedTrees980.RimElvesBiotech">1.7/StrongerEnemies/VPE_RimElves</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE">1.7/StrongerEnemies/VPE</li>
+		<li IfModActive="OskarPotocki.VFE.Deserters">1.7/StrongerEnemies/VFEDeserters</li>
 		<li>1.7</li>
+		<li IfModActive="Ludeon.RimWorld.Royalty" IfModNotActive="accurex.medievalempireoverhaul">1.7/Without/MedievalOverhaulRoyalty/Royalty</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VPE.Hydromancer.Sentinel" IfModNotActive="accurex.medievalempireoverhaul">1.7/Without/MedievalOverhaulRoyalty/VPE_VPEHydromancer</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VPE.Aeromancer.Sentinel" IfModNotActive="accurex.medievalempireoverhaul">1.7/Without/MedievalOverhaulRoyalty/VPE_VPEAeromancer</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,OskarPotocki.VFE.Empire" IfModNotActive="accurex.medievalempireoverhaul">1.7/Without/MedievalOverhaulRoyalty/VPE_VFEEmpire</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VanillaExpanded.VARME" IfModNotActive="accurex.medievalempireoverhaul">1.7/Without/MedievalOverhaulRoyalty/VPE_VArmourE</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,PrestigeSpecialistArmours.Final" IfModNotActive="accurex.medievalempireoverhaul">1.7/Without/MedievalOverhaulRoyalty/VPE_VPSAR</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE" IfModNotActive="accurex.medievalempireoverhaul">1.7/Without/MedievalOverhaulRoyalty/VPE</li>
 		<li IfModNotActive="accurex.medievalempireoverhaul">1.7/Without/MedievalOverhaulRoyalty</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE" IfModNotActive="accurex.medievalempireoverhaul,PrestigeSpecialistArmours.Final">1.7/Without/MedievalOverhaulRoyalty_PrestigeSpecialistArmours/VPE</li>
 		<li IfModNotActive="accurex.medievalempireoverhaul,PrestigeSpecialistArmours.Final">1.7/Without/MedievalOverhaulRoyalty_PrestigeSpecialistArmours</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,Ludeon.RimWorld.Biotech" IfModNotActive="SmashPhil.VehicleFramework">1.7/Without/VehicleFramework/VPE_Biotech</li>
+		<li IfModActive="VanillaExpanded.VPsycastsE" IfModNotActive="SmashPhil.VehicleFramework">1.7/Without/VehicleFramework/VPE</li>
+		<li IfModActiveAll="VanillaExpanded.VPsycastsE,biotexpans.mammalia" IfModNotActive="SmashPhil.VehicleFramework">1.7/Without/VehicleFramework/VPE_Mammalia</li>
 		<li IfModNotActive="SmashPhil.VehicleFramework">1.7/Without/VehicleFramework</li>
+		<li IfModActiveAll="rimsenal.core,VexedTrees980.RimElvesBiotech">1.7/Mods/RimsenalMurderDiversified/RimElves</li>
 		<li IfModActive="rimsenal.core">1.7/Mods/RimsenalMurderDiversified</li>
 		<li IfModActive="VanillaExpanded.VPsycastsE">1.7/Mods/VanillaPsycastsExpanded</li>
 		<li IfModActive="VexedTrees980.RimElvesBiotech">1.7/Mods/RimElves</li>

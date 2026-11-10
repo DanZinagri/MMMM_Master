@@ -18,33 +18,29 @@
 		tradeTags Serum, tradeability Buyable and no techLevel; its 9 children set no tradeTags or techLevel of their own.
 		The 1.6 release has no BaseModificationItem, so in the 1.6 copy both operations find nothing and do nothing.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/ThingDef[@Name="BaseModificationItem"][tradeTags/li[text()="ExoticMisc"]]/tradeTags/li[text()="Serum"]</xpath>
-				<match Class="PatchOperationRemove">
-					<xpath>Defs/ThingDef[@Name="BaseModificationItem"][tradeTags/li[text()="ExoticMisc"]]/tradeTags/li[text()="Serum"]</xpath>
-				</match>
-			</li>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/ThingDef[@Name="BaseModificationItem"]/tradeTags/li[text()="Serum"]</xpath>
-				<match Class="PatchOperationReplace">
-					<xpath>Defs/ThingDef[@Name="BaseModificationItem"]/tradeTags/li[text()="Serum"]</xpath>
-					<value>
-						<li>ExoticMisc</li>
-					</value>
-				</match>
-			</li>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/ThingDef[@Name="BaseModificationItem"][not(techLevel)]</xpath>
-				<match Class="PatchOperationAdd">
-					<xpath>Defs/ThingDef[@Name="BaseModificationItem"][not(techLevel)]</xpath>
-					<value>
-						<techLevel>Industrial</techLevel>
-					</value>
-				</match>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[@Name="BaseModificationItem"][tradeTags/li[text()="ExoticMisc"]]/tradeTags/li[text()="Serum"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/ThingDef[@Name="BaseModificationItem"][tradeTags/li[text()="ExoticMisc"]]/tradeTags/li[text()="Serum"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[@Name="BaseModificationItem"]/tradeTags/li[text()="Serum"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[@Name="BaseModificationItem"]/tradeTags/li[text()="Serum"]</xpath>
+			<value>
+				<li>ExoticMisc</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[@Name="BaseModificationItem"][not(techLevel)]</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[@Name="BaseModificationItem"][not(techLevel)]</xpath>
+			<value>
+				<techLevel>Industrial</techLevel>
+			</value>
+		</match>
 	</Operation>
 
 </Patch>

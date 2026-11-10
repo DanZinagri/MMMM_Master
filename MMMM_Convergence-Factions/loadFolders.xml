@@ -3,16 +3,24 @@
 <loadFolders>
 	<v1.6>
 		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="RedMattis.Yokai,VanillaExpanded.VMemesE">1.6/Mods/BigAndSmallYokai/VIEMemesAndStructures</li>
 		<li IfModActive="RedMattis.Yokai">1.6/Mods/BigAndSmallYokai</li>
+		<li IfModActiveAll="tug.Minotaur,tug.minotaur.expanded,RedMattis.BigSmall.Core">1.6/Mods/RoosMinotaur/RoosMinotaurExpanded_BSGenesAndMore</li>
 		<li IfModActive="tug.Minotaur">1.6/Mods/RoosMinotaur</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,VanillaExpanded.VMemesE">1.6/Mods/TsSamuraiFaction/VIEMemesAndStructures</li>
 		<li IfModActive="Trickity.Samurai.Faction">1.6/Mods/TsSamuraiFaction</li>
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="RedMattis.Yokai,VanillaExpanded.VMemesE">1.7/Mods/BigAndSmallYokai/VIEMemesAndStructures</li>
 		<li IfModActive="RedMattis.Yokai">1.7/Mods/BigAndSmallYokai</li>
+		<li IfModActiveAll="tug.Minotaur,tug.minotaur.expanded,RedMattis.BigSmall.Core">1.7/Mods/RoosMinotaur/RoosMinotaurExpanded_BSGenesAndMore</li>
 		<li IfModActive="tug.Minotaur">1.7/Mods/RoosMinotaur</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,VanillaExpanded.VMemesE">1.7/Mods/TsSamuraiFaction/VIEMemesAndStructures</li>
 		<li IfModActive="Trickity.Samurai.Faction">1.7/Mods/TsSamuraiFaction</li>
 	</v1.7>
 </loadFolders>

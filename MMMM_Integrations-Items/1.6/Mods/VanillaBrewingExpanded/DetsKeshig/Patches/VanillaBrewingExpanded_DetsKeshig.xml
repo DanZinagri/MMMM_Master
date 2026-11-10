@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaBrewingExpanded/Patches/VanillaBrewingExpanded.xml: the operations that also need Det's Xenotypes - Keshig. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="DV_Gorewine"]/ingestible</xpath>
+		<value>
+			<specialThoughtAsIngredient>TMM_VBE_GorewineAsIngredient</specialThoughtAsIngredient>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DV_Gorewine"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DV_Gorewine"]</xpath>
+			<value>
+				<thingCategories>
+					<li>VBE_DrinksSimpleSpirits</li>
+				</thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

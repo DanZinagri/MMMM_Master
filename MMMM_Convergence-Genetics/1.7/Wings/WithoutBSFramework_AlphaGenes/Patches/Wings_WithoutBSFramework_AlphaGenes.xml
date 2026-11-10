@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/Wings.xml: the operations that also need not Big and Small - Framework and Alpha Genes. -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Seraphim Xenotype</li>
+		</mods>
+		<match Class="PatchOperationAddModExtension">
+			<xpath>Defs/GeneDef[defName="GS_WingsB"]</xpath>
+			<value>
+				<li Class="VEF.Genes.GeneExtension">
+					<hediffToWholeBody>AG_Hover</hediffToWholeBody>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

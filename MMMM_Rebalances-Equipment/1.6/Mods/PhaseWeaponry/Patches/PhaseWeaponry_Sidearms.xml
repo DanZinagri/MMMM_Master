@@ -7,28 +7,16 @@
 		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
 	-->
 
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationSequence">
-				<operations>
-					<li Class="PatchOperationSequence">
-						<operations>
-							<li Class="PatchOperationConditional">
-								<xpath>Defs/ThingDef[defName="DV_Gun_PhasePistol"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
-								<nomatch Class="PatchOperationAddModExtension">
-									<xpath>Defs/ThingDef[defName="DV_Gun_PhasePistol"]</xpath>
-									<value>
-										<li Class="VEF.Things.ThingDefExtension">
-											<usableWithShields>true</usableWithShields>
-										</li>
-									</value>
-								</nomatch>
-							</li>
-						</operations>
-					</li>
-				</operations>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DV_Gun_PhasePistol"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+		<nomatch Class="PatchOperationAddModExtension">
+			<xpath>Defs/ThingDef[defName="DV_Gun_PhasePistol"]</xpath>
+			<value>
+				<li Class="VEF.Things.ThingDefExtension">
+					<usableWithShields>true</usableWithShields>
+				</li>
+			</value>
+		</nomatch>
 	</Operation>
 
 </Patch>

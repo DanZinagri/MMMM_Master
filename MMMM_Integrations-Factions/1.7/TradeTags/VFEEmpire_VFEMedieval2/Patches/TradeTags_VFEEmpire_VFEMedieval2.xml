@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/TradeTags.xml: the operations that also need Vanilla Factions Expanded - Empire and Vanilla Factions Expanded - Medieval 2. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraderKindDef[defName="VFEM2_MerchantGuildTrader"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>BlackMarket</tag>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

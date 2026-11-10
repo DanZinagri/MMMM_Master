@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/MoodRebalance.xml: the operations that also need Royalty. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThoughtDef[defName="PsychicHarmonization"]/stages/li[label="psychic harmony: {HARMONIZER_labelShort}"]/baseMoodEffect</xpath>
+		<value>
+			<baseMoodEffect>2</baseMoodEffect>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]/stages/li[label="low psychic drone"]/baseMoodEffect</xpath>
+		<value>
+			<baseMoodEffect>-24</baseMoodEffect>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]/stages/li[label="moderate psychic drone"]/baseMoodEffect</xpath>
+		<value>
+			<baseMoodEffect>-36</baseMoodEffect>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]/stages/li[label="high psychic drone"]/baseMoodEffect</xpath>
+		<value>
+			<baseMoodEffect>-48</baseMoodEffect>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThoughtDef[defName="PsychicDrone"]/stages/li[label="extreme psychic drone"]/baseMoodEffect</xpath>
+		<value>
+			<baseMoodEffect>-60</baseMoodEffect>
+		</value>
+	</Operation>
+
+</Patch>

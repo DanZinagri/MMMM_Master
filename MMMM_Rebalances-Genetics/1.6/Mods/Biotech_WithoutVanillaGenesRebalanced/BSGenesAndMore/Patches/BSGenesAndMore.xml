@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech_WithoutVanillaGenesRebalanced/Patches/Biotech_WithoutVanillaGenesRebalanced_GeneRebalance.xml: the operations that also need Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BS_MoveSpeed_UltraQuick"]/statOffsets/MoveSpeed</xpath>
+		<value>
+			<MoveSpeed>1.0</MoveSpeed>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BS_Very_Slow"]/statOffsets/MoveSpeed</xpath>
+		<value>
+			<MoveSpeed>-1.0</MoveSpeed>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BS_Very_Slow"]/biostatMet</xpath>
+		<value>
+			<biostatMet>5</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="WoundHealing_VerySlow"]/statFactors/InjuryHealingFactor</xpath>
+		<value>
+			<InjuryHealingFactor>0.25</InjuryHealingFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="WoundHealing_VerySlow"]/description</xpath>
+		<value>
+			<description>Carriers of this gene heal from wounds at a fourth of the normal speed.</description>
+		</value>
+	</Operation>
+
+</Patch>

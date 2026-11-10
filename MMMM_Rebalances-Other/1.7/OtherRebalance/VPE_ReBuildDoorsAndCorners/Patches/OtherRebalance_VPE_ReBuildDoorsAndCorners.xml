@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/OtherRebalance.xml: the operations that also need Vanilla Psycasts Expanded and ReBuild: Doors and Corners. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="RB_OrnateWall"]/comps/li[@Class="CompProperties_MeditationFocus"]/focusTypes/li[text()="Minimal"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="RB_OrnateWall"]/statBases/MeditationFocusStrength</xpath>
+		<value>
+			<MeditationFocusStrength>0.08</MeditationFocusStrength>
+		</value>
+	</Operation>
+
+</Patch>

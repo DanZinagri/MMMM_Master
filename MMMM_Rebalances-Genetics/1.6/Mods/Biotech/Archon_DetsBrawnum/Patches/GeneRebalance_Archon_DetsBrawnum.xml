@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need vanillaracesexpanded.archon and Det's Xenotypes - Brawnum. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VRE_FastMeleeHitter"]/label</xpath>
+		<value>
+			<label>fast hitter</label>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VRE_SlowMeleeHitter"]/label</xpath>
+		<value>
+			<label>slow hitter</label>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="DV_Melee_Slow"]/label</xpath>
+		<value>
+			<label>very slow hitter</label>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="DV_Melee_Slow"]/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<MeleeCooldownFactor>0.20</MeleeCooldownFactor>
+			</statOffsets>
+		</value>
+	</Operation>
+
+</Patch>

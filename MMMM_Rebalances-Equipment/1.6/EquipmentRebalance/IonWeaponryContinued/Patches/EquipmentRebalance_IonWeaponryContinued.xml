@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need Ion Weaponry (Continued). -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="IW_Bullet_IonRifle"]/projectile/damageAmountBase</xpath>
+		<value>
+			<damageAmountBase>5</damageAmountBase>
+		</value>
+	</Operation>
+
+</Patch>

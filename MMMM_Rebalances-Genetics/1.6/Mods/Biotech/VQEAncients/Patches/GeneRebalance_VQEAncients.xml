@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Vanilla Quests Expanded - Ancients. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VQEA_Herculean" or defName="VQEA_BlurRunner" or defName="VQEA_Bulwark"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-4</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VQEA_PlasteelSkin" or defName="VQEA_Woundless" or defName="VQEA_PerfectVision"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-3</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VQEA_Prowess" or defName="VQEA_Marksman"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-2</biostatMet>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VQEA_ArchogenInjector"]/description</xpath>
+		<value>
+			<description>An ancient, hermetically sealed pod designed to induce powerful but chaotic genetic alterations through archovapor immersion. A primary slot seems to feed archite capsules into a destabilization chamber, where they are vaporized and channeled into the host body. Efforts can be made to control the process from there, but perhaps trying to harness this power is what left this machine abandoned in the first place.
+										\n\nUsed to inject a colonist with archite capsules, triggering genetic alteration and producing a random, special archite gene with possible side effects. Success can be improved by linking it with additional ancient equipment.</description>
+		</value>
+	</Operation>
+
+</Patch>

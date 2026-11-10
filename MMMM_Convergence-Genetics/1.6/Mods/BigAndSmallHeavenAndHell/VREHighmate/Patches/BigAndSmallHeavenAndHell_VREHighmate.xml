@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/BigAndSmallHeavenAndHell/Patches/BigAndSmallHeavenAndHell.xml: the operations that also need Vanilla Races Expanded - Highmate. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Grigori" or defName="BS_Lilim"]/genes/li[text()="BS_Flirty"]</xpath>
+		<value>
+			<li>VRE_Flirty</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Lilim"]/genes/li[text()="VU_Libido_Succubus"]</xpath>
+		<value>
+			<li>VRE_Libido_VeryHigh</li>
+		</value>
+	</Operation>
+
+</Patch>

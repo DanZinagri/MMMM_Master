@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Without/MedievalOverhaulRoyalty/Patches/MedievalOverhaulRoyalty_StrongerEnemies.xml: the operations that also need Vanilla Psycasts Expanded and Vanilla Factions Expanded - Empire. -->
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/PawnKindDef[defName="VFEE_Empire_Royal_Archcount" or defName="VFEE_Empire_Royal_Marquess" or defName="VFEE_Empire_Royal_Archduke" or defName="VFEE_Empire_Royal_Magister" or defName="VFEE_Empire_Royal_Despot" or defName="VFEE_Empire_Royal_HighStellarch" or defName="Empire_Royal_Stellarch"]</xpath>
+		<value>
+			<li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+				<implantDef>VPE_PsycastAbilityImplant</implantDef>
+				<initialLevel>1</initialLevel>
+				<statUpgradePoints>0~0</statUpgradePoints>
+				<unlockedPaths>
+					<VPE_Archotechist>1~4|1~10</VPE_Archotechist>
+				</unlockedPaths>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

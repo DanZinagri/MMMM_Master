@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need T's Samurai Faction. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="TSFApparel_AshigaruArmor" or defName="TSFApparel_SamuraiArmor" or defName="TSFApparel_DaimyoArmor" or defName="TSFApparel_AshigaruHelmet" or defName="TSFApparel_SamuraiHelmet" or defName="TSFApparel_DaimyoHelmet"]/stuffCategories/li[text()="Leathery"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="TSFApparel_DaimyoArmor"]/costList</xpath>
+		<value>
+			<costList>
+				<Gold>4</Gold>
+				<Cloth>20</Cloth>
+			</costList>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="TSFApparel_DaimyoArmor"]/costStuffCount</xpath>
+		<value>
+			<costStuffCount>160</costStuffCount>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="TSFApparel_SamuraiArmor"]</xpath>
+		<value>
+			<costList>
+				<Cloth>20</Cloth>
+			</costList>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="TSFApparel_SamuraiArmor"]/costStuffCount</xpath>
+		<value>
+			<costStuffCount>160</costStuffCount>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="TSFApparel_AshigaruArmor"]</xpath>
+		<value>
+			<costList>
+				<Cloth>20</Cloth>
+			</costList>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="TSFApparel_AshigaruArmor"]/costStuffCount</xpath>
+		<value>
+			<costStuffCount>80</costStuffCount>
+		</value>
+	</Operation>
+
+</Patch>

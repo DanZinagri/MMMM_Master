@@ -3,24 +3,50 @@
 <loadFolders>
 	<v1.6>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="vanillaracesexpanded.highmate,RedMattis.BigSmall.Core">1.6/Mods/VREHighmate/BSGenesAndMore</li>
+		<li IfModActiveAll="vanillaracesexpanded.highmate,VanillaExpanded.VanillaTraitsExpanded">1.6/Mods/VREHighmate/VTE</li>
 		<li IfModActive="vanillaracesexpanded.highmate">1.6/Mods/VREHighmate</li>
+		<li IfModActiveAll="VanillaExpanded.VanillaTraitsExpanded,Ludeon.RimWorld.Anomaly">1.6/Mods/VanillaTraitsExpanded/Anomaly</li>
 		<li IfModActive="VanillaExpanded.VanillaTraitsExpanded">1.6/Mods/VanillaTraitsExpanded</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Medieval2,VanillaExpanded.VFECore">1.6/Mods/VanillaFactionsExpandedMedieval2/VFurnE</li>
 		<li IfModActive="OskarPotocki.VFE.Medieval2">1.6/Mods/VanillaFactionsExpandedMedieval2</li>
 		<li IfModActive="feb.biopunklivestock">1.6/Mods/FEBsBiopunkLivestock</li>
+		<li IfModActiveAll="VanillaExpanded.VAnomalyEInsanity,VPE.Fleshshaper.Sentinel">1.6/Mods/VanillaAnomalyExpandedInsanity/VPEFleshshaper</li>
+		<li IfModActiveAll="VanillaExpanded.VAnomalyEInsanity,GoGaTio.NewAnomalyThreats">1.6/Mods/VanillaAnomalyExpandedInsanity/NewAnomalyThreats</li>
+		<li IfModActiveAll="VanillaExpanded.VAnomalyEInsanity,lts.I">1.6/Mods/VanillaAnomalyExpandedInsanity/IntegratedImplants</li>
+		<li IfModActiveAll="VanillaExpanded.VAnomalyEInsanity,sarg.alphagenes">1.6/Mods/VanillaAnomalyExpandedInsanity/AlphaGenes</li>
+		<li IfModActiveAll="VanillaExpanded.VAnomalyEInsanity,22.anomalyportal">1.6/Mods/VanillaAnomalyExpandedInsanity/Anomalyportal</li>
 		<li IfModActive="VanillaExpanded.VAnomalyEInsanity">1.6/Mods/VanillaAnomalyExpandedInsanity</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,Ludeon.RimWorld.Odyssey">1.6/Mods/VanillaGeneticsExpanded/Odyssey</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
+		<li IfModActive="spincrus.dinosauria,BiomesTeam.BiomesPrehistoric" IfModActiveAll="ReGrowth.BOTR.ExtinctAnimalsPack,VanillaExpanded.VGeneticsE">1.6/Mods/ReGrowthExtinctAnimals/VGenE_DinosauriaOrBiomesPrehistoric</li>
+		<li IfModActiveAll="ReGrowth.BOTR.ExtinctAnimalsPack,VanillaExpanded.VGeneticsE,Spino.Megafauna">1.6/Mods/ReGrowthExtinctAnimals/VGenE_Megafauna</li>
 		<li IfModActive="ReGrowth.BOTR.ExtinctAnimalsPack">1.6/Mods/ReGrowthExtinctAnimals</li>
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActiveAll="vanillaracesexpanded.highmate,RedMattis.BigSmall.Core">1.7/Mods/VREHighmate/BSGenesAndMore</li>
+		<li IfModActiveAll="vanillaracesexpanded.highmate,VanillaExpanded.VanillaTraitsExpanded">1.7/Mods/VREHighmate/VTE</li>
 		<li IfModActive="vanillaracesexpanded.highmate">1.7/Mods/VREHighmate</li>
+		<li IfModActiveAll="VanillaExpanded.VanillaTraitsExpanded,Ludeon.RimWorld.Anomaly">1.7/Mods/VanillaTraitsExpanded/Anomaly</li>
 		<li IfModActive="VanillaExpanded.VanillaTraitsExpanded">1.7/Mods/VanillaTraitsExpanded</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Medieval2,VanillaExpanded.VFECore">1.7/Mods/VanillaFactionsExpandedMedieval2/VFurnE</li>
 		<li IfModActive="OskarPotocki.VFE.Medieval2">1.7/Mods/VanillaFactionsExpandedMedieval2</li>
 		<li IfModActive="feb.biopunklivestock">1.7/Mods/FEBsBiopunkLivestock</li>
+		<li IfModActiveAll="VanillaExpanded.VAnomalyEInsanity,VPE.Fleshshaper.Sentinel">1.7/Mods/VanillaAnomalyExpandedInsanity/VPEFleshshaper</li>
+		<li IfModActiveAll="VanillaExpanded.VAnomalyEInsanity,GoGaTio.NewAnomalyThreats">1.7/Mods/VanillaAnomalyExpandedInsanity/NewAnomalyThreats</li>
+		<li IfModActiveAll="VanillaExpanded.VAnomalyEInsanity,lts.I">1.7/Mods/VanillaAnomalyExpandedInsanity/IntegratedImplants</li>
+		<li IfModActiveAll="VanillaExpanded.VAnomalyEInsanity,sarg.alphagenes">1.7/Mods/VanillaAnomalyExpandedInsanity/AlphaGenes</li>
+		<li IfModActiveAll="VanillaExpanded.VAnomalyEInsanity,22.anomalyportal">1.7/Mods/VanillaAnomalyExpandedInsanity/Anomalyportal</li>
 		<li IfModActive="VanillaExpanded.VAnomalyEInsanity">1.7/Mods/VanillaAnomalyExpandedInsanity</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,Ludeon.RimWorld.Odyssey">1.7/Mods/VanillaGeneticsExpanded/Odyssey</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>
+		<li IfModActive="spincrus.dinosauria,BiomesTeam.BiomesPrehistoric" IfModActiveAll="ReGrowth.BOTR.ExtinctAnimalsPack,VanillaExpanded.VGeneticsE">1.7/Mods/ReGrowthExtinctAnimals/VGenE_DinosauriaOrBiomesPrehistoric</li>
+		<li IfModActiveAll="ReGrowth.BOTR.ExtinctAnimalsPack,VanillaExpanded.VGeneticsE,Spino.Megafauna">1.7/Mods/ReGrowthExtinctAnimals/VGenE_Megafauna</li>
 		<li IfModActive="ReGrowth.BOTR.ExtinctAnimalsPack">1.7/Mods/ReGrowthExtinctAnimals</li>
 	</v1.7>
 </loadFolders>

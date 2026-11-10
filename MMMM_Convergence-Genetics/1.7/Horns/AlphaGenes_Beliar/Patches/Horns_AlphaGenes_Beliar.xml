@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/Horns.xml: the operations that also need Alpha Genes and Beliar Xenotype. -->
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/GeneDef[defName="BX_ProfaneHorns"]</xpath>
+		<value>
+			<li Class="VEF.Genes.GeneExtension">
+				<hediffsToBodyParts>
+					<li>
+						<hediff>AG_HornAttack</hediff>
+						<bodyparts>
+							<li>Head</li>
+						</bodyparts>
+					</li>
+				</hediffsToBodyParts>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/GeneDef[defName="BX_ProfaneHorns"]</xpath>
+		<value>
+			<customEffectDescriptions>
+				<li>Adds a 16 stab damage, 3 seconds cooldown melee attack</li>
+			</customEffectDescriptions>
+		</value>
+	</Operation>
+
+</Patch>

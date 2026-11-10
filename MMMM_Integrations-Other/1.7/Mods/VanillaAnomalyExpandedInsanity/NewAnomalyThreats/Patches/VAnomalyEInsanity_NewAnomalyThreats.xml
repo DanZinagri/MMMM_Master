@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaAnomalyExpandedInsanity/Patches/VanillaAnomalyExpandedInsanity.xml: the operations that also need GoGaTio.NewAnomalyThreats. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VAEInsanity.SanityEffectsDef[defName="VAEI_SanityEffects"]/killedThingsEffects</xpath>
+		<value>
+			<li>
+				<thing>NAT_RustedGuardsman</thing>
+				<effect>0.01</effect>
+			</li>
+			<li>
+				<thing>NAT_RustedOfficer</thing>
+				<effect>0.02</effect>
+			</li>
+			<li>
+				<thing>NAT_RustedSoldier</thing>
+				<effect>0.01</effect>
+			</li>
+			<li>
+				<thing>NAT_RustedTrooper</thing>
+				<effect>0.01</effect>
+			</li>
+			<li>
+				<thing>NAT_Collector</thing>
+				<effect>0.04</effect>
+			</li>
+			<li>
+				<thing>NAT_BileSerpent</thing>
+				<effect>0.01</effect>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VAEInsanity.SanityEffectsDef[defName="VAEI_SanityEffects"]/psychicRitualEffects</xpath>
+		<value>
+			<li>
+				<ritual>NAT_CreateRust_Soldier</ritual>
+				<invokerEffect>-0.005</invokerEffect>
+				<chanterEffect>-0.002</chanterEffect>
+			</li>
+			<li>
+				<ritual>NAT_CreateRust_Trooper</ritual>
+				<invokerEffect>-0.005</invokerEffect>
+				<chanterEffect>-0.002</chanterEffect>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

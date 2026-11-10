@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Roo's Satyr Xenotype and Det's Xenotypes - Venators. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="RBSF_Satyr"]/genes</xpath>
+		<value>
+			<li>DV_Farsighted</li>
+		</value>
+	</Operation>
+
+</Patch>

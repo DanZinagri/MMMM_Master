@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/AgreeingMemes.xml: the operations that also need Vanilla Ideology Expanded - Memes and Structures. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/MemeDef[defName="VME_Anonymity"]</xpath>
+		<value>
+			<agreeableTraits>
+				<li>Recluse</li>
+				<li MayRequire="Mlie.MoloyTraits">MT_Hermit</li>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_WorldWeary</li>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Anxious</li>
+			</agreeableTraits>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/MemeDef[defName="VME_CraftCulture"]</xpath>
+		<value>
+			<agreeableTraits>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Perfectionist</li>
+			</agreeableTraits>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/MemeDef[defName="VME_GodEmperor"]</xpath>
+		<value>
+			<agreeableTraits>
+				<li MayRequire="Mlie.MoloyTraits">MT_Tyrant</li>
+			</agreeableTraits>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="VME_Healthcare"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VME_Healthcare"]/agreeableTraits</xpath>
+			<value>
+				<Immunity>-1</Immunity>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_ThinSkinned</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VME_Healthcare"]</xpath>
+			<value>
+				<agreeableTraits>
+					<Immunity>-1</Immunity>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_ThinSkinned</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/MemeDef[defName="VME_Light"]</xpath>
+		<value>
+			<agreeableTraits/>
+			<disagreeableTraits>
+				<li>NightOwl</li>
+			</disagreeableTraits>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/MemeDef[defName="VME_MechanoidSupremacy"]</xpath>
+		<value>
+			<disagreeableTraits>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Technophobe</li>
+			</disagreeableTraits>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/MemeDef[defName="VME_Nationalist"]</xpath>
+		<value>
+			<agreeableTraits>
+				<li MayRequire="Mlie.MoloyTraits">MT_Tyrant</li>
+			</agreeableTraits>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/MemeDef[defName="VME_Nomad"]</xpath>
+		<value>
+			<agreeableTraits>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Wanderlust</li>
+			</agreeableTraits>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="VME_PartyLife"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VME_PartyLife"]/agreeableTraits</xpath>
+			<value>
+				<li MayRequire="RedMattis.BigSmall">BS_AlcoholAddict</li>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_FunLoving</li>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Lush</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VME_PartyLife"]</xpath>
+			<value>
+				<agreeableTraits>
+					<li MayRequire="RedMattis.BigSmall">BS_AlcoholAddict</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_FunLoving</li>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Lush</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/MemeDef[defName="VME_Progressive"]</xpath>
+		<value>
+			<disagreeableTraits>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Technophobe</li>
+			</disagreeableTraits>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/MemeDef[defName="VME_Trader"]/agreeableTraits</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VME_Trader"]/agreeableTraits</xpath>
+			<value>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Tycoon</li>
+				<li MayRequire="Mlie.MoloyTraits">MT_Charismatic</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/MemeDef[defName="VME_Trader"]</xpath>
+			<value>
+				<agreeableTraits>
+					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Tycoon</li>
+					<li MayRequire="Mlie.MoloyTraits">MT_Charismatic</li>
+				</agreeableTraits>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/MemeDef[defName="VME_Vegan"]</xpath>
+		<value>
+			<agreeableTraits>
+				<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalLover</li>
+				<li MayRequire="Goji.TheSimsTraits">ST_Vegan</li>
+			</agreeableTraits>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/AncientUrbanRuins/Patches/AncientUrbanRuins.xml: the operations that also need Cat's Boots and Gloves. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[defName="AM_FlakApparel"]/root/options</xpath>
+		<value>
+			<li MayRequire="vanillaexpanded.varme">
+				<weight>0.1</weight>
+				<thingSetMaker Class="ThingSetMaker_Count">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li>CAT_Footwear_ReconBoots</li>
+								<li>CAT_Footwear_FlakBoots</li>
+								<li>CAT_Footwear_RiotBoots</li>
+								<li MayRequire="Ludeon.RimWorld.Odyssey">CAT_Footwear_VacsuitBoots</li>
+								<li>CAT_Handwear_ReconGloves</li>
+								<li>CAT_Handwear_FlakGloves</li>
+								<li>CAT_Handwear_RiotGloves</li>
+								<li MayRequire="Ludeon.RimWorld.Odyssey">CAT_Handwear_VacsuitGloves</li>
+							</thingDefs>
+						</filter>
+						<countRange>1~1</countRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

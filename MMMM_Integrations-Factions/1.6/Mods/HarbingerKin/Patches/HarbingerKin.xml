@@ -7,28 +7,24 @@
 		This folder only loads when HarbingerKin is active (see loadFolders.xml).
 		Verified: vanilla's Horax cult has no xenotype set of its own.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/FactionDef[defName="HoraxCult"]/xenotypeSet</xpath>
-				<match Class="PatchOperationAdd">
-					<xpath>Defs/FactionDef[defName="HoraxCult"]/xenotypeSet/xenotypeChances</xpath>
-					<value>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/FactionDef[defName="HoraxCult"]/xenotypeSet</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/FactionDef[defName="HoraxCult"]/xenotypeSet/xenotypeChances</xpath>
+			<value>
+				<mytigio_Harbingerkin>0.2</mytigio_Harbingerkin>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/FactionDef[defName="HoraxCult"]</xpath>
+			<value>
+				<xenotypeSet Inherit="False">
+					<xenotypeChances>
 						<mytigio_Harbingerkin>0.2</mytigio_Harbingerkin>
-					</value>
-				</match>
-				<nomatch Class="PatchOperationAdd">
-					<xpath>Defs/FactionDef[defName="HoraxCult"]</xpath>
-					<value>
-						<xenotypeSet Inherit="False">
-							<xenotypeChances>
-								<mytigio_Harbingerkin>0.2</mytigio_Harbingerkin>
-							</xenotypeChances>
-						</xenotypeSet>
-					</value>
-				</nomatch>
-			</li>
-		</operations>
+					</xenotypeChances>
+				</xenotypeSet>
+			</value>
+		</nomatch>
 	</Operation>
 
 </Patch>

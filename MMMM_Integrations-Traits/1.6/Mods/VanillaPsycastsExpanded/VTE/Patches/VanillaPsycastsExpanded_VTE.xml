@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaPsycastsExpanded/Patches/VanillaPsycastsExpanded.xml: the operations that also need Vanilla Traits Expanded. -->
+
+	<!-- Vanilla Traits Expanded: Academian, Prodigy, Fun-loving, Tycoon -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraitDef[defName="VTE_Academian"]/degreeDatas/li</xpath>
+		<value>
+			<allowedMeditationFocusTypes>
+				<li>VPE_Science</li>
+			</allowedMeditationFocusTypes>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraitDef[defName="VTE_Prodigy"]/degreeDatas/li</xpath>
+		<value>
+			<allowedMeditationFocusTypes>
+				<li>VPE_Science</li>
+			</allowedMeditationFocusTypes>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraitDef[defName="VTE_FunLoving"]/degreeDatas/li</xpath>
+		<value>
+			<allowedMeditationFocusTypes>
+				<li>VPE_Group</li>
+			</allowedMeditationFocusTypes>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraitDef[defName="VTE_Tycoon"]/degreeDatas/li</xpath>
+		<value>
+			<allowedMeditationFocusTypes>
+				<li>VPE_Wealth</li>
+			</allowedMeditationFocusTypes>
+		</value>
+	</Operation>
+
+</Patch>

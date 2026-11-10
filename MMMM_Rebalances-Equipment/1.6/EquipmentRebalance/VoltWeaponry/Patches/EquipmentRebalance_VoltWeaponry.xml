@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/EquipmentRebalance.xml: the operations that also need Volt Weaponry. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DV_VoltProj_Gattler"]/projectile/damageAmountBase</xpath>
+		<value>
+			<damageAmountBase>10</damageAmountBase>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DV_VoltProj_Carbine"]/projectile/damageAmountBase</xpath>
+		<value>
+			<damageAmountBase>8</damageAmountBase>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DV_VoltProj_DMR"]/projectile/damageAmountBase</xpath>
+		<value>
+			<damageAmountBase>12</damageAmountBase>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DV_VoltProj_Trenchgun"]/projectile/damageAmountBase</xpath>
+		<value>
+			<damageAmountBase>6</damageAmountBase>
+		</value>
+	</Operation>
+
+</Patch>

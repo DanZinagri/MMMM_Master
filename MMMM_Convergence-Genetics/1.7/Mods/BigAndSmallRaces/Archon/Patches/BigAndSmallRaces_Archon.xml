@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/BigAndSmallRaces/Patches/BigAndSmallRaces.xml: the operations that also need vanillaracesexpanded.archon. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="BS_Corrupterd_Titan" or defName="BS_Gnome" or defName="BS_Redcap"]/genes/li[text()="BS_ShortPregnancy"]</xpath>
+		<value>
+			<li>VRE_ShortPregnancy</li>
+		</value>
+	</Operation>
+
+</Patch>

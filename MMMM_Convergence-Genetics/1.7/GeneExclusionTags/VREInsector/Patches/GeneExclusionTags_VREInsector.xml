@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Gene exclusion groups from Too Many Mods' general gene rebalance (core AA1B_GeneRebalance.xml, setting on by default):
+		genes that do the same job as another mod's gene join its exclusion group so they cannot stack.
+		  - VRE Insector geneline genes: antimicrobial peptides / immunodeficiency join WoundHealingRate, rapid / slowed life
+		    cycle join Aging, hardened / weakened chitin join Toughness.
+		  - Alpha Genes' forsaken head emblem joins MeleeDodge (see the Geist header).
+		  - Big and Small's psychic warrior and VRE Hussar's toughness join Toughness.
+		  - Deathless-type genes share TMM_Deathless (from core AA5D_Deathless.xml, no setting): Biotech's deathless, B&S immortal
+		    and returning soul, VRE Archon's transcendent. The tag name is kept because TMM_WVC uses it too.
+		Each block sits in a subfolder gated on its mod. Checked with analysis/patch_sim.py: all apply against the installed mods.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_AntimicrobialPeptides" or defName="VRE_Immunodeficiency"]/exclusionTags</xpath>
+		<value>
+			<li>WoundHealingRate</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_RapidLifeCycle" or defName="VRE_SlowedLifeCycle"]/exclusionTags</xpath>
+		<value>
+			<li>Aging</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_HardenedChitin" or defName="VRE_WeakenedChitin"]/exclusionTags</xpath>
+		<value>
+			<li>Toughness</li>
+		</value>
+	</Operation>
+
+</Patch>

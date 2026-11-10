@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaFurnitureExpandedSecurity/Patches/VanillaFurnitureExpandedSecurity.xml: the operations that also need Security: Re-Examined. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="VFES_Turret_FloorTurretPopup"]/costList/Chemfuel</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="VFES_Turret_FloorTurretPopup"]/costList</xpath>
+			<value>
+				<Chemfuel>20</Chemfuel>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VFES_Turret_FloorTurretPopup"]/comps/li[@Class="CompProperties_Refuelable"]/initialFuelPercent</xpath>
+		<value>
+			<initialFuelPercent>1</initialFuelPercent>
+		</value>
+	</Operation>
+
+</Patch>

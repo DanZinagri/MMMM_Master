@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/ReGrowthBoiling/Patches/ReGrowthBoiling.xml: the operations that also need Vanilla Animals Expanded. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/BiomeDef[defName="RG_BoilingForest"]/wildAnimals</xpath>
+		<value>
+			<AEXP_Coyote>0.1</AEXP_Coyote>
+			<AEXP_Jaguar>0.02</AEXP_Jaguar>
+			<AEXP_Lemur>0.01</AEXP_Lemur>
+			<AEXP_Tapir>0.1</AEXP_Tapir>
+			<AEXP_Boombat>0.2</AEXP_Boombat>
+			<AEXP_Cheetah>0.05</AEXP_Cheetah>
+			<AEXP_GilaMonster>0.05</AEXP_GilaMonster>
+			<AEXP_Hyena>0.1</AEXP_Hyena>
+		</value>
+	</Operation>
+
+</Patch>

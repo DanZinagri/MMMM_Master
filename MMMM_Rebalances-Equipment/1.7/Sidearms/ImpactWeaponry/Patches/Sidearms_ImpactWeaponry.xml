@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/Sidearms.xml: the operations that also need Impact Weaponry - Reloaded. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DV_Gun_ImpactStubber"]/modExtensions/li[@Class="VEF.Things.ThingDefExtension"]/usableWithShields</xpath>
+		<nomatch Class="PatchOperationAddModExtension">
+			<xpath>Defs/ThingDef[defName="DV_Gun_ImpactStubber"]</xpath>
+			<value>
+				<li Class="VEF.Things.ThingDefExtension">
+					<usableWithShields>true</usableWithShields>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		ReGrowth: Extinct Animals + Vanilla Genetics Expanded: with Megafauna, the woolly mammoth, woolly rhinoceros, synthetion
+		and megalenhydris yield megafauna genetic material; with Dinosauria or Biomes! Prehistoric, the velociraptor and woolly
+		stegosaurus move from VGE's own ReGrowth reptile list to its dinosaur list.
+		This folder only loads with ReGrowth: Extinct Animals (see loadFolders.xml); the other gates are subfolders. The dinosaur
+		gate matches the mods VGE loads its GR_Dinosauria list for (Too Many Mods checked Dinosauria only).
+		Verified against VGE 1.6: GR_Megafauna and GR_Dinosauria come from VGE's Megafauna/Dinosauria folders, and
+		GR_TierTwoAnimalsReptilesReGrowthExtinct (VGE's own ReGrowth patch) lists both dinosaurs. ReGrowth: Extinct Animals,
+		Dinosauria and Biomes! Prehistoric are not installed here, so the RG_ animals are unchecked.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneticRim.ExtractableAnimalsList[defName="GR_Megafauna"]/extractableAnimals</xpath>
+		<value>
+			<li>RG_WoollyMammoth</li>
+			<li>RG_WoollyRhinoceros</li>
+			<li>RG_Synthetion</li>
+			<li>RG_Megalenhydris</li>
+		</value>
+	</Operation>
+
+</Patch>

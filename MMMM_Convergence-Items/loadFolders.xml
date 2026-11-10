@@ -3,26 +3,50 @@
 <loadFolders>
 	<v1.6>
 		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
 		<li>1.6</li>
 		<!-- mirrors Big and Small - Genes &amp; More, which only loads the gene tools when at least one Big and Small content mod is active -->
+		<li IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025" IfModActiveAll="RedMattis.BigSmall.Core,sarg.alphagenes">1.6/Mods/BigAndSmallGeneTools/AlphaGenes</li>
 		<li IfModActiveAll="RedMattis.BigSmall.Core" IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025">1.6/Mods/BigAndSmallGeneTools</li>
+		<li IfModActiveAll="tug.Minotaur,RedMattis.BetterPrerequisites">1.6/Mods/RoosMinotaur/BSFramework</li>
 		<li IfModActive="tug.Minotaur">1.6/Mods/RoosMinotaur</li>
+		<li IfModActiveAll="sarg.alphacrafts,VanillaExpanded.VCookE,VanillaExpanded.VPlantsEMore">1.6/Mods/AlphaCrafts/VCE_VPlantsEMorePlants</li>
+		<li IfModActiveAll="sarg.alphacrafts,VanillaExpanded.VCookE">1.6/Mods/AlphaCrafts/VCE</li>
 		<li IfModActive="sarg.alphacrafts">1.6/Mods/AlphaCrafts</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,sarg.alphacrafts,FrozenSnowFox.FrozenSnowFoxTweaks">1.6/Mods/TsSamuraiFaction/AlphaCrafts_FSFFrozenSnowFoxTweaks</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,sarg.alphacrafts,VanillaExpanded.VCEFAddon">1.6/Mods/TsSamuraiFaction/AlphaCrafts_VFEFTAO</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,sarg.alphacrafts,VanillaExpanded.VBrewE">1.6/Mods/TsSamuraiFaction/AlphaCrafts_VBE</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,sarg.alphacrafts">1.6/Mods/TsSamuraiFaction/AlphaCrafts</li>
 		<li IfModActive="Trickity.Samurai.Faction">1.6/Mods/TsSamuraiFaction</li>
 		<li IfModActive="onyxae.dragonsdescent">1.6/Mods/DragonsDescent</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals,Hol.DragonGenetics">1.6/Mods/VanillaGeneticsExpanded/AlphaAnimals_DragonGenetics</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals,Spino.Megafauna">1.6/Mods/VanillaGeneticsExpanded/AlphaAnimals_Megafauna</li>
+		<li IfModActive="spincrus.dinosauria,BiomesTeam.BiomesPrehistoric" IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals">1.6/Mods/VanillaGeneticsExpanded/AlphaAnimals_DOBP</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
 		<li>1.7</li>
 		<!-- mirrors Big and Small - Genes &amp; More, which only loads the gene tools when at least one Big and Small content mod is active -->
+		<li IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025" IfModActiveAll="RedMattis.BigSmall.Core,sarg.alphagenes">1.7/Mods/BigAndSmallGeneTools/AlphaGenes</li>
 		<li IfModActiveAll="RedMattis.BigSmall.Core" IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025">1.7/Mods/BigAndSmallGeneTools</li>
+		<li IfModActiveAll="tug.Minotaur,RedMattis.BetterPrerequisites">1.7/Mods/RoosMinotaur/BSFramework</li>
 		<li IfModActive="tug.Minotaur">1.7/Mods/RoosMinotaur</li>
+		<li IfModActiveAll="sarg.alphacrafts,VanillaExpanded.VCookE,VanillaExpanded.VPlantsEMore">1.7/Mods/AlphaCrafts/VCE_VPlantsEMorePlants</li>
+		<li IfModActiveAll="sarg.alphacrafts,VanillaExpanded.VCookE">1.7/Mods/AlphaCrafts/VCE</li>
 		<li IfModActive="sarg.alphacrafts">1.7/Mods/AlphaCrafts</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,sarg.alphacrafts,FrozenSnowFox.FrozenSnowFoxTweaks">1.7/Mods/TsSamuraiFaction/AlphaCrafts_FSFFrozenSnowFoxTweaks</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,sarg.alphacrafts,VanillaExpanded.VCEFAddon">1.7/Mods/TsSamuraiFaction/AlphaCrafts_VFEFTAO</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,sarg.alphacrafts,VanillaExpanded.VBrewE">1.7/Mods/TsSamuraiFaction/AlphaCrafts_VBE</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,sarg.alphacrafts">1.7/Mods/TsSamuraiFaction/AlphaCrafts</li>
 		<li IfModActive="Trickity.Samurai.Faction">1.7/Mods/TsSamuraiFaction</li>
 		<li IfModActive="onyxae.dragonsdescent">1.7/Mods/DragonsDescent</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals,Hol.DragonGenetics">1.7/Mods/VanillaGeneticsExpanded/AlphaAnimals_DragonGenetics</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals,Spino.Megafauna">1.7/Mods/VanillaGeneticsExpanded/AlphaAnimals_Megafauna</li>
+		<li IfModActive="spincrus.dinosauria,BiomesTeam.BiomesPrehistoric" IfModActiveAll="VanillaExpanded.VGeneticsE,sarg.alphaanimals">1.7/Mods/VanillaGeneticsExpanded/AlphaAnimals_DOBP</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>
 	</v1.7>
 </loadFolders>

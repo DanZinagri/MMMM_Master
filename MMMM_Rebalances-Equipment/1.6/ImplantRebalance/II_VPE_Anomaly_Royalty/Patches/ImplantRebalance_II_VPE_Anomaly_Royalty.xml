@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/ImplantRebalance.xml: the operations that also need Integrated Implants and Vanilla Psycasts Expanded and Anomaly and Royalty. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="LTS_PsychicReaper"]/stages/li/statOffsets/PsyfocusPerKill</xpath>
+		<value>
+			<PsyfocusPerKill>0.01</PsyfocusPerKill>
+		</value>
+	</Operation>
+
+</Patch>

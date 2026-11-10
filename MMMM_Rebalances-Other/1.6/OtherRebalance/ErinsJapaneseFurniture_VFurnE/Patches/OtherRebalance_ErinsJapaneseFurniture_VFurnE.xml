@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/OtherRebalance.xml: the operations that also need Erin's Japanese Furniture and Vanilla Furniture Expanded. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Erin_LowTable"]/statBases/MaxHitPoints</xpath>
+		<value>
+			<MaxHitPoints>35</MaxHitPoints>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/OtherRebalance.xml: the operations that also need Vanilla Furniture Expanded - Art. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VFE_DecorativePlantPot"]/statBases/Beauty</xpath>
+		<value>
+			<Beauty>20</Beauty>
+		</value>
+	</Operation>
+
+</Patch>

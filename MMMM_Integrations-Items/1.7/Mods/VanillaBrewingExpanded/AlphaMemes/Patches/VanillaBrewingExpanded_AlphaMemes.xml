@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/VanillaBrewingExpanded/Patches/VanillaBrewingExpanded.xml: the operations that also need Alpha Memes. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="AM_CorpseRumFine"]/ingestible</xpath>
+		<value>
+			<specialThoughtAsIngredient>TMM_VBE_FineRumAsIngredient</specialThoughtAsIngredient>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="AM_CorpseRumFine"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_CorpseRumFine"]</xpath>
+			<value>
+				<thingCategories>
+					<li>VBE_DrinksLuxurySpirits</li>
+				</thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="AM_CorpseRumBasic"]/ingestible</xpath>
+		<value>
+			<specialThoughtAsIngredient>TMM_VBE_SuspiciousRumAsIngredient</specialThoughtAsIngredient>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="AM_CorpseRumBasic"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="AM_CorpseRumBasic"]</xpath>
+			<value>
+				<thingCategories>
+					<li>VBE_DrinksSimpleSpirits</li>
+				</thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/StrongerEnemies.xml: the operations that also need Mlie.ReinforcedMechanoid2 and Alpha Mechs. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=2]/escorts/AM_Mech_Munifex</xpath>
+		<value>
+			<RM_Mech_Marshal MayRequire="Mlie.ReinforcedMechanoid2">5</RM_Mech_Marshal>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=3]/escorts/AM_Mech_Lux</xpath>
+		<value>
+			<RM_Mech_Zealot MayRequire="Mlie.ReinforcedMechanoid2">6</RM_Mech_Zealot>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefInfernus"]/waves/li[position()=7]/escorts/AM_Mech_Lux</xpath>
+		<value>
+			<RM_Mech_Vulture MayRequire="Mlie.ReinforcedMechanoid2">10</RM_Mech_Vulture>
+			<RM_Mech_Falcon MayRequire="Mlie.ReinforcedMechanoid2">10</RM_Mech_Falcon>
+			<RM_Mech_Gremlin MayRequire="Mlie.ReinforcedMechanoid2">10</RM_Mech_Gremlin>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=1]/escorts/AM_Aura</xpath>
+		<value>
+			<AM_Aura>16</AM_Aura>
+			<RM_Mech_Caretaker MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Caretaker>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=5]/escorts/AM_Mech_Munifex</xpath>
+		<value>
+			<RM_Mech_Behemoth MayRequire="Mlie.ReinforcedMechanoid2">5</RM_Mech_Behemoth>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=5]/escorts/AM_Siegebreaker</xpath>
+		<value>
+			<RM_Mech_WraithSiege MayRequire="Mlie.ReinforcedMechanoid2">3</RM_Mech_WraithSiege>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefWarEmpress"]/waves/li[position()=7]/escorts/AM_Mech_Optio</xpath>
+		<value>
+			<RM_Mech_Sentinel MayRequire="Mlie.ReinforcedMechanoid2">4</RM_Mech_Sentinel>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=1]/escorts/AM_Mech_Bellicor</xpath>
+		<value>
+			<RM_Mech_Harpy MayRequire="Mlie.ReinforcedMechanoid2">5</RM_Mech_Harpy>
+			<AM_Mech_Bellicor>5</AM_Mech_Bellicor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=5]/escorts/AM_Mech_Bellicor</xpath>
+		<value>
+			<RM_Mech_Gremlin MayRequire="Mlie.ReinforcedMechanoid2">5</RM_Mech_Gremlin>
+			<RM_Mech_Ranger MayRequire="Mlie.ReinforcedMechanoid2">4</RM_Mech_Ranger>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/AM_Mech_Bellicor</xpath>
+		<value>
+			<AM_Mech_Bellicor>2</AM_Mech_Bellicor>
+			<RM_Mech_Gremlin MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Gremlin>
+			<RM_Mech_Ranger MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Ranger>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/Mech_CentipedeBlaster</xpath>
+		<value>
+			<Mech_CentipedeBlaster>1</Mech_CentipedeBlaster>
+			<RM_Mech_Locust MayRequire="Mlie.ReinforcedMechanoid2">1</RM_Mech_Locust>
+			<RM_Mech_WraithSiege MayRequire="Mlie.ReinforcedMechanoid2">1</RM_Mech_WraithSiege>
+			<RM_Mech_Behemoth MayRequire="Mlie.ReinforcedMechanoid2">1</RM_Mech_Behemoth>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/AM_Daggersnout</xpath>
+		<value>
+			<AM_Daggersnout>2</AM_Daggersnout>
+			<RM_Mech_Falcon MayRequire="Mlie.ReinforcedMechanoid2">3</RM_Mech_Falcon>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/AM_Mech_Polychoron</xpath>
+		<value>
+			<AM_Mech_Polychoron>1</AM_Mech_Polychoron>
+			<RM_Mech_Harpy MayRequire="Mlie.ReinforcedMechanoid2">3</RM_Mech_Harpy>
+			<RM_Mech_Vulture MayRequire="Mlie.ReinforcedMechanoid2">2</RM_Mech_Vulture>
+			<RM_Mech_Zealot MayRequire="Mlie.ReinforcedMechanoid2">1</RM_Mech_Zealot>
+			<RM_Mech_Marshal MayRequire="Mlie.ReinforcedMechanoid2">1</RM_Mech_Marshal>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/AM_Starfire</xpath>
+		<value>
+			<AM_Starfire>1</AM_Starfire>
+			<RM_Mech_Sentinel MayRequire="Mlie.ReinforcedMechanoid2">1</RM_Mech_Sentinel>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BossgroupDef[defName="AM_BossGroupDefApoptosis"]/waves/li[position()=8]/escorts/AM_Fireworm</xpath>
+		<value>
+			<AM_Fireworm>1</AM_Fireworm>
+			<RM_Mech_Caretaker MayRequire="Mlie.ReinforcedMechanoid2">1</RM_Mech_Caretaker>
+		</value>
+	</Operation>
+
+</Patch>

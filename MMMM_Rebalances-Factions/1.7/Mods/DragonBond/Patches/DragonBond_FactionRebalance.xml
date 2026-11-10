@@ -7,29 +7,17 @@
 		PatchOperationFindMod on the mod's display name; the load-folder gate uses its packageId instead.
 	-->
 
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationSequence">
-				<operations>
-					<li Class="PatchOperationSequence">
-						<operations>
-							<li Class="PatchOperationReplace">
-								<xpath>Defs/FactionDef[defName="Crows_VelosEnclave" or defName="Crows_AshenDominion"]/requiredCountAtGameStart</xpath>
-								<value>
-									<requiredCountAtGameStart>1</requiredCountAtGameStart>
-								</value>
-							</li>
-							<li Class="PatchOperationReplace">
-								<xpath>Defs/FactionDef[defName="Crows_VelosEnclave" or defName="Crows_AshenDominion"]/settlementGenerationWeight</xpath>
-								<value>
-									<settlementGenerationWeight>0.5</settlementGenerationWeight>
-								</value>
-							</li>
-						</operations>
-					</li>
-				</operations>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/FactionDef[defName="Crows_VelosEnclave" or defName="Crows_AshenDominion"]/requiredCountAtGameStart</xpath>
+		<value>
+			<requiredCountAtGameStart>1</requiredCountAtGameStart>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/FactionDef[defName="Crows_VelosEnclave" or defName="Crows_AshenDominion"]/settlementGenerationWeight</xpath>
+		<value>
+			<settlementGenerationWeight>0.5</settlementGenerationWeight>
+		</value>
 	</Operation>
 
 </Patch>

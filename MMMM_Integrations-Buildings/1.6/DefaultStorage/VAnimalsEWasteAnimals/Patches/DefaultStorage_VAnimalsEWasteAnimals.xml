@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/DefaultStorage.xml: the operations that also need Vanilla Animals Expanded — Waste Animals. -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="Hopper"]/building/defaultStorageSettings/filter/disallowedThingDefs</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="Hopper"]/building/defaultStorageSettings/filter/disallowedThingDefs</xpath>
+			<value>
+				<li>VAEWaste_ToxicMeat</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationConditional">
+			<xpath>Defs/ThingDef[defName="Hopper"]/building/defaultStorageSettings/filter</xpath>
+			<match Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Hopper"]/building/defaultStorageSettings/filter</xpath>
+				<value>
+					<disallowedThingDefs>
+						<li>VAEWaste_ToxicMeat</li>
+					</disallowedThingDefs>
+				</value>
+			</match>
+		</nomatch>
+	</Operation>
+
+</Patch>

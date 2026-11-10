@@ -13,26 +13,18 @@
 		designation category and label only.
 		Split by category into the MMMM Integrations sub-mods: this copy holds only the Buildings ops (buildings, furniture, floors, recipes and production).
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationFindMod">
-				<mods>
-					<li>Medieval Overhaul: Royalty</li>
-				</mods>
-				<nomatch Class="PatchOperationSequence">
-					<operations>
-						<li Class="PatchOperationAdd">
-							<xpath>Defs/ThingDef[defName="VFEE_Candelabra"]</xpath>
-							<value>
-								<placeWorkers>
-									<li>PlaceWorker_GlowRadius</li>
-								</placeWorkers>
-							</value>
-						</li>
-					</operations>
-				</nomatch>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Medieval Overhaul: Royalty</li>
+		</mods>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="VFEE_Candelabra"]</xpath>
+			<value>
+				<placeWorkers>
+					<li>PlaceWorker_GlowRadius</li>
+				</placeWorkers>
+			</value>
+		</nomatch>
 	</Operation>
 
 </Patch>

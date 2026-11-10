@@ -7,25 +7,21 @@
 		This folder only loads when VRE - Highmate and B&amp;S - Genes &amp; More are both active (see loadFolders.xml).
 		Verified against Highmate 1.6: neither VRE_Distressed nor VRE_Flirty already has exclusionTags, so both adds land.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/GeneDef[defName="BS_Bloodlust" or defName="VRE_Distressed"]</xpath>
-				<value>
-					<exclusionTags>
-						<li>Bloodlust</li>
-					</exclusionTags>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/GeneDef[defName="VRE_Flirty"]</xpath>
-				<value>
-					<exclusionTags>
-						<li>Flirty</li>
-					</exclusionTags>
-				</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="BS_Bloodlust" or defName="VRE_Distressed"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>Bloodlust</li>
+			</exclusionTags>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="VRE_Flirty"]</xpath>
+		<value>
+			<exclusionTags>
+				<li>Flirty</li>
+			</exclusionTags>
+		</value>
 	</Operation>
 
 </Patch>

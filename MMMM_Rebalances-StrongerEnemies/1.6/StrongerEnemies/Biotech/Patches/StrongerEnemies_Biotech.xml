@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/StrongerEnemies.xml: the operations that also need Biotech. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="Mercenary_GunnerTox" or defName="Mercenary_SlasherTox" or defName="Mercenary_EliteTox" or defName="Grenadier_Tox" or defName="Mercenary_HeavyTox" or defName="PirateBossTox"]</xpath>
+		<value>
+			<startingHediffs>
+				<li>
+					<def>WakeUpHigh</def>
+				</li>
+				<li>
+					<def>YayoHigh</def>
+				</li>
+			</startingHediffs>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="Mercenary_EliteTox"]</xpath>
+		<value>
+			<itemQuality>Good</itemQuality>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="PirateBossTox"]</xpath>
+		<value>
+			<itemQuality>Excellent</itemQuality>
+		</value>
+	</Operation>
+
+</Patch>

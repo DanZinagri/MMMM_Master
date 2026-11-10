@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/StrongerEnemies.xml: the operations that also need Vanilla Factions Expanded - Pirates and Vanilla Factions Expanded - Empire and Vanilla Races Expanded - Hussar. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="TMM_Deserter_Siegebreaker" or defName="TMM_Deserter_Sarcophagus" or defName="TMM_Deserter_Brute"]</xpath>
+		<value>
+			<useFactionXenotypes>false</useFactionXenotypes>
+			<xenotypeSet>
+				<xenotypeChances>
+					<VREH_Uhlan>1</VREH_Uhlan>
+				</xenotypeChances>
+			</xenotypeSet>
+			<startingHediffs>
+				<li>
+					<def>GoJuiceHigh</def>
+				</li>
+				<li>
+					<def>LuciferiumHigh</def>
+				</li>
+			</startingHediffs>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/FactionDef[defName="VFEE_Deserters"]/pawnGroupMakers/li[position()=1 or position()=2]/options/TMM_Deserter_Uhlan</xpath>
+		<value>
+			<TMM_Deserter_Uhlan>0.1</TMM_Deserter_Uhlan>
+		</value>
+	</Operation>
+
+</Patch>

@@ -9,43 +9,20 @@
 		Verified against VFE - Security 1.6: the cost list has no chemfuel and initialFuelPercent is 0.
 		The Security: Re-Examined part is gated on its packageId (Smxrez.securityreexamined, read from the installed mod).
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/ThingDef[defName="VFES_Turret_Flame"]/costList/Chemfuel</xpath>
-				<nomatch Class="PatchOperationAdd">
-					<xpath>Defs/ThingDef[defName="VFES_Turret_Flame"]/costList</xpath>
-					<value>
-						<Chemfuel>20</Chemfuel>
-					</value>
-				</nomatch>
-			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/ThingDef[defName="VFES_Turret_Flame"]/comps/li[@Class="CompProperties_Refuelable"]/initialFuelPercent</xpath>
-				<value>
-					<initialFuelPercent>1</initialFuelPercent>
-				</value>
-			</li>
-			<li Class="PatchOperationSequence" MayRequire="Smxrez.securityreexamined">
-				<operations>
-					<li Class="PatchOperationConditional">
-						<xpath>Defs/ThingDef[defName="VFES_Turret_FloorTurretPopup"]/costList/Chemfuel</xpath>
-						<nomatch Class="PatchOperationAdd">
-							<xpath>Defs/ThingDef[defName="VFES_Turret_FloorTurretPopup"]/costList</xpath>
-							<value>
-								<Chemfuel>20</Chemfuel>
-							</value>
-						</nomatch>
-					</li>
-					<li Class="PatchOperationReplace">
-						<xpath>Defs/ThingDef[defName="VFES_Turret_FloorTurretPopup"]/comps/li[@Class="CompProperties_Refuelable"]/initialFuelPercent</xpath>
-						<value>
-							<initialFuelPercent>1</initialFuelPercent>
-						</value>
-					</li>
-				</operations>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="VFES_Turret_Flame"]/costList/Chemfuel</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="VFES_Turret_Flame"]/costList</xpath>
+			<value>
+				<Chemfuel>20</Chemfuel>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VFES_Turret_Flame"]/comps/li[@Class="CompProperties_Refuelable"]/initialFuelPercent</xpath>
+		<value>
+			<initialFuelPercent>1</initialFuelPercent>
+		</value>
 	</Operation>
 
 </Patch>

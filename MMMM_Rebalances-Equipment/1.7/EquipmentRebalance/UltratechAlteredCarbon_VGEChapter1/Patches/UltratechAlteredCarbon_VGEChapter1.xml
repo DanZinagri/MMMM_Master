@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/EquipmentRebalance.xml: the operations that also need hlx.UltratechAlteredCarbon and Vanilla Gravship Expanded - Chapter 1. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[@Name="AC_ApparelArmorHelmetChrysalisMakeableBase"]/equippedStatOffsets/VacuumResistance</xpath>
+		<value>
+			<VacuumResistance>0.62</VacuumResistance>
+		</value>
+	</Operation>
+
+</Patch>

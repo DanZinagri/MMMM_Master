@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/StrongerEnemies.xml: the operations that also need Vanilla Psycasts Expanded and biotexpans.mammalia and Alpha Animals. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="TribeCivilMammals" or defName="TribeRoughMammals"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3]/options</xpath>
+		<value>
+			<TMM_Tribal_Caster_Ravager>3</TMM_Tribal_Caster_Ravager>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Vanilla Races Expanded - Insector and Vanilla Factions Expanded - Insectoids 2. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Colossal"]/statFactors/MeleeDodgeChance</xpath>
+		<value>
+			<MeleeDodgeChance>0</MeleeDodgeChance>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Colossal" or defName="VRE_Microsized"]/statFactors/MeatAmount</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Colossal" or defName="VRE_Microsized"]/statFactors/LeatherAmount</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Colossal" or defName="VRE_Microsized"]/statFactors/VEF_FoodCapacityMultiplier</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Colossal" or defName="VRE_Microsized"]/statFactors/StaggerDurationFactor</xpath>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="VRE_MineralRichInsectskin"]/stages/li[position()=1]/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+				<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+			</statOffsets>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="VRE_MineralRichInsectskin"]/stages/li[position()=2]/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<ArmorRating_Blunt>0.5</ArmorRating_Blunt>
+				<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+			</statOffsets>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_MineralRichInsectskin"]</xpath>
+		<value>
+			<customEffectDescriptions>
+				<li>+20% blunt and sharp natural armor</li>
+				<li>+30% additional blunt and sharp natural armor if the health is above 80%</li>
+			</customEffectDescriptions>
+		</value>
+	</Operation>
+
+</Patch>

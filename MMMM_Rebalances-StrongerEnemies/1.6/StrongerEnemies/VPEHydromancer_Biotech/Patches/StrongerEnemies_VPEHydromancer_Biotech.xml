@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/StrongerEnemies.xml: the operations that also need VPE - Hydromancer and Biotech. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName="TribeRoughNeanderthal"]/pawnGroupMakers/li[position()=1 or position()=2 or position()=3 or position()=4]/options</xpath>
+		<value>
+			<TMM_Tribal_Caster_Hydromancer>0.1</TMM_Tribal_Caster_Hydromancer>
+		</value>
+	</Operation>
+
+</Patch>

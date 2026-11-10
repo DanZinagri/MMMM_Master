@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/ButcherFirst/Patches/ButcherFirst.xml: the operations that also need Vanilla Cooking Expanded - Sushi. -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Butcher First</li>
+		</mods>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/WorkGiverDef[defName="VCE_DoBillsSushi"]/priorityInType</xpath>
+			<value>
+				<!-- same as DoBillsCook -->
+				<priorityInType>90</priorityInType>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

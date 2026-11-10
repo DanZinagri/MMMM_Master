@@ -3,45 +3,175 @@
 <loadFolders>
 	<v1.6>
 		<!-- 1.6/Mods/<Name> loads when that mod is active; 1.6/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActive="Rimsenal.Spacer">1.6/Sidearms/Spacer</li>
+		<li IfModActive="detvisor.impactweaponryreloaded">1.6/Sidearms/ImpactWeaponry</li>
+		<li IfModActive="RedMattis.BigSmall,RedMattis.MoreXenos,RedMattis.Yokai,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.Undead" IfModActiveAll="RedMattis.BigSmall.Core">1.6/Sidearms/BSGenesAndMore_BSContent</li>
+		<li IfModActive="VanillaExpanded.VWE">1.6/Sidearms/VWeaponsE</li>
+		<li IfModActiveAll="VanillaExpanded.VWEFT,VanillaExpanded.VWEC">1.6/Sidearms/VWeaponsEFrontier_VWeaponsECoilguns</li>
+		<li IfModActive="Mlie.ReinforcedMechanoid2">1.6/Sidearms/ReinforcedMechanoid2</li>
+		<li IfModActive="rimsenal.feral">1.6/Sidearms/Feral</li>
+		<li IfModActive="det.vanillaarsenal">1.6/Sidearms/VanillaArsenal</li>
+		<li IfModActive="Ludeon.RimWorld.Royalty">1.6/ImplantRebalance/Royalty</li>
+		<li IfModActiveAll="Ushanka.GlittertechExpansion,vanillaexpanded.gravship">1.6/ImplantRebalance/UGE_VGEChapter1</li>
+		<li IfModActive="Ushanka.GlittertechExpansion">1.6/ImplantRebalance/UshankasGlittertechExpansion</li>
+		<li IfModActiveAll="GoGaTio.LostFactoryMechanoids,lts.I">1.6/ImplantRebalance/LFM_IntegratedImplants</li>
+		<li IfModActiveAll="lts.I,VanillaExpanded.VPsycastsE,Ludeon.RimWorld.Anomaly,Ludeon.RimWorld.Royalty">1.6/ImplantRebalance/II_VPE_Anomaly_Royalty</li>
+		<li IfModActiveAll="lts.I,Ludeon.RimWorld.Anomaly">1.6/ImplantRebalance/IntegratedImplants_Anomaly</li>
+		<li IfModActiveAll="lts.I,Ludeon.RimWorld.Odyssey">1.6/ImplantRebalance/IntegratedImplants_Odyssey</li>
+		<li IfModActive="lts.I">1.6/ImplantRebalance/IntegratedImplants</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,lts.I">1.6/ImplantRebalance/VGenE_IntegratedImplants</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,Ludeon.RimWorld.Royalty">1.6/ImplantRebalance/VGenE_Royalty</li>
+		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/ImplantRebalance/VGenE</li>
+		<li IfModActive="vanillaquestsexpanded.ancients">1.6/EquipmentRebalance/VQEAncients</li>
+		<li IfModActive="VanillaExpanded.VWENL">1.6/EquipmentRebalance/VWeaponsENonLethal</li>
+		<li IfModActiveAll="rimsenal.federation,vanillaexpanded.gravship">1.6/EquipmentRebalance/Federation_VGEChapter1</li>
+		<li IfModActiveAll="detvisor.impactweaponryreloaded,vanillaexpanded.gravship">1.6/EquipmentRebalance/ImpactWeaponry_VGEChapter1</li>
+		<li IfModActiveAll="det.spacerarsenal,vanillaexpanded.gravship">1.6/EquipmentRebalance/SpacerArsenal_VGEChapter1</li>
+		<li IfModActiveAll="hlx.UltratechAlteredCarbon,vanillaexpanded.gravship">1.6/EquipmentRebalance/UltratechAlteredCarbon_VGEChapter1</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,vanillaexpanded.gravship">1.6/EquipmentRebalance/TsSamuraiFaction_VGEChapter1</li>
+		<li IfModActive="Trickity.Samurai.Faction">1.6/EquipmentRebalance/TsSamuraiFaction</li>
+		<li IfModActive="ElSov.Highborn">1.6/EquipmentRebalance/Highborn</li>
+		<li IfModActive="onyxae.dragonsdescent">1.6/EquipmentRebalance/Dragonsdescent</li>
+		<li IfModActive="tug.Minotaur.Expanded">1.6/EquipmentRebalance/RoosMinotaurExpanded</li>
+		<li IfModActive="tug.SatyrFaun.Expanded">1.6/EquipmentRebalance/RoosSatyrAndFaunExpanded</li>
+		<li IfModActive="det.vanillaarsenal">1.6/EquipmentRebalance/VanillaArsenal</li>
+		<li IfModActive="zal.ionweaponry">1.6/EquipmentRebalance/IonWeaponryContinued</li>
+		<li IfModActive="det.spacerarsenal">1.6/EquipmentRebalance/SpacerArsenal</li>
+		<li IfModActive="hlx.UltratechAlteredCarbon">1.6/EquipmentRebalance/UltratechAlteredCarbon</li>
+		<li IfModActive="det.voltweaponry">1.6/EquipmentRebalance/VoltWeaponry</li>
+		<li IfModActive="OskarPotocki.VanillaFactionsExpanded.SettlersModule">1.6/EquipmentRebalance/VFESettlers</li>
+		<li IfModActiveAll="Rimsenal.Spacer,lts.I">1.6/EquipmentRebalance/Spacer_IntegratedImplants</li>
+		<li IfModActive="Rimsenal.Spacer">1.6/EquipmentRebalance/Spacer</li>
+		<li IfModActive="rimsenal.feral">1.6/EquipmentRebalance/Feral</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Pirates,Ludeon.RimWorld.Royalty">1.6/EquipmentRebalance/VFEPirates_Royalty</li>
+		<li IfModActive="OskarPotocki.VFE.Pirates">1.6/EquipmentRebalance/VFEPirates</li>
+		<li IfModActive="VexedTrees980.RimElvesBiotech">1.6/EquipmentRebalance/RimElves</li>
+		<li IfModActive="det.phaseweaponry">1.6/EquipmentRebalance/PhaseWeaponry</li>
+		<li IfModActive="detvisor.pulseweaponry">1.6/EquipmentRebalance/PulseWeaponry</li>
+		<li IfModActive="VanillaExpanded.VAPPE">1.6/EquipmentRebalance/VApparelE</li>
+		<li IfModActiveAll="VanillaExpanded.VARME,Ludeon.RimWorld.Royalty">1.6/EquipmentRebalance/VArmourE_Royalty</li>
+		<li IfModActive="VanillaExpanded.VARME">1.6/EquipmentRebalance/VArmourE</li>
+		<li IfModActive="zal.eltexweaponry">1.6/EquipmentRebalance/EltexWeaponryContinued</li>
+		<li IfModActive="CAT.StellicArsenal">1.6/EquipmentRebalance/StellicArsenal</li>
+		<li IfModActive="VanillaExpanded.VWEQ">1.6/EquipmentRebalance/VWeaponsEQuickdraw</li>
+		<li IfModActive="Mlie.ReinforcedMechanoid2">1.6/EquipmentRebalance/ReinforcedMechanoid2</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.6/EquipmentRebalance/VFEMedieval2</li>
+		<li IfModActiveAll="CAT.CryptoPack,vanillaquestsexpanded.cryptoforge">1.6/EquipmentRebalance/CryptoArsenal_VQECryptoforge</li>
 		<li>1.6</li>
+		<li IfModActive="RedMattis.BigSmall,RedMattis.MoreXenos,RedMattis.Yokai,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.Undead" IfModActiveAll="RedMattis.BigSmall.Core" IfModNotActive="RedMattis.BigSmall.Overtuned">1.6/Without/BigAndSmallOvertuned/BSGenesAndMore_BSContent</li>
 		<li IfModNotActive="RedMattis.BigSmall.Overtuned">1.6/Without/BigAndSmallOvertuned</li>
+		<li IfModActive="lts.I" IfModNotActive="frozensnowfox.advancedbionicsexpansion,frozensnowfox.vanillabionicsexpansion,kentington.saveourship2,teok25.archotechexpanded,teok25.archotechexpanded.prosthetics">1.6/Without/OtherArchotechSpineMods/IntegratedImplants</li>
 		<li IfModNotActive="frozensnowfox.advancedbionicsexpansion,frozensnowfox.vanillabionicsexpansion,kentington.saveourship2,teok25.archotechexpanded,teok25.archotechexpanded.prosthetics">1.6/Without/OtherArchotechSpineMods</li>
+		<li IfModActiveAll="lts.I,Ludeon.RimWorld.Anomaly" IfModNotActive="alien.arasakacorporation01a,bambaryla.bor,doug.conn,explodoboy.SNSAmbitionCosmic,explodoboy.SNSAmbitionCosmic.Gen4Addon,feaurie.greyscythebionics,frozensnowfox.advancedbionicsexpansion,mrkociak.yetanotherprostheticexpansionmodcore,Para0234.SNSAmbitionCosmic,para0234.SNSAmbitionCosmicGen4Addon,rah.rbse,StatistNo1.EvolvedOrgansRedux,vat.epoeforked,Xahkarias.EvolvedOrgansRedux,ykara.elstrages.epoe,ykara.epoe">1.6/Without/OtherBionicsMods/IntegratedImplants_Anomaly</li>
 		<li IfModNotActive="alien.arasakacorporation01a,bambaryla.bor,doug.conn,explodoboy.SNSAmbitionCosmic,explodoboy.SNSAmbitionCosmic.Gen4Addon,feaurie.greyscythebionics,frozensnowfox.advancedbionicsexpansion,mrkociak.yetanotherprostheticexpansionmodcore,Para0234.SNSAmbitionCosmic,para0234.SNSAmbitionCosmicGen4Addon,rah.rbse,StatistNo1.EvolvedOrgansRedux,vat.epoeforked,Xahkarias.EvolvedOrgansRedux,ykara.elstrages.epoe,ykara.epoe">1.6/Without/OtherBionicsMods</li>
+		<li IfModActiveAll="frozensnowfox.vanillabionicsexpansion,VanillaExpanded.VGeneticsE">1.6/Mods/FSFVanillaBionicsExpansion/VGenE</li>
 		<li IfModActive="frozensnowfox.vanillabionicsexpansion">1.6/Mods/FSFVanillaBionicsExpansion</li>
 		<li IfModActive="det.phaseweaponry">1.6/Mods/PhaseWeaponry</li>
 		<li IfModActive="rimsenal.evp">1.6/Mods/RimsenalAugmentedVanilla</li>
+		<li IfModActiveAll="rimsenal.core,vanillaexpanded.gravship">1.6/Mods/RimsenalMurderDiversified/VGEChapter1</li>
+		<li IfModActiveAll="rimsenal.core,RedMattis.BigSmall.Core">1.6/Mods/RimsenalMurderDiversified/BSGenesAndMore</li>
 		<li IfModActive="rimsenal.core">1.6/Mods/RimsenalMurderDiversified</li>
 		<li IfModActive="VanillaExpanded.VAEAccessories">1.6/Mods/VanillaApparelExpandedAccessories</li>
 		<li IfModActive="VanillaExpanded.VWE">1.6/Mods/VanillaWeaponsExpanded</li>
 		<li IfModActive="VanillaExpanded.VWETB">1.6/Mods/VanillaWeaponsExpandedTribals</li>
+		<li IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025" IfModActiveAll="RedMattis.BigSmall.Core,OskarPotocki.VFE.Classical">1.6/Mods/BigAndSmallGiantWeapons/VFEClassical</li>
 		<li IfModActiveAll="RedMattis.BigSmall.Core" IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025">1.6/Mods/BigAndSmallGiantWeapons</li>
+		<li IfModActiveAll="lts.I,RedMattis.BigSmall.Core,Ludeon.RimWorld.Anomaly">1.6/Mods/IntegratedImplants/BSGenesAndMore_Anomaly</li>
 		<li IfModActive="lts.I">1.6/Mods/IntegratedImplants</li>
+		<li IfModActiveAll="VanillaExpanded.VARME,Ludeon.RimWorld.Royalty">1.6/Mods/VanillaArmourExpanded/Royalty</li>
 		<li IfModActive="VanillaExpanded.VARME">1.6/Mods/VanillaArmourExpanded</li>
 		<li IfModActive="detvisor.impactweaponryreloaded">1.6/Mods/ImpactWeaponry</li>
 		<li IfModActive="detvisor.pulseweaponry">1.6/Mods/PulseWeaponry</li>
+		<li IfModActiveAll="Spino.Megafauna,RedMattis.BetterPrerequisites">1.6/Mods/Megafauna/BSFramework</li>
 		<li IfModActive="Spino.Megafauna">1.6/Mods/Megafauna</li>
 		<li IfModActive="Aoba.DeadManSwitch.Core">1.6/Mods/DeadMansSwitch</li>
 	</v1.6>
 	<v1.7>
 		<!-- 1.7/Mods/<Name> loads when that mod is active; 1.7/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
+		<li IfModActive="Rimsenal.Spacer">1.7/Sidearms/Spacer</li>
+		<li IfModActive="detvisor.impactweaponryreloaded">1.7/Sidearms/ImpactWeaponry</li>
+		<li IfModActive="RedMattis.BigSmall,RedMattis.MoreXenos,RedMattis.Yokai,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.Undead" IfModActiveAll="RedMattis.BigSmall.Core">1.7/Sidearms/BSGenesAndMore_BSContent</li>
+		<li IfModActive="VanillaExpanded.VWE">1.7/Sidearms/VWeaponsE</li>
+		<li IfModActiveAll="VanillaExpanded.VWEFT,VanillaExpanded.VWEC">1.7/Sidearms/VWeaponsEFrontier_VWeaponsECoilguns</li>
+		<li IfModActive="Mlie.ReinforcedMechanoid2">1.7/Sidearms/ReinforcedMechanoid2</li>
+		<li IfModActive="rimsenal.feral">1.7/Sidearms/Feral</li>
+		<li IfModActive="det.vanillaarsenal">1.7/Sidearms/VanillaArsenal</li>
+		<li IfModActive="Ludeon.RimWorld.Royalty">1.7/ImplantRebalance/Royalty</li>
+		<li IfModActiveAll="Ushanka.GlittertechExpansion,vanillaexpanded.gravship">1.7/ImplantRebalance/UGE_VGEChapter1</li>
+		<li IfModActive="Ushanka.GlittertechExpansion">1.7/ImplantRebalance/UshankasGlittertechExpansion</li>
+		<li IfModActiveAll="GoGaTio.LostFactoryMechanoids,lts.I">1.7/ImplantRebalance/LFM_IntegratedImplants</li>
+		<li IfModActiveAll="lts.I,VanillaExpanded.VPsycastsE,Ludeon.RimWorld.Anomaly,Ludeon.RimWorld.Royalty">1.7/ImplantRebalance/II_VPE_Anomaly_Royalty</li>
+		<li IfModActiveAll="lts.I,Ludeon.RimWorld.Anomaly">1.7/ImplantRebalance/IntegratedImplants_Anomaly</li>
+		<li IfModActiveAll="lts.I,Ludeon.RimWorld.Odyssey">1.7/ImplantRebalance/IntegratedImplants_Odyssey</li>
+		<li IfModActive="lts.I">1.7/ImplantRebalance/IntegratedImplants</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,lts.I">1.7/ImplantRebalance/VGenE_IntegratedImplants</li>
+		<li IfModActiveAll="VanillaExpanded.VGeneticsE,Ludeon.RimWorld.Royalty">1.7/ImplantRebalance/VGenE_Royalty</li>
+		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/ImplantRebalance/VGenE</li>
+		<li IfModActive="vanillaquestsexpanded.ancients">1.7/EquipmentRebalance/VQEAncients</li>
+		<li IfModActive="VanillaExpanded.VWENL">1.7/EquipmentRebalance/VWeaponsENonLethal</li>
+		<li IfModActiveAll="rimsenal.federation,vanillaexpanded.gravship">1.7/EquipmentRebalance/Federation_VGEChapter1</li>
+		<li IfModActiveAll="detvisor.impactweaponryreloaded,vanillaexpanded.gravship">1.7/EquipmentRebalance/ImpactWeaponry_VGEChapter1</li>
+		<li IfModActiveAll="det.spacerarsenal,vanillaexpanded.gravship">1.7/EquipmentRebalance/SpacerArsenal_VGEChapter1</li>
+		<li IfModActiveAll="hlx.UltratechAlteredCarbon,vanillaexpanded.gravship">1.7/EquipmentRebalance/UltratechAlteredCarbon_VGEChapter1</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,vanillaexpanded.gravship">1.7/EquipmentRebalance/TsSamuraiFaction_VGEChapter1</li>
+		<li IfModActive="Trickity.Samurai.Faction">1.7/EquipmentRebalance/TsSamuraiFaction</li>
+		<li IfModActive="ElSov.Highborn">1.7/EquipmentRebalance/Highborn</li>
+		<li IfModActive="onyxae.dragonsdescent">1.7/EquipmentRebalance/Dragonsdescent</li>
+		<li IfModActive="tug.Minotaur.Expanded">1.7/EquipmentRebalance/RoosMinotaurExpanded</li>
+		<li IfModActive="tug.SatyrFaun.Expanded">1.7/EquipmentRebalance/RoosSatyrAndFaunExpanded</li>
+		<li IfModActive="det.vanillaarsenal">1.7/EquipmentRebalance/VanillaArsenal</li>
+		<li IfModActive="zal.ionweaponry">1.7/EquipmentRebalance/IonWeaponryContinued</li>
+		<li IfModActive="det.spacerarsenal">1.7/EquipmentRebalance/SpacerArsenal</li>
+		<li IfModActive="hlx.UltratechAlteredCarbon">1.7/EquipmentRebalance/UltratechAlteredCarbon</li>
+		<li IfModActive="det.voltweaponry">1.7/EquipmentRebalance/VoltWeaponry</li>
+		<li IfModActive="OskarPotocki.VanillaFactionsExpanded.SettlersModule">1.7/EquipmentRebalance/VFESettlers</li>
+		<li IfModActiveAll="Rimsenal.Spacer,lts.I">1.7/EquipmentRebalance/Spacer_IntegratedImplants</li>
+		<li IfModActive="Rimsenal.Spacer">1.7/EquipmentRebalance/Spacer</li>
+		<li IfModActive="rimsenal.feral">1.7/EquipmentRebalance/Feral</li>
+		<li IfModActiveAll="OskarPotocki.VFE.Pirates,Ludeon.RimWorld.Royalty">1.7/EquipmentRebalance/VFEPirates_Royalty</li>
+		<li IfModActive="OskarPotocki.VFE.Pirates">1.7/EquipmentRebalance/VFEPirates</li>
+		<li IfModActive="VexedTrees980.RimElvesBiotech">1.7/EquipmentRebalance/RimElves</li>
+		<li IfModActive="det.phaseweaponry">1.7/EquipmentRebalance/PhaseWeaponry</li>
+		<li IfModActive="detvisor.pulseweaponry">1.7/EquipmentRebalance/PulseWeaponry</li>
+		<li IfModActive="VanillaExpanded.VAPPE">1.7/EquipmentRebalance/VApparelE</li>
+		<li IfModActiveAll="VanillaExpanded.VARME,Ludeon.RimWorld.Royalty">1.7/EquipmentRebalance/VArmourE_Royalty</li>
+		<li IfModActive="VanillaExpanded.VARME">1.7/EquipmentRebalance/VArmourE</li>
+		<li IfModActive="zal.eltexweaponry">1.7/EquipmentRebalance/EltexWeaponryContinued</li>
+		<li IfModActive="CAT.StellicArsenal">1.7/EquipmentRebalance/StellicArsenal</li>
+		<li IfModActive="VanillaExpanded.VWEQ">1.7/EquipmentRebalance/VWeaponsEQuickdraw</li>
+		<li IfModActive="Mlie.ReinforcedMechanoid2">1.7/EquipmentRebalance/ReinforcedMechanoid2</li>
+		<li IfModActive="OskarPotocki.VFE.Medieval2">1.7/EquipmentRebalance/VFEMedieval2</li>
+		<li IfModActiveAll="CAT.CryptoPack,vanillaquestsexpanded.cryptoforge">1.7/EquipmentRebalance/CryptoArsenal_VQECryptoforge</li>
 		<li>1.7</li>
+		<li IfModActive="RedMattis.BigSmall,RedMattis.MoreXenos,RedMattis.Yokai,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.Undead" IfModActiveAll="RedMattis.BigSmall.Core" IfModNotActive="RedMattis.BigSmall.Overtuned">1.7/Without/BigAndSmallOvertuned/BSGenesAndMore_BSContent</li>
 		<li IfModNotActive="RedMattis.BigSmall.Overtuned">1.7/Without/BigAndSmallOvertuned</li>
+		<li IfModActive="lts.I" IfModNotActive="frozensnowfox.advancedbionicsexpansion,frozensnowfox.vanillabionicsexpansion,kentington.saveourship2,teok25.archotechexpanded,teok25.archotechexpanded.prosthetics">1.7/Without/OtherArchotechSpineMods/IntegratedImplants</li>
 		<li IfModNotActive="frozensnowfox.advancedbionicsexpansion,frozensnowfox.vanillabionicsexpansion,kentington.saveourship2,teok25.archotechexpanded,teok25.archotechexpanded.prosthetics">1.7/Without/OtherArchotechSpineMods</li>
+		<li IfModActiveAll="lts.I,Ludeon.RimWorld.Anomaly" IfModNotActive="alien.arasakacorporation01a,bambaryla.bor,doug.conn,explodoboy.SNSAmbitionCosmic,explodoboy.SNSAmbitionCosmic.Gen4Addon,feaurie.greyscythebionics,frozensnowfox.advancedbionicsexpansion,mrkociak.yetanotherprostheticexpansionmodcore,Para0234.SNSAmbitionCosmic,para0234.SNSAmbitionCosmicGen4Addon,rah.rbse,StatistNo1.EvolvedOrgansRedux,vat.epoeforked,Xahkarias.EvolvedOrgansRedux,ykara.elstrages.epoe,ykara.epoe">1.7/Without/OtherBionicsMods/IntegratedImplants_Anomaly</li>
 		<li IfModNotActive="alien.arasakacorporation01a,bambaryla.bor,doug.conn,explodoboy.SNSAmbitionCosmic,explodoboy.SNSAmbitionCosmic.Gen4Addon,feaurie.greyscythebionics,frozensnowfox.advancedbionicsexpansion,mrkociak.yetanotherprostheticexpansionmodcore,Para0234.SNSAmbitionCosmic,para0234.SNSAmbitionCosmicGen4Addon,rah.rbse,StatistNo1.EvolvedOrgansRedux,vat.epoeforked,Xahkarias.EvolvedOrgansRedux,ykara.elstrages.epoe,ykara.epoe">1.7/Without/OtherBionicsMods</li>
+		<li IfModActiveAll="frozensnowfox.vanillabionicsexpansion,VanillaExpanded.VGeneticsE">1.7/Mods/FSFVanillaBionicsExpansion/VGenE</li>
 		<li IfModActive="frozensnowfox.vanillabionicsexpansion">1.7/Mods/FSFVanillaBionicsExpansion</li>
 		<li IfModActive="det.phaseweaponry">1.7/Mods/PhaseWeaponry</li>
 		<li IfModActive="rimsenal.evp">1.7/Mods/RimsenalAugmentedVanilla</li>
+		<li IfModActiveAll="rimsenal.core,vanillaexpanded.gravship">1.7/Mods/RimsenalMurderDiversified/VGEChapter1</li>
+		<li IfModActiveAll="rimsenal.core,RedMattis.BigSmall.Core">1.7/Mods/RimsenalMurderDiversified/BSGenesAndMore</li>
 		<li IfModActive="rimsenal.core">1.7/Mods/RimsenalMurderDiversified</li>
 		<li IfModActive="VanillaExpanded.VAEAccessories">1.7/Mods/VanillaApparelExpandedAccessories</li>
 		<li IfModActive="VanillaExpanded.VWE">1.7/Mods/VanillaWeaponsExpanded</li>
 		<li IfModActive="VanillaExpanded.VWETB">1.7/Mods/VanillaWeaponsExpandedTribals</li>
+		<li IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025" IfModActiveAll="RedMattis.BigSmall.Core,OskarPotocki.VFE.Classical">1.7/Mods/BigAndSmallGiantWeapons/VFEClassical</li>
 		<li IfModActiveAll="RedMattis.BigSmall.Core" IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025">1.7/Mods/BigAndSmallGiantWeapons</li>
+		<li IfModActiveAll="lts.I,RedMattis.BigSmall.Core,Ludeon.RimWorld.Anomaly">1.7/Mods/IntegratedImplants/BSGenesAndMore_Anomaly</li>
 		<li IfModActive="lts.I">1.7/Mods/IntegratedImplants</li>
+		<li IfModActiveAll="VanillaExpanded.VARME,Ludeon.RimWorld.Royalty">1.7/Mods/VanillaArmourExpanded/Royalty</li>
 		<li IfModActive="VanillaExpanded.VARME">1.7/Mods/VanillaArmourExpanded</li>
 		<li IfModActive="detvisor.impactweaponryreloaded">1.7/Mods/ImpactWeaponry</li>
 		<li IfModActive="detvisor.pulseweaponry">1.7/Mods/PulseWeaponry</li>
+		<li IfModActiveAll="Spino.Megafauna,RedMattis.BetterPrerequisites">1.7/Mods/Megafauna/BSFramework</li>
 		<li IfModActive="Spino.Megafauna">1.7/Mods/Megafauna</li>
 		<li IfModActive="Aoba.DeadManSwitch.Core">1.7/Mods/DeadMansSwitch</li>
 	</v1.7>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/EquipmentRebalance.xml: the operations that also need Pulse Weaponry. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="PulseBullet"]/projectile/damageAmountBase</xpath>
+		<value>
+			<damageAmountBase>8</damageAmountBase>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DV_PulseSMG"]/statBases/RangedWeapon_Cooldown</xpath>
+		<value>
+			<RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DV_PulseSMG"]/verbs/li/warmupTime</xpath>
+		<value>
+			<warmupTime>0.5</warmupTime>
+		</value>
+	</Operation>
+
+</Patch>

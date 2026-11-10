@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/RoosMinotaur/Patches/RoosMinotaur.xml: the operations that also need Roo's Minotaur Xenotype Expanded. -->
+
+	<Operation Class="PatchOperationAttributeSet">
+		<xpath>Defs/ThingDef[defName="RBME_HellenicHelmet" or defName="RBME_RoyalHellenicHelmet"]/recipeMaker/recipeUsers</xpath>
+		<attribute>Inherit</attribute>
+		<value>False</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="RBME_Sling"]/recipeMaker</xpath>
+		<value>
+			<recipeUsers>
+				<li>CraftingSpot</li>
+			</recipeUsers>
+		</value>
+	</Operation>
+
+</Patch>

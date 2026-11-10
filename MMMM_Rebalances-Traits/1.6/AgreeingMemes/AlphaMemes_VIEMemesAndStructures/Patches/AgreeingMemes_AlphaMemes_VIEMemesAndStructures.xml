@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/AgreeingMemes.xml: the operations that also need Alpha Memes and Vanilla Ideology Expanded - Memes and Structures. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/MemeDef[defName="AM_NonViolence"]</xpath>
+		<value>
+			<agreeableTraits>
+				<li>Kind</li>
+			</agreeableTraits>
+		</value>
+	</Operation>
+
+</Patch>

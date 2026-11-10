@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/EquipmentRebalance.xml: the operations that also need Vanilla Factions Expanded - Pirates and Royalty. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/VFEPirates.WarcasketDef[defName="VFEP_Warcasket_Guardian"]/costList/ComponentSpacer</xpath>
+		<value>
+			<ComponentSpacer>4</ComponentSpacer>
+			<BroadshieldCore>1</BroadshieldCore>
+		</value>
+	</Operation>
+
+</Patch>

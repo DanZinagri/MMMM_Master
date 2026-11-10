@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/EquipmentRebalance.xml: the operations that also need onyxae.dragonsdescent. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DD_Arrow_RecurveProjectile"]/projectile/damageAmountBase</xpath>
+		<value>
+			<damageAmountBase>9</damageAmountBase>
+		</value>
+	</Operation>
+
+</Patch>

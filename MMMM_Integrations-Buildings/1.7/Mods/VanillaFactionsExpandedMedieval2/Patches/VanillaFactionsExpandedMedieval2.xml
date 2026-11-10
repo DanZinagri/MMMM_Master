@@ -12,35 +12,11 @@
 		already listed. Progression: Attire also appends Medieval Overhaul's anvil to the helmet's recipeUsers, which stacks.
 		Split by category into the MMMM Integrations sub-mods: this copy holds only the Buildings ops (buildings, furniture, floors, recipes and production).
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/ThingDef[defName="VFEM2_Palisade"]/holdsRoof</xpath>
-				<value>
-					<holdsRoof>false</holdsRoof>
-				</value>
-			</li>
-		</operations>
-	</Operation>
-
-	<!--
-		With VFE Furniture: VFE Medieval 2's training dummy counts as VFE's "strength play" recreation instead of vanilla
-		dexterity gaming, in the building, its play job and its joy giver. Verified all three upstream values are
-		Gaming_Dexterity and VFE_StrengthPlay exists. Rimbody's melee-exercise tag on the same job is unaffected.
-	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationSequence" MayRequire="VanillaExpanded.VFECore">
-				<operations>
-					<li Class="PatchOperationReplace">
-						<xpath>Defs/ThingDef[defName="VFEM2_TrainingDummy"]/building/joyKind</xpath>
-						<value>
-							<joyKind>VFE_StrengthPlay</joyKind>
-						</value>
-					</li>
-				</operations>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VFEM2_Palisade"]/holdsRoof</xpath>
+		<value>
+			<holdsRoof>false</holdsRoof>
+		</value>
 	</Operation>
 
 </Patch>

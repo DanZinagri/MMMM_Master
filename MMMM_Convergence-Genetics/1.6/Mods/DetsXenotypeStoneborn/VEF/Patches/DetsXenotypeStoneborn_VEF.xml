@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/DetsXenotypeStoneborn/Patches/DetsXenotypeStoneborn.xml: the operations that also need Vanilla Expanded Framework. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/DV_SmallBuild</li>
+			<li>GeneDef/DV_SmallBuild_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

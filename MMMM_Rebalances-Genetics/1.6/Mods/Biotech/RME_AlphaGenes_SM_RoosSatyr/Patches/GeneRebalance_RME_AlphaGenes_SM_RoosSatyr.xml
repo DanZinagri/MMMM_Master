@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Roo's Minotaur Xenotype or Roo's Faun Xenotype or Roo's Satyr Xenotype and Alpha Genes and Arquebus.StagzMerfolk and Roo's Satyr Xenotype. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="RBSF_Satyr"]/genes</xpath>
+		<value>
+			<li>AG_Filthy</li>
+			<li>Stagz_Nimbleness</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/ReGrowthExtinctAnimals/Patches/ReGrowthExtinctAnimals.xml: the operations that also need Vanilla Genetics Expanded and spincrus.dinosauria or BiomesTeam.BiomesPrehistoric. -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneticRim.ExtractableAnimalsList[defName="GR_TierTwoAnimalsReptilesReGrowthExtinct"]/extractableAnimals/li[text()="RG_Velociraptor" or text()="RG_WoollyStegosaurus"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneticRim.ExtractableAnimalsList[defName="GR_Dinosauria"]/extractableAnimals</xpath>
+		<value>
+			<li>RG_Velociraptor</li>
+			<li>RG_WoollyStegosaurus</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/ImplantRebalance.xml: the operations that also need Integrated Implants. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="InternalClimateControlImplant"]/stages/li/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<ComfyTemperatureMin>-10</ComfyTemperatureMin>
+				<ComfyTemperatureMax>10</ComfyTemperatureMax>
+			</statOffsets>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="PsychicLevitator"]/statBases/MarketValue</xpath>
+		<value>
+			<MarketValue>4000</MarketValue>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/HediffDef[defName="StrengthEnhancer"]/stages/li/statFactors</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/HediffDef[defName="StrengthEnhancer"]/stages/li/statOffsets</xpath>
+		<value>
+			<MeleeDamageFactor>0.2</MeleeDamageFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="LTS_PrestigeSubdermalArmour"]/tags</xpath>
+		<value>
+			<tags>
+				<li>ArmorGland</li>
+			</tags>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="LTS_SubdermalArmour"]/tags</xpath>
+		<value>
+			<tags>
+				<li>ArmorGland</li>
+			</tags>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="LTS_InstallSubdermalArmour"]/incompatibleWithHediffTags</xpath>
+		<value>
+			<incompatibleWithHediffTags>
+				<li>ArmorGland</li>
+			</incompatibleWithHediffTags>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="LTS_InstallPrestigeSubdermalArmour"]/incompatibleWithHediffTags</xpath>
+		<value>
+			<incompatibleWithHediffTags>
+				<li>ArmorGland</li>
+			</incompatibleWithHediffTags>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="LTS_ShoulderTurretActive"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs/li/burstShotCount</xpath>
+		<value>
+			<burstShotCount>1</burstShotCount>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="LTS_ShoulderChargeTurretActive"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs/li/burstShotCount</xpath>
+		<value>
+			<burstShotCount>1</burstShotCount>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/HediffDef[defName="ArchotechVoicebox"]/stages/li/statOffsets/TradePriceImprovement</xpath>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="WarprogrammerInterfaceImplant"]/description</xpath>
+		<value>
+			<description>An implant which increases the melee and ranged abilities of a mechanitor's mechs, further scaling with the mechanitor's own intellectual skill.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="WarprogrammerInterface"]/description</xpath>
+		<value>
+			<description>A neural implant which allows for the uploading of specialised tactical protocols to any mechanoids controlled by the mechanitor. The bonuses granted to mechs melee and ranged abilities further scale with the mechanitor's own intellectual skill.\n\nIt can be self-installed without surgery.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/StatDef[defName="ShootingAccuracyPawnOffsetMech" or defName="AimingDelayFactorOffsetMech"]/skillNeedFactors/li[skill="Shooting"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/StatDef[defName="MeleeHitChanceOffsetMech" or defName="MeleeDodgeChanceOffsetMech"]/skillNeedFactors/li[skill="Melee"]</xpath>
+	</Operation>
+
+</Patch>

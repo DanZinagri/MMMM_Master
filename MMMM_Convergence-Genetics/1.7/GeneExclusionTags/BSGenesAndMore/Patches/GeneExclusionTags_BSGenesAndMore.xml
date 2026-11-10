@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/GeneExclusionTags.xml: the operations that also need Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="BS_PsychicWarrior"]/exclusionTags</xpath>
+		<value>
+			<li>Toughness</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/GeneDef[defName="BS_Immortal" or defName="BS_ReturningSoul"]/exclusionTags</xpath>
+		<value>
+			<li>TMM_Deathless</li>
+		</value>
+	</Operation>
+
+</Patch>

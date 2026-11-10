@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Rimsenal Xenotype Pack - Askbarn and Det's Xenotypes - Keshig. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="DV_DodgeChance_High"]/statOffsets</xpath>
+		<value>
+			<statFactors>
+				<MeleeDodgeChance>1.6</MeleeDodgeChance>
+			</statFactors>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="DV_DodgeChance_High"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-2</biostatMet>
+		</value>
+	</Operation>
+
+</Patch>

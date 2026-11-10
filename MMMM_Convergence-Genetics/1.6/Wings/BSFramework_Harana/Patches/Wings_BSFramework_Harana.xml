@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/Wings.xml: the operations that also need Big and Small - Framework and Rimsenal.Harana. -->
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/GeneDef[defName="Gene_Hwing"]</xpath>
+		<value>
+			<li Class="BigAndSmall.PawnExtension">
+				<thingDefSwap>BS_HumanoidWithWings</thingDefSwap>
+				<renderCacheOff>true</renderCacheOff>
+				<applyBodyHediff>
+					<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+						<hediff>BS_Floating</hediff>
+					</li>
+				</applyBodyHediff>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

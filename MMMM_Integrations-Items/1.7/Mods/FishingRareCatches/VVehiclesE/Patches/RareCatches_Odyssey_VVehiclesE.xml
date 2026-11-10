@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/FishingRareCatches/Patches/RareCatches_Odyssey.xml: the operations that also need Vanilla Vehicles Expanded. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[@Name="RareFishingCatchesBase"]/root/options</xpath>
+		<value>
+			<li>
+				<weight>0.1</weight>
+				<thingSetMaker Class="ThingSetMaker_Count">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li>VVE_CarWheel</li>
+							</thingDefs>
+						</filter>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

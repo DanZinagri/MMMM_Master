@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaArmourExpanded/Patches/VanillaArmourExpanded.xml: the operations that also need Royalty. -->
+
+	<Operation Class="PatchOperationAttributeAdd">
+		<xpath>Defs/ThingDef[defName="VAE_Apparel_RoyalSiegeArmor"]/apparel/layers</xpath>
+		<attribute>Inherit</attribute>
+		<value>False</value>
+	</Operation>
+
+</Patch>

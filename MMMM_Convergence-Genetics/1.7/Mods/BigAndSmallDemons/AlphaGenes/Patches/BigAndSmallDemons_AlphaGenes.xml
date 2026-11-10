@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Mods/BigAndSmallDemons/Patches/BigAndSmallDemons.xml: the operations that also need Alpha Genes. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="VU_Succubus"]/genes</xpath>
+		<value>
+			<li>AG_HeatImmunity</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="VU_Hellguard"]/genes</xpath>
+		<value>
+			<li>AG_HeatImmunity</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="VU_Imp"]/genes</xpath>
+		<value>
+			<li>AG_HeatImmunity</li>
+		</value>
+	</Operation>
+
+</Patch>

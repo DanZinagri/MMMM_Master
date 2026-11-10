@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/StrongerEnemies.xml: the operations that also need Vanilla Psycasts Expanded. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="Empire_Caster_Warlord_Melee"]</xpath>
+		<value>
+			<startingHediffs>
+				<li>
+					<def>VPE_SpeedBoost</def>
+					<durationTicksRange>10500~11500</durationTicksRange>
+				</li>
+				<li>
+					<def>VPE_BladeFocus</def>
+					<durationTicksRange>21000~23000</durationTicksRange>
+				</li>
+			</startingHediffs>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="Empire_Caster_Warlord_Ranged"]</xpath>
+		<value>
+			<startingHediffs>
+				<li>
+					<def>VPE_SpeedBoost</def>
+					<durationTicksRange>10500~11500</durationTicksRange>
+				</li>
+				<li>
+					<def>VPE_FiringFocus</def>
+					<durationTicksRange>8000~9000</durationTicksRange>
+				</li>
+			</startingHediffs>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="Empire_Caster_Protector"]</xpath>
+		<value>
+			<startingHediffs>
+				<li>
+					<def>PsychicFocus</def>
+					<durationTicksRange>8000~9000</durationTicksRange>
+				</li>
+				<li>
+					<def>PsychicAnesthesia</def>
+					<durationTicksRange>10500~11500</durationTicksRange>
+				</li>
+			</startingHediffs>
+		</value>
+	</Operation>
+	<!--
+		Non-casters leave the tribal psycaster raid group, so those raids are casters only.
+	-->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_Penitent</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_Warrior</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_Archer</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_Hunter</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_HeavyArcher</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_Berserker</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_ChiefRanged</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[@Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid"]/options/Tribal_ChiefMelee</xpath>
+	</Operation>
+
+</Patch>

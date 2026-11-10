@@ -13,30 +13,27 @@
 		designation category and label only.
 		Split by category into the MMMM Integrations sub-mods: this copy holds only the Factions ops (factions, pawn kinds, traders and royal titles).
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationFindMod">
-				<mods>
-					<li>Medieval Overhaul: Royalty</li>
-				</mods>
-				<nomatch Class="PatchOperationSequence">
-					<operations>
-						<li Class="PatchOperationAdd">
-							<xpath>Defs/RoyalTitleDef[favorCost=308]/throneRoomRequirements/li[position()=14]/things</xpath>
-							<value>
-								<li MayRequire="VanillaExpanded.VFECore">Seat_RoyalArmchair</li>
-							</value>
-						</li>
-						<li Class="PatchOperationAdd">
-							<xpath>Defs/RoyalTitleDef[defName="VFEE_HighStellarch"]/throneRoomRequirements/li[position()=14]/things</xpath>
-							<value>
-								<li MayRequire="VanillaExpanded.VFECore">Seat_RoyalArmchair</li>
-							</value>
-						</li>
-					</operations>
-				</nomatch>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Medieval Overhaul: Royalty</li>
+		</mods>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/RoyalTitleDef[favorCost=308]/throneRoomRequirements/li[position()=14]/things</xpath>
+			<value>
+				<li MayRequire="VanillaExpanded.VFECore">Seat_RoyalArmchair</li>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Medieval Overhaul: Royalty</li>
+		</mods>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/RoyalTitleDef[defName="VFEE_HighStellarch"]/throneRoomRequirements/li[position()=14]/things</xpath>
+			<value>
+				<li MayRequire="VanillaExpanded.VFECore">Seat_RoyalArmchair</li>
+			</value>
+		</nomatch>
 	</Operation>
 
 </Patch>

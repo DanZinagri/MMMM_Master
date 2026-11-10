@@ -13,46 +13,42 @@
 		Verified against FEB 1.6: every requiredTraits / nullifyingTraits list targeted exists, and the VTE and B&S traits exist.
 		No other installed mod patches these thoughts.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/ThoughtDef[defName="FEB_ToxogaThoughtPositive"]/requiredTraits</xpath>
-				<value>
-					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalLover</li>
-					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Menagerist</li>
-					<li MayRequire="RedMattis.BigSmall.Core">BS_AnimalFriend</li>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/ThoughtDef[defName="FEB_ToxogaThoughtNeutral"]/nullifyingTraits</xpath>
-				<value>
-					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalLover</li>
-					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Menagerist</li>
-					<li MayRequire="RedMattis.BigSmall.Core">BS_AnimalFriend</li>
-					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/ThoughtDef[defName="FEB_ToxogaThoughtNegative"]/nullifyingTraits</xpath>
-				<value>
-					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalLover</li>
-					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Menagerist</li>
-					<li MayRequire="RedMattis.BigSmall.Core">BS_AnimalFriend</li>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/ThoughtDef[defName="FEB_ToxogaThoughtPositive"]/nullifyingTraits</xpath>
-				<value>
-					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/ThoughtDef[defName="FEB_ToxogaThoughtNegative"]/requiredTraits</xpath>
-				<value>
-					<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
-				</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThoughtDef[defName="FEB_ToxogaThoughtPositive"]/requiredTraits</xpath>
+		<value>
+			<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalLover</li>
+			<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Menagerist</li>
+			<li MayRequire="RedMattis.BigSmall.Core">BS_AnimalFriend</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThoughtDef[defName="FEB_ToxogaThoughtNeutral"]/nullifyingTraits</xpath>
+		<value>
+			<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalLover</li>
+			<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Menagerist</li>
+			<li MayRequire="RedMattis.BigSmall.Core">BS_AnimalFriend</li>
+			<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThoughtDef[defName="FEB_ToxogaThoughtNegative"]/nullifyingTraits</xpath>
+		<value>
+			<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalLover</li>
+			<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Menagerist</li>
+			<li MayRequire="RedMattis.BigSmall.Core">BS_AnimalFriend</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThoughtDef[defName="FEB_ToxogaThoughtPositive"]/nullifyingTraits</xpath>
+		<value>
+			<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThoughtDef[defName="FEB_ToxogaThoughtNegative"]/requiredTraits</xpath>
+		<value>
+			<li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_AnimalHater</li>
+		</value>
 	</Operation>
 
 </Patch>

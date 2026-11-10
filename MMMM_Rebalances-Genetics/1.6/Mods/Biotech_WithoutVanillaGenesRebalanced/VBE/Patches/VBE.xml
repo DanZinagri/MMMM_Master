@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech_WithoutVanillaGenesRebalanced/Patches/Biotech_WithoutVanillaGenesRebalanced_GeneRebalance.xml: the operations that also need Vanilla Brewing Expanded. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneTemplateDef[defName="AddictionImmune"]/chemicalBiostatOverrides</xpath>
+		<value>
+			<li>
+				<chemical>VBE_Caffeine</chemical>
+				<biostatMet>-1</biostatMet>
+			</li>
+			<li>
+				<chemical>VBE_Tobacco</chemical>
+				<biostatMet>-1</biostatMet>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneTemplateDef[defName="AddictionResistant"]/chemicalBiostatOverrides</xpath>
+		<value>
+			<li>
+				<chemical>VBE_Caffeine</chemical>
+				<biostatMet>0</biostatMet>
+			</li>
+			<li>
+				<chemical>VBE_Tobacco</chemical>
+				<biostatMet>0</biostatMet>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

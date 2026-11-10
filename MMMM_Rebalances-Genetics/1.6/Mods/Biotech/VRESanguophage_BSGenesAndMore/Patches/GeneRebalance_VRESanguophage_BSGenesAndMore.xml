@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Vanilla Races Expanded - Sanguophage and Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="VU_GreaterHemogenDrain"]/biostatMet</xpath>
+		<value>
+			<biostatMet>5</biostatMet>
+		</value>
+	</Operation>
+
+</Patch>

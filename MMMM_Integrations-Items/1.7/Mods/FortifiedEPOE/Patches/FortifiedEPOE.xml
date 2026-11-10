@@ -11,25 +11,21 @@
 		Verified 2026-10-21: both hediffs exist in EPOE-Forked 1.6, and all three tiers carry an EquippableWithHediff list in
 		Fortified 1.6 (its 1.7 load reuses the 1.6 Defs). The list is still created first if a tier lacks it.
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationConditional">
-				<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
-				<match Class="PatchOperationAdd">
-					<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
-					<value>
-						<EquippableWithHediff />
-					</value>
-				</match>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid"]/EquippableWithHediff</xpath>
-				<value>
-					<li>AdvancedBionicArm</li>
-					<li>AdvancedBionicHand</li>
-				</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/Fortified.HeavyEquippableDef[(defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid") and not(EquippableWithHediff)]</xpath>
+			<value>
+				<EquippableWithHediff />
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/Fortified.HeavyEquippableDef[defName="AverageHumanCanUse" or defName="LightAutomatroid" or defName="StandardAutomatroid"]/EquippableWithHediff</xpath>
+		<value>
+			<li>AdvancedBionicArm</li>
+			<li>AdvancedBionicHand</li>
+		</value>
 	</Operation>
 
 </Patch>

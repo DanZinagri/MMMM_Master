@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/Wings.xml: the operations that also need Alpha Genes and EBSG Framework. -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Seraphim Xenotype</li>
+		</mods>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/GeneDef[defName="GS_Levitate"]/biostatMet</xpath>
+			<value>
+				<biostatMet>-2</biostatMet>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Seraphim Xenotype</li>
+		</mods>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[defName="GS_Seraphim"]/genes/li[text()="GS_Levitate"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Seraphim Xenotype</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/GeneDef[defName="GS_Levitate"]</xpath>
+			<value>
+				<exclusionTags>
+					<li>Wing</li>
+					<li>Wings</li>
+				</exclusionTags>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

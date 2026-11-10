@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Slime xenotypes gain Alpha Genes blood and flesh genes that match what they are made of: chocolate flesh for
+		the banana split, cryo blood and cryo vomit for the frost slimes, tar blood for the lava slimes, slime blood
+		for the green and toxic ones, water blood for the rest, and passive regeneration for the elixir slime.
+		This folder only loads when Slimes is active (see loadFolders.xml); Alpha Genes is gated by subfolder, and the
+		giant variants additionally need Big and Small - Races, which is where those xenotypes come from.
+		Verified against the current 1.6 releases: none of these xenotypes already lists the gene being added.
+	-->
+	<!--
+		Operations that also need another mod sit in a subfolder gated on it in loadFolders.xml. Do not flatten this wrapper away.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_BananaSplitSlime"]/genes</xpath>
+		<value>
+			<li>AG_ChocolateFlesh</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_ElixirSlime"]/genes</xpath>
+		<value>
+			<li>AG_PassiveRegenerator</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_FrostSlime"]/genes</xpath>
+		<value>
+			<li>AG_CryoBlood</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_FrostSlime"]/genes</xpath>
+		<value>
+			<li>AG_PukeCryo</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_LavaSlime"]/genes</xpath>
+		<value>
+			<li>AG_TarBlood</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_ToxicSlduge" or defName="BS_GreenSlime" or defName="BS_BananaSplitSlime"]/genes</xpath>
+		<value>
+			<li>AG_SlimeBlood</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_EmperorSlime" or defName="BS_PinkSlime" or defName="BS_ElixirSlime"]/genes</xpath>
+		<value>
+			<li>AG_WaterBlood</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/OtherRebalance.xml: the operations that also need Mlie.ReinforcedMechanoid2. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="RM_Mech_Sentinel"]/comps/li[@Class="ReinforcedMechanoids.CompProperties_MentalStateOnDamage"]/chanceOfMentalBreak</xpath>
+		<value>
+			<chanceOfMentalBreak>0.005</chanceOfMentalBreak>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="RM_VanometricMechanoidCell"]</xpath>
+		<value>
+			<tradeability>Sellable</tradeability>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="RM_Mech_Marshal"]/comps/li[@Class="VEF.Apparels.CompProperties_ShieldBubble"]</xpath>
+		<value>
+			<li Class="CompProperties_Shield"/>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="RM_Mech_Marshal"]/statBases</xpath>
+		<value>
+			<EnergyShieldEnergyMax>1.5</EnergyShieldEnergyMax>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Reinforced Mechanoid2 Extended</li>
+		</mods>
+		<nomatch Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="RM_Mech_Caretaker"]/comps/li[@Class="VEF.Apparels.CompProperties_ShieldField"]</xpath>
+			<value>
+				<li Class="CompProperties_ProjectileInterceptor">
+					<radius>10</radius>
+					<interceptGroundProjectiles>true</interceptGroundProjectiles>
+					<interceptAirProjectiles>true</interceptAirProjectiles>
+					<interceptNonHostileProjectiles>true</interceptNonHostileProjectiles>
+					<interceptOutgoingProjectiles>false</interceptOutgoingProjectiles>
+					<color>(0.6, 0.6, 0.8)</color>
+					<idlePulseSpeed>3</idlePulseSpeed>
+					<minIdleAlpha>0.05</minIdleAlpha>
+					<reactivateEffect>BulletShieldGenerator_Reactivate</reactivateEffect>
+					<activeSound>BulletShield_Ambience</activeSound>
+					<hitPoints>1600</hitPoints>
+					<hitPointsRestoreInstantlyAfterCharge>true</hitPointsRestoreInstantlyAfterCharge>
+					<chargeDurationTicks>4000</chargeDurationTicks>
+					<drawWithNoSelection>True</drawWithNoSelection>
+					<disarmedByEmpForTicks>600</disarmedByEmpForTicks>
+					<gizmoTipKey>ProjectileInterceptorTip</gizmoTipKey>
+				</li>
+			</value>
+		</nomatch>
+	</Operation>
+
+</Patch>

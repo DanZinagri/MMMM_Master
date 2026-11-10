@@ -3,21 +3,29 @@
 <loadFolders>
 	<v1.6>
 		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
 		<li>1.6</li>
+		<li IfModActiveAll="sarg.alphabiomes,ferny.progressionagriculture">1.6/Mods/AlphaBiomes/ProgressionAgriculture</li>
 		<li IfModActive="sarg.alphabiomes">1.6/Mods/AlphaBiomes</li>
 		<li IfModActive="onyxae.dragonsdescent">1.6/Mods/DragonsDescent</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,sarg.alphacrafts,VanillaExpanded.VMemesE">1.6/Mods/TsSamuraiFaction/AlphaCrafts_VIEMemesAndStructures</li>
 		<li IfModActive="Trickity.Samurai.Faction">1.6/Mods/TsSamuraiFaction</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core,sarg.alphagenes">1.6/Mods/BigAndSmallGenesAndMore/AlphaGenes</li>
 		<li IfModActive="RedMattis.BigSmall.Core">1.6/Mods/BigAndSmallGenesAndMore</li>
 		<li IfModActiveAll="VanillaExpanded.VanillaTraitsExpanded,Aelanna.CleaningSpeed">1.6/Mods/CleaningSpeed</li>
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
+		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
 		<li>1.7</li>
+		<li IfModActiveAll="sarg.alphabiomes,ferny.progressionagriculture">1.7/Mods/AlphaBiomes/ProgressionAgriculture</li>
 		<li IfModActive="sarg.alphabiomes">1.7/Mods/AlphaBiomes</li>
 		<li IfModActive="onyxae.dragonsdescent">1.7/Mods/DragonsDescent</li>
+		<li IfModActiveAll="Trickity.Samurai.Faction,sarg.alphacrafts,VanillaExpanded.VMemesE">1.7/Mods/TsSamuraiFaction/AlphaCrafts_VIEMemesAndStructures</li>
 		<li IfModActive="Trickity.Samurai.Faction">1.7/Mods/TsSamuraiFaction</li>
+		<li IfModActiveAll="RedMattis.BigSmall.Core,sarg.alphagenes">1.7/Mods/BigAndSmallGenesAndMore/AlphaGenes</li>
 		<li IfModActive="RedMattis.BigSmall.Core">1.7/Mods/BigAndSmallGenesAndMore</li>
 		<li IfModActiveAll="VanillaExpanded.VanillaTraitsExpanded,Aelanna.CleaningSpeed">1.7/Mods/CleaningSpeed</li>
 	</v1.7>

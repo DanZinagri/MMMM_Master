@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/HarbingerKin/Patches/HarbingerKin.xml: the operations that also need Big and Small - Genes & More. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="mytigio_Harbingerkin"]/genes</xpath>
+		<value>
+			<li>BS_Bloodlust</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="myt_flesheater"]/forcedTraits</xpath>
+		<value>
+			<forcedTraits>
+				<li>
+					<def>Cannibal</def>
+				</li>
+				<li>
+					<def>myt_corpseeater</def>
+				</li>
+			</forcedTraits>
+		</value>
+	</Operation>
+
+</Patch>

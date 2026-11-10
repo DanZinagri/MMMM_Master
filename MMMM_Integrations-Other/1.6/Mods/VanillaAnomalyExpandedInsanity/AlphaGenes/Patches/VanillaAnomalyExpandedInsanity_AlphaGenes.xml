@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/VanillaAnomalyExpandedInsanity/Patches/VanillaAnomalyExpandedInsanity.xml: the operations that also need Alpha Genes. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/VAEInsanity.SanityEffectsDef[defName="VAEI_SanityEffects"]/hediffEffects</xpath>
+		<value>
+			<li>
+				<hediff>AG_GreaterToughspikes</hediff>
+				<effect>-0.004</effect>
+			</li>
+			<li>
+				<hediff>AG_GreaterFleshWhip</hediff>
+				<effect>-0.004</effect>
+			</li>
+			<li>
+				<hediff>AG_FleshSpitter</hediff>
+				<effect>-0.004</effect>
+			</li>
+			<li>
+				<hediff>AG_FleshPower</hediff>
+				<effect>-0.01</effect>
+			</li>
+			<li>
+				<hediff>AG_PseudoDeadlife</hediff>
+				<effect>-0.01</effect>
+			</li>
+			<li>
+				<hediff>AG_PlaguedClaws</hediff>
+				<effect>-0.04</effect>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

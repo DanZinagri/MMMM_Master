@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.7/Patches/StrongerEnemies.xml: the operations that also need Vanilla Races Expanded - Sanguophage and Vanilla Factions Expanded - Empire. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="VFEE_Empire_Royal_Archcount" or defName="VFEE_Empire_Royal_Marquess" or defName="VFEE_Empire_Royal_Archduke" or defName="VFEE_Empire_Royal_Magister" or defName="VFEE_Empire_Royal_Despot"]/xenotypeSet/xenotypeChances</xpath>
+		<value>
+			<VRE_Bruxa MayRequire="vanillaracesexpanded.sanguophage">0.03</VRE_Bruxa>
+			<VRE_Strigoi MayRequire="vanillaracesexpanded.sanguophage">0.03</VRE_Strigoi>
+			<VRE_Ekkimian MayRequire="vanillaracesexpanded.sanguophage">0.03</VRE_Ekkimian>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/PawnKindDef[defName="VFEE_Empire_Royal_HighStellarch" or defName="Empire_Royal_Stellarch"]/xenotypeSet/xenotypeChances</xpath>
+		<value>
+			<VRE_Bruxa MayRequire="vanillaracesexpanded.sanguophage">0.04</VRE_Bruxa>
+			<VRE_Strigoi MayRequire="vanillaracesexpanded.sanguophage">0.04</VRE_Strigoi>
+			<VRE_Ekkimian MayRequire="vanillaracesexpanded.sanguophage">0.04</VRE_Ekkimian>
+		</value>
+	</Operation>
+
+</Patch>

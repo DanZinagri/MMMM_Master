@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/FSFVanillaBionicsExpansion/Patches/FSFVanillaBionicsExpansion_ImplantRebalance.xml: the operations that also need Vanilla Genetics Expanded. -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="FSFArchotechHeart" or defName="FSFArchotechStomach" or defName="FSFArchotechKidney"]</xpath>
+		<value>
+			<tradeability>Sellable</tradeability>
+		</value>
+	</Operation>
+
+</Patch>

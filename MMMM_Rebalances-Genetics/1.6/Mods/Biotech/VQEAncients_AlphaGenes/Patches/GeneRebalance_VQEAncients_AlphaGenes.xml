@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Mods/Biotech/Patches/GeneRebalance.xml: the operations that also need Vanilla Quests Expanded - Ancients and Alpha Genes. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="AG_SuperAdaptiveBiology"]/biostatArc</xpath>
+		<value>
+			<biostatArc>1</biostatArc>
+		</value>
+	</Operation>
+
+</Patch>

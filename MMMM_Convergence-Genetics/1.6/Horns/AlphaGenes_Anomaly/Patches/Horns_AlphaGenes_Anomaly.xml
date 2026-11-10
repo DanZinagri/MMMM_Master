@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Split from 1.6/Patches/Horns.xml: the operations that also need Alpha Genes and Anomaly. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/GeneDef[defName="AG_TentacleHorns"]/customEffectDescriptions</xpath>
+		<value>
+			<customEffectDescriptions>
+				<li>Adds a 16 stab damage, 3 seconds cooldown melee attack</li>
+			</customEffectDescriptions>
+		</value>
+	</Operation>
+
+</Patch>

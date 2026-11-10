@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		The blue oni gain Det's Avaloi psychic inebriation gene.
+		This folder only loads when Big and Small - Yokai is active (see loadFolders.xml); Avaloi is gated by subfolder because the gene comes from there.
+		Verified against Yokai 1.6: neither xenotype already lists the gene.
+	-->
+	<!--
+		Operations that also need another mod sit in a subfolder gated on it in loadFolders.xml. Do not flatten this wrapper away.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_BlueOni"]/genes</xpath>
+		<value>
+			<li>DV_PsychicInebriation</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/XenotypeDef[defName="BS_GreatBlueOni"]/genes</xpath>
+		<value>
+			<li>DV_PsychicInebriation</li>
+		</value>
+	</Operation>
+
+</Patch>

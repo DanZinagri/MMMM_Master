@@ -12,20 +12,16 @@
 		already listed. Progression: Attire also appends Medieval Overhaul's anvil to the helmet's recipeUsers, which stacks.
 		Split by category into the MMMM Integrations sub-mods: this copy holds only the Items ops (items: apparel, weapons, food, drugs and loot).
 	-->
-	<Operation Class="PatchOperationSequence">
-		<operations>
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/ThingDef[defName="VFEM2_Warbow"]/recipeMaker/recipeUsers</xpath>
-				<value>
-					<li>CraftingSpot</li>
-				</value>
-			</li>
-			<li Class="PatchOperationAttributeSet">
-				<xpath>Defs/ThingDef[defName="VFEM2_Apparel_PlateHelmetHeavy"]/recipeMaker/recipeUsers</xpath>
-				<attribute>Inherit</attribute>
-				<value>False</value>
-			</li>
-		</operations>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="VFEM2_Warbow"]/recipeMaker/recipeUsers</xpath>
+		<value>
+			<li>CraftingSpot</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAttributeSet">
+		<xpath>Defs/ThingDef[defName="VFEM2_Apparel_PlateHelmetHeavy"]/recipeMaker/recipeUsers</xpath>
+		<attribute>Inherit</attribute>
+		<value>False</value>
 	</Operation>
 
 </Patch>
