@@ -200,6 +200,9 @@
 		<li IfModActiveAll="ICC.FOV.ELVES,sarg.alphagenes">1.6/Mods/FactionElves/AlphaGenes</li>
 		<li IfModActive="ICC.FOV.ELVES">1.6/Mods/FactionElves</li>
 		<li IfModActiveAll="Sovereign.ChipChipChip,sarg.alphagenes">1.6/Mods/KabouterXenotype</li>
+		<li IfModActiveAll="cyanobot.CyanobotsGenes,RedMattis.BigSmall.Core">1.6/Mods/CyanobotsGenes/BSGenesAndMore</li>
+		<li IfModActiveAll="foxian.league.raider,RedMattis.BetterPrerequisites,Ludeon.RimWorld.Biotech">1.6/Mods/FoxianLeague/BSFramework</li>
+		<li IfModActiveAll="Sovereign.bnuy,RedMattis.BigSmall.Core">1.6/Mods/StarletXenotype/BSGenesAndMore</li>
 	</v1.6>
 	<v1.7>
 		<!-- Every folder is gated on ALL the mods whose overlap it resolves (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
@@ -398,5 +401,8 @@
 		<li IfModActiveAll="ICC.FOV.ELVES,sarg.alphagenes">1.7/Mods/FactionElves/AlphaGenes</li>
 		<li IfModActive="ICC.FOV.ELVES">1.7/Mods/FactionElves</li>
 		<li IfModActiveAll="Sovereign.ChipChipChip,sarg.alphagenes">1.7/Mods/KabouterXenotype</li>
+		<li IfModActiveAll="cyanobot.CyanobotsGenes,RedMattis.BigSmall.Core">1.7/Mods/CyanobotsGenes/BSGenesAndMore</li>
+		<li IfModActiveAll="foxian.league.raider,RedMattis.BetterPrerequisites,Ludeon.RimWorld.Biotech">1.7/Mods/FoxianLeague/BSFramework</li>
+		<li IfModActiveAll="Sovereign.bnuy,RedMattis.BigSmall.Core">1.7/Mods/StarletXenotype/BSGenesAndMore</li>
 	</v1.7>
 </loadFolders>

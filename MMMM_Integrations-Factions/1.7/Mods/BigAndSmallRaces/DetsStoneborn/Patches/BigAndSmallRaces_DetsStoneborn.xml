@@ -21,7 +21,7 @@
 	-->
 	<Operation Class="PatchOperationReplace">
 		<xpath>
-							Defs/FactionDef[defName="BS_LittlePeople"]/xenotypeSet/xenotypeChances/BS_Dwarf</xpath>
+			Defs/FactionDef[defName="BS_LittlePeople"]/xenotypeSet/xenotypeChances/BS_Dwarf</xpath>
 		<value>
 			<BS_Dwarf>0.3</BS_Dwarf>
 			<Stoneborn>0.3</Stoneborn>

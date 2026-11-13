@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Foxian League + Big and Small - Framework overlap removal: Foxian League's female only (FL_Female, VEF forceFemale) is
+		swapped for B&S's female (Body_FemaleOnly, B&S forceGender) in every xenotype that carries it (dropped where the
+		xenotype already has it), then retired to this mod's Cherry Picker list (revive entries in 1.7/Defs/CherryPicker.xml).
+		Body_FemaleOnly lives in the Framework's Biotech folder, hence the Biotech gate (loadFolders.xml).
+		Verified 1.7IFIED against Foxian League 1.6: the foxian (FL_Foxian) carries FL_Female, the greater foxian does not.
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="Body_FemaleOnly"]]/genes/li[text()="FL_Female"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="Body_FemaleOnly"]]/genes/li[text()="FL_Female"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="FL_Female"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="FL_Female"]</xpath>
+			<value>
+				<li>Body_FemaleOnly</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/FL_Female</li>
+			<li>GeneDef/FL_Female_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

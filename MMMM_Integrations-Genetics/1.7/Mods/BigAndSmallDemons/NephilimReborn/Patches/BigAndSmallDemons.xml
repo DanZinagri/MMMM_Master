@@ -24,7 +24,7 @@
 	-->
 	<Operation Class="PatchOperationAdd">
 		<xpath>
-							Defs/GeneDef[@Name="GS_HaloBaseNEW"]/exclusionTags</xpath>
+			Defs/GeneDef[@Name="GS_HaloBaseNEW"]/exclusionTags</xpath>
 		<value>
 			<li>BS_Halo</li>
 		</value>

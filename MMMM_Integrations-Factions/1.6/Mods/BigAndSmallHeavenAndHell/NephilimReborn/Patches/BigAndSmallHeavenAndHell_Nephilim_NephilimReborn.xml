@@ -24,14 +24,14 @@
 	-->
 	<Operation Class="PatchOperationAdd">
 		<xpath>
-							Defs/FactionDef[defName="BS_Heaven"]/xenotypeSet/xenotypeChances</xpath>
+			Defs/FactionDef[defName="BS_Heaven"]/xenotypeSet/xenotypeChances</xpath>
 		<value>
 			<GS_Nephilim>0.1</GS_Nephilim>
 		</value>
 	</Operation>
 	<Operation Class="PatchOperationAdd">
 		<xpath>
-							Defs/PawnKindDef[defName="BS_ServitorMelee"]/xenotypeSet/xenotypeChances</xpath>
+			Defs/PawnKindDef[defName="BS_ServitorMelee"]/xenotypeSet/xenotypeChances</xpath>
 		<value>
 			<GS_Nephilim>99999</GS_Nephilim>
 		</value>

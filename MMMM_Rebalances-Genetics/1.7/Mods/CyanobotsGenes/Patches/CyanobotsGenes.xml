@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Cyanobot's Genes: precocious costs -2 metabolism instead of -3 (B&S's early maturity is -1).
+		Verified 1.7IFIED against Cyanobot's Genes 1.6: CYB_Precocious ships biostatMet -3.
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="CYB_Precocious"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-2</biostatMet>
+		</value>
+	</Operation>
+
+</Patch>

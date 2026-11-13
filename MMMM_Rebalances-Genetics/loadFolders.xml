@@ -89,6 +89,9 @@
 		<li IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025" IfModActiveAll="VanillaExpanded.VGeneticsE,RedMattis.BigSmall.Core">1.6/Mods/VanillaGeneticsExpanded/BSGenesAndMore_OptionalEtc</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
 		<li IfModActiveAll="Sovereign.ChipChipChip,sarg.alphagenes">1.6/Mods/KabouterXenotype</li>
+		<li IfModActive="ICC.FOV.ORBITER">1.6/Mods/FactionOrbiters</li>
+		<li IfModActiveAll="cyanobot.CyanobotsGenes,RedMattis.BigSmall.Core">1.6/Mods/CyanobotsGenes/BSGenesAndMore</li>
+		<li IfModActive="cyanobot.CyanobotsGenes">1.6/Mods/CyanobotsGenes</li>
 	</v1.6>
 	<v1.7>
 		<!-- 1.7/Mods/<Name> loads when that mod is active; 1.7/Without/<Name> (and <X>_Without<Y>) only while the named mod is NOT active. -->
@@ -177,5 +180,8 @@
 		<li IfModActive="RedMattis.Optional,RedMattis.BigSmall,RedMattis.BSSlimes,RedMattis.Heaven,RedMattis.BigSmall.Bugs,RedMattis.Undead,RedMattis.LamiasAndOtherSnakes,RedMattis.MoreXenos,RedMattis.BigWeapons,RedMattis.SapientAnimals,RedMattis.Yokai,RedMattis.MadApril2025" IfModActiveAll="VanillaExpanded.VGeneticsE,RedMattis.BigSmall.Core">1.7/Mods/VanillaGeneticsExpanded/BSGenesAndMore_OptionalEtc</li>
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>
 		<li IfModActiveAll="Sovereign.ChipChipChip,sarg.alphagenes">1.7/Mods/KabouterXenotype</li>
+		<li IfModActive="ICC.FOV.ORBITER">1.7/Mods/FactionOrbiters</li>
+		<li IfModActiveAll="cyanobot.CyanobotsGenes,RedMattis.BigSmall.Core">1.7/Mods/CyanobotsGenes/BSGenesAndMore</li>
+		<li IfModActive="cyanobot.CyanobotsGenes">1.7/Mods/CyanobotsGenes</li>
 	</v1.7>
 </loadFolders>

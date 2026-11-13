@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Starlet Xenotype + Big and Small - Genes & More overlap removal: Starlet's gender bender (GS_GenderBender) is swapped
+		for B&S's hermaphromorph (VU_Hermaphromorph) in every xenotype that carries it (dropped where the xenotype already
+		has it), then retired to this mod's Cherry Picker list (revive entries in 1.6/Defs/CherryPicker.xml).
+		Both grant a self-cast ability that flips the pawn's sex. B&S's also refreshes body, head, beard and B&S size data,
+		ignores forced-sex genes, and works at any age; Starlet's (EBSG change gender) keeps the name, only works from 18
+		and costs -1 metabolism (B&S's is 0, complexity 3).
+		Verified 1.6IFIED against Starlet Xenotype (1.6) and B&S Genes & More 1.6: the starlet carries GS_GenderBender.
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="VU_Hermaphromorph"]]/genes/li[text()="GS_GenderBender"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="VU_Hermaphromorph"]]/genes/li[text()="GS_GenderBender"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="GS_GenderBender"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="GS_GenderBender"]</xpath>
+			<value>
+				<li>VU_Hermaphromorph</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/GS_GenderBender</li>
+			<li>GeneDef/GS_GenderBender_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

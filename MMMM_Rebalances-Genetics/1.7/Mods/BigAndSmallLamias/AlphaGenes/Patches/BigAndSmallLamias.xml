@@ -11,7 +11,7 @@
 	-->
 	<Operation Class="PatchOperationRemove">
 		<xpath>
-					Defs/XenotypeDef[defName="LoS_ScenarioTiamat"]/genes/li[text()="AlphaGenes_ExoticOrganism"]</xpath>
+			Defs/XenotypeDef[defName="LoS_ScenarioTiamat"]/genes/li[text()="AlphaGenes_ExoticOrganism"]</xpath>
 	</Operation>
 
 </Patch>

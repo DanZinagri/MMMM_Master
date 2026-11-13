@@ -24,7 +24,7 @@
 	-->
 	<Operation Class="PatchOperationAdd">
 		<xpath>
-							Defs/ThingDef[defName="BS_GeneDicombobulator" or defName="BS_GeneGeneIntegrator" or defName="BS_XenoCopy" or defName="BS_CreateXenogerm" or defName="BS_CreateArchiteXenogerm" or defName="BS_CreateArchiteXenogerm_Endo" or defName="BS_CreateXenogerm_Endo"]</xpath>
+			Defs/ThingDef[defName="BS_GeneDicombobulator" or defName="BS_GeneGeneIntegrator" or defName="BS_XenoCopy" or defName="BS_CreateXenogerm" or defName="BS_CreateArchiteXenogerm" or defName="BS_CreateArchiteXenogerm_Endo" or defName="BS_CreateXenogerm_Endo"]</xpath>
 		<value>
 			<thingCategories Inherit="False">
 				<li>AG_GeneTools</li>

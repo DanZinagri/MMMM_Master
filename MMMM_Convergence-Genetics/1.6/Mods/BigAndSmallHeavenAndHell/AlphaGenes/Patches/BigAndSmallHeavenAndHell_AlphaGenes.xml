@@ -34,11 +34,11 @@
 	</Operation>
 	<Operation Class="PatchOperationRemove">
 		<xpath>
-							Defs/XenotypeDef[defName="BS_Authority"]/genes/li[text()="MaxTemp_HugeIncrease"]</xpath>
+			Defs/XenotypeDef[defName="BS_Authority"]/genes/li[text()="MaxTemp_HugeIncrease"]</xpath>
 	</Operation>
 	<Operation Class="PatchOperationRemove">
 		<xpath>
-							Defs/XenotypeDef[defName="BS_Authority"]/genes/li[text()="FireImmunity"]</xpath>
+			Defs/XenotypeDef[defName="BS_Authority"]/genes/li[text()="FireImmunity"]</xpath>
 	</Operation>
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/XenotypeDef[defName="BS_Malakim"]/genes</xpath>
@@ -48,7 +48,7 @@
 	</Operation>
 	<Operation Class="PatchOperationRemove">
 		<xpath>
-							Defs/XenotypeDef[defName="BS_Malakim"]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+			Defs/XenotypeDef[defName="BS_Malakim"]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
 	</Operation>
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/XenotypeDef[defName="BS_Satan"]/genes</xpath>
@@ -58,7 +58,7 @@
 	</Operation>
 	<Operation Class="PatchOperationRemove">
 		<xpath>
-							Defs/XenotypeDef[defName="BS_Satan"]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+			Defs/XenotypeDef[defName="BS_Satan"]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
 	</Operation>
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/XenotypeDef[defName="BS_Grigori"]/genes</xpath>
@@ -68,7 +68,7 @@
 	</Operation>
 	<Operation Class="PatchOperationRemove">
 		<xpath>
-							Defs/XenotypeDef[defName="BS_Grigori"]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
+			Defs/XenotypeDef[defName="BS_Grigori"]/genes/li[text()="MinTemp_HugeDecrease"]</xpath>
 	</Operation>
 
 </Patch>

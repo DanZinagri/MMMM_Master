@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Faction - Orbiters: absent pain (Pain_Absent, pain x0.01) costs -1 metabolism instead of -3, in line with Big and
+		Small's no pain (BS_Pain_None, pain x0, -1 metabolism).
+		This folder only loads when Faction - Orbiters is active (see loadFolders.xml).
+		Verified 2026-11-13 against Faction - Orbiters 1.6 (also what loads on 1.7): Pain_Absent ships biostatMet -3.
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="Pain_Absent"]/biostatMet</xpath>
+		<value>
+			<biostatMet>-1</biostatMet>
+		</value>
+	</Operation>
+
+</Patch>

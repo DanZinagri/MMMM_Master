@@ -44,7 +44,7 @@
 	</Operation>
 	<Operation Class="PatchOperationRemove">
 		<xpath>
-							Defs/XenotypeDef[defName="BS_FireJotun" or defName="BS_Surtr"]/genes/li[text()="FireImmunity"]</xpath>
+			Defs/XenotypeDef[defName="BS_FireJotun" or defName="BS_Surtr"]/genes/li[text()="FireImmunity"]</xpath>
 	</Operation>
 
 </Patch>

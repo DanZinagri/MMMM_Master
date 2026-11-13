@@ -107,6 +107,18 @@
 			<li>GeneDef/ToxSensitivity_Partial_Astrogene</li>
 			<li>GeneDef/DV_SmallBuild</li>
 			<li>GeneDef/DV_SmallBuild_Astrogene</li>
+			<li>GeneDef/CYB_Hypercarnivore</li>
+			<li>GeneDef/CYB_Hypercarnivore_Astrogene</li>
+			<li>GeneDef/CYB_StrictHerbivore</li>
+			<li>GeneDef/CYB_StrictHerbivore_Astrogene</li>
+			<li>GeneDef/CYB_BodySize_Small</li>
+			<li>GeneDef/CYB_BodySize_Small_Astrogene</li>
+			<li>GeneDef/CYB_BodySize_Large</li>
+			<li>GeneDef/CYB_BodySize_Large_Astrogene</li>
+			<li>GeneDef/FL_Female</li>
+			<li>GeneDef/FL_Female_Astrogene</li>
+			<li>GeneDef/GS_GenderBender</li>
+			<li>GeneDef/GS_GenderBender_Astrogene</li>
 		</defs>
 	</CherryPicker.DefList>
 

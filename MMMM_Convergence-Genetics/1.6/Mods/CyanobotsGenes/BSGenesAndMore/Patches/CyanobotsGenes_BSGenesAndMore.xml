@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Cyanobot's Genes + Big and Small - Genes & More overlap removal. Each Cyanobot gene below is swapped for its B&S
+		counterpart in every xenotype that carries it (dropped where the xenotype already has it), then retired to this
+		mod's Cherry Picker list (revive entries in 1.6/Defs/CherryPicker.xml). Folder gated on both mods (loadFolders.xml).
+		  - hypercarnivore -> carnivore (BS_Diet_Carnivore). Both +3 metabolism, both no plant food. Cyanobot's version also
+		    skipped the raw food mood penalty; B&S's does not.
+		  - strict herbivore -> herbivore (BS_Diet_Herbivore). Both no animal food; Cyanobot's also skipped the raw food
+		    penalty and allowed hay when desperate. MMMM Rebalances - Genetics raises B&S herbivore to +3 metabolism to match.
+		  - small -> Small, large -> Large (B&S body-scale genes). Cyanobot's are body size x0.8 / x1.2 (+1 / -1 metabolism);
+		    B&S's are x0.8 / x1.15 with small work-speed changes (+3 / -1 metabolism). B&S's small/large frames
+		    (-0.35 / +0.4 offsets) are much stronger, so the body-scale genes are the closer match.
+		Cyanobot's carnivore and herbivore (half nutrition, no ban) have no B&S counterpart and are kept.
+		Cyanobot's DLL binds CYB_Hypercarnivore and CYB_StrictHerbivore as DefOfs; Cherry Picker leaves the def objects in
+		place, so its code just finds no carriers.
+		Verified 1.6IFIED against Cyanobot's Genes 1.6 (no 1.6 xenotype carries these four genes) and B&S Genes & More 1.6.
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="BS_Diet_Carnivore"]]/genes/li[text()="CYB_Hypercarnivore"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="BS_Diet_Carnivore"]]/genes/li[text()="CYB_Hypercarnivore"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="CYB_Hypercarnivore"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="CYB_Hypercarnivore"]</xpath>
+			<value>
+				<li>BS_Diet_Carnivore</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="BS_Diet_Herbivore"]]/genes/li[text()="CYB_StrictHerbivore"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="BS_Diet_Herbivore"]]/genes/li[text()="CYB_StrictHerbivore"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="CYB_StrictHerbivore"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="CYB_StrictHerbivore"]</xpath>
+			<value>
+				<li>BS_Diet_Herbivore</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="Small"]]/genes/li[text()="CYB_BodySize_Small"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="Small"]]/genes/li[text()="CYB_BodySize_Small"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="CYB_BodySize_Small"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="CYB_BodySize_Small"]</xpath>
+			<value>
+				<li>Small</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="Large"]]/genes/li[text()="CYB_BodySize_Large"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="Large"]]/genes/li[text()="CYB_BodySize_Large"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="CYB_BodySize_Large"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="CYB_BodySize_Large"]</xpath>
+			<value>
+				<li>Large</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/CYB_Hypercarnivore</li>
+			<li>GeneDef/CYB_Hypercarnivore_Astrogene</li>
+			<li>GeneDef/CYB_StrictHerbivore</li>
+			<li>GeneDef/CYB_StrictHerbivore_Astrogene</li>
+			<li>GeneDef/CYB_BodySize_Small</li>
+			<li>GeneDef/CYB_BodySize_Small_Astrogene</li>
+			<li>GeneDef/CYB_BodySize_Large</li>
+			<li>GeneDef/CYB_BodySize_Large_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

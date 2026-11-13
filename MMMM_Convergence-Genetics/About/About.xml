@@ -88,6 +88,9 @@
 		<li>DanZinagri.MMMM.Integrations.Other</li>
 		<li>DanZinagri.MMMM.Integrations.Traits</li>
 		<li>Sovereign.ChipChipChip</li>
+		<li>Sovereign.bnuy</li>
+		<li>cyanobot.CyanobotsGenes</li>
+		<li>foxian.league.raider</li>
 	</loadAfter>
 	<incompatibleWith>
 		<li>DanZinagri.BSAGI</li>

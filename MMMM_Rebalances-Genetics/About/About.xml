@@ -76,6 +76,8 @@
 		<li>vanillaracesexpanded.waster</li>
 		<li>VexedTrees980.RimElvesBiotech</li>
 		<li>Sovereign.ChipChipChip</li>
+		<li>ICC.FOV.ORBITER</li>
+		<li>cyanobot.CyanobotsGenes</li>
 	</loadAfter>
 	<description>Rebalances</description>
 </ModMetaData>

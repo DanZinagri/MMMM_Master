@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Cyanobot's Genes + Big and Small - Genes & More: B&S herbivore (BS_Diet_Herbivore) costs +3 metabolism instead of +1,
+		matching Cyanobot's strict herbivore that MMMM Convergence - Genetics swaps it in for, and B&S's carnivore (+3).
+		Verified 1.6IFIED against B&S Genes & More 1.6: BS_Diet_Herbivore ships biostatMet 1.
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="BS_Diet_Herbivore"]/biostatMet</xpath>
+		<value>
+			<biostatMet>3</biostatMet>
+		</value>
+	</Operation>
+
+</Patch>
