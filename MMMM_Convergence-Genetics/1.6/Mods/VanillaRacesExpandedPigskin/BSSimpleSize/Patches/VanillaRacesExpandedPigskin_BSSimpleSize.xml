@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla Races Expanded - Pigskin + Big and Small - Simple Size Genes (without Genes & More): the Boarskin uses B&S's
+		endless growth instead of VRE's evergrowing, which is retired to this mod's Cherry Picker list. The aging gene swaps
+		in VanillaRacesExpandedPigskin need Genes & More.
+		Folder gated on vanillaracesexpanded.pigskin and RedMattis.BigSmall.SimpleSize, and only when RedMattis.BigSmall.Core is NOT active (loadFolders.xml); with Genes & More the
+		Genes & More folders run instead. Simple Size Genes ships these defs under B&S's defNames (verified 2026-11-13).
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="VRE_Boarskin"]/genes/li[text()="VRE_EverGrowing"]</xpath>
+		<value>
+			<li>BS_EndlessGrowth</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/VRE_EverGrowing</li>
+			<li>GeneDef/VRE_EverGrowing_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

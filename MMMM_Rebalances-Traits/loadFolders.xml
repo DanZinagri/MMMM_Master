@@ -6,7 +6,7 @@
 		<!-- Nested folders (1.6/Mods/<Mod>/<Other>, or 1.6/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
 		<li IfModActive="hlx.UltratechAlteredCarbon">1.6/TraitRebalance/AlteredCarbon</li>
-		<li IfModActive="RedMattis.BigSmall.Core">1.6/TraitRebalance/BSGenesAndMore</li>
+		<li IfModActive="RedMattis.BigSmall.Core,RedMattis.BigSmall.SimpleSize">1.6/TraitRebalance/BSGenesAndMore</li>
 		<li IfModActive="ReSplice.XOTR.Charmweavers">1.6/AgreeingMemes/ReSpliceCharmweavers</li>
 		<li IfModActiveAll="OskarPotocki.VanillaVehiclesExpanded,Ludeon.RimWorld.Ideology">1.6/AgreeingMemes/VVehiclesE_Ideology</li>
 		<li IfModActiveAll="GoGaTio.LostFactoryMechanoids,Ludeon.RimWorld.Ideology">1.6/AgreeingMemes/LostFactoryMechanoids_Ideology</li>
@@ -34,7 +34,7 @@
 		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
 		<li IfModActive="hlx.UltratechAlteredCarbon">1.7/TraitRebalance/AlteredCarbon</li>
-		<li IfModActive="RedMattis.BigSmall.Core">1.7/TraitRebalance/BSGenesAndMore</li>
+		<li IfModActive="RedMattis.BigSmall.Core,RedMattis.BigSmall.SimpleSize">1.7/TraitRebalance/BSGenesAndMore</li>
 		<li IfModActive="ReSplice.XOTR.Charmweavers">1.7/AgreeingMemes/ReSpliceCharmweavers</li>
 		<li IfModActiveAll="OskarPotocki.VanillaVehiclesExpanded,Ludeon.RimWorld.Ideology">1.7/AgreeingMemes/VVehiclesE_Ideology</li>
 		<li IfModActiveAll="GoGaTio.LostFactoryMechanoids,Ludeon.RimWorld.Ideology">1.7/AgreeingMemes/LostFactoryMechanoids_Ideology</li>

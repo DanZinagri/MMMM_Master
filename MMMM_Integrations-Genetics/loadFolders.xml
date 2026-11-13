@@ -10,7 +10,7 @@
 		<li IfModActiveAll="vanillaracesexpanded.phytokin,sarg.alphagenes">1.6/Mods/VanillaRacesExpandedPhytokin</li>
 		<li IfModActiveAll="vanillaracesexpanded.insector,sarg.alphagenes">1.6/Mods/VanillaRacesExpandedInsector</li>
 		<li IfModActiveAll="vanillaracesexpanded.lycanthrope,VanillaExpanded.VanillaTraitsExpanded">1.6/Mods/VanillaRacesExpandedLycanthrope</li>
-		<li IfModActiveAll="det.brawnum,RedMattis.BigSmall.Core">1.6/Mods/DetsXenotypeBrawnum/BSGenesAndMore</li>
+		<li IfModActiveAll="det.brawnum" IfModActive="RedMattis.BigSmall.Core,RedMattis.BigSmall.SimpleSize">1.6/Mods/DetsXenotypeBrawnum/BSGenesAndMore</li>
 		<li IfModActive="det.brawnum">1.6/Mods/DetsXenotypeBrawnum</li>
 		<li IfModActiveAll="RedMattis.MoreXenos,sarg.alphagenes">1.6/Mods/BigAndSmallMoreXenotypes/AlphaGenes</li>
 		<li IfModActive="RedMattis.MoreXenos">1.6/Mods/BigAndSmallMoreXenotypes</li>
@@ -73,6 +73,7 @@
 		<li IfModActiveAll="ICC.FOV.ELVES,RedMattis.BetterPrerequisites">1.6/Mods/FactionElves/BSFramework</li>
 		<li IfModActive="ICC.FOV.ELVES">1.6/Mods/FactionElves</li>
 		<li IfModActiveAll="Sovereign.Kork,sarg.alphagenes">1.6/Mods/KorgXenotype/AlphaGenes</li>
+		<li IfModActiveAll="Sovereign.Kork,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.6/Mods/KorgXenotype/BSSimpleSize</li>
 		<li IfModActiveAll="Sovereign.Kork,RedMattis.BigSmall.Core">1.6/Mods/KorgXenotype/BSGenesAndMore</li>
 		<li IfModActive="Sovereign.Kork">1.6/Mods/KorgXenotype</li>
 		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,vanillaracesexpanded.pigskin">1.6/Mods/RimGnoblins/VREPigskin</li>
@@ -88,7 +89,7 @@
 		<li IfModActiveAll="vanillaracesexpanded.phytokin,sarg.alphagenes">1.7/Mods/VanillaRacesExpandedPhytokin</li>
 		<li IfModActiveAll="vanillaracesexpanded.insector,sarg.alphagenes">1.7/Mods/VanillaRacesExpandedInsector</li>
 		<li IfModActiveAll="vanillaracesexpanded.lycanthrope,VanillaExpanded.VanillaTraitsExpanded">1.7/Mods/VanillaRacesExpandedLycanthrope</li>
-		<li IfModActiveAll="det.brawnum,RedMattis.BigSmall.Core">1.7/Mods/DetsXenotypeBrawnum/BSGenesAndMore</li>
+		<li IfModActiveAll="det.brawnum" IfModActive="RedMattis.BigSmall.Core,RedMattis.BigSmall.SimpleSize">1.7/Mods/DetsXenotypeBrawnum/BSGenesAndMore</li>
 		<li IfModActive="det.brawnum">1.7/Mods/DetsXenotypeBrawnum</li>
 		<li IfModActiveAll="RedMattis.MoreXenos,sarg.alphagenes">1.7/Mods/BigAndSmallMoreXenotypes/AlphaGenes</li>
 		<li IfModActive="RedMattis.MoreXenos">1.7/Mods/BigAndSmallMoreXenotypes</li>
@@ -149,6 +150,7 @@
 		<li IfModActiveAll="ICC.FOV.ELVES,RedMattis.BetterPrerequisites">1.7/Mods/FactionElves/BSFramework</li>
 		<li IfModActive="ICC.FOV.ELVES">1.7/Mods/FactionElves</li>
 		<li IfModActiveAll="Sovereign.Kork,sarg.alphagenes">1.7/Mods/KorgXenotype/AlphaGenes</li>
+		<li IfModActiveAll="Sovereign.Kork,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.7/Mods/KorgXenotype/BSSimpleSize</li>
 		<li IfModActiveAll="Sovereign.Kork,RedMattis.BigSmall.Core">1.7/Mods/KorgXenotype/BSGenesAndMore</li>
 		<li IfModActive="Sovereign.Kork">1.7/Mods/KorgXenotype</li>
 		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,vanillaracesexpanded.pigskin">1.7/Mods/RimGnoblins/VREPigskin</li>

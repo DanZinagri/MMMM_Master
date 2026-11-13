@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Gene rebalance for Big and Small - Simple Size Genes (without Genes & More): the ogre, great ogre and titan frame
+		changes from Biotech/BSGenesAndMore, which Simple Size Genes ships under the same defNames.
+		Folder gated on Ludeon.RimWorld.Biotech and RedMattis.BigSmall.SimpleSize, and only when RedMattis.BigSmall.Core is NOT active (loadFolders.xml); with Genes & More the
+		Genes & More folders run instead. Simple Size Genes ships these defs under B&S's defNames (verified 2026-11-13).
+	-->
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="OgreFrame"]/statFactors/LifespanFactor</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="OgreFrame"]/statFactors/IncomingDamageFactor</xpath>
+		<value>
+			<IncomingDamageFactor>0.95</IncomingDamageFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="OgreFrame"]/statOffsets/ComfyTemperatureMin</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="OgreFrame"]/statOffsets/MoveSpeed</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="OgreFrame"]/statOffsets</xpath>
+		<value>
+			<MeleeDodgeChance>-10</MeleeDodgeChance>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="OgreFrame"]/conditionalStatAffecters/li[@Class="ConditionalStatAffecter_Clothed"]/statOffsets/MoveSpeed</xpath>
+		<value>
+			<MoveSpeed>-0.9</MoveSpeed>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="OgreFrame"]/conditionalStatAffecters/li[@Class="ConditionalStatAffecter_Clothed"]/statFactors</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="GreatOgreFrame"]/statFactors/LifespanFactor</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="GreatOgreFrame"]/statFactors/IncomingDamageFactor</xpath>
+		<value>
+			<IncomingDamageFactor>0.9</IncomingDamageFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="GreatOgreFrame"]/statOffsets/ComfyTemperatureMin</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="GreatOgreFrame"]/statOffsets/MoveSpeed</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="GreatOgreFrame"]/statOffsets</xpath>
+		<value>
+			<MeleeDodgeChance>-10</MeleeDodgeChance>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="GreatOgreFrame"]/conditionalStatAffecters/li[@Class="ConditionalStatAffecter_Clothed"]/statOffsets/MoveSpeed</xpath>
+		<value>
+			<MoveSpeed>-1.5</MoveSpeed>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="GreatOgreFrame"]/conditionalStatAffecters/li[@Class="ConditionalStatAffecter_Clothed"]/statFactors</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="TitanFrame"]/statFactors/MoveSpeed</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/GeneDef[defName="TitanFrame"]/statOffsets/MoveSpeed</xpath>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="TitanFrame"]/conditionalStatAffecters</xpath>
+		<value>
+			<conditionalStatAffecters>
+				<li Class="ConditionalStatAffecter_Clothed">
+					<statOffsets>
+						<MoveSpeed>-1.2</MoveSpeed>
+					</statOffsets>
+				</li>
+				<li Class="ConditionalStatAffecter_Unclothed">
+					<statOffsets>
+						<MoveSpeed>2.4</MoveSpeed>
+					</statOffsets>
+				</li>
+			</conditionalStatAffecters>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Alpha Genes + Big and Small - Simple Size Genes (without Genes & More): any xenotype with Alpha Genes' larger body
+		size takes B&S's large frame instead, and the Alpha Genes gene is retired to this mod's Cherry Picker list.
+		The Genes & More copy (AlphaGenes/BSGenesAndMore + CherryPicks/AlphaGenes_BSGenesAndMore) also swaps in B&S's very
+		slow and no-pain genes; Simple Size Genes has neither, so those stay as they are.
+		Folder gated on sarg.alphagenes and RedMattis.BigSmall.SimpleSize, and only when RedMattis.BigSmall.Core is NOT active (loadFolders.xml); with Genes & More the
+		Genes & More folders run instead. Simple Size Genes ships these defs under B&S's defNames (verified 2026-11-13).
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="AG_LargerBodySize"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="AG_LargerBodySize"]</xpath>
+			<value>
+				<li>BS_LargeFrame</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/AG_LargerBodySize</li>
+			<li>GeneDef/AG_LargerBodySize_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

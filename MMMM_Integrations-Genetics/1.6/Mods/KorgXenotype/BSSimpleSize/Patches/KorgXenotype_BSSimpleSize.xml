@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Korg Xenotype + Big and Small - Simple Size Genes (without Genes & More): the Korg gains B&S's Large gene. The other
+		Genes & More additions (strange appearance, no libido, reduced pain) are in KorgXenotype/BSGenesAndMore; Simple Size
+		Genes has only the size genes, so they are left out.
+		Folder gated on Sovereign.Kork and RedMattis.BigSmall.SimpleSize, and only when RedMattis.BigSmall.Core is NOT active (loadFolders.xml); with Genes & More the
+		Genes & More folders run instead. Simple Size Genes ships these defs under B&S's defNames (verified 2026-11-13).
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="Large"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="Korg"][not(genes/li[text()="Large"])]/genes</xpath>
+			<value>
+				<li>Large</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

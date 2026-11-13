@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Cyanobot's Genes + Big and Small - Simple Size Genes (without Genes & More): Cyanobot's small and large are swapped
+		for B&S's Small and Large body-scale genes in every xenotype that carries them (dropped where the xenotype already
+		has them), then retired to this mod's Cherry Picker list. The diet swaps in CyanobotsGenes/BSGenesAndMore need
+		Genes & More's diet genes, which Simple Size Genes does not have.
+		Folder gated on cyanobot.CyanobotsGenes and RedMattis.BigSmall.SimpleSize, and only when RedMattis.BigSmall.Core is NOT active (loadFolders.xml); with Genes & More the
+		Genes & More folders run instead. Simple Size Genes ships these defs under B&S's defNames (verified 2026-11-13).
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="Small"]]/genes/li[text()="CYB_BodySize_Small"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="Small"]]/genes/li[text()="CYB_BodySize_Small"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="CYB_BodySize_Small"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="CYB_BodySize_Small"]</xpath>
+			<value>
+				<li>Small</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="Large"]]/genes/li[text()="CYB_BodySize_Large"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="Large"]]/genes/li[text()="CYB_BodySize_Large"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="CYB_BodySize_Large"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="CYB_BodySize_Large"]</xpath>
+			<value>
+				<li>Large</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/CYB_BodySize_Small</li>
+			<li>GeneDef/CYB_BodySize_Small_Astrogene</li>
+			<li>GeneDef/CYB_BodySize_Large</li>
+			<li>GeneDef/CYB_BodySize_Large_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
+	<!-- Also loads with Big and Small - Simple Size Genes (RedMattis.BigSmall.SimpleSize, without Genes & More): every def this file touches is
+	one of the size genes or traits Simple Size Genes ships under the same defName (verified 2026-11-13). -->
 
 	<!-- Split from 1.7/Mods/DetsXenotypeHalfFoot/Patches/DetsXenotypeHalfFoot.xml: the operations that also need Big and Small - Genes & More. -->
 

@@ -85,6 +85,7 @@
 		<li IfModActiveAll="RedMattis.BetterGeneInheritance,vanillaracesexpanded.highmate">1.6/CherryPicks/BetterGeneInheritance_VREHighmate</li>
 		<li>1.6</li>
 		<li IfModActiveAll="vanillaracesexpanded.saurid,det.buzzers">1.6/Mods/VanillaRacesExpandedSaurid</li>
+		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.6/Mods/VanillaRacesExpandedPigskin/BSSimpleSize</li>
 		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.Core,RedMattis.Yokai">1.6/Mods/VanillaRacesExpandedPigskin/BSYokai</li>
 		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.Core,RedMattis.LamiasAndOtherSnakes">1.6/Mods/VanillaRacesExpandedPigskin/BSLamias</li>
 		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.Core,RedMattis.Undead">1.6/Mods/VanillaRacesExpandedPigskin/BSVampiresAndTheUndead</li>
@@ -96,13 +97,14 @@
 		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.Core,sarg.alphagenes,RedMattis.MoreXenos">1.6/Mods/VanillaRacesExpandedPigskin/AlphaGenes_BSMore</li>
 		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.Core,RedMattis.BigSmall.Bugs">1.6/Mods/VanillaRacesExpandedPigskin/BSXenoInsectoidHive</li>
 		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.Core">1.6/Mods/VanillaRacesExpandedPigskin</li>
+		<li IfModActiveAll="vanillaracesexpanded.hussar,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.6/Mods/VanillaRacesExpandedHussar/BSSimpleSize</li>
 		<li IfModActiveAll="vanillaracesexpanded.hussar,RedMattis.BigSmall.Core,RedMattis.Heaven">1.6/Mods/VanillaRacesExpandedHussar/BSHeavenAndHell</li>
 		<li IfModActiveAll="vanillaracesexpanded.hussar,RedMattis.BigSmall.Core,RedMattis.BigSmall">1.6/Mods/VanillaRacesExpandedHussar/BSRaces</li>
 		<li IfModActiveAll="vanillaracesexpanded.hussar,RedMattis.BigSmall.Core">1.6/Mods/VanillaRacesExpandedHussar</li>
 		<li IfModActiveAll="vanillaracesexpanded.genie,RedMattis.BigSmall.Core">1.6/Mods/VanillaRacesExpandedGenie</li>
 		<li IfModActiveAll="vanillaracesexpanded.archon,RedMattis.BigSmall.Core">1.6/Mods/VanillaRacesExpandedArchon</li>
 		<li IfModActive="det.keshig">1.6/Mods/DetsXenotypeKeshig</li>
-		<li IfModActiveAll="det.halffoot,RedMattis.BigSmall.Core">1.6/Mods/DetsXenotypeHalfFoot/BSGenesAndMore</li>
+		<li IfModActiveAll="det.halffoot" IfModActive="RedMattis.BigSmall.Core,RedMattis.BigSmall.SimpleSize">1.6/Mods/DetsXenotypeHalfFoot/BSGenesAndMore</li>
 		<li IfModActiveAll="det.halffoot,vanillaracesexpanded.archon">1.6/Mods/DetsXenotypeHalfFoot/Archon</li>
 		<li IfModActiveAll="det.halffoot,sarg.alphagenes">1.6/Mods/DetsXenotypeHalfFoot/AlphaGenes</li>
 		<li IfModActive="det.halffoot">1.6/Mods/DetsXenotypeHalfFoot</li>
@@ -136,6 +138,8 @@
 		<li IfModActiveAll="vanillaracesexpanded.highmate,RedMattis.BigSmall.Core">1.6/Mods/VREHighmate</li>
 		<!-- Body_FemaleOnly is a Framework gene, so the gate checks Framework rather than Genes &amp; More. -->
 		<li IfModActiveAll="vanillaracesexpanded.phytokin,RedMattis.BetterPrerequisites">1.6/Mods/VanillaRacesExpandedPhytokin</li>
+		<li IfModActiveAll="det.stoneborn,OskarPotocki.VanillaFactionsExpanded.Core,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.6/Mods/DetsXenotypeStoneborn/BSSimpleSize_VEF</li>
+		<li IfModActiveAll="det.stoneborn,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.6/Mods/DetsXenotypeStoneborn/BSSimpleSize</li>
 		<li IfModActiveAll="det.stoneborn,RedMattis.BigSmall.Core,OskarPotocki.VanillaFactionsExpanded.Core">1.6/Mods/DetsXenotypeStoneborn/VEF</li>
 		<li IfModActiveAll="det.stoneborn,RedMattis.BigSmall.Core">1.6/Mods/DetsXenotypeStoneborn</li>
 		<li IfModActiveAll="RedMattis.BigSmall.Core,sarg.alphagenes">1.6/Mods/BigAndSmallGenesAndMore/AlphaGenes</li>
@@ -163,16 +167,18 @@
 		<li IfModActive="tug.Minotaur">1.6/Mods/RoosMinotaur</li>
 		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,det.stoneborn">1.6/Mods/RimGnoblins/DetsStoneborn</li>
 		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,vanillaracesexpanded.pigskin">1.6/Mods/RimGnoblins/VREPigskin</li>
+		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.6/Mods/RimGnoblins/BSSimpleSize</li>
 		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,RedMattis.BigSmall.Core">1.6/Mods/RimGnoblins/BSGenesAndMore</li>
 		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,sarg.alphagenes">1.6/Mods/RimGnoblins/AlphaGenes</li>
 		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.6/Mods/RimGnoblins</li>
 		<li IfModActiveAll="VexedTrees980.RimElvesBiotech,det.stoneborn,vanillaracesexpanded.pigskin">1.6/Mods/RimElves/DetsStoneborn_VREPigskin</li>
-		<li IfModActiveAll="VexedTrees980.RimElvesBiotech,RedMattis.BigSmall.Core">1.6/Mods/RimElves/BSGenesAndMore</li>
+		<li IfModActiveAll="VexedTrees980.RimElvesBiotech" IfModActive="RedMattis.BigSmall.Core,RedMattis.BigSmall.SimpleSize">1.6/Mods/RimElves/BSGenesAndMore</li>
 		<li IfModActiveAll="VexedTrees980.RimElvesBiotech,sarg.alphagenes">1.6/Mods/RimElves/AlphaGenes</li>
 		<li IfModActive="VexedTrees980.RimElvesBiotech">1.6/Mods/RimElves</li>
 		<li IfModActiveAll="sarg.alphagenes,vanillaracesexpanded.archon">1.6/Mods/AlphaGenes/Archon</li>
 		<li IfModActiveAll="sarg.alphagenes,vanillaracesexpanded.saurid">1.6/Mods/AlphaGenes/VRESaurid</li>
 		<li IfModActiveAll="sarg.alphagenes,lts.I">1.6/Mods/AlphaGenes/IntegratedImplants</li>
+		<li IfModActiveAll="sarg.alphagenes,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.6/Mods/AlphaGenes/BSSimpleSize</li>
 		<li IfModActiveAll="sarg.alphagenes,RedMattis.BigSmall.Core">1.6/Mods/AlphaGenes/BSGenesAndMore</li>
 		<li IfModActiveAll="sarg.alphagenes,RedMattis.BigSmall.Core,vanillaracesexpanded.sanguophage">1.6/Mods/AlphaGenes/BSGenesAndMore_VRESanguophage</li>
 		<li IfModActive="sarg.alphagenes">1.6/Mods/AlphaGenes</li>
@@ -200,6 +206,7 @@
 		<li IfModActiveAll="ICC.FOV.ELVES,sarg.alphagenes">1.6/Mods/FactionElves/AlphaGenes</li>
 		<li IfModActive="ICC.FOV.ELVES">1.6/Mods/FactionElves</li>
 		<li IfModActiveAll="Sovereign.ChipChipChip,sarg.alphagenes">1.6/Mods/KabouterXenotype</li>
+		<li IfModActiveAll="cyanobot.CyanobotsGenes,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.6/Mods/CyanobotsGenes/BSSimpleSize</li>
 		<li IfModActiveAll="cyanobot.CyanobotsGenes,RedMattis.BigSmall.Core">1.6/Mods/CyanobotsGenes/BSGenesAndMore</li>
 		<li IfModActiveAll="foxian.league.raider,RedMattis.BetterPrerequisites,Ludeon.RimWorld.Biotech">1.6/Mods/FoxianLeague/BSFramework</li>
 		<li IfModActiveAll="Sovereign.bnuy,RedMattis.BigSmall.Core">1.6/Mods/StarletXenotype/BSGenesAndMore</li>
@@ -287,6 +294,7 @@
 		<li IfModActiveAll="RedMattis.BetterGeneInheritance,vanillaracesexpanded.highmate">1.7/CherryPicks/BetterGeneInheritance_VREHighmate</li>
 		<li>1.7</li>
 		<li IfModActiveAll="vanillaracesexpanded.saurid,det.buzzers">1.7/Mods/VanillaRacesExpandedSaurid</li>
+		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.7/Mods/VanillaRacesExpandedPigskin/BSSimpleSize</li>
 		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.Core,RedMattis.Yokai">1.7/Mods/VanillaRacesExpandedPigskin/BSYokai</li>
 		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.Core,RedMattis.LamiasAndOtherSnakes">1.7/Mods/VanillaRacesExpandedPigskin/BSLamias</li>
 		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.Core,RedMattis.Undead">1.7/Mods/VanillaRacesExpandedPigskin/BSVampiresAndTheUndead</li>
@@ -298,13 +306,14 @@
 		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.Core,sarg.alphagenes,RedMattis.MoreXenos">1.7/Mods/VanillaRacesExpandedPigskin/AlphaGenes_BSMore</li>
 		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.Core,RedMattis.BigSmall.Bugs">1.7/Mods/VanillaRacesExpandedPigskin/BSXenoInsectoidHive</li>
 		<li IfModActiveAll="vanillaracesexpanded.pigskin,RedMattis.BigSmall.Core">1.7/Mods/VanillaRacesExpandedPigskin</li>
+		<li IfModActiveAll="vanillaracesexpanded.hussar,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.7/Mods/VanillaRacesExpandedHussar/BSSimpleSize</li>
 		<li IfModActiveAll="vanillaracesexpanded.hussar,RedMattis.BigSmall.Core,RedMattis.Heaven">1.7/Mods/VanillaRacesExpandedHussar/BSHeavenAndHell</li>
 		<li IfModActiveAll="vanillaracesexpanded.hussar,RedMattis.BigSmall.Core,RedMattis.BigSmall">1.7/Mods/VanillaRacesExpandedHussar/BSRaces</li>
 		<li IfModActiveAll="vanillaracesexpanded.hussar,RedMattis.BigSmall.Core">1.7/Mods/VanillaRacesExpandedHussar</li>
 		<li IfModActiveAll="vanillaracesexpanded.genie,RedMattis.BigSmall.Core">1.7/Mods/VanillaRacesExpandedGenie</li>
 		<li IfModActiveAll="vanillaracesexpanded.archon,RedMattis.BigSmall.Core">1.7/Mods/VanillaRacesExpandedArchon</li>
 		<li IfModActive="det.keshig">1.7/Mods/DetsXenotypeKeshig</li>
-		<li IfModActiveAll="det.halffoot,RedMattis.BigSmall.Core">1.7/Mods/DetsXenotypeHalfFoot/BSGenesAndMore</li>
+		<li IfModActiveAll="det.halffoot" IfModActive="RedMattis.BigSmall.Core,RedMattis.BigSmall.SimpleSize">1.7/Mods/DetsXenotypeHalfFoot/BSGenesAndMore</li>
 		<li IfModActiveAll="det.halffoot,vanillaracesexpanded.archon">1.7/Mods/DetsXenotypeHalfFoot/Archon</li>
 		<li IfModActiveAll="det.halffoot,sarg.alphagenes">1.7/Mods/DetsXenotypeHalfFoot/AlphaGenes</li>
 		<li IfModActive="det.halffoot">1.7/Mods/DetsXenotypeHalfFoot</li>
@@ -338,6 +347,8 @@
 		<li IfModActiveAll="vanillaracesexpanded.highmate,RedMattis.BigSmall.Core">1.7/Mods/VREHighmate</li>
 		<!-- Body_FemaleOnly is a Framework gene, so the gate checks Framework rather than Genes &amp; More. -->
 		<li IfModActiveAll="vanillaracesexpanded.phytokin,RedMattis.BetterPrerequisites">1.7/Mods/VanillaRacesExpandedPhytokin</li>
+		<li IfModActiveAll="det.stoneborn,OskarPotocki.VanillaFactionsExpanded.Core,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.7/Mods/DetsXenotypeStoneborn/BSSimpleSize_VEF</li>
+		<li IfModActiveAll="det.stoneborn,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.7/Mods/DetsXenotypeStoneborn/BSSimpleSize</li>
 		<li IfModActiveAll="det.stoneborn,RedMattis.BigSmall.Core,OskarPotocki.VanillaFactionsExpanded.Core">1.7/Mods/DetsXenotypeStoneborn/VEF</li>
 		<li IfModActiveAll="det.stoneborn,RedMattis.BigSmall.Core">1.7/Mods/DetsXenotypeStoneborn</li>
 		<li IfModActiveAll="RedMattis.BigSmall.Core,sarg.alphagenes">1.7/Mods/BigAndSmallGenesAndMore/AlphaGenes</li>
@@ -365,16 +376,18 @@
 		<li IfModActive="tug.Minotaur">1.7/Mods/RoosMinotaur</li>
 		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,det.stoneborn">1.7/Mods/RimGnoblins/DetsStoneborn</li>
 		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,vanillaracesexpanded.pigskin">1.7/Mods/RimGnoblins/VREPigskin</li>
+		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.7/Mods/RimGnoblins/BSSimpleSize</li>
 		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,RedMattis.BigSmall.Core">1.7/Mods/RimGnoblins/BSGenesAndMore</li>
 		<li IfModActiveAll="VexedTrees980.RimGnoblinsBiotech,sarg.alphagenes">1.7/Mods/RimGnoblins/AlphaGenes</li>
 		<li IfModActive="VexedTrees980.RimGnoblinsBiotech">1.7/Mods/RimGnoblins</li>
 		<li IfModActiveAll="VexedTrees980.RimElvesBiotech,det.stoneborn,vanillaracesexpanded.pigskin">1.7/Mods/RimElves/DetsStoneborn_VREPigskin</li>
-		<li IfModActiveAll="VexedTrees980.RimElvesBiotech,RedMattis.BigSmall.Core">1.7/Mods/RimElves/BSGenesAndMore</li>
+		<li IfModActiveAll="VexedTrees980.RimElvesBiotech" IfModActive="RedMattis.BigSmall.Core,RedMattis.BigSmall.SimpleSize">1.7/Mods/RimElves/BSGenesAndMore</li>
 		<li IfModActiveAll="VexedTrees980.RimElvesBiotech,sarg.alphagenes">1.7/Mods/RimElves/AlphaGenes</li>
 		<li IfModActive="VexedTrees980.RimElvesBiotech">1.7/Mods/RimElves</li>
 		<li IfModActiveAll="sarg.alphagenes,vanillaracesexpanded.archon">1.7/Mods/AlphaGenes/Archon</li>
 		<li IfModActiveAll="sarg.alphagenes,vanillaracesexpanded.saurid">1.7/Mods/AlphaGenes/VRESaurid</li>
 		<li IfModActiveAll="sarg.alphagenes,lts.I">1.7/Mods/AlphaGenes/IntegratedImplants</li>
+		<li IfModActiveAll="sarg.alphagenes,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.7/Mods/AlphaGenes/BSSimpleSize</li>
 		<li IfModActiveAll="sarg.alphagenes,RedMattis.BigSmall.Core">1.7/Mods/AlphaGenes/BSGenesAndMore</li>
 		<li IfModActiveAll="sarg.alphagenes,RedMattis.BigSmall.Core,vanillaracesexpanded.sanguophage">1.7/Mods/AlphaGenes/BSGenesAndMore_VRESanguophage</li>
 		<li IfModActive="sarg.alphagenes">1.7/Mods/AlphaGenes</li>
@@ -401,6 +414,7 @@
 		<li IfModActiveAll="ICC.FOV.ELVES,sarg.alphagenes">1.7/Mods/FactionElves/AlphaGenes</li>
 		<li IfModActive="ICC.FOV.ELVES">1.7/Mods/FactionElves</li>
 		<li IfModActiveAll="Sovereign.ChipChipChip,sarg.alphagenes">1.7/Mods/KabouterXenotype</li>
+		<li IfModActiveAll="cyanobot.CyanobotsGenes,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.7/Mods/CyanobotsGenes/BSSimpleSize</li>
 		<li IfModActiveAll="cyanobot.CyanobotsGenes,RedMattis.BigSmall.Core">1.7/Mods/CyanobotsGenes/BSGenesAndMore</li>
 		<li IfModActiveAll="foxian.league.raider,RedMattis.BetterPrerequisites,Ludeon.RimWorld.Biotech">1.7/Mods/FoxianLeague/BSFramework</li>
 		<li IfModActiveAll="Sovereign.bnuy,RedMattis.BigSmall.Core">1.7/Mods/StarletXenotype/BSGenesAndMore</li>

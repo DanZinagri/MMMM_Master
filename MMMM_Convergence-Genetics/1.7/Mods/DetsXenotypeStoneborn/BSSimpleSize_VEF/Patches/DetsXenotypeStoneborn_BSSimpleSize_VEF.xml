@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Det's Xenotypes - Stoneborn + Big and Small - Simple Size Genes (without Genes & More) + Vanilla Expanded Framework:
+		Stoneborn's dwarfism gene, swapped for the dwarf frame in DetsXenotypeStoneborn/BSSimpleSize, is retired to this mod's
+		Cherry Picker list.
+		Folder gated on det.stoneborn,OskarPotocki.VanillaFactionsExpanded.Core and RedMattis.BigSmall.SimpleSize, and only when RedMattis.BigSmall.Core is NOT active (loadFolders.xml); with Genes & More the
+		Genes & More folders run instead. Simple Size Genes ships these defs under B&S's defNames (verified 2026-11-13).
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/DV_SmallBuild</li>
+			<li>GeneDef/DV_SmallBuild_Astrogene</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Rim-Gnoblins + Big and Small - Simple Size Genes (without Genes & More): the gnoblins' extreme dwarfism becomes B&S's
+		small frame, and the Rim-Gnoblins gene is retired to this mod's Cherry Picker list. The Genes & More copy also adds
+		B&S's tiny but tough, which Simple Size Genes does not have.
+		Folder gated on VexedTrees980.RimGnoblinsBiotech and RedMattis.BigSmall.SimpleSize, and only when RedMattis.BigSmall.Core is NOT active (loadFolders.xml); with Genes & More the
+		Genes & More folders run instead. Simple Size Genes ships these defs under B&S's defNames (verified 2026-11-13).
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="Size_ExtremeDwarfism"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="Size_ExtremeDwarfism"]</xpath>
+			<value>
+				<li>BS_SmallFrame</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CherryPicker.DefList[defName="MMMM_ConvergenceGenetics_CherryPicker_Basics"]/defs</xpath>
+		<value>
+			<li>GeneDef/Size_ExtremeDwarfism</li>
+		</value>
+	</Operation>
+
+</Patch>

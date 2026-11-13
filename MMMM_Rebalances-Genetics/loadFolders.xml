@@ -27,6 +27,7 @@
 		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.highmate">1.6/Mods/Biotech/VREHighmate</li>
 		<li IfModActiveAll="Ludeon.RimWorld.Biotech,biotexpans.mammalia">1.6/Mods/Biotech/Mammalia</li>
 		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BSSlimes">1.6/Mods/Biotech/BSSlimes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.6/Mods/Biotech/BSSimpleSize</li>
 		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BigSmall.Core">1.6/Mods/Biotech/BSGenesAndMore</li>
 		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,RedMattis.BigSmall.Core">1.6/Mods/Biotech/AlphaGenes_BSGenesAndMore</li>
 		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,Ludeon.RimWorld.Anomaly">1.6/Mods/Biotech/AlphaGenes_Anomaly</li>
@@ -119,6 +120,7 @@
 		<li IfModActiveAll="Ludeon.RimWorld.Biotech,vanillaracesexpanded.highmate">1.7/Mods/Biotech/VREHighmate</li>
 		<li IfModActiveAll="Ludeon.RimWorld.Biotech,biotexpans.mammalia">1.7/Mods/Biotech/Mammalia</li>
 		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BSSlimes">1.7/Mods/Biotech/BSSlimes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.7/Mods/Biotech/BSSimpleSize</li>
 		<li IfModActiveAll="Ludeon.RimWorld.Biotech,RedMattis.BigSmall.Core">1.7/Mods/Biotech/BSGenesAndMore</li>
 		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,RedMattis.BigSmall.Core">1.7/Mods/Biotech/AlphaGenes_BSGenesAndMore</li>
 		<li IfModActiveAll="Ludeon.RimWorld.Biotech,sarg.alphagenes,Ludeon.RimWorld.Anomaly">1.7/Mods/Biotech/AlphaGenes_Anomaly</li>

@@ -63,6 +63,7 @@
 		<li>DanZinagri.MMMM.Rebalances.Other</li>
 		<li>DanZinagri.MMMM.Rebalances.StrongerEnemies</li>
 		<li>DanZinagri.MMMM.Rebalances.Traits</li>
+		<li>RedMattis.BigSmall.SimpleSize</li>
 	</loadAfter>
 	<description>Mod integrations</description>
 </ModMetaData>

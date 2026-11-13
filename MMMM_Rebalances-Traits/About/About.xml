@@ -29,6 +29,7 @@
 		<li>VanillaExpanded.VGeneticsE</li>
 		<li>VanillaExpanded.VMemesE</li>
 		<li>vanillaquestsexpanded.generator</li>
+		<li>RedMattis.BigSmall.SimpleSize</li>
 	</loadAfter>
 	<description>Rebalances</description>
 </ModMetaData>

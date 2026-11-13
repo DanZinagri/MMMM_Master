@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Det's Xenotypes - Stoneborn + Big and Small - Simple Size Genes (without Genes & More): Stoneborn's own dwarfism
+		(DV_SmallBuild, only added when Vanilla Expanded Framework is active) becomes B&S's dwarf frame. It is retired in the
+		VEF subfolder, the only time it exists. The undergrounder and dwarven grit swaps in DetsXenotypeStoneborn need Genes &
+		More, so the Stoneborn keeps its undergrounder gene and Robust.
+		Folder gated on det.stoneborn and RedMattis.BigSmall.SimpleSize, and only when RedMattis.BigSmall.Core is NOT active (loadFolders.xml); with Genes & More the
+		Genes & More folders run instead. Simple Size Genes ships these defs under B&S's defNames (verified 2026-11-13).
+	-->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[genes/li[text()="DwarfFrame"]]/genes/li[text()="DV_SmallBuild"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/XenotypeDef[genes/li[text()="DwarfFrame"]]/genes/li[text()="DV_SmallBuild"]</xpath>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef/genes/li[text()="DV_SmallBuild"]</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/XenotypeDef/genes/li[text()="DV_SmallBuild"]</xpath>
+			<value>
+				<li>DwarfFrame</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>
