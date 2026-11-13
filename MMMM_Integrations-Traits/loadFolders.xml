@@ -19,10 +19,7 @@
 		<!-- Every folder is gated on ALL the mods it integrates (IfModActiveAll), so no FindMod checks are needed inside the patches. -->
 		<!-- Nested folders (1.7/Mods/<Mod>/<Other>, or 1.7/<File>/<Other> for core patch files) hold the patches that also need <Other> (Without<Other>: need it absent); each is listed just before its parent so it applies right after. -->
 		<li>/</li>
-		<li IfModActiveAll="VanillaExpanded.VanillaTraitsExpanded,Arquebus.StagzMerfolk">1.7/Mods/VanillaTraitsExpanded/StagzMerfolk</li>
 		<li IfModActive="VanillaExpanded.VanillaTraitsExpanded">1.7/Mods/VanillaTraitsExpanded</li>
-		<li IfModActiveAll="VanillaExpanded.VCEF,Arquebus.StagzMerfolk">1.7/Mods/VanillaFishingExpanded/StagzMerfolk</li>
-		<li IfModActive="VanillaExpanded.VCEF">1.7/Mods/VanillaFishingExpanded</li>
 		<li IfModActiveAll="VanillaExpanded.VPsycastsE,Goji.TheSimsTraits">1.7/Mods/VanillaPsycastsExpanded/TheSimsTraits</li>
 		<li IfModActiveAll="VanillaExpanded.VPsycastsE,vanillaracesexpanded.highmate">1.7/Mods/VanillaPsycastsExpanded/VREHighmate</li>
 		<li IfModActiveAll="VanillaExpanded.VPsycastsE,VanillaExpanded.VanillaTraitsExpanded">1.7/Mods/VanillaPsycastsExpanded/VTE</li>

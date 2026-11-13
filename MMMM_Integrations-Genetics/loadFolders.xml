@@ -134,8 +134,6 @@
 		<li IfModActive="RedMattis.BigSmall.SimpleAndroids">1.7/Mods/BigAndSmallSimplyRobots</li>
 		<li IfModActiveAll="det.buzzers,sarg.alphagenes">1.7/Mods/DetsXenotypeBuzzers/AlphaGenes</li>
 		<li IfModActive="det.buzzers">1.7/Mods/DetsXenotypeBuzzers</li>
-		<li IfModActiveAll="Arquebus.StagzMerfolk,ReGrowth.BOTR.Core">1.7/Mods/GojisFantasyRaceMerren/ReGrowth2</li>
-		<li IfModActive="Arquebus.StagzMerfolk">1.7/Mods/GojisFantasyRaceMerren</li>
 		<li IfModActiveAll="Rimsenal.Harana,Rimsenal.Askbarn" IfModNotActive="vanillaracesexpanded.lycanthrope,det.keshig">1.7/Mods/RimsenalXenotypes/Harana_RA_WithoutVREL_WithoutDK</li>
 		<li IfModActiveAll="Rimsenal.Harana,Rimsenal.Askbarn,det.keshig" IfModNotActive="vanillaracesexpanded.lycanthrope">1.7/Mods/RimsenalXenotypes/Harana_RA_WithoutVREL_DetsKeshig</li>
 		<li IfModActiveAll="Rimsenal.Harana,vanillaracesexpanded.lycanthrope">1.7/Mods/RimsenalXenotypes/Harana_VRELycanthrope</li>
