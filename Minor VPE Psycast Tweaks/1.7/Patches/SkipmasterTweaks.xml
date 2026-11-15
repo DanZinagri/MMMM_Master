@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+<Operation Class="PatchOperationReplace">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_Skip"]/modExtensions/li[@Class="VEF.Abilities.AbilityExtension_Stun"]/stunTicks</xpath>
+  <value>
+    <stunTicks>0</stunTicks>
+  </value>
+</Operation>
+<Operation Class="PatchOperationReplace">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_Skip"]/description</xpath>
+  <value>
+    <description>Teleport the target to a desired position, the distance scaling with the caster&#8217;s psychic sensitivity, from his starting point.</description>
+  </value>
+</Operation>
+</Patch>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+<!-- Do NOT remove this extension. VPE_MassHallucination uses abilityClass Ability_PsychicComa,
+  which applies a hardcoded 5-day coma whenever the extension is missing.
+  Keeping the extension at 0 hours suppresses both code paths. -->
+<Operation Class="PatchOperationReplace">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_MassHallucination"]/modExtensions/li[@Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa"]/hours</xpath>
+  <value>
+    <hours>0</hours>
+  </value>
+</Operation>
+</Patch>

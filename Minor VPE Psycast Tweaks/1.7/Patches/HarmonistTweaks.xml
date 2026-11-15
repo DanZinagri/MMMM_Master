@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+<Operation Class="PatchOperationRemove">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_SkillRoll"]/modExtensions/li[@Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa"]</xpath>
+</Operation>
+<Operation Class="PatchOperationReplace">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_Mindcontrol"]/modExtensions/li[@Class="VanillaPsycastsExpanded.AbilityExtension_Psycast"]/psyfocusCost</xpath>
+  <value>
+    <psyfocusCost>0.40</psyfocusCost>
+  </value>
+</Operation>
+<Operation Class="PatchOperationAdd">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_Mindcontrol"]</xpath>
+  <value>
+    <goodwillImpact>-25</goodwillImpact>
+  </value>
+</Operation>
+<Operation Class="PatchOperationReplace">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_Mindcontrol"]/description</xpath>
+  <value>
+    <description>Psychically dominate a target for a brief period, scaling with their psychic sensitivity, giving the caster a second body. However, it&#8217;s difficult being two people at once. Considered a hostile action.</description>
+  </value>
+</Operation>
+</Patch>

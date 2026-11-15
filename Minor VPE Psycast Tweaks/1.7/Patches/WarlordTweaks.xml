@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+<Operation Class="PatchOperationReplace">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_BladeFocus"]/modExtensions/li[@Class="VanillaPsycastsExpanded.AbilityExtension_Psycast"]/psyfocusCost</xpath>
+  <value>
+    <psyfocusCost>0.24</psyfocusCost>
+  </value>
+</Operation>
+<Operation Class="PatchOperationReplace">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_BladeFocus"]/durationTime</xpath>
+  <value>
+    <durationTime>14400</durationTime>
+  </value>
+</Operation>
+<Operation Class="PatchOperationReplace">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_BladeFocus"]/description</xpath>
+  <value>
+    <description>Psychically augments the muscle fibers, ligaments and joints in the caster&#8217;s arms, doubling their melee attack speed for roughly four minutes depending on their psychic sensitivity.</description>
+  </value>
+</Operation>
+<Operation Class="PatchOperationReplace">
+  <success>Always</success>
+  <xpath>Defs/HediffDef[defName="VPE_FiringFocus"]/stages/li/statFactors/RangedCooldownFactor</xpath>
+  <value>
+    <RangedCooldownFactor>0.5</RangedCooldownFactor>
+  </value>
+</Operation>
+<Operation Class="PatchOperationReplace">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_FiringFocus"]/durationTime</xpath>
+  <value>
+    <durationTime>3600</durationTime>
+  </value>
+</Operation>
+<Operation Class="PatchOperationReplace">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_FiringFocus"]/description</xpath>
+  <value>
+    <description>Psychically augments the hands, eyes and reaction speed of the caster, halving their ranged attack cooldown for roughly one minute depending on their psychic sensitivity.</description>
+  </value>
+</Operation>
+</Patch>

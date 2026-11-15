@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+<Operation Class="PatchOperationRemove">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_ReverseEngineer"]/modExtensions/li[@Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa"]</xpath>
+</Operation>
+<Operation Class="PatchOperationReplace">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_EnchantQuality"]/targetingParameters/canTargetBuildings</xpath>
+  <value>
+    <canTargetBuildings>true</canTargetBuildings>
+  </value>
+</Operation>
+</Patch>

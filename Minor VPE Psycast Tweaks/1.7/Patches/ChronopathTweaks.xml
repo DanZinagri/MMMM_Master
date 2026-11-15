@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+<Operation Class="PatchOperationRemove">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_PlantTimeskip"]/modExtensions/li[@Class="VanillaPsycastsExpanded.Chronopath.AbilityExtension_Age"]</xpath>
+</Operation>
+<Operation Class="PatchOperationRemove">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_TimeskipMeditation"]/modExtensions/li[@Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa"]</xpath>
+</Operation>
+<Operation Class="PatchOperationRemove">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_SeasonTimeskip"]/modExtensions/li[@Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa"]</xpath>
+</Operation>
+<Operation Class="PatchOperationRemove">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_TimeReversal"]/modExtensions/li[@Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa"]</xpath>
+</Operation>
+<Operation Class="PatchOperationRemove">
+  <success>Always</success>
+  <xpath>Defs/VEF.Abilities.AbilityDef[defName="VPE_Timequake"]/modExtensions/li[@Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa"]</xpath>
+</Operation>
+</Patch>
