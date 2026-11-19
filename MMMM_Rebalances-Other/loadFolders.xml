@@ -54,6 +54,7 @@
 		<li IfModActive="RedMattis.BigSmall.SimpleAndroids">1.6/Mods/BigAndSmallSimplyRobots</li>
 		<li IfModActiveAll="ReBuild.COTR.DoorsAndCorners,VanillaExpanded.VFECore">1.6/Mods/ReBuildDoorsAndCorners/VFurnE</li>
 		<li IfModActive="ReBuild.COTR.DoorsAndCorners">1.6/Mods/ReBuildDoorsAndCorners</li>
+		<li IfModActive="vanillaquestsexpanded.ancients">1.6/Mods/VanillaQuestsExpandedAncients</li>
 		<li IfModActive="vanillaquestsexpanded.deadlife">1.6/Mods/VanillaQuestsExpandedDeadlife</li>
 	</v1.6>
 	<v1.7>
@@ -109,6 +110,7 @@
 		<li IfModActive="RedMattis.BigSmall.SimpleAndroids">1.7/Mods/BigAndSmallSimplyRobots</li>
 		<li IfModActiveAll="ReBuild.COTR.DoorsAndCorners,VanillaExpanded.VFECore">1.7/Mods/ReBuildDoorsAndCorners/VFurnE</li>
 		<li IfModActive="ReBuild.COTR.DoorsAndCorners">1.7/Mods/ReBuildDoorsAndCorners</li>
+		<li IfModActive="vanillaquestsexpanded.ancients">1.7/Mods/VanillaQuestsExpandedAncients</li>
 		<li IfModActive="vanillaquestsexpanded.deadlife">1.7/Mods/VanillaQuestsExpandedDeadlife</li>
 	</v1.7>
 </loadFolders>

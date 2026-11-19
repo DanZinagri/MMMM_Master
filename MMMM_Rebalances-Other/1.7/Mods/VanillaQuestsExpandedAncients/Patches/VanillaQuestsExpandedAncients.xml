@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		VQE Ancients' ancient organ box (loot table VQEA_AncientOrganBox, any item in the BodyParts category) is capped at
+		Industrial tech: no bionic, ultratech, archotech or mechtech parts, so no psylink neuroformers, mechlinks or mechanitor
+		implants. The cap keeps every item at or below Industrial, and natural organs have no tech level, so hearts, kidneys
+		and the like still drop. Only this loot table is touched; the box's 1000~5000 value and 1~3 count are unchanged.
+		The few below-Industrial parts are excluded by name: EPOE-Forked's medieval hook hand and steel arm, Anima Animals'
+		neolithic anima heart, and the whole Anima Bionics - Forked set (neolithic anima parts and the two dryads). Each
+		entry is MayRequire'd on its mod.
+		Animal implants are out too (2026-11-18): Alpha Implants' whole animal parts category (AI_ImplantCategory), and
+		Vanilla Genetics Expanded's 31 "animal Implant:" parts plus More Lab Stuff's animal mind controller, by name. VGE's
+		"human Implant:" hybrids share that category (GR_ImplantCategory) and stay, as do Alpha Animals' mutant parts
+		(they go on people). Bionic modularity - animals is all Spacer, so the cap already removes it.
+		Verified 2026-11-18 against VQE Ancients (its 1.6 folder, which it also loads on 1.7): the table's MarketValue maker has
+		fixedParams with only a BodyParts filter. Checked in the 1.7 decompile: ThingSetMaker.ApplyFixedParams keeps the
+		table's own fixed values over the ones VEF's LootableBuilding_Custom passes in, and
+		ThingSetMakerUtility.GetAllowedThingDefs drops defs whose techLevel is above parms.techLevel.
+		Tech levels were read from every def in the 2026-11-18 mod list; the only Neolithic/Medieval body parts were these.
+		Items with no tech level (natural organs and some modded parts) still pass the cap.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[defName="VQEA_AncientOrganBox"]//fixedParams[filter/categories/li="BodyParts"]</xpath>
+		<value>
+			<techLevel>Industrial</techLevel>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[defName="VQEA_AncientOrganBox"]//fixedParams[filter/categories/li="BodyParts"]/filter</xpath>
+		<value>
+			<disallowedThingDefs>
+				<li MayRequire="vat.epoeforked">HookHand</li>
+				<li MayRequire="vat.epoeforked">SteelArm</li>
+				<li MayRequire="zal.animaanimalscombined">AnimaThrumboHeart</li>
+				<li MayRequire="seti.victor.animabodies">AnimaLeg</li>
+				<li MayRequire="seti.victor.animabodies">AnimaWarArm</li>
+				<li MayRequire="seti.victor.animabodies">AnimaEntArm</li>
+				<li MayRequire="seti.victor.animabodies">AnimaHorn</li>
+				<li MayRequire="seti.victor.animabodies">AnimaNose</li>
+				<li MayRequire="seti.victor.animabodies">AnimaJaw</li>
+				<li MayRequire="seti.victor.animabodies">AnimaEar</li>
+				<li MayRequire="seti.victor.animabodies">AnimaPlate</li>
+				<li MayRequire="seti.victor.animabodies">AnimaLiver</li>
+				<li MayRequire="seti.victor.animabodies">AnimaKidney</li>
+				<li MayRequire="seti.victor.animabodies">AnimaLung</li>
+				<li MayRequire="seti.victor.animabodies">AnimaEye</li>
+				<li MayRequire="seti.victor.animabodies">AnimaStomach</li>
+				<li MayRequire="seti.victor.animabodies">AnimaSpine</li>
+				<li MayRequire="seti.victor.animabodies">AnimaHeart</li>
+				<li MayRequire="seti.victor.animabodies">PsychicDryad</li>
+				<li MayRequire="seti.victor.animabodies">MindDryad</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_BearLeg</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_LizardLeg</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_ThrumboLeg</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_CatTail</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_ScytherTail</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_MechaTail</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_CanidEye</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_InsectileEye</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_ThrumboEye</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_RodentEar</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_MothTympanalOrgan</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_MechaReceptors</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_RodentNose</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_InsectoidPheromones</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_MiniatureThrumboHorn</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_WolfJaws</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_InsectMandibles</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_ThrumboJaws</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_MuffaloSpine</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_CrocodileSpine</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_MechaSpine</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_ChickenBrains</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_MonitorLizardBrain</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_ThrumboBrain</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_BoomalopeHeart</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_ChitinousHeart</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_MechaHeart</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_MuffaloLung</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_BearLiver</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_ChickenKidney</li>
+				<li MayRequire="vanillaexpanded.vgeneticse">GR_BoomalopeStomach</li>
+				<li MayRequire="vanillaexpanded.vgeneticsemorelabstuff">GR_AnimalControlImplant</li>
+			</disallowedThingDefs>
+			<disallowedCategories>
+				<li MayRequire="sarg.alphaimplants">AI_ImplantCategory</li>
+			</disallowedCategories>
+		</value>
+	</Operation>
+
+</Patch>
