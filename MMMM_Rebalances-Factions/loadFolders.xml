@@ -18,6 +18,7 @@
 		<li>1.6</li>
 		<li IfModActiveAll="sarg.alphagenes,vanillaracesexpanded.phytokin,Ludeon.RimWorld.Anomaly" IfModNotActive="mytigio.harbingerkin">1.6/Mods/AlphaGenes_WithoutHarbingerKin/VREPhytokin_Anomaly</li>
 		<li IfModActive="sarg.alphagenes" IfModNotActive="mytigio.harbingerkin">1.6/Mods/AlphaGenes_WithoutHarbingerKin</li>
+		<li IfModActive="OskarPotocki.VFE.Classical">1.6/Mods/VanillaFactionsExpandedClassical</li>
 		<li IfModActive="Crows.DragonBond">1.6/Mods/DragonBond</li>
 		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.6/Mods/BigAndSmallLamias</li>
 		<li IfModActive="RedMattis.BSSlimes">1.6/Mods/BigAndSmallSlimes</li>
@@ -40,6 +41,7 @@
 		<li>1.7</li>
 		<li IfModActiveAll="sarg.alphagenes,vanillaracesexpanded.phytokin,Ludeon.RimWorld.Anomaly" IfModNotActive="mytigio.harbingerkin">1.7/Mods/AlphaGenes_WithoutHarbingerKin/VREPhytokin_Anomaly</li>
 		<li IfModActive="sarg.alphagenes" IfModNotActive="mytigio.harbingerkin">1.7/Mods/AlphaGenes_WithoutHarbingerKin</li>
+		<li IfModActive="OskarPotocki.VFE.Classical">1.7/Mods/VanillaFactionsExpandedClassical</li>
 		<li IfModActive="Crows.DragonBond">1.7/Mods/DragonBond</li>
 		<li IfModActive="RedMattis.LamiasAndOtherSnakes">1.7/Mods/BigAndSmallLamias</li>
 		<li IfModActive="RedMattis.BSSlimes">1.7/Mods/BigAndSmallSlimes</li>

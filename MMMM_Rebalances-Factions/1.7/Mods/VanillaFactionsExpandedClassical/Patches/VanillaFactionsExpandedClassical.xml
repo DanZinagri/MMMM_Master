@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Vanilla's meme picker (Dialog_ChooseMemes) hides any meme that a non-player faction sharing the ideology may not
+		use (IdeoUtility.IsMemeAllowedFor). VFE Classical's republics often share the player's ideology, so their
+		disallowedMemes (Supremacist, Pain is Virtue, Nudism, Raider, Blindsight, Transhumanist, Ideological structure)
+		vanished from the player's own meme list. This removes those lists from the republic base and the three
+		republics. Side effect: a republic with its own ideology can now roll those memes too.
+		VFE Classical loads its 1.6 folder on 1.7 as well.
+	-->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/FactionDef[@Name="VFEC_RepublicBase" or defName="VFEC_CentralRepublic" or defName="VFEC_WesternRepublic" or defName="VFEC_EasternRepublic"]/disallowedMemes</xpath>
+	</Operation>
+
+</Patch>
