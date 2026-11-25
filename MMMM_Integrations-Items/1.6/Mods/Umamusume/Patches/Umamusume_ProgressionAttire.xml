@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Umamusume + Progression: Attire: the Umamusume outfits (Goldship's dress, Fenomeno's and Orfevre's uniforms and the
+		three caps) are made at the costuming table instead of the tailoring benches, and unlock with costuming table research
+		instead of complex clothing, as Progression: Attire does for the outfit mods it covers itself.
+		The five recipeMaker items share ApparelUmamusumeMakeableBase (recipeUsers live only there); Goldship's dress
+		uses its own RecipeDef.
+		Verified 2026-11-25 against Umamusume: Rim Derby (3552197538, 1.6/Defs/ThingDefs_Misc/Armor; no 1.7 folder) and
+		Progression: Attire (3634874325, Ferny_CostumingTable bench + research).
+	-->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[@Name="ApparelUmamusumeMakeableBase"]/recipeMaker/recipeUsers</xpath>
+		<value>
+			<recipeUsers>
+				<li>Ferny_CostumingTable</li>
+			</recipeUsers>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[@ParentName="ApparelUmamusumeMakeableBase"]/recipeMaker/researchPrerequisite</xpath>
+		<value>
+			<researchPrerequisite>Ferny_CostumingTable</researchPrerequisite>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="Make_GoldshipApparelbecausetynansanasshole"]/recipeUsers</xpath>
+		<value>
+			<recipeUsers>
+				<li>Ferny_CostumingTable</li>
+			</recipeUsers>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="Make_GoldshipApparelbecausetynansanasshole"]/researchPrerequisite</xpath>
+		<value>
+			<researchPrerequisite>Ferny_CostumingTable</researchPrerequisite>
+		</value>
+	</Operation>
+
+</Patch>

@@ -73,6 +73,7 @@
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.6/Mods/VanillaGeneticsExpanded</li>
 		<li IfModActiveAll="VanillaExpanded.VAPPE,ReBuild.COTR.DoorsAndCorners">1.6/Mods/VanillaApparelExpanded/ReBuildDoorsAndCorners</li>
 		<li IfModActive="VanillaExpanded.VAPPE">1.6/Mods/VanillaApparelExpanded</li>
+		<li IfModActiveAll="JTC.Honseseggs,ferny.progressionattire">1.6/Mods/Umamusume</li>
 		<li IfModActiveAll="ponpeco.PonpecoPajamas,ferny.progressionkitchen,OskarPotocki.VFE.Tribals">1.6/Mods/PonpecoPajamas/ProgressionKitchen_VFETribals</li>
 		<li IfModActive="ponpeco.PonpecoPajamas">1.6/Mods/PonpecoPajamas</li>
 		<li IfModActiveAll="DankPyon.Medieval.Overhaul,cruesoe.vanillacombatoverhaul">1.6/Mods/MedievalOverhaulVCO</li>
@@ -154,6 +155,7 @@
 		<li IfModActive="VanillaExpanded.VGeneticsE">1.7/Mods/VanillaGeneticsExpanded</li>
 		<li IfModActiveAll="VanillaExpanded.VAPPE,ReBuild.COTR.DoorsAndCorners">1.7/Mods/VanillaApparelExpanded/ReBuildDoorsAndCorners</li>
 		<li IfModActive="VanillaExpanded.VAPPE">1.7/Mods/VanillaApparelExpanded</li>
+		<li IfModActiveAll="JTC.Honseseggs,ferny.progressionattire">1.7/Mods/Umamusume</li>
 		<li IfModActiveAll="ponpeco.PonpecoPajamas,ferny.progressionkitchen,OskarPotocki.VFE.Tribals">1.7/Mods/PonpecoPajamas/ProgressionKitchen_VFETribals</li>
 		<li IfModActive="ponpeco.PonpecoPajamas">1.7/Mods/PonpecoPajamas</li>
 		<li IfModActiveAll="DankPyon.Medieval.Overhaul,cruesoe.vanillacombatoverhaul">1.7/Mods/MedievalOverhaulVCO</li>

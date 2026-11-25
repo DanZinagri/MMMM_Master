@@ -87,6 +87,7 @@
 		<li>DanZinagri.MMMM.Rebalances.Other</li>
 		<li>DanZinagri.MMMM.Rebalances.StrongerEnemies</li>
 		<li>DanZinagri.MMMM.Rebalances.Traits</li>
+		<li>JTC.Honseseggs</li>
 	</loadAfter>
 	<description>Mod integrations</description>
 </ModMetaData>
