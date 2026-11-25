@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Umamusume + Big and Small - Simple Size Genes (without Genes &amp; More): the size offset moves to the Large gene,
+		as in the Genes &amp; More folder. Simple Size has no gene stabilizing.
+		Verified 2026-11-24 against Umamusume: Rim Derby (3552197538, Uma_Biotech/1.6/Defs/UmaXenotype.xml; it has no 1.7 folder and loads 1.6 on 1.7).
+	-->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="JTC_Umamiscstuff"]/statOffsets/SM_BodySizeOffset</xpath>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="JTCUmamusume"][not(genes/li[text()="Large"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="JTCUmamusume"][not(genes/li[text()="Large"])]/genes</xpath>
+			<value>
+				<li>Large</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

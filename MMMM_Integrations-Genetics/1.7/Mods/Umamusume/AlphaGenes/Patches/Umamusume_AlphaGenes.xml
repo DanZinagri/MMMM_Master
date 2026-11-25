@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Umamusume + Alpha Genes: armoured speed.
+		Verified 2026-11-24 against Umamusume: Rim Derby (3552197538, Uma_Biotech/1.6/Defs/UmaXenotype.xml; it has no 1.7 folder and loads 1.6 on 1.7).
+	-->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="JTCUmamusume"][not(genes/li[text()="AG_ArmouredSpeed"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="JTCUmamusume"][not(genes/li[text()="AG_ArmouredSpeed"])]/genes</xpath>
+			<value>
+				<li>AG_ArmouredSpeed</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

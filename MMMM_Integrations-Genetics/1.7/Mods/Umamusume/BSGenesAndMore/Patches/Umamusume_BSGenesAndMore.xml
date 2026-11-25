@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Umamusume + Big and Small - Genes &amp; More: the horse tail gene moves from Miscellaneous (vanilla's tail category) to Body Transformation, with B&amp;S's other race-swapping
+		genes (the swap itself is in the Framework folder; Genes &amp; More requires Framework).
+		Verified 2026-11-24 against Umamusume: Rim Derby (3552197538, Uma_Biotech/1.6/Defs/UmaXenotype.xml; it has no 1.7 folder and loads 1.6 on 1.7).
+	-->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="Tail_Umamusume"]</xpath>
+		<value>
+			<displayCategory>BS_BodySwap</displayCategory>
+		</value>
+	</Operation>
+
+</Patch>

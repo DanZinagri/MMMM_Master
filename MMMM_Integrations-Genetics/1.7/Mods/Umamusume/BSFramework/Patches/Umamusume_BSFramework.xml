@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Umamusume + Big and Small - Framework: the horse tail gene swaps the body to B&amp;S's tailed humanoid race
+		(BS_HumanoidWithTail), as B&amp;S's own tailed gene does. The race's default tail stays hidden because the horse tail
+		carries the Tail exclusion tag. The move to B&amp;S's Body Transformation category is in the Genes &amp; More folder,
+		which defines that category.
+		Verified 2026-11-24 against Umamusume: Rim Derby (3552197538, Uma_Biotech/1.6/Defs/UmaXenotype.xml; it has no 1.7 folder and loads 1.6 on 1.7).
+	-->
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/GeneDef[defName="Tail_Umamusume"]</xpath>
+		<value>
+			<li Class="BigAndSmall.PawnExtension">
+				<thingDefSwap>BS_HumanoidWithTail</thingDefSwap>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/GeneDef[defName="Tail_Umamusume"]</xpath>
+		<value>
+			<customEffectDescriptions>
+				<li>Switches the character's "Race" for another one if possible.</li>
+			</customEffectDescriptions>
+		</value>
+	</Operation>
+
+</Patch>

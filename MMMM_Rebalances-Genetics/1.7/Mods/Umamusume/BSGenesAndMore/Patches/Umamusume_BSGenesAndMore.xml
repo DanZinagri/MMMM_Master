@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Umamusume + Big and Small - Genes &amp; More: the Umamusume gene's +0.25 body size offset is removed and the
+		xenotype gets the Large gene instead (-1 metabolism). Fast runner (vanilla MoveSpeed_Quick, -3 metabolism) becomes
+		unreasonably fast runner (-7), and extreme gene stabilizing (BS_GeneStabilizing_Great, +4 metabolism, 9 complexity) is
+		added to pay for it and the split-out genes.
+		Verified 2026-11-24 against Umamusume: Rim Derby (3552197538, Uma_Biotech/1.6/Defs/UmaXenotype.xml; it has no 1.7 folder and loads 1.6 on 1.7).
+	-->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/GeneDef[defName="JTC_Umamiscstuff"]/statOffsets/SM_BodySizeOffset</xpath>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="JTCUmamusume"][not(genes/li[text()="Large"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="JTCUmamusume"][not(genes/li[text()="Large"])]/genes</xpath>
+			<value>
+				<li>Large</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/XenotypeDef[defName="JTCUmamusume"][not(genes/li[text()="BS_GeneStabilizing_Great"])]/genes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/XenotypeDef[defName="JTCUmamusume"][not(genes/li[text()="BS_GeneStabilizing_Great"])]/genes</xpath>
+			<value>
+				<li>BS_GeneStabilizing_Great</li>
+			</value>
+		</match>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/XenotypeDef[defName="JTCUmamusume"]/genes/li[text()="MoveSpeed_Quick"]</xpath>
+		<value>
+			<li>BS_MoveSpeed_UltraQuick</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -81,6 +81,10 @@
 		<li IfModActive="RedMattis.Undead,RedMattis.Heaven" IfModActiveAll="resplice.xotr.charmweavers">1.6/Mods/BigAndSmallDemons/ReSpliceCharmweavers</li>
 		<li IfModActive="RedMattis.Undead,RedMattis.Heaven" IfModActiveAll="sarg.alphagenes">1.6/Mods/BigAndSmallDemons/AlphaGenes</li>
 		<li IfModActive="RedMattis.Undead,RedMattis.Heaven">1.6/Mods/BigAndSmallDemons</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,JTC.Honseseggs,sarg.alphagenes">1.6/Mods/Umamusume/AlphaGenes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,JTC.Honseseggs,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.6/Mods/Umamusume/BSSimpleSize</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,JTC.Honseseggs,RedMattis.BigSmall.Core">1.6/Mods/Umamusume/BSGenesAndMore</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,JTC.Honseseggs">1.6/Mods/Umamusume</li>
 		<li IfModActive="Sov.Tenmo">1.6/Mods/GeistXenotype</li>
 		<li IfModActiveAll="sarg.alphagenes,lts.I">1.6/Mods/AlphaGenes/IntegratedImplants</li>
 		<li IfModActive="sarg.alphagenes">1.6/Mods/AlphaGenes</li>
@@ -173,6 +177,10 @@
 		<li IfModActive="RedMattis.Undead,RedMattis.Heaven" IfModActiveAll="resplice.xotr.charmweavers">1.7/Mods/BigAndSmallDemons/ReSpliceCharmweavers</li>
 		<li IfModActive="RedMattis.Undead,RedMattis.Heaven" IfModActiveAll="sarg.alphagenes">1.7/Mods/BigAndSmallDemons/AlphaGenes</li>
 		<li IfModActive="RedMattis.Undead,RedMattis.Heaven">1.7/Mods/BigAndSmallDemons</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,JTC.Honseseggs,sarg.alphagenes">1.7/Mods/Umamusume/AlphaGenes</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,JTC.Honseseggs,RedMattis.BigSmall.SimpleSize" IfModNotActive="RedMattis.BigSmall.Core">1.7/Mods/Umamusume/BSSimpleSize</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,JTC.Honseseggs,RedMattis.BigSmall.Core">1.7/Mods/Umamusume/BSGenesAndMore</li>
+		<li IfModActiveAll="Ludeon.RimWorld.Biotech,JTC.Honseseggs">1.7/Mods/Umamusume</li>
 		<li IfModActive="Sov.Tenmo">1.7/Mods/GeistXenotype</li>
 		<li IfModActiveAll="sarg.alphagenes,lts.I">1.7/Mods/AlphaGenes/IntegratedImplants</li>
 		<li IfModActive="sarg.alphagenes">1.7/Mods/AlphaGenes</li>
