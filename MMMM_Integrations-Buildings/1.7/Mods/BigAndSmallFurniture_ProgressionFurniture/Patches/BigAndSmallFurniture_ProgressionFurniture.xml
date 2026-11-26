@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small Furniture + Progression: Furniture: Progression adds 40 cloth to the vanilla bed, double bed and
+		hospital bed (1.6/Patches/core_patch.xml), but its Big and Small Furniture folder only moves research, so the giant
+		versions cost no cloth. This folder only loads when both mods are active (see loadFolders.xml).
+		Amounts are scaled the way Big and Small Furniture scaled the other costs: big bed 90 (wood 45 -> 100), big double
+		bed 90 (Progression gives single and double the same cloth), big hospital bed 75 (steel 80 -> 150).
+		The giant primitive beds inherit from the big bed and double bed, so they get an empty costList with
+		Inherit="False" to stay cloth-free. The mega universal bed has no normal-size original and is left alone.
+	-->
+
+	<!-- big bed -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="BS_BigBed"]/costList/Cloth</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_BigBed"]/costList/Cloth</xpath>
+			<value><Cloth>90</Cloth></value>
+		</match>
+		<nomatch Class="PatchOperationConditional">
+			<xpath>Defs/ThingDef[defName="BS_BigBed"]/costList</xpath>
+			<match Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="BS_BigBed"]/costList</xpath>
+				<value><Cloth>90</Cloth></value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="BS_BigBed"]</xpath>
+				<value><costList><Cloth>90</Cloth></costList></value>
+			</nomatch>
+		</nomatch>
+	</Operation>
+
+	<!-- big double bed -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="BS_BigDoubleBed"]/costList/Cloth</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_BigDoubleBed"]/costList/Cloth</xpath>
+			<value><Cloth>90</Cloth></value>
+		</match>
+		<nomatch Class="PatchOperationConditional">
+			<xpath>Defs/ThingDef[defName="BS_BigDoubleBed"]/costList</xpath>
+			<match Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="BS_BigDoubleBed"]/costList</xpath>
+				<value><Cloth>90</Cloth></value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="BS_BigDoubleBed"]</xpath>
+				<value><costList><Cloth>90</Cloth></costList></value>
+			</nomatch>
+		</nomatch>
+	</Operation>
+
+	<!-- big hospital bed (already costs steel and components) -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="BS_BigHospitalBed"]/costList/Cloth</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_BigHospitalBed"]/costList/Cloth</xpath>
+			<value><Cloth>75</Cloth></value>
+		</match>
+		<nomatch Class="PatchOperationConditional">
+			<xpath>Defs/ThingDef[defName="BS_BigHospitalBed"]/costList</xpath>
+			<match Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="BS_BigHospitalBed"]/costList</xpath>
+				<value><Cloth>75</Cloth></value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="BS_BigHospitalBed"]</xpath>
+				<value><costList><Cloth>75</Cloth></costList></value>
+			</nomatch>
+		</nomatch>
+	</Operation>
+
+	<!-- giant primitive beds: keep them free of the inherited cloth -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="BS_BigTribalBed"]/costList</xpath>
+		<match Class="PatchOperationAttributeSet">
+			<xpath>Defs/ThingDef[defName="BS_BigTribalBed"]/costList</xpath>
+			<attribute>Inherit</attribute>
+			<value>False</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_BigTribalBed"]</xpath>
+			<value><costList Inherit="False" /></value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="BS_BigTribalDoubleBed"]/costList</xpath>
+		<match Class="PatchOperationAttributeSet">
+			<xpath>Defs/ThingDef[defName="BS_BigTribalDoubleBed"]/costList</xpath>
+			<attribute>Inherit</attribute>
+			<value>False</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_BigTribalDoubleBed"]</xpath>
+			<value><costList Inherit="False" /></value>
+		</nomatch>
+	</Operation>
+
+</Patch>

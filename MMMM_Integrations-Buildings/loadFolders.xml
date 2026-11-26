@@ -8,6 +8,7 @@
 		<li IfModActive="VanillaExpanded.VAEWaste">1.6/DefaultStorage/VAnimalsEWasteAnimals</li>
 		<li IfModActive="VanillaExpanded.VCookESushi">1.6/DefaultStorage/VCESushi</li>
 		<li>1.6</li>
+		<li IfModActiveAll="RedMattis.BSFurniture,ferny.progressionfurniture">1.6/Mods/BigAndSmallFurniture_ProgressionFurniture</li>
 		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,vanillaexpanded.gravship">1.6/Mods/VanillaPlantsExpandedMushrooms/VGEChapter1</li>
 		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,sarg.alphagenes">1.6/Mods/VanillaPlantsExpandedMushrooms/AlphaGenes</li>
 		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,Sarg.AlphaMemes">1.6/Mods/VanillaPlantsExpandedMushrooms/AlphaMemes</li>
@@ -68,6 +69,7 @@
 		<li IfModActive="VanillaExpanded.VAEWaste">1.7/DefaultStorage/VAnimalsEWasteAnimals</li>
 		<li IfModActive="VanillaExpanded.VCookESushi">1.7/DefaultStorage/VCESushi</li>
 		<li>1.7</li>
+		<li IfModActiveAll="RedMattis.BSFurniture,ferny.progressionfurniture">1.7/Mods/BigAndSmallFurniture_ProgressionFurniture</li>
 		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,vanillaexpanded.gravship">1.7/Mods/VanillaPlantsExpandedMushrooms/VGEChapter1</li>
 		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,sarg.alphagenes">1.7/Mods/VanillaPlantsExpandedMushrooms/AlphaGenes</li>
 		<li IfModActiveAll="VanillaExpanded.VPlantsEMushrooms,Sarg.AlphaMemes">1.7/Mods/VanillaPlantsExpandedMushrooms/AlphaMemes</li>
