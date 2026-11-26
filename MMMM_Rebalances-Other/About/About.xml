@@ -8,6 +8,8 @@
 		<li>1.7</li>
 	</supportedVersions>
 	<loadAfter>
+		<li>RedMattis.BSFurniture</li>
+		<li>DankPyon.Medieval.Overhaul</li>
 		<li>Wara.toomanymods</li>
 		<li>22.anomalyportal</li>
 		<li>CaptainCrunch.VFETraitsAddonSmoker</li>

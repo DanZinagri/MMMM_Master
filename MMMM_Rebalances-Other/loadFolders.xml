@@ -40,6 +40,9 @@
 		<li IfModActiveAll="VanillaExpanded.VMemesE,VanillaExpanded.VCookE">1.6/Mods/VanillaIdeologyExpandedMemesAndStructures/VCE</li>
 		<li IfModActive="VanillaExpanded.VMemesE">1.6/Mods/VanillaIdeologyExpandedMemesAndStructures</li>
 		<li IfModActive="VanillaExpanded.VFECore">1.6/Mods/VanillaFurnitureExpanded</li>
+		<li IfModActiveAll="RedMattis.BSFurniture,DankPyon.Medieval.Overhaul">1.6/Mods/BigAndSmallFurniture/MedievalOverhaul</li>
+		<li IfModActiveAll="RedMattis.BSFurniture,VanillaExpanded.VFECore">1.6/Mods/BigAndSmallFurniture/VanillaFurnitureExpanded</li>
+		<li IfModActive="RedMattis.BSFurniture">1.6/Mods/BigAndSmallFurniture</li>
 		<li IfModActive="VanillaExpanded.VFEArt">1.6/Mods/VanillaFurnitureExpandedArt</li>
 		<li IfModActive="VanillaExpanded.VFEPower">1.6/Mods/VanillaFurnitureExpandedPower</li>
 		<li IfModActiveAll="VanillaExpanded.VFESecurity,VanillaExpanded.BaseGeneration,Smxrez.securityreexamined">1.6/Mods/VanillaFurnitureExpandedSecurity/SecurityReExamined</li>
@@ -96,6 +99,9 @@
 		<li IfModActiveAll="VanillaExpanded.VMemesE,VanillaExpanded.VCookE">1.7/Mods/VanillaIdeologyExpandedMemesAndStructures/VCE</li>
 		<li IfModActive="VanillaExpanded.VMemesE">1.7/Mods/VanillaIdeologyExpandedMemesAndStructures</li>
 		<li IfModActive="VanillaExpanded.VFECore">1.7/Mods/VanillaFurnitureExpanded</li>
+		<li IfModActiveAll="RedMattis.BSFurniture,DankPyon.Medieval.Overhaul">1.7/Mods/BigAndSmallFurniture/MedievalOverhaul</li>
+		<li IfModActiveAll="RedMattis.BSFurniture,VanillaExpanded.VFECore">1.7/Mods/BigAndSmallFurniture/VanillaFurnitureExpanded</li>
+		<li IfModActive="RedMattis.BSFurniture">1.7/Mods/BigAndSmallFurniture</li>
 		<li IfModActive="VanillaExpanded.VFEArt">1.7/Mods/VanillaFurnitureExpandedArt</li>
 		<li IfModActive="VanillaExpanded.VFEPower">1.7/Mods/VanillaFurnitureExpandedPower</li>
 		<li IfModActiveAll="VanillaExpanded.VFESecurity,VanillaExpanded.BaseGeneration,Smxrez.securityreexamined">1.7/Mods/VanillaFurnitureExpandedSecurity/SecurityReExamined</li>

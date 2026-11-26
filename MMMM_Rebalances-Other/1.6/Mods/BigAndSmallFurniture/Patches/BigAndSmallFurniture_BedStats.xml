@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small Furniture's giant beds rest/sleep better than the beds they are scaled up from.
+		This sets each one back to its original's numbers (vanilla Core/Royalty values).
+		The giant primitive beds and the mega universal bed have no normal-size original and are left alone.
+		Each stat is replaced if the def sets it and added if it only inherits it.
+	-->
+
+	<!-- big bed = vanilla bed -->
+	<Operation Class="PatchOperationConditional"> <!-- BedRestEffectiveness: upstream 1.05 -->
+		<xpath>Defs/ThingDef[defName="BS_BigBed"]/statBases/BedRestEffectiveness</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_BigBed"]/statBases/BedRestEffectiveness</xpath>
+			<value><BedRestEffectiveness>1</BedRestEffectiveness></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_BigBed"]/statBases</xpath>
+			<value><BedRestEffectiveness>1</BedRestEffectiveness></value>
+		</nomatch>
+	</Operation>
+
+	<!-- big double bed = vanilla double bed -->
+	<Operation Class="PatchOperationConditional"> <!-- BedRestEffectiveness: upstream 1.05 -->
+		<xpath>Defs/ThingDef[defName="BS_BigDoubleBed"]/statBases/BedRestEffectiveness</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_BigDoubleBed"]/statBases/BedRestEffectiveness</xpath>
+			<value><BedRestEffectiveness>1</BedRestEffectiveness></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_BigDoubleBed"]/statBases</xpath>
+			<value><BedRestEffectiveness>1</BedRestEffectiveness></value>
+		</nomatch>
+	</Operation>
+
+	<!-- big hospital bed = vanilla hospital bed -->
+	<Operation Class="PatchOperationConditional"> <!-- BedRestEffectiveness: upstream 1.05 -->
+		<xpath>Defs/ThingDef[defName="BS_BigHospitalBed"]/statBases/BedRestEffectiveness</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_BigHospitalBed"]/statBases/BedRestEffectiveness</xpath>
+			<value><BedRestEffectiveness>1</BedRestEffectiveness></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_BigHospitalBed"]/statBases</xpath>
+			<value><BedRestEffectiveness>1</BedRestEffectiveness></value>
+		</nomatch>
+	</Operation>
+
+	<!-- big royal bed = vanilla royal bed -->
+	<Operation Class="PatchOperationConditional"> <!-- BedRestEffectiveness: upstream 1.1 -->
+		<xpath>Defs/ThingDef[defName="BS_BigRoyalBed"]/statBases/BedRestEffectiveness</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_BigRoyalBed"]/statBases/BedRestEffectiveness</xpath>
+			<value><BedRestEffectiveness>1.05</BedRestEffectiveness></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_BigRoyalBed"]/statBases</xpath>
+			<value><BedRestEffectiveness>1.05</BedRestEffectiveness></value>
+		</nomatch>
+	</Operation>
+
+	<!-- big bedroll = vanilla bedroll (upstream inherits normal-bed comfort and immunity) -->
+	<Operation Class="PatchOperationConditional"> <!-- BedRestEffectiveness: upstream 1 -->
+		<xpath>Defs/ThingDef[defName="BS_BigBedroll"]/statBases/BedRestEffectiveness</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_BigBedroll"]/statBases/BedRestEffectiveness</xpath>
+			<value><BedRestEffectiveness>0.95</BedRestEffectiveness></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_BigBedroll"]/statBases</xpath>
+			<value><BedRestEffectiveness>0.95</BedRestEffectiveness></value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional"> <!-- Comfort: upstream 0.75 inherited -->
+		<xpath>Defs/ThingDef[defName="BS_BigBedroll"]/statBases/Comfort</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_BigBedroll"]/statBases/Comfort</xpath>
+			<value><Comfort>0.68</Comfort></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_BigBedroll"]/statBases</xpath>
+			<value><Comfort>0.68</Comfort></value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional"> <!-- ImmunityGainSpeedFactor: upstream 1.07 inherited -->
+		<xpath>Defs/ThingDef[defName="BS_BigBedroll"]/statBases/ImmunityGainSpeedFactor</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_BigBedroll"]/statBases/ImmunityGainSpeedFactor</xpath>
+			<value><ImmunityGainSpeedFactor>1.05</ImmunityGainSpeedFactor></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_BigBedroll"]/statBases</xpath>
+			<value><ImmunityGainSpeedFactor>1.05</ImmunityGainSpeedFactor></value>
+		</nomatch>
+	</Operation>
+
+	<!-- big double bedroll = vanilla double bedroll -->
+	<Operation Class="PatchOperationConditional"> <!-- BedRestEffectiveness: upstream 1 -->
+		<xpath>Defs/ThingDef[defName="BS_BigDoubleBedroll"]/statBases/BedRestEffectiveness</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_BigDoubleBedroll"]/statBases/BedRestEffectiveness</xpath>
+			<value><BedRestEffectiveness>0.95</BedRestEffectiveness></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_BigDoubleBedroll"]/statBases</xpath>
+			<value><BedRestEffectiveness>0.95</BedRestEffectiveness></value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional"> <!-- Comfort: upstream 0.75 inherited -->
+		<xpath>Defs/ThingDef[defName="BS_BigDoubleBedroll"]/statBases/Comfort</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_BigDoubleBedroll"]/statBases/Comfort</xpath>
+			<value><Comfort>0.68</Comfort></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_BigDoubleBedroll"]/statBases</xpath>
+			<value><Comfort>0.68</Comfort></value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional"> <!-- ImmunityGainSpeedFactor: upstream 1.07 inherited -->
+		<xpath>Defs/ThingDef[defName="BS_BigDoubleBedroll"]/statBases/ImmunityGainSpeedFactor</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_BigDoubleBedroll"]/statBases/ImmunityGainSpeedFactor</xpath>
+			<value><ImmunityGainSpeedFactor>1.05</ImmunityGainSpeedFactor></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_BigDoubleBedroll"]/statBases</xpath>
+			<value><ImmunityGainSpeedFactor>1.05</ImmunityGainSpeedFactor></value>
+		</nomatch>
+	</Operation>
+
+</Patch>

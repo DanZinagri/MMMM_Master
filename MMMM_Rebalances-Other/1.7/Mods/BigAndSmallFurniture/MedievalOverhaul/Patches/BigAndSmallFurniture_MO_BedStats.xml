@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small Furniture's giant Medieval Overhaul fur beds, set back to MO's fur bed numbers
+		(DankPyon_BedFur / DankPyon_BedFurDouble: rest 1.0, comfort 0.75 from DankPyon_BasicBedBase).
+		The giant royal tudor bed already matches MO and is left alone.
+		Each stat is replaced if the def sets it and added if it only inherits it.
+	-->
+
+	<!-- giant fur bed = MO fur bed -->
+	<Operation Class="PatchOperationConditional"> <!-- BedRestEffectiveness: upstream 1.01 -->
+		<xpath>Defs/ThingDef[defName="BS_Giant_BedFur"]/statBases/BedRestEffectiveness</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_Giant_BedFur"]/statBases/BedRestEffectiveness</xpath>
+			<value><BedRestEffectiveness>1</BedRestEffectiveness></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_Giant_BedFur"]/statBases</xpath>
+			<value><BedRestEffectiveness>1</BedRestEffectiveness></value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional"> <!-- Comfort: upstream 0.80 -->
+		<xpath>Defs/ThingDef[defName="BS_Giant_BedFur"]/statBases/Comfort</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_Giant_BedFur"]/statBases/Comfort</xpath>
+			<value><Comfort>0.75</Comfort></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_Giant_BedFur"]/statBases</xpath>
+			<value><Comfort>0.75</Comfort></value>
+		</nomatch>
+	</Operation>
+
+	<!-- giant fur double bed = MO fur double bed -->
+	<Operation Class="PatchOperationConditional"> <!-- Comfort: upstream 0.85 -->
+		<xpath>Defs/ThingDef[defName="BS_Giant_BedFurDouble"]/statBases/Comfort</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_Giant_BedFurDouble"]/statBases/Comfort</xpath>
+			<value><Comfort>0.75</Comfort></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_Giant_BedFurDouble"]/statBases</xpath>
+			<value><Comfort>0.75</Comfort></value>
+		</nomatch>
+	</Operation>
+
+</Patch>

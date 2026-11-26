@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+		Big and Small Furniture's giant Vanilla Furniture Expanded beds, set back to VFE's numbers
+		(VFE_ErgonomicBedBase: rest 1.1, comfort 0.85, immunity 1.12; Bed_Kingsize: comfort 1.0).
+		Two of these go UP to match VFE: ergonomic immunity and king-size comfort were lower than VFE's.
+		Each stat is replaced if the def sets it and added if it only inherits it.
+	-->
+
+	<!-- giant ergonomic bed = VFE ergonomic bed -->
+	<Operation Class="PatchOperationConditional"> <!-- BedRestEffectiveness: upstream 1.15 -->
+		<xpath>Defs/ThingDef[defName="BS_Giant_Bed_Ergonomic"]/statBases/BedRestEffectiveness</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_Giant_Bed_Ergonomic"]/statBases/BedRestEffectiveness</xpath>
+			<value><BedRestEffectiveness>1.1</BedRestEffectiveness></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_Giant_Bed_Ergonomic"]/statBases</xpath>
+			<value><BedRestEffectiveness>1.1</BedRestEffectiveness></value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional"> <!-- Comfort: upstream 1 -->
+		<xpath>Defs/ThingDef[defName="BS_Giant_Bed_Ergonomic"]/statBases/Comfort</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_Giant_Bed_Ergonomic"]/statBases/Comfort</xpath>
+			<value><Comfort>0.85</Comfort></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_Giant_Bed_Ergonomic"]/statBases</xpath>
+			<value><Comfort>0.85</Comfort></value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional"> <!-- ImmunityGainSpeedFactor: upstream 1.1 -->
+		<xpath>Defs/ThingDef[defName="BS_Giant_Bed_Ergonomic"]/statBases/ImmunityGainSpeedFactor</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_Giant_Bed_Ergonomic"]/statBases/ImmunityGainSpeedFactor</xpath>
+			<value><ImmunityGainSpeedFactor>1.12</ImmunityGainSpeedFactor></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_Giant_Bed_Ergonomic"]/statBases</xpath>
+			<value><ImmunityGainSpeedFactor>1.12</ImmunityGainSpeedFactor></value>
+		</nomatch>
+	</Operation>
+
+	<!-- giant double ergonomic bed = VFE double ergonomic bed -->
+	<Operation Class="PatchOperationConditional"> <!-- BedRestEffectiveness: upstream 1.2 -->
+		<xpath>Defs/ThingDef[defName="BS_Giant_Bed_DoubleErgonomic"]/statBases/BedRestEffectiveness</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_Giant_Bed_DoubleErgonomic"]/statBases/BedRestEffectiveness</xpath>
+			<value><BedRestEffectiveness>1.1</BedRestEffectiveness></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_Giant_Bed_DoubleErgonomic"]/statBases</xpath>
+			<value><BedRestEffectiveness>1.1</BedRestEffectiveness></value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional"> <!-- Comfort: upstream 1.05 -->
+		<xpath>Defs/ThingDef[defName="BS_Giant_Bed_DoubleErgonomic"]/statBases/Comfort</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_Giant_Bed_DoubleErgonomic"]/statBases/Comfort</xpath>
+			<value><Comfort>0.85</Comfort></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_Giant_Bed_DoubleErgonomic"]/statBases</xpath>
+			<value><Comfort>0.85</Comfort></value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional"> <!-- ImmunityGainSpeedFactor: upstream 1.1 -->
+		<xpath>Defs/ThingDef[defName="BS_Giant_Bed_DoubleErgonomic"]/statBases/ImmunityGainSpeedFactor</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_Giant_Bed_DoubleErgonomic"]/statBases/ImmunityGainSpeedFactor</xpath>
+			<value><ImmunityGainSpeedFactor>1.12</ImmunityGainSpeedFactor></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_Giant_Bed_DoubleErgonomic"]/statBases</xpath>
+			<value><ImmunityGainSpeedFactor>1.12</ImmunityGainSpeedFactor></value>
+		</nomatch>
+	</Operation>
+
+	<!-- giant king-size bed = VFE king-size bed -->
+	<Operation Class="PatchOperationConditional"> <!-- Comfort: upstream 0.95 -->
+		<xpath>Defs/ThingDef[defName="BS_Giant_Bed_Kingsize"]/statBases/Comfort</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="BS_Giant_Bed_Kingsize"]/statBases/Comfort</xpath>
+			<value><Comfort>1</Comfort></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BS_Giant_Bed_Kingsize"]/statBases</xpath>
+			<value><Comfort>1</Comfort></value>
+		</nomatch>
+	</Operation>
+
+</Patch>
